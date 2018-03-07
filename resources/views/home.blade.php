@@ -14,7 +14,12 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <p>You are logged in!</p>
+
+                    API token: <input type="text" value="{{ Auth::user()->api_token }}" onclick="this.select()" />
+                    <br />
+
+                    REDCap token: <input type="text" placeholder="None set" value="" onclick="this.select()" />
                 </div>
             </div>
         </div>
