@@ -21,3 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/profile', 'UserController@show')->name('profile');
 Route::patch('/profile', 'UserController@update')->name('users.update');
+
+Route::get('/scan', 'ScanController@index')->name('scan');

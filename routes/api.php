@@ -17,6 +17,12 @@ Route::middleware('auth.basic')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:api')->get('/token', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:api')->group(function () {
+    Route::get('/token', function (Request $request) {
+        return $request->user();
+    });
+
+    Route::get('/records', 'RedcapController@index');
+
+    Route::post('/record', 'RedcapController@create');
 });
