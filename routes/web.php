@@ -23,3 +23,5 @@ Route::get('/profile', 'UserController@show')->name('profile');
 Route::patch('/profile', 'UserController@update')->name('users.update');
 
 Route::get('/scan', 'ScanController@index')->name('scan');
+Route::get('/scan/new', 'ScanController@new')->name('scan.new');
+Route::post('/scan', 'ScanController@create')->name('scan');
