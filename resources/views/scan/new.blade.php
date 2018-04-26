@@ -4,6 +4,9 @@
   @if (Session::has('success'))
     <div class="alert alert-info">{{ Session::get('success') }}</div>
   @endif
+  @if (Session::has('error'))
+    <div class="alert alert-danger">{{ Session::get('error') }}</div>
+  @endif
   <div id="container">
     <form method="POST" action="{{ route('scan') }}">
         @csrf

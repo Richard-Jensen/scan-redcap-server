@@ -5,6 +5,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\ScanData;
 
 class ScanController extends Controller
 {
@@ -27,7 +28,9 @@ class ScanController extends Controller
      */
     public function index()
     {
-        return view('scan.index');
+        $response = ScanData::create()->getRecords();
+
+        return view('scan.index')->with('records', json_decode($response));
     }
 
     public function new()
@@ -37,17 +40,19 @@ class ScanController extends Controller
 
     public function create(Request $request)
     {
-        $request = $this->client->post($this->api_endpoint, [
-            'body' => json_encode(['id' => $request->id])
-        ]);
+        $response = ScanData
+            ::create()
+            ->setId($request->id)
+            ->save();
 
-        return redirect()
-            ->back()
-            ->with('success', 'SCAN created');
-
-        return response($request->getBody())->header(
-            'Content-Type',
-            $request->getHeader('content-type')
-        );
+        if ($response == 'success') {
+            return redirect()
+                ->back()
+                ->with('success', 'SCAN created');
+        } else {
+            return redirect()
+                ->back()
+                ->with('error', 'An error occured. SCAN not created.');
+        }
     }
 }
