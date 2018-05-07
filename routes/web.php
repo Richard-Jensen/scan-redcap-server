@@ -11,11 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -25,3 +23,4 @@ Route::patch('/profile', 'UserController@update')->name('users.update');
 Route::get('/scan', 'ScanController@index')->name('scan');
 Route::get('/scan/new', 'ScanController@new')->name('scan.new');
 Route::post('/scan', 'ScanController@create')->name('scan');
+Route::get('/scan/{id}', 'ScanController@show')->name('scan.show');

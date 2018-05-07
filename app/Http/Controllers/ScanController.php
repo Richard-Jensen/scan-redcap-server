@@ -28,9 +28,9 @@ class ScanController extends Controller
      */
     public function index()
     {
-        $response = ScanData::create()->getRecords();
+        $records = ScanData::create()->getRecords();
 
-        return view('scan.index')->with('records', json_decode($response));
+        return view('scan.index')->with('records', $records);
     }
 
     public function new()
@@ -54,5 +54,12 @@ class ScanController extends Controller
                 ->back()
                 ->with('error', 'An error occured. SCAN not created.');
         }
+    }
+
+    public function show($id)
+    {
+        $record = ScanData::create()->getRecordById($id);
+
+        return view('scan.show')->with('record', $record);
     }
 }
