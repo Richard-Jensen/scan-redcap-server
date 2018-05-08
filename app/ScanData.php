@@ -38,10 +38,25 @@ class ScanData
         return $obj;
     }
 
+    public static function createRecordId($length = 16)
+    {
+        $token = "";
+        $codeAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        $codeAlphabet.= "abcdefghijklmnopqrstuvwxyz";
+        $codeAlphabet.= "0123456789";
+        $max = strlen($codeAlphabet);
+
+        for ($i=0; $i < $length; $i++) {
+            $token .= $codeAlphabet[random_int(0, $max-1)];
+        }
+
+        return $token;
+    }
+
     public function save()
     {
         $record = [
-          'record_id' => uniqid(),
+          'record_id' => static::createRecordId(),
           'cpr' => $this->getId(),
           'updated_at' => time()
         ];
