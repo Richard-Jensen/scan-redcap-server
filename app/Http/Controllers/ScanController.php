@@ -43,17 +43,35 @@ class ScanController extends Controller
         $response = ScanData
             ::create()
             ->setId($request->id)
-            ->save();
+            ->setInitials($request->initials)
+            ->updateOrCreate();
 
-        if ($response == 'success') {
+        if ($response !== 'error') {
             return redirect()
                 ->back()
-                ->with('success', 'SCAN created');
+                ->with('success', "SCAN with id $response created");
         } else {
             return redirect()
                 ->back()
                 ->with('error', 'An error occured. SCAN not created.');
         }
+    }
+
+    public function update(Request $request, $id)
+    {
+        $response = ScanData::create()
+          ->setInitials($request->initials)
+          ->updateOrCreate($id);
+
+          if ($response !== 'error') {
+              return redirect()
+                  ->back()
+                  ->with('success', "SCAN with id $response created");
+          } else {
+              return redirect()
+                  ->back()
+                  ->with('error', 'An error occured. SCAN not created.');
+          }
     }
 
     public function show($id)

@@ -19,17 +19,29 @@ class ScanData
         ];
     }
 
-    protected $record_id;
+    protected $id;
+    protected $initials;
 
     public function setId($id)
     {
-        $this->record_id = $id;
+        $this->id = $id;
         return $this;
     }
 
     public function getId()
     {
-        return $this->record_id;
+        return $this->id;
+    }
+
+    public function setInitials($initials)
+    {
+        $this->initials = $initials;
+        return $this;
+    }
+
+    public function getInitials()
+    {
+        return $this->initials;
     }
 
     public static function create()
@@ -38,28 +50,25 @@ class ScanData
         return $obj;
     }
 
-    public static function createRecordId($length = 16)
+    public function updateOrCreate($id = null)
     {
-        $token = "";
-        $codeAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        $codeAlphabet.= "abcdefghijklmnopqrstuvwxyz";
-        $codeAlphabet.= "0123456789";
-        $max = strlen($codeAlphabet);
-
-        for ($i=0; $i < $length; $i++) {
-            $token .= $codeAlphabet[random_int(0, $max-1)];
+        if (!isset($id)) {
+          $new_record = [
+            'record_id' => str_random(16),
+            'created_at' => time()
+          ];
         }
 
-        return $token;
-    }
-
-    public function save()
-    {
         $record = [
-          'record_id' => static::createRecordId(),
+          'record_id' => $id,
           'cpr' => $this->getId(),
+          'initials' => $this->getInitials(),
           'updated_at' => time()
         ];
+
+        if (isset($new_record)) {
+          $record = array_merge($record, $new_record);
+        }
 
         $data = array(
             'type' => 'flat',
@@ -76,7 +85,7 @@ class ScanData
                 'form_params' => $request_array
             ]);
             // how do we do this properly?
-            return 'success';
+            return json_decode($request->getBody()->getContents())[0];
         } catch (ClientException $error) {
             return 'error';
         }

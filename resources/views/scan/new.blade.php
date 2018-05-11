@@ -1,37 +1,32 @@
 @extends('layouts.app')
 
 @section('content')
-  @if (Session::has('success'))
-    <div class="alert alert-info">{{ Session::get('success') }}</div>
-  @endif
-  @if (Session::has('error'))
-    <div class="alert alert-danger">{{ Session::get('error') }}</div>
-  @endif
-  <div id="container">
-    <form method="POST" action="{{ route('scan') }}">
+  <div class="container">
+    @if (Session::has('success'))
+      <div class="alert alert-info">{{ Session::get('success') }}</div>
+    @endif
+    @if (Session::has('error'))
+      <div class="alert alert-danger">{{ Session::get('error') }}</div>
+    @endif
+
+    <form method="POST" action="{{ route('scan.create') }}">
         @csrf
 
-        <div class="form-group row">
-            <label for="id" class="col-md-4 col-form-label text-md-right">{{ __('ID') }}</label>
+        <label for="id">{{ __('ID') }}</label>
+        <input id="id" type="text" class="form-control{{ $errors->has('id') ? ' is-invalid' : '' }}" name="id" value="{{ old('id') }}" required>
 
-            <div class="col-md-6">
-                <input id="id" type="id" class="form-control{{ $errors->has('cpr') ? ' is-invalid' : '' }}" name="id" value="{{ old('id') }}" required>
+        <label for="initials">{{ __('Initials') }}</label>
+        <input id="initials" type="text" class="form-control{{ $errors->has('initials') ? ' is-invalid' : '' }}" name="initials" value="{{ old('initials') }}">
 
-                @if ($errors->has('id'))
-                    <span class="invalid-feedback">
-                        <strong>{{ $errors->first('id') }}</strong>
-                    </span>
-                @endif
-            </div>
-        </div>
+        @if ($errors->has('id'))
+            <span class="invalid-feedback">
+                <strong>{{ $errors->first('id') }}</strong>
+            </span>
+        @endif
 
-        <div class="form-group row mb-0">
-            <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-primary">
-                    {{ __('New') }}
-                </button>
-            </div>
-        </div>
+        <button type="submit" class="button">
+            {{ __('New') }}
+        </button>
     </form>
   </div>
 @endsection
