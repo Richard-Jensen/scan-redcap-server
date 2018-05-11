@@ -3,7 +3,7 @@
 @section('content')
   @if (Session::has('success'))
    <div class="alert alert-info">{{ Session::get('success') }}</div>
-@endif
+ @endif
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8">
