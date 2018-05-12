@@ -4,6 +4,7 @@ namespace App;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class ScanData
 {
@@ -120,6 +121,8 @@ class ScanData
             $record = json_decode($request->getBody()->getContents());
 
             if (isset($record[0])) {
+              $record[0]->created_at = Carbon::createFromTimestamp($record[0]->created_at);
+              $record[0]->updated_at = Carbon::createFromTimestamp($record[0]->updated_at);
               return $record[0];
             } else {
               return [];

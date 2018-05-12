@@ -48,7 +48,7 @@ class ScanController extends Controller
 
         if ($response !== 'error') {
             return redirect()
-                ->back()
+                ->route('scan.show', ['id' => $response])
                 ->with('success', "SCAN with id $response created");
         } else {
             return redirect()
@@ -66,11 +66,11 @@ class ScanController extends Controller
           if ($response !== 'error') {
               return redirect()
                   ->back()
-                  ->with('success', "SCAN with id $response created");
+                  ->with('success', "SCAN with id $response updated");
           } else {
               return redirect()
                   ->back()
-                  ->with('error', 'An error occured. SCAN not created.');
+                  ->with('error', 'An error occured. SCAN not updated.');
           }
     }
 
