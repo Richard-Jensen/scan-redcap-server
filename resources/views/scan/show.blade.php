@@ -35,6 +35,6 @@
     @endif
   </div>
 
-  <div id="scan-app">
+  <div id="scan-app" class="container">
   </div>
 @endsection
