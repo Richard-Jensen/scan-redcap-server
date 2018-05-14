@@ -2,11 +2,12 @@
 
 @section('content')
   <div class="container">
-    @if (Session::has('success'))
-      <div class="alert alert-info">{{ Session::get('success') }}</div>
-    @endif
-    @if (Session::has('error'))
-      <div class="alert alert-danger">{{ Session::get('error') }}</div>
+    @include('shared.messages')
+
+    @if ($payload)
+      <script>
+        window.scanData = JSON.parse('{!! $payload !!}')
+      </script>
     @endif
 
     @if ($record)
@@ -22,6 +23,14 @@
           <button type="submit" class="button">
               {{ __('Update') }}
           </button>
+      </form>
+
+      <form method="POST" action="{{ route('scan.destroy', $record->record_id) }}">
+        @csrf
+        @method('DELETE')
+        <button  class="button button-outline">
+            {{ __('Delete') }}
+        </button>
       </form>
     @endif
   </div>

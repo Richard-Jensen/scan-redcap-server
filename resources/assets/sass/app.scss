@@ -1,15 +1,26 @@
 // Variables
-@import "variables";
+@import 'variables';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+nav {
+  display: flex;
+  line-height: 3;
 }
 
-.nav {
+.navigation {
   display: flex;
 }
 
-.nav li {
-  list-style: none;
+.navigation-right {
+  margin-left: auto;
+
+  .nav-link {
+    margin-left: 1rem;
+  }
+}
+
+.alert {
+  padding: 1rem 2rem;
+  background: #eee;
+  border-radius: 3px;
+  margin-bottom: 1rem;
 }

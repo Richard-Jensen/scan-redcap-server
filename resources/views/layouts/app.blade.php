@@ -24,31 +24,22 @@
                 {{ config('app.name', 'Laravel') }}
             </a>
 
-            <div class="">
-
-                <!-- Right Side Of Navbar -->
-                <ul class="nav">
-                    <!-- Authentication Links -->
-                    @guest
-                        <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                        <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
-                    @else
-                        <li><a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a></li>
-                        <li><a class="nav-link" href="{{ route('profile') }}">{{ __('Profile') }}</a></li>
-                        <li class="nav-item">
-                            {{ Auth::user()->name }}
-
-                            <a class="nav-link" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </li>
-                    @endguest
-                </ul>
+            <div class="navigation navigation-right">
+                @guest
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                @else
+                    <span class="nav-link">{{ Auth::user()->email }}</span>
+                    <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+                    <a class="nav-link" href="{{ route('profile') }}">{{ __('Profile') }}</a>
+                    <a class="nav-link" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                @endguest
             </div>
         </nav>
 

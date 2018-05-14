@@ -15,7 +15,6 @@ class ScanData
         $this->redcap_token = Auth::user()->redcap_token;
         $this->base_info = [
             'token' => Auth::user()->redcap_token,
-            'content' => 'record',
             'format' => 'json',
         ];
     }
@@ -72,6 +71,7 @@ class ScanData
         }
 
         $data = array(
+            'content' => 'record',
             'type' => 'flat',
             'overwriteBehavior' => 'normal',
             'data' => "[" . json_encode($record) . "]",
@@ -94,12 +94,30 @@ class ScanData
 
     public function getRecords()
     {
+        $data = [
+          'content' => 'record'
+        ];
+
+        $request_array = array_merge($this->base_info, $data);
+
         try {
             $request = $this->client->post($this->api_endpoint, [
-                'form_params' => $this->base_info
+                'form_params' => $request_array
             ]);
 
-            return json_decode($request->getBody()->getContents());
+            $records = json_decode($request->getBody()->getContents());
+
+            // sort by updated_at column, newest record first
+            usort($records, function($a, $b) {
+                return $b->updated_at <=> $a->updated_at;
+            });
+
+            foreach($records as $record) {
+              $record->created_at = Carbon::createFromTimestamp($record->created_at);
+              $record->updated_at = Carbon::createFromTimestamp($record->updated_at);
+            }
+
+            return $records;
         } catch (ClientException $error) {
             return 'error';
         }
@@ -108,6 +126,7 @@ class ScanData
     public function getRecordById($id)
     {
         $data = [
+            'content' => 'record',
             'records' => [$id]
         ];
 
@@ -127,6 +146,72 @@ class ScanData
             } else {
               return [];
             }
+        } catch (ClientException $error) {
+            return 'error';
+        }
+    }
+
+    public function destroy($id)
+    {
+        $data = [
+            'content' => 'record',
+            'action' => 'delete',
+            'records' => [$id]
+        ];
+
+        $request_array = array_merge($this->base_info, $data);
+
+        try {
+            $request = $this->client->post($this->api_endpoint, [
+                'form_params' => $request_array
+            ]);
+
+            $record = json_decode($request->getBody()->getContents());
+
+            return $record;
+        } catch (ClientException $error) {
+            return 'error';
+        }
+    }
+
+    public function saveFile($data, $id)
+    {
+
+        try {
+            $request = $this->client->request('POST', $this->api_endpoint, [
+                'multipart' => [
+                    [
+                        'name'     => 'token',
+                        'contents' => Auth::user()->redcap_token
+                    ],
+                    [
+                        'name'     => 'content',
+                        'contents' => 'file'
+                    ],
+                    [
+                        'name'     => 'action',
+                        'contents' => 'import'
+                    ],
+                    [
+                        'name'     => 'record',
+                        'contents' => $id
+                    ],
+                    [
+                        'name'     => 'field',
+                        'contents' => 'scan_file'
+                    ],
+                    [
+                        'name'     => 'file',
+                        'filename' => time() . '_scan.json',
+                        'contents' => json_encode($data)
+                    ]
+                ]
+            ]);
+
+
+            $response = json_decode($request->getBody()->getContents());
+
+            return $response;
         } catch (ClientException $error) {
             return 'error';
         }

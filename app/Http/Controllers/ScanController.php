@@ -74,10 +74,36 @@ class ScanController extends Controller
           }
     }
 
+    public function destroy(Request $request, $id)
+    {
+        $response = ScanData::create()->destroy($id);
+
+        if ($response !== 'error') {
+            return redirect()
+                ->route('home')
+                ->with('success', "SCAN with id $response deleted");
+        } else {
+            return redirect()
+                ->back()
+                ->with('error', 'An error occured. SCAN not updated.');
+        }
+    }
+
     public function show($id)
     {
         $record = ScanData::create()->getRecordById($id);
 
-        return view('scan.show')->with('record', $record);
+        return view('scan.show')
+            ->with('record', $record)
+            ->with('payload', json_encode($record, JSON_HEX_APOS));
     }
+
+    public function save(Request $request, $id)
+    {
+        $data = $request->json()->all();
+
+        $response = ScanData::create()->saveFile($data, $id);
+        return $response;
+    }
+
 }

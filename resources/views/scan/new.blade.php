@@ -2,12 +2,7 @@
 
 @section('content')
   <div class="container">
-    @if (Session::has('success'))
-      <div class="alert alert-info">{{ Session::get('success') }}</div>
-    @endif
-    @if (Session::has('error'))
-      <div class="alert alert-danger">{{ Session::get('error') }}</div>
-    @endif
+    @include('shared.messages')
 
     <form method="POST" action="{{ route('scan.create') }}">
         @csrf
@@ -25,7 +20,7 @@
         @endif
 
         <button type="submit" class="button">
-            {{ __('New') }}
+            {{ __('Save') }}
         </button>
     </form>
   </div>

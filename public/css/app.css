@@ -1,16 +1,1 @@
-.navbar-laravel {
-  background-color: #fff;
-  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
-
-.nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.nav li {
-  list-style: none;
-}
-
+nav{line-height:3}.navigation,nav{display:-webkit-box;display:-ms-flexbox;display:flex}.navigation-right{margin-left:auto}.navigation-right .nav-link{margin-left:1rem}.alert{padding:1rem 2rem;background:#eee;border-radius:3px;margin-bottom:1rem}
