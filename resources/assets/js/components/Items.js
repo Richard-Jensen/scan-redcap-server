@@ -12,12 +12,17 @@ export const Items = ({ items }) => (
 
 const Item = ({ item, dispatch, interview }) => {
   const isActive = item.key === interview.activeKey;
+  let input = item.input;
+  if (input === 'integer') {
+    input = 'number';
+  }
+
   return (
     <li onClick={() => dispatch(setActiveItem(item.key))}>
       <div>{isActive ? <b>{item.key}</b> : item.key}</div>
       {isActive && (
         <input
-          type={item.input}
+          type={input}
           onChange={event =>
             dispatch(setResponse(item.key, event.target.value))
           }

@@ -1,11 +1,11 @@
 export const items = [
   {
     key: '1.001',
-    input: 'string'
+    input: 'text'
   },
   {
     key: '1.002',
-    input: 'string'
+    input: 'text'
   },
   {
     key: '1.003',
@@ -13,7 +13,7 @@ export const items = [
   },
   {
     key: '1.004',
-    input: 'string'
+    input: 'text'
   },
   {
     key: '1.005',
@@ -25,6 +25,6 @@ export const items = [
   },
   {
     key: '1.007',
-    input: 'string'
+    input: 'text'
   }
 ];
