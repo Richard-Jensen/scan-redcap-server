@@ -7,7 +7,7 @@
     @if ($scan_info)
       <script>
         window.scanInfo = JSON.parse('{!! $scan_info !!}')
-        window.scanData = JSON.parse({!! $scan_data !!})
+        window.scanData = JSON.parse('{!! $scan_data !!}')
       </script>
     @endif
 

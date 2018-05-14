@@ -96,7 +96,7 @@ class ScanController extends Controller
         return view('scan.show')
             ->with('record', $record['scan_info'])
             ->with('scan_info', json_encode($record['scan_info'], JSON_HEX_APOS))
-            ->with('scan_data', json_encode($record['scan_data']));
+            ->with('scan_data', json_encode($record['scan_data'], JSON_HEX_APOS));
     }
 
     public function save(Request $request, $id)
