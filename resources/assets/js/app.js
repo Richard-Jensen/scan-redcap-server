@@ -1,7 +1,26 @@
-/**
- * Next, we will create a fresh React component instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import Scan from './components/Scan';
+import configureStore from './store/configureStore';
+import throttle from 'lodash/throttle';
+import { saveInterview } from './data';
 
-require('./components/Scan');
+const store = configureStore();
+
+store.subscribe(
+  throttle(() => {
+    const state = store.getState();
+    localStorage.setItem(state.interview.id, JSON.stringify(state.interview));
+    saveInterview(state.interview.id, state.interview);
+  }, 1000)
+);
+
+if (document.getElementById('scan-app')) {
+  ReactDOM.render(
+    <Provider store={store}>
+      <Scan />
+    </Provider>,
+    document.getElementById('scan-app')
+  );
+}

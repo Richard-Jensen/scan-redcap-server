@@ -94,8 +94,9 @@ class ScanController extends Controller
         $record = ScanData::create()->getRecordById($id);
 
         return view('scan.show')
-            ->with('record', $record)
-            ->with('payload', json_encode($record, JSON_HEX_APOS));
+            ->with('record', $record['scan_info'])
+            ->with('scan_info', json_encode($record['scan_info'], JSON_HEX_APOS))
+            ->with('scan_data', json_encode($record['scan_data']));
     }
 
     public function save(Request $request, $id)

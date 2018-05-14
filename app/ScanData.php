@@ -62,7 +62,7 @@ class ScanData
         $record = [
           'record_id' => $id,
           'cpr' => $this->getId(),
-          'initials' => $this->getInitials(),
+          'initials' => $this->getInitials() ?: ' ',
           'updated_at' => time()
         ];
 
@@ -132,6 +132,8 @@ class ScanData
 
         $request_array = array_merge($this->base_info, $data);
 
+        $scan_data = $this->retreiveFile($id);
+
         try {
             $request = $this->client->post($this->api_endpoint, [
                 'form_params' => $request_array
@@ -142,7 +144,12 @@ class ScanData
             if (isset($record[0])) {
               $record[0]->created_at = Carbon::createFromTimestamp($record[0]->created_at);
               $record[0]->updated_at = Carbon::createFromTimestamp($record[0]->updated_at);
-              return $record[0];
+
+              return [
+                  'scan_info' => $record[0],
+                  'scan_data' => $scan_data
+              ];
+
             } else {
               return [];
             }
@@ -176,7 +183,6 @@ class ScanData
 
     public function saveFile($data, $id)
     {
-
         try {
             $request = $this->client->request('POST', $this->api_endpoint, [
                 'multipart' => [
@@ -208,10 +214,33 @@ class ScanData
                 ]
             ]);
 
-
             $response = json_decode($request->getBody()->getContents());
 
             return $response;
+        } catch (ClientException $error) {
+            return 'error';
+        }
+    }
+
+    public function retreiveFile($id)
+    {
+        $data = [
+            'content' => 'file',
+            'action' => 'export',
+            'record' => $id,
+            'field' => 'scan_file',
+            'returnFormat' => 'json'
+        ];
+
+        $request_array = array_merge($this->base_info, $data);
+
+        try {
+            $request = $this->client->post($this->api_endpoint, [
+                'form_params' => $request_array
+            ]);
+
+            return $request->getBody()->getContents();
+
         } catch (ClientException $error) {
             return 'error';
         }

@@ -1,1 +1,28 @@
-nav{line-height:3}.navigation,nav{display:-webkit-box;display:-ms-flexbox;display:flex}.navigation-right{margin-left:auto}.navigation-right .nav-link{margin-left:1rem}.alert{padding:1rem 2rem;background:#eee;border-radius:3px;margin-bottom:1rem}
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 3;
+}
+
+.navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navigation-right {
+  margin-left: auto;
+}
+
+.navigation-right .nav-link {
+  margin-left: 1rem;
+}
+
+.alert {
+  padding: 1rem 2rem;
+  background: #eee;
+  border-radius: 3px;
+  margin-bottom: 1rem;
+}
+

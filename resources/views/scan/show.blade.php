@@ -4,15 +4,15 @@
   <div class="container">
     @include('shared.messages')
 
-    @if ($payload)
+    @if ($scan_info)
       <script>
-        window.scanData = JSON.parse('{!! $payload !!}')
+        window.scanInfo = JSON.parse('{!! $scan_info !!}')
+        window.scanData = JSON.parse({!! $scan_data !!})
       </script>
     @endif
 
     @if ($record)
-      <div>ID: {{ $record->record_id }}</div>
-      <div>{{ __('messages.updated_at') }}  {{ $record->updated_at->diffForHumans() }}</div>
+      <div>{{ __('messages.updated_diff') }}  {{ $record->updated_at->diffForHumans() }}</div>
       <form method="POST" action="{{ route('scan.update', $record->record_id) }}">
           @csrf
           @method('PATCH')

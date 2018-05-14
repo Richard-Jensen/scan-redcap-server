@@ -1,4 +1,4 @@
 <?php
 return [
-    'updated_at' => 'Opdateret',
+    'updated_diff' => 'Opdateret for',
 ];
