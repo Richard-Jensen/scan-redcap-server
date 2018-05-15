@@ -8,6 +8,7 @@
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "compile-items": "js-yaml resources/assets/js/items/2.1/scan.2.1.items.da.yml > resources/assets/js/items/2.1/scan.2.1.items.da.json",
     "prettier": "prettier"
   },
   "devDependencies": {
@@ -17,11 +18,13 @@
     "babel-preset-react": "^6.23.0",
     "cross-env": "^5.1",
     "jquery": "^3.2",
+    "js-yaml": "^3.11.0",
     "laravel-mix": "^2.0",
     "lodash": "^4.17.4",
     "prettier": "prettier/prettier",
     "react": "^16.3.0",
-    "react-dom": "^16.3.0"
+    "react-dom": "^16.3.0",
+    "react-virtualized": "^9.18.5"
   },
   "dependencies": {
     "react-redux": "^5.0.7",

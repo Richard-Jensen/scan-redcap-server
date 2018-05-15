@@ -10,14 +10,17 @@
         window.scanData = JSON.parse('{!! $scan_data !!}')
       </script>
     @endif
+  </div>
 
-    @if ($record)
-      <div>{{ __('messages.updated_diff') }}  {{ $record->updated_at->diffForHumans() }}</div>
-      <form method="POST" action="{{ route('scan.update', $record->record_id) }}">
+  <div id="scan-app" class="container scan-app-container">
+  </div>
+
+  @if ($record)
+    <div class="record-metadata">
+      <form method="POST" action="{{ route('scan.update', $record->record_id) }}" class="record-metadata-form">
           @csrf
           @method('PATCH')
 
-          <label for="initials">{{ __('Initials') }}</label>
           <input id="initials" type="text" class="form-control{{ $errors->has('initials') ? ' is-invalid' : '' }}" name="initials" value="{{ $record->initials }}">
 
           <button type="submit" class="button">
@@ -32,9 +35,7 @@
             {{ __('Delete') }}
         </button>
       </form>
-    @endif
-  </div>
-
-  <div id="scan-app" class="container">
-  </div>
+      <div>{{ __('messages.updated_diff') }}  {{ $record->updated_at->diffForHumans() }}</div>
+    </div>
+  @endif
 @endsection

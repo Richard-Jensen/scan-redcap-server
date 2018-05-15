@@ -24,3 +24,27 @@ nav {
   border-radius: 3px;
   margin-bottom: 1rem;
 }
+
+.record-metadata {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  form,
+  input,
+  button {
+    margin-bottom: 0;
+  }
+}
+
+.record-metadata-form {
+  display: flex;
+}
+
+.scan-app-container {
+  height: 400px;
+  overflow: auto;
+}
