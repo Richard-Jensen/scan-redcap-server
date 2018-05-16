@@ -1,30 +1,16 @@
-export const items = [
-  {
-    key: '1.001',
-    input: 'text'
-  },
-  {
-    key: '1.002',
-    input: 'text'
-  },
-  {
-    key: '1.003',
-    input: 'integer'
-  },
-  {
-    key: '1.004',
-    input: 'text'
-  },
-  {
-    key: '1.005',
-    input: 'integer'
-  },
-  {
-    key: '1.006',
-    input: 'date'
-  },
-  {
-    key: '1.007',
-    input: 'text'
-  }
-];
+import { items } from './items/2.1/scan.2.1.items.da.json';
+
+export const getItemByKey = key => items.find(item => item.key === key);
+export const getItemByIndex = index => items[index];
+export const getNextItemByKey = key => {
+  let index = items.indexOf(getItemByKey(key)) + 1;
+  if (!items[index]) index = 0;
+  return items[index];
+};
+export const getPreviousItemByKey = key => {
+  let index = items.indexOf(getItemByKey(key)) - 1;
+  if (!items[index]) index = items.length - 1;
+  return items[index];
+};
+
+export { items };

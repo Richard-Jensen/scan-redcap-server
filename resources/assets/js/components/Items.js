@@ -3,26 +3,16 @@ import { connect } from 'react-redux';
 import { setActiveItem, setResponse } from '../actions';
 import { List } from 'react-virtualized';
 
-export const ItemList = ({ items }) => {
+export const ItemList = ({ items, activeIndex }) => {
   const rowRenderer = ({ index, isScrolling, key, style }) => {
     const item = items[index];
     return <ItemContainer key={item.key} item={item} style={style} key={key} />;
-    const { title, key: itemKey, input } = items[index];
-    return (
-      <div key={key} style={style}>
-        <div tabIndex="0">
-          <div>
-            {input && <div>{itemKey}</div>}
-            <div>{title}</div>
-          </div>
-        </div>
-      </div>
-    );
   };
 
   return (
     <List
       style={{ outline: 'none' }}
+      scrollToIndex={activeIndex}
       height={400}
       width={200}
       rowHeight={({ index }) => (items[index].input ? 90 : 40)}
@@ -54,8 +44,11 @@ const Item = ({ item, dispatch, interview, style, key }) => {
       style={style}
       key={key}
     >
-      <button onClick={() => dispatch(setActiveItem(item.key))}>
-        {isActive ? <b>{item.key}</b> : item.key}
+      <button
+        onClick={() => dispatch(setActiveItem(item.key))}
+        style={{ backgroundColor: isActive ? 'grey' : '' }}
+      >
+        {item.key}
       </button>
     </div>
   );
@@ -68,10 +61,12 @@ const Response = ({ items, dispatch, interview }) => {
   return (
     <div key={item.key}>
       <h4>{item.key}</h4>
+      {item.description}
       <input
         type={item.input}
         onChange={event => dispatch(setResponse(item.key, event.target.value))}
-        value={interview.responses[item.key] || ''}
+        defaultValue={interview.responses[item.key] || ''}
+        autoFocus
       />
     </div>
   );
