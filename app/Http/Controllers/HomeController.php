@@ -26,6 +26,10 @@ class HomeController extends Controller
     {
         $records = ScanData::create()->getRecords();
 
-        return view('home')->with('records', $records);
+        if ($records === 'error') {
+          return view('home')->with('error', 'An error occured.');
+        } else {
+          return view('home')->with('records', $records);
+        }
     }
 }
