@@ -29638,7 +29638,7 @@ var ItemList = exports.ItemList = function ItemList(_ref) {
     width: 200,
     rowHeight: function rowHeight(_ref3) {
       var index = _ref3.index;
-      return items[index].input ? 90 : 40;
+      return items[index].input ? 40 : 20;
     },
     rowCount: items.length,
     overscanRowCount: 10,

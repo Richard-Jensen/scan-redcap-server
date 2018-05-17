@@ -31670,8 +31670,6 @@ items:
     glossary: Section_26
     ratingscale: 4
 
-
-
   - key: "26.040"
     title: "Nonspecific psychotic (IG23)"
     description: |
@@ -31681,8 +31679,6 @@ items:
     mc1: "Nonspecific psychotic"
     glossary: Section_26
     ratingscale: 4
-
-
 
   - key: "26.041"
     title: "Non-Affective AH (IG24)"
@@ -31694,8 +31690,6 @@ items:
     mc1: "Non-Affective AH "
     glossary: Section_26
     ratingscale: 4
-
-
 
   - key: "26.042"
     title: "Experience of disordered form of thought (IG25)"
@@ -31709,8 +31703,6 @@ items:
     glossary: Section_26
     ratingscale: 4
 
-
-
   - key: "26.043"
     title: "Delusions of control (IG26)"
     description: |
@@ -31720,8 +31712,6 @@ items:
     mc1: "Delusions of control"
     glossary: Section_26
     ratingscale: 4
-
-
 
   - key: "26.044"
     title: "Bizarre delusions and interpretations (IG27)"
@@ -31735,8 +31725,6 @@ items:
     glossary: Section_26
     ratingscale: 4
 
-
-
   - key: "26.045"
     title: "Miscellaneous delusions (IG28)"
     description: |
@@ -31746,8 +31734,6 @@ items:
     mc1: "Miscellaneous delusions "
     glossary: Section_26
     ratingscale: 4
-
-
 
   - key: "26.046"
     title: "Delusions of reference (IG29)"
@@ -31759,8 +31745,6 @@ items:
     glossary: Section_26
     ratingscale: 4
 
-
-
   - key: "26.047"
     title: "Delusions of persecution (IG30)"
     description: |
@@ -31770,8 +31754,6 @@ items:
     mc1: "Delusions of persecution"
     glossary: Section_26
     ratingscale: 4
-
-
 
   - key: "26.048"
     title: "Emotional turmoil, etc. (IG31)"
@@ -31784,8 +31766,6 @@ items:
     glossary: Section_26
     ratingscale: 4
 
-
-
   - key: "26.049"
     title: "Incoherent speech (IG32)"
     description: |
@@ -31797,8 +31777,6 @@ items:
     glossary: Section_26
     ratingscale: 4
 
-
-
   - key: "26.050"
     title: "Other speech abnormality (IG33) 24.009 Circumstantiality 1 - 2"
     description: |
@@ -31808,8 +31786,6 @@ items:
     mc1: "Other speech abnormality "
     glossary: Section_26
     ratingscale: 4
-
-
 
   - key: "26.051"
     title: "Socially embarrassing behavior (IG34)"
@@ -31821,8 +31797,6 @@ items:
     glossary: Section_26
     ratingscale: 4
 
-
-
   - key: "26.052"
     title: "Flat and incongruous affect (IG35)"
     description: |
@@ -31832,8 +31806,6 @@ items:
     mc1: "Flat and incongruous affect"
     glossary: Section_26
     ratingscale: 4
-
-
 
   - key: "26.053"
     title: "Poverty of speech (IG36)"
@@ -31845,19 +31817,14 @@ items:
     glossary: Section_26
     ratingscale: 4
 
-
-
   - key: "26.054"
     title: "Nonverbal Communication (IG37)"
     description: |
       22.060 Negative posture 1 - 2 22.061 Little use of gesture 1 - 2 22.062 Little facial expression 1 - 2 22.063 Expression in voice 1 - 2 22.064 Poor use of eye contact 1 - 2 24.028 Nonverbal communication 1 - 2 24.029 Inability to converse 1 - 2 24.030 Unrewarding response to speech 1 - 2 24.037 No 'theory of mind' 1 - 2
     input: string
     validate: [0-2,8,9]
-    mc1: "Nonverbal Communication"
     glossary: Section_26
     ratingscale: 4
-
-
 
   - key: "26.055"
     title: "Self neglect (IG38)"
@@ -31865,11 +31832,8 @@ items:
       22.047 Neglect of health care 1 - 2 22.048 Neglected of hygiene and habits 1 - 2 22.051 Neglect of common dangers 1 - 2 22.046 Self neglect: clothes 1 - 2
     input: string
     validate: [0-2,8,9]
-    mc1: "Self neglect"
     glossary: Section_26
     ratingscale: 4
-
-
 
   - key: "26.056"
     title: "Motor retardation (IG39)"
@@ -31877,11 +31841,8 @@ items:
       22.001 Slumped posture 1 - 2 22.002 Stillness 1 - 2 22.003 Slow to move 1 - 2 22.004 Delayed start to movement 1 - 2 22.005 Underactivity 1 - 2 22.006 Stupor 1 - 2 22.007 Slow speech 1 - 2 22.008 Shuffling gait 1 - 2 22.009 Arms not swung when walking 1 - 2
     input: string
     validate: [0-2,8,9]
-    mc1: "Motor retardation"
     glossary: Section_26
     ratingscale: 4
-
-
 
   - key: "26.057"
     title: "Catatonic behavior (IG40)"
@@ -31889,23 +31850,17 @@ items:
       22.024 Negativism 1 - 2 22.025 Ambitendence 1 - 2 22.026 Forced grasping 1 - 2 22.027 Echopraxia 1 - 2 22.028 Flexibilitas cerea 1 - 2 22.029 Opposition 1 - 2 22.031 Freezing in one posture 1 - 2 22.032 Automatic compliance 1 - 2 22.036 Prominence of catatonia 2
     input: string
     validate: [0-2,8,9]
-    mc1: "Catatonic behavior"
     glossary: Section_26
     ratingscale: 4
 
-
-
   - key: "26.058"
-    title: "Monothematic delusion(s) (IG41) ( 19.034 )"
+    title: "Monothematic delusion(s) (IG41) (19.034)"
     input: integer
     options:
       1: "Probably present."
       2: "Definitely."
     validate: [0-2,8,9]
-    mc1: "Monothematic delusion(s"
     glossary: Section_26
-
-
 
   - key: "26.059"
     title: "Adequacy of information rated in IGC"
@@ -31916,37 +31871,51 @@ items:
       2: "Much caution necessary when interpreting the ratings."
       3: "Very little confidence can be placed in the information available."
     validate: [0-3,8,9]
-    mc1: "Adequacy of information rated in IGC"
     glossary: 26.059
 
+  - key: "27.001.section"
+    title: "Clinical History Schedule"
+    description: |
+      Checks on PSE10 and IGC ratings
 
+      Take the opportunity, while reviewing all available information on the clinical history, to check the ratings of history items in PSE10 and IGC. Consider the following in particular:
+
+      <Section 0> (SCAN Face Sheet) information.
+
+      <Section 1> (Episodes [also re-rated within Sections if dates vary], Medication, Psychosocial Intervention, Clinical History) dates and other clinical data.
+
+      Dates of first onset and episode dates in PSE10 Sections.
+
+      Attributions of organic, psychosocial, and other causes in relation to PSE10 Sections in Section 13 and 20.
+
+      Items that relate one section to another. For example, <6.022> (anxiety and depression), which can also be reviewed in Section 13.
+
+      Items for rating aspects of the clinical course. For example, <6.030> - <6.036> (episodes of depression).
+
+      ## Rating the Clinical History Schedule (CHS)
+
+      The PSE and IGC systematize and operationalise the collection of information relevant to disorders in sections F0 to F5 of ICD-10 and their equivalents in DSM-III-R and DSM-IV. They also provide opportunities for rating specific aspects of the clinical course.
+
+      The CHS is intended to supplement this information by providing an opportunity to check or enter data relevant to the broader clinical and social history and also to rate the presence or absence of disorders in ICD-10 F6 F9.
+
+      Several of the items involve rating R's performance relative to an average defined by local expectation. This involves an informed judgement, which can only be made by someone familiar with the culture and environment in which the respondent lives. See Glossary comment.
+
+      If the CHS is used, item <0.015> on the Face Sheet should show the entry '1'.
+
+      Cut-off points are included in Sections 1, 3 and 5 of the CHS. All other CHS Sections should be completed in full.
+
+      Ratings are specified in the text. With the exception of continuous variables,
+
+      - 8 Not known.
+      - 9 Not applicable. 1. CHILDHOOD AND EDUCATION TO AGE 16
 
   - key: "27.001"
-    title: "Clinical History Schedule Checks on PSE10 and IGC ratings"
-    description: |
-      Take the opportunity, while reviewing all available information on the clinical history, to check the ratings of history items in PSE10 and IGC. Consider the following in particular:
-      Section 0 (SCAN Face Sheet) information.
-      Section 1 (Episodes [also re-rated within Sections if dates vary], Medication, Psychosocial Intervention, Clinical History) dates and other clinical data.
-      Dates of first onset and episode dates in PSE10 Sections.
-      Attributions of organic, psychosocial, and other causes in relation to PSE10 Sections in Section 13 and 20.
-      Items that relate one section to another. For example, 6.022 (anxiety and depression), which can also be reviewed in Section 13.
-      Items for rating aspects of the clinical course. For example, 6.030 6.036 (episodes of depression). Rating the Clinical History Schedule (CHS)
-      The PSE and IGC systematize and operationalise the collection of information relevant to disorders in sections F0 to F5 of ICD-10 and their equivalents in DSM-III-R and DSM-IV. They also provide opportunities for rating specific aspects of the clinical course.
-      The CHS is intended to supplement this information by providing an opportunity to check or enter data relevant to the broader clinical and social history and also to rate the presence or absence of disorders in ICD-10 F6 F9.
-      Several of the items involve rating R's performance relative to an average defined by local expectation. This involves an informed judgement, which can only be made by someone familiar with the culture and environment in which the respondent lives. See Glossary comment.
-      If the CHS is used, item 0.015 on the Face Sheet should show the entry ''1.''
-      Cut-off points are included in Sections 1, 3 and 5 of the CHS. All other CHS Sections should be completed in full.
-      Ratings are specified in the text. With the exception of continuous variables,
-      8 Not known. 9 Not applicable. 1. CHILDHOOD AND EDUCATION TO AGE 16
-      27 _ 001 Age leaving full time education
-    input: string
+    title: Age leaving full time education
+    input: integer
     section_start: Section_27
     fitb_size: SMALL
     validate: [0-99]
-    mc1: "Age leaving full time education"
     glossary: Section_27
-
-
 
   - key: "27.002"
     title: "Performance in school"
@@ -31958,10 +31927,7 @@ items:
       4: "Markedly lower than average."
     fitb_size: SMALL
     validate: [1-4]
-    mc1: "Performance in school"
     glossary: Section_27
-
-
 
   - key: "27.003"
     title: "Attendance at special school"
@@ -31975,10 +31941,7 @@ items:
       6: "Relevant, but no specialist facilities available."
     fitb_size: SMALL
     validate: [1-6]
-    mc1: "Attendance at special school"
     glossary: Section_27
-
-
 
   - key: "27.004"
     title: "Psychiatric problems before 16 years old"
@@ -31989,10 +31952,7 @@ items:
       3: "Significant problems rated. Skip => to 27.024 if 27.004 is rated 1 or 2 ."
     fitb_size: SMALL
     validate: [1-3]
-    mc1: "Psychiatric problems before 16 years old"
     glossary: Section_27
-
-
 
   - key: "27.005"
     title: "Behavioral and Emotional Disorders 27 _ 005 F90 Hyperkinetic, attention deficit disorder"
@@ -32002,10 +31962,7 @@ items:
       1: "Present but not severe."
       2: "Present in severe form or with severe consequences."
     validate: [0-2]
-    mc1: "Hyperkinetic, attention deficit disorder"
     glossary: Section_27
-
-
 
   - key: "27.006"
     title: "F91 Conduct disorder"
@@ -32015,10 +31972,7 @@ items:
       1: "Present but not severe."
       2: "Present in severe form or with severe consequences."
     validate: [0-2]
-    mc1: "Conduct disorder"
     glossary: Section_27
-
-
 
   - key: "27.007"
     title: "F92 Mixed conduct and emotional disorder"
@@ -32028,10 +31982,7 @@ items:
       1: "Present but not severe."
       2: "Present in severe form or with severe consequences."
     validate: [0-2]
-    mc1: "Mixed conduct and emotional disorder"
     glossary: Section_27
-
-
 
   - key: "27.008"
     title: "F93 Emotional disorders"
@@ -32041,10 +31992,7 @@ items:
       1: "Present but not severe."
       2: "Present in severe form or with severe consequences."
     validate: [0-2]
-    mc1: "Emotional disorders"
     glossary: Section_27
-
-
 
   - key: "27.009"
     title: "F94 Elective mutism, attachment disorders"
@@ -32053,10 +32001,7 @@ items:
       0: "Absent or not clinically significant."
       1: "Present but not severe. 2 Present in severe form or with severe consequences."
     validate: [0-2]
-    mc1: "Elective mutism, attachment disorders"
     glossary: Section_27
-
-
 
   - key: "27.010"
     title: "F95 Tic disorders, including Tourette's syndrome"
@@ -32066,10 +32011,7 @@ items:
       1: "Present but not severe."
       2: "Present in severe form or with severe consequences."
     validate: [0-2]
-    mc1: "Tic disorders, including Tourette's syndrome"
     glossary: Section_27
-
-
 
   - key: "27.011"
     title: "F98 Enuresis, encopresis, pica, stuttering"
@@ -32079,23 +32021,20 @@ items:
       1: "Present but not severe."
       2: "Present in severe form or with severe consequences."
     validate: [0-2]
-    mc1: "Enuresis, encopresis, pica, stuttering"
     glossary: Section_27
 
-
+  - key: "27.012.section"
+    title: "Specific Developmental Disorders"
 
   - key: "27.012"
-    title: "Specific Developmental Disorders 27 _ 012 F80 Specific developmental disorder of articulation, expressive language, receptive language"
+    title: "F80 Specific developmental disorder of articulation, expressive language, receptive language"
     input: integer
     options:
       0: "Absent or not clinically significant."
       1: "Present but not severe."
       2: "Present in severe form or with severe consequences."
     validate: [0-2]
-    mc1: "Specific developmental disorder of articulation, expressive language, receptive language"
     glossary: Section_27
-
-
 
   - key: "27.013"
     title: "F81 Specific developmental disorder of reading, spelling, arithmetic"
@@ -32105,10 +32044,7 @@ items:
       1: "Present but not severe."
       2: "Present in severe form or with severe consequences."
     validate: [0-2]
-    mc1: "Specific developmental disorder of reading, spelling, arithmetic"
     glossary: Section_27
-
-
 
   - key: "27.014"
     title: "F82 Specific motor developmental disorder"
@@ -32118,13 +32054,15 @@ items:
       1: "Present but not severe."
       2: "Present in severe form or with severe consequences."
     validate: [0-2]
-    mc1: "Specific motor developmental disorder"
     glossary: Section_27
 
-
+  - key: "27.015.section"
+    title: "Autistic spectrum: F84.0 1 Autism: F84.5 Asperger syndrome "
+    description: |
+      Autistic disorders are developmental and usually lead to lifelong impairments. Many of the motor, speech, affective and social behavioral anomalies observed in adults are rated in Section 22 25 items. However, without a good developmental history is difficult to make a diagnosis. The following items allow the four key elements of the early history to be rated. They are present from an early age and can be present at any level of intelligence.
 
   - key: "27.015"
-    title: "Autistic spectrum: F84.0 1 Autism: F84.5 Asperger syndrome Autistic disorders are developmental and usually lead to lifelong impairments. Many of the motor, speech, affective and social behavioral anomalies observed in adults are rated in Section 22 25 items. However, without a good developmental history is difficult to make a diagnosis. The following items allow the four key elements of the early history to be rated. They are present from an early age and can be present at any level of intelligence. 27 _ 015 Impairment of reciprocal social interaction"
+    title: "Impairment of reciprocal social interaction"
     description: |
       Poor understanding of others' thoughts and feelings.
     input: integer
@@ -32133,10 +32071,7 @@ items:
       1: "Present but not severe."
       2: "Present in severe form or with severe consequences."
     validate: [0-2]
-    mc1: "Impairment of reciprocal social interaction"
     glossary: Section_27
-
-
 
   - key: "27.016"
     title: "Impairment of communication"
@@ -32148,10 +32083,7 @@ items:
       1: "Present but not severe."
       2: "Present in severe form or with severe consequences."
     validate: [0-2]
-    mc1: "Impairment of communication"
     glossary: Section_27
-
-
 
   - key: "27.017"
     title: "Impaired development of creative imagination History of repetitive and limited pretend play, or no symbolic play at all."
@@ -32160,10 +32092,7 @@ items:
       0: "Absent or not clinically significant."
       1: "Present but not severe. 2 Present in severe form or with severe consequences."
     validate: [0-2]
-    mc1: "Impaired development of creative imagination"
     glossary: Section_27
-
-
 
   - key: "27.018"
     title: "Repetitive and stereotyped behavior"
@@ -32175,10 +32104,7 @@ items:
       1: "Present but not severe."
       2: "Present in severe form or with severe consequences."
     validate: [0-2]
-    mc1: "Repetitive and stereotyped behavior"
     glossary: Section_27
-
-
 
   - key: "27.019"
     title: ".019 Diagnosis of autism or Asperger syndrome previously made?"
@@ -32189,55 +32115,43 @@ items:
       2: "Asperger syndrome (F84.5)."
       3: "Other variant of F84."
     validate: [0-3]
-    mc1: "Diagnosis of autism or Asperger syndrome previously made?"
     glossary: Section_27
 
-
-
   - key: "27.020"
-    title: ". INTELLECTUAL LEVEL 27 _ 020 Test estimate of IQ at peak"
+    title: "INTELLECTUAL LEVEL 27 _ 020 Test estimate of IQ at peak"
     description: |
       Test:.......................................................
       Date:.......................................................
     input: string
     fitb_size: SMALL
     validate: [0-200]
-    mc1: "Test estimate of IQ at peak"
     glossary: Section_27
-
-
 
   - key: "27.021"
     title: "Non-test estimate IQ at peak"
     input: integer
     options:
       1: "Under 20 (Profound)."
-      5: "70 84."
       2: "20 34 (Severe)."
-      6: "85 99."
       3: "35 49 (Moderate)."
-      7: "100+."
       4: "50-69 (Mild)."
+      5: "70 84."
+      6: "85 99."
+      7: "100+."
       8: "NK."
     fitb_size: SMALL
     validate: [1-8]
-    mc1: "Non-test estimate IQ at peak"
     glossary: Section_27
-
-
 
   - key: "27.022"
     title: "Test estimate of IQ at key date"
     description: |
       Test:.........................................................
       Date:.........................................................
-    input: string
+    input: integer
     fitb_size: SMALL
     validate: [0-200]
-    mc1: "Test estimate of IQ at key date"
     glossary: Section_27
-
-
 
   - key: "27.023"
     title: "Non-test estimate IQ at key date"
@@ -32253,10 +32167,7 @@ items:
       8: "NK."
     fitb_size: SMALL
     validate: [1-8]
-    mc1: "Non-test estimate IQ at key date"
     glossary: Section_27
-
-
 
   - key: "27.024"
     title: "Rate the physical cause of pathology at items 27.083 27.088 . 3. SOCIAL ROLES AND PERFORMANCE"
@@ -32269,10 +32180,7 @@ items:
       3: "Significant problems rated. Skip => to 27.049 if 27.024 rated 1 or 2 ."
     fitb_size: SMALL
     validate: [1-3]
-    mc1: "Social roles and performance"
     glossary: Section_27
-
-
 
   - key: "27.025"
     title: "Performance in Adult Occupation and Education 27 _ 025 Academic promise in higher education"
@@ -32284,10 +32192,7 @@ items:
       4: "Markedly lower than average."
     fitb_size: SMALL
     validate: [1-4]
-    mc1: "Academic promise in higher education"
     glossary: Section_27
-
-
 
   - key: "27.026"
     title: "Peak paid occupation"
@@ -32299,10 +32204,7 @@ items:
       4: "Markedly lower than average."
     fitb_size: SMALL
     validate: [1-4]
-    mc1: "Peak paid occupation"
     glossary: Section_27
-
-
 
   - key: "27.027"
     title: "Present paid occupation"
@@ -32314,10 +32216,7 @@ items:
       4: "Markedly lower than average."
     fitb_size: SMALL
     validate: [1-4]
-    mc1: "Present paid occupation"
     glossary: Section_27
-
-
 
   - key: "27.028"
     title: "Household duties"
@@ -32329,10 +32228,7 @@ items:
       4: "Markedly lower than average."
     fitb_size: SMALL
     validate: [1-4]
-    mc1: "Household duties"
     glossary: Section_27
-
-
 
   - key: "27.029"
     title: "Overall occupational performance"
@@ -32344,13 +32240,13 @@ items:
       4: "Markedly lower than average."
     fitb_size: SMALL
     validate: [1-4]
-    mc1: "Overall occupational performance"
     glossary: Section_27
 
-
+  - key: "27.030.section"
+    title: Adult Social Relationships [Rate using local standards of judgement.]
 
   - key: "27.030"
-    title: "Adult Social Relationships [Rate using local standards of judgement.] 27 _ 030 Stability of social relationships at peak"
+    title: "Stability of social relationships at peak"
     input: integer
     options:
       1: "Higher than average."
@@ -32358,10 +32254,7 @@ items:
       3: "Lower than average."
       4: "Markedly lower than average."
     validate: [1-4]
-    mc1: "Stability of social relationships at peak"
     glossary: Section_27
-
-
 
   - key: "27.031"
     title: "Stability of social relationships at present"
@@ -32372,10 +32265,7 @@ items:
       3: "Lower than average."
       4: "Markedly lower than average."
     validate: [1-4]
-    mc1: "Stability of social relationships at present"
     glossary: Section_27
-
-
 
   - key: "27.032"
     title: "Quality of social relationships at peak"
@@ -32386,10 +32276,7 @@ items:
       3: "Lower than average."
       4: "Markedly lower than average."
     validate: [1-4]
-    mc1: "Quality of social relationships at peak"
     glossary: Section_27
-
-
 
   - key: "27.033"
     title: "Quality of social relationships at present"
@@ -32400,10 +32287,7 @@ items:
       3: "Lower than average."
       4: "Markedly lower than average."
     validate: [1-4]
-    mc1: "Quality of social relationships at present"
     glossary: Section_27
-
-
 
   - key: "27.034"
     title: "Hypersensitivity to interpersonal rejection"
@@ -32416,11 +32300,8 @@ items:
       2: "Moderate or intermittently severe interference."
       3: "Severe interference in social or occupational functioning."
     validate: [0-3]
-    mc1: "Hypersensitivity to interpersonal rejection"
     used_in_dsmiv: 1
     glossary: Section_27
-
-
 
   - key: "27.035"
     title: "Sexual Relationships 27 _ 035 Stability of sexual relationships at peak"
@@ -32431,10 +32312,7 @@ items:
       3: "Lower than average."
       4: "Markedly lower than average."
     validate: [1-4]
-    mc1: "Stability of sexual relationships at peak"
     glossary: Section_27
-
-
 
   - key: "27.036"
     title: "Stability of sexual relationships at present"
@@ -32445,10 +32323,7 @@ items:
       3: "Lower than average."
       4: "Markedly lower than average."
     validate: [1-4]
-    mc1: "Stability of sexual relationships at present"
     glossary: Section_27
-
-
 
   - key: "27.037"
     title: "Quality of sexual relationships at peak"
@@ -32459,10 +32334,7 @@ items:
       3: "Lower than average."
       4: "Markedly lower than average."
     validate: [1-4]
-    mc1: "Quality of sexual relationships at peak"
     glossary: Section_27
-
-
 
   - key: "27.038"
     title: "Quality of sexual relationships at present"
@@ -32473,10 +32345,7 @@ items:
       3: "Lower than average."
       4: "Markedly lower than average. The subject is unable to participate in a sexual relationship as he/she would wish. Dysfunction occurs frequently, has been present for 6 months or more. Rate physical, organic or psychosocial attribution in Section 13. Apply full ICD-10 DCR rules for each type of disorder. F52.0 - F52.9."
     validate: [1-4]
-    mc1: "Quality of sexual relationships at present"
     glossary: Section_27
-
-
 
   - key: "27.039"
     title: "Record onset and interference with activities in Section 8. 27 _ 039 F52.0 Lack or loss of sexual drive"
@@ -32488,10 +32357,7 @@ items:
       3: "As 1 for at least 6 months."
       4: "As 2 for at least 6 months."
     validate: [0-4]
-    mc1: "Lack or loss of sexual drive"
     glossary: Section_27
-
-
 
   - key: "27.040"
     title: "F52.1 Sexual aversion and lack of sexual enjoyment"
@@ -32503,10 +32369,7 @@ items:
       3: "As 1 for at least 6 months."
       4: "As 2 for at least 6 months."
     validate: [0-4]
-    mc1: "Sexual aversion and lack of sexual enjoyment"
     glossary: Section_27
-
-
 
   - key: "27.041"
     title: "F52.2 Failure of genital response"
@@ -32518,10 +32381,7 @@ items:
       3: "As 1 for at least 6 months."
       4: "As 2 for at least 6 months."
     validate: [0-4]
-    mc1: "Failure of genital response"
     glossary: Section_27
-
-
 
   - key: "27.042"
     title: "F52.3 Orgasmic dysfunction"
@@ -32533,10 +32393,7 @@ items:
       3: "As 1 for at least 6 months."
       4: "As 2 for at least 6 months."
     validate: [0-4]
-    mc1: "Orgasmic dysfunction"
     glossary: Section_27
-
-
 
   - key: "27.043"
     title: "F52.4 Premature ejaculation"
@@ -32547,10 +32404,7 @@ items:
       2: "Frequent but may be absent on some occasions."
       3: "As 1 for at least 6 months. 4 As 2 for at least 6 months."
     validate: [0-4]
-    mc1: "Premature ejaculation"
     glossary: Section_27
-
-
 
   - key: "27.044"
     title: "F52.5 Nonorganic vaginismus"
@@ -32562,10 +32416,7 @@ items:
       3: "As 1 for at least 6 months."
       4: "As 2 for at least 6 months."
     validate: [0-4]
-    mc1: "Nonorganic vaginismus"
     glossary: Section_27
-
-
 
   - key: "27.045"
     title: "F52.6 Nonorganic dysparunia"
@@ -32577,10 +32428,7 @@ items:
       3: "As 1 for at least 6 months."
       4: "As 2 for at least 6 months."
     validate: [0-4]
-    mc1: "Nonorganic dysparunia"
     glossary: Section_27
-
-
 
   - key: "27.046"
     title: "There are no ICD-10 criteria for F52.7 - F52.9. Rate items 27.046 - 27.048 using the same scale and record detailed description of reasons in order to assist with development of research criteria. 27 _ 046 F52.7 Excessive sexual drive"
@@ -32592,10 +32440,7 @@ items:
       3: "As 1 for at least 6 months."
       4: "As 2 for at least 6 months."
     validate: [0-4]
-    mc1: "Excessive sexual drive"
     glossary: Section_27
-
-
 
   - key: "27.047"
     title: "F52.8 Other nonorganic sexual dysfunction"
@@ -32607,10 +32452,7 @@ items:
       3: "As 1 for at least 6 months."
       4: "As 2 for at least 6 months."
     validate: [0-4]
-    mc1: "Other nonorganic sexual dysfunction"
     glossary: Section_27
-
-
 
   - key: "27.048"
     title: "F52.9 Unspecified nonorganic sexual dysfunction"
@@ -32622,14 +32464,14 @@ items:
       3: "As 1 for at least 6 months."
       4: "As 2 for at least 6 months."
     validate: [0-4]
-    mc1: "Unspecified nonorganic sexual dysfunction"
     glossary: Section_27
 
-
-
   - key: "27.049"
-    title: ". OVERALL SOCIAL HANDICAP (DISABLEMENT) Check items 1.045 - 1.050: age at onset, first recognition, first contact and premorbid condition 27 _ 049 Social performance before onset"
+    title: "OVERALL SOCIAL HANDICAP (DISABLEMENT)"
     description: |
+      Check items <1.045> - <1.050>: age at onset, first recognition, first contact and premorbid condition
+
+      27.049 Social performance before onset
       Level of all-round social performance before first onset/contact. Estimate taking into account average level of social and occupational performance for age, sex and local expectation.
     input: integer
     options:
@@ -32640,12 +32482,9 @@ items:
       3: "Average."
       6: "Incapacitated."
     validate: [1-6]
-    mc1: "Social performance before onset"
     used_in_icd10: 1
     used_in_dsmiv: 1
     glossary: Section_27
-
-
 
   - key: "27.050"
     title: "All-round social performance at key date"
@@ -32658,23 +32497,17 @@ items:
       3: "Average."
       6: "Incapacitated."
     validate: [1-6]
-    mc1: "All-round social performance at key date"
     used_in_icd10: 1
     used_in_dsmiv: 1
     glossary: Section_27
-
-
 
   - key: "27.051"
     title: "Percentage of time socially handicapped"
     description: |
       What percentage of the time between first onset/contact and key date was R moderately, severely or very severely socially handicapped? Even if this estimate is approximate, a judgement will be of value.
-    input: string
+    input: integer
     validate: [0-100]
-    mc1: "Percentage of time socially handicapped"
     glossary: Section_27
-
-
 
   - key: "27.052"
     title: "Cause of social handicap"
@@ -32686,12 +32519,9 @@ items:
       2: "Factors 1 and 3 combined. Difficult to separate."
       3: "Mental disorder the chief factor causing social handicap."
     validate: [1-3]
-    mc1: "Cause of social handicap"
     used_in_icd10: 1
     used_in_dsmiv: 1
     glossary: Section_27
-
-
 
   - key: "27.053"
     title: ". DISORDERS OF ADULT PERSONALITY AND BEHAVIOR"
@@ -32704,10 +32534,7 @@ items:
       2: "Some problems of questionable significance."
       3: "Significant problems rated. SKIP => to 27.070, Subsection 6 (Quality of Data Recorded in SCAN, below) if rated 0 2."
     validate: [0-3]
-    mc1: "Personality disorders"
     glossary: Section_27
-
-
 
   - key: "27.054"
     title: "Personality Disorders"
@@ -32719,10 +32546,7 @@ items:
       1: "Conspicuous exaggeration of a single trait or lesser abnormality of several traits, but not sufficient to make a diagnosis of personality disorder."
       2: "Pervasive abnormality of behavior and attitudes affecting a broad range of personal and social situations. Sufficient for the main, or a second, diagnosis."
     validate: [0-2]
-    mc1: "Paranoid"
     glossary: Section_27
-
-
 
   - key: "27.055"
     title: "F60.1 Schizoid"
@@ -32734,10 +32558,7 @@ items:
       1: "Conspicuous exaggeration of a single trait or lesser abnormality of several traits, but not sufficient to make a diagnosis of personality disorder."
       2: "Pervasive abnormality of behavior and attitudes affecting a broad range of personal and social situations. Sufficient for the main, or a second, diagnosis."
     validate: [0-2]
-    mc1: "Schizoid"
     glossary: Section_27
-
-
 
   - key: "27.056"
     title: "F60.2 Dyssocial"
@@ -32749,10 +32570,7 @@ items:
       1: "Conspicuous exaggeration of a single trait or lesser abnormality of several traits, but not sufficient to make a diagnosis of personality disorder."
       2: "Pervasive abnormality of behavior and attitudes affecting a broad range of personal and social situations. Sufficient for the main, or a second, diagnosis."
     validate: [0-2]
-    mc1: "Dyssocial"
     glossary: Section_27
-
-
 
   - key: "27.057"
     title: "F60.3 Emotionally unstable"
@@ -32764,10 +32582,7 @@ items:
       1: "Conspicuous exaggeration of a single trait or lesser abnormality of several traits, but not sufficient to make a diagnosis of personality disorder."
       2: "Pervasive abnormality of behavior and attitudes affecting a broad range of personal and social situations. Sufficient for the main, or a second, diagnosis."
     validate: [0-2]
-    mc1: "Emotionally unstable"
     glossary: Section_27
-
-
 
   - key: "27.058"
     title: "F60.4 Histrionic"
@@ -32779,10 +32594,7 @@ items:
       1: "Conspicuous exaggeration of a single trait or lesser abnormality of several traits, but not sufficient to make a diagnosis of personality disorder."
       2: "Pervasive abnormality of behavior and attitudes affecting a broad range of personal and social situations. Sufficient for the main, or a second, diagnosis."
     validate: [0-2]
-    mc1: "Histrionic"
     glossary: Section_27
-
-
 
   - key: "27.059"
     title: "F60.5 Anankastic"
@@ -32794,10 +32606,7 @@ items:
       1: "Conspicuous exaggeration of a single trait or lesser abnormality of several traits, but not sufficient to make a diagnosis of personality disorder."
       2: "Pervasive abnormality of behavior and attitudes affecting a broad range of personal and social situations. Sufficient for the main, or a second, diagnosis."
     validate: [0-2]
-    mc1: "Anankastic"
     glossary: Section_27
-
-
 
   - key: "27.060"
     title: "F60.6 Anxious"
@@ -32809,10 +32618,7 @@ items:
       1: "Conspicuous exaggeration of a single trait or lesser abnormality of several traits, but not sufficient to make a diagnosis of personality disorder."
       2: "Pervasive abnormality of behavior and attitudes affecting a broad range of personal and social situations. Sufficient for the main, or a second, diagnosis."
     validate: [0-2]
-    mc1: "Anxious"
     glossary: Section_27
-
-
 
   - key: "27.061"
     title: "F60.7 Dependent"
@@ -32824,10 +32630,7 @@ items:
       1: "Conspicuous exaggeration of a single trait or lesser abnormality of several traits, but not sufficient to make a diagnosis of personality disorder."
       2: "Pervasive abnormality of behavior and attitudes affecting a broad range of personal and social situations. Sufficient for the main, or a second, diagnosis."
     validate: [0-2]
-    mc1: "Dependent"
     glossary: Section_27
-
-
 
   - key: "27.062"
     title: "F60.8 Other"
@@ -32839,10 +32642,7 @@ items:
       1: "Conspicuous exaggeration of a single trait or lesser abnormality of several traits, but not sufficient to make a diagnosis of personality disorder."
       2: "Pervasive abnormality of behavior and attitudes affecting a broad range of personal and social situations. Sufficient for the main, or a second, diagnosis."
     validate: [0-2]
-    mc1: "Other"
     glossary: Section_27
-
-
 
   - key: "27.063"
     title: "F62 Enduring personality change"
@@ -32857,8 +32657,6 @@ items:
     mc1: "Enduring personality change"
     glossary: Section_27
 
-
-
   - key: "27.064"
     title: "Habit and Impulse Disorders 27 _ 064 F63 Habit and impulse disorders"
     description: |
@@ -32871,8 +32669,6 @@ items:
     validate: [0-2]
     mc1: "Habit and impulse disorders"
     glossary: Section_27
-
-
 
   - key: "27.065"
     title: "Gender Identity Disorders 27 _ 065 F64 Gender identity disorder"
@@ -32887,8 +32683,6 @@ items:
     mc1: "Gender identity disorder"
     glossary: Section_27
 
-
-
   - key: "27.066"
     title: "Disorders of Sexual Preference or Orientation 27 _ 066 F65 Sexual behavior disorder"
     description: |
@@ -32899,12 +32693,9 @@ items:
       1: "Conspicuous exaggeration of a single trait or lesser abnormality of several traits, but not sufficient to make a diagnosis of personality disorder."
       2: "Pervasive abnormality of behavior and attitudes affecting a broad range of personal and social situations. Sufficient for the main, or a second, diagnosis."
     validate: [0-2]
-    mc1: "Sexual behavior disorder"
     used_in_icd10: 1
     used_in_dsmiv: 1
     glossary: Section_27
-
-
 
   - key: "27.067"
     title: "F66 Other sexual disorder"
@@ -32916,10 +32707,7 @@ items:
       1: "Conspicuous exaggeration of a single trait or lesser abnormality of several traits, but not sufficient to make a diagnosis of personality disorder."
       2: "Pervasive abnormality of behavior and attitudes affecting a broad range of personal and social situations. Sufficient for the main, or a second, diagnosis."
     validate: [0-2]
-    mc1: "Other sexual disorder"
     glossary: Section_27
-
-
 
   - key: "27.068"
     title: "Other Disorders of Personality 27 _ 068 F68.1 Factitious disorder"
@@ -32931,28 +32719,22 @@ items:
       1: "Conspicuous exaggeration of a single trait or lesser abnormality of several traits, but not sufficient to make a diagnosis of personality disorder."
       2: "Pervasive abnormality of behavior and attitudes affecting a broad range of personal and social situations. Sufficient for the main, or a second, diagnosis."
     validate: [0-2]
-    mc1: "Factitious disorder"
     glossary: Section_27
-
-
 
   - key: "27.069"
     title: "F68.0 Elaboration of physical symptoms for psychological reasons"
     description: |
-      Check item 2.100 .
+      Check item <2.100>.
     input: integer
     options:
       0: "Normal limits."
       1: "Conspicuous exaggeration of a single trait or lesser abnormality of several traits, but not sufficient to make a diagnosis of personality disorder."
       2: "Pervasive abnormality of behavior and attitudes affecting a broad range of personal and social situations. Sufficient for the main, or a second, diagnosis."
     validate: [0-2]
-    mc1: "Elaboration of physical symptoms for psychological reasons"
     glossary: Section_27
 
-
-
   - key: "27.070"
-    title: ". QUALITY OF DATA RECORDED IN SCAN"
+    title: "QUALITY OF DATA RECORDED IN SCAN"
     description: |
       Is the information collected of sufficient quantity and quality to allow a satisfactory diagnostic classification? 27 _ 070 Quality of SCAN data
     input: integer
@@ -32962,10 +32744,7 @@ items:
       2: "Definite areas of doubt. Interpret with caution."
       3: "The information can only be used as a highly approximate definition of psychopathology and little weight should be placed on any diagnostic classification."
     validate: [0-3]
-    mc1: "Quality of SCAN data"
     glossary: 27.070
-
-
 
   - key: "27.071"
     title: ". OVERALL CLINICAL DIAGNOSES"
@@ -32974,41 +32753,29 @@ items:
       For ICD-10, enter chapter letter, followed by up to 4 digits, starting in the left box, e.g. F22 = [F22 ], F22.00 = [F22 00]. For DSM-IV, enter up to 5 digits, e.g. 295.30 = [295 30] Diagnosis at key date 27 _ 071 ICD-10 first diagnosis
     input: string
     fitb_size: ICD10
-    mc1: "ICD-10 first diagnosis"
     export_format: TEXT
     glossary: 27.070
-
-
 
   - key: "27.072"
     title: "ICD-10 second diagnosis"
     input: string
     fitb_size: ICD10
-    mc1: "ICD-10 second diagnosis"
     export_format: TEXT
     glossary: 27.070
-
-
 
   - key: "27.073"
     title: "DSM-IV first diagnosis"
     input: string
     fitb_size: SMALL
-    mc1: "DSM-IV first diagnosis"
     export_format: TEXT
     glossary: 27.070
-
-
 
   - key: "27.074"
     title: "DSM-IV second diagnosis"
     input: string
     fitb_size: SMALL
-    mc1: "DSM-IV second diagnosis"
     export_format: TEXT
     glossary: 27.070
-
-
 
   - key: "27.075"
     title: "Local system (specify) first diagnosis .............................."
@@ -33018,77 +32785,54 @@ items:
     export_format: TEXT
     glossary: 27.070
 
-
-
   - key: "27.076"
     title: "Local system (specify) second diagnosis ........................"
     input: string
     fitb_size: ICD10
-    mc1: "Local system (specify) second diagnosis"
     export_format: TEXT
     glossary: 27.070
-
-
 
   - key: "27.077"
     title: "Diagnosis of previous episode/s 27 _ 077 ICD-10 first diagnosis"
     input: string
     fitb_size: ICD10
-    mc1: "ICD-10 first diagnosis"
     export_format: TEXT
     glossary: 27.070
-
-
 
   - key: "27.078"
     title: "ICD-10 second diagnosis"
     input: string
     fitb_size: ICD10
-    mc1: "ICD-10 second diagnosis"
     export_format: TEXT
     glossary: 27.070
-
-
 
   - key: "27.079"
     title: "DSM-IV first diagnosis"
     input: string
     fitb_size: SMALL
-    mc1: "DSM-IV first diagnosis"
     export_format: TEXT
     glossary: 27.070
-
-
 
   - key: "27.080"
     title: "DSM-IV second diagnosis"
     input: string
     fitb_size: SMALL
-    mc1: "DSM-IV second diagnosis"
     export_format: TEXT
     glossary: 27.070
-
-
 
   - key: "27.081"
     title: "Local system (specify) first diagnosis .............................."
     input: string
     fitb_size: ICD10
-    mc1: "Local system (specify) first diagnosis "
     export_format: TEXT
     glossary: 27.070
-
-
 
   - key: "27.082"
     title: "Local system (specify) second diagnosis ........................."
     input: string
     fitb_size: ICD10
-    mc1: "Local system (specify) second diagnosis "
     export_format: TEXT
     glossary: 27.070
-
-
 
   - key: "27.083"
     title: "Condition 1 .................................................. Physical illnesses or disabilities not entered elsewhere"
@@ -33107,8 +32851,6 @@ items:
     export_format: TEXT
     glossary: 27.070
 
-
-
   - key: "27.084"
     title: "Rating .........................................................."
     input: integer
@@ -33118,10 +32860,7 @@ items:
       3: "Present and has modified the clinical picture but is not a cause."
       4: "Present and is a contributory cause of the psychiatric condition."
     validate: [1-4]
-    mc1: "Rating"
     glossary: 27.070
-
-
 
   - key: "27.085"
     title: "Condition 2 .................................................."
@@ -33130,8 +32869,6 @@ items:
     mc1: "Condition 2"
     export_format: TEXT
     glossary: 27.070
-
-
 
   - key: "27.086"
     title: "Rating .........................................................."
@@ -33142,20 +32879,14 @@ items:
       3: "Present and has modified the clinical picture but is not a cause."
       4: "Present and is a contributory cause of the psychiatric condition."
     validate: [1-4]
-    mc1: "Rating ."
     glossary: 27.070
-
-
 
   - key: "27.087"
     title: "Condition 3 .................................................."
     input: string
     fitb_size: ICD10
-    mc1: "Condition 3"
     export_format: TEXT
     glossary: 27.070
-
-
 
   - key: "27.088"
     title: "Rating .........................................................."
@@ -33166,13 +32897,10 @@ items:
       3: "Present and has modified the clinical picture but is not a cause."
       4: "Present and is a contributory cause of the psychiatric condition."
     validate: [1-4]
-    mc1: "Rating"
     glossary: 27.070
-
 
 
   - key: "END"
     title: "If the the Interview is completed you can press the red check button to finish data entry."
     input: string
-    mc1: ""
     glossary: 27.070

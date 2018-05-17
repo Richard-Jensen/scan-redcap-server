@@ -15,7 +15,7 @@ export const ItemList = ({ items, activeIndex }) => {
       scrollToIndex={activeIndex}
       height={400}
       width={200}
-      rowHeight={({ index }) => (items[index].input ? 90 : 40)}
+      rowHeight={({ index }) => (items[index].input ? 40 : 20)}
       rowCount={items.length}
       overscanRowCount={10}
       rowRenderer={rowRenderer}

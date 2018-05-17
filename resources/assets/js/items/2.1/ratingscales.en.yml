@@ -7,3 +7,51 @@
     5: The presence of psychotic symptoms can make the rating of Part One items very difficult, bevause of problems in interpreting the meaning of what R says, or because the symptoms (for example, anxiety or a phobia about leaving one's house) may themselves be based in psychotic experiences. The rating should only be made when there is genuine doubt about the nature of the symptom or the balance is in favor of the symptom being psychotic.
     8: If, after an adequate examination, the interviewer is still not sure whether a symptom is present (rated 1-3) or absent (rated 0), the rating is (8). This is the only circumstance in which (8) is used. It should not be used to indicate a mild form of the symptom.
     9: This rating is only used if the information needed to rate an item is incomplete in some respect, for example because of language or cognitive disorder, or lack of cooperation, or because the interviewer forgot to probe sufficiently deeply. It is distinguished from (8) because the examination was not, for whatever reason, carried out adequately. In the SCAN text, an instruction to 'use Scale I' simply means that it is not necessary to point out any individual rating characteristics for that item. Any point on Scale I can be selected, according to clinical judgement.
+
+2:
+  options:
+    0: Symptom did not occur during PERIOD.
+    1: Symptom definitely occurred during the period but was probably uncommon or transitory.
+    2: Symptom was definitely present, on multiple occasions or for part of the time, during the period.
+    3: Symptom was present more or less continuously throughout the period.
+    5: Language difficulty, rated as present in Section 15, makes replies difficult to interpret.
+    8: Rater is unsure whether the phenomenon is present or absent, even after adequate examination
+    9: Not appropriate to make a rating because examination incomplete, e.g. because of refusal, omission, etc.
+
+3:
+  description: |
+    NB: Consider behavioral items for cognitive impairment also.
+
+    Most items in Sections 22-24 are rated on a 3-point scale (0-2) on the basis of severity and frequency during the past month. Information from records for the period should be used as well.
+
+    The examination should be supplemented by taking into account any other observations of relevance, e.g. is case records or information from professionals or relatives. Severe behavioral abnormalities may not be observed at examination because of the short time sample, but when they are present skilled direct observations are of great importance. The items listed are also worth rating because of their possible juxtaposition with other symptoms. The time period rated is the month before examination.
+
+    Many behavioral items are also included in Item Groups and can be rated in the Checklist.
+  options:
+    0: Behavior not present during past month.
+    1: Unequivocally present during past month, moderate severity only. Use all information available.
+    2: Present in severe form during past month or at examination.
+    8: Unsure whether present or not after adequate examination.
+    9: Not appropriate to make a rating because examination or records are incomplete, or behavior is due to a physical factor.
+
+4:
+  options:
+    0: Absent. Below IG threshold.
+    1: Subject to clinical discretion, at least two items should definitely pass PSE threshold level, PLUS at least moderate disability (interference with everyday activities) and/or moderate or severe distress resulting from the symptoms.
+    2: As 1, but with severe degree of distress and/or disability. Usually at least three items pass PSE threshold but this is at the interviewer's clinical discretion.
+    8: Uncertain whether IG is present (usually because of insufficient information).
+
+Att.:
+  description: |
+    Use the attributional rating scale to rate nature of influence on symptom presence or severity at the item level. The rating of 0 is the only ’negative’ rating, and can be used if there is clear evidence that treatment has resulted in a reduced rating. Ratings 1 - 8 represent attributions of etiologic effect, increasing the likelihood of an item being rated or its severity being increased. These attributions must only be made for symptoms/items that have positively rated, and should be entered into the dashed boxes below the standard episode rating boxes. The rating of 9 is reserved for indicating a trait characteristic. If no effect or trait is judged to be present leave the dashed box blank.
+  options:
+    0: Item rating reduced by effects of treatment
+    1: Alcohol
+    2: Other psychoactive substance
+    3: Effects of somatic psychiatric treatments (electroconvulsive therapy, antidepressant medication, neuroleptics, etc)
+    4: Known primary intracranial process (Alzheimer’s disease, Huntington’s disease, Parkinson’s disease, tumor, stroke, etc.)
+    5: Non-psychiatric medication, toxins
+    6: Other medication condition 1 (specify at Section 13 and/or Section 20)
+    7: Other medication condition 2 (specify at Section 13 and/or Section 20)
+    8: Other medication condition 3 (specify at Section 13 and/or Section 20)
+    9: Trait. Essentially lifelong characteristic of R.
