@@ -14,3 +14,11 @@ export const setResponse = (key, value) => ({
     value
   }
 });
+
+export const setComment = (key, value) => ({
+  type: 'SET_COMMENT',
+  payload: {
+    key,
+    value
+  }
+});

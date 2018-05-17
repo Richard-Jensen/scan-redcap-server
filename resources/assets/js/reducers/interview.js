@@ -3,7 +3,8 @@ import { scanData } from '../data';
 let initialState = {
   id: window.scanInfo.record_id,
   activeKey: '1.001',
-  responses: {}
+  responses: {},
+  comments: {}
 };
 
 if (scanData.data) {
@@ -22,6 +23,14 @@ const interview = (state = initialState, action) => {
         ...state,
         responses: {
           ...state.responses,
+          [action.payload.key]: action.payload.value
+        }
+      };
+    case 'SET_COMMENT':
+      return {
+        ...state,
+        comments: {
+          ...state.comments,
           [action.payload.key]: action.payload.value
         }
       };

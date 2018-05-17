@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setActiveItem, setResponse } from '../actions';
+import { setActiveItem, setResponse, setComment } from '../actions';
 import { List } from 'react-virtualized';
 
 export const ItemList = ({ items, activeIndex }) => {
@@ -33,10 +33,6 @@ export const Items = ({ items }) => (
 
 const Item = ({ item, dispatch, interview, style, key }) => {
   const isActive = item.key === interview.activeKey;
-  let input = item.input;
-  if (input === 'integer') {
-    input = 'number';
-  }
 
   return (
     <div
@@ -58,15 +54,31 @@ const ItemContainer = connect(state => state)(Item);
 
 const Response = ({ items, dispatch, interview }) => {
   const item = items.find(item => item.key === interview.activeKey);
+  let input = item.input;
+  if (input === 'integer') {
+    input = 'number';
+  }
+  if (input === 'string') {
+    input = 'text';
+  }
+  const response = (interview.responses && interview.responses[item.key]) || '';
+  const comment = (interview.comments && interview.comments[item.key]) || '';
+
   return (
     <div key={item.key}>
       <h4>{item.key}</h4>
       {item.description}
       <input
-        type={item.input}
+        type={input}
         onChange={event => dispatch(setResponse(item.key, event.target.value))}
-        defaultValue={interview.responses[item.key] || ''}
+        defaultValue={response}
         autoFocus
+      />
+
+      <textarea
+        onChange={event => dispatch(setComment(item.key, event.target.value))}
+        defaultValue={comment}
+        placeholder="Comment"
       />
     </div>
   );

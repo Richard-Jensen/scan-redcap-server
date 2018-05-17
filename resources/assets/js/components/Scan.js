@@ -16,6 +16,7 @@ class Scan extends Component {
   state = {
     activeIndex: 0
   };
+
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeyDown);
   }
@@ -62,7 +63,7 @@ class Scan extends Component {
           <ResponseContainer items={items} />
         </div>
         <textarea
-          placeholder="Save som JSON"
+          placeholder="Save some JSON"
           defaultValue={JSON.stringify(scanData.data)}
         />
       </div>
