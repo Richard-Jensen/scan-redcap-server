@@ -1,0 +1,1647 @@
+items:
+  - key: 2.section
+    title: Somatoform and dissociative symptoms
+    description: |
+      Adapt questions about disorders and treatments to local usage. Use information
+      from informants and case records. Note that Section 2 generally defines episodes
+      based on a much longer duration than other Sections.
+
+  - key: 2.001
+    title: Physical welness, past month
+    description: |
+      How has your physical health been during the past month?
+
+      Has it been excellent, good, fair or poor?
+    input: integer
+    options:
+      1: Excellent
+      2: Good
+      3: Fair
+      4: Poor
+      8: Uncertain
+      9: NK
+    validate: [1-4,8,9]
+
+  - key: 2.002
+    title: Length of unwellness
+    description: |
+      How long has your physical health been poor?
+
+      When was the last time you were well (no somatic disease or functional disorder?)
+
+      Rate in months since the patient was last well.
+    input: integer
+    options:
+      0: No health problems
+      800: 800 mths or more
+      888: NK
+      999: NA
+    validate: [0-999]
+
+  - key: 2.003
+    title: Physical illness or disability, past year
+    description: |
+      In the past year, have you had physical illnesses, injuries, pains or
+      other disorders that have limited your activities in any way?
+
+      What sort of problems have you had?
+      Did the doctor/specialist tell you what was the matter?
+    input: integer
+    options:
+      0: None
+      1: Describes somatic symptoms or disorder without clear diagnosis
+      2: States clear physical diagnosis
+      3: Both physical diagnosis and functional symptoms/illness
+      8: Uncertain
+      9: NK
+    validate: [1-4,8,9]
+    glossary: 2.003
+
+  - key: 2.004
+    title: Distressing somatic symptom, any
+    description: |
+      How much does this distress you or disturb you daily life?
+
+      The patient has one or more distressing somatic symptoms or a symptom resulting in significant disruption of daily life.
+      The symptoms or illness may be of any etiology, i.e. it may be symptoms of unknown etiology or from cancer, diabetes etc.
+    input: integer
+    options:
+      0: None
+      1: Present
+      9: NK
+    validate: [0,1,9]
+    help: |
+       See also items <2.094> and <2.008>.
+
+  - key: 2.005
+    title: Predominant pain
+    description: |
+      Only if 2.003 is rated 2.
+
+      Is pain the most predominant problem?
+    help: |
+      **Rate positively if pain is caused by physical disease predominates the illness picture:**
+      See also <2.093>.
+      (DSM-V specifier)
+
+  - key: 2.006
+    title: Preoccupation with somatic symptoms and worry about physical health
+    description: |
+      Are you afraid that something serious is wrong with you?
+
+      Have you seen a doctor because of it? (within the past year)
+    input: integer
+    options:
+      0: No particular preoccupation
+      1: Present
+      9: NK
+    validate: [0,1,9]
+    help: |
+      Rate on the basis of degree of preoccupation, illness conviction or distress, frequency of consultations and examinations, degree of symptoms or excessive illness worry.
+
+      See also <2.100>.
+
+      CUT-OFF => ???? (health anxiety) if there are no functional or dissociative symptoms based on the present information.
+
+      Always continue if there is no convincing medical explanation for the symptoms.
+
+      If <2.003> = 0 skip to HA
+      If <2.003> = 2 skip to <2.007> and then <2.100>.
+      If <2.003> < > 0 or 2 continue.
+
+  - key: 2.episode1.section
+    title: Well-defined physical diseases
+    description: |
+      (In this section, items can be skipped or added)
+
+      Mark with a X, if the disorder is present and then write the diagnosis in letters (diagnosis codes can be kept as explanation).
+
+      Prompt cards or questionnaires can be used.
+
+  - key: 2.007a-t
+    title: Well-defined physical diseases diagnosed by a doctor (lifetime)
+    description: |
+      [Show a prompt card if necessary]
+
+      a.  Have you been told by a doctor that you have any of these diseases (a-r)
+
+      b.  Were you given medicines for (a-r)?
+
+      c.  Were you given laboratory examinations for (a-r)
+
+      d.  Were you advised to make changes in your diet or life style for (a-r)?
+
+      e.  Were you hospitalized or had surgery for (a-r)?
+
+      f.  Did you ever stop or cut back your usual activities for a week or longer for (a-r)?
+
+  - key: 2.007a
+    title: High blood pressure
+    description: |
+      (ICD-10: I10-I15)
+    scale: 1
+
+  - key: 2.007b
+    title: Diabetes
+    description: |
+      (ICD-10: E10-E14)
+    scale: 1
+
+  - key: 2.007c
+    title: Osteoarthritis/rheumatoid arthritis
+    description: |
+      (ICD-10: M00-M19)
+    scale: 1
+
+  - key: 2.007d
+    title: Migraine/specified
+    description: |
+      (ICD-10: G43, G44, R51)
+    scale: 1
+
+  - key: 2.007e
+    title: Herniated disk
+    description: |
+      (ICD-10: M40-M54)
+    scale: 1
+
+  - key: 2.007f
+    title: Heart disease
+    description: |
+      (ICD-10: I05-I09 og I20-I25)
+    scale: 1
+
+  - key: 2.007g
+    title: Tuberculosis
+    description: |
+      (ICD-10: A15-A19, B90, J65)
+    scale: 1
+
+  - key: 2.007h
+    title: Asthma/chronic bronchitis
+    description: |
+      (ICD-10: J30-J32, J35, J37, J40-J47)
+    scale: 1
+
+
+  - key: 2.007i
+    title: Gastritis or ulcer
+    description: |
+      (ICD-10: K25-K27)
+    scale: 1
+
+  - key: 2.007j
+    title: Hepatitis
+    description: |
+      (ICD-10: B18, K73, K75,9)
+    scale: 1
+
+  - key: 2.007k
+    title: Kidney disease
+    description: |
+      (ICD-10: N03-07, N11-15, N18-19, N25-28)
+    scale: 1
+
+  - key: 2.007l
+    title: Parasite diseases/malaria
+    description: |
+      (ICD-10: B50-B83)
+    scale: 1
+
+  - key: 2.007m
+    title: Thyrois disease
+    description: |
+      (ICD-10: E00-E07)
+    scale: 1
+
+  - key: 2.007n
+    title: Tumor/cancer
+    description: |
+      (ICD-10: C00-C97)
+    scale: 1
+
+  - key: 2.007o
+    title: Stroke
+    description: |
+      (ICD-10: I60-I69)
+    scale: 1
+
+  - key: 2.007p
+    title: Epilepsia
+    description: |
+      (ICD-10: G40)
+    scale: 1
+
+  - key: 2.007q
+    title: Multiple sclerosis
+    description: |
+      (ICD-1010: G35)
+    scale: 1
+
+  - key: 2.007r
+    title: HIV/AIDS
+    description: |
+      (ICD-10: B20-B24)
+    scale: 1
+
+  - key: 2.007s
+    title: Others
+    input: string
+    description: |
+      State which_____________________________________________
+
+  - key: 2.007t
+    title: Others
+    input: string
+    description: |
+      State which_____________________________________________
+
+    help: |
+      Disorders associated with mental retardation and/or autism e.g. Down’s Syndrome, foetal rubella etc. should be checked in CHS, ch. 27. The first box must have a letter indicating the ICD-10 chapter followed by up to 4 digits. If none, leave blank.
+
+  - key: 2.008
+    title: Impact on activities and discomfort/distress due to well-defined physical disease, past year
+    description: |
+      **(See also 2.094)**
+
+      Have any of the above symptoms or disorders (2.007a-t) had an impact on your daily physical activities in the past year?
+
+      How much impact have these symptoms had on your daily physical activities in the past year?
+    input: integer
+    options:
+      0: No influence or well-defined physical disease
+      1: Only small influence
+      2: Moderate or intermittent
+      3: Severe to incapacitating
+      8: Uncertain
+      9: NK
+    validate: [0-3,8,9]
+
+  - key: 2.009
+    title: Elaboration of physical symptoms
+    description: |
+      Normally rated based on medical history and the patient's thoughts and worries about the condition. If the original disease is no longer present, the disorder is rated as a functional disorder, cf. 27.069.
+    input: integer
+    options:
+      1: Absent
+      2: Present
+      8: Uncertain
+      9: NK
+    validate: [1, 2, 8, 9]
+    glossary: |
+      A well-defined medical symptom or condition is present (not including functional syndromes or disorders). The course, the treatment (i.e. compliance), health status or recovery of the medical condition is affected by the psychological factors.
+      If the medical condition is not present anymore, the condition is rated as a functional condition instead.
+
+      CUT OFF => ????  (health anxiety) if there are no functional or dissociative symptoms based on the present information, i.e. 2003 = 0 or 2
+
+  - key: 2.episode2.section
+    title: Physical symptoms
+    description: |
+      **Use rating scale 1a if nothing else indicated.**
+
+      Rate on the basis of present information, incl. medical history.
+
+      For a symptom to be rated as being caused by well-known physical disease (or likely well-known physical disease), this well-known physical disease must be diagnosed in 2.007 or it must be an acute condition such as a flu. If you suspect that the patient has an undiagnosed physical disease, rate     8.
+    help: |
+      **Elaborate:**
+
+      Go through the symptoms as indicated by the patient, and check 2.010-2.090.
+
+      Elaborating questions:
+
+      - How did it feel (the symptom)?
+      - How pronounced was it?
+      - How did it affect you?
+      - Did you see a doctor about this?
+      - Did you get special tests?
+      - Did you get any treatment? What kind?
+      - What did the doctor tell you was the matter?
+      - What did you think yourself?
+
+      **[Show prompt card if necessary]**
+
+  - key: 2.episode3. section
+    title: General/unspecific symptoms/syndromes, incl. fatigue
+
+  - key: "2.010"
+    title: Alternative/complimentary rating
+    description: |
+      In the past year, have you had problems with fatigue, headache, dizziness,
+      impairment of memory, concentration difficulties or similar symptoms?
+    input: integer
+    options:
+      0: No significant discomfort
+      1: 1-2 symptoms
+      2: ">=3 symptoms"
+    validate: [0-2]
+    help: |
+      **By use of questionnaire:**
+
+      N: Negative questionnaire (use phrasing from mini SCAN)
+
+      P: Positive questionnaire.
+
+  - key: 2.011
+    title: General weakness or malaise
+    scale: 1a
+
+  - key: 2.012
+    title: Pronounced and distressing fatigue
+    description: |
+      If you feel exhausted following physical or mental exercise, how long does the exhaustion last?
+
+      Can you recover by resting or relaxation?
+    scale: 1a
+
+  - key: 2.013
+    title: Impairment of memory
+    scale: 1a
+
+  - key: 2.014
+    title: Concentration difficulties (cf. 7.001-7.003)
+    scale: 1a
+
+  - key: 2.015
+    title: Headache, tension
+    scale: 1a
+
+  - key: 2.016
+    title: Dizziness
+    scale: 1a
+
+  - key: 2.017
+    title: Others________________________________
+
+  - key: 2.episode4.section
+    title: Musculoskeletal symptoms/syndromes, incl. widespread pain, muscle tension etc.
+
+  - key: 2.018
+    title: Alternative/complimentary rating
+    description: |
+      Have you had pain or other discomfort from your muscles or joints, sensory disturbance or localised weakness e.g. in arms or legs?
+    input: integer
+    options:
+      0: No significant discomfort
+      1: 1-2 symptoms
+      2: ">=3 symptoms"
+    validate: [0-2]
+    help: |
+      By use of questionnaire:
+
+      N: Negative questionnaire (use phrasing from mini SCAN)
+
+      P: Positive questionnaire.
+
+  - key: 2.019
+    title: Back ache
+    scale: 1a
+
+  - key: 2.020
+    title: Muscular aches and pains
+    scale: 1a
+
+  - key: 2.021
+    title: Pain in arms or legs
+    scale: 1a
+
+  - key: 2.022
+    title: Pain in the joints
+    scale: 1a
+
+  - key: 2.023
+    title: Pain moving from one place to another
+    scale: 1a
+
+  - key: 2.024
+    title: Feelings of paresis or localized weakness
+    description: |
+      - Have you been unable to move a hand, an arm or a leg?
+      - Have your arms or legs felt heavy?
+      - Have you had difficulty standing or walking without support?
+    scale: 1a
+
+  - key: 2.025
+    title: Unpleasant numbness or tingling sensations
+    description: |
+      Have you experienced loss of or changes in the sense of touch?
+    scale: 1a
+
+  - key: 2.026
+    title: Neck pain
+    description: |
+      If yes:
+    scale: 1a
+
+  - key: 2.027
+    title: Neck pain in connection with whiplash trauma
+    description: |
+      Have you been exposed to a whiplash trauma?
+
+      Did you neck pain start at that time? **(See also <2.120>)**
+    scale: 1a
+
+  - key: 2.028
+    title: Widespread pain in both sides of the body and both in upper and lower body
+    scale: 1a
+
+  - key: 2.029
+    title: Others___________________
+    input: string
+
+  - key: 2.episode5.section
+    title: Gastroinstestinal symptoms/syndrome (GI Arousal), incl. upper dyspepsia
+    description: |
+      *Have you had any problems with your stomach such as pain, nausea, feeling bloated, burning sensation in the epigastrium or regurgitation?*
+
+  - key: "2.030"
+    title: Alternative/complimentary rating
+    description: |
+      **Upper dyspepsia**
+    input: integer
+    options:
+      0: No significant discomfort
+      1: 1-2 symptoms
+      2: ">=3 symptoms"
+    validate: [0-2]
+
+  - key: 2.031
+    title: Alternative/complimentary rating
+    description: |
+      **Lower GI symptoms**
+    input: integer
+    options:
+      0: No significant discomfort
+      1: 1-2 symptoms
+      2: ">=3 symptoms"
+    validate: [0-2]
+    help: |
+      **By use of questionnaire:**
+
+      N: Negative questionnaire (use phrasing from mini SCAN)
+      According to the questionnaire, you haven't had problems with your stomach/bowels
+      (…such as – read a couple of symptoms aloud). Is that correctly understood?
+      (If no, fill in the symptoms list).
+
+      P: Positive questionnaire
+      (I.e. at least one symptom > a little, or disturbance of everyday activities >2).
+
+  - key: 2.032
+    title: Regurgitation
+    description: |
+      Do you ever have regurgitation?
+    scale: 1a
+
+  - key: 2.033
+    title: Burning sensation in chest or epigastrium
+    description: |
+      Do you have a stinging or burning sensation in the chest
+      or upper epigastrium?
+    scale: 1a
+
+  - key: 2.034
+    title: Heartburn
+    scale: 1a
+
+  - key: 2.035
+    title: Vomiting
+    description: |
+      Do you suffer from vomiting?
+    scale: 1a
+
+  - key: 2.036
+    title: Nausea
+    scale: 1a
+
+  - key: 2.037
+    title: Abdominal pain incl. gripes
+    description: |
+      Have you had stomach ache or gripes?
+    scale: 1a
+
+  - key: 2.038
+    title: Feeling bloated, full of gas, distended, heavy
+    scale: 1a
+
+  - key: 2.039
+    title: Alternating bowel movements
+    description: |
+      (I.e. alternating constipation/normal or alternating constipation/diarrhea or alternating normal/diarrhea?
+    scale: 1a
+
+  - key: "2.040"
+    title: Rumbling and churning in the stomach
+    scale: 1a
+
+  - key: 2.041
+    title: Diarrhoea or loose bowel movements
+    description: |
+      **Rectal pain is rated in <2.068>**
+    scale: 1a
+
+  - key: 2.042
+    title: Relief (pain and other symptoms) by defecation
+    scale: 1a
+
+  - key: 2.043
+    title: Onset (pain and other symptoms) are related to changes in defecation frequency
+    scale: 1a
+
+  - key: 2.044
+    title: Onset is related to change in the form (appearance) of the defecation
+    description: |
+      Do you get pain or do the pain or other symptoms get worse in connection with changes in the form (appearance) of the defecation?
+    scale: 1a
+
+  - key: 2.episode6.section
+    title: Gardiovascular symptoms
+
+  - key: 2.045
+    title: Alternative/complimentary rating
+    description: |
+      In the past year, have you had symptoms from your heart or chest such as palpitations,
+      difficulty breathing, hot or cold swears?
+    input: integer
+    options:
+      0: No significant discomfort
+      1: 1-2 symptoms
+      2: ">=3 symptoms"
+    validate: [0-2]
+    help: |
+      ">=3 symptoms". Fulfills criteria for GS syndrome
+
+  - key: 2.046
+    title: Palpitations/heart pounding
+    scale: 1a
+
+  - key: 2.047
+    title: Precordial discomfort or chest pain
+    scale: 1a
+
+  - key: 2.048
+    title: Breathlessness without exertion
+    scale: 1a
+
+  - key: 2.049
+    title: Hyperventilation
+    scale: 1a
+
+  - key: 2.050
+    title: Hot or cold sweats
+    scale: 1a
+
+  - key: 2.051
+    title: Trembling or shaking
+    scale: 1a
+
+  - key: 2.052
+    title: Dry mouth
+    scale: 1a
+
+  - key: 2.053
+    title: Flushing or blushing
+    scale: 1a
+
+  - key: 2.054
+    title: Churning in stomach, 'butterflies'
+    scale: 1a
+
+  - key: 2.055
+    title: Other cardiovascular complaints
+    description: |
+      This item covers symptoms not included in the preceding items.
+    scale: 1a
+
+  - key: 2.episode7.section
+    title: Neurological symptoms, incl. dissociative
+    description: |
+      Paralysis is rated in **2.024** and skin sensibility disturbances in **2.025**.
+
+      Dissociative or conversion symptoms are also rated here, but see **2.065**.
+
+  - key: 2.056
+    title: Alternative/complimentary rating
+    description: |
+      Have you experienced spasms, fits, faintings, convulsions, loss of voice or, vision disturbances recently?
+    input: integer
+    options:
+      0: No significant discomfort
+      1: 1-2 symptoms
+      2: ">=3 neurological symptoms"
+    validate: [0-2]
+    help: |
+      **By use of questionnaire:**
+
+      N: Negative questionnaire (use phrasing from mini SCAN)
+
+      P: Positive questionnaire.
+
+  - key: 2.057
+    title: Fainting
+    scale: 1a
+
+  - key: 2.058
+    title: Loss of voice, aphonia, slurred speach
+    scale: 1a
+
+  - key: 2.059
+    title: Disturbance of vision, hearing or olfaction?
+    description: |
+      Have you experienced loss or disturbance of vision, hearing or olfaction?
+    scale: 1a
+
+  - key: "2.060"
+    title: Spasms, fits or convulsions
+    description: |
+      **Have you experienced convulsions recently?**
+
+      - What were they like?
+      - Did you lose consciousness altogether?
+      - Did you hurt yourself by falling or biting your tongue?
+      - Did you pass water or defecate in that connection
+
+  - key: 2.061
+    title: Feeling of impaired coordination or balance
+    description: |
+      Have your movements been unsteady or clumsy?
+    scale: 1a
+
+  - key: 2.062
+    title: Involuntary, abnormal movements (besides convulsions)
+    description: |
+      **(Tremor, dystonic movement, myoclonic walking)**
+
+      - Have you been unable to move a hand, an arm or a leg?
+      - Have you had difficulties standing or walking without support?
+      - Have you had difficulties speaking or swallowing?
+      - Try to tell explain more about it.
+
+  - key: 2.063
+    title: Difficulty swallowing or lump in throat
+    scale: 1a
+
+  - key: 2.064
+    title: Other neurological complaints
+    scale: 1a
+
+  - key: 2.episode8.section
+    title: Dissociative or conversion disorder
+    description: |
+      The symptoms rated elsewhere in chapter 2 can also be dissociative.
+    scale: 1a
+
+  - key: 2.065
+    title: Dissociative symptoms associated with trauma or stress
+    description: |
+      When you experienced (symptom), had you had a shocking experience or been under particular stress? (i.e. attacks, paralyses, couldn't see or hear)
+
+      - Did you have personal problems at that time?
+
+      E.g. traumatic events, troubling issues, insoluble problems
+    input: integer
+    options:
+      0: No dissociative symptoms
+      1: Yes, but not acute severe trauma at onset
+      2: Acute severe psychological trauma/events in connection with onset
+      8: Uncertain
+      9: NK
+    validate: [0-2,8,9]
+
+  - key: 2.episode9.section
+    title: Urological symptoms
+
+  - key: 2.066
+    title: Alternative/complimentary rating
+    description: |
+      Have you had pain in the rectum, by urination or other problems by urination?
+    input: integer
+    options:
+      0: No significant discomfort
+      1: 1-2 symptoms
+      2: ">=3 symptoms"
+    validate: [0-2]
+
+  - key: 2.067
+    title: Pains during urination
+    scale: 1a
+
+  - key: 2.068
+    title: Pains in rectum
+    scale: 1a
+
+  - key: 2.069
+    title: Frequent urination
+    scale: 1a
+
+  - key: 2.070
+    title: Urine retention
+    scale: 1a
+
+  - key: 2.071
+    title: Others
+    scale: 1a
+
+  - key: 2.episode10.section
+    title: Genital symptoms
+
+  - key: 2.072
+    title: Alternative/complimentary rating
+    description: |
+      Have you had problems with your lower body, menstruation, genitals or lack of libido?
+    input: integer
+    options:
+      0: No significant discomfort
+      1: 1-2 symptoms
+      2: ">=3 symptoms"
+    validate: [0-2]
+
+  - key: 2.073
+    title: Pains during menstruation
+    scale: 1a
+
+  - key: 2.074
+    title: Unpleasant sensations in or around the genitals
+    scale: 1a
+
+  - key: 2.075
+    title: Vulvodynia (if 2.051 is positive)
+    scale: 1a
+
+  - key: 2.076
+    title: Irregular menstruation
+    scale: 1a
+
+  - key: 2.077
+    title: Lack of libido
+    scale: 1a
+
+  - key: 2.078
+    title: Pains during sexual intercourse
+    scale: 1a
+
+  - key: 2.079
+    title: Other genital complaints
+    scale: 1a
+
+  - key: 2.episode11.section
+    title: Symptoms from other organ systems
+
+  - key: "2.080"
+    title: Alternative/complimentary rating
+    description: |
+      Have you had other bothersome symptoms such as tinnitus, jaws, ears, nose, neck or eyes?
+    input: integer
+    options:
+      0: No significant discomfort
+      1: 1-2 symptoms
+      2: ">=3 symptoms"
+    validate: [0-2]
+    help: |
+      **By use of questionnaire:**
+
+      N: Negative questionnaire (use phrasing from mini SCAN)
+
+      P: Positive questionnaire.
+
+  - key: 2.081
+    title: Tinnitus
+    scale: 1a
+
+  - key: 2.082
+    title: Ear, nose or throat (other than pain)
+    scale: 1a
+
+  - key: 2.083
+    title: Teeth, jaw or oral cavity (other than pain)
+    scale: 1a
+
+  - key: 2.084
+    title: Eyes, incl. visual disorders
+    scale: 1a
+
+  - key: 2.085
+    title: Mandibular pain
+    description: |
+      Have you had pain in the jaw or the muscle of mastication?
+    scale: 1a
+
+  - key: 2.086
+    title: Pain in the temporomandibular joint
+    description: |
+      Have you had pain in the temporomandibular joint
+    scale: 1a
+
+  - key: 2.087
+    title: Others
+    scale: 1a
+
+  - key: 2.episode12.section
+    title: Allergy, sensitivity to chemicals, odors or food
+
+  - key: 2.088
+    title: Alternative/complimentary rating
+    description: |
+      *Have you had problems with sensitivity to chemicals, odors or intolerance to foods?*
+    input: integer
+    options:
+      0: No significant discomfort
+      1: 1-2 symptoms
+      2: ">=3 symptoms"
+    validate: [0-2]
+    help: |
+      **By use of questionnaire:**
+
+      N: Negative questionnaire (use phrasing from mini SCAN)
+
+      P: Positive questionnaire.
+
+  - key: 2.089
+    title: Sensitivity to several foods
+    scale: 1a
+
+
+  - key: "2.090"
+    title: Sensitivity to odors and chemicals
+    description: |
+      Do you react to an odor or a strong chemical agent without anyone around you getting any symptoms?
+
+      Is it due to allergy? (If so, rate 6)
+
+      **If yes**
+    scale: 1a
+
+  - key: 2.091
+    title: Do the symptoms disappear post-exposure
+    description: |
+       Do the symptoms disappear when you are no longer exposed to these odors or chemical agents?
+    scale: 1a
+
+  - key: 2.episode13.section
+    title: Predominant symptom
+
+  - key: 2.092
+    title: Main complaint or predominant symptom 2.010-2.090.
+    description: |
+      Specified______________________
+
+      (Rate 888 if the patients cannot indicate one single predominant symptom)
+
+      Which of these symptoms have bothered you the most?
+
+  - key: 2.093
+    title: Pain disorder/syndrome (idiopathic/primary pain)
+    description: |
+      If the primary problem is pain, the rater must decide if it can be characterised as pain syndrome/disorder.
+    input: integer
+    options:
+      0: No pain syndrome/disorder
+      1: Mild
+      2: Moderate
+      3: Severe
+      4: Neuropathic
+      5: Caused by well-defined physical disease (incl. tumor)
+      6: Uncertain
+      8: NK
+    validate: [0-6,8]
+
+  - key: 2.094
+    title: Interference with activities and distress due to bodily distress or somatic symptoms
+    description: |
+      You have mentioned **(summarise symptoms)** during **(specify the period)**. How much have the mentioned symptoms interfered with your daily quality of life and activities?
+    input: integer
+    options:
+      0: No bodily distress symptoms
+      1: Only little interference
+      2: Moderate or intermittent interference or
+      3: Severe or incapacitating interference or distress
+      8: Uncertain
+      9: NK
+    validate: [0-3,8,9]
+
+  - key: 2.095
+    title: Boom and bust cycle
+    description: |
+      *Further to above item.*
+
+      If you are active and exceed the limits of your capacity for a day – do you then get exhausted or need to stay in bed for a day or more?
+
+      Is this a well-known pattern to you that if you have to do something, i.e. go to a party, go an a travel or go to see a social worker, you will be exhausted for several days?
+    input: integer
+    options:
+      0: No
+      1: Mild/modest, I recognise this but not a major problem when I take care of myself
+      2: Severe, with severe impact on my life
+      8: Uncertain
+      9: NK
+    validate: [0-2,8,9]
+
+  - key: 2.096
+    title: Length of disorder or discomfort due to symptoms
+    description: |
+      In months
+    input: integer
+    options:
+      0: Absent
+      800: 800 mths or more
+      888: NK
+      999: NA
+    validate: [0-999]
+
+  - key: 2.097
+    title: Variability of functional symptoms ("slow" variation)
+    description: |
+      Over months or years. Change in illness picture, which can be relatively stable for e period and then suddenly change to a different organ system/illness picture).
+      Information from other sources should also be considered, e.g. case notes, referring doctor or family).
+
+      - Have your symptoms or illness changed?
+      - Have several things been wrong with you?
+    input: integer
+    options:
+      0: Stable with small changes focused on the same relatively stable symptom/illness picture
+      1: Symptoms have changed from one to one or several others relatively stable symptoms/illness pictures
+      2: Several symptoms/illness pictures simultaneously
+      3: No delimited symptoms/illness pictures
+      8: Uncertain
+      9: NK
+    validate: [0-3,8,9]
+
+  - key: 2.098
+    title: Variability of functional symptoms (“fast” variation)
+    description: |
+      (hour-to-hour, day-to-day or week-to-week.)
+
+      Information from other sources should also be considered, e.g. case reports, referring doctor, family.)
+
+      - Can there be differences as to how you feel from day to day or fro week to week?
+      - Can you be completely well on the days you feel fine?
+
+    input: integer
+    options:
+      0: No fluctuation
+      1: Moderate fluctuation
+      2: Pronounced fluctuation
+      8: Uncertain
+      9: NK
+    validate: [0-2,8,9]
+
+  - key: 2.099
+    title: Worsening in illness and symptoms over time
+    description: |
+      - Has your condition gradually worsened over time/over the years?
+      - How?
+    input: integer
+    options:
+      0: No, or constant
+      1: Mild to modest worsening
+      2: Severe worsening
+      8: Uncertain
+      9: NK
+    validate: [0-2,8,9]
+
+  - key: 2.episode14.section
+    title: Illness worry and preoccupation (health anxiety)
+
+  - key: "2.100"
+    title: Excessive preoccupation with well-defined physical diseases
+    description: |
+      If the patient suffers from a serious physical disease (if not, skip to <2.101>).
+
+      - Do you or others think that you are more worried about your disease (name the disease) than you ought to be?
+      - What do others say - about whether you are too worried?
+
+  - key: 2.101
+    title: Preoccupation with somatic symptoms and worry about physical health
+    description: |
+      - Are you afraid that something serious is wrong with you?
+      - Have you seen a doctor because of it? (within the past year)
+    input: integer
+    options:
+      0: No particular preoccupation, or condition not present
+      2: Mild to moderate preoccupation
+      3: Excessive preoccupation with visits to the doctor, examinations, continuous self-medication or pronounced difficulties in daily life.
+      8: Uncertain
+      9: NK
+    validate: [0, 2, 3, 8, 9]
+    help: |
+      Rate on the basis of degree of preoccupation, illness conviction or distress, frequency of consultations and examinations, degree of symptoms or excessive illness worry.
+
+  - key: 2.102
+    title: Obsessive ruminating about illness
+    description: |
+      - If you think about having a disease or being seriously ill, do you find it difficult to get it off your mind again?
+      - Are you thinking about it constantly or are you winding yourself up?
+    input: integer
+    options:
+      0: No particular preoccupation, or condition not present
+      1: Mild to moderate preoccupation
+      2: Severe preoccupation that considerably affects everyday life
+      8: Uncertain
+      9: NK
+    validate: [0-2,8,9]
+
+  - key: 2.103
+    title: Time spent on illness worry and symptoms
+    description: |
+      Do you spend much time or energy on your symptoms or disease, or do you worry about it or worry about being ill?
+    input: integer
+    options:
+      0: No particular preoccupation, or condition not present
+      1: Spends less than an hr. a day thinking about the disturbing condition/symptoms
+      2: Spends more than an hr. a day thinking about the disturbing condition/symptoms
+      8: Uncertain
+      9: NK
+    validate: [0-2,8,9]
+
+  - key: 2.104
+    title: Bodily preoccupation
+    description: |
+      Are you generally very attentive of how your body is functioning and what is happening inside of it?
+
+      - What have you noticed?
+      - Do you sometimes think that the sensations you have in your body might be unnatural or even dangerous?
+      - Does a bruise or an irritation of the skin make you worry that something serious might be wrong?
+      - Do you often listen to your pulse?
+    input: integer
+    options:
+      0: No particular preoccupation or condition not present
+      1: Mild preoccupation, but not radically interfering with everyday life
+      2: Excessive preoccupation involving severe daily troubles or numerous consultations or self-medication
+      8: Uncertain
+      9: NK
+    validate: [0-2,8,9]
+
+  - key: 2.105
+    title: Preoccupation with medical information, health and disease
+    description: |
+      - Are you generally very preoccupied with health issues e.g. in the media or on the internet?
+      - Are you very interested in that?
+    input: integer
+    options:
+      0: No particular preoccupation, or condition not present
+      1: Mild preoccupation, but not radically interfering with everyday life
+      2: Excessive preoccupation involving severe daily troubles or numerous consultations or self-medication
+      8: Uncertain
+      9: NK
+    validate: [0-2,8,9]
+
+  - key: 2.106
+    title: Suggestibility and autosuggestibility
+    description: |
+      If you read or hear about a disease in the media,
+
+      - Do you become afraid of having this disease?
+      - Do family members’ diseases make you afraid of having the same disease?*
+      - Do you avoid reading about health issues to prevent getting afraid of having a disease
+      - If you think about a disease, do you become afraid of having it?
+    input: integer
+    options:
+      0: No particular preoccupation, or condition not present
+      1: Mild to moderate preoccupation or somewhat affectable
+      2: Mild affectability and excessive preoccupation resulting in frequently induced symptoms or considerable ruminations or frequent consultations
+      8: Uncertain
+      9: NK
+    validate: [0-2,8,9]
+
+  - key: 2.107
+    title: Fear of being infected or contaminated
+    description: |
+      Are you afraid of being infected or catching a disease from others by being with someone who is ill or by touching dirty things, e.g. toilet seats?
+    input: integer
+    options:
+      0: No particular preoccupation, or condition not present
+      1: Mild to moderate preoccupation
+      2: Severe preoccupation, frequently induced symptoms with considerable ruminations or frequent consultations
+      8: Uncertain
+      9: NK
+    validate: [0-2,8,9]
+
+  - key: 2.108
+    title: Fear of medication and compliance
+    description: |
+      Are you generally comfortable about taking medication or are you worried about the possible side effects it might have?
+
+      Do you take all the medication that the doctor prescribes, or do you sometimes give up taking it or skip a dosage because of fear of the medication?
+    input: integer
+    options:
+      0: Normal degree of security/insecurity
+      1: Some fear of medication or a certain degree of inappropriate administering of medication
+      2: Extreme degree of insecurity and/or no compliance
+      8: Uncertain
+      9: NK
+    validate: [0-2,8,9]
+
+  - key: 2.109
+    title: Rejection of the doctor’s reassurance
+    description: |
+      - Are you convinced that you have a physical disease?
+      - Do you feel you need to have further examinations?
+      - Has the doctors’ reassurance (previously) convinced you that you do not have a physical disease?
+      - Have you told the doctor that you are not convinced? What did he say?
+      - Were you reassured when the doctor said there was no reason to worry?
+    input: integer
+    options:
+      0: Accepts reassurance
+      1: Partly, but unable to maintain reassurance at one or more occasions
+      2: Can only briefly maintain reassurance
+      3: Continuously not accepting the doctor’s reassurances or explanations
+      4: Delusional
+      8: Uncertain
+      9: NK
+    validate: [0-4,8,9]
+    help: |
+      The pt. expresses more or less pronounced degree of belief that s/he has a serious diseases or a bothering deformity in spite of the doctor’s reassurance that nothing is wrong.
+
+      Do not mix up with fear of getting a disease <4.044>.
+
+      - Dysmorphophobia is also rated at <16.011>.
+      - Hypochondriacal delusions (unyielding conviction of having a serious disease) are rated in <19.027> and <19.028>. If these are part of another psychotic disorder, <19.027> and <19.028> are rated instead.
+
+  - key: "2.110"
+    title: Catastrophizing
+    description: |
+      Do you expect serious consequences (i.e. serious disability, not being able to return to work, not being able to take care of your children, never being the same again) when you have symptoms?
+    scale: 1a
+    help: |
+      **See also section 5 (Gabriel)**
+
+  - key: 2.111
+    title: Health anxiety by proxy
+    description: |
+      Within the past year:
+
+      - Have you often been worried that your child, your partner or others around you are sick?
+      - Have you taken your child to the doctors because of it?
+      - Have you pressured your partner to see the doctor because of it?
+      - Do you check e.g. if your children have bruises or swollen lymph nodes or do you "scan" your children's bodies for changes e.g. when they take a bath?
+    input: integer
+    options:
+      0: No particular preoccupation or the disorder is not present
+      1: Mild to moderate preoccupation
+      2: Severe preoccupation and takes child to the doctor, to examinations, self-medicates the child or marked distress in everyday life
+      8: Uncertain
+      9: NK
+    validate: [0-2,8,9]
+
+  - key: 2.112
+    title: Treatment-seeking behaviour in relation to health anxiety or symptoms past 2 years
+    description: |
+      - How many doctors have you seen due to your illness/symptoms during the last two years?
+      - Why have you seen so many different doctors?
+      - Have you felt it was necessary to see other doctors or experts to get a second opinion or a different treatment (just to be on the safe side)?
+    input: integer
+    options:
+      0: The patient has not unsolicited seen other doctors / treatment providers due to functional illness/health anxiety
+      1: The patient has only once seen another doctor / treatment providers to functional illness/health anxiety
+      2: The patient has actively consulted 2-3 different doctors / treatment providers due to functional illness/health anxiety
+      3: The patient has actively consulted 4 or more different doctors / treatment providers due to functional illness/health anxiety
+      8: Uncertain
+      9: NK
+    validate: [0-2,8,9]
+
+  - key: 2.113
+    title: Avoidance related to health anxiety or symptoms
+    description: |
+      - Do you avoid things or situations that may make you worry about your health, e.g. reading or hearing about illness on TV, the internet or other places?
+      - Do you get very nervous when you are going to see a doctor?
+      - Do you avoid seeing a doctor or do you stay away from hospital admittance due to anxiety?
+    input: integer
+    options:
+      0: No maladaptive avoidance due to health anxiety
+      1: Mild to moderate maladaptive avoidance due to health anxiety
+      2: Severe maladaptive avoidance due to health anxiety
+      8: Uncertain
+      9: NK
+    validate: [0-2,8,9]
+
+  - key: 2.114
+    title: Duration of bodily preoccupation and illness worry (2.100-2.113)
+    description: |
+      In months
+    input: integer
+    options:
+      0: Absent
+      800: 800 mths or more
+      888: NK
+      999: NA
+    validate: [0-800,888,999]
+
+  - key: 2.115
+    title: Interference with activities and distress due to health anxiety
+    description: |
+      You have mentioned **[summarize symptoms]** during **[specify the period]**. How much have the mentioned symptoms interfered with your everyday activities?
+    input: integer
+    options:
+      0: No health anxiety
+      1: Only little interference
+      3: Moderate or intermittent interference
+      4: Severe to incapacitating interference
+      8: Uncertain
+      9: NK
+    validate: [0-4,8,9]
+
+  - key: 2.116
+    title: Dysmorphophobia
+    description: |
+      Do you fear that there is a change or a deformity of your appearance?
+    input: integer
+    options:
+      0: No dysmorphophobia
+      1: Preoccupation with a presumed deformity or change of the appearance
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 8, 9]
+    help: |
+      Cf. dysmorphophobia, <16.011>
+
+  - key: 2.episode15.section
+    title: Syndrome- or symptom-based diagnoses according to the patients
+    description: |
+        Rating is based on the answers in <2010>-<2.090> or other parts of the interview or if those are inadequate, ask the patient directly.
+
+        - Does the patient believe, ort has the patient been told, that he or she suffers from a syndrome- or symptom-based diagnosis?
+    input: integer
+    options:
+      0: Absent
+      1: Yes, but not 2
+      2: Acute severe psychological trauma/events in connection with onset
+      8: Uncertain
+      9: NK
+    validate: [0-2,8,9]
+
+  - key: 2.117
+    title: Fibromyalgia
+
+  - key: 2.118
+    title: CFS (Chronic Fatigue Syndrome)
+
+  - key: 2.119
+    title: IBS (Irritable Bowel Syndrome)
+
+  - key: "2.120"
+    title: Pain syndrome (other than fibromyalgia)
+
+  - key: 2.121
+    title: Chronic whiplash (WAD)
+
+  - key: 2.122
+    title: Multiple Chemical Sensitivity (MCS)
+
+  - key: 2.123
+    title: Other
+    description: |
+      Specify_________________________
+
+  - key: 2.episode16.section
+    title: Events associated with onset of symptoms or illness
+    description: |
+        (if not brought to light during the first part of the interview, the patient is asked directly)
+        - *How did your illness start (or the symptoms)?*
+        - *Did other things happen in your life simultaneously?*
+        - *Was there anything that triggered your illness?*
+    input: integer
+    options:
+      0: No particular events
+      1: Yes, but not 2
+      2: Yes, clear connection / association
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 8, 9]
+
+  - key: 2.124
+    title: Physical trauma (e.g. whiplash, fracture, head trauma)
+    input: integer
+    options:
+      0: No particular trauma
+      2: Yes, but not 2
+      3: Yes, clear connection / association
+      8: Uncertain
+      9: NK
+    validate: [0, 2, 3, 8, 9]
+
+  - key: 2.125
+    title: Physical disease (e.g. infectious disease)
+    input: integer
+    options:
+      0: No particular disease
+      1: Yes, but not 2
+      2: Yes, clear connection / association
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 8, 9]
+
+  - key: 2.126
+    title: Emotional trauma, conflicts or strain
+    input: integer
+    options:
+      0: No particular events
+      1: Yes, but not 2
+      2: Yes, clear connection / association
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 8, 9]
+
+  - key: 2.127
+    title: Significant social event (e.g. divorce, dismissal, bereavement)
+    input: integer
+    options:
+      0: No particular events
+      1: Yes, but not 2
+      2: Yes, clear connection / association
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 8, 9]
+
+  - key: 2.128
+    title: Significant work-related stress or stress-related to your personal life
+    description: |
+      *Stressful, busy everyday life but not **1.127***
+    input: integer
+    options:
+      0: No particular stress
+      1: Yes, but not 2
+      2: Yes, clear connection / association
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 8, 9]
+
+  - key: 2.129
+    title: Exposure to strong odor or chemicals
+    input: integer
+    options:
+      0: No particular exposure
+      1: Yes, but not 2
+      2: Yes, clear connection / association
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 8, 9]
+
+  - key: 2.episode17.section
+    title: Symptom- or illness attributions (prompt card if needed)
+
+  - key: "2.130"
+    title: Symptom- or illness attribution
+    description: |
+      - *What do you think is causing your illness? (or symptoms)*
+      - *Do you think that stress, strain or your life situation could be the cause?*
+      - *Are you firmly convinced or are you in doubt?*
+      - *Why do you think so?*
+    input: integer
+    options:
+      0: Unsure, has no theories on the cause, does not necessarily exclude strain and stress
+      1: Has thought about the possibility, does not necessarily exclude strain and stress
+      2: Convinced about 1 or more causalities (excluding psychosocial and stress)
+      3: Has an elaborated theory and a rigid perception of causality (excluding psychosocial and stress)
+      4: Psychotic delusion
+      5: Well-defined somatic disease
+      6: Unsure rating
+      8: Uncertain
+      9: NK
+    validate: [0-9]
+
+  - key: 2.131
+    title: Identification of relieving or aggravating factors
+    description: |
+      *Have you noticed if anything relieves or aggravates your illness?*
+
+      *Can you do anything yourself to get better?*
+
+      *Can the patient identify factors that alleviate the discomfort or factors that aggravate the illness, or are these numerous and diffuse?*
+    input: integer
+    options:
+      0: Well-defined and few
+      1: Some difficulty indicating the symptoms
+      2: Great difficulty or numerous and diffuse
+      8: Unsure
+      9: NA
+    validate: [0-999]
+
+  - key: 2.episode18.section
+    title: Age of onset
+
+  - key: 2.episode19.section
+    title: Differential diagnoses
+
+  - key: 2.134
+    title: Relation between functional symptoms and well-defined physical disease
+    input: integer
+    options:
+      0: Absent or symptoms of only one type
+      1: Functional symptoms most dominating in the clinical picture
+      2: Functional symptoms and physical disease are equally dominating
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 8, 9]
+
+  - key: 2.135
+    title: Functional disorder or panic attacks, primary
+    input: integer
+    options:
+      0: Absent or symptoms of only one type
+      1: Bodily distress more dominating or started first
+      2: Bodily distress and panic attacks co-occur (comorbidity)
+      3: Symptoms of anxiety more dominating or started first
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 3, 8, 9]
+
+  - key: 2.136
+    title: Functional disorder or depression, primary (Cf 6.023)
+    input: integer
+    options:
+      0: Absent or symptoms of only one type
+      1: Bodily distress more dominating or started first
+      2: Bodily distress and depression co-occur (comorbidity)
+      3: Symptoms of depression more dominating or started first
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 3, 8, 9]
+
+  - key: 2.137
+    title: Association between bodily distress and health anxiety
+    input: integer
+    options:
+      0: Absent or symptoms of only one type
+      1: Bodily distress more dominating or started first
+      2: Bodily distress and health anxiety co-occur (comorbidity)
+      3: Health anxiety symptoms more dominating or started first
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 3, 8, 9]
+
+  - key: 2.138
+    title: Functional disorder or other mental disease, primary
+    input: integer
+    options:
+      0: Absent or symptoms of only one type
+      1: Bodily distress more dominating or started first
+      2: Bodily distress and other mental disorder co-occur (comorbidity)
+      4: Symptoms from other mental disorder more dominating or started first
+      10: Uncertain
+      11: NK
+    validate: [0, 1, 2, 4, 10, 11]
+
+  - key: 2.episode20.section
+    title: Observed behaviour
+
+  - key: 2.143
+    title: Ego-dystonic or ego-syntonic
+    description: |
+      Ego-dystonic: The patient tends, at least partially, to describe symptoms or illness worry as being unfamiliar, unwelcome, tiresome or “unlike my nature”.
+
+      Ego-syntonic:  The patient feels the symptoms or the illness worry as an integrated part of himself / herself and not as a cognitive inclination, even if the patient may be in doubt whether he or she has a physical illness.
+    input: integer
+    options:
+      0: No functional disorder
+      1: The functional disorder is primarily felt as ego-dystonic
+      2: The functional  disorder is a mix of ego-dystonic and ego-syntonic
+      3: The functional disorder is primarily felt as ego-syntonic
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 3, 8, 9]
+
+  - key: 2.144
+    title: Emotional discrepancy (“belle indifference”)
+    description: |
+      The patient’s presentation of his or her condition shows inadequate affect in relation to the severity of symptoms and the severity of illness the patient complains of.
+
+      For instance, the patient may smile with a curious resignation in spite of severe pain or impairment, and the patient may seem emotionally unaffected by his/her condition.
+    input: integer
+    options:
+      0: No discrepancy
+      1: Present to insignificant or mild extent
+      2: Definitely present and together with functional symptoms
+      6: Definitely present, but caused by a physical disease, e.g. multiple sclerosis
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 6, 8, 9]
+
+  - key: 2.145
+    title: Discrepancy between subjective complaints and observed behaviour
+    description: |
+      There is a discrepancy between the patient’s adroitness and facial expressions during the interview and his/her symptoms description. For instance, the patient moves and sits completely freely despite complaining of severe back pain or gives detailed information despite complaints of severe memory impairment.
+    input: integer
+    options:
+      0: No discrepancy
+      1: Present to insignificant or mild extent
+      2: Definitely present and to a pronounced extent
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 8, 9]
+
+  - key: 2.146
+    title: Psycho-social communication style
+    description: |
+      The patient is more focused on communicating the level of disability, discomfort and lifestyle limitations than on the impact on the health.
+    input: integer
+    options:
+      0: No psychosocial communication
+      1: Present to insignificant or mild extent
+      2: Pronounced degree of psychosocial communication form
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 8, 9]
+
+  - key: 2.147
+    title: Lack of chronology in symptom- and medical history
+    description: |
+      The interview is characterized by the patient having difficulty with the chronology of symptoms, diseases, examinations, hospitalizations etc.
+
+      For instance, it can be hard to find out if the pt. talks about symptoms that have been present at an earlier stage, or if the pt. is currently bothered by the symptoms, or if the pt. talks about an examination made recently or a long time ago.
+
+      Must be evaluated in the light of what can be expected of any person having a long-standing and complicated course of disease.
+    input: integer
+    options:
+      0: Absent
+      1: To a mild extent
+      2: Pronounced
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 8, 9]
+
+  - key: 2.148
+    title: Vague, diffuse symptom description and anamnesis
+    description: |
+      Symptoms are described vaguely, they are diffuse and maybe atypical/uncharacteristic and alternating throughout the interview.
+
+      The patient has difficulty answering questions in greater detail and specifying the complaints, e.g. localisation, intensity, nature (e.g. if a pain is burning or pricking). In some cases the patient even gets irritated at the interviewer, who maintains the questions on the symptoms localisation, intensity and periodicity etc.
+    input: integer
+    options:
+      0: Absent
+      1: To a mild extent
+      2: Pronounced
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 8, 9]
+
+  - key: 2.149
+    title: Vague, diffuse description of previous treatments
+    description: |
+      The patient has difficulty describing which treatments he or she has undergone, and the effect is described vaguely or without certainty.
+
+      The pt. may mix up diagnostic procedures and treatment. Is critical towards earlier treatment and often indicates that the treatments have caused aggravation of the condition.
+    input: integer
+    options:
+      0: Absent
+      1: To a mild extent
+      2: Pronounced
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 8, 9]
+
+  - key: "2.150"
+    title: Affective description
+    description: |
+      Symptoms, illness, examinations, hospitalisations etc. are vividly described with a tendency to dramatise and exaggerate.
+    input: integer
+    options:
+      0: Absent
+      1: To a mild extent
+      2: Pronounced
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 8, 9]
+
+  - key: 2.151
+    title: Inconsistency of information
+    description: |
+      The patient gives different and conflicting information throughout the interview, or there is a discrepancy between the information gathered from other sources (medical records, referring doctor, social services, family etc.) and the patient’s own information during the interview.
+    input: integer
+    options:
+      0: No consistency
+      1: Some inconsistency
+      2: Pronounced inconsistency
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 8, 9]
+
+  - key: 2.152
+    title: Previous course of disease and treatments (according to medical records etc.)
+    description: |
+      Rating based on going through the medical records and information from doctors etc.
+    input: integer
+    options:
+      0: No or only contact with own GP and not 1
+      1: Frequent contacts primarily with own GP and without certain physical explanation
+      2: Repeated contacts with hospitals and specialists without certain physical explanation
+      3: Numerous and frequent contacts during several years with hospitals, specialists etc. without certain physical explanation
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 3, 8, 9]
+
+  - key: 2.153
+    title: Motorically passive
+    description: |
+      The patient stays still and moves less than normally
+
+  - key: 2.154
+    title: Suspect malingering, factitious disorder or Münchhausen's syndrome (according to interview, medical records etc.)
+    description: |
+      Factitious disorder is rated in checklist **2.065**
+    input: integer
+    options:
+      0: No suspicion
+      1: Malingering
+      2: Factitious disorder
+      3: Münchhausen's syndrome
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 3, 8, 9]

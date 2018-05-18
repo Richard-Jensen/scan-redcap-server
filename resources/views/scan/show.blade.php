@@ -12,7 +12,7 @@
     @endif
   </div>
 
-  <div id="scan-app" class="container scan-app-container">
+  <div id="scan-app" class="scan-app-container">
   </div>
 
   @if ($record)

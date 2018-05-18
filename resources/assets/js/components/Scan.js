@@ -57,10 +57,14 @@ class Scan extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ height: '100%' }}>
         <div style={{ display: 'flex' }}>
-          <ItemList items={items} activeIndex={this.state.activeIndex} />
-          <ResponseContainer items={items} />
+          <div className="interview-list">
+            <ItemList items={items} activeIndex={this.state.activeIndex} />
+          </div>
+          <div>
+            <ResponseContainer items={items} />
+          </div>
         </div>
         <textarea
           placeholder="Save some JSON"

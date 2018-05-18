@@ -1,5 +1,11 @@
 // Variables
 @import 'variables';
+@import 'milligram/milligram';
+
+body {
+  font-family: $font-family-sans-serif;
+  font-size: $font-size-base;
+}
 
 nav {
   display: flex;
@@ -45,6 +51,10 @@ nav {
 }
 
 .scan-app-container {
-  height: 400px;
+  height: 100%;
   overflow: auto;
+}
+
+.interview-list {
+  width: 200px;
 }

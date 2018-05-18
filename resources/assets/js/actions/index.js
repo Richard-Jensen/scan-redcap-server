@@ -15,8 +15,8 @@ export const setResponse = (key, value) => ({
   }
 });
 
-export const setComment = (key, value) => ({
-  type: 'SET_COMMENT',
+export const setNote = (key, value) => ({
+  type: 'SET_NOTE',
   payload: {
     key,
     value

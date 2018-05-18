@@ -2,20 +2,15 @@
   "private": true,
   "scripts": {
     "dev": "npm run development",
-    "development":
-      "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch":
-      "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch-poll": "npm run watch -- --watch-poll",
-    "hot":
-      "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
-    "production":
-      "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "compile-items":
-      "js-yaml resources/assets/js/items/2.1/scan.2.1.items.da.yml > resources/assets/js/items/2.1/scan.2.1.items.da.json",
-    "compile-items-en":
-      "js-yaml resources/assets/js/items/2.1/scan.2.1.items.en.yml > resources/assets/js/items/2.1/scan.2.1.items.en.json",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "compile-items": "js-yaml resources/assets/js/items/2.1/scan.2.1.items.da.yml > resources/assets/js/items/2.1/scan.2.1.items.da.json",
+    "compile-items-en": "js-yaml resources/assets/js/items/2.1/scan.2.1.items.en.yml > resources/assets/js/items/2.1/scan.2.1.items.en.json",
+    "compile-section-2": "js-yaml resources/assets/js/items/3.0/section.2.en.yml > resources/assets/js/items/3.0/section.2.en.json",
     "prettier": "prettier"
   },
   "devDependencies": {
@@ -35,6 +30,7 @@
   },
   "dependencies": {
     "react-redux": "^5.0.7",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "remarkable": "^1.7.1"
   }
 }

@@ -148,7 +148,7 @@ class ScanData
 
               return [
                   'scan_info' => $record[0],
-                  'scan_data' => $scan_data === 'error' ? [ 'data' => ''] : json_decode($scan_data)
+                  'scan_data' => $scan_data === 'error' ? [] : json_decode($scan_data)
               ];
 
             } else {

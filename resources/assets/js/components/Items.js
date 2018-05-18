@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setActiveItem, setResponse, setComment } from '../actions';
+import { setActiveItem, setResponse, setNote } from '../actions';
 import { List } from 'react-virtualized';
+import { ItemCard } from './ItemCard';
 
 export const ItemList = ({ items, activeIndex }) => {
   const rowRenderer = ({ index, isScrolling, key, style }) => {
@@ -15,7 +16,7 @@ export const ItemList = ({ items, activeIndex }) => {
       scrollToIndex={activeIndex}
       height={400}
       width={200}
-      rowHeight={({ index }) => (items[index].input ? 40 : 20)}
+      rowHeight={({ index }) => (items[index].input ? 40 : 50)}
       rowCount={items.length}
       overscanRowCount={10}
       rowRenderer={rowRenderer}
@@ -23,28 +24,25 @@ export const ItemList = ({ items, activeIndex }) => {
   );
 };
 
-export const Items = ({ items }) => (
-  <ul>
-    {items.map(item => {
-      return <ItemContainer key={item.key} item={item} />;
-    })}
-  </ul>
-);
-
 const Item = ({ item, dispatch, interview, style, key }) => {
   const isActive = item.key === interview.activeKey;
 
   return (
-    <div
-      onClick={() => dispatch(setActiveItem(item.key))}
-      style={style}
-      key={key}
-    >
+    <div style={style} key={key}>
       <button
         onClick={() => dispatch(setActiveItem(item.key))}
-        style={{ backgroundColor: isActive ? 'grey' : '' }}
+        style={{
+          backgroundColor: isActive ? 'grey' : '',
+          height: '100%',
+          width: '100%',
+          fontSize: '10px',
+          textAlign: 'left'
+        }}
       >
-        {item.key}
+        <div>
+          {item.key}
+          <span>{item.title}</span>
+        </div>
       </button>
     </div>
   );
@@ -54,6 +52,9 @@ const ItemContainer = connect(state => state)(Item);
 
 const Response = ({ items, dispatch, interview }) => {
   const item = items.find(item => item.key === interview.activeKey);
+  if (!item) {
+    return <div>No item found</div>;
+  }
   let input = item.input;
   if (input === 'integer') {
     input = 'number';
@@ -62,23 +63,26 @@ const Response = ({ items, dispatch, interview }) => {
     input = 'text';
   }
   const response = (interview.responses && interview.responses[item.key]) || '';
-  const comment = (interview.comments && interview.comments[item.key]) || '';
+  const note = (interview.notes && interview.notes[item.key]) || '';
 
   return (
     <div key={item.key}>
-      <h4>{item.key}</h4>
-      {item.description}
-      <input
-        type={input}
-        onChange={event => dispatch(setResponse(item.key, event.target.value))}
-        defaultValue={response}
-        autoFocus
-      />
+      <ItemCard item={item} />
+      {input && (
+        <input
+          type={input}
+          onChange={event =>
+            dispatch(setResponse(item.key, event.target.value))
+          }
+          defaultValue={response}
+          autoFocus
+        />
+      )}
 
       <textarea
-        onChange={event => dispatch(setComment(item.key, event.target.value))}
-        defaultValue={comment}
-        placeholder="Comment"
+        onChange={event => dispatch(setNote(item.key, event.target.value))}
+        defaultValue={note}
+        placeholder="Note"
       />
     </div>
   );
