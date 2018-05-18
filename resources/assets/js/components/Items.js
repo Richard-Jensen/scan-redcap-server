@@ -65,8 +65,10 @@ const Response = ({ items, dispatch, interview }) => {
       <ItemCard item={item} />
       {input && (
         <React.Fragment>
+          <label for="response">Response</label>
           <input
             type={input}
+            name="response"
             onChange={event =>
               dispatch(setResponse(item.key, event.target.value))
             }
