@@ -14,9 +14,9 @@ export const ItemList = ({ items, activeIndex }) => {
     <List
       style={{ outline: 'none' }}
       scrollToIndex={activeIndex}
-      height={400}
+      height={500}
       width={200}
-      rowHeight={({ index }) => (items[index].input ? 40 : 50)}
+      rowHeight={({ index }) => (items[index].input ? 40 : 40)}
       rowCount={items.length}
       overscanRowCount={10}
       rowRenderer={rowRenderer}
@@ -32,17 +32,12 @@ const Item = ({ item, dispatch, interview, style, key }) => {
       <button
         onClick={() => dispatch(setActiveItem(item.key))}
         style={{
-          backgroundColor: isActive ? 'grey' : '',
-          height: '100%',
-          width: '100%',
-          fontSize: '10px',
-          textAlign: 'left'
+          backgroundColor: isActive ? '#ccc' : ''
         }}
+        className="list-item"
       >
-        <div>
-          {item.key}
-          <span>{item.title}</span>
-        </div>
+        <div className="list-item-key">{item.key}</div>
+        <div className="list-item-title">{item.title}</div>
       </button>
     </div>
   );
@@ -69,21 +64,23 @@ const Response = ({ items, dispatch, interview }) => {
     <div key={item.key}>
       <ItemCard item={item} />
       {input && (
-        <input
-          type={input}
-          onChange={event =>
-            dispatch(setResponse(item.key, event.target.value))
-          }
-          defaultValue={response}
-          autoFocus
-        />
-      )}
+        <React.Fragment>
+          <input
+            type={input}
+            onChange={event =>
+              dispatch(setResponse(item.key, event.target.value))
+            }
+            defaultValue={response}
+            autoFocus
+          />
 
-      <textarea
-        onChange={event => dispatch(setNote(item.key, event.target.value))}
-        defaultValue={note}
-        placeholder="Note"
-      />
+          <textarea
+            onChange={event => dispatch(setNote(item.key, event.target.value))}
+            defaultValue={note}
+            placeholder="Note"
+          />
+        </React.Fragment>
+      )}
     </div>
   );
 };

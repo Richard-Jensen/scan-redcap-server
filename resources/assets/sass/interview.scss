@@ -1,0 +1,48 @@
+.scan-app-container {
+  height: 100%;
+  overflow: auto;
+}
+
+.interview-list {
+  width: 200px;
+  border-right: 1px solid #999;
+
+  button.list-item {
+    border: 0;
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    font-size: 12px;
+    text-align: left;
+    margin: 0;
+    padding: 8px;
+  }
+
+  .list-item-key {
+    font-weight: bold;
+  }
+  .list-item-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.interview-item {
+  padding: 32px;
+}
+
+.interview-algorithms {
+  width: 300px;
+  background: #222;
+  padding: 16px;
+}
+
+.interview-algorithms-evaluator-list {
+  max-height: 500px;
+  overflow: auto;
+  color: white;
+  li {
+    line-height: 1;
+  }
+}

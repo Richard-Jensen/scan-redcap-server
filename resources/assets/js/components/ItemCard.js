@@ -15,14 +15,14 @@ const Markdown = ({ source }) => {
 };
 
 const Header = ({ item, isActive }) => (
-  <div>
+  <h3>
     {item.input && (
       <div>
         <span>{item.key}</span>
       </div>
     )}
     <div>{item.title}</div>
-  </div>
+  </h3>
 );
 
 export const ItemCard = ({ isActive, index, item, dispatch, response }) => {
@@ -36,20 +36,12 @@ export const ItemCard = ({ isActive, index, item, dispatch, response }) => {
     input = 'text';
   }
 
-  if (!isActive) {
-    return (
-      <div>
-        <Header item={item} isActive={isActive} />
-        <Markdown source={description} />
-      </div>
-    );
-  }
-
   if (!input) {
     return (
       <div>
         <Header item={item} isActive={isActive} />
         <Markdown source={description} />
+        <Markdown source={help} />
       </div>
     );
   }

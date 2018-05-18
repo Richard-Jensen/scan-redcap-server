@@ -12,9 +12,17 @@ import {
   getPreviousItemByKey
 } from '../items';
 
+import DataLoader from '../data/DataLoader';
+import Main from '../data/Main';
+
+// const diagnoses = DataLoader.loadDiagnoses();
+// console.log(DataLoader.getEvaluator(diagnoses));
+console.log('main', Main.runAlgorithms({ '2.065': '2', '1.002': '3' }));
+
 class Scan extends Component {
   state = {
-    activeIndex: 0
+    activeIndex: 0,
+    evaluated: []
   };
 
   componentDidMount() {
@@ -62,14 +70,30 @@ class Scan extends Component {
           <div className="interview-list">
             <ItemList items={items} activeIndex={this.state.activeIndex} />
           </div>
-          <div>
+          <div className="interview-item">
             <ResponseContainer items={items} />
           </div>
+          <div className="interview-algorithms">
+            <button
+              onClick={() =>
+                this.setState({
+                  evaluated: Main.runAlgorithms(this.props.interview.responses)
+                    .evaluated
+                })
+              }
+            >
+              Run Algorithms
+            </button>
+            <div className="list interview-algorithms-evaluator-list">
+              {Object.keys(this.state.evaluated).map(key => (
+                <div key={key}>
+                  <b>{key}</b>
+                  <div>{this.state.evaluated[key].toString()}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-        <textarea
-          placeholder="Save some JSON"
-          defaultValue={JSON.stringify(scanData.data)}
-        />
       </div>
     );
   }

@@ -1,0 +1,1317 @@
+{
+  "F44": {
+    "explanation": "Dissociative disorders any",
+    "algorithm": [
+      {
+        "AND": [
+          "$2.065 = 2"
+        ]
+      }
+    ]
+  },
+  "F44.4": {
+    "explanation": "Dissociative motor disorders",
+    "algorithm": [
+      {
+        "AND": [
+          "$2.065 = 2",
+          "$2.065a = 1",
+          "$2.065b = 1",
+          "$2.065c = 1",
+          "$2.065d = 1",
+          "$2.065e = 1"
+        ]
+      }
+    ]
+  },
+  "F44.6": {
+    "explanation": "Dissociative anaesthesia and sensory loss",
+    "algorithm": [
+      {
+        "AND": [
+          "$2.065 = 2",
+          "$2.065g = 1",
+          "$2.065h = 1",
+          "$2.065i = 1"
+        ]
+      }
+    ]
+  },
+  "F44.9": {
+    "explanation": "unspecificed",
+    "algorithm": [
+      {
+        "AND": [
+          "$2.065 = 2",
+          "$2.065j = 1",
+          "$2.065i = 1"
+        ]
+      }
+    ]
+  },
+  "F45.0": {
+    "explanation": "Somatization disorder",
+    "algorithm": [
+      {
+        "AND": [
+          "$!F45.0A",
+          "$!F45.0B",
+          "$!F45.0C",
+          "$!F45.0D",
+          "$!F45.0E"
+        ]
+      }
+    ]
+  },
+  "F45.0a": {
+    "explanation": "Somatization disorder withou excl. for other mentl conditions",
+    "algorithm": [
+      {
+        "AND": [
+          "$!F45.0A",
+          "$!F45.0B",
+          "$!F45.0C",
+          "$!F45.0D"
+        ]
+      }
+    ]
+  },
+  "F45.0A": {
+    "explanation": ">= 6 somatoform symptoms without prominent autonomic symptoms and duration >= 2 years and variability of symptoms",
+    "algorithm": [
+      {
+        "AND": [
+          {
+            "AND": [
+              "$@F45.0A.counter >= 6"
+            ]
+          },
+          "$2.092 >= 24"
+        ]
+      }
+    ]
+  },
+  "F45.0A.counter": {
+    "explanation": "Number of any functional symptoms from SCAN ",
+    "algorithm": [
+      {
+        "SUM": [
+          "$2.011 = [1,2,3]",
+          "$2.012 = [1,2,3]",
+          "$2.013 = [1,2,3]",
+          "$2.014 = [1,2,3]",
+          "$2.015 = [1,2,3]",
+          "$2.016 = [1,2,3]",
+          "$2.017 = [1,2,3]",
+          "$2.019 = [1,2,3]",
+          "$2.020 = [1,2,3]",
+          "$2.021 = [1,2,3]",
+          "$2.022 = [1,2,3]",
+          "$2.023 = [1,2,3]",
+          "$2.024 = [1,2,3]",
+          "$2.025 = [1,2,3]",
+          "$2.026 = [1,2,3]",
+          "$2.032 = [1,2,3]",
+          "$2.033 = [1,2,3]",
+          "$2.034 = [1,2,3]",
+          "$2.035 = [1,2,3]",
+          "$2.036 = [1,2,3]",
+          "$2.037 = [1,2,3]",
+          "$2.038 = [1,2,3]",
+          "$2.039 = [1,2,3]",
+          "$2.040 = [1,2,3]",
+          "$2.041 = [1,2,3]",
+          "$2.046 = [1,2,3]",
+          "$2.047 = [1,2,3]",
+          "$2.048 = [1,2,3]",
+          "$2.049 = [1,2,3]",
+          "$2.050 = [1,2,3]",
+          "$2.051 = [1,2,3]",
+          "$2.052 = [1,2,3]",
+          "$2.053 = [1,2,3]",
+          "$2.054 = [1,2,3]",
+          "$2.055 = [1,2,3]",
+          "$2.057 = [1,2,3]",
+          "$2.058 = [1,2,3]",
+          "$2.059 = [1,2,3]",
+          "$2.060 = [1,2,3]",
+          "$2.061 = [1,2,3]",
+          "$2.062 = [1,2,3]",
+          "$2.063 = [1,2,3]",
+          "$2.064 = [1,2,3]",
+          "$2.067 = [1,2,3]",
+          "$2.068 = [1,2,3]",
+          "$2.069 = [1,2,3]",
+          "$2.070 = [1,2,3]",
+          "$2.073 = [1,2,3]",
+          "$2.074 = [1,2,3]",
+          "$2.075 = [1,2,3]",
+          "$2.076 = [1,2,3]",
+          "$2.077 = [1,2,3]",
+          "$2.078 = [1,2,3]",
+          "$2.079 = [1,2,3]",
+          "$2.081 = [1,2,3]",
+          "$2.082 = [1,2,3]",
+          "$2.083 = [1,2,3]",
+          "$2.084 = [1,2,3]",
+          "$2.085 = [1,2,3]",
+          "$2.086 = [1,2,3]",
+          "$2.087 = [1,2,3]",
+          "$2.089 = [1,2,3]",
+          "$2.090 = [1,2,3]"
+        ]
+      }
+    ]
+  },
+  "F45.0B": {
+    "explanation": "Preoccupation and distress repeated investigations",
+    "algorithm": [
+      {
+        "AND": [
+          "$2.101 = 2"
+        ]
+      }
+    ]
+  },
+  "F45.0C": {
+    "explanation": "Refusal of reassurance included",
+    "algorithm": [
+      {
+        "AND": [
+          "$2.109 = [2,3]"
+        ]
+      }
+    ]
+  },
+  "F45.0D": {
+    "explanation": "A total of >= 6 of the folllowing symp-toms from >=2 separate-groups",
+    "algorithm": [
+      {
+        "AND": [
+          "$@F45.0D.counter >= 6",
+          "$@F45.0DS >= 2"
+        ]
+      }
+    ]
+  },
+  "F45.0D.counter": {
+    "explanation": "Number of criteria D sympt excl.D11,D12,D4 ",
+    "algorithm": [
+      {
+        "SUM": [
+          "$!F45.0D1",
+          "$!F45.0D2",
+          "$!F45.0D3",
+          "$!F45.0D5",
+          "$!F45.0D6",
+          "$!F45.0D7",
+          "$!F45.0D8",
+          "$!F45.0D9",
+          "$!F45.0D10",
+          "$!F45.0D13",
+          "$!F45.0D14"
+        ]
+      }
+    ]
+  },
+  "F45.0D1": {
+    "explanation": "Abdominal pain",
+    "algorithm": [
+      {
+        "AND": [
+          "$2.037 = [1,2,3]"
+        ]
+      }
+    ]
+  },
+  "F45.0D2": {
+    "explanation": "Nausea",
+    "algorithm": [
+      {
+        "AND": [
+          "$2.036 = [1,2,3]"
+        ]
+      }
+    ]
+  },
+  "F45.0D3": {
+    "explanation": "Feeling bloated, full of gas, distended, heavy",
+    "algorithm": [
+      {
+        "AND": [
+          "$2.038 = [1,2,3]"
+        ]
+      }
+    ]
+  },
+  "F45.0D5": {
+    "explanation": "Vomiting, Regurgitation",
+    "algorithm": [
+      {
+        "OR": [
+          "$2.035 = [1,2,3]",
+          "$2.032 = [1,2,3]"
+        ]
+      }
+    ]
+  },
+  "F45.0D6": {
+    "explanation": "Alternating bowel movements ",
+    "algorithm": [
+      {
+        "OR": [
+          "$2.039 = [1,2,3]"
+        ]
+      }
+    ]
+  },
+  "F45.0D7": {
+    "explanation": "Breathlessness without exertion",
+    "algorithm": [
+      {
+        "AND": [
+          "$2.048 = [1,2,3]"
+        ]
+      }
+    ]
+  },
+  "F45.0D8": {
+    "explanation": "Precordial discomfort or chest pain",
+    "algorithm": [
+      {
+        "AND": [
+          "$2.047 = [1,2,3]"
+        ]
+      }
+    ]
+  },
+  "F45.0D9": {
+    "explanation": "Pains during urination or frequent urination",
+    "algorithm": [
+      {
+        "OR": [
+          "$2.067 = [1,2,3]",
+          "$2.69 = [1,2,3]"
+        ]
+      }
+    ]
+  },
+  "F45.0D10": {
+    "explanation": "Unpleasant sensations in or around the genitals ",
+    "algorithm": [
+      {
+        "AND": [
+          "$2.074 = [1,2,3]"
+        ]
+      }
+    ]
+  },
+  "F45.0D13": {
+    "explanation": "Pain in arms or legs or joints",
+    "algorithm": [
+      {
+        "OR": [
+          "$2.021 = [1,2,3]",
+          "$2.022 = [1,2,3]"
+        ]
+      }
+    ]
+  },
+  "F45.0D14": {
+    "explanation": "Unpleasant numbness or tingling sensations",
+    "algorithm": [
+      {
+        "AND": [
+          "$2.025 = [1,2,3]"
+        ]
+      }
+    ]
+  },
+  "F45.0DS": {
+    "explanation": "Symptoms from >= 2 organsystems",
+    "algorithm": [
+      {
+        "SUM": [
+          {
+            "OR": [
+              "$!F45.0D1",
+              "$!F45.0D2",
+              "$!F45.0D3",
+              "$!F45.0D5",
+              "$!F45.0D6"
+            ]
+          },
+          {
+            "OR": [
+              "$!F45.0D7",
+              "$!F45.0D8"
+            ]
+          },
+          {
+            "OR": [
+              "$!F45.0D9",
+              "$!F45.0D10"
+            ]
+          },
+          {
+            "OR": [
+              "$!F45.0D13",
+              "$!F45.0D14"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "F45.0E": {
+    "explanation": "Preoccupation not primarily due to depression, anxiety or another psychiatric illness",
+    "algorithm": [
+      {
+        "AND": [
+          "$2.135 <> 3",
+          "$2.136 <> 3",
+          "$6.023 <> 1",
+          "$2.138 <> 3"
+        ]
+      }
+    ]
+  },
+  "F45.1": {
+    "explanation": "Undifferentiated somatoform disorder",
+    "algorithm": [
+      {
+        "AND": [
+          "$!F45.1A",
+          "$!F45.1B",
+          "$!F45.0C",
+          "$!F45.0E",
+          "$!F45.0 <> 1"
+        ]
+      }
+    ]
+  },
+  "F45.1a": {
+    "explanation": "Undifferentiated somatoform dis. without excl. for other mental disord.",
+    "algorithm": [
+      {
+        "AND": [
+          "$!F45.1A",
+          "$!F45.1B",
+          "$!F45.0C",
+          "$!F45.0E",
+          "$!F45.0a <> 1"
+        ]
+      }
+    ]
+  },
+  "F45.1A": {
+    "explanation": ">= 6 somatoform symptoms for > 6 months",
+    "algorithm": [
+      {
+        "AND": [
+          "$@F45.0A.counter >= 6",
+          "$2.096 >= 6"
+        ]
+      }
+    ]
+  },
+  "F45.1B": {
+    "explanation": "Some distress or preoccupation included in A (2.101)",
+    "algorithm": [
+      {
+        "AND": [
+          "$2.101 = [1,2]"
+        ]
+      }
+    ]
+  },
+  "F45.2": {
+    "explanation": "Hypochondriacal disorder",
+    "algorithm": [
+      {
+        "AND": [
+          "$!F45.2ABC",
+          "$!F45.2D"
+        ]
+      }
+    ]
+  },
+  "F45.2a": {
+    "explanation": "Hypochondriacal disorder withou excl. for other mental disord.",
+    "algorithm": [
+      {
+        "AND": [
+          "$!F45.2ABC"
+        ]
+      }
+    ]
+  },
+  "F45.2ABC": {
+    "explanation": "(1) persistent belief for > 6months of 1 or 2 serious illnesses or (2) persistent preoccupation with presumed deformity",
+    "algorithm": [
+      {
+        "AND": [
+          {
+            "OR": [
+              "$2.101 = [1,2]",
+              "$16.011 = [2,3]",
+              "$2.116 = 1"
+            ]
+          },
+          "$2.101 = 1",
+          "$2.109 = [2,3]",
+          "$2.114 >= 6"
+        ]
+      }
+    ]
+  },
+  "F45.2D": {
+    "explanation": "Does not meet criteria for F2 disorders orF3 disorders",
+    "algorithm": [
+      {
+        "AND": [
+          "$2.135 <> 3",
+          "$2.136 <> 3",
+          "$6.023 <> 1",
+          "$2.137 <> 1",
+          "$2.138 <> 3"
+        ]
+      }
+    ]
+  },
+  "F45.3": {
+    "explanation": "Somatoform autonomic dysfunction",
+    "algorithm": [
+      {
+        "AND": [
+          "$!F45.3A",
+          "$!F45.3B",
+          "$!F45.3C",
+          "$!F45.3E"
+        ]
+      }
+    ]
+  },
+  "F45.3a": {
+    "explanation": "Somatoform autonomic dysfunction, without excl. for other mental disord",
+    "algorithm": [
+      {
+        "AND": [
+          "$!F45.3A",
+          "$!F45.3B",
+          "$!F45.3C"
+        ]
+      }
+    ]
+  },
+  "F45.3A": {
+    "explanation": "Autonomic hyperactivitet at least on oragnsystem",
+    "algorithm": [
+      {
+        "OR": [
+          "$@F45.3A1.counter >= 1",
+          "$@F45.3A2.counter >= 1",
+          "$@F45.3A3.counter >= 1",
+          "$@F45.3A4.counter >= 1",
+          "$@F45.3A5.counter >= 1"
+        ]
+      }
+    ]
+  },
+  "F45.3A1.counter": {
+    "explanation": "Hyperactivity CV syste ",
+    "algorithm": [
+      {
+        "SUM": [
+          "$2.046 = [1,2,3]",
+          "$2.047 = [1,2,3]",
+          "$2.050 = [1,2,3]",
+          "$2.053 = [1,2,3]"
+        ]
+      }
+    ]
+  },
+  "F45.3A2.counter": {
+    "explanation": "Upper GI aroual",
+    "algorithm": [
+      {
+        "SUM": [
+          "$2.032 = [1,2,3]",
+          "$2.033 = [1,2,3]",
+          "$2.034 = [1,2,3]",
+          "$2.035 = [1,2,3]"
+        ]
+      }
+    ]
+  },
+  "F45.3A3.counter": {
+    "explanation": "Lower GI symptoms)",
+    "algorithm": [
+      {
+        "SUM": [
+          "$2.036 = [1,2,3]",
+          "$2.037 = [1,2,3]",
+          "$2.038 = [1,2,3]",
+          "$2.039 = [1,2,3]",
+          "$2.040 = [1,2,3]",
+          "$2.041 = [1,2,3]"
+        ]
+      }
+    ]
+  },
+  "F45.3A4.counter": {
+    "explanation": "Hyperactivity pulmonal system ",
+    "algorithm": [
+      {
+        "SUM": [
+          "$2.048 = [1,2,3]",
+          "$2.049 = [1,2,3]",
+          "$2.052 = [1,2,3]"
+        ]
+      }
+    ]
+  },
+  "F45.3A5.counter": {
+    "explanation": "Counter,hyperactivitet urogenital system",
+    "algorithm": [
+      {
+        "SUM": [
+          "$2.067 = [1,2,3]",
+          "$2.069 = [1,2,3]",
+          "$2.070 = [1,2,3]",
+          "$2.076 = [1,2,3]"
+        ]
+      }
+    ]
+  },
+  "F45.3B": {
+    "explanation": ">= 2 autonomic symptoms of 1-5",
+    "algorithm": [
+      {
+        "AND": [
+          "$@F45.3B.counter >= 2"
+        ]
+      }
+    ]
+  },
+  "F45.3B.counter": {
+    "explanation": "Autnome symptoms",
+    "algorithm": [
+      {
+        "SUM": [
+          "$2.046 = 1",
+          "$2.050 = 1",
+          "$2.052 = 1",
+          "$2.053 = 1",
+          "$2.054 = 1"
+        ]
+      }
+    ]
+  },
+  "F45.3C.counter": {
+    "explanation": "Other autnome symptoms",
+    "algorithm": [
+      {
+        "SUM": [
+          "$2.047 = 1",
+          "$2.048 = 1",
+          "$2.049 = 1",
+          "$2.012 = 1",
+          "$2.033 = 1",
+          "$2.041 = 1",
+          "$2.069 = 1",
+          "$2.038 = 1"
+        ]
+      }
+    ]
+  },
+  "F45.3E": {
+    "explanation": "Panic disorder not primar",
+    "algorithm": [
+      {
+        "AND": [
+          "$2.135 <> 3"
+        ]
+      }
+    ]
+  },
+  "F45.4": {
+    "explanation": "Persistent somatoform pain disorder",
+    "algorithm": [
+      {
+        "AND": [
+          "$!F45.4A",
+          "$!F45.4B"
+        ]
+      }
+    ]
+  },
+  "F45.4a": {
+    "explanation": "Persistent somatoform pain disorder, without exclud. for other mental dis.",
+    "algorithm": [
+      {
+        "AND": [
+          "$!F45.4A"
+        ]
+      }
+    ]
+  },
+  "F45.4A": {
+    "explanation": "Persistent severe, distressing pain for > 6 months ",
+    "algorithm": [
+      {
+        "AND": [
+          {
+            "OR": [
+              "$2.015 = [2,3]",
+              "$2.019 = [2,3]",
+              "$2.020 = [2,3]",
+              "$2.021 = [2,3]",
+              "$2.022 = [2,3]",
+              "$2.037 = [2,3]",
+              "$2.073 = [2,3]",
+              "$2.078 = [2,3]",
+              "$2.067 = [2,3]",
+              "$2.068 = [2,3]",
+              "$2.075 = [2,3]",
+              "$2.027 = [2,3]",
+              "$2.085 = [2,3]",
+              "$2.086 = [2,3]"
+            ]
+          },
+          "$2.093 = [2,3]",
+          "$2.096 >= 6"
+        ]
+      }
+    ]
+  },
+  "F45.4B": {
+    "explanation": "Not explained by other disorders",
+    "algorithm": [
+      {
+        "AND": [
+          "$2.135 <> 3",
+          "$2.136 <> 3",
+          "$2.137 <> 3",
+          "$6.023 <> 1",
+          "$2.138 <> 3",
+          "$!F45.0 <> 1",
+          "$!F45.1 <> 1"
+        ]
+      }
+    ]
+  },
+  "F45.9": {
+    "explanation": "Unspecified somatoform disorder (>= 4) somatoform symptoms but does not fulfil criteria for any specified category Some preoccupation, with duration >= 6 months Does not meet criteria forF45.0-.4 or F41 Does not meet criteria for F2 or F3 disorders",
+    "algorithm": [
+      {
+        "AND": [
+          "$@F45.0D.counter >= 4",
+          "$2.096 >= 6",
+          "$2.101 = [1,2,8]",
+          "$2.135 <> 3",
+          "$2.136 <> 3",
+          "$6.023 <> 1",
+          "$2.138 <> 3",
+          "$!F45.0 <> 1",
+          "$!F45.1 <> 1",
+          "$!F45.2 <> 1",
+          "$!F45.3 <> 1",
+          "$!F45.4 <> 1"
+        ]
+      }
+    ]
+  },
+  "F45.9a": {
+    "explanation": "Unspecified somatoform disorder withou exclus for other mental disord",
+    "algorithm": [
+      {
+        "AND": [
+          "$@F45.0D.counter >= 4",
+          "$2.096 >= 6",
+          "$2.101 = [1,2,8]",
+          "$2.135 <> 3",
+          "$2.136 <> 3",
+          "$6.023 <> 1",
+          "$2.138 <> 3",
+          "$!F45.0a <> 1",
+          "$!F45.1a <> 1",
+          "$!F45.2a <> 1",
+          "$!F45.3a <> 1",
+          "$!F45.4a <> 1"
+        ]
+      }
+    ]
+  },
+  "F48.0": {
+    "explanation": "Neurasthenia",
+    "algorithm": [
+      {
+        "AND": [
+          "$!F48.0AC",
+          "$!F48.0B",
+          "$!F48.0D",
+          "$!F48.0E"
+        ]
+      }
+    ]
+  },
+  "F48.0a": {
+    "explanation": "Neurasthenia, withou excl. for other mental disorder",
+    "algorithm": [
+      {
+        "AND": [
+          "$!F48.0AC",
+          "$!F48.0B",
+          "$!F48.0D"
+        ]
+      }
+    ]
+  },
+  "F48.0AC": {
+    "explanation": "(1) Excessive mental- or physical fatigue not recover on rest ",
+    "algorithm": [
+      {
+        "OR": [
+          "$2.012 = [2,3]"
+        ]
+      }
+    ]
+  },
+  "F48.0B": {
+    "explanation": ">= 1 of following symptoms (1) muscular pains (2) dizziness (3) tension headaches (4) sleep disturbance ",
+    "algorithm": [
+      {
+        "OR": [
+          "$2.020 = [1,2,3]",
+          "$2.016 = [1,2,3]",
+          "$2.015 = [1,2,3]",
+          {
+            "OR": [
+              "$8.011 = [1,2]",
+              "$8.012 = [1,2]",
+              "$8.013 = [1,2]",
+              "$8.014 = [1,2]",
+              "$8.015 = [1,2]",
+              "$8.016 = [1,2]"
+            ]
+          },
+          "$3.003 = [2,3]",
+          "$3.009 = [2,3]"
+        ]
+      }
+    ]
+  },
+  "F48.0D": {
+    "explanation": "duration >= 3 months",
+    "algorithm": [
+      {
+        "AND": [
+          "$2.096 >= 3"
+        ]
+      }
+    ]
+  },
+  "F48.0E": {
+    "explanation": "not better explained by depression, panic disroder or anxietyciety",
+    "algorithm": [
+      {
+        "AND": [
+          "$2.135 <> 3",
+          "$2.136 <> 3",
+          "$6.023 <> 1"
+        ]
+      }
+    ]
+  },
+  "Fatiq": {
+    "explanation": "Counter fatiq ",
+    "algorithm": [
+      {
+        "SUM": [
+          "$3.007 = [1,2,3]",
+          "$7.006 = [1,2,3]",
+          "$2.012 = [1,2,3]"
+        ]
+      }
+    ]
+  },
+  "nsomdg": {
+    "explanation": "Any somatoform diagnose",
+    "algorithm": [
+      {
+        "SUM": [
+          "$!F44.4.7",
+          "$!F45.0i",
+          "$!F45.1i",
+          "$!F45.2i",
+          "$!F45.3i",
+          "$!F45.4i",
+          "$!F48.0"
+        ]
+      }
+    ]
+  },
+  "DEP": {
+    "explanation": "Any depression excl. dystymi",
+    "algorithm": [
+      {
+        "OR": [
+          "$!F31.30",
+          "$!F31.3",
+          "$!F31.31",
+          "$!F31.4",
+          "$!F31.5",
+          "$!F31.51",
+          "$!F31.50",
+          "$!F32.0",
+          "$!F32.00",
+          "$!F32.01",
+          "$!F32.10",
+          "$!F32.11",
+          "$!F32.2",
+          "$!F32.3",
+          "$!F32.30",
+          "$!F32.31",
+          "$!F32.9",
+          "$!F33",
+          "$!F33.0",
+          "$!F33.00",
+          "$!F33.01",
+          "$!F33.1",
+          "$!F33.10",
+          "$!F33.11",
+          "$!F33.2",
+          "$!F33.3",
+          "$!F33.30",
+          "$!F33.31",
+          "$!F33.9",
+          "$!F39"
+        ]
+      }
+    ]
+  },
+  "DEPDYS": {
+    "explanation": "Any depression or dystymi ",
+    "algorithm": [
+      {
+        "OR": [
+          "$!F31.30",
+          "$!F31.3",
+          "$!F31.31",
+          "$!F31.4",
+          "$!F31.5",
+          "$!F31.51",
+          "$!F31.50",
+          "$!F32.0",
+          "$!F32.00",
+          "$!F32.01",
+          "$!F32.1",
+          "$!F32.10",
+          "$!F32.11",
+          "$!F32.2",
+          "$!F32.3",
+          "$!F32.30",
+          "$!F32.31",
+          "$!F32.9",
+          "$!F33",
+          "$!F33.0",
+          "$!F33.00",
+          "$!F33.01",
+          "$!F33.1",
+          "$!F33.10",
+          "$!F33.11",
+          "$!F33.2",
+          "$!F33.3",
+          "$!F33.30",
+          "$!F33.31",
+          "$!F33.9",
+          "$!F34.0",
+          "$!F34.1",
+          "$!F34.9",
+          "$!F38.10",
+          "$!F39"
+        ]
+      }
+    ]
+  },
+  "F0": {
+    "explanation": "This is met when any of the F0 algorithms is met.",
+    "algorithm": [
+      {
+        "OR": [
+          "$!F00.03",
+          "$!F00",
+          "$!F00.0",
+          "$!F00.1",
+          "$!F00.2",
+          "$!F00.9",
+          "$!F01",
+          "$!F01.0",
+          "$!F01.1",
+          "$!F01.2",
+          "$!F01.3",
+          "$!F01.9",
+          "$!F02.0",
+          "$!F02.3",
+          "$!F02.4",
+          "$!F02.8",
+          "$!F03",
+          "$!F04",
+          "$!F05",
+          "$!F05.0",
+          "$!F05.1",
+          "$!F06",
+          "$!F06.0",
+          "$!F06.1",
+          "$!F06.2",
+          "$!F06.3",
+          "$!F06.4",
+          "$!F07",
+          "$!F07.0"
+        ]
+      }
+    ]
+  },
+  "F00": {
+    "explanation": "Dementia in Alzheimer's disease",
+    "algorithm": [
+      {
+        "AND": [
+          "$!F00A",
+          "$!F00B"
+        ]
+      }
+    ]
+  },
+  "F00.0": {
+    "explanation": "With early onset",
+    "algorithm": [
+      {
+        "AND": [
+          "$!F00.0.1",
+          "$!F00.0.2"
+        ]
+      }
+    ]
+  },
+  "SCHIZII1": {
+    "explanation": "delusions",
+    "algorithm": [
+      {
+        "AND": [
+          {
+            "OR": [
+              "$17.025 = [2,3]",
+              "$17.027 = [2,3]",
+              "$17.029 = [2,3]",
+              "$18.003 = [2,3]",
+              "$19.003 = [2,3]",
+              "$19.004 = [2,3]",
+              "$19.005 = [2,3]",
+              "$19.006 = [2,3]",
+              "$19.007 = [2,3]",
+              "$19.008 = [2,3]",
+              "$19.012 = [2,3]",
+              "$19.013 = [2,3]",
+              "$19.014 = [2,3]",
+              "$19.016 = [2,3]",
+              "$19.017 = [2,3]",
+              "$19.018 = [2,3]",
+              "$19.019 = [2,3]",
+              "$19.021 = [2,3]",
+              "$19.022 = [2,3]",
+              "$19.023 = [2,3]",
+              "$19.028 = [2,3]",
+              "$19.029 = [2,3]",
+              "$19.030 = [2,3]",
+              "$19.031 = [2,3]",
+              "$19.032 = [2,3]"
+            ]
+          },
+          "$19.045 = 0",
+          "$20.070 = [0,1]",
+          {
+            "OR": [
+              "$19.044 = [2,3]",
+              "$20.055 = [2,3]"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "SCHIZII2": {
+    "explanation": "hallucinations",
+    "algorithm": [
+      {
+        "AND": [
+          {
+            "OR": [
+              "$17.003 = [2,3]",
+              "$17.004 = [3,4]",
+              "$17.015 = [2,3]",
+              "$17.016 = [2,3]",
+              "$17.017 = [2,3]",
+              "$17.022 = [2,3]",
+              "$17.024 = [2,3]",
+              "$17.026 = [2,3]",
+              "$17.028 = [2,3]",
+              "$17.030 = [2,3]"
+            ]
+          },
+          "$17.034 = 0",
+          "$20.065 = [0,1]",
+          "$20.066 = [0,1]",
+          "$20.067 = [0,1]",
+          {
+            "OR": [
+              "$17.033 = [2,3]",
+              {
+                "OR": [
+                  "$20.050 = [2,3]",
+                  "$20.051 = [2,3]",
+                  "$20.052 = [2,3]"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "F06F320B.counter": {
+    "explanation": "",
+    "algorithm": [
+      {
+        "SUM": [
+          "$!F32.0B1",
+          "$!F06F32B2",
+          "$!F06F32B3"
+        ]
+      }
+    ]
+  },
+  "F06F320C.counter": {
+    "explanation": "",
+    "algorithm": [
+      {
+        "SUM": [
+          "$!F32.0C1",
+          "$!F32.0C2",
+          "$!F32.0C3",
+          "$!F06F32C4",
+          "$!F06F32C5",
+          "$!F06F32C6",
+          "$!F32.0C7"
+        ]
+      }
+    ]
+  },
+  "SOMSYND": {
+    "explanation": "Somatic syndrome subtype criteria",
+    "algorithm": [
+      {
+        "AND": [
+          "$@SOMSYND.counter >= 4"
+        ]
+      }
+    ]
+  },
+  "SOMSYND.counter": {
+    "explanation": "",
+    "algorithm": [
+      {
+        "SUM": [
+          "$!SOMSYND1",
+          "$!SOMSYND2",
+          "$!SOMSYND3",
+          "$!SOMSYND4",
+          "$!SOMSYND5",
+          "$!SOMSYND6",
+          "$!SOMSYND7",
+          "$!SOMSYND8"
+        ]
+      }
+    ]
+  },
+  "SOMSYND1": {
+    "explanation": "loss of interest or pleasure",
+    "algorithm": [
+      {
+        "OR": [
+          "$6.004 = [2,3]",
+          "$7.004 = [2,3]"
+        ]
+      }
+    ]
+  },
+  "SOMSYND2": {
+    "explanation": "lack of emotional reactions",
+    "algorithm": [
+      {
+        "AND": [
+          "$6.008 = [2,3]"
+        ]
+      }
+    ]
+  },
+  "SOMSYND3": {
+    "explanation": "early awakening (> 2 hours)",
+    "algorithm": [
+      {
+        "AND": [
+          "$8.014 = 3"
+        ]
+      }
+    ]
+  },
+  "SOMSYND4": {
+    "explanation": "depression worse in morning",
+    "algorithm": [
+      {
+        "AND": [
+          "$6.009 = 1"
+        ]
+      }
+    ]
+  },
+  "SOMSYND5": {
+    "explanation": "objective retardation or agitation",
+    "algorithm": [
+      {
+        "OR": [
+          "$22.001 = [1,2]",
+          "$22.002 = [1,2]",
+          "$22.003 = [1,2]",
+          "$22.004 = [1,2]",
+          "$22.005 = [1,2]",
+          "$22.006 = [1,2]",
+          "$22.007 = [1,2]",
+          "$22.010 = [1,2]",
+          "$24.002 = [1,2]",
+          "$22.015 = [1,2]",
+          "$22.016 = [1,2]"
+        ]
+      }
+    ]
+  },
+  "SOMSYND6": {
+    "explanation": "loss of appetite",
+    "algorithm": [
+      {
+        "AND": [
+          "$8.005 = [2,3]"
+        ]
+      }
+    ]
+  },
+  "SOMSYND7": {
+    "explanation": "weight loss > 5% in 1 month",
+    "algorithm": [
+      {
+        "AND": [
+          "$8.006 = [2,3]"
+        ]
+      }
+    ]
+  },
+  "SOMSYND8": {
+    "explanation": "loss of libido",
+    "algorithm": [
+      {
+        "AND": [
+          "$8.024 = [2,3]",
+          "$8.025 = 1"
+        ]
+      }
+    ]
+  },
+  "F20.4B.derived1": {
+    "explanation": "Derived from F20.4B",
+    "algorithm": [
+      {
+        "SUM": [
+          "$!F20G1.2a",
+          "$!F20G1.2b",
+          "$!F20G1.2c",
+          "$!F20G1.2d"
+        ]
+      }
+    ]
+  },
+  "DELONS": {
+    "explanation": "Posttraumatic stress disorder - delayed onset",
+    "algorithm": [
+      {
+        "AND": [
+          "$!F43.1A",
+          "$!F43.1B",
+          "$!F43.1C",
+          "$!F43.1D",
+          "$13.094 = 3"
+        ]
+      }
+    ]
+  },
+  "F48.1": {
+    "explanation": "Depersonalisation - derealisation syndrome",
+    "algorithm": [
+      {
+        "AND": [
+          "$!F48.1A",
+          "$!F48.1B"
+        ]
+      }
+    ]
+  },
+  "F48.1A": {
+    "explanation": "(1) depersonalization or (2) derealization ",
+    "algorithm": [
+      {
+        "OR": [
+          {
+            "OR": [
+              "$3.012 = [2,3]",
+              "$16.008 = [2,3]",
+              "$16.009 = [2,3]",
+              "$16.010 = [2,3]"
+            ]
+          },
+          {
+            "OR": [
+              "$16.006 = [2,3]",
+              "$16.007 = [2,3]"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "F48.1B": {
+    "explanation": "Insight present",
+    "algorithm": [
+      {
+        "AND": [
+          "$16.013 = 0",
+          {
+            "AND": [
+              "$!F05 = 0",
+              "$!F06 = 0",
+              "$!F1 = 0",
+              "$!F2 = 0",
+              "$!F3 = 0",
+              "$!F40.0 = 0",
+              "$!F40.1 = 0",
+              "$!F40.2 = 0",
+              "$!F40.9 = 0",
+              "$!F41.0 = 0",
+              "$!F41.1 = 0",
+              "$!F40.9 = 0"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

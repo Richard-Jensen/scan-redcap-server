@@ -1,6 +1,7 @@
 // Variables
 @import 'variables';
 @import 'milligram/milligram';
+@import 'interview';
 
 body {
   font-family: $font-family-sans-serif;
@@ -48,13 +49,4 @@ nav {
 
 .record-metadata-form {
   display: flex;
-}
-
-.scan-app-container {
-  height: 100%;
-  overflow: auto;
-}
-
-.interview-list {
-  width: 200px;
 }

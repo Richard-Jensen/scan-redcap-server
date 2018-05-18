@@ -76,7 +76,7 @@ items:
   - key: 2.005
     title: Predominant pain
     description: |
-      Only if 2.003 is rated 2.
+      Only if <2.003> is rated 2.
 
       Is pain the most predominant problem?
     help: |
@@ -585,7 +585,7 @@ items:
     title: Hyperventilation
     scale: 1a
 
-  - key: 2.050
+  - key: "2.050"
     title: Hot or cold sweats
     scale: 1a
 
