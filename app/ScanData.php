@@ -1,6 +1,7 @@
 <?php
 namespace App;
 
+use App\Enc;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Support\Facades\Auth;
@@ -12,9 +13,9 @@ class ScanData
     {
         $this->client = new Client();
         $this->api_endpoint = env('REDCAP_URL');
-        $this->redcap_token = Auth::user()->redcap_token;
+        $this->redcap_token = Enc::create()->decrypt(Auth::user()->redcap_token);
         $this->base_info = [
-            'token' => Auth::user()->redcap_token,
+            'token' => Enc::create()->decrypt(Auth::user()->redcap_token),
             'format' => 'json',
         ];
     }
@@ -188,7 +189,7 @@ class ScanData
                 'multipart' => [
                     [
                         'name'     => 'token',
-                        'contents' => Auth::user()->redcap_token
+                        'contents' => Enc::create()->decrypt(Auth::user()->redcap_token)
                     ],
                     [
                         'name'     => 'content',

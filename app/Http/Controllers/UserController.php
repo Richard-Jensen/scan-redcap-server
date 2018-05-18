@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enc;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -74,11 +75,17 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        $token = $request->redcap_token;
+        if (strlen($token) == 32)
+        {
+            $token = Enc::create()->encrypt($token);
+        }
+        
         $user = Auth::user();
         $user->fill([
           'name' => $request->name,
           'email' => $request->email,
-          'redcap_token' => $request->redcap_token
+          'redcap_token' => $token
         ]);
         $user->save();
         return redirect()->back()->with('success', 'User successfully saved');;
