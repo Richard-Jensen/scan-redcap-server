@@ -11,13 +11,7 @@ import {
   getNextItemByKey,
   getPreviousItemByKey
 } from '../items';
-
-import DataLoader from '../data/DataLoader';
 import Main from '../data/Main';
-
-// const diagnoses = DataLoader.loadDiagnoses();
-// console.log(DataLoader.getEvaluator(diagnoses));
-console.log('main', Main.runAlgorithms({ '2.065': '2', '1.002': '3' }));
 
 class Scan extends Component {
   state = {
