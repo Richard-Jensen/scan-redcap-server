@@ -105,9 +105,9 @@ items:
 
       Always continue if there is no convincing medical explanation for the symptoms.
 
-      If <2.003> = 0 skip to HA
-      If <2.003> = 2 skip to <2.007> and then <2.100>.
-      If <2.003> < > 0 or 2 continue.
+      - If <2.003> = 0 skip to HA
+      - If <2.003> = 2 skip to <2.007> and then <2.100>.
+      - If <2.003> < > 0 or 2 continue.
 
   - key: 2.episode1.section
     title: Well-defined physical diseases
@@ -139,122 +139,193 @@ items:
     title: High blood pressure
     description: |
       (ICD-10: I10-I15)
-    scale: 1
+    input: integer
+    options:
+      0: Absent
+      1: Present
+    validate: [0,1]
 
   - key: 2.007b
     title: Diabetes
     description: |
       (ICD-10: E10-E14)
-    scale: 1
+    input: integer
+    options:
+      0: Absent
+      1: Present
+    validate: [0,1]
 
   - key: 2.007c
     title: Osteoarthritis/rheumatoid arthritis
     description: |
       (ICD-10: M00-M19)
-    scale: 1
+    input: integer
+    options:
+      0: Absent
+      1: Present
+    validate: [0,1]
 
   - key: 2.007d
     title: Migraine/specified
     description: |
       (ICD-10: G43, G44, R51)
-    scale: 1
+    input: integer
+    options:
+      0: Absent
+      1: Present
+    validate: [0,1]
 
   - key: 2.007e
     title: Herniated disk
     description: |
       (ICD-10: M40-M54)
-    scale: 1
+    input: integer
+    options:
+      0: Absent
+      1: Present
+    validate: [0,1]
 
   - key: 2.007f
     title: Heart disease
     description: |
       (ICD-10: I05-I09 og I20-I25)
-    scale: 1
+    input: integer
+    options:
+      0: Absent
+      1: Present
+    validate: [0,1]
 
   - key: 2.007g
     title: Tuberculosis
     description: |
       (ICD-10: A15-A19, B90, J65)
-    scale: 1
+    input: integer
+    options:
+      0: Absent
+      1: Present
+    validate: [0,1]
 
   - key: 2.007h
     title: Asthma/chronic bronchitis
     description: |
       (ICD-10: J30-J32, J35, J37, J40-J47)
-    scale: 1
-
+    input: integer
+    options:
+      0: Absent
+      1: Present
+    validate: [0,1]
 
   - key: 2.007i
     title: Gastritis or ulcer
     description: |
       (ICD-10: K25-K27)
-    scale: 1
+    input: integer
+    options:
+      0: Absent
+      1: Present
+    validate: [0,1]
 
   - key: 2.007j
     title: Hepatitis
     description: |
       (ICD-10: B18, K73, K75,9)
-    scale: 1
+    input: integer
+    options:
+      0: Absent
+      1: Present
+    validate: [0,1]
 
   - key: 2.007k
     title: Kidney disease
     description: |
       (ICD-10: N03-07, N11-15, N18-19, N25-28)
-    scale: 1
+    input: integer
+    options:
+      0: Absent
+      1: Present
+    validate: [0,1]
 
   - key: 2.007l
     title: Parasite diseases/malaria
     description: |
       (ICD-10: B50-B83)
-    scale: 1
+    input: integer
+    options:
+      0: Absent
+      1: Present
+    validate: [0,1]
 
   - key: 2.007m
     title: Thyrois disease
     description: |
       (ICD-10: E00-E07)
-    scale: 1
+    input: integer
+    options:
+      0: Absent
+      1: Present
+    validate: [0,1]
 
   - key: 2.007n
     title: Tumor/cancer
     description: |
       (ICD-10: C00-C97)
-    scale: 1
+    input: integer
+    options:
+      0: Absent
+      1: Present
+    validate: [0,1]
 
   - key: 2.007o
     title: Stroke
     description: |
       (ICD-10: I60-I69)
-    scale: 1
+    input: integer
+    options:
+      0: Absent
+      1: Present
+    validate: [0,1]
 
   - key: 2.007p
     title: Epilepsia
     description: |
       (ICD-10: G40)
-    scale: 1
+    input: integer
+    options:
+      0: Absent
+      1: Present
+    validate: [0,1]
 
   - key: 2.007q
     title: Multiple sclerosis
     description: |
       (ICD-1010: G35)
-    scale: 1
+    input: integer
+    options:
+      0: Absent
+      1: Present
+    validate: [0,1]
 
   - key: 2.007r
     title: HIV/AIDS
     description: |
       (ICD-10: B20-B24)
-    scale: 1
+    input: integer
+    options:
+      0: Absent
+      1: Present
+    validate: [0,1]
 
   - key: 2.007s
     title: Others
     input: string
     description: |
-      State which_____________________________________________
+      State which
 
   - key: 2.007t
     title: Others
     input: string
     description: |
-      State which_____________________________________________
+      State which
 
     help: |
       Disorders associated with mental retardation and/or autism e.g. Down’s Syndrome, foetal rubella etc. should be checked in CHS, ch. 27. The first box must have a letter indicating the ICD-10 chapter followed by up to 4 digits. If none, leave blank.
@@ -332,7 +403,7 @@ items:
     options:
       0: No significant discomfort
       1: 1-2 symptoms
-      2: ">=3 symptoms"
+      2: ">= 3 symptoms"
     validate: [0-2]
     help: |
       **By use of questionnaire:**

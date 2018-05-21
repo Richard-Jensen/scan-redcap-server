@@ -12,14 +12,8 @@
     "prod": "npm run production",
     "production":
       "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "compile-items":
-      "js-yaml resources/assets/js/items/2.1/scan.2.1.items.da.yml > resources/assets/js/items/2.1/scan.2.1.items.da.json",
-    "compile-items-en":
-      "js-yaml resources/assets/js/items/2.1/scan.2.1.items.en.yml > resources/assets/js/items/2.1/scan.2.1.items.en.json",
-    "compile-section-2":
-      "js-yaml resources/assets/js/items/3.0/section.2.en.yml > resources/assets/js/items/3.0/section.2.en.json",
-    "compile-section-2-icd10":
-      "js-yaml resources/assets/js/items/3.0/section.2.icd10.en.yml > resources/assets/js/items/3.0/section.2.icd10.en.json",
+    "compile-yaml-2": "node resources/assets/js/items/2.1/yaml-to-json.js",
+    "compile-yaml-3": "node resources/assets/js/items/3.0/yaml-to-json.js",
     "prettier": "prettier"
   },
   "devDependencies": {
@@ -28,6 +22,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-react": "^6.23.0",
     "cross-env": "^5.1",
+    "glob": "^7.1.2",
     "jquery": "^3.2",
     "js-yaml": "^3.11.0",
     "laravel-mix": "^2.0",
