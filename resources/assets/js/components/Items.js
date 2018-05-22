@@ -30,7 +30,7 @@ const Item = ({ item, dispatch, interview, style, key }) => {
   return (
     <div style={style} key={key}>
       <button
-        onClick={() => dispatch(setActiveItem(item.key))}
+        onClick={() => dispatch(setActiveItem(item.key.toString()))}
         style={{
           backgroundColor: isActive ? '#ccc' : ''
         }}
@@ -65,7 +65,7 @@ const Response = ({ items, dispatch, interview }) => {
       <ItemCard item={item} />
       {input && (
         <React.Fragment>
-          <label for="response">Response</label>
+          <label htmlFor="response">Response</label>
           <input
             type={input}
             name="response"

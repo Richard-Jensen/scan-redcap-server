@@ -1,9 +1,9 @@
 import DataLoader from './DataLoader';
 
 export default class Main {
-  static runAlgorithms(responses) {
+  static runAlgorithms(responses = {}, algorithms) {
     // Get the evaluator object from the loader
-    let evaluator = DataLoader.getEvaluator(DataLoader.loadDiagnoses());
+    let evaluator = DataLoader.getEvaluator(algorithms);
 
     // Populate the evaluator object with answers
     evaluator.answers = Object.keys(responses).reduce(

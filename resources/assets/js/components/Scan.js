@@ -12,6 +12,7 @@ import {
   getPreviousItemByKey
 } from '../items';
 import Main from '../data/Main';
+import icd10 from '../items/3.0/section.2.icd10.en.json';
 
 class Scan extends Component {
   state = {
@@ -69,12 +70,16 @@ class Scan extends Component {
           </div>
           <div className="interview-algorithms">
             <button
-              onClick={() =>
+              onClick={() => {
+                const algorithms = Main.runAlgorithms(
+                  this.props.interview.responses,
+                  icd10
+                );
+
                 this.setState({
-                  evaluated: Main.runAlgorithms(this.props.interview.responses)
-                    .evaluated
-                })
-              }
+                  evaluated: algorithms.evaluated
+                });
+              }}
             >
               Run Algorithms
             </button>

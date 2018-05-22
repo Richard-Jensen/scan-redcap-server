@@ -1,22 +1,16 @@
 import Diagnosis from './Diagnosis';
 import AlgorithmSegment from './AlgorithmSegment';
 import Evaluator from './Evaluator';
-import icd10 from '../items/3.0/section.2.icd10.en.json';
 
 export default class DataLoader {
-  constructor() {
-    this.diagnoses = this.loadDiagnoses();
-  }
-
   static getEvaluator(diagnoses) {
-    const algorithms = this.generateAlgorithms(diagnoses);
+    const algorithms = this.generateAlgorithms(this.loadDiagnoses(diagnoses));
     const evaluator = new Evaluator(algorithms);
     return evaluator;
   }
 
-  static loadDiagnoses() {
-    let diagnoses = new Map(Object.entries(icd10));
-    return diagnoses;
+  static loadDiagnoses(diagnoses) {
+    return new Map(Object.entries(diagnoses));
   }
 
   static generateAlgorithms(diagnoses) {
