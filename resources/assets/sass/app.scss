@@ -54,3 +54,16 @@ nav {
 .algorithms-content {
   font-family: monospace;
 }
+
+.algorithms-error {
+  display: none;
+  font-family: monospace;
+  padding: 12px;
+  background: #f91734;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.algorithms-error.visible {
+  display: block;
+}

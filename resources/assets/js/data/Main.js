@@ -60,7 +60,7 @@ export default class Main {
         evaluator.matched[key] = diagnosis;
         // console.log(yaml.safeDump(diagnosis, {flowLevel: 1}));
       } else {
-        evaluator.notmatched[key] = diagnosis;
+        evaluator.notMatched[key] = diagnosis;
       }
     }
 

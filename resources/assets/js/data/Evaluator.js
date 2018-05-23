@@ -26,7 +26,7 @@ export default class Evaluator {
     this.evaluated = {};
     this.missing = {};
     this.matched = {};
-    this.notmatched = {};
+    this.notMatched = {};
   }
 
   /**

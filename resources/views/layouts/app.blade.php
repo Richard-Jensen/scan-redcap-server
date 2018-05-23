@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Polyfills for older browsers -->
-    <script src="https://cdn.polyfill.io/v2/polyfill.js?features=Array.prototype.find,Object.entries" defer async></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.js?features=Promise,Map,Array.prototype.find,Array.from,Object.entries" defer async></script>
 
     <!-- Styles -->
     <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">

@@ -58,6 +58,4 @@ export default class AlgorithmSegment {
       );
     }
   }
-
-  getCompositeId() {}
 }

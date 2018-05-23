@@ -17,7 +17,9 @@ import icd10 from '../items/3.0/section.2.icd10.en.json';
 class Scan extends Component {
   state = {
     activeIndex: 0,
-    evaluated: []
+    evaluated: [],
+    matched: [],
+    notMatched: []
   };
 
   componentDidMount() {
@@ -77,19 +79,33 @@ class Scan extends Component {
                 );
 
                 this.setState({
-                  evaluated: algorithms.evaluated
+                  evaluated: algorithms.evaluated,
+                  matched: algorithms.matched,
+                  notMatched: algorithms.notMatched
                 });
               }}
             >
               Run Algorithms
             </button>
             <div className="list interview-algorithms-evaluator-list">
-              {Object.keys(this.state.evaluated).map(key => (
-                <div key={key}>
-                  <b>{key}</b>
-                  <div>{this.state.evaluated[key].toString()}</div>
-                </div>
-              ))}
+              <h4 style={{ color: 'green' }}>Matched Algorithms</h4>
+              {Object.keys(this.state.matched).map(key => {
+                return (
+                  <div key={key}>
+                    <b>{key}</b>
+                    <div>{this.state.matched[key].explanation}</div>
+                  </div>
+                );
+              })}
+              <h4 style={{ color: 'red' }}>Not Matched Algorithms</h4>
+              {Object.keys(this.state.notMatched).map(key => {
+                return (
+                  <div key={key}>
+                    <b>{key}</b>
+                    <div>{this.state.notMatched[key].explanation}</div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
