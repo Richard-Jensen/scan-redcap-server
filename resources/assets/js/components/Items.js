@@ -57,13 +57,19 @@ const Response = ({ items, dispatch, interview }) => {
   if (input === 'string') {
     input = 'text';
   }
+
   const response = (interview.responses && interview.responses[item.key]) || '';
   const note = (interview.notes && interview.notes[item.key]) || '';
 
   return (
     <div key={item.key}>
       <ItemCard item={item} />
-
+      {item.options &&
+        Object.keys(item.options).map(key => (
+          <div key={key}>
+            <b>{key}</b> {item.options[key]}
+          </div>
+        ))}
       <React.Fragment>
         <label htmlFor="response">Response</label>
         <input
