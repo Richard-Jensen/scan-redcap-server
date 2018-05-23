@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 export const setActiveItem = key => ({
   type: 'SET_ACTIVE_ITEM',
   payload: {

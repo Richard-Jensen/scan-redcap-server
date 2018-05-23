@@ -13,13 +13,21 @@ import {
 } from '../items';
 import Main from '../data/Main';
 import icd10 from '../items/3.0/section.2.icd10.en.json';
+import jsyaml from 'js-yaml';
 
 class Scan extends Component {
+  constructor(props) {
+    super(props);
+    this.getAlgorithmSets();
+  }
+
   state = {
     activeIndex: 0,
     evaluated: [],
     matched: [],
-    notMatched: []
+    notMatched: [],
+    algorithmSets: [],
+    selectedAlgorithmSet: {}
   };
 
   componentDidMount() {
@@ -29,6 +37,18 @@ class Scan extends Component {
   componentWillUnmount() {
     window.removeEventListener('keydown', this.handleKeyDown);
   }
+
+  getAlgorithmSets = () => {
+    axios
+      .get(`/algorithms.json`)
+      .then(response => {
+        this.setState({
+          algorithmSets: response.data
+        });
+        this.parseAlgorithms(response.data[0].id);
+      })
+      .catch(error => console.error(error));
+  };
 
   handleKeyDown = event => {
     if (event.key === 'Enter' && !event.shiftKey) {
@@ -60,6 +80,28 @@ class Scan extends Component {
     });
   };
 
+  handleSelectChange = event => {
+    const id = parseInt(event.target.value, 10);
+    this.parseAlgorithms(id);
+  };
+
+  parseAlgorithms = id => {
+    const selectedAlgorithmSet = this.state.algorithmSets.find(
+      set => set.id === id
+    );
+    try {
+      const parsed = jsyaml.load(selectedAlgorithmSet.algorithms);
+      this.setState({
+        selectedAlgorithmSet: {
+          title: selectedAlgorithmSet.title,
+          algorithms: parsed
+        }
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   render() {
     return (
       <div style={{ height: '100%' }}>
@@ -75,7 +117,7 @@ class Scan extends Component {
               onClick={() => {
                 const algorithms = Main.runAlgorithms(
                   this.props.interview.responses,
-                  icd10
+                  this.state.selectedAlgorithmSet.algorithms
                 );
 
                 this.setState({
@@ -84,10 +126,23 @@ class Scan extends Component {
                   notMatched: algorithms.notMatched
                 });
               }}
+              className="button"
             >
               Run Algorithms
             </button>
+            <select
+              value={this.state.value}
+              onChange={this.handleSelectChange}
+              style={{ backgroundColor: 'white' }}
+            >
+              {this.state.algorithmSets.map(algorithmSet => (
+                <option key={algorithmSet.id} value={algorithmSet.id}>
+                  {algorithmSet.title}
+                </option>
+              ))}
+            </select>
             <div className="list interview-algorithms-evaluator-list">
+              {this.state.selectedAlgorithmSet.title}
               <h4 style={{ color: 'green' }}>Matched Algorithms</h4>
               {Object.keys(this.state.matched).map(key => {
                 return (

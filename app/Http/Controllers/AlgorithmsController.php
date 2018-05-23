@@ -14,6 +14,20 @@ class AlgorithmsController extends Controller
       return view('algorithms.index')->with('algorithms', $algorithms);
   }
 
+  public function text(Request $request, $id)
+  {
+      $algorithms = Algorithms::find($id);
+
+      return $algorithms->algorithms;
+  }
+
+  public function all(Request $request)
+  {
+      $algorithms = Algorithms::all();
+
+      return response()->json($algorithms);
+  }
+
   public function new(Request $request)
   {
       return view('algorithms.new');
