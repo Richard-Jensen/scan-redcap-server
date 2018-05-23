@@ -15,14 +15,14 @@ const Markdown = ({ source }) => {
 };
 
 const Header = ({ item, isActive }) => (
-  <h3>
+  <b>
     {item.input && (
       <div>
         <span>{item.key}</span>
       </div>
     )}
     <div>{item.title}</div>
-  </h3>
+  </b>
 );
 
 export const ItemCard = ({ isActive, index, item, dispatch, response }) => {
