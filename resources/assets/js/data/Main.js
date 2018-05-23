@@ -17,8 +17,13 @@ export default class Main {
     // Remove empty answers.
     const removeEmpty = obj => {
       Object.entries(obj).forEach(([key, val]) => {
-        if (val && typeof val === 'object') removeEmpty(val);
-        else if (val.length === 0) delete obj[key];
+        if (val && typeof val === 'object') {
+          removeEmpty(val);
+        } else if (val !== null) {
+          if (val.length === 0) {
+            delete obj[key];
+          }
+        }
       });
       return obj;
     };
