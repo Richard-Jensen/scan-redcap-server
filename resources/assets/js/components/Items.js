@@ -18,6 +18,7 @@ const Response = ({ items, dispatch, interview }) => {
 
   const response = (interview.responses && interview.responses[item.key]) || '';
   const note = (interview.notes && interview.notes[item.key]) || '';
+  const hasInput = input || item.scale;
 
   return (
     <div key={item.key}>
@@ -28,24 +29,26 @@ const Response = ({ items, dispatch, interview }) => {
             <b>{key}</b> {item.options[key]}
           </div>
         ))}
-      <React.Fragment>
-        <label htmlFor="response">Response</label>
-        <input
-          type={input}
-          name="response"
-          onChange={event =>
-            dispatch(setResponse(item.key, event.target.value))
-          }
-          value={response}
-          autoFocus
-        />
+      {hasInput && (
+        <React.Fragment>
+          <label htmlFor="response">Response</label>
+          <input
+            type={input}
+            name="response"
+            onChange={event =>
+              dispatch(setResponse(item.key, event.target.value))
+            }
+            value={response}
+            autoFocus
+          />
 
-        <textarea
-          onChange={event => dispatch(setNote(item.key, event.target.value))}
-          defaultValue={note}
-          placeholder="Note"
-        />
-      </React.Fragment>
+          <textarea
+            onChange={event => dispatch(setNote(item.key, event.target.value))}
+            defaultValue={note}
+            placeholder="Note"
+          />
+        </React.Fragment>
+      )}
     </div>
   );
 };
