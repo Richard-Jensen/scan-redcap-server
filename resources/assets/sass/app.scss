@@ -25,6 +25,13 @@ nav {
   }
 }
 
+html,
+body,
+#app,
+.content {
+  height: 100%;
+}
+
 .alert {
   padding: 1rem 2rem;
   background: #eee;

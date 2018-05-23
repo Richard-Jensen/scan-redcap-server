@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { scanInfo, scanData } from '../data';
-import { ItemList, ResponseContainer } from './Items';
+import { ItemList } from './ItemList';
+import { ResponseContainer } from './Items';
 import { setActiveItem } from '../actions';
 import {
   items,
@@ -105,7 +106,7 @@ class Scan extends Component {
   render() {
     return (
       <div style={{ height: '100%' }}>
-        <div style={{ display: 'flex' }}>
+        <div style={{ display: 'flex', height: '100%' }}>
           <div className="interview-list">
             <ItemList items={items} activeIndex={this.state.activeIndex} />
           </div>
@@ -141,7 +142,7 @@ class Scan extends Component {
                 </option>
               ))}
             </select>
-            <div className="list interview-algorithms-evaluator-list">
+            <div className="interview-algorithms-evaluator-list">
               {this.state.selectedAlgorithmSet.title}
               <h4 style={{ color: 'green' }}>Matched Algorithms</h4>
               {Object.keys(this.state.matched).map(key => {

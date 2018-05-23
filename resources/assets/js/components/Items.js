@@ -1,49 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setActiveItem, setResponse, setNote } from '../actions';
-import { List } from 'react-virtualized';
 import { ItemCard } from './ItemCard';
-
-export const ItemList = ({ items, activeIndex }) => {
-  const rowRenderer = ({ index, isScrolling, key, style }) => {
-    const item = items[index];
-    return <ItemContainer key={item.key} item={item} style={style} key={key} />;
-  };
-
-  return (
-    <List
-      style={{ outline: 'none' }}
-      scrollToIndex={activeIndex}
-      height={500}
-      width={200}
-      rowHeight={({ index }) => (items[index].input ? 40 : 40)}
-      rowCount={items.length}
-      overscanRowCount={10}
-      rowRenderer={rowRenderer}
-    />
-  );
-};
-
-const Item = ({ item, dispatch, interview, style, key }) => {
-  const isActive = item.key === interview.activeKey;
-
-  return (
-    <div style={style} key={key}>
-      <button
-        onClick={() => dispatch(setActiveItem(item.key.toString()))}
-        style={{
-          backgroundColor: isActive ? '#ccc' : ''
-        }}
-        className="list-item"
-      >
-        <div className="list-item-key">{item.key}</div>
-        <div className="list-item-title">{item.title}</div>
-      </button>
-    </div>
-  );
-};
-
-const ItemContainer = connect(state => state)(Item);
 
 const Response = ({ items, dispatch, interview }) => {
   const item = items.find(item => item.key === interview.activeKey);
@@ -66,7 +24,7 @@ const Response = ({ items, dispatch, interview }) => {
       <ItemCard item={item} />
       {item.options &&
         Object.keys(item.options).map(key => (
-          <div key={key}>
+          <div key={key} onClick={() => dispatch(setResponse(item.key, key))}>
             <b>{key}</b> {item.options[key]}
           </div>
         ))}
@@ -78,7 +36,7 @@ const Response = ({ items, dispatch, interview }) => {
           onChange={event =>
             dispatch(setResponse(item.key, event.target.value))
           }
-          defaultValue={response}
+          value={response}
           autoFocus
         />
 
