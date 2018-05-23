@@ -63,26 +63,25 @@ const Response = ({ items, dispatch, interview }) => {
   return (
     <div key={item.key}>
       <ItemCard item={item} />
-      {input && (
-        <React.Fragment>
-          <label htmlFor="response">Response</label>
-          <input
-            type={input}
-            name="response"
-            onChange={event =>
-              dispatch(setResponse(item.key, event.target.value))
-            }
-            defaultValue={response}
-            autoFocus
-          />
 
-          <textarea
-            onChange={event => dispatch(setNote(item.key, event.target.value))}
-            defaultValue={note}
-            placeholder="Note"
-          />
-        </React.Fragment>
-      )}
+      <React.Fragment>
+        <label htmlFor="response">Response</label>
+        <input
+          type={input}
+          name="response"
+          onChange={event =>
+            dispatch(setResponse(item.key, event.target.value))
+          }
+          defaultValue={response}
+          autoFocus
+        />
+
+        <textarea
+          onChange={event => dispatch(setNote(item.key, event.target.value))}
+          defaultValue={note}
+          placeholder="Note"
+        />
+      </React.Fragment>
     </div>
   );
 };

@@ -29,3 +29,10 @@ Route::delete('/scan/{id}/destroy', 'ScanController@destroy')->name('scan.destro
 
 // save SCAN JSON
 Route::post('/scan/{id}/save', 'ScanController@save')->name('scan.save');
+
+Route::get('/algorithms', 'AlgorithmsController@index')->name('algorithms.index');
+Route::get('/algorithms/new', 'AlgorithmsController@new')->name('algorithms.new');
+Route::get('/algorithms/{id}', 'AlgorithmsController@show')->name('algorithms.show');
+Route::patch('/algorithms/{id}', 'AlgorithmsController@update')->name('algorithms.update');
+Route::delete('/algorithms/{id}', 'AlgorithmsController@destroy')->name('algorithms.destroy');
+Route::post('/algorithms/create', 'AlgorithmsController@store')->name('algorithms.create');

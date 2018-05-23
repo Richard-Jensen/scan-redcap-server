@@ -36,7 +36,7 @@ items:
       800: 800 mths or more
       888: NK
       999: NA
-    validate: [0-999]
+    validate: [0-800,888,999]
 
   - key: 2.003
     title: Physical illness or disability, past year
@@ -76,7 +76,7 @@ items:
   - key: 2.005
     title: Predominant pain
     description: |
-      Only if <2.003> is rated 2.
+      Only if 2.003 is rated 2.
 
       Is pain the most predominant problem?
     help: |
@@ -105,9 +105,9 @@ items:
 
       Always continue if there is no convincing medical explanation for the symptoms.
 
-      - If <2.003> = 0 skip to HA
-      - If <2.003> = 2 skip to <2.007> and then <2.100>.
-      - If <2.003> < > 0 or 2 continue.
+      If <2.003> = 0 skip to HA
+      If <2.003> = 2 skip to <2.007> and then <2.100>.
+      If <2.003> < > 0 or 2 continue.
 
   - key: 2.episode1.section
     title: Well-defined physical diseases
@@ -124,208 +124,132 @@ items:
       [Show a prompt card if necessary]
 
       a.  Have you been told by a doctor that you have any of these diseases (a-r)
-
       b.  Were you given medicines for (a-r)?
-
       c.  Were you given laboratory examinations for (a-r)
-
       d.  Were you advised to make changes in your diet or life style for (a-r)?
-
       e.  Were you hospitalized or had surgery for (a-r)?
-
       f.  Did you ever stop or cut back your usual activities for a week or longer for (a-r)?
 
   - key: 2.007a
     title: High blood pressure
     description: |
       (ICD-10: I10-I15)
-    input: integer
-    options:
-      0: Absent
-      1: Present
-    validate: [0,1]
+    scale: 1
 
   - key: 2.007b
     title: Diabetes
     description: |
       (ICD-10: E10-E14)
-    input: integer
-    options:
-      0: Absent
-      1: Present
-    validate: [0,1]
+    scale: 1
 
   - key: 2.007c
     title: Osteoarthritis/rheumatoid arthritis
     description: |
       (ICD-10: M00-M19)
-    input: integer
-    options:
-      0: Absent
-      1: Present
-    validate: [0,1]
+    scale: 1
 
   - key: 2.007d
     title: Migraine/specified
     description: |
       (ICD-10: G43, G44, R51)
-    input: integer
-    options:
-      0: Absent
-      1: Present
-    validate: [0,1]
+    scale: 1
 
   - key: 2.007e
     title: Herniated disk
     description: |
       (ICD-10: M40-M54)
-    input: integer
-    options:
-      0: Absent
-      1: Present
-    validate: [0,1]
+    scale: 1
 
   - key: 2.007f
     title: Heart disease
     description: |
       (ICD-10: I05-I09 og I20-I25)
-    input: integer
-    options:
-      0: Absent
-      1: Present
-    validate: [0,1]
+    scale: 1
 
   - key: 2.007g
     title: Tuberculosis
     description: |
       (ICD-10: A15-A19, B90, J65)
-    input: integer
-    options:
-      0: Absent
-      1: Present
-    validate: [0,1]
+    scale: 1
 
   - key: 2.007h
     title: Asthma/chronic bronchitis
     description: |
       (ICD-10: J30-J32, J35, J37, J40-J47)
-    input: integer
-    options:
-      0: Absent
-      1: Present
-    validate: [0,1]
+    scale: 1
+
 
   - key: 2.007i
     title: Gastritis or ulcer
     description: |
       (ICD-10: K25-K27)
-    input: integer
-    options:
-      0: Absent
-      1: Present
-    validate: [0,1]
+    scale: 1
 
   - key: 2.007j
     title: Hepatitis
     description: |
       (ICD-10: B18, K73, K75,9)
-    input: integer
-    options:
-      0: Absent
-      1: Present
-    validate: [0,1]
+    scale: 1
 
   - key: 2.007k
     title: Kidney disease
     description: |
       (ICD-10: N03-07, N11-15, N18-19, N25-28)
-    input: integer
-    options:
-      0: Absent
-      1: Present
-    validate: [0,1]
+    scale: 1
 
   - key: 2.007l
     title: Parasite diseases/malaria
     description: |
       (ICD-10: B50-B83)
-    input: integer
-    options:
-      0: Absent
-      1: Present
-    validate: [0,1]
+    scale: 1
 
   - key: 2.007m
     title: Thyrois disease
     description: |
       (ICD-10: E00-E07)
-    input: integer
-    options:
-      0: Absent
-      1: Present
-    validate: [0,1]
+    scale: 1
 
   - key: 2.007n
     title: Tumor/cancer
     description: |
       (ICD-10: C00-C97)
-    input: integer
-    options:
-      0: Absent
-      1: Present
-    validate: [0,1]
+    scale: 1
 
   - key: 2.007o
     title: Stroke
     description: |
       (ICD-10: I60-I69)
-    input: integer
-    options:
-      0: Absent
-      1: Present
-    validate: [0,1]
+    scale: 1
 
   - key: 2.007p
     title: Epilepsia
     description: |
       (ICD-10: G40)
-    input: integer
-    options:
-      0: Absent
-      1: Present
-    validate: [0,1]
+    scale: 1
 
   - key: 2.007q
     title: Multiple sclerosis
     description: |
       (ICD-1010: G35)
-    input: integer
-    options:
-      0: Absent
-      1: Present
-    validate: [0,1]
+    scale: 1
 
   - key: 2.007r
     title: HIV/AIDS
     description: |
       (ICD-10: B20-B24)
-    input: integer
-    options:
-      0: Absent
-      1: Present
-    validate: [0,1]
+    scale: 1
 
   - key: 2.007s
     title: Others
     input: string
     description: |
-      State which
+      State which_____________________________________________
 
   - key: 2.007t
     title: Others
     input: string
     description: |
-      State which
+      State which_____________________________________________
 
     help: |
       Disorders associated with mental retardation and/or autism e.g. Down’s Syndrome, foetal rubella etc. should be checked in CHS, ch. 27. The first box must have a letter indicating the ICD-10 chapter followed by up to 4 digits. If none, leave blank.
@@ -358,7 +282,7 @@ items:
       2: Present
       8: Uncertain
       9: NK
-    validate: [1, 2, 8, 9]
+    validate: [1,2,8,9]
     glossary: |
       A well-defined medical symptom or condition is present (not including functional syndromes or disorders). The course, the treatment (i.e. compliance), health status or recovery of the medical condition is affected by the psychological factors.
       If the medical condition is not present anymore, the condition is rated as a functional condition instead.
@@ -403,14 +327,12 @@ items:
     options:
       0: No significant discomfort
       1: 1-2 symptoms
-      2: ">= 3 symptoms"
+      2: ">=3 symptoms"
     validate: [0-2]
     help: |
-      **By use of questionnaire:**
-
+      (**By use of questionnaire:**
       N: Negative questionnaire (use phrasing from mini SCAN)
-
-      P: Positive questionnaire.
+      P: Positive questionnaire.)
 
   - key: 2.011
     title: General weakness or malaise
@@ -442,6 +364,8 @@ items:
 
   - key: 2.017
     title: Others________________________________
+    scale: 1a
+    # score with 1a but also string
 
   - key: 2.episode4.section
     title: Musculoskeletal symptoms/syndromes, incl. widespread pain, muscle tension etc.
@@ -457,11 +381,9 @@ items:
       2: ">=3 symptoms"
     validate: [0-2]
     help: |
-      By use of questionnaire:
-
+      (By use of questionnaire:
       N: Negative questionnaire (use phrasing from mini SCAN)
-
-      P: Positive questionnaire.
+      P: Positive questionnaire.)
 
   - key: 2.019
     title: Back ache
@@ -518,6 +440,8 @@ items:
   - key: 2.029
     title: Others___________________
     input: string
+    scale: 1a
+    # also 1a and string
 
   - key: 2.episode5.section
     title: Gastroinstestinal symptoms/syndrome (GI Arousal), incl. upper dyspepsia
@@ -729,6 +653,7 @@ items:
       - Did you lose consciousness altogether?
       - Did you hurt yourself by falling or biting your tongue?
       - Did you pass water or defecate in that connection
+    scale: 1a
 
   - key: 2.061
     title: Feeling of impaired coordination or balance
@@ -745,6 +670,7 @@ items:
       - Have you had difficulties standing or walking without support?
       - Have you had difficulties speaking or swallowing?
       - Try to tell explain more about it.
+    scale: 1a
 
   - key: 2.063
     title: Difficulty swallowing or lump in throat
@@ -790,6 +716,8 @@ items:
       1: 1-2 symptoms
       2: ">=3 symptoms"
     validate: [0-2]
+
+  # checklist
 
   - key: 2.067
     title: Pains during urination
@@ -915,9 +843,8 @@ items:
     input: integer
     options:
       0: No significant discomfort
-      1: 1-2 symptoms
-      2: ">=3 symptoms"
-    validate: [0-2]
+      1: Present
+    validate: [0-1]
     help: |
       **By use of questionnaire:**
 
@@ -928,7 +855,6 @@ items:
   - key: 2.089
     title: Sensitivity to several foods
     scale: 1a
-
 
   - key: "2.090"
     title: Sensitivity to odors and chemicals
@@ -944,7 +870,11 @@ items:
     title: Do the symptoms disappear post-exposure
     description: |
        Do the symptoms disappear when you are no longer exposed to these odors or chemical agents?
-    scale: 1a
+    input: integer
+    options:
+      0: Yes
+      1: No
+    # only if 2.090 is positive [1,2,3]
 
   - key: 2.episode13.section
     title: Predominant symptom
@@ -957,6 +887,7 @@ items:
       (Rate 888 if the patients cannot indicate one single predominant symptom)
 
       Which of these symptoms have bothered you the most?
+    # list of items 2.010-2.090 > choose one item
 
   - key: 2.093
     title: Pain disorder/syndrome (idiopathic/primary pain)
@@ -970,9 +901,9 @@ items:
       3: Severe
       4: Neuropathic
       5: Caused by well-defined physical disease (incl. tumor)
-      6: Uncertain
-      8: NK
-    validate: [0-6,8]
+      8: Uncertain
+      9: NK
+    validate: [0-5,8,9]
 
   - key: 2.094
     title: Interference with activities and distress due to bodily distress or somatic symptoms
@@ -1078,6 +1009,14 @@ items:
 
       - Do you or others think that you are more worried about your disease (name the disease) than you ought to be?
       - What do others say - about whether you are too worried?
+    input: integer
+    options:
+      0: No particular preoccupation, or condition not present
+      1: Mild to moderate preoccupation
+      2: Excessive preoccupation with visits to the doctor, examinations, continuous self-medication or pronounced difficulties in daily life.
+      8: Uncertain
+      9: NK
+    validate: [0-2,8,9]
 
   - key: 2.101
     title: Preoccupation with somatic symptoms and worry about physical health
@@ -1087,11 +1026,11 @@ items:
     input: integer
     options:
       0: No particular preoccupation, or condition not present
-      2: Mild to moderate preoccupation
-      3: Excessive preoccupation with visits to the doctor, examinations, continuous self-medication or pronounced difficulties in daily life.
+      1: Mild to moderate preoccupation
+      2: Excessive preoccupation with visits to the doctor, examinations, continuous self-medication or pronounced difficulties in daily life.
       8: Uncertain
       9: NK
-    validate: [0, 2, 3, 8, 9]
+    validate: [0-2,8,9]
     help: |
       Rate on the basis of degree of preoccupation, illness conviction or distress, frequency of consultations and examinations, degree of symptoms or excessive illness worry.
 
@@ -1230,7 +1169,14 @@ items:
     title: Catastrophizing
     description: |
       Do you expect serious consequences (i.e. serious disability, not being able to return to work, not being able to take care of your children, never being the same again) when you have symptoms?
-    scale: 1a
+    input: integer
+    options:
+      0: No particular catastrophizing, or condition not present
+      1: Mild to moderate catastrophizing
+      2: Severe catastrophizing that considerably affects everyday life
+      8: Uncertain
+      9: NK
+    validate: [0-2,8,9]
     help: |
       **See also section 5 (Gabriel)**
 
@@ -1250,7 +1196,7 @@ items:
       2: Severe preoccupation and takes child to the doctor, to examinations, self-medicates the child or marked distress in everyday life
       8: Uncertain
       9: NK
-    validate: [0-2,8,9]
+    validate: [0-2, 8, 9]
 
   - key: 2.112
     title: Treatment-seeking behaviour in relation to health anxiety or symptoms past 2 years
@@ -1266,7 +1212,7 @@ items:
       3: The patient has actively consulted 4 or more different doctors / treatment providers due to functional illness/health anxiety
       8: Uncertain
       9: NK
-    validate: [0-2,8,9]
+    validate: [0-3, 8, 9]
 
   - key: 2.113
     title: Avoidance related to health anxiety or symptoms
@@ -1303,11 +1249,11 @@ items:
     options:
       0: No health anxiety
       1: Only little interference
-      3: Moderate or intermittent interference
-      4: Severe to incapacitating interference
+      2: Moderate or intermittent interference
+      3: Severe to incapacitating interference
       8: Uncertain
       9: NK
-    validate: [0-4,8,9]
+    validate: [0-3,8,9]
 
   - key: 2.116
     title: Dysmorphophobia
@@ -1321,14 +1267,14 @@ items:
       9: NK
     validate: [0, 1, 8, 9]
     help: |
-      Cf. dysmorphophobia, <16.011>
+      Cf. dysmorphophobia, 16.011
 
   - key: 2.episode15.section
     title: Syndrome- or symptom-based diagnoses according to the patients
     description: |
-        Rating is based on the answers in <2010>-<2.090> or other parts of the interview or if those are inadequate, ask the patient directly.
+        Rating is based on the answers in **2010-2.090** or other parts of the interview or if those are inadequate, ask the patient directly.
 
-        - Does the patient believe, ort has the patient been told, that he or she suffers from a syndrome- or symptom-based diagnosis?
+        *Does the patient believe, ort has the patient been told, that he or she suffers from a syndrome- or symptom-based diagnosis?*
     input: integer
     options:
       0: Absent
@@ -1336,10 +1282,11 @@ items:
       2: Acute severe psychological trauma/events in connection with onset
       8: Uncertain
       9: NK
-    validate: [0-2,8,9]
+    validate: [0-2, 8, 9]
 
   - key: 2.117
     title: Fibromyalgia
+    #same scoring as previous > 2.123
 
   - key: 2.118
     title: CFS (Chronic Fatigue Syndrome)
@@ -1368,25 +1315,17 @@ items:
         - *How did your illness start (or the symptoms)?*
         - *Did other things happen in your life simultaneously?*
         - *Was there anything that triggered your illness?*
-    input: integer
-    options:
-      0: No particular events
-      1: Yes, but not 2
-      2: Yes, clear connection / association
-      8: Uncertain
-      9: NK
-    validate: [0, 1, 2, 8, 9]
 
   - key: 2.124
     title: Physical trauma (e.g. whiplash, fracture, head trauma)
     input: integer
     options:
       0: No particular trauma
-      2: Yes, but not 2
-      3: Yes, clear connection / association
+      1: Yes, but not 2
+      2: Yes, clear connection / association
       8: Uncertain
       9: NK
-    validate: [0, 2, 3, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.125
     title: Physical disease (e.g. infectious disease)
@@ -1397,7 +1336,7 @@ items:
       2: Yes, clear connection / association
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.126
     title: Emotional trauma, conflicts or strain
@@ -1408,7 +1347,7 @@ items:
       2: Yes, clear connection / association
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.127
     title: Significant social event (e.g. divorce, dismissal, bereavement)
@@ -1419,7 +1358,7 @@ items:
       2: Yes, clear connection / association
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.128
     title: Significant work-related stress or stress-related to your personal life
@@ -1432,7 +1371,7 @@ items:
       2: Yes, clear connection / association
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.129
     title: Exposure to strong odor or chemicals
@@ -1443,7 +1382,7 @@ items:
       2: Yes, clear connection / association
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.episode17.section
     title: Symptom- or illness attributions (prompt card if needed)
@@ -1466,7 +1405,7 @@ items:
       6: Unsure rating
       8: Uncertain
       9: NK
-    validate: [0-9]
+    validate: [0-6,8,9]
 
   - key: 2.131
     title: Identification of relieving or aggravating factors
@@ -1483,10 +1422,11 @@ items:
       2: Great difficulty or numerous and diffuse
       8: Unsure
       9: NA
-    validate: [0-999]
+    validate: [0-2,8,9]
 
   - key: 2.episode18.section
     title: Age of onset
+    input: integer
 
   - key: 2.episode19.section
     title: Differential diagnoses
@@ -1500,7 +1440,7 @@ items:
       2: Functional symptoms and physical disease are equally dominating
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.135
     title: Functional disorder or panic attacks, primary
@@ -1545,10 +1485,10 @@ items:
       0: Absent or symptoms of only one type
       1: Bodily distress more dominating or started first
       2: Bodily distress and other mental disorder co-occur (comorbidity)
-      4: Symptoms from other mental disorder more dominating or started first
-      10: Uncertain
-      11: NK
-    validate: [0, 1, 2, 4, 10, 11]
+      3: Symptoms from other mental disorder more dominating or started first
+      8: Uncertain
+      9: NK
+    validate: [0-3,8,9]
 
   - key: 2.episode20.section
     title: Observed behaviour
@@ -1583,7 +1523,7 @@ items:
       6: Definitely present, but caused by a physical disease, e.g. multiple sclerosis
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 6, 8, 9]
+    validate: [0-2,6,8,9]
 
   - key: 2.145
     title: Discrepancy between subjective complaints and observed behaviour
@@ -1596,7 +1536,7 @@ items:
       2: Definitely present and to a pronounced extent
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.146
     title: Psycho-social communication style
@@ -1609,7 +1549,7 @@ items:
       2: Pronounced degree of psychosocial communication form
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.147
     title: Lack of chronology in symptom- and medical history
@@ -1626,7 +1566,7 @@ items:
       2: Pronounced
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.148
     title: Vague, diffuse symptom description and anamnesis
@@ -1641,7 +1581,7 @@ items:
       2: Pronounced
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.149
     title: Vague, diffuse description of previous treatments
@@ -1656,7 +1596,7 @@ items:
       2: Pronounced
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: "2.150"
     title: Affective description
@@ -1669,7 +1609,7 @@ items:
       2: Pronounced
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.151
     title: Inconsistency of information
@@ -1682,7 +1622,7 @@ items:
       2: Pronounced inconsistency
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.152
     title: Previous course of disease and treatments (according to medical records etc.)
@@ -1696,7 +1636,7 @@ items:
       3: Numerous and frequent contacts during several years with hospitals, specialists etc. without certain physical explanation
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 3, 8, 9]
+    validate: [0-3,8,9]
 
   - key: 2.153
     title: Motorically passive
@@ -1715,4 +1655,4 @@ items:
       3: Münchhausen's syndrome
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 3, 8, 9]
+    validate: [0-3,8,9]

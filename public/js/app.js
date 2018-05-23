@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 125);
+/******/ 	return __webpack_require__(__webpack_require__.s = 126);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -89,7 +89,7 @@ if (true) {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(140)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(141)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
@@ -107,7 +107,7 @@ if (true) {
 if (false) {
   module.exports = require('./cjs/react.production.min.js');
 } else {
-  module.exports = __webpack_require__(127);
+  module.exports = __webpack_require__(128);
 }
 
 
@@ -307,7 +307,7 @@ exports.default = function (instance, Constructor) {
 
 exports.__esModule = true;
 
-var _defineProperty = __webpack_require__(189);
+var _defineProperty = __webpack_require__(190);
 
 var _defineProperty2 = _interopRequireDefault(_defineProperty);
 
@@ -335,7 +335,7 @@ exports.default = function () {
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(186), __esModule: true };
+module.exports = { "default": __webpack_require__(187), __esModule: true };
 
 /***/ }),
 /* 6 */
@@ -369,11 +369,11 @@ exports.default = function (self, call) {
 
 exports.__esModule = true;
 
-var _setPrototypeOf = __webpack_require__(214);
+var _setPrototypeOf = __webpack_require__(215);
 
 var _setPrototypeOf2 = _interopRequireDefault(_setPrototypeOf);
 
-var _create = __webpack_require__(218);
+var _create = __webpack_require__(219);
 
 var _create2 = _interopRequireDefault(_create);
 
@@ -416,7 +416,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Grid__ = __webpack_require__(98);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return __WEBPACK_IMPORTED_MODULE_0__Grid__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Grid", function() { return __WEBPACK_IMPORTED_MODULE_0__Grid__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__accessibilityOverscanIndicesGetter__ = __webpack_require__(233);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__accessibilityOverscanIndicesGetter__ = __webpack_require__(234);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "accessibilityOverscanIndicesGetter", function() { return __WEBPACK_IMPORTED_MODULE_1__accessibilityOverscanIndicesGetter__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__defaultCellRangeRenderer__ = __webpack_require__(101);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "defaultCellRangeRenderer", function() { return __WEBPACK_IMPORTED_MODULE_2__defaultCellRangeRenderer__["a"]; });
@@ -587,7 +587,7 @@ exports.escapeHtml        = escapeHtml;
 
 
 var bind = __webpack_require__(81);
-var isBuffer = __webpack_require__(165);
+var isBuffer = __webpack_require__(166);
 
 /*global toString:true*/
 
@@ -898,7 +898,7 @@ module.exports = {
 
 exports.__esModule = true;
 
-var _assign = __webpack_require__(221);
+var _assign = __webpack_require__(222);
 
 var _assign2 = _interopRequireDefault(_assign);
 
@@ -1258,7 +1258,7 @@ if (false) {
   checkDCE();
   module.exports = require('./cjs/react-dom.production.min.js');
 } else {
-  module.exports = __webpack_require__(128);
+  module.exports = __webpack_require__(129);
 }
 
 
@@ -1290,7 +1290,7 @@ module.exports = Object.keys || function keys(O) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cancelAnimationTimeout", function() { return cancelAnimationTimeout; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestAnimationTimeout", function() { return requestAnimationTimeout; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__animationFrame__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__animationFrame__ = __webpack_require__(228);
 
 
 var babelPluginFlowReactPropTypes_proptype_AnimationTimeoutId =  false ? null : {
@@ -2187,9 +2187,9 @@ module.exports = checkPropTypes;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(140);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(145);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Provider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["b"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createProvider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connectAdvanced", function() { return __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__["a"]; });
@@ -2240,7 +2240,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "applyMiddleware", function() { return applyMiddleware; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "compose", function() { return compose; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__DO_NOT_USE__ActionTypes", function() { return ActionTypes; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_symbol_observable__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_symbol_observable__ = __webpack_require__(148);
 
 
 /**
@@ -2835,7 +2835,7 @@ if ("development" !== 'production' && typeof isCrushed.name === 'string' && isCr
 /* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(164);
+module.exports = __webpack_require__(165);
 
 /***/ }),
 /* 48 */
@@ -2845,7 +2845,7 @@ module.exports = __webpack_require__(164);
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(11);
-var normalizeHeaderName = __webpack_require__(168);
+var normalizeHeaderName = __webpack_require__(169);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -2939,7 +2939,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(167)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(168)))
 
 /***/ }),
 /* 49 */
@@ -3044,7 +3044,7 @@ module.exports = function (it, S) {
 
 "use strict";
 
-var $at = __webpack_require__(194)(true);
+var $at = __webpack_require__(195)(true);
 
 // 21.1.3.27 String.prototype[@@iterator]()
 __webpack_require__(93)(String, 'String', function (iterated) {
@@ -3087,7 +3087,7 @@ module.exports = true;
 
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 var anObject = __webpack_require__(21);
-var dPs = __webpack_require__(196);
+var dPs = __webpack_require__(197);
 var enumBugKeys = __webpack_require__(60);
 var IE_PROTO = __webpack_require__(51)('IE_PROTO');
 var Empty = function () { /* empty */ };
@@ -3102,7 +3102,7 @@ var createDict = function () {
   var gt = '>';
   var iframeDocument;
   iframe.style.display = 'none';
-  __webpack_require__(200).appendChild(iframe);
+  __webpack_require__(201).appendChild(iframe);
   iframe.src = 'javascript:'; // eslint-disable-line no-script-url
   // createDict = iframe.contentWindow.Object;
   // html.removeChild(iframe);
@@ -3166,7 +3166,7 @@ module.exports = function (it, tag, stat) {
 /* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(201);
+__webpack_require__(202);
 var global = __webpack_require__(14);
 var hide = __webpack_require__(20);
 var Iterators = __webpack_require__(27);
@@ -3249,8 +3249,8 @@ exports.f = __webpack_require__(18) ? gOPD : function getOwnPropertyDescriptor(O
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__CellSizeAndPositionManager__ = __webpack_require__(225);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__maxElementSize_js__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__CellSizeAndPositionManager__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__maxElementSize_js__ = __webpack_require__(227);
 
 
 
@@ -3594,7 +3594,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_classnames__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_classnames___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_classnames__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__PositionCache__ = __webpack_require__(254);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__PositionCache__ = __webpack_require__(255);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__utils_requestAnimationTimeout__ = __webpack_require__(29);
 
 
@@ -4254,13 +4254,13 @@ var storeShape = __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.shape({
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = connectAdvanced;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__ = __webpack_require__(142);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(143);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_Subscription__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_Subscription__ = __webpack_require__(144);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_PropTypes__ = __webpack_require__(76);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -4635,7 +4635,7 @@ function wrapMapToPropsFunc(mapToProps, methodName) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = verifyPlainObject;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(151);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__warning__ = __webpack_require__(45);
 
 
@@ -4651,7 +4651,7 @@ function verifyPlainObject(value, displayName, methodName) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__root_js__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__root_js__ = __webpack_require__(153);
 
 
 /** Built-in value references. */
@@ -4686,12 +4686,12 @@ module.exports = function bind(fn, thisArg) {
 
 
 var utils = __webpack_require__(11);
-var settle = __webpack_require__(169);
-var buildURL = __webpack_require__(171);
-var parseHeaders = __webpack_require__(172);
-var isURLSameOrigin = __webpack_require__(173);
+var settle = __webpack_require__(170);
+var buildURL = __webpack_require__(172);
+var parseHeaders = __webpack_require__(173);
+var isURLSameOrigin = __webpack_require__(174);
 var createError = __webpack_require__(83);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(174);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(175);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -4788,7 +4788,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(175);
+      var cookies = __webpack_require__(176);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -4872,7 +4872,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(170);
+var enhanceError = __webpack_require__(171);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -5000,7 +5000,7 @@ var setNote = exports.setNote = function setNote(key, value) {
 
 var babelPluginFlowReactPropTypes_proptype_RenderedSection = __webpack_require__(9).babelPluginFlowReactPropTypes_proptype_RenderedSection || __webpack_require__(0).any;
 
-var babelPluginFlowReactPropTypes_proptype_ScrollIndices = __webpack_require__(234).babelPluginFlowReactPropTypes_proptype_ScrollIndices || __webpack_require__(0).any;
+var babelPluginFlowReactPropTypes_proptype_ScrollIndices = __webpack_require__(235).babelPluginFlowReactPropTypes_proptype_ScrollIndices || __webpack_require__(0).any;
 
 
 
@@ -5216,7 +5216,7 @@ module.exports = Object.getPrototypeOf || function (O) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // optional / simple context binding
-var aFunction = __webpack_require__(188);
+var aFunction = __webpack_require__(189);
 module.exports = function (fn, that, length) {
   aFunction(fn);
   if (that === undefined) return fn;
@@ -5268,11 +5268,11 @@ module.exports = function (it) {
 
 exports.__esModule = true;
 
-var _iterator = __webpack_require__(192);
+var _iterator = __webpack_require__(193);
 
 var _iterator2 = _interopRequireDefault(_iterator);
 
-var _symbol = __webpack_require__(204);
+var _symbol = __webpack_require__(205);
 
 var _symbol2 = _interopRequireDefault(_symbol);
 
@@ -5297,7 +5297,7 @@ var $export = __webpack_require__(16);
 var redefine = __webpack_require__(94);
 var hide = __webpack_require__(20);
 var Iterators = __webpack_require__(27);
-var $iterCreate = __webpack_require__(195);
+var $iterCreate = __webpack_require__(196);
 var setToStringTag = __webpack_require__(61);
 var getPrototypeOf = __webpack_require__(88);
 var ITERATOR = __webpack_require__(13)('iterator');
@@ -5375,7 +5375,7 @@ module.exports = __webpack_require__(20);
 
 var has = __webpack_require__(15);
 var toIObject = __webpack_require__(19);
-var arrayIndexOf = __webpack_require__(197)(false);
+var arrayIndexOf = __webpack_require__(198)(false);
 var IE_PROTO = __webpack_require__(51)('IE_PROTO');
 
 module.exports = function (object, names) {
@@ -5439,11 +5439,11 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_classnames__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_classnames___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_classnames__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utils_calculateSizeAndPositionDataAndUpdateScrollOffset__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utils_calculateSizeAndPositionDataAndUpdateScrollOffset__ = __webpack_require__(229);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__utils_ScalingCellSizeAndPositionManager__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__utils_createCallbackMemoizer__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__defaultOverscanIndicesGetter__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__utils_updateScrollIndexHelper__ = __webpack_require__(231);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__utils_updateScrollIndexHelper__ = __webpack_require__(232);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__defaultCellRangeRenderer__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_dom_helpers_util_scrollbarSize__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_dom_helpers_util_scrollbarSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_dom_helpers_util_scrollbarSize__);
@@ -6830,7 +6830,7 @@ Grid.propTypes =  false ? null : {
 /* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(229), __esModule: true };
+module.exports = { "default": __webpack_require__(230), __esModule: true };
 
 /***/ }),
 /* 100 */
@@ -7056,7 +7056,7 @@ exports.default = function (recalc) {
   return size;
 };
 
-var _inDOM = __webpack_require__(232);
+var _inDOM = __webpack_require__(233);
 
 var _inDOM2 = _interopRequireDefault(_inDOM);
 
@@ -7484,7 +7484,7 @@ function createDetectElementResize(nonce) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__CellMeasurer__ = __webpack_require__(236);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__CellMeasurer__ = __webpack_require__(237);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CellMeasurerCache__ = __webpack_require__(106);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__CellMeasurer__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__CellMeasurerCache__["a"]; });
@@ -7718,7 +7718,7 @@ function defaultKeyMapper(rowIndex, columnIndex) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_own_property_descriptor__ = __webpack_require__(249);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_own_property_descriptor__ = __webpack_require__(250);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_own_property_descriptor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_own_property_descriptor__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of__);
@@ -8510,8 +8510,8 @@ Column.propTypes =  true ? {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utils_onScroll__ = __webpack_require__(274);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__utils_dimensions__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utils_onScroll__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__utils_dimensions__ = __webpack_require__(276);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__vendor_detectElementResize__ = __webpack_require__(104);
 
 
@@ -11104,7 +11104,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 // import { items as en } from './items/2.1/scan.2.1.items.en.json';
 
 
-var _section2En = __webpack_require__(329);
+var _section2En = __webpack_require__(330);
 
 var items = _section2En.items;
 
@@ -11142,7 +11142,227 @@ exports.items = items;
 /* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var freeGlobal = __webpack_require__(344);
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _DataLoader = __webpack_require__(331);
+
+var _DataLoader2 = _interopRequireDefault(_DataLoader);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Main = function () {
+  function Main() {
+    _classCallCheck(this, Main);
+  }
+
+  _createClass(Main, null, [{
+    key: 'runAlgorithms',
+    value: function runAlgorithms() {
+      var responses = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var algorithms = arguments[1];
+
+      // Get the evaluator object from the loader
+      var evaluator = _DataLoader2.default.getEvaluator(algorithms);
+
+      // Populate the evaluator object with answers
+      evaluator.answers = Object.keys(responses).reduce(function (result, item) {
+        return _extends({}, result, _defineProperty({}, item, responses[item]));
+      }, {});
+
+      // Remove empty answers.
+      var removeEmpty = function removeEmpty(obj) {
+        Object.entries(obj).forEach(function (_ref) {
+          var _ref2 = _slicedToArray(_ref, 2),
+              key = _ref2[0],
+              val = _ref2[1];
+
+          if (val && (typeof val === 'undefined' ? 'undefined' : _typeof(val)) === 'object') removeEmpty(val);else if (val.length === 0) delete obj[key];
+        });
+        return obj;
+      };
+      evaluator.answers = removeEmpty(evaluator.answers);
+
+      // Process all diagnoses
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = evaluator.algorithms[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var _ref3 = _step.value;
+
+          var _ref4 = _slicedToArray(_ref3, 2);
+
+          var key = _ref4[0];
+          var diagnosis = _ref4[1];
+
+          // Calculate the diagnosis value only if we haven't done it before.
+          if (typeof evaluator.evaluated[key] === 'undefined') {
+            //!== 'boolean'
+            try {
+              evaluator.evaluated[key] = evaluator.process(diagnosis.algorithm, diagnosis);
+            } catch (e) {
+              if (diagnosis.debug) {
+                console.log(diagnosis);
+              }
+
+              diagnosis.errorMessage = e.message;
+              evaluator.missing[key] = diagnosis;
+
+              console.log(e.name + ': ' + e.message + '. diagnosis: ' + key);
+              console.log(e);
+            }
+          }
+
+          if (diagnosis.debug) {
+            // console.log(diagnosis);
+          }
+
+          if (evaluator.evaluated[key] === true) {
+            evaluator.matched[key] = diagnosis;
+            // console.log(yaml.safeDump(diagnosis, {flowLevel: 1}));
+          } else {
+            evaluator.notmatched[key] = diagnosis;
+          }
+        }
+
+        // Calculate the result set from the filter options in state
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+
+      evaluator.resultSet = this.filterMatchedItems({ options: false }, evaluator);
+
+      return evaluator;
+    }
+  }, {
+    key: 'filterMatchedItems',
+    value: function filterMatchedItems(evaluatorOptions, evaluator) {
+      var options = evaluatorOptions;
+
+      var diagnosisVariableItems = Object.keys(evaluator.matched).reduce(function (result, item) {
+        var matchedItem = evaluator.matched[item];
+
+        if (options.icd) {
+          if (matchedItem.diagnosis_variable && matchedItem.icd10) {
+            return _extends({}, result, _defineProperty({}, item, evaluator.matched[item]));
+          }
+        } else {
+          if (matchedItem.diagnosis_variable) {
+            return _extends({}, result, _defineProperty({}, item, evaluator.matched[item]));
+          }
+        }
+
+        return result;
+      }, {});
+
+      return diagnosisVariableItems;
+    }
+
+    /**
+     * Test the output by doing something.
+     */
+
+  }, {
+    key: 'doSomething',
+    value: function doSomething(evaluator) {
+      // console.log('Matched items:', evaluator.matched);
+      // const diagnosisVariableItems = Object.keys(evaluator.matched).reduce(
+      //   (result, item) => {
+      //     const matchedItem = evaluator.matched[item]
+      //     if (matchedItem.diagnosis_variable
+      //     && matchedItem.icd10) {
+      //       return {
+      //         ...result,
+      //         [item]: evaluator.matched[item]
+      //       }
+      //     }
+      //     return result
+      //   },
+      //   {}
+      // );
+      // console.log(diagnosisVariableItems)
+      // for (let key of evaluator.matched) {
+      //
+      // }
+      // // Sort evaluator.matched
+      // const ordered = {};
+      // Object.keys(evaluator.matched).sort().forEach(key => ordered[key] = evaluator.matched[key])
+      // evaluator.matched = ordered;
+      // // Print evaluator.matched
+      // for ( let key in evaluator.matched ) {
+      //   if ( evaluator.matched.hasOwnProperty(key) ) {
+      //     let message;
+      //     message = key;
+      //     if ( evaluator.matched[key].explanation.length > 0 ) {
+      //       message += ' - ' + evaluator.matched[key].explanation;
+      //     }
+      //     if ( message.length ) {
+      //       console.log(message);
+      //     }
+      //   }
+      // }
+      // console.log(evaluator);
+      // console.log('Counters:', counter);
+      // console.log('Matched items:', matchedItems);
+      // // Sort matchedItems
+      // const ordered = {};
+      // Object.keys(matchedItems).sort().forEach(key => ordered[key] = matchedItems[key])
+      // matchedItems = ordered;
+      // // Print matchedItems
+      // for ( let key in matchedItems ) {
+      //   if ( matchedItems.hasOwnProperty(key) ) {
+      //     let message;
+      //     message = key;
+      //     if ( matchedItems[key].explanation.length > 0 ) {
+      //       message += ' - ' + matchedItems[key].explanation;
+      //     }
+      //     if ( message.length ) {
+      //       // console.log(message);
+      //     }
+      //   }
+      // }
+    }
+  }]);
+
+  return Main;
+}();
+
+exports.default = Main;
+
+/***/ }),
+/* 124 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var freeGlobal = __webpack_require__(345);
 
 /** Detect free variable `self`. */
 var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
@@ -11154,10 +11374,10 @@ module.exports = root;
 
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var root = __webpack_require__(123);
+var root = __webpack_require__(124);
 
 /** Built-in value references. */
 var Symbol = root.Symbol;
@@ -11166,15 +11386,15 @@ module.exports = Symbol;
 
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(126);
-module.exports = __webpack_require__(351);
+__webpack_require__(127);
+module.exports = __webpack_require__(352);
 
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11190,7 +11410,7 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _reactRedux = __webpack_require__(44);
 
-var _Scan = __webpack_require__(163);
+var _Scan = __webpack_require__(164);
 
 var _Scan2 = _interopRequireDefault(_Scan);
 
@@ -11198,7 +11418,7 @@ var _configureStore = __webpack_require__(336);
 
 var _configureStore2 = _interopRequireDefault(_configureStore);
 
-var _throttle = __webpack_require__(341);
+var _throttle = __webpack_require__(342);
 
 var _throttle2 = _interopRequireDefault(_throttle);
 
@@ -11223,7 +11443,7 @@ if (document.getElementById('scan-app')) {
 }
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12644,7 +12864,7 @@ module.exports = react;
 
 
 /***/ }),
-/* 128 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12668,16 +12888,16 @@ if (true) {
 var invariant = __webpack_require__(31);
 var React = __webpack_require__(1);
 var warning = __webpack_require__(32);
-var ExecutionEnvironment = __webpack_require__(129);
+var ExecutionEnvironment = __webpack_require__(130);
 var _assign = __webpack_require__(42);
 var emptyFunction = __webpack_require__(33);
 var checkPropTypes = __webpack_require__(43);
-var getActiveElement = __webpack_require__(130);
-var shallowEqual = __webpack_require__(131);
-var containsNode = __webpack_require__(132);
+var getActiveElement = __webpack_require__(131);
+var shallowEqual = __webpack_require__(132);
+var containsNode = __webpack_require__(133);
 var emptyObject = __webpack_require__(74);
-var hyphenateStyleName = __webpack_require__(135);
-var camelizeStyleName = __webpack_require__(137);
+var hyphenateStyleName = __webpack_require__(136);
+var camelizeStyleName = __webpack_require__(138);
 
 // Relying on the `invariant()` implementation lets us
 // have preserve the format and params in the www builds.
@@ -29305,7 +29525,7 @@ module.exports = reactDom;
 
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29344,7 +29564,7 @@ var ExecutionEnvironment = {
 module.exports = ExecutionEnvironment;
 
 /***/ }),
-/* 130 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29386,7 +29606,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 131 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29457,7 +29677,7 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 132 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29472,7 +29692,7 @@ module.exports = shallowEqual;
  * 
  */
 
-var isTextNode = __webpack_require__(133);
+var isTextNode = __webpack_require__(134);
 
 /*eslint-disable no-bitwise */
 
@@ -29500,7 +29720,7 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
-/* 133 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29515,7 +29735,7 @@ module.exports = containsNode;
  * @typechecks
  */
 
-var isNode = __webpack_require__(134);
+var isNode = __webpack_require__(135);
 
 /**
  * @param {*} object The object to check.
@@ -29528,7 +29748,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 134 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29556,7 +29776,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 135 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29571,7 +29791,7 @@ module.exports = isNode;
 
 
 
-var hyphenate = __webpack_require__(136);
+var hyphenate = __webpack_require__(137);
 
 var msPattern = /^ms-/;
 
@@ -29598,7 +29818,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 136 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29634,7 +29854,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 137 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29649,7 +29869,7 @@ module.exports = hyphenate;
 
 
 
-var camelize = __webpack_require__(138);
+var camelize = __webpack_require__(139);
 
 var msPattern = /^-ms-/;
 
@@ -29677,7 +29897,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 138 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29712,7 +29932,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 139 */
+/* 140 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -29797,7 +30017,7 @@ function createProvider() {
 /* harmony default export */ __webpack_exports__["b"] = (createProvider());
 
 /***/ }),
-/* 140 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30346,7 +30566,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 
 /***/ }),
-/* 141 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -30424,7 +30644,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30480,7 +30700,7 @@ module.exports = invariant;
 
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -30579,17 +30799,17 @@ var Subscription = function () {
 
 
 /***/ }),
-/* 144 */
+/* 145 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export createConnect */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_connectAdvanced__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_shallowEqual__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mapDispatchToProps__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapStateToProps__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mergeProps__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__selectorFactory__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_shallowEqual__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mapDispatchToProps__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapStateToProps__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mergeProps__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__selectorFactory__ = __webpack_require__(162);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -30695,7 +30915,7 @@ function createConnect() {
 /* harmony default export */ __webpack_exports__["a"] = (createConnect());
 
 /***/ }),
-/* 145 */
+/* 146 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -30732,7 +30952,7 @@ function shallowEqual(objA, objB) {
 }
 
 /***/ }),
-/* 146 */
+/* 147 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -30763,11 +30983,11 @@ function whenMapDispatchToPropsIsObject(mapDispatchToProps) {
 /* harmony default export */ __webpack_exports__["a"] = ([whenMapDispatchToPropsIsFunction, whenMapDispatchToPropsIsMissing, whenMapDispatchToPropsIsObject]);
 
 /***/ }),
-/* 147 */
+/* 148 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(global, module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ponyfill_js__ = __webpack_require__(149);
+/* WEBPACK VAR INJECTION */(function(global, module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ponyfill_js__ = __webpack_require__(150);
 /* global window */
 
 
@@ -30788,10 +31008,10 @@ if (typeof self !== 'undefined') {
 var result = Object(__WEBPACK_IMPORTED_MODULE_0__ponyfill_js__["a" /* default */])(root);
 /* harmony default export */ __webpack_exports__["a"] = (result);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(34), __webpack_require__(148)(module)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(34), __webpack_require__(149)(module)))
 
 /***/ }),
-/* 148 */
+/* 149 */
 /***/ (function(module, exports) {
 
 module.exports = function(originalModule) {
@@ -30821,7 +31041,7 @@ module.exports = function(originalModule) {
 
 
 /***/ }),
-/* 149 */
+/* 150 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -30846,13 +31066,13 @@ function symbolObservablePonyfill(root) {
 
 
 /***/ }),
-/* 150 */
+/* 151 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__baseGetTag_js__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getPrototype_js__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__isObjectLike_js__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__baseGetTag_js__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getPrototype_js__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__isObjectLike_js__ = __webpack_require__(159);
 
 
 
@@ -30918,13 +31138,13 @@ function isPlainObject(value) {
 
 
 /***/ }),
-/* 151 */
+/* 152 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getRawTag_js__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__objectToString_js__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getRawTag_js__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__objectToString_js__ = __webpack_require__(156);
 
 
 
@@ -30956,11 +31176,11 @@ function baseGetTag(value) {
 
 
 /***/ }),
-/* 152 */
+/* 153 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__freeGlobal_js__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__freeGlobal_js__ = __webpack_require__(154);
 
 
 /** Detect free variable `self`. */
@@ -30973,7 +31193,7 @@ var root = __WEBPACK_IMPORTED_MODULE_0__freeGlobal_js__["a" /* default */] || fr
 
 
 /***/ }),
-/* 153 */
+/* 154 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -30985,7 +31205,7 @@ var freeGlobal = typeof global == 'object' && global && global.Object === Object
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(34)))
 
 /***/ }),
-/* 154 */
+/* 155 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -31039,7 +31259,7 @@ function getRawTag(value) {
 
 
 /***/ }),
-/* 155 */
+/* 156 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -31068,11 +31288,11 @@ function objectToString(value) {
 
 
 /***/ }),
-/* 156 */
+/* 157 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__overArg_js__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__overArg_js__ = __webpack_require__(158);
 
 
 /** Built-in value references. */
@@ -31082,7 +31302,7 @@ var getPrototype = Object(__WEBPACK_IMPORTED_MODULE_0__overArg_js__["a" /* defau
 
 
 /***/ }),
-/* 157 */
+/* 158 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -31104,7 +31324,7 @@ function overArg(func, transform) {
 
 
 /***/ }),
-/* 158 */
+/* 159 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -31140,7 +31360,7 @@ function isObjectLike(value) {
 
 
 /***/ }),
-/* 159 */
+/* 160 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -31162,7 +31382,7 @@ function whenMapStateToPropsIsMissing(mapStateToProps) {
 /* harmony default export */ __webpack_exports__["a"] = ([whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing]);
 
 /***/ }),
-/* 160 */
+/* 161 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -31218,14 +31438,14 @@ function whenMergePropsIsOmitted(mergeProps) {
 /* harmony default export */ __webpack_exports__["a"] = ([whenMergePropsIsFunction, whenMergePropsIsOmitted]);
 
 /***/ }),
-/* 161 */
+/* 162 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export impureFinalPropsSelectorFactory */
 /* unused harmony export pureFinalPropsSelectorFactory */
 /* harmony export (immutable) */ __webpack_exports__["a"] = finalPropsSelectorFactory;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__verifySubselectors__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__verifySubselectors__ = __webpack_require__(163);
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 
@@ -31330,7 +31550,7 @@ function finalPropsSelectorFactory(dispatch, _ref2) {
 }
 
 /***/ }),
-/* 162 */
+/* 163 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -31355,7 +31575,7 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
 }
 
 /***/ }),
-/* 163 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31383,13 +31603,13 @@ var _reactRedux = __webpack_require__(44);
 
 var _data = __webpack_require__(49);
 
-var _Items = __webpack_require__(183);
+var _Items = __webpack_require__(184);
 
 var _actions = __webpack_require__(86);
 
 var _items = __webpack_require__(122);
 
-var _Main = __webpack_require__(330);
+var _Main = __webpack_require__(123);
 
 var _Main2 = _interopRequireDefault(_Main);
 
@@ -31528,7 +31748,7 @@ exports.default = (0, _reactRedux.connect)(function (state) {
 })(Scan);
 
 /***/ }),
-/* 164 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31536,7 +31756,7 @@ exports.default = (0, _reactRedux.connect)(function (state) {
 
 var utils = __webpack_require__(11);
 var bind = __webpack_require__(81);
-var Axios = __webpack_require__(166);
+var Axios = __webpack_require__(167);
 var defaults = __webpack_require__(48);
 
 /**
@@ -31571,14 +31791,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(85);
-axios.CancelToken = __webpack_require__(181);
+axios.CancelToken = __webpack_require__(182);
 axios.isCancel = __webpack_require__(84);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(182);
+axios.spread = __webpack_require__(183);
 
 module.exports = axios;
 
@@ -31587,7 +31807,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 165 */
+/* 166 */
 /***/ (function(module, exports) {
 
 /*!
@@ -31614,7 +31834,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 166 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31622,8 +31842,8 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(48);
 var utils = __webpack_require__(11);
-var InterceptorManager = __webpack_require__(176);
-var dispatchRequest = __webpack_require__(177);
+var InterceptorManager = __webpack_require__(177);
+var dispatchRequest = __webpack_require__(178);
 
 /**
  * Create a new instance of Axios
@@ -31700,7 +31920,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 167 */
+/* 168 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -31890,7 +32110,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 168 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31909,7 +32129,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 169 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31942,7 +32162,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 170 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31970,7 +32190,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 171 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32043,7 +32263,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 172 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32103,7 +32323,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 173 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32178,7 +32398,7 @@ module.exports = (
 
 
 /***/ }),
-/* 174 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32221,7 +32441,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 175 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32281,7 +32501,7 @@ module.exports = (
 
 
 /***/ }),
-/* 176 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32340,18 +32560,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 177 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(11);
-var transformData = __webpack_require__(178);
+var transformData = __webpack_require__(179);
 var isCancel = __webpack_require__(84);
 var defaults = __webpack_require__(48);
-var isAbsoluteURL = __webpack_require__(179);
-var combineURLs = __webpack_require__(180);
+var isAbsoluteURL = __webpack_require__(180);
+var combineURLs = __webpack_require__(181);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -32433,7 +32653,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 178 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32460,7 +32680,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 179 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32481,7 +32701,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 180 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32502,7 +32722,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 181 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32566,7 +32786,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 182 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32600,7 +32820,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 183 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32619,9 +32839,9 @@ var _reactRedux = __webpack_require__(44);
 
 var _actions = __webpack_require__(86);
 
-var _reactVirtualized = __webpack_require__(184);
+var _reactVirtualized = __webpack_require__(185);
 
-var _ItemCard = __webpack_require__(276);
+var _ItemCard = __webpack_require__(277);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32726,7 +32946,7 @@ var Response = function Response(_ref5) {
     'div',
     { key: item.key },
     _react2.default.createElement(_ItemCard.ItemCard, { item: item }),
-    input && _react2.default.createElement(
+    _react2.default.createElement(
       _react2.default.Fragment,
       null,
       _react2.default.createElement(
@@ -32759,39 +32979,39 @@ var ResponseContainer = exports.ResponseContainer = (0, _reactRedux.connect)(fun
 })(Response);
 
 /***/ }),
-/* 184 */
+/* 185 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ArrowKeyStepper__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ArrowKeyStepper__ = __webpack_require__(186);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "ArrowKeyStepper", function() { return __WEBPACK_IMPORTED_MODULE_0__ArrowKeyStepper__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__AutoSizer__ = __webpack_require__(235);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__AutoSizer__ = __webpack_require__(236);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "AutoSizer", function() { return __WEBPACK_IMPORTED_MODULE_1__AutoSizer__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__CellMeasurer__ = __webpack_require__(105);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "CellMeasurer", function() { return __WEBPACK_IMPORTED_MODULE_2__CellMeasurer__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "CellMeasurerCache", function() { return __WEBPACK_IMPORTED_MODULE_2__CellMeasurer__["b"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Collection__ = __webpack_require__(237);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Collection__ = __webpack_require__(238);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Collection", function() { return __WEBPACK_IMPORTED_MODULE_3__Collection__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ColumnSizer__ = __webpack_require__(244);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ColumnSizer__ = __webpack_require__(245);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "ColumnSizer", function() { return __WEBPACK_IMPORTED_MODULE_4__ColumnSizer__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Grid__ = __webpack_require__(9);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "accessibilityOverscanIndicesGetter", function() { return __WEBPACK_IMPORTED_MODULE_5__Grid__["accessibilityOverscanIndicesGetter"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "defaultCellRangeRenderer", function() { return __WEBPACK_IMPORTED_MODULE_5__Grid__["defaultCellRangeRenderer"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "defaultOverscanIndicesGetter", function() { return __WEBPACK_IMPORTED_MODULE_5__Grid__["defaultOverscanIndicesGetter"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Grid", function() { return __WEBPACK_IMPORTED_MODULE_5__Grid__["Grid"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__InfiniteLoader__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__InfiniteLoader__ = __webpack_require__(247);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "InfiniteLoader", function() { return __WEBPACK_IMPORTED_MODULE_6__InfiniteLoader__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__List__ = __webpack_require__(248);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__List__ = __webpack_require__(249);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "List", function() { return __WEBPACK_IMPORTED_MODULE_7__List__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Masonry__ = __webpack_require__(252);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Masonry__ = __webpack_require__(253);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createMasonryCellPositioner", function() { return __WEBPACK_IMPORTED_MODULE_8__Masonry__["b"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Masonry", function() { return __WEBPACK_IMPORTED_MODULE_8__Masonry__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__MultiGrid__ = __webpack_require__(265);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__MultiGrid__ = __webpack_require__(266);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MultiGrid", function() { return __WEBPACK_IMPORTED_MODULE_9__MultiGrid__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ScrollSync__ = __webpack_require__(268);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ScrollSync__ = __webpack_require__(269);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "ScrollSync", function() { return __WEBPACK_IMPORTED_MODULE_10__ScrollSync__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__Table__ = __webpack_require__(270);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__Table__ = __webpack_require__(271);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createTableMultiSort", function() { return __WEBPACK_IMPORTED_MODULE_11__Table__["e"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTableCellDataGetter", function() { return __WEBPACK_IMPORTED_MODULE_11__Table__["f"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTableCellRenderer", function() { return __WEBPACK_IMPORTED_MODULE_11__Table__["g"]; });
@@ -32802,7 +33022,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Column", function() { return __WEBPACK_IMPORTED_MODULE_11__Table__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "SortDirection", function() { return __WEBPACK_IMPORTED_MODULE_11__Table__["b"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "SortIndicator", function() { return __WEBPACK_IMPORTED_MODULE_11__Table__["c"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__WindowScroller__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__WindowScroller__ = __webpack_require__(274);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "WindowScroller", function() { return __WEBPACK_IMPORTED_MODULE_12__WindowScroller__["a"]; });
 
 
@@ -32819,7 +33039,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /***/ }),
-/* 185 */
+/* 186 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -32833,15 +33053,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /***/ }),
-/* 186 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(187);
+__webpack_require__(188);
 module.exports = __webpack_require__(8).Object.getPrototypeOf;
 
 
 /***/ }),
-/* 187 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.9 Object.getPrototypeOf(O)
@@ -32856,7 +33076,7 @@ __webpack_require__(53)('getPrototypeOf', function () {
 
 
 /***/ }),
-/* 188 */
+/* 189 */
 /***/ (function(module, exports) {
 
 module.exports = function (it) {
@@ -32866,16 +33086,16 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 189 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(190), __esModule: true };
-
-/***/ }),
 /* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(191);
+module.exports = { "default": __webpack_require__(191), __esModule: true };
+
+/***/ }),
+/* 191 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(192);
 var $Object = __webpack_require__(8).Object;
 module.exports = function defineProperty(it, key, desc) {
   return $Object.defineProperty(it, key, desc);
@@ -32883,7 +33103,7 @@ module.exports = function defineProperty(it, key, desc) {
 
 
 /***/ }),
-/* 191 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $export = __webpack_require__(16);
@@ -32892,13 +33112,13 @@ $export($export.S + $export.F * !__webpack_require__(18), 'Object', { defineProp
 
 
 /***/ }),
-/* 192 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(193), __esModule: true };
+module.exports = { "default": __webpack_require__(194), __esModule: true };
 
 /***/ }),
-/* 193 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(55);
@@ -32907,7 +33127,7 @@ module.exports = __webpack_require__(63).f('iterator');
 
 
 /***/ }),
-/* 194 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var toInteger = __webpack_require__(56);
@@ -32930,7 +33150,7 @@ module.exports = function (TO_STRING) {
 
 
 /***/ }),
-/* 195 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32950,7 +33170,7 @@ module.exports = function (Constructor, NAME, next) {
 
 
 /***/ }),
-/* 196 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var dP = __webpack_require__(17);
@@ -32969,14 +33189,14 @@ module.exports = __webpack_require__(18) ? Object.defineProperties : function de
 
 
 /***/ }),
-/* 197 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // false -> Array#indexOf
 // true  -> Array#includes
 var toIObject = __webpack_require__(19);
-var toLength = __webpack_require__(198);
-var toAbsoluteIndex = __webpack_require__(199);
+var toLength = __webpack_require__(199);
+var toAbsoluteIndex = __webpack_require__(200);
 module.exports = function (IS_INCLUDES) {
   return function ($this, el, fromIndex) {
     var O = toIObject($this);
@@ -32998,7 +33218,7 @@ module.exports = function (IS_INCLUDES) {
 
 
 /***/ }),
-/* 198 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.15 ToLength
@@ -33010,7 +33230,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 199 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var toInteger = __webpack_require__(56);
@@ -33023,7 +33243,7 @@ module.exports = function (index, length) {
 
 
 /***/ }),
-/* 200 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var document = __webpack_require__(14).document;
@@ -33031,13 +33251,13 @@ module.exports = document && document.documentElement;
 
 
 /***/ }),
-/* 201 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var addToUnscopables = __webpack_require__(202);
-var step = __webpack_require__(203);
+var addToUnscopables = __webpack_require__(203);
+var step = __webpack_require__(204);
 var Iterators = __webpack_require__(27);
 var toIObject = __webpack_require__(19);
 
@@ -33072,14 +33292,14 @@ addToUnscopables('entries');
 
 
 /***/ }),
-/* 202 */
+/* 203 */
 /***/ (function(module, exports) {
 
 module.exports = function () { /* empty */ };
 
 
 /***/ }),
-/* 203 */
+/* 204 */
 /***/ (function(module, exports) {
 
 module.exports = function (done, value) {
@@ -33088,24 +33308,24 @@ module.exports = function (done, value) {
 
 
 /***/ }),
-/* 204 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(205), __esModule: true };
-
-/***/ }),
 /* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(206);
-__webpack_require__(211);
+module.exports = { "default": __webpack_require__(206), __esModule: true };
+
+/***/ }),
+/* 206 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(207);
 __webpack_require__(212);
 __webpack_require__(213);
+__webpack_require__(214);
 module.exports = __webpack_require__(8).Symbol;
 
 
 /***/ }),
-/* 206 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33116,7 +33336,7 @@ var has = __webpack_require__(15);
 var DESCRIPTORS = __webpack_require__(18);
 var $export = __webpack_require__(16);
 var redefine = __webpack_require__(94);
-var META = __webpack_require__(207).KEY;
+var META = __webpack_require__(208).KEY;
 var $fails = __webpack_require__(23);
 var shared = __webpack_require__(52);
 var setToStringTag = __webpack_require__(61);
@@ -33124,15 +33344,15 @@ var uid = __webpack_require__(36);
 var wks = __webpack_require__(13);
 var wksExt = __webpack_require__(63);
 var wksDefine = __webpack_require__(64);
-var enumKeys = __webpack_require__(208);
-var isArray = __webpack_require__(209);
+var enumKeys = __webpack_require__(209);
+var isArray = __webpack_require__(210);
 var anObject = __webpack_require__(21);
 var isObject = __webpack_require__(22);
 var toIObject = __webpack_require__(19);
 var toPrimitive = __webpack_require__(54);
 var createDesc = __webpack_require__(37);
 var _create = __webpack_require__(58);
-var gOPNExt = __webpack_require__(210);
+var gOPNExt = __webpack_require__(211);
 var $GOPD = __webpack_require__(66);
 var $DP = __webpack_require__(17);
 var $keys = __webpack_require__(28);
@@ -33346,7 +33566,7 @@ setToStringTag(global.JSON, 'JSON', true);
 
 
 /***/ }),
-/* 207 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var META = __webpack_require__(36)('meta');
@@ -33405,7 +33625,7 @@ var meta = module.exports = {
 
 
 /***/ }),
-/* 208 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // all enumerable object keys, includes symbols
@@ -33426,7 +33646,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 209 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.2.2 IsArray(argument)
@@ -33437,7 +33657,7 @@ module.exports = Array.isArray || function isArray(arg) {
 
 
 /***/ }),
-/* 210 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
@@ -33462,50 +33682,50 @@ module.exports.f = function getOwnPropertyNames(it) {
 
 
 /***/ }),
-/* 211 */
+/* 212 */
 /***/ (function(module, exports) {
 
-
-
-/***/ }),
-/* 212 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(64)('asyncIterator');
 
 
 /***/ }),
 /* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(64)('observable');
+__webpack_require__(64)('asyncIterator');
 
 
 /***/ }),
 /* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(215), __esModule: true };
+__webpack_require__(64)('observable');
+
 
 /***/ }),
 /* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(216);
-module.exports = __webpack_require__(8).Object.setPrototypeOf;
-
+module.exports = { "default": __webpack_require__(216), __esModule: true };
 
 /***/ }),
 /* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// 19.1.3.19 Object.setPrototypeOf(O, proto)
-var $export = __webpack_require__(16);
-$export($export.S, 'Object', { setPrototypeOf: __webpack_require__(217).set });
+__webpack_require__(217);
+module.exports = __webpack_require__(8).Object.setPrototypeOf;
 
 
 /***/ }),
 /* 217 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.3.19 Object.setPrototypeOf(O, proto)
+var $export = __webpack_require__(16);
+$export($export.S, 'Object', { setPrototypeOf: __webpack_require__(218).set });
+
+
+/***/ }),
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Works with __proto__ only. Old v8 can't work with null proto objects.
@@ -33536,16 +33756,16 @@ module.exports = {
 
 
 /***/ }),
-/* 218 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(219), __esModule: true };
-
-/***/ }),
 /* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(220);
+module.exports = { "default": __webpack_require__(220), __esModule: true };
+
+/***/ }),
+/* 220 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(221);
 var $Object = __webpack_require__(8).Object;
 module.exports = function create(P, D) {
   return $Object.create(P, D);
@@ -33553,7 +33773,7 @@ module.exports = function create(P, D) {
 
 
 /***/ }),
-/* 220 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $export = __webpack_require__(16);
@@ -33562,31 +33782,31 @@ $export($export.S, 'Object', { create: __webpack_require__(58) });
 
 
 /***/ }),
-/* 221 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(222), __esModule: true };
-
-/***/ }),
 /* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(223);
-module.exports = __webpack_require__(8).Object.assign;
-
+module.exports = { "default": __webpack_require__(223), __esModule: true };
 
 /***/ }),
 /* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// 19.1.3.1 Object.assign(target, source)
-var $export = __webpack_require__(16);
-
-$export($export.S + $export.F, 'Object', { assign: __webpack_require__(224) });
+__webpack_require__(224);
+module.exports = __webpack_require__(8).Object.assign;
 
 
 /***/ }),
 /* 224 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.3.1 Object.assign(target, source)
+var $export = __webpack_require__(16);
+
+$export($export.S + $export.F, 'Object', { assign: __webpack_require__(225) });
+
+
+/***/ }),
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33627,7 +33847,7 @@ module.exports = !$assign || __webpack_require__(23)(function () {
 
 
 /***/ }),
-/* 225 */
+/* 226 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33946,7 +34166,7 @@ var CellSizeAndPositionManager = function () {
 /* harmony default export */ __webpack_exports__["a"] = (CellSizeAndPositionManager);
 
 /***/ }),
-/* 226 */
+/* 227 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33972,7 +34192,7 @@ var getMaxElementSize = function getMaxElementSize() {
 };
 
 /***/ }),
-/* 227 */
+/* 228 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34005,7 +34225,7 @@ var raf = request;
 var caf = cancel;
 
 /***/ }),
-/* 228 */
+/* 229 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34041,15 +34261,15 @@ function calculateSizeAndPositionDataAndUpdateScrollOffset(_ref) {
  */
 
 /***/ }),
-/* 229 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(230);
+__webpack_require__(231);
 module.exports = __webpack_require__(8).Object.keys;
 
 
 /***/ }),
-/* 230 */
+/* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 Object.keys(O)
@@ -34064,7 +34284,7 @@ __webpack_require__(53)('keys', function () {
 
 
 /***/ }),
-/* 231 */
+/* 232 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34119,7 +34339,7 @@ function updateScrollIndexHelper(_ref) {
 }
 
 /***/ }),
-/* 232 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34132,7 +34352,7 @@ exports.default = !!(typeof window !== 'undefined' && window.document && window.
 module.exports = exports['default'];
 
 /***/ }),
-/* 233 */
+/* 234 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34182,7 +34402,7 @@ function defaultOverscanIndicesGetter(_ref) {
 }
 
 /***/ }),
-/* 234 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var babelPluginFlowReactPropTypes_proptype_ScrollIndices =  false ? null : {
@@ -34195,7 +34415,7 @@ if (true) Object.defineProperty(exports, "babelPluginFlowReactPropTypes_proptype
 });
 
 /***/ }),
-/* 235 */
+/* 236 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34206,7 +34426,7 @@ if (true) Object.defineProperty(exports, "babelPluginFlowReactPropTypes_proptype
 
 
 /***/ }),
-/* 236 */
+/* 237 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34397,11 +34617,11 @@ if (true) {
 }
 
 /***/ }),
-/* 237 */
+/* 238 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Collection__ = __webpack_require__(238);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Collection__ = __webpack_require__(239);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__Collection__["a"]; });
 
 
@@ -34409,7 +34629,7 @@ if (true) {
 
 
 /***/ }),
-/* 238 */
+/* 239 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34431,9 +34651,9 @@ if (true) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__CollectionView__ = __webpack_require__(239);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__utils_calculateSizeAndPositionData__ = __webpack_require__(240);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__utils_getUpdatedOffsetForIndex__ = __webpack_require__(243);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__CollectionView__ = __webpack_require__(240);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__utils_calculateSizeAndPositionData__ = __webpack_require__(241);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__utils_getUpdatedOffsetForIndex__ = __webpack_require__(244);
 
 
 
@@ -34724,7 +34944,7 @@ function defaultCellGroupRenderer(_ref4) {
 }
 
 /***/ }),
-/* 239 */
+/* 240 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -35380,12 +35600,12 @@ CollectionView.propTypes =  true ? {
 } : {};
 
 /***/ }),
-/* 240 */
+/* 241 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = calculateSizeAndPositionData;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SectionManager__ = __webpack_require__(241);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SectionManager__ = __webpack_require__(242);
 
 
 function calculateSizeAndPositionData(_ref) {
@@ -35424,7 +35644,7 @@ function calculateSizeAndPositionData(_ref) {
 }
 
 /***/ }),
-/* 241 */
+/* 242 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -35434,7 +35654,7 @@ function calculateSizeAndPositionData(_ref) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Section__ = __webpack_require__(242);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Section__ = __webpack_require__(243);
 
 
 
@@ -35585,7 +35805,7 @@ var SectionManager = function () {
 /* harmony default export */ __webpack_exports__["a"] = (SectionManager);
 
 /***/ }),
-/* 242 */
+/* 243 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -35662,7 +35882,7 @@ var Section = function () {
 /* harmony default export */ __webpack_exports__["a"] = (Section);
 
 /***/ }),
-/* 243 */
+/* 244 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -35703,11 +35923,11 @@ function getUpdatedOffsetForIndex(_ref) {
 }
 
 /***/ }),
-/* 244 */
+/* 245 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ColumnSizer__ = __webpack_require__(245);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ColumnSizer__ = __webpack_require__(246);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__ColumnSizer__["a"]; });
 
 
@@ -35715,7 +35935,7 @@ function getUpdatedOffsetForIndex(_ref) {
 
 
 /***/ }),
-/* 245 */
+/* 246 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -35849,11 +36069,11 @@ ColumnSizer.propTypes =  true ? {
 } : {};
 
 /***/ }),
-/* 246 */
+/* 247 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__InfiniteLoader__ = __webpack_require__(247);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__InfiniteLoader__ = __webpack_require__(248);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__InfiniteLoader__["a"]; });
 
 
@@ -35861,7 +36081,7 @@ ColumnSizer.propTypes =  true ? {
 
 
 /***/ }),
-/* 247 */
+/* 248 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36173,7 +36393,7 @@ function forceUpdateReactVirtualizedComponent(component) {
 }
 
 /***/ }),
-/* 248 */
+/* 249 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36187,16 +36407,16 @@ function forceUpdateReactVirtualizedComponent(component) {
 
 
 /***/ }),
-/* 249 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(250), __esModule: true };
-
-/***/ }),
 /* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(251);
+module.exports = { "default": __webpack_require__(251), __esModule: true };
+
+/***/ }),
+/* 251 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(252);
 var $Object = __webpack_require__(8).Object;
 module.exports = function getOwnPropertyDescriptor(it, key) {
   return $Object.getOwnPropertyDescriptor(it, key);
@@ -36204,7 +36424,7 @@ module.exports = function getOwnPropertyDescriptor(it, key) {
 
 
 /***/ }),
-/* 251 */
+/* 252 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
@@ -36219,11 +36439,11 @@ __webpack_require__(53)('getOwnPropertyDescriptor', function () {
 
 
 /***/ }),
-/* 252 */
+/* 253 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createCellPositioner__ = __webpack_require__(253);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createCellPositioner__ = __webpack_require__(254);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Masonry__ = __webpack_require__(71);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__createCellPositioner__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__Masonry__["default"]; });
@@ -36234,7 +36454,7 @@ __webpack_require__(53)('getOwnPropertyDescriptor', function () {
 
 
 /***/ }),
-/* 253 */
+/* 254 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36297,17 +36517,17 @@ function createCellPositioner(_ref) {
 }
 
 /***/ }),
-/* 254 */
+/* 255 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_slicedToArray__ = __webpack_require__(255);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_slicedToArray__ = __webpack_require__(256);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_slicedToArray___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_slicedToArray__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__vendor_intervalTree__ = __webpack_require__(263);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__vendor_intervalTree__ = __webpack_require__(264);
 
 
 
@@ -36411,7 +36631,7 @@ var PositionCache = function () {
 /* harmony default export */ __webpack_exports__["a"] = (PositionCache);
 
 /***/ }),
-/* 255 */
+/* 256 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36419,11 +36639,11 @@ var PositionCache = function () {
 
 exports.__esModule = true;
 
-var _isIterable2 = __webpack_require__(256);
+var _isIterable2 = __webpack_require__(257);
 
 var _isIterable3 = _interopRequireDefault(_isIterable2);
 
-var _getIterator2 = __webpack_require__(259);
+var _getIterator2 = __webpack_require__(260);
 
 var _getIterator3 = _interopRequireDefault(_getIterator2);
 
@@ -36468,22 +36688,22 @@ exports.default = function () {
 }();
 
 /***/ }),
-/* 256 */
+/* 257 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(257), __esModule: true };
+module.exports = { "default": __webpack_require__(258), __esModule: true };
 
 /***/ }),
-/* 257 */
+/* 258 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(62);
 __webpack_require__(55);
-module.exports = __webpack_require__(258);
+module.exports = __webpack_require__(259);
 
 
 /***/ }),
-/* 258 */
+/* 259 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var classof = __webpack_require__(108);
@@ -36499,26 +36719,26 @@ module.exports = __webpack_require__(8).isIterable = function (it) {
 
 
 /***/ }),
-/* 259 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(260), __esModule: true };
-
-/***/ }),
 /* 260 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(62);
-__webpack_require__(55);
-module.exports = __webpack_require__(261);
-
+module.exports = { "default": __webpack_require__(261), __esModule: true };
 
 /***/ }),
 /* 261 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(62);
+__webpack_require__(55);
+module.exports = __webpack_require__(262);
+
+
+/***/ }),
+/* 262 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var anObject = __webpack_require__(21);
-var get = __webpack_require__(262);
+var get = __webpack_require__(263);
 module.exports = __webpack_require__(8).getIterator = function (it) {
   var iterFn = get(it);
   if (typeof iterFn != 'function') throw TypeError(it + ' is not iterable!');
@@ -36527,7 +36747,7 @@ module.exports = __webpack_require__(8).getIterator = function (it) {
 
 
 /***/ }),
-/* 262 */
+/* 263 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var classof = __webpack_require__(108);
@@ -36541,12 +36761,12 @@ module.exports = __webpack_require__(8).getIteratorMethod = function (it) {
 
 
 /***/ }),
-/* 263 */
+/* 264 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = createWrapper;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__binarySearchBounds__ = __webpack_require__(264);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__binarySearchBounds__ = __webpack_require__(265);
 /**
  * Binary Search Bounds
  * https://github.com/mikolalysenko/interval-tree-1d
@@ -36933,7 +37153,7 @@ function createWrapper(intervals) {
 }
 
 /***/ }),
-/* 264 */
+/* 265 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37138,11 +37358,11 @@ function dispatchBsearchEQ(a, y, c, l, h) {
 });
 
 /***/ }),
-/* 265 */
+/* 266 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MultiGrid__ = __webpack_require__(266);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MultiGrid__ = __webpack_require__(267);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__MultiGrid__["a"]; });
 
 
@@ -37150,7 +37370,7 @@ function dispatchBsearchEQ(a, y, c, l, h) {
 
 
 /***/ }),
-/* 266 */
+/* 267 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37172,7 +37392,7 @@ function dispatchBsearchEQ(a, y, c, l, h) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__CellMeasurerCacheDecorator__ = __webpack_require__(267);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__CellMeasurerCacheDecorator__ = __webpack_require__(268);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Grid__ = __webpack_require__(9);
 
 
@@ -37988,7 +38208,7 @@ MultiGrid.propTypes =  true ? {
 } : {};
 
 /***/ }),
-/* 267 */
+/* 268 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -38104,11 +38324,11 @@ var CellMeasurerCacheDecorator = function () {
 /* harmony default export */ __webpack_exports__["a"] = (CellMeasurerCacheDecorator);
 
 /***/ }),
-/* 268 */
+/* 269 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ScrollSync__ = __webpack_require__(269);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ScrollSync__ = __webpack_require__(270);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__ScrollSync__["a"]; });
 
 
@@ -38116,7 +38336,7 @@ var CellMeasurerCacheDecorator = function () {
 
 
 /***/ }),
-/* 269 */
+/* 270 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -38225,11 +38445,11 @@ ScrollSync.propTypes =  true ? {
 } : {};
 
 /***/ }),
-/* 270 */
+/* 271 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createMultiSort__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createMultiSort__ = __webpack_require__(272);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__defaultCellDataGetter__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__defaultCellRenderer__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__defaultHeaderRowRenderer_js__ = __webpack_require__(111);
@@ -38238,7 +38458,7 @@ ScrollSync.propTypes =  true ? {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Column__ = __webpack_require__(115);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__SortDirection__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__SortIndicator__ = __webpack_require__(113);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__Table__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__Table__ = __webpack_require__(273);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_0__createMultiSort__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_1__defaultCellDataGetter__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_2__defaultCellRenderer__["a"]; });
@@ -38264,7 +38484,7 @@ ScrollSync.propTypes =  true ? {
 
 
 /***/ }),
-/* 271 */
+/* 272 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -38334,7 +38554,7 @@ function createMultiSort(sortCallback) {
 }
 
 /***/ }),
-/* 272 */
+/* 273 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -39146,7 +39366,7 @@ Table.propTypes =  true ? {
 } : {};
 
 /***/ }),
-/* 273 */
+/* 274 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -39159,7 +39379,7 @@ Table.propTypes =  true ? {
 
 
 /***/ }),
-/* 274 */
+/* 275 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -39243,7 +39463,7 @@ function unregisterScrollListener(component, element) {
 }
 
 /***/ }),
-/* 275 */
+/* 276 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -39333,7 +39553,7 @@ function getScrollOffset(element) {
 }
 
 /***/ }),
-/* 276 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39348,7 +39568,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _remarkable = __webpack_require__(277);
+var _remarkable = __webpack_require__(278);
 
 var _remarkable2 = _interopRequireDefault(_remarkable);
 
@@ -39434,17 +39654,17 @@ var ItemCard = exports.ItemCard = function ItemCard(_ref3) {
 };
 
 /***/ }),
-/* 277 */
+/* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = __webpack_require__(278);
+module.exports = __webpack_require__(279);
 
 
 /***/ }),
-/* 278 */
+/* 279 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39455,10 +39675,10 @@ module.exports = __webpack_require__(278);
  */
 
 var assign       = __webpack_require__(10).assign;
-var Renderer     = __webpack_require__(279);
-var ParserCore   = __webpack_require__(281);
-var ParserBlock  = __webpack_require__(292);
-var ParserInline = __webpack_require__(307);
+var Renderer     = __webpack_require__(280);
+var ParserCore   = __webpack_require__(282);
+var ParserBlock  = __webpack_require__(293);
+var ParserInline = __webpack_require__(308);
 var Ruler        = __webpack_require__(40);
 
 /**
@@ -39466,9 +39686,9 @@ var Ruler        = __webpack_require__(40);
  */
 
 var config = {
-  'default':    __webpack_require__(326),
-  'full':       __webpack_require__(327),
-  'commonmark': __webpack_require__(328)
+  'default':    __webpack_require__(327),
+  'full':       __webpack_require__(328),
+  'commonmark': __webpack_require__(329)
 };
 
 /**
@@ -39646,7 +39866,7 @@ module.exports.utils = __webpack_require__(10);
 
 
 /***/ }),
-/* 279 */
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39657,7 +39877,7 @@ module.exports.utils = __webpack_require__(10);
  */
 
 var utils = __webpack_require__(10);
-var rules = __webpack_require__(280);
+var rules = __webpack_require__(281);
 
 /**
  * Expose `Renderer`
@@ -39728,7 +39948,7 @@ Renderer.prototype.render = function (tokens, options, env) {
 
 
 /***/ }),
-/* 280 */
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40164,7 +40384,7 @@ module.exports = rules;
 
 
 /***/ }),
-/* 281 */
+/* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40181,15 +40401,15 @@ var Ruler = __webpack_require__(40);
  */
 
 var _rules = [
-  [ 'block',          __webpack_require__(282)          ],
-  [ 'abbr',           __webpack_require__(283)           ],
-  [ 'references',     __webpack_require__(284)     ],
-  [ 'inline',         __webpack_require__(285)         ],
-  [ 'footnote_tail',  __webpack_require__(286)  ],
-  [ 'abbr2',          __webpack_require__(287)          ],
-  [ 'replacements',   __webpack_require__(288)   ],
-  [ 'smartquotes',    __webpack_require__(289)    ],
-  [ 'linkify',        __webpack_require__(290)        ]
+  [ 'block',          __webpack_require__(283)          ],
+  [ 'abbr',           __webpack_require__(284)           ],
+  [ 'references',     __webpack_require__(285)     ],
+  [ 'inline',         __webpack_require__(286)         ],
+  [ 'footnote_tail',  __webpack_require__(287)  ],
+  [ 'abbr2',          __webpack_require__(288)          ],
+  [ 'replacements',   __webpack_require__(289)   ],
+  [ 'smartquotes',    __webpack_require__(290)    ],
+  [ 'linkify',        __webpack_require__(291)        ]
 ];
 
 /**
@@ -40229,7 +40449,7 @@ module.exports = Core;
 
 
 /***/ }),
-/* 282 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40253,7 +40473,7 @@ module.exports = function block(state) {
 
 
 /***/ }),
-/* 283 */
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40330,7 +40550,7 @@ module.exports = function abbr(state) {
 
 
 /***/ }),
-/* 284 */
+/* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40435,7 +40655,7 @@ module.exports = function references(state) {
 
 
 /***/ }),
-/* 285 */
+/* 286 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40455,7 +40675,7 @@ module.exports = function inline(state) {
 
 
 /***/ }),
-/* 286 */
+/* 287 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40557,7 +40777,7 @@ module.exports = function footnote_block(state) {
 
 
 /***/ }),
-/* 287 */
+/* 288 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40652,7 +40872,7 @@ module.exports = function abbr2(state) {
 
 
 /***/ }),
-/* 288 */
+/* 289 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40723,7 +40943,7 @@ module.exports = function replace(state) {
 
 
 /***/ }),
-/* 289 */
+/* 290 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40843,7 +41063,7 @@ module.exports = function smartquotes(state) {
 
 
 /***/ }),
-/* 290 */
+/* 291 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40854,7 +41074,7 @@ module.exports = function smartquotes(state) {
 
 
 
-var Autolinker = __webpack_require__(291);
+var Autolinker = __webpack_require__(292);
 
 
 var LINK_SCAN_RE = /www|@|\:\/\//;
@@ -41011,7 +41231,7 @@ module.exports = function linkify(state) {
 
 
 /***/ }),
-/* 291 */
+/* 292 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
@@ -43341,7 +43561,7 @@ return Autolinker;
 
 
 /***/ }),
-/* 292 */
+/* 293 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43352,25 +43572,25 @@ return Autolinker;
  */
 
 var Ruler      = __webpack_require__(40);
-var StateBlock = __webpack_require__(293);
+var StateBlock = __webpack_require__(294);
 
 /**
  * Parser rules
  */
 
 var _rules = [
-  [ 'code',       __webpack_require__(294) ],
-  [ 'fences',     __webpack_require__(295),     [ 'paragraph', 'blockquote', 'list' ] ],
-  [ 'blockquote', __webpack_require__(296), [ 'paragraph', 'blockquote', 'list' ] ],
-  [ 'hr',         __webpack_require__(297),         [ 'paragraph', 'blockquote', 'list' ] ],
-  [ 'list',       __webpack_require__(298),       [ 'paragraph', 'blockquote' ] ],
-  [ 'footnote',   __webpack_require__(299),   [ 'paragraph' ] ],
-  [ 'heading',    __webpack_require__(300),    [ 'paragraph', 'blockquote' ] ],
-  [ 'lheading',   __webpack_require__(301) ],
-  [ 'htmlblock',  __webpack_require__(302),  [ 'paragraph', 'blockquote' ] ],
-  [ 'table',      __webpack_require__(304),      [ 'paragraph' ] ],
-  [ 'deflist',    __webpack_require__(305),    [ 'paragraph' ] ],
-  [ 'paragraph',  __webpack_require__(306) ]
+  [ 'code',       __webpack_require__(295) ],
+  [ 'fences',     __webpack_require__(296),     [ 'paragraph', 'blockquote', 'list' ] ],
+  [ 'blockquote', __webpack_require__(297), [ 'paragraph', 'blockquote', 'list' ] ],
+  [ 'hr',         __webpack_require__(298),         [ 'paragraph', 'blockquote', 'list' ] ],
+  [ 'list',       __webpack_require__(299),       [ 'paragraph', 'blockquote' ] ],
+  [ 'footnote',   __webpack_require__(300),   [ 'paragraph' ] ],
+  [ 'heading',    __webpack_require__(301),    [ 'paragraph', 'blockquote' ] ],
+  [ 'lheading',   __webpack_require__(302) ],
+  [ 'htmlblock',  __webpack_require__(303),  [ 'paragraph', 'blockquote' ] ],
+  [ 'table',      __webpack_require__(305),      [ 'paragraph' ] ],
+  [ 'deflist',    __webpack_require__(306),    [ 'paragraph' ] ],
+  [ 'paragraph',  __webpack_require__(307) ]
 ];
 
 /**
@@ -43503,7 +43723,7 @@ module.exports = ParserBlock;
 
 
 /***/ }),
-/* 293 */
+/* 294 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43668,7 +43888,7 @@ module.exports = StateBlock;
 
 
 /***/ }),
-/* 294 */
+/* 295 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43711,7 +43931,7 @@ module.exports = function code(state, startLine, endLine/*, silent*/) {
 
 
 /***/ }),
-/* 295 */
+/* 296 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43809,7 +44029,7 @@ module.exports = function fences(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 296 */
+/* 297 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43949,7 +44169,7 @@ module.exports = function blockquote(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 297 */
+/* 298 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44001,7 +44221,7 @@ module.exports = function hr(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 298 */
+/* 299 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44274,7 +44494,7 @@ module.exports = function list(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 299 */
+/* 300 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44348,7 +44568,7 @@ module.exports = function footnote(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 300 */
+/* 301 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44413,7 +44633,7 @@ module.exports = function heading(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 301 */
+/* 302 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44475,7 +44695,7 @@ module.exports = function lheading(state, startLine, endLine/*, silent*/) {
 
 
 /***/ }),
-/* 302 */
+/* 303 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44484,7 +44704,7 @@ module.exports = function lheading(state, startLine, endLine/*, silent*/) {
 
 
 
-var block_names = __webpack_require__(303);
+var block_names = __webpack_require__(304);
 
 
 var HTML_TAG_OPEN_RE = /^<([a-zA-Z]{1,15})[\s\/>]/;
@@ -44556,7 +44776,7 @@ module.exports = function htmlblock(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 303 */
+/* 304 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44625,7 +44845,7 @@ module.exports = html_blocks;
 
 
 /***/ }),
-/* 304 */
+/* 305 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44770,7 +44990,7 @@ module.exports = function table(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 305 */
+/* 306 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44984,7 +45204,7 @@ module.exports = function deflist(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 306 */
+/* 307 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45050,7 +45270,7 @@ module.exports = function paragraph(state, startLine/*, endLine*/) {
 
 
 /***/ }),
-/* 307 */
+/* 308 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45069,22 +45289,22 @@ var utils       = __webpack_require__(10);
  */
 
 var _rules = [
-  [ 'text',            __webpack_require__(308) ],
-  [ 'newline',         __webpack_require__(309) ],
-  [ 'escape',          __webpack_require__(310) ],
-  [ 'backticks',       __webpack_require__(311) ],
-  [ 'del',             __webpack_require__(312) ],
-  [ 'ins',             __webpack_require__(313) ],
-  [ 'mark',            __webpack_require__(314) ],
-  [ 'emphasis',        __webpack_require__(315) ],
-  [ 'sub',             __webpack_require__(316) ],
-  [ 'sup',             __webpack_require__(317) ],
-  [ 'links',           __webpack_require__(318) ],
-  [ 'footnote_inline', __webpack_require__(319) ],
-  [ 'footnote_ref',    __webpack_require__(320) ],
-  [ 'autolink',        __webpack_require__(321) ],
-  [ 'htmltag',         __webpack_require__(323) ],
-  [ 'entity',          __webpack_require__(325) ]
+  [ 'text',            __webpack_require__(309) ],
+  [ 'newline',         __webpack_require__(310) ],
+  [ 'escape',          __webpack_require__(311) ],
+  [ 'backticks',       __webpack_require__(312) ],
+  [ 'del',             __webpack_require__(313) ],
+  [ 'ins',             __webpack_require__(314) ],
+  [ 'mark',            __webpack_require__(315) ],
+  [ 'emphasis',        __webpack_require__(316) ],
+  [ 'sub',             __webpack_require__(317) ],
+  [ 'sup',             __webpack_require__(318) ],
+  [ 'links',           __webpack_require__(319) ],
+  [ 'footnote_inline', __webpack_require__(320) ],
+  [ 'footnote_ref',    __webpack_require__(321) ],
+  [ 'autolink',        __webpack_require__(322) ],
+  [ 'htmltag',         __webpack_require__(324) ],
+  [ 'entity',          __webpack_require__(326) ]
 ];
 
 /**
@@ -45218,7 +45438,7 @@ module.exports = ParserInline;
 
 
 /***/ }),
-/* 308 */
+/* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45277,7 +45497,7 @@ module.exports = function text(state, silent) {
 
 
 /***/ }),
-/* 309 */
+/* 310 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45338,7 +45558,7 @@ module.exports = function newline(state, silent) {
 
 
 /***/ }),
-/* 310 */
+/* 311 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45394,7 +45614,7 @@ module.exports = function escape(state, silent) {
 
 
 /***/ }),
-/* 311 */
+/* 312 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45447,7 +45667,7 @@ module.exports = function backticks(state, silent) {
 
 
 /***/ }),
-/* 312 */
+/* 313 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45538,7 +45758,7 @@ module.exports = function del(state, silent) {
 
 
 /***/ }),
-/* 313 */
+/* 314 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45629,7 +45849,7 @@ module.exports = function ins(state, silent) {
 
 
 /***/ }),
-/* 314 */
+/* 315 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45720,7 +45940,7 @@ module.exports = function del(state, silent) {
 
 
 /***/ }),
-/* 315 */
+/* 316 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45876,7 +46096,7 @@ module.exports = function emphasis(state, silent) {
 
 
 /***/ }),
-/* 316 */
+/* 317 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45941,7 +46161,7 @@ module.exports = function sub(state, silent) {
 
 
 /***/ }),
-/* 317 */
+/* 318 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46006,7 +46226,7 @@ module.exports = function sup(state, silent) {
 
 
 /***/ }),
-/* 318 */
+/* 319 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46183,7 +46403,7 @@ module.exports = function links(state, silent) {
 
 
 /***/ }),
-/* 319 */
+/* 320 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46243,7 +46463,7 @@ module.exports = function footnote_inline(state, silent) {
 
 
 /***/ }),
-/* 320 */
+/* 321 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46312,7 +46532,7 @@ module.exports = function footnote_ref(state, silent) {
 
 
 /***/ }),
-/* 321 */
+/* 322 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46320,7 +46540,7 @@ module.exports = function footnote_ref(state, silent) {
 
 
 
-var url_schemas   = __webpack_require__(322);
+var url_schemas   = __webpack_require__(323);
 var normalizeLink = __webpack_require__(119);
 
 
@@ -46397,7 +46617,7 @@ module.exports = function autolink(state, silent) {
 
 
 /***/ }),
-/* 322 */
+/* 323 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46576,7 +46796,7 @@ module.exports = [
 
 
 /***/ }),
-/* 323 */
+/* 324 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46585,7 +46805,7 @@ module.exports = [
 
 
 
-var HTML_TAG_RE = __webpack_require__(324).HTML_TAG_RE;
+var HTML_TAG_RE = __webpack_require__(325).HTML_TAG_RE;
 
 
 function isLetter(ch) {
@@ -46632,7 +46852,7 @@ module.exports = function htmltag(state, silent) {
 
 
 /***/ }),
-/* 324 */
+/* 325 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46698,7 +46918,7 @@ module.exports.HTML_TAG_RE = HTML_TAG_RE;
 
 
 /***/ }),
-/* 325 */
+/* 326 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46753,7 +46973,7 @@ module.exports = function entity(state, silent) {
 
 
 /***/ }),
-/* 326 */
+/* 327 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46840,7 +47060,7 @@ module.exports = {
 
 
 /***/ }),
-/* 327 */
+/* 328 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46885,7 +47105,7 @@ module.exports = {
 
 
 /***/ }),
-/* 328 */
+/* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46963,230 +47183,10 @@ module.exports = {
 
 
 /***/ }),
-/* 329 */
+/* 330 */
 /***/ (function(module, exports) {
 
 module.exports = {"items":[{"key":"2.section","title":"Somatoform and dissociative symptoms","description":"Adapt questions about disorders and treatments to local usage. Use information\nfrom informants and case records. Note that Section 2 generally defines episodes\nbased on a much longer duration than other Sections.\n"},{"key":2.001,"title":"Physical welness, past month","description":"How has your physical health been during the past month?\n\nHas it been excellent, good, fair or poor?\n","input":"integer","options":{"1":"Excellent","2":"Good","3":"Fair","4":"Poor","8":"Uncertain","9":"NK"},"validate":["1-4",8,9]},{"key":2.002,"title":"Length of unwellness","description":"How long has your physical health been poor?\n\nWhen was the last time you were well (no somatic disease or functional disorder?)\n\nRate in months since the patient was last well.\n","input":"integer","options":{"0":"No health problems","800":"800 mths or more","888":"NK","999":"NA"},"validate":["0-999"]},{"key":2.003,"title":"Physical illness or disability, past year","description":"In the past year, have you had physical illnesses, injuries, pains or\nother disorders that have limited your activities in any way?\n\nWhat sort of problems have you had?\nDid the doctor/specialist tell you what was the matter?\n","input":"integer","options":{"0":"None","1":"Describes somatic symptoms or disorder without clear diagnosis","2":"States clear physical diagnosis","3":"Both physical diagnosis and functional symptoms/illness","8":"Uncertain","9":"NK"},"validate":["1-4",8,9],"glossary":2.003},{"key":2.004,"title":"Distressing somatic symptom, any","description":"How much does this distress you or disturb you daily life?\n\nThe patient has one or more distressing somatic symptoms or a symptom resulting in significant disruption of daily life.\nThe symptoms or illness may be of any etiology, i.e. it may be symptoms of unknown etiology or from cancer, diabetes etc.\n","input":"integer","options":{"0":"None","1":"Present","9":"NK"},"validate":[0,1,9],"help":"See also items <2.094> and <2.008>.\n"},{"key":2.005,"title":"Predominant pain","description":"Only if <2.003> is rated 2.\n\nIs pain the most predominant problem?\n","help":"**Rate positively if pain is caused by physical disease predominates the illness picture:**\nSee also <2.093>.\n(DSM-V specifier)\n"},{"key":2.006,"title":"Preoccupation with somatic symptoms and worry about physical health","description":"Are you afraid that something serious is wrong with you?\n\nHave you seen a doctor because of it? (within the past year)\n","input":"integer","options":{"0":"No particular preoccupation","1":"Present","9":"NK"},"validate":[0,1,9],"help":"Rate on the basis of degree of preoccupation, illness conviction or distress, frequency of consultations and examinations, degree of symptoms or excessive illness worry.\n\nSee also <2.100>.\n\nCUT-OFF => ???? (health anxiety) if there are no functional or dissociative symptoms based on the present information.\n\nAlways continue if there is no convincing medical explanation for the symptoms.\n\n- If <2.003> = 0 skip to HA\n- If <2.003> = 2 skip to <2.007> and then <2.100>.\n- If <2.003> < > 0 or 2 continue.\n"},{"key":"2.episode1.section","title":"Well-defined physical diseases","description":"(In this section, items can be skipped or added)\n\nMark with a X, if the disorder is present and then write the diagnosis in letters (diagnosis codes can be kept as explanation).\n\nPrompt cards or questionnaires can be used.\n"},{"key":"2.007a-t","title":"Well-defined physical diseases diagnosed by a doctor (lifetime)","description":"[Show a prompt card if necessary]\n\na.  Have you been told by a doctor that you have any of these diseases (a-r)\n\nb.  Were you given medicines for (a-r)?\n\nc.  Were you given laboratory examinations for (a-r)\n\nd.  Were you advised to make changes in your diet or life style for (a-r)?\n\ne.  Were you hospitalized or had surgery for (a-r)?\n\nf.  Did you ever stop or cut back your usual activities for a week or longer for (a-r)?\n"},{"key":"2.007a","title":"High blood pressure","description":"(ICD-10: I10-I15)\n","input":"integer","options":{"0":"Absent","1":"Present"},"validate":[0,1]},{"key":"2.007b","title":"Diabetes","description":"(ICD-10: E10-E14)\n","input":"integer","options":{"0":"Absent","1":"Present"},"validate":[0,1]},{"key":"2.007c","title":"Osteoarthritis/rheumatoid arthritis","description":"(ICD-10: M00-M19)\n","input":"integer","options":{"0":"Absent","1":"Present"},"validate":[0,1]},{"key":"2.007d","title":"Migraine/specified","description":"(ICD-10: G43, G44, R51)\n","input":"integer","options":{"0":"Absent","1":"Present"},"validate":[0,1]},{"key":"2.007e","title":"Herniated disk","description":"(ICD-10: M40-M54)\n","input":"integer","options":{"0":"Absent","1":"Present"},"validate":[0,1]},{"key":"2.007f","title":"Heart disease","description":"(ICD-10: I05-I09 og I20-I25)\n","input":"integer","options":{"0":"Absent","1":"Present"},"validate":[0,1]},{"key":"2.007g","title":"Tuberculosis","description":"(ICD-10: A15-A19, B90, J65)\n","input":"integer","options":{"0":"Absent","1":"Present"},"validate":[0,1]},{"key":"2.007h","title":"Asthma/chronic bronchitis","description":"(ICD-10: J30-J32, J35, J37, J40-J47)\n","input":"integer","options":{"0":"Absent","1":"Present"},"validate":[0,1]},{"key":"2.007i","title":"Gastritis or ulcer","description":"(ICD-10: K25-K27)\n","input":"integer","options":{"0":"Absent","1":"Present"},"validate":[0,1]},{"key":"2.007j","title":"Hepatitis","description":"(ICD-10: B18, K73, K75,9)\n","input":"integer","options":{"0":"Absent","1":"Present"},"validate":[0,1]},{"key":"2.007k","title":"Kidney disease","description":"(ICD-10: N03-07, N11-15, N18-19, N25-28)\n","input":"integer","options":{"0":"Absent","1":"Present"},"validate":[0,1]},{"key":"2.007l","title":"Parasite diseases/malaria","description":"(ICD-10: B50-B83)\n","input":"integer","options":{"0":"Absent","1":"Present"},"validate":[0,1]},{"key":"2.007m","title":"Thyrois disease","description":"(ICD-10: E00-E07)\n","input":"integer","options":{"0":"Absent","1":"Present"},"validate":[0,1]},{"key":"2.007n","title":"Tumor/cancer","description":"(ICD-10: C00-C97)\n","input":"integer","options":{"0":"Absent","1":"Present"},"validate":[0,1]},{"key":"2.007o","title":"Stroke","description":"(ICD-10: I60-I69)\n","input":"integer","options":{"0":"Absent","1":"Present"},"validate":[0,1]},{"key":"2.007p","title":"Epilepsia","description":"(ICD-10: G40)\n","input":"integer","options":{"0":"Absent","1":"Present"},"validate":[0,1]},{"key":"2.007q","title":"Multiple sclerosis","description":"(ICD-1010: G35)\n","input":"integer","options":{"0":"Absent","1":"Present"},"validate":[0,1]},{"key":"2.007r","title":"HIV/AIDS","description":"(ICD-10: B20-B24)\n","input":"integer","options":{"0":"Absent","1":"Present"},"validate":[0,1]},{"key":"2.007s","title":"Others","input":"string","description":"State which\n"},{"key":"2.007t","title":"Others","input":"string","description":"State which\n","help":"Disorders associated with mental retardation and/or autism e.g. Down’s Syndrome, foetal rubella etc. should be checked in CHS, ch. 27. The first box must have a letter indicating the ICD-10 chapter followed by up to 4 digits. If none, leave blank.\n"},{"key":2.008,"title":"Impact on activities and discomfort/distress due to well-defined physical disease, past year","description":"**(See also 2.094)**\n\nHave any of the above symptoms or disorders (2.007a-t) had an impact on your daily physical activities in the past year?\n\nHow much impact have these symptoms had on your daily physical activities in the past year?\n","input":"integer","options":{"0":"No influence or well-defined physical disease","1":"Only small influence","2":"Moderate or intermittent","3":"Severe to incapacitating","8":"Uncertain","9":"NK"},"validate":["0-3",8,9]},{"key":2.009,"title":"Elaboration of physical symptoms","description":"Normally rated based on medical history and the patient's thoughts and worries about the condition. If the original disease is no longer present, the disorder is rated as a functional disorder, cf. 27.069.\n","input":"integer","options":{"1":"Absent","2":"Present","8":"Uncertain","9":"NK"},"validate":[1,2,8,9],"glossary":"A well-defined medical symptom or condition is present (not including functional syndromes or disorders). The course, the treatment (i.e. compliance), health status or recovery of the medical condition is affected by the psychological factors.\nIf the medical condition is not present anymore, the condition is rated as a functional condition instead.\n\nCUT OFF => ????  (health anxiety) if there are no functional or dissociative symptoms based on the present information, i.e. 2003 = 0 or 2\n"},{"key":"2.episode2.section","title":"Physical symptoms","description":"**Use rating scale 1a if nothing else indicated.**\n\nRate on the basis of present information, incl. medical history.\n\nFor a symptom to be rated as being caused by well-known physical disease (or likely well-known physical disease), this well-known physical disease must be diagnosed in 2.007 or it must be an acute condition such as a flu. If you suspect that the patient has an undiagnosed physical disease, rate     8.\n","help":"**Elaborate:**\n\nGo through the symptoms as indicated by the patient, and check 2.010-2.090.\n\nElaborating questions:\n\n- How did it feel (the symptom)?\n- How pronounced was it?\n- How did it affect you?\n- Did you see a doctor about this?\n- Did you get special tests?\n- Did you get any treatment? What kind?\n- What did the doctor tell you was the matter?\n- What did you think yourself?\n\n**[Show prompt card if necessary]**\n"},{"key":"2.episode3. section","title":"General/unspecific symptoms/syndromes, incl. fatigue"},{"key":"2.010","title":"Alternative/complimentary rating","description":"In the past year, have you had problems with fatigue, headache, dizziness,\nimpairment of memory, concentration difficulties or similar symptoms?\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">= 3 symptoms"},"validate":["0-2"],"help":"**By use of questionnaire:**\n\nN: Negative questionnaire (use phrasing from mini SCAN)\n\nP: Positive questionnaire.\n"},{"key":2.011,"title":"General weakness or malaise","scale":"1a"},{"key":2.012,"title":"Pronounced and distressing fatigue","description":"If you feel exhausted following physical or mental exercise, how long does the exhaustion last?\n\nCan you recover by resting or relaxation?\n","scale":"1a"},{"key":2.013,"title":"Impairment of memory","scale":"1a"},{"key":2.014,"title":"Concentration difficulties (cf. 7.001-7.003)","scale":"1a"},{"key":2.015,"title":"Headache, tension","scale":"1a"},{"key":2.016,"title":"Dizziness","scale":"1a"},{"key":2.017,"title":"Others________________________________"},{"key":"2.episode4.section","title":"Musculoskeletal symptoms/syndromes, incl. widespread pain, muscle tension etc."},{"key":2.018,"title":"Alternative/complimentary rating","description":"Have you had pain or other discomfort from your muscles or joints, sensory disturbance or localised weakness e.g. in arms or legs?\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"],"help":"By use of questionnaire:\n\nN: Negative questionnaire (use phrasing from mini SCAN)\n\nP: Positive questionnaire.\n"},{"key":2.019,"title":"Back ache","scale":"1a"},{"key":2.02,"title":"Muscular aches and pains","scale":"1a"},{"key":2.021,"title":"Pain in arms or legs","scale":"1a"},{"key":2.022,"title":"Pain in the joints","scale":"1a"},{"key":2.023,"title":"Pain moving from one place to another","scale":"1a"},{"key":2.024,"title":"Feelings of paresis or localized weakness","description":"- Have you been unable to move a hand, an arm or a leg?\n- Have your arms or legs felt heavy?\n- Have you had difficulty standing or walking without support?\n","scale":"1a"},{"key":2.025,"title":"Unpleasant numbness or tingling sensations","description":"Have you experienced loss of or changes in the sense of touch?\n","scale":"1a"},{"key":2.026,"title":"Neck pain","description":"If yes:\n","scale":"1a"},{"key":2.027,"title":"Neck pain in connection with whiplash trauma","description":"Have you been exposed to a whiplash trauma?\n\nDid you neck pain start at that time? **(See also <2.120>)**\n","scale":"1a"},{"key":2.028,"title":"Widespread pain in both sides of the body and both in upper and lower body","scale":"1a"},{"key":2.029,"title":"Others___________________","input":"string"},{"key":"2.episode5.section","title":"Gastroinstestinal symptoms/syndrome (GI Arousal), incl. upper dyspepsia","description":"*Have you had any problems with your stomach such as pain, nausea, feeling bloated, burning sensation in the epigastrium or regurgitation?*\n"},{"key":"2.030","title":"Alternative/complimentary rating","description":"**Upper dyspepsia**\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"]},{"key":2.031,"title":"Alternative/complimentary rating","description":"**Lower GI symptoms**\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"],"help":"**By use of questionnaire:**\n\nN: Negative questionnaire (use phrasing from mini SCAN)\nAccording to the questionnaire, you haven't had problems with your stomach/bowels\n(…such as – read a couple of symptoms aloud). Is that correctly understood?\n(If no, fill in the symptoms list).\n\nP: Positive questionnaire\n(I.e. at least one symptom > a little, or disturbance of everyday activities >2).\n"},{"key":2.032,"title":"Regurgitation","description":"Do you ever have regurgitation?\n","scale":"1a"},{"key":2.033,"title":"Burning sensation in chest or epigastrium","description":"Do you have a stinging or burning sensation in the chest\nor upper epigastrium?\n","scale":"1a"},{"key":2.034,"title":"Heartburn","scale":"1a"},{"key":2.035,"title":"Vomiting","description":"Do you suffer from vomiting?\n","scale":"1a"},{"key":2.036,"title":"Nausea","scale":"1a"},{"key":2.037,"title":"Abdominal pain incl. gripes","description":"Have you had stomach ache or gripes?\n","scale":"1a"},{"key":2.038,"title":"Feeling bloated, full of gas, distended, heavy","scale":"1a"},{"key":2.039,"title":"Alternating bowel movements","description":"(I.e. alternating constipation/normal or alternating constipation/diarrhea or alternating normal/diarrhea?\n","scale":"1a"},{"key":"2.040","title":"Rumbling and churning in the stomach","scale":"1a"},{"key":2.041,"title":"Diarrhoea or loose bowel movements","description":"**Rectal pain is rated in <2.068>**\n","scale":"1a"},{"key":2.042,"title":"Relief (pain and other symptoms) by defecation","scale":"1a"},{"key":2.043,"title":"Onset (pain and other symptoms) are related to changes in defecation frequency","scale":"1a"},{"key":2.044,"title":"Onset is related to change in the form (appearance) of the defecation","description":"Do you get pain or do the pain or other symptoms get worse in connection with changes in the form (appearance) of the defecation?\n","scale":"1a"},{"key":"2.episode6.section","title":"Gardiovascular symptoms"},{"key":2.045,"title":"Alternative/complimentary rating","description":"In the past year, have you had symptoms from your heart or chest such as palpitations,\ndifficulty breathing, hot or cold swears?\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"],"help":"\">=3 symptoms\". Fulfills criteria for GS syndrome\n"},{"key":2.046,"title":"Palpitations/heart pounding","scale":"1a"},{"key":2.047,"title":"Precordial discomfort or chest pain","scale":"1a"},{"key":2.048,"title":"Breathlessness without exertion","scale":"1a"},{"key":2.049,"title":"Hyperventilation","scale":"1a"},{"key":"2.050","title":"Hot or cold sweats","scale":"1a"},{"key":2.051,"title":"Trembling or shaking","scale":"1a"},{"key":2.052,"title":"Dry mouth","scale":"1a"},{"key":2.053,"title":"Flushing or blushing","scale":"1a"},{"key":2.054,"title":"Churning in stomach, 'butterflies'","scale":"1a"},{"key":2.055,"title":"Other cardiovascular complaints","description":"This item covers symptoms not included in the preceding items.\n","scale":"1a"},{"key":"2.episode7.section","title":"Neurological symptoms, incl. dissociative","description":"Paralysis is rated in **2.024** and skin sensibility disturbances in **2.025**.\n\nDissociative or conversion symptoms are also rated here, but see **2.065**.\n"},{"key":2.056,"title":"Alternative/complimentary rating","description":"Have you experienced spasms, fits, faintings, convulsions, loss of voice or, vision disturbances recently?\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 neurological symptoms"},"validate":["0-2"],"help":"**By use of questionnaire:**\n\nN: Negative questionnaire (use phrasing from mini SCAN)\n\nP: Positive questionnaire.\n"},{"key":2.057,"title":"Fainting","scale":"1a"},{"key":2.058,"title":"Loss of voice, aphonia, slurred speach","scale":"1a"},{"key":2.059,"title":"Disturbance of vision, hearing or olfaction?","description":"Have you experienced loss or disturbance of vision, hearing or olfaction?\n","scale":"1a"},{"key":"2.060","title":"Spasms, fits or convulsions","description":"**Have you experienced convulsions recently?**\n\n- What were they like?\n- Did you lose consciousness altogether?\n- Did you hurt yourself by falling or biting your tongue?\n- Did you pass water or defecate in that connection\n"},{"key":2.061,"title":"Feeling of impaired coordination or balance","description":"Have your movements been unsteady or clumsy?\n","scale":"1a"},{"key":2.062,"title":"Involuntary, abnormal movements (besides convulsions)","description":"**(Tremor, dystonic movement, myoclonic walking)**\n\n- Have you been unable to move a hand, an arm or a leg?\n- Have you had difficulties standing or walking without support?\n- Have you had difficulties speaking or swallowing?\n- Try to tell explain more about it.\n"},{"key":2.063,"title":"Difficulty swallowing or lump in throat","scale":"1a"},{"key":2.064,"title":"Other neurological complaints","scale":"1a"},{"key":"2.episode8.section","title":"Dissociative or conversion disorder","description":"The symptoms rated elsewhere in chapter 2 can also be dissociative.\n","scale":"1a"},{"key":2.065,"title":"Dissociative symptoms associated with trauma or stress","description":"When you experienced (symptom), had you had a shocking experience or been under particular stress? (i.e. attacks, paralyses, couldn't see or hear)\n\n- Did you have personal problems at that time?\n\nE.g. traumatic events, troubling issues, insoluble problems\n","input":"integer","options":{"0":"No dissociative symptoms","1":"Yes, but not acute severe trauma at onset","2":"Acute severe psychological trauma/events in connection with onset","8":"Uncertain","9":"NK"},"validate":["0-2",8,9]},{"key":"2.episode9.section","title":"Urological symptoms"},{"key":2.066,"title":"Alternative/complimentary rating","description":"Have you had pain in the rectum, by urination or other problems by urination?\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"]},{"key":2.067,"title":"Pains during urination","scale":"1a"},{"key":2.068,"title":"Pains in rectum","scale":"1a"},{"key":2.069,"title":"Frequent urination","scale":"1a"},{"key":2.07,"title":"Urine retention","scale":"1a"},{"key":2.071,"title":"Others","scale":"1a"},{"key":"2.episode10.section","title":"Genital symptoms"},{"key":2.072,"title":"Alternative/complimentary rating","description":"Have you had problems with your lower body, menstruation, genitals or lack of libido?\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"]},{"key":2.073,"title":"Pains during menstruation","scale":"1a"},{"key":2.074,"title":"Unpleasant sensations in or around the genitals","scale":"1a"},{"key":2.075,"title":"Vulvodynia (if 2.051 is positive)","scale":"1a"},{"key":2.076,"title":"Irregular menstruation","scale":"1a"},{"key":2.077,"title":"Lack of libido","scale":"1a"},{"key":2.078,"title":"Pains during sexual intercourse","scale":"1a"},{"key":2.079,"title":"Other genital complaints","scale":"1a"},{"key":"2.episode11.section","title":"Symptoms from other organ systems"},{"key":"2.080","title":"Alternative/complimentary rating","description":"Have you had other bothersome symptoms such as tinnitus, jaws, ears, nose, neck or eyes?\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"],"help":"**By use of questionnaire:**\n\nN: Negative questionnaire (use phrasing from mini SCAN)\n\nP: Positive questionnaire.\n"},{"key":2.081,"title":"Tinnitus","scale":"1a"},{"key":2.082,"title":"Ear, nose or throat (other than pain)","scale":"1a"},{"key":2.083,"title":"Teeth, jaw or oral cavity (other than pain)","scale":"1a"},{"key":2.084,"title":"Eyes, incl. visual disorders","scale":"1a"},{"key":2.085,"title":"Mandibular pain","description":"Have you had pain in the jaw or the muscle of mastication?\n","scale":"1a"},{"key":2.086,"title":"Pain in the temporomandibular joint","description":"Have you had pain in the temporomandibular joint\n","scale":"1a"},{"key":2.087,"title":"Others","scale":"1a"},{"key":"2.episode12.section","title":"Allergy, sensitivity to chemicals, odors or food"},{"key":2.088,"title":"Alternative/complimentary rating","description":"*Have you had problems with sensitivity to chemicals, odors or intolerance to foods?*\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"],"help":"**By use of questionnaire:**\n\nN: Negative questionnaire (use phrasing from mini SCAN)\n\nP: Positive questionnaire.\n"},{"key":2.089,"title":"Sensitivity to several foods","scale":"1a"},{"key":"2.090","title":"Sensitivity to odors and chemicals","description":"Do you react to an odor or a strong chemical agent without anyone around you getting any symptoms?\n\nIs it due to allergy? (If so, rate 6)\n\n**If yes**\n","scale":"1a"},{"key":2.091,"title":"Do the symptoms disappear post-exposure","description":"Do the symptoms disappear when you are no longer exposed to these odors or chemical agents?\n","scale":"1a"},{"key":"2.episode13.section","title":"Predominant symptom"},{"key":2.092,"title":"Main complaint or predominant symptom 2.010-2.090.","description":"Specified______________________\n\n(Rate 888 if the patients cannot indicate one single predominant symptom)\n\nWhich of these symptoms have bothered you the most?\n"},{"key":2.093,"title":"Pain disorder/syndrome (idiopathic/primary pain)","description":"If the primary problem is pain, the rater must decide if it can be characterised as pain syndrome/disorder.\n","input":"integer","options":{"0":"No pain syndrome/disorder","1":"Mild","2":"Moderate","3":"Severe","4":"Neuropathic","5":"Caused by well-defined physical disease (incl. tumor)","6":"Uncertain","8":"NK"},"validate":["0-6",8]},{"key":2.094,"title":"Interference with activities and distress due to bodily distress or somatic symptoms","description":"You have mentioned **(summarise symptoms)** during **(specify the period)**. How much have the mentioned symptoms interfered with your daily quality of life and activities?\n","input":"integer","options":{"0":"No bodily distress symptoms","1":"Only little interference","2":"Moderate or intermittent interference or","3":"Severe or incapacitating interference or distress","8":"Uncertain","9":"NK"},"validate":["0-3",8,9]},{"key":2.095,"title":"Boom and bust cycle","description":"*Further to above item.*\n\nIf you are active and exceed the limits of your capacity for a day – do you then get exhausted or need to stay in bed for a day or more?\n\nIs this a well-known pattern to you that if you have to do something, i.e. go to a party, go an a travel or go to see a social worker, you will be exhausted for several days?\n","input":"integer","options":{"0":"No","1":"Mild/modest, I recognise this but not a major problem when I take care of myself","2":"Severe, with severe impact on my life","8":"Uncertain","9":"NK"},"validate":["0-2",8,9]},{"key":2.096,"title":"Length of disorder or discomfort due to symptoms","description":"In months\n","input":"integer","options":{"0":"Absent","800":"800 mths or more","888":"NK","999":"NA"},"validate":["0-999"]},{"key":2.097,"title":"Variability of functional symptoms (\"slow\" variation)","description":"Over months or years. Change in illness picture, which can be relatively stable for e period and then suddenly change to a different organ system/illness picture).\nInformation from other sources should also be considered, e.g. case notes, referring doctor or family).\n\n- Have your symptoms or illness changed?\n- Have several things been wrong with you?\n","input":"integer","options":{"0":"Stable with small changes focused on the same relatively stable symptom/illness picture","1":"Symptoms have changed from one to one or several others relatively stable symptoms/illness pictures","2":"Several symptoms/illness pictures simultaneously","3":"No delimited symptoms/illness pictures","8":"Uncertain","9":"NK"},"validate":["0-3",8,9]},{"key":2.098,"title":"Variability of functional symptoms (“fast” variation)","description":"(hour-to-hour, day-to-day or week-to-week.)\n\nInformation from other sources should also be considered, e.g. case reports, referring doctor, family.)\n\n- Can there be differences as to how you feel from day to day or fro week to week?\n- Can you be completely well on the days you feel fine?\n","input":"integer","options":{"0":"No fluctuation","1":"Moderate fluctuation","2":"Pronounced fluctuation","8":"Uncertain","9":"NK"},"validate":["0-2",8,9]},{"key":2.099,"title":"Worsening in illness and symptoms over time","description":"- Has your condition gradually worsened over time/over the years?\n- How?\n","input":"integer","options":{"0":"No, or constant","1":"Mild to modest worsening","2":"Severe worsening","8":"Uncertain","9":"NK"},"validate":["0-2",8,9]},{"key":"2.episode14.section","title":"Illness worry and preoccupation (health anxiety)"},{"key":"2.100","title":"Excessive preoccupation with well-defined physical diseases","description":"If the patient suffers from a serious physical disease (if not, skip to <2.101>).\n\n- Do you or others think that you are more worried about your disease (name the disease) than you ought to be?\n- What do others say - about whether you are too worried?\n"},{"key":2.101,"title":"Preoccupation with somatic symptoms and worry about physical health","description":"- Are you afraid that something serious is wrong with you?\n- Have you seen a doctor because of it? (within the past year)\n","input":"integer","options":{"0":"No particular preoccupation, or condition not present","2":"Mild to moderate preoccupation","3":"Excessive preoccupation with visits to the doctor, examinations, continuous self-medication or pronounced difficulties in daily life.","8":"Uncertain","9":"NK"},"validate":[0,2,3,8,9],"help":"Rate on the basis of degree of preoccupation, illness conviction or distress, frequency of consultations and examinations, degree of symptoms or excessive illness worry.\n"},{"key":2.102,"title":"Obsessive ruminating about illness","description":"- If you think about having a disease or being seriously ill, do you find it difficult to get it off your mind again?\n- Are you thinking about it constantly or are you winding yourself up?\n","input":"integer","options":{"0":"No particular preoccupation, or condition not present","1":"Mild to moderate preoccupation","2":"Severe preoccupation that considerably affects everyday life","8":"Uncertain","9":"NK"},"validate":["0-2",8,9]},{"key":2.103,"title":"Time spent on illness worry and symptoms","description":"Do you spend much time or energy on your symptoms or disease, or do you worry about it or worry about being ill?\n","input":"integer","options":{"0":"No particular preoccupation, or condition not present","1":"Spends less than an hr. a day thinking about the disturbing condition/symptoms","2":"Spends more than an hr. a day thinking about the disturbing condition/symptoms","8":"Uncertain","9":"NK"},"validate":["0-2",8,9]},{"key":2.104,"title":"Bodily preoccupation","description":"Are you generally very attentive of how your body is functioning and what is happening inside of it?\n\n- What have you noticed?\n- Do you sometimes think that the sensations you have in your body might be unnatural or even dangerous?\n- Does a bruise or an irritation of the skin make you worry that something serious might be wrong?\n- Do you often listen to your pulse?\n","input":"integer","options":{"0":"No particular preoccupation or condition not present","1":"Mild preoccupation, but not radically interfering with everyday life","2":"Excessive preoccupation involving severe daily troubles or numerous consultations or self-medication","8":"Uncertain","9":"NK"},"validate":["0-2",8,9]},{"key":2.105,"title":"Preoccupation with medical information, health and disease","description":"- Are you generally very preoccupied with health issues e.g. in the media or on the internet?\n- Are you very interested in that?\n","input":"integer","options":{"0":"No particular preoccupation, or condition not present","1":"Mild preoccupation, but not radically interfering with everyday life","2":"Excessive preoccupation involving severe daily troubles or numerous consultations or self-medication","8":"Uncertain","9":"NK"},"validate":["0-2",8,9]},{"key":2.106,"title":"Suggestibility and autosuggestibility","description":"If you read or hear about a disease in the media,\n\n- Do you become afraid of having this disease?\n- Do family members’ diseases make you afraid of having the same disease?*\n- Do you avoid reading about health issues to prevent getting afraid of having a disease\n- If you think about a disease, do you become afraid of having it?\n","input":"integer","options":{"0":"No particular preoccupation, or condition not present","1":"Mild to moderate preoccupation or somewhat affectable","2":"Mild affectability and excessive preoccupation resulting in frequently induced symptoms or considerable ruminations or frequent consultations","8":"Uncertain","9":"NK"},"validate":["0-2",8,9]},{"key":2.107,"title":"Fear of being infected or contaminated","description":"Are you afraid of being infected or catching a disease from others by being with someone who is ill or by touching dirty things, e.g. toilet seats?\n","input":"integer","options":{"0":"No particular preoccupation, or condition not present","1":"Mild to moderate preoccupation","2":"Severe preoccupation, frequently induced symptoms with considerable ruminations or frequent consultations","8":"Uncertain","9":"NK"},"validate":["0-2",8,9]},{"key":2.108,"title":"Fear of medication and compliance","description":"Are you generally comfortable about taking medication or are you worried about the possible side effects it might have?\n\nDo you take all the medication that the doctor prescribes, or do you sometimes give up taking it or skip a dosage because of fear of the medication?\n","input":"integer","options":{"0":"Normal degree of security/insecurity","1":"Some fear of medication or a certain degree of inappropriate administering of medication","2":"Extreme degree of insecurity and/or no compliance","8":"Uncertain","9":"NK"},"validate":["0-2",8,9]},{"key":2.109,"title":"Rejection of the doctor’s reassurance","description":"- Are you convinced that you have a physical disease?\n- Do you feel you need to have further examinations?\n- Has the doctors’ reassurance (previously) convinced you that you do not have a physical disease?\n- Have you told the doctor that you are not convinced? What did he say?\n- Were you reassured when the doctor said there was no reason to worry?\n","input":"integer","options":{"0":"Accepts reassurance","1":"Partly, but unable to maintain reassurance at one or more occasions","2":"Can only briefly maintain reassurance","3":"Continuously not accepting the doctor’s reassurances or explanations","4":"Delusional","8":"Uncertain","9":"NK"},"validate":["0-4",8,9],"help":"The pt. expresses more or less pronounced degree of belief that s/he has a serious diseases or a bothering deformity in spite of the doctor’s reassurance that nothing is wrong.\n\nDo not mix up with fear of getting a disease <4.044>.\n\n- Dysmorphophobia is also rated at <16.011>.\n- Hypochondriacal delusions (unyielding conviction of having a serious disease) are rated in <19.027> and <19.028>. If these are part of another psychotic disorder, <19.027> and <19.028> are rated instead.\n"},{"key":"2.110","title":"Catastrophizing","description":"Do you expect serious consequences (i.e. serious disability, not being able to return to work, not being able to take care of your children, never being the same again) when you have symptoms?\n","scale":"1a","help":"**See also section 5 (Gabriel)**\n"},{"key":2.111,"title":"Health anxiety by proxy","description":"Within the past year:\n\n- Have you often been worried that your child, your partner or others around you are sick?\n- Have you taken your child to the doctors because of it?\n- Have you pressured your partner to see the doctor because of it?\n- Do you check e.g. if your children have bruises or swollen lymph nodes or do you \"scan\" your children's bodies for changes e.g. when they take a bath?\n","input":"integer","options":{"0":"No particular preoccupation or the disorder is not present","1":"Mild to moderate preoccupation","2":"Severe preoccupation and takes child to the doctor, to examinations, self-medicates the child or marked distress in everyday life","8":"Uncertain","9":"NK"},"validate":["0-2",8,9]},{"key":2.112,"title":"Treatment-seeking behaviour in relation to health anxiety or symptoms past 2 years","description":"- How many doctors have you seen due to your illness/symptoms during the last two years?\n- Why have you seen so many different doctors?\n- Have you felt it was necessary to see other doctors or experts to get a second opinion or a different treatment (just to be on the safe side)?\n","input":"integer","options":{"0":"The patient has not unsolicited seen other doctors / treatment providers due to functional illness/health anxiety","1":"The patient has only once seen another doctor / treatment providers to functional illness/health anxiety","2":"The patient has actively consulted 2-3 different doctors / treatment providers due to functional illness/health anxiety","3":"The patient has actively consulted 4 or more different doctors / treatment providers due to functional illness/health anxiety","8":"Uncertain","9":"NK"},"validate":["0-2",8,9]},{"key":2.113,"title":"Avoidance related to health anxiety or symptoms","description":"- Do you avoid things or situations that may make you worry about your health, e.g. reading or hearing about illness on TV, the internet or other places?\n- Do you get very nervous when you are going to see a doctor?\n- Do you avoid seeing a doctor or do you stay away from hospital admittance due to anxiety?\n","input":"integer","options":{"0":"No maladaptive avoidance due to health anxiety","1":"Mild to moderate maladaptive avoidance due to health anxiety","2":"Severe maladaptive avoidance due to health anxiety","8":"Uncertain","9":"NK"},"validate":["0-2",8,9]},{"key":2.114,"title":"Duration of bodily preoccupation and illness worry (2.100-2.113)","description":"In months\n","input":"integer","options":{"0":"Absent","800":"800 mths or more","888":"NK","999":"NA"},"validate":["0-800",888,999]},{"key":2.115,"title":"Interference with activities and distress due to health anxiety","description":"You have mentioned **[summarize symptoms]** during **[specify the period]**. How much have the mentioned symptoms interfered with your everyday activities?\n","input":"integer","options":{"0":"No health anxiety","1":"Only little interference","3":"Moderate or intermittent interference","4":"Severe to incapacitating interference","8":"Uncertain","9":"NK"},"validate":["0-4",8,9]},{"key":2.116,"title":"Dysmorphophobia","description":"Do you fear that there is a change or a deformity of your appearance?\n","input":"integer","options":{"0":"No dysmorphophobia","1":"Preoccupation with a presumed deformity or change of the appearance","8":"Uncertain","9":"NK"},"validate":[0,1,8,9],"help":"Cf. dysmorphophobia, <16.011>\n"},{"key":"2.episode15.section","title":"Syndrome- or symptom-based diagnoses according to the patients","description":"Rating is based on the answers in <2010>-<2.090> or other parts of the interview or if those are inadequate, ask the patient directly.\n\n- Does the patient believe, ort has the patient been told, that he or she suffers from a syndrome- or symptom-based diagnosis?\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Acute severe psychological trauma/events in connection with onset","8":"Uncertain","9":"NK"},"validate":["0-2",8,9]},{"key":2.117,"title":"Fibromyalgia"},{"key":2.118,"title":"CFS (Chronic Fatigue Syndrome)"},{"key":2.119,"title":"IBS (Irritable Bowel Syndrome)"},{"key":"2.120","title":"Pain syndrome (other than fibromyalgia)"},{"key":2.121,"title":"Chronic whiplash (WAD)"},{"key":2.122,"title":"Multiple Chemical Sensitivity (MCS)"},{"key":2.123,"title":"Other","description":"Specify_________________________\n"},{"key":"2.episode16.section","title":"Events associated with onset of symptoms or illness","description":"(if not brought to light during the first part of the interview, the patient is asked directly)\n- *How did your illness start (or the symptoms)?*\n- *Did other things happen in your life simultaneously?*\n- *Was there anything that triggered your illness?*\n","input":"integer","options":{"0":"No particular events","1":"Yes, but not 2","2":"Yes, clear connection / association","8":"Uncertain","9":"NK"},"validate":[0,1,2,8,9]},{"key":2.124,"title":"Physical trauma (e.g. whiplash, fracture, head trauma)","input":"integer","options":{"0":"No particular trauma","2":"Yes, but not 2","3":"Yes, clear connection / association","8":"Uncertain","9":"NK"},"validate":[0,2,3,8,9]},{"key":2.125,"title":"Physical disease (e.g. infectious disease)","input":"integer","options":{"0":"No particular disease","1":"Yes, but not 2","2":"Yes, clear connection / association","8":"Uncertain","9":"NK"},"validate":[0,1,2,8,9]},{"key":2.126,"title":"Emotional trauma, conflicts or strain","input":"integer","options":{"0":"No particular events","1":"Yes, but not 2","2":"Yes, clear connection / association","8":"Uncertain","9":"NK"},"validate":[0,1,2,8,9]},{"key":2.127,"title":"Significant social event (e.g. divorce, dismissal, bereavement)","input":"integer","options":{"0":"No particular events","1":"Yes, but not 2","2":"Yes, clear connection / association","8":"Uncertain","9":"NK"},"validate":[0,1,2,8,9]},{"key":2.128,"title":"Significant work-related stress or stress-related to your personal life","description":"*Stressful, busy everyday life but not **1.127***\n","input":"integer","options":{"0":"No particular stress","1":"Yes, but not 2","2":"Yes, clear connection / association","8":"Uncertain","9":"NK"},"validate":[0,1,2,8,9]},{"key":2.129,"title":"Exposure to strong odor or chemicals","input":"integer","options":{"0":"No particular exposure","1":"Yes, but not 2","2":"Yes, clear connection / association","8":"Uncertain","9":"NK"},"validate":[0,1,2,8,9]},{"key":"2.episode17.section","title":"Symptom- or illness attributions (prompt card if needed)"},{"key":"2.130","title":"Symptom- or illness attribution","description":"- *What do you think is causing your illness? (or symptoms)*\n- *Do you think that stress, strain or your life situation could be the cause?*\n- *Are you firmly convinced or are you in doubt?*\n- *Why do you think so?*\n","input":"integer","options":{"0":"Unsure, has no theories on the cause, does not necessarily exclude strain and stress","1":"Has thought about the possibility, does not necessarily exclude strain and stress","2":"Convinced about 1 or more causalities (excluding psychosocial and stress)","3":"Has an elaborated theory and a rigid perception of causality (excluding psychosocial and stress)","4":"Psychotic delusion","5":"Well-defined somatic disease","6":"Unsure rating","8":"Uncertain","9":"NK"},"validate":["0-9"]},{"key":2.131,"title":"Identification of relieving or aggravating factors","description":"*Have you noticed if anything relieves or aggravates your illness?*\n\n*Can you do anything yourself to get better?*\n\n*Can the patient identify factors that alleviate the discomfort or factors that aggravate the illness, or are these numerous and diffuse?*\n","input":"integer","options":{"0":"Well-defined and few","1":"Some difficulty indicating the symptoms","2":"Great difficulty or numerous and diffuse","8":"Unsure","9":"NA"},"validate":["0-999"]},{"key":"2.episode18.section","title":"Age of onset"},{"key":"2.episode19.section","title":"Differential diagnoses"},{"key":2.134,"title":"Relation between functional symptoms and well-defined physical disease","input":"integer","options":{"0":"Absent or symptoms of only one type","1":"Functional symptoms most dominating in the clinical picture","2":"Functional symptoms and physical disease are equally dominating","8":"Uncertain","9":"NK"},"validate":[0,1,2,8,9]},{"key":2.135,"title":"Functional disorder or panic attacks, primary","input":"integer","options":{"0":"Absent or symptoms of only one type","1":"Bodily distress more dominating or started first","2":"Bodily distress and panic attacks co-occur (comorbidity)","3":"Symptoms of anxiety more dominating or started first","8":"Uncertain","9":"NK"},"validate":[0,1,2,3,8,9]},{"key":2.136,"title":"Functional disorder or depression, primary (Cf 6.023)","input":"integer","options":{"0":"Absent or symptoms of only one type","1":"Bodily distress more dominating or started first","2":"Bodily distress and depression co-occur (comorbidity)","3":"Symptoms of depression more dominating or started first","8":"Uncertain","9":"NK"},"validate":[0,1,2,3,8,9]},{"key":2.137,"title":"Association between bodily distress and health anxiety","input":"integer","options":{"0":"Absent or symptoms of only one type","1":"Bodily distress more dominating or started first","2":"Bodily distress and health anxiety co-occur (comorbidity)","3":"Health anxiety symptoms more dominating or started first","8":"Uncertain","9":"NK"},"validate":[0,1,2,3,8,9]},{"key":2.138,"title":"Functional disorder or other mental disease, primary","input":"integer","options":{"0":"Absent or symptoms of only one type","1":"Bodily distress more dominating or started first","2":"Bodily distress and other mental disorder co-occur (comorbidity)","4":"Symptoms from other mental disorder more dominating or started first","10":"Uncertain","11":"NK"},"validate":[0,1,2,4,10,11]},{"key":"2.episode20.section","title":"Observed behaviour"},{"key":2.143,"title":"Ego-dystonic or ego-syntonic","description":"Ego-dystonic: The patient tends, at least partially, to describe symptoms or illness worry as being unfamiliar, unwelcome, tiresome or “unlike my nature”.\n\nEgo-syntonic:  The patient feels the symptoms or the illness worry as an integrated part of himself / herself and not as a cognitive inclination, even if the patient may be in doubt whether he or she has a physical illness.\n","input":"integer","options":{"0":"No functional disorder","1":"The functional disorder is primarily felt as ego-dystonic","2":"The functional  disorder is a mix of ego-dystonic and ego-syntonic","3":"The functional disorder is primarily felt as ego-syntonic","8":"Uncertain","9":"NK"},"validate":[0,1,2,3,8,9]},{"key":2.144,"title":"Emotional discrepancy (“belle indifference”)","description":"The patient’s presentation of his or her condition shows inadequate affect in relation to the severity of symptoms and the severity of illness the patient complains of.\n\nFor instance, the patient may smile with a curious resignation in spite of severe pain or impairment, and the patient may seem emotionally unaffected by his/her condition.\n","input":"integer","options":{"0":"No discrepancy","1":"Present to insignificant or mild extent","2":"Definitely present and together with functional symptoms","6":"Definitely present, but caused by a physical disease, e.g. multiple sclerosis","8":"Uncertain","9":"NK"},"validate":[0,1,2,6,8,9]},{"key":2.145,"title":"Discrepancy between subjective complaints and observed behaviour","description":"There is a discrepancy between the patient’s adroitness and facial expressions during the interview and his/her symptoms description. For instance, the patient moves and sits completely freely despite complaining of severe back pain or gives detailed information despite complaints of severe memory impairment.\n","input":"integer","options":{"0":"No discrepancy","1":"Present to insignificant or mild extent","2":"Definitely present and to a pronounced extent","8":"Uncertain","9":"NK"},"validate":[0,1,2,8,9]},{"key":2.146,"title":"Psycho-social communication style","description":"The patient is more focused on communicating the level of disability, discomfort and lifestyle limitations than on the impact on the health.\n","input":"integer","options":{"0":"No psychosocial communication","1":"Present to insignificant or mild extent","2":"Pronounced degree of psychosocial communication form","8":"Uncertain","9":"NK"},"validate":[0,1,2,8,9]},{"key":2.147,"title":"Lack of chronology in symptom- and medical history","description":"The interview is characterized by the patient having difficulty with the chronology of symptoms, diseases, examinations, hospitalizations etc.\n\nFor instance, it can be hard to find out if the pt. talks about symptoms that have been present at an earlier stage, or if the pt. is currently bothered by the symptoms, or if the pt. talks about an examination made recently or a long time ago.\n\nMust be evaluated in the light of what can be expected of any person having a long-standing and complicated course of disease.\n","input":"integer","options":{"0":"Absent","1":"To a mild extent","2":"Pronounced","8":"Uncertain","9":"NK"},"validate":[0,1,2,8,9]},{"key":2.148,"title":"Vague, diffuse symptom description and anamnesis","description":"Symptoms are described vaguely, they are diffuse and maybe atypical/uncharacteristic and alternating throughout the interview.\n\nThe patient has difficulty answering questions in greater detail and specifying the complaints, e.g. localisation, intensity, nature (e.g. if a pain is burning or pricking). In some cases the patient even gets irritated at the interviewer, who maintains the questions on the symptoms localisation, intensity and periodicity etc.\n","input":"integer","options":{"0":"Absent","1":"To a mild extent","2":"Pronounced","8":"Uncertain","9":"NK"},"validate":[0,1,2,8,9]},{"key":2.149,"title":"Vague, diffuse description of previous treatments","description":"The patient has difficulty describing which treatments he or she has undergone, and the effect is described vaguely or without certainty.\n\nThe pt. may mix up diagnostic procedures and treatment. Is critical towards earlier treatment and often indicates that the treatments have caused aggravation of the condition.\n","input":"integer","options":{"0":"Absent","1":"To a mild extent","2":"Pronounced","8":"Uncertain","9":"NK"},"validate":[0,1,2,8,9]},{"key":"2.150","title":"Affective description","description":"Symptoms, illness, examinations, hospitalisations etc. are vividly described with a tendency to dramatise and exaggerate.\n","input":"integer","options":{"0":"Absent","1":"To a mild extent","2":"Pronounced","8":"Uncertain","9":"NK"},"validate":[0,1,2,8,9]},{"key":2.151,"title":"Inconsistency of information","description":"The patient gives different and conflicting information throughout the interview, or there is a discrepancy between the information gathered from other sources (medical records, referring doctor, social services, family etc.) and the patient’s own information during the interview.\n","input":"integer","options":{"0":"No consistency","1":"Some inconsistency","2":"Pronounced inconsistency","8":"Uncertain","9":"NK"},"validate":[0,1,2,8,9]},{"key":2.152,"title":"Previous course of disease and treatments (according to medical records etc.)","description":"Rating based on going through the medical records and information from doctors etc.\n","input":"integer","options":{"0":"No or only contact with own GP and not 1","1":"Frequent contacts primarily with own GP and without certain physical explanation","2":"Repeated contacts with hospitals and specialists without certain physical explanation","3":"Numerous and frequent contacts during several years with hospitals, specialists etc. without certain physical explanation","8":"Uncertain","9":"NK"},"validate":[0,1,2,3,8,9]},{"key":2.153,"title":"Motorically passive","description":"The patient stays still and moves less than normally\n"},{"key":2.154,"title":"Suspect malingering, factitious disorder or Münchhausen's syndrome (according to interview, medical records etc.)","description":"Factitious disorder is rated in checklist **2.065**\n","input":"integer","options":{"0":"No suspicion","1":"Malingering","2":"Factitious disorder","3":"Münchhausen's syndrome","8":"Uncertain","9":"NK"},"validate":[0,1,2,3,8,9]}]}
-
-/***/ }),
-/* 330 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _DataLoader = __webpack_require__(331);
-
-var _DataLoader2 = _interopRequireDefault(_DataLoader);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Main = function () {
-  function Main() {
-    _classCallCheck(this, Main);
-  }
-
-  _createClass(Main, null, [{
-    key: 'runAlgorithms',
-    value: function runAlgorithms() {
-      var responses = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      var algorithms = arguments[1];
-
-      // Get the evaluator object from the loader
-      var evaluator = _DataLoader2.default.getEvaluator(algorithms);
-
-      // Populate the evaluator object with answers
-      evaluator.answers = Object.keys(responses).reduce(function (result, item) {
-        return _extends({}, result, _defineProperty({}, item, responses[item]));
-      }, {});
-
-      // Remove empty answers.
-      var removeEmpty = function removeEmpty(obj) {
-        Object.entries(obj).forEach(function (_ref) {
-          var _ref2 = _slicedToArray(_ref, 2),
-              key = _ref2[0],
-              val = _ref2[1];
-
-          if (val && (typeof val === 'undefined' ? 'undefined' : _typeof(val)) === 'object') removeEmpty(val);else if (val.length === 0) delete obj[key];
-        });
-        return obj;
-      };
-      evaluator.answers = removeEmpty(evaluator.answers);
-
-      // Process all diagnoses
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = evaluator.algorithms[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var _ref3 = _step.value;
-
-          var _ref4 = _slicedToArray(_ref3, 2);
-
-          var key = _ref4[0];
-          var diagnosis = _ref4[1];
-
-          // Calculate the diagnosis value only if we haven't done it before.
-          if (typeof evaluator.evaluated[key] === 'undefined') {
-            //!== 'boolean'
-            try {
-              evaluator.evaluated[key] = evaluator.process(diagnosis.algorithm, diagnosis);
-            } catch (e) {
-              if (diagnosis.debug) {
-                console.log(diagnosis);
-              }
-
-              diagnosis.errorMessage = e.message;
-              evaluator.missing[key] = diagnosis;
-
-              console.log(e.name + ': ' + e.message + '. diagnosis: ' + key);
-              console.log(e);
-            }
-          }
-
-          if (diagnosis.debug) {
-            // console.log(diagnosis);
-          }
-
-          if (evaluator.evaluated[key] === true) {
-            evaluator.matched[key] = diagnosis;
-            // console.log(yaml.safeDump(diagnosis, {flowLevel: 1}));
-          } else {
-            evaluator.notmatched[key] = diagnosis;
-          }
-        }
-
-        // Calculate the result set from the filter options in state
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
-      }
-
-      evaluator.resultSet = this.filterMatchedItems({ options: false }, evaluator);
-
-      return evaluator;
-    }
-  }, {
-    key: 'filterMatchedItems',
-    value: function filterMatchedItems(evaluatorOptions, evaluator) {
-      var options = evaluatorOptions;
-
-      var diagnosisVariableItems = Object.keys(evaluator.matched).reduce(function (result, item) {
-        var matchedItem = evaluator.matched[item];
-
-        if (options.icd) {
-          if (matchedItem.diagnosis_variable && matchedItem.icd10) {
-            return _extends({}, result, _defineProperty({}, item, evaluator.matched[item]));
-          }
-        } else {
-          if (matchedItem.diagnosis_variable) {
-            return _extends({}, result, _defineProperty({}, item, evaluator.matched[item]));
-          }
-        }
-
-        return result;
-      }, {});
-
-      return diagnosisVariableItems;
-    }
-
-    /**
-     * Test the output by doing something.
-     */
-
-  }, {
-    key: 'doSomething',
-    value: function doSomething(evaluator) {
-      // console.log('Matched items:', evaluator.matched);
-      // const diagnosisVariableItems = Object.keys(evaluator.matched).reduce(
-      //   (result, item) => {
-      //     const matchedItem = evaluator.matched[item]
-      //     if (matchedItem.diagnosis_variable
-      //     && matchedItem.icd10) {
-      //       return {
-      //         ...result,
-      //         [item]: evaluator.matched[item]
-      //       }
-      //     }
-      //     return result
-      //   },
-      //   {}
-      // );
-      // console.log(diagnosisVariableItems)
-      // for (let key of evaluator.matched) {
-      //
-      // }
-      // // Sort evaluator.matched
-      // const ordered = {};
-      // Object.keys(evaluator.matched).sort().forEach(key => ordered[key] = evaluator.matched[key])
-      // evaluator.matched = ordered;
-      // // Print evaluator.matched
-      // for ( let key in evaluator.matched ) {
-      //   if ( evaluator.matched.hasOwnProperty(key) ) {
-      //     let message;
-      //     message = key;
-      //     if ( evaluator.matched[key].explanation.length > 0 ) {
-      //       message += ' - ' + evaluator.matched[key].explanation;
-      //     }
-      //     if ( message.length ) {
-      //       console.log(message);
-      //     }
-      //   }
-      // }
-      // console.log(evaluator);
-      // console.log('Counters:', counter);
-      // console.log('Matched items:', matchedItems);
-      // // Sort matchedItems
-      // const ordered = {};
-      // Object.keys(matchedItems).sort().forEach(key => ordered[key] = matchedItems[key])
-      // matchedItems = ordered;
-      // // Print matchedItems
-      // for ( let key in matchedItems ) {
-      //   if ( matchedItems.hasOwnProperty(key) ) {
-      //     let message;
-      //     message = key;
-      //     if ( matchedItems[key].explanation.length > 0 ) {
-      //       message += ' - ' + matchedItems[key].explanation;
-      //     }
-      //     if ( message.length ) {
-      //       // console.log(message);
-      //     }
-      //   }
-      // }
-    }
-  }]);
-
-  return Main;
-}();
-
-exports.default = Main;
 
 /***/ }),
 /* 331 */
@@ -48523,11 +48523,11 @@ var _data = __webpack_require__(49);
 
 var _items = __webpack_require__(122);
 
-var _section2Routing = __webpack_require__(356);
+var _section2Routing = __webpack_require__(341);
 
 var _section2Routing2 = _interopRequireDefault(_section2Routing);
 
-var _Main = __webpack_require__(330);
+var _Main = __webpack_require__(123);
 
 var _Main2 = _interopRequireDefault(_Main);
 
@@ -48592,9 +48592,15 @@ exports.default = interview;
 
 /***/ }),
 /* 341 */
+/***/ (function(module, exports) {
+
+module.exports = {"2.005":{"explanation":"2.005 is only active if 2.003 = 2","algorithm":[{"AND":["$2.003 = 2"]}]},"2.006":{"explanation":"If <2.003> = 0 skip to HA If <2.003> = 2 skip to <2.007> and then <2.100>. If <2.003> < > 0 or 2 continue.","algorithm":[{"OR":["$2.003 = 0","$2.003 = 2","$2.013 = [1,2,3]","$2.014 = [1,2,3]","$2.015 = [1,2,3]","$2.016 = [1,2,3]","$2.017 = [1,2,3]","$2.019 = [1,2,3]","$2.020 = [1,2,3]","$2.021 = [1,2,3]","$2.022 = [1,2,3]","$2.023 = [1,2,3]","$2.024 = [1,2,3]","$2.025 = [1,2,3]","$2.026 = [1,2,3]","$2.032 = [1,2,3]","$2.033 = [1,2,3]","$2.034 = [1,2,3]","$2.035 = [1,2,3]","$2.036 = [1,2,3]","$2.037 = [1,2,3]","$2.038 = [1,2,3]","$2.039 = [1,2,3]","$2.040 = [1,2,3]","$2.041 = [1,2,3]","$2.046 = [1,2,3]","$2.047 = [1,2,3]","$2.048 = [1,2,3]","$2.049 = [1,2,3]","$2.050 = [1,2,3]","$2.051 = [1,2,3]","$2.052 = [1,2,3]","$2.053 = [1,2,3]","$2.054 = [1,2,3]","$2.055 = [1,2,3]","$2.057 = [1,2,3]","$2.058 = [1,2,3]","$2.059 = [1,2,3]","$2.060 = [1,2,3]","$2.061 = [1,2,3]","$2.062 = [1,2,3]","$2.063 = [1,2,3]","$2.064 = [1,2,3]","$2.067 = [1,2,3]","$2.068 = [1,2,3]","$2.069 = [1,2,3]","$2.070 = [1,2,3]","$2.073 = [1,2,3]","$2.074 = [1,2,3]","$2.075 = [1,2,3]","$2.076 = [1,2,3]","$2.077 = [1,2,3]","$2.078 = [1,2,3]","$2.079 = [1,2,3]","$2.081 = [1,2,3]","$2.082 = [1,2,3]","$2.083 = [1,2,3]","$2.084 = [1,2,3]","$2.085 = [1,2,3]","$2.086 = [1,2,3]","$2.087 = [1,2,3]","$2.089 = [1,2,3]","$2.090 = [1,2,3]"]}]}}
+
+/***/ }),
+/* 342 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var debounce = __webpack_require__(342),
+var debounce = __webpack_require__(343),
     isObject = __webpack_require__(73);
 
 /** Error message constants. */
@@ -48666,12 +48672,12 @@ module.exports = throttle;
 
 
 /***/ }),
-/* 342 */
+/* 343 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(73),
-    now = __webpack_require__(343),
-    toNumber = __webpack_require__(345);
+    now = __webpack_require__(344),
+    toNumber = __webpack_require__(346);
 
 /** Error message constants. */
 var FUNC_ERROR_TEXT = 'Expected a function';
@@ -48862,10 +48868,10 @@ module.exports = debounce;
 
 
 /***/ }),
-/* 343 */
+/* 344 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var root = __webpack_require__(123);
+var root = __webpack_require__(124);
 
 /**
  * Gets the timestamp of the number of milliseconds that have elapsed since
@@ -48891,7 +48897,7 @@ module.exports = now;
 
 
 /***/ }),
-/* 344 */
+/* 345 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */
@@ -48902,11 +48908,11 @@ module.exports = freeGlobal;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(34)))
 
 /***/ }),
-/* 345 */
+/* 346 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(73),
-    isSymbol = __webpack_require__(346);
+    isSymbol = __webpack_require__(347);
 
 /** Used as references for various `Number` constants. */
 var NAN = 0 / 0;
@@ -48974,11 +48980,11 @@ module.exports = toNumber;
 
 
 /***/ }),
-/* 346 */
+/* 347 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(347),
-    isObjectLike = __webpack_require__(350);
+var baseGetTag = __webpack_require__(348),
+    isObjectLike = __webpack_require__(351);
 
 /** `Object#toString` result references. */
 var symbolTag = '[object Symbol]';
@@ -49009,12 +49015,12 @@ module.exports = isSymbol;
 
 
 /***/ }),
-/* 347 */
+/* 348 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(124),
-    getRawTag = __webpack_require__(348),
-    objectToString = __webpack_require__(349);
+var Symbol = __webpack_require__(125),
+    getRawTag = __webpack_require__(349),
+    objectToString = __webpack_require__(350);
 
 /** `Object#toString` result references. */
 var nullTag = '[object Null]',
@@ -49043,10 +49049,10 @@ module.exports = baseGetTag;
 
 
 /***/ }),
-/* 348 */
+/* 349 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(124);
+var Symbol = __webpack_require__(125);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -49095,7 +49101,7 @@ module.exports = getRawTag;
 
 
 /***/ }),
-/* 349 */
+/* 350 */
 /***/ (function(module, exports) {
 
 /** Used for built-in method references. */
@@ -49123,7 +49129,7 @@ module.exports = objectToString;
 
 
 /***/ }),
-/* 350 */
+/* 351 */
 /***/ (function(module, exports) {
 
 /**
@@ -49158,20 +49164,10 @@ module.exports = isObjectLike;
 
 
 /***/ }),
-/* 351 */
+/* 352 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 352 */,
-/* 353 */,
-/* 354 */,
-/* 355 */,
-/* 356 */
-/***/ (function(module, exports) {
-
-module.exports = {"2.005":{"explanation":"2.005 is only active if 2.003 = 2","algorithm":[{"AND":["$2.003 = 2"]}]},"2.006":{"explanation":"If <2.003> = 0 skip to HA If <2.003> = 2 skip to <2.007> and then <2.100>. If <2.003> < > 0 or 2 continue.","algorithm":[{"OR":["$2.003 = 0","$2.003 = 2","$2.013 = [1,2,3]","$2.014 = [1,2,3]","$2.015 = [1,2,3]","$2.016 = [1,2,3]","$2.017 = [1,2,3]","$2.019 = [1,2,3]","$2.020 = [1,2,3]","$2.021 = [1,2,3]","$2.022 = [1,2,3]","$2.023 = [1,2,3]","$2.024 = [1,2,3]","$2.025 = [1,2,3]","$2.026 = [1,2,3]","$2.032 = [1,2,3]","$2.033 = [1,2,3]","$2.034 = [1,2,3]","$2.035 = [1,2,3]","$2.036 = [1,2,3]","$2.037 = [1,2,3]","$2.038 = [1,2,3]","$2.039 = [1,2,3]","$2.040 = [1,2,3]","$2.041 = [1,2,3]","$2.046 = [1,2,3]","$2.047 = [1,2,3]","$2.048 = [1,2,3]","$2.049 = [1,2,3]","$2.050 = [1,2,3]","$2.051 = [1,2,3]","$2.052 = [1,2,3]","$2.053 = [1,2,3]","$2.054 = [1,2,3]","$2.055 = [1,2,3]","$2.057 = [1,2,3]","$2.058 = [1,2,3]","$2.059 = [1,2,3]","$2.060 = [1,2,3]","$2.061 = [1,2,3]","$2.062 = [1,2,3]","$2.063 = [1,2,3]","$2.064 = [1,2,3]","$2.067 = [1,2,3]","$2.068 = [1,2,3]","$2.069 = [1,2,3]","$2.070 = [1,2,3]","$2.073 = [1,2,3]","$2.074 = [1,2,3]","$2.075 = [1,2,3]","$2.076 = [1,2,3]","$2.077 = [1,2,3]","$2.078 = [1,2,3]","$2.079 = [1,2,3]","$2.081 = [1,2,3]","$2.082 = [1,2,3]","$2.083 = [1,2,3]","$2.084 = [1,2,3]","$2.085 = [1,2,3]","$2.086 = [1,2,3]","$2.087 = [1,2,3]","$2.089 = [1,2,3]","$2.090 = [1,2,3]"]}]}}
 
 /***/ })
 /******/ ]);

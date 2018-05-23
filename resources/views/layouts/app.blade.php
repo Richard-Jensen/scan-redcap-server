@@ -32,6 +32,7 @@
                     <span class="nav-link">{{ Auth::user()->email }}</span>
                     <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
                     <a class="nav-link" href="{{ route('profile') }}">{{ __('Profile') }}</a>
+                    <a class="nav-link" href="{{ route('algorithms.index') }}">{{ __('Algorithms') }}</a>
                     <a class="nav-link" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
