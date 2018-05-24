@@ -16,7 +16,7 @@ const Markdown = ({ source }) => {
 
 const Header = ({ item, isActive }) => (
   <b>
-    {item.input && (
+    {(item.input || item.scale) && (
       <div>
         <span>{item.key}</span>
       </div>

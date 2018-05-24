@@ -15,33 +15,12 @@ if (scanData.data) {
 }
 
 const interview = (state = initialState, action) => {
+  const { responses } = state;
+
   switch (action.type) {
     case 'SET_ACTIVE_ITEM':
-      const { responses } = state;
       const { key } = action.payload;
-
-      if (routing[key]) {
-        const evaluator = Main.runAlgorithms(responses, routing);
-        if (evaluator.evaluated[key]) {
-          if (
-            window.confirm(
-              `Item ${
-                action.payload.key
-              } is disabled. Do you want to see it anyway?`
-            )
-          ) {
-            return {
-              ...state,
-              activeKey: action.payload.key
-            };
-          } else {
-            return {
-              ...state,
-              activeKey: getNextItemByKey(action.payload.key).key
-            };
-          }
-        }
-      }
+      const evaluator = Main.runAlgorithms(responses, routing);
 
       return {
         ...state,
@@ -49,12 +28,26 @@ const interview = (state = initialState, action) => {
       };
 
     case 'SET_RESPONSE':
+      const mergedResponses = {
+        ...responses,
+        [action.payload.key]: action.payload.value
+      };
+
+      const { matched } = Main.runAlgorithms(mergedResponses, routing);
+      let disabledItems = [];
+      Object.keys(matched).forEach(key => {
+        const algorithm = matched[key];
+        if (algorithm.skip_items) {
+          disabledItems = [disabledItems, ...algorithm.skip_items];
+        }
+      });
+
+      const matchedKeys = Object.keys(matched);
+
       return {
         ...state,
-        responses: {
-          ...state.responses,
-          [action.payload.key]: action.payload.value
-        }
+        disabledItems: [...matchedKeys, ...disabledItems],
+        responses: mergedResponses
       };
     case 'SET_NOTE':
       return {

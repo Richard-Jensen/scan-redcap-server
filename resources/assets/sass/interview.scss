@@ -38,6 +38,10 @@ $grey-lighter: #eee;
     }
   }
 
+  .list-item-is-disabled {
+    opacity: 0.4;
+  }
+
   .list-item-key {
     font-weight: bold;
   }

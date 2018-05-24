@@ -5,6 +5,11 @@ import classNames from 'classnames';
 
 const ItemButton = ({ item, dispatch, interview, style, key }) => {
   const isActive = item.key === interview.activeKey;
+  let isDisabled = false;
+  if (interview.disabledItems) {
+    const disabledItems = interview.disabledItems;
+    isDisabled = disabledItems.includes(item.key);
+  }
 
   return (
     <div
@@ -13,7 +18,10 @@ const ItemButton = ({ item, dispatch, interview, style, key }) => {
       onClick={() => dispatch(setActiveItem(item.key))}
     >
       <div
-        className={classNames('list-item', { 'list-item-active': isActive })}
+        className={classNames('list-item', {
+          'list-item-active': isActive,
+          'list-item-is-disabled': isDisabled
+        })}
       >
         <div className="list-item-key">{item.key}</div>
         <div className="list-item-title">{item.title}</div>
