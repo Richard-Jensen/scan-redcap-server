@@ -7,6 +7,7 @@ let initialState = {
   id: window.scanInfo.record_id,
   activeKey: items[0],
   responses: {},
+  disabledItems: [],
   notes: {}
 };
 
@@ -32,15 +33,13 @@ const interview = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_ACTIVE_ITEM':
       const { key } = action.payload;
-      const evaluator = Main.runAlgorithms(responses, routing);
 
-      const nextValidKey = getNextValidKey(state, action.payload.key);
+      const nextValidKey = getNextValidKey(state, key);
 
       return {
         ...state,
         activeKey: nextValidKey
       };
-
     case 'SET_RESPONSE':
       const mergedResponses = {
         ...responses,

@@ -26,10 +26,18 @@ nav {
 }
 
 html,
-body,
-#app,
-.content {
+body {
   height: 100%;
+}
+
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
 }
 
 .alert {
@@ -37,25 +45,6 @@ body,
   background: #eee;
   border-radius: 3px;
   margin-bottom: 1rem;
-}
-
-.record-metadata {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-
-  form,
-  input,
-  button {
-    margin-bottom: 0;
-  }
-}
-
-.record-metadata-form {
-  display: flex;
 }
 
 .algorithms-content {
