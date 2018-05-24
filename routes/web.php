@@ -17,15 +17,22 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('setlocale/{locale}', function (Request $request, $locale) {
+  if (in_array($locale, \Config::get('app.locales'))) {
+    session()->put('locale', $locale);
+  }
+  return redirect()->back();
+});
+
 Route::get('/profile', 'UserController@show')->name('profile');
 Route::patch('/profile', 'UserController@update')->name('users.update');
 
-Route::get('/scan', 'ScanController@index')->name('scan.index');
+Route::get('/scan', 'HomeController@index')->name('scan.index');
 Route::get('/scan/new', 'ScanController@new')->name('scan.new');
 Route::get('/scan/{id}', 'ScanController@show')->name('scan.show');
-Route::post('/scan/create', 'ScanController@create')->name('scan.create');
-Route::patch('/scan/{id}/update', 'ScanController@update')->name('scan.update');
-Route::delete('/scan/{id}/destroy', 'ScanController@destroy')->name('scan.destroy');
+Route::post('/scan', 'ScanController@create')->name('scan.create');
+Route::patch('/scan/{id}', 'ScanController@update')->name('scan.update');
+Route::delete('/scan/{id}', 'ScanController@destroy')->name('scan.destroy');
 
 // save SCAN JSON
 Route::post('/scan/{id}/save', 'ScanController@save')->name('scan.save');

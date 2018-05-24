@@ -29,6 +29,10 @@
                 @guest
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                 @else
+                    <select onchange="window.location.href = '/setlocale/'  + this.value">
+                      <option value="da" {{ App::getLocale() == 'da' ? 'selected="selected"' : '' }}>Danish</option>
+                      <option value="en" {{ App::getLocale() == 'en' ? 'selected="selected"' : '' }}>English</option>
+                    </select>
                     <span class="nav-link">{{ Auth::user()->email }}</span>
                     <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
                     <a class="nav-link" href="{{ route('profile') }}">{{ __('Profile') }}</a>
