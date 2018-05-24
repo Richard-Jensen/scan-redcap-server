@@ -14,6 +14,18 @@ if (scanData.data) {
   initialState = scanData.data;
 }
 
+const nextItemIsDisabled = (state, key) => state.disabledItems.includes(key);
+
+const getNextValidKey = (state, key) => {
+  const nextItem = getNextItemByKey(key);
+
+  if (nextItemIsDisabled(state, key)) {
+    return getNextValidKey(state, nextItem.key);
+  } else {
+    return key;
+  }
+};
+
 const interview = (state = initialState, action) => {
   const { responses } = state;
 
@@ -22,9 +34,11 @@ const interview = (state = initialState, action) => {
       const { key } = action.payload;
       const evaluator = Main.runAlgorithms(responses, routing);
 
+      const nextValidKey = getNextValidKey(state, action.payload.key);
+
       return {
         ...state,
-        activeKey: action.payload.key
+        activeKey: nextValidKey
       };
 
     case 'SET_RESPONSE':

@@ -23,7 +23,6 @@ class Scan extends Component {
   }
 
   state = {
-    activeIndex: 0,
     evaluated: [],
     matched: [],
     notMatched: [],
@@ -62,23 +61,15 @@ class Scan extends Component {
   goToNextItem = () => {
     const activeKey = this.props.interview.activeKey;
     const nextItem = getNextItemByKey(activeKey);
-    this.setActiveIndex();
+
     this.props.dispatch(setActiveItem(nextItem.key));
   };
 
   goToPreviousItem = () => {
     const activeKey = this.props.interview.activeKey;
     const previousItem = getPreviousItemByKey(activeKey);
-    this.setActiveIndex();
-    this.props.dispatch(setActiveItem(previousItem.key));
-  };
 
-  setActiveIndex = () => {
-    const activeKey = this.props.interview.activeKey;
-    const activeIndex = items.indexOf(getItemByKey(activeKey));
-    this.setState({
-      activeIndex
-    });
+    this.props.dispatch(setActiveItem(previousItem.key));
   };
 
   handleSelectChange = event => {
@@ -108,7 +99,12 @@ class Scan extends Component {
       <div style={{ height: '100%' }}>
         <div style={{ display: 'flex', height: '100%' }}>
           <div className="interview-list">
-            <ItemList items={items} activeIndex={this.state.activeIndex} />
+            <ItemList
+              items={items}
+              activeIndex={items.indexOf(
+                getItemByKey(this.props.interview.activeKey)
+              )}
+            />
           </div>
           <div className="interview-item">
             <ResponseContainer items={items} />

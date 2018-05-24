@@ -16,6 +16,7 @@ export const ItemList = ({ items, activeIndex }) => {
         <List
           style={{ outline: 'none' }}
           scrollToIndex={activeIndex}
+          scrollToAlignment={'center'}
           height={height}
           width={width}
           rowHeight={50}
