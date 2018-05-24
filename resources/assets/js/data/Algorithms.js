@@ -1,7 +1,7 @@
 import DataLoader from './DataLoader';
 
-export default class Main {
-  static runAlgorithms(responses = {}, algorithms) {
+export default class Algorithms {
+  static run(responses = {}, algorithms) {
     // Get the evaluator object from the loader
     let evaluator = DataLoader.getEvaluator(algorithms);
 
@@ -102,67 +102,5 @@ export default class Main {
     );
 
     return diagnosisVariableItems;
-  }
-
-  /**
-   * Test the output by doing something.
-   */
-  static doSomething(evaluator) {
-    // console.log('Matched items:', evaluator.matched);
-    // const diagnosisVariableItems = Object.keys(evaluator.matched).reduce(
-    //   (result, item) => {
-    //     const matchedItem = evaluator.matched[item]
-    //     if (matchedItem.diagnosis_variable
-    //     && matchedItem.icd10) {
-    //       return {
-    //         ...result,
-    //         [item]: evaluator.matched[item]
-    //       }
-    //     }
-    //     return result
-    //   },
-    //   {}
-    // );
-    // console.log(diagnosisVariableItems)
-    // for (let key of evaluator.matched) {
-    //
-    // }
-    // // Sort evaluator.matched
-    // const ordered = {};
-    // Object.keys(evaluator.matched).sort().forEach(key => ordered[key] = evaluator.matched[key])
-    // evaluator.matched = ordered;
-    // // Print evaluator.matched
-    // for ( let key in evaluator.matched ) {
-    //   if ( evaluator.matched.hasOwnProperty(key) ) {
-    //     let message;
-    //     message = key;
-    //     if ( evaluator.matched[key].explanation.length > 0 ) {
-    //       message += ' - ' + evaluator.matched[key].explanation;
-    //     }
-    //     if ( message.length ) {
-    //       console.log(message);
-    //     }
-    //   }
-    // }
-    // console.log(evaluator);
-    // console.log('Counters:', counter);
-    // console.log('Matched items:', matchedItems);
-    // // Sort matchedItems
-    // const ordered = {};
-    // Object.keys(matchedItems).sort().forEach(key => ordered[key] = matchedItems[key])
-    // matchedItems = ordered;
-    // // Print matchedItems
-    // for ( let key in matchedItems ) {
-    //   if ( matchedItems.hasOwnProperty(key) ) {
-    //     let message;
-    //     message = key;
-    //     if ( matchedItems[key].explanation.length > 0 ) {
-    //       message += ' - ' + matchedItems[key].explanation;
-    //     }
-    //     if ( message.length ) {
-    //       // console.log(message);
-    //     }
-    //   }
-    // }
   }
 }

@@ -13,7 +13,7 @@
             <a href="{{ route('scan.show', ['id' => $records[0]->record_id]) }}">{{ $records[0]->record_id }}</a>
 
           @elseif (count($records) > 1)
-            {{ count($records) }} {{ __('records') }}
+            <strong>{{ count($records) }} {{ __('records') }}</strong> from the database <strong>{{ $project_info->project_title }}</strong>
             <table>
               <thead>
                 <tr>

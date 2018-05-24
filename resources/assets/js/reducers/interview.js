@@ -1,7 +1,7 @@
 import { scanData } from '../data';
 import { getNextItemByKey, items } from '../items';
 import routing from '../items/3.0/section.2.routing.json';
-import Main from '../data/Main';
+import Algorithms from '../data/Algorithms';
 
 let initialState = {
   id: window.scanInfo.record_id,
@@ -46,7 +46,7 @@ const interview = (state = initialState, action) => {
         [action.payload.key]: action.payload.value
       };
 
-      const { matched } = Main.runAlgorithms(mergedResponses, routing);
+      const { matched } = Algorithms.run(mergedResponses, routing);
       let disabledItems = [];
       Object.keys(matched).forEach(key => {
         const algorithm = matched[key];

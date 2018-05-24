@@ -12,7 +12,7 @@ import {
   getNextItemByKey,
   getPreviousItemByKey
 } from '../items';
-import Main from '../data/Main';
+import Algorithms from '../data/Algorithms';
 import icd10 from '../items/3.0/section.2.icd10.en.json';
 import jsyaml from 'js-yaml';
 
@@ -112,7 +112,7 @@ class Scan extends Component {
           <div className="interview-algorithms">
             <button
               onClick={() => {
-                const algorithms = Main.runAlgorithms(
+                const algorithms = Algorithms.run(
                   this.props.interview.responses,
                   this.state.selectedAlgorithmSet.algorithms
                 );

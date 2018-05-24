@@ -246,4 +246,24 @@ class ScanData
             return 'error';
         }
     }
+
+    public function getProjectInfo()
+    {
+      $data = [
+        'content' => 'project',
+        'returnFormat' => 'json',
+      ];
+
+      $request_array = array_merge($this->base_info, $data);
+
+      try {
+          $request = $this->client->post($this->api_endpoint, [
+              'form_params' => $request_array
+          ]);
+
+          return json_decode($request->getBody()->getContents());
+      } catch (ClientException $error) {
+          return 'error';
+      }
+    }
 }

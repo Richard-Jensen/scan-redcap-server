@@ -25,12 +25,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $records = ScanData::create()->getRecords();
+        $scanData = ScanData::create();
+        $records = $scanData->getRecords();
+        $projectInfo = $scanData->getProjectInfo();
 
         if ($records === 'error') {
           return view('home')->with('error', 'An error occured.');
         } else {
-          return view('home')->with('records', $records);
+          return view('home')->with('records', $records)->with('project_info', $projectInfo);
         }
     }
 }
