@@ -11,7 +11,7 @@ items:
       We may need an introduction including the discussion about MUS, mental vs. bodily, and that these conditions not nessesarily present mental disorders but are in between.
 
   - key: 2.001
-    title: Physical welness, past month
+    title: Physical wellness, past month
     description: |
       How has your physical health been during the past month?
 
@@ -109,6 +109,13 @@ items:
       Only if 2.003 is rated 2.
 
       Is pain the most predominant problem?
+    input: integer
+    options:
+      0: No
+      1: Yes
+      8: Uncertain
+      9: NK
+    validate: [0,1,8,9]
     help: |
       **Rate positively if pain is caused by physical disease predominates the illness picture:**
       See also <2.093>.
@@ -435,7 +442,7 @@ items:
   - key: 2.episode3.section
     title: General/unspecific symptoms/syndromes, incl. fatigue
 
-  - key: "2.010"
+  - key: 2.010
     title: Alternative/complimentary rating
     description: |
       In the past year, have you had problems with fatigue, headache, dizziness,
@@ -591,14 +598,16 @@ items:
       Did you neck pain start at that time? (See also <2.124>)
 
   - key: 2.028
-    title: Widespread pain in both sides of the body and both in upper and lower body
+    title: Widespread pain
     input: integer
     option:
-      0: No
-      1: Yes
+      0: Non
+      1: Only regional pain
+      2: Widespread
+      3: Widespread pain in both sides of the body and both in upper and lower body
       8: Uncertain
       9: NK
-    validate: [0,1,8,9]
+    validate: [0,1,2,3,8,9]
     glossary: |
       Does R have pain both above and below the waistline and in both sides of the body, ie. body parts of all 4 body quadrants
 
@@ -611,7 +620,7 @@ items:
     description: |
       *Have you had any problems with your stomach such as pain, nausea, feeling bloated, burning sensation in the epigastrium or regurgitation?*
 
-  - key: "2.030"
+  - key: 2.030
     title: Alternative/complimentary rating
     description: |
       **Upper dyspepsia**
@@ -694,7 +703,7 @@ items:
       (I.e. alternating constipation/normal or alternating constipation/diarrhoea or alternating normal/diarrhea?
     scale: 1a
 
-  - key: "2.040"
+  - key: 2.040
     title: Rumbling and churning in the stomach
     scale: 1a
     glossary: |
@@ -1358,7 +1367,7 @@ items:
       9: NK
     validate: [0, 1, 2, 8, 9]
     glossary: |
-      This item is a rating of the patient’s awareness of natural or benign physical sensations and physiological reactions in the body as well as a rating of how bothered the patient is by even minor problems which may be  misinterpreted and make the patient develop the idea that it is something unnatural or abnormal         that may be a sign of a pathological condition. The patient may have autonomic hypersensitivity hearing his/her own pulse or being aware of other natural physical phenomena of which others are rarely conscious.  For example, if getting bruises or irritated skin, he/she will be worried     that it is a sign of a serious undetected disease.
+      This item is a rating of the patient’s awareness of natural or benign physical sensations and physiological reactions in the body as well as a rating of how bothered the patient is by even minor problems which may be  misinterpreted and make the patient develop the idea that it is something unnatural or abnormal that may be a sign of a pathological condition. The patient may have autonomic hypersensitivity hearing his/her own pulse or being aware of other natural physical phenomena of which others are rarely conscious.  For example, if getting bruises or irritated skin, he/she will be worried
 
   - key: 2.105
     title: Preoccupation with medical information, health and disease
@@ -1374,9 +1383,16 @@ items:
       9: NK
     validate: [0, 1, 2, 8, 9]
     glossary: |
-      The patient is highly susceptible to information about illness, be it information from books, magazines, TV, internet, newspapers etc. If family members, friends or anyone else he/she meets become ill, the patient will worry about harboring the same disease. If he/she thinks about a disease         he/she will be afraid of harboring the disease him-/herself.
-
-      (Se also 2.??? Avoidance)
+      The patient is hig
+  - key: 1.001 # each item begins with a dash and a space (- )
+    title: Item title
+    description: |
+      Item description
+    input: integer # or date / date_interval / string
+    validate: [0-999]
+    options:
+      1: Option one
+      2: Option two
 
   - key: 2.106
     title: Suggestibility and autosuggestibility
@@ -1411,7 +1427,7 @@ items:
       9: NK
     validate: [0, 1, 2, 8, 9]
     glossary: |
-      The patient’s fear of being infected or contaminated if he/she has been with an ill person or if the patient touches dirty things or things that could be contaminated such as a toilet seat. The feare causes significant distress and /or makes him or her consult a doctor to make sure that nothing     is wrong.
+      The patient’s fear of being infected or contaminated if he/she has been with an ill person or if the patient touches dirty things or things that could be contaminated such as a toilet seat. The fear causes significant distress and / or makes the patient consult a doctor to make sure that nothing     is wrong.
       This is usually different from phobias and obsessions where the patient seldom consults a doctor for the dreaded disease, but instead for the distressing thought of it.
 
       The differentiation from phobias (**4.044** & **4.043**)) and obsessions (**5.005**) can be difficult.  If the criteria for more than one symptom are met, each should be rated on its merits. One does not exclude others. See also the introduction to HA section.
@@ -1431,7 +1447,7 @@ items:
       9: NK
     validate: [0, 1, 2, 8, 9]
     glossary: |
-      Patients with Health anxiety are often afraid of taking medication contrary to patients with other functional disorders.  It is the fear of medication that should be rated here and not the patients’ complaints about medication.
+      Patients with Health anxiety are often afraid of taking medication contrary to patients with other functional disorders. It is the fear of medication that should be rated here and not the patients’ complaints about medication.
 
   - key: 2.109
     title: Rejection of the doctor’s reassurance
@@ -1459,9 +1475,9 @@ items:
       - Dysmorphophobia is also rated at <16.011>.
       - Hypochondriacal delusions (unyielding conviction of having a serious disease) are rated in <19.027> and <19.028>. If these are part of another psychotic disorder, <19.027> and <19.028> are rated instead.
     glossary: |
-      The patient may seek reassurance by consulting a doctor but have difficulties in believing the doctor when told that there is nothing to worry about and when reassured, the worrying may returns rapidly .
-      When health anxiety or hypochondriacal preoccupation is most severe it takes the form of refusal of medical reassurance, with a belief that disease is present even when no abnormality is found in repeated examinations.  Respondents may believe that a diseases account for the symptoms and are        not satisfied with the way that medical experts have handled the case or with the conclusions and explanations offered. The patient  may contact one doctor (or other health care professional) after another and accept many treatments,  but reject assurances that there is no adequate physical         cause for the symptoms or presumed deformity. The pt. might accept reassurances for short periods following or during medical investigations or interventions.
-      investigations or interventions.
+      The patient may seek reassurance by consulting a doctor but have difficulties in believing the doctor when told that there is nothing to worry about and when reassured, the worrying may return rapidly .
+      When health anxiety or hypochondriacal preoccupation is most severe, it takes the form of refusal of medical reassurance, with a belief that disease is present even when no abnormality is found in repeated examinations.  Respondents may believe that a disease
+       accounts for the symptoms and are        not satisfied with the way that medical experts have handled the case or with the conclusions and explanations offered. The patient  may contact one doctor (or other health care professionals) after another and accept many treatments,  but reject assurance that there is no adequate physical         cause for the symptoms or presumed deformity. The pt. might accept reassurance for short periods following or during medical investigations or interventions.
 
 
       **Differentiation from other symptoms:**
@@ -1476,7 +1492,7 @@ items:
     help: |
       **See also section 5 (Gabriel)**
     glossary: |
-      The patient is inclined to always  expect or fear serious consequences of theire symptoms and ailment ie. serious disability, not being able to return to work, not being able to take care of children, never being the same again) when you have symptoms?to choose the worst possible explanation        and misinterpret trivial illness or symptoms as serious disease or health threat  like cancer or resulting in sever disability.
+      The patient is inclined to always  expect or fear serious consequences of symptoms and ailment, i.e. serious disability, not being able to return to work, not being able to take care of children, never being the same again and to choose the worst possible explanation        and misinterpret trivial illness or symptoms as serious disease or a health threat such as cancer or resulting in severe disability.
 
   - key: 2.111
     title: Health anxiety by proxy
@@ -1496,7 +1512,7 @@ items:
       9: NK
     validate: [0-2, 8, 9]
     glossary: |
-      The patient is worried about typical his/her child's health and is afraid that he child has a disease. It may also be another close relatives like a husband/wife.
+      The patient is typically worried about his/her child's health and is afraid that the child has a disease. It may also be another close relative such as spouse.
 
   - key: 2.112
     title: Treatment-seeking behaviour in relation to health anxiety or symptoms past 2 years
@@ -1531,7 +1547,7 @@ items:
       9: NK
     validate: [0-2,8,9]
     glossary: |
-      Patients may for instance avoid visiting family members or friends who are hospitalised or ill, avoid to read or se TV about medical issue ect. because it is too anxiety-provoking and may trigger the rumination.
+      Patients may for instance avoid visiting family members or friends who are hospitalised or ill, avoid to read or watch TV programs about medical issues because it is too anxiety-provoking and may trigger the rumination.
 
   - key: 2.114
     title: Duration of bodily preoccupation and illness worry (2.100-2.113)
@@ -1575,7 +1591,7 @@ items:
     help: |
       Cf. dysmorphophobia, 16.011
     glossary: |
-      The patient is preoccupied with his/hers appearance and deformity.
+      The patient is preoccupied with his/her appearance and deformity.
 
   - key: 2.episode15.section
     title: Syndrome- or symptom-based diagnoses according to the patients
@@ -1594,7 +1610,7 @@ items:
     glossary: |
       2.117-2.123:
 
-      Rate if the patient has ‘organised’ his/her symptoms into a “diagnostic” label or syndrome label. The label may not be named correctly from a medical point of view but includes labels such as heart disease, allergy etc. The importance is the rigidity, how pronounced the patient’s belief  is,        and whether there is any indication of doubt. The patient may have organised her/his symptoms in more than one diagnosis/condition simultaneously, but still qualifies for a rating of 1or 2.
+      Rate if the patient has ‘organised’ his/her symptoms into a “diagnostic” label or syndrome label. The label may not be named correctly from a medical point of view but includes labels such as heart disease, allergy etc. The importance is the rigidity, how pronounced the patient’s belief  is,        and whether there is any indication of doubt. The patient may have organised her/his symptoms in more than one diagnosis/condition simultaneously, but still qualifies for a rating of 1 or 2.
 
   - key: 2.117
     title: Fibromyalgia
@@ -1759,7 +1775,7 @@ items:
       9: NA
     validate: [0-999]
     glossary:
-      Can the patient identify factors that relieve the inconveniences, or factors that
+      Can the patient identify factors that relieve the inconveniences or factors that
       aggravate the symptoms or the illness, or are these multiple and diffuse?
 
   - key: 2.episode18.section
@@ -1996,15 +2012,15 @@ items:
       9: NK
     validate: [0, 1, 2, 3, 8, 9]
     glossary:
-      Intentional production or feigning of physical or psychological symptoms, sometimes self-inflicted injuries, medical disease or intoxication (ie. insulin injection), or may manipulate with signs of disease (ie. temperature, blod in urin) without clear external motivation (as opposed to              malingering) and where the truth is hidden from doctors and others.
+      Intentional production or feigning of physical or psychological symptoms, sometimes self-inflicted injuries, medical disease or intoxication (e.g. insulin injection), or may manipulate with signs of disease (e.g. temperature, blood in urine) without clear external motivation (as opposed to              malingering) and where the truth is hidden from doctors and others.
 
 
-      In Munchausne syndrome, the patient beside havein factious disorder, also have pseudlogica fantastica ie. tells, often granidous stories about who he/she is and have achiwed (being a wealthy, a duke, journalist, speedway driver ect.) , (dramatiserende)ie, admittet to hospital under dramtic          omstændigheder, ie. become ill in a traine, in a bossy street, on the beach during summer time. They may also defraud in other aspect of life, despit not as much for economical gain (økonomisk genvinst) but more like a roll play.
-      The patient is fully aware of they are producing or provoking ther symptoms or disease them self, despite they do not know what is driving them to do it. This is contrary to patients with functional disorder, who do not produce their symptoms them self.
+      In Münchhausen's syndrome, apart from having factious disorder, the patient also has pseudologia fantastica meaning that the pt. tells often grandiose stories about who he/she is and has achieved (being wealthy, being a duke, a journalist, a speedway driver etc.). The pt. may dramatise - for instance get admitted to hospital under dramatic circumstances, e.g. become ill on a train, in a busy street, on the beach in the summer. They may also defraud in other aspects of life but not not so much for financial gain but more like a role play.
+      The patients are fully aware that they produce or provoke their symptoms or disease themselves, despite they do not know what is driving them to do it. This is contrary to patients with functional disorders, who do not produce their symptoms themselves.
 
 
       Check **27.068**.
 
 
       Factitious mental illness; (included where?)
-      Intentional production or feigning of mental illness injuries without clear external motivation clear (as in simulation) and where the truth is hidden from doctors. Check **27.068**.
+      Intentional production or feigning of mental illness injuries without clear external motivation (as in simulation) and where the truth is hidden from doctors. Check **27.068**.

@@ -6,6 +6,8 @@ import classNames from 'classnames';
 const ItemButton = ({ item, dispatch, interview, style, key }) => {
   const isActive = item.key === interview.activeKey;
   let isDisabled = false;
+  let hasResponse = interview.responses[item.key] ? true : false;
+
   if (interview.disabledItems) {
     const disabledItems = interview.disabledItems;
     isDisabled = disabledItems.includes(item.key);
@@ -20,10 +22,13 @@ const ItemButton = ({ item, dispatch, interview, style, key }) => {
       <div
         className={classNames('list-item', {
           'list-item-active': isActive,
-          'list-item-is-disabled': isDisabled
+          'list-item-is-disabled': isDisabled,
+          'list-item-has-response': hasResponse
         })}
       >
-        <div className="list-item-key">{item.key}</div>
+        {(item.input || item.scale) && (
+          <div className="list-item-key">{item.key}</div>
+        )}
         <div className="list-item-title">{item.title}</div>
       </div>
     </div>

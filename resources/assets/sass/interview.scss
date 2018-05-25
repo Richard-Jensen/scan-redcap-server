@@ -42,6 +42,10 @@ $grey-lighter: #eee;
     opacity: 0.4;
   }
 
+  .list-item-has-response {
+    border-left: 6px solid #999;
+  }
+
   .list-item-key {
     font-weight: bold;
   }

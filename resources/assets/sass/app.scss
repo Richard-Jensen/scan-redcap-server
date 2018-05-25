@@ -11,6 +11,7 @@ body {
 nav {
   display: flex;
   line-height: 3;
+  flex-shrink: 0;
 }
 
 .navigation {
