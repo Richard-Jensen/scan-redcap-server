@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('header')
 </head>
 <body>
     <div id="app">
@@ -49,9 +50,12 @@
             </div>
         </nav>
 
-        <main class="content">
-            @yield('content')
-        </main>
+        @if(View::hasSection('content'))
+            <main class="content">
+                @yield('content')
+            </main>
+        @endif
+        @yield('react-app')
     </div>
 
     <!-- Scripts -->

@@ -1,18 +1,5 @@
 import React from 'react';
-import Remarkable from 'remarkable';
-
-const md = new Remarkable();
-
-const Markdown = ({ source }) => {
-  const renderedMarkdown = md.render(source);
-  const markdownWithLinks = renderedMarkdown.replace(
-    /\d{1,2}\.\d+\w*/g,
-    match => `<a data-item="${match}">${match}</a>`
-  );
-  return source ? (
-    <div dangerouslySetInnerHTML={{ __html: markdownWithLinks }} />
-  ) : null;
-};
+import { Markdown } from './Markdown';
 
 const Header = ({ item, isActive }) => (
   <b>

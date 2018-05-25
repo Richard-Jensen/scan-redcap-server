@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
@@ -96,8 +96,8 @@ class Scan extends Component {
 
   render() {
     return (
-      <div style={{ height: '100%' }}>
-        <div style={{ display: 'flex', height: '100%' }}>
+      <Fragment>
+        <div className="scan-app-main">
           <div className="interview-list">
             <ItemList
               items={items}
@@ -161,7 +161,7 @@ class Scan extends Component {
             </div>
           </div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }

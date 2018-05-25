@@ -4,10 +4,19 @@ $grey-lighter: #eee;
 .scan-app-container {
   height: 100%;
   overflow: auto;
+  border-top: 1px solid #ddd;
+  display: flex;
+}
+
+.scan-app-main {
+  flex: 1;
+  display: flex;
 }
 
 .interview-list {
   width: 200px;
+  flex-shrink: 0;
+  overflow: scroll;
   background-color: #f3f6f8;
   border-right: 1px solid #ddd;
 
@@ -58,14 +67,27 @@ $grey-lighter: #eee;
 }
 
 .interview-item {
-  padding: 32px;
+  padding: 16px;
   flex: 1;
+  flex-shrink: 0;
+  overflow: scroll;
+}
+
+.interview-item-glossary {
+  padding: 16px;
+  width: 200px;
+  height: 400px;
+  flex-shrink: 0;
+  overflow: auto;
+  font-size: 12px;
+  line-height: 1.2;
 }
 
 .interview-algorithms {
-  width: 280px;
+  flex: 0 1 280px;
   background: #222;
   padding: 16px;
+  overflow: scroll;
 }
 
 .interview-algorithms-evaluator-list {

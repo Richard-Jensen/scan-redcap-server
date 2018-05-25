@@ -8,7 +8,10 @@ let initialState = {
   activeKey: items[0],
   responses: {},
   disabledItems: [],
-  notes: {}
+  notes: {},
+  settings: {
+    showGlossary: true
+  }
 };
 
 if (scanData.data) {

@@ -54,9 +54,9 @@ items:
       800: 800 mths or more
       888: NK
       999: NA
-    validate: [0-999]
+    validate: [0-800,888,999]
     glossary: |
-        If item **2.001** is rated 3 or 4, specify the length of time in years and months that the unfitness has been present.
+        If item **[2.001]** is rated 3 or 4, specify the length of time in years and months that the unfitness has been present.
 
   - key: 2.003
     title: Physical illness or disability, past year
@@ -80,9 +80,9 @@ items:
 
       Take into account all the information available including the results of recent investigations and examinations. It will sometimes be possible to accept the diagnosis that R gives, when backed by a convincing description, but always use 8 if there is doubt.
 
-      Any medically diagnosed condition should be coded in **2.007** according to ICD-10.  If no significant illness or disability is present leave **2.007 and 2.008** blank.
+      Any medically diagnosed condition should be coded in **[2.007]** according to ICD-10.  If no significant illness or disability is present leave **[2.007] and [2.008]** blank.
 
-      An entry should only be made if **2.003** is coded 2 or 3; not including any indefinite or medically unexplained disorder.
+      An entry should only be made if **[2.003]** is coded 2 or 3; not including any indefinite or medically unexplained disorder.
 
       For instance stomach ache without good evidence of gastric disease, should not be entered simply because R states, for example, "I think I have a gastric ulcer". A rating of 1 does not mean that there is no physical disease, only that the information has not established one and further enquiry      is necessary.
 
@@ -97,7 +97,7 @@ items:
       9: NK
     validate: [0,1,9]
     help: |
-       See also items <2.094> and <2.008>.
+       See also items [2.094] and [2.008].
     glossary: |
       The patient has one or more distressing somatic symptoms or a symptom resulting in significant disruption of daily life. The symptoms or illness may be of any etiology, i.e. it may be symptoms of unknown etiology or from cancer, diabetes etc.
 
@@ -118,7 +118,7 @@ items:
     validate: [0,1,8,9]
     help: |
       **Rate positively if pain is caused by physical disease predominates the illness picture:**
-      See also <2.093>.
+      See also [2.093].
       (DSM-V specifier)
 
   - key: 2.006
@@ -136,7 +136,7 @@ items:
     help: |
       Rate on the basis of degree of preoccupation, illness conviction or distress, frequency of consultations and examinations, degree of symptoms or excessive illness worry.
 
-      See also <2.100>.
+      See also [2.100].
     glossary: |
       The item is identical with 2.101.
       Riddle item for Health or Illness anxiety / Hypochondrias, the item and except for the scoring, the item is identical with 2.101.
@@ -148,9 +148,9 @@ items:
 
       Always continue if there is no convincing medical explanation for the symptoms.
 
-      If <2.003> = 0 skip to HA
-      If <2.003> = 2 skip to <2.007> and then <2.100>.
-      If <2.003> < > 0 or 2 continue.
+      If [2.003] = 0 skip to HA
+      If [2.003] = 2 skip to [2.007] and then [2.100].
+      If [2.003] < > 0 or 2 continue.
 
   - key: 2.episode1.section
     title: Well-defined physical diseases
@@ -167,10 +167,15 @@ items:
       [Show a prompt card if necessary]
 
       a.  Have you been told by a doctor that you have any of these diseases (a-r)
+
       b.  Were you given medicines for (a-r)?
+
       c.  Were you given laboratory examinations for (a-r)
+
       d.  Were you advised to make changes in your diet or life style for (a-r)?
+
       e.  Were you hospitalized or had surgery for (a-r)?
+
       f.  Did you ever stop or cut back your usual activities for a week or longer for (a-r)?
     input: integer
     options:
@@ -178,6 +183,7 @@ items:
       1: Present
       8: Uncertain
       9: NK
+    validate: [0,1,8,0]
     glossary: |
       Items are optional and not a part of the SCAN interview. Only well-defined and verified diagnoses made by physicians.
       The functional somatic syndromes and functional disorders are not rated here.
@@ -362,7 +368,7 @@ items:
   - key: 2.008
     title: Impact on activities and discomfort/distress due to well-defined physical disease, past year
     description: |
-      **(See also 2.094)**
+      **(See also [2.094])**
 
       Have any of the above symptoms or disorders (2.007a-t) had an impact on your daily physical activities in the past year?
 
@@ -377,7 +383,7 @@ items:
       9: NK
     validate: [0-3,8,9]
     glossary: |
-      Impairment due to well-defined physical disease. Impairment due to functional or dissociative symptoms is rated in **2.094**.
+      Impairment due to well-defined physical disease. Impairment due to functional or dissociative symptoms is rated in **[2.094]**.
       Whether the disease causes clinically significant distress or impairment in social, occupational or other important areas of functioning.
 
       For rating of functioning, you may use the concept of WHO’s disability assessment with its 5 dimensions. But it is important that also emotional distress is       rated here, i.e. a person may go to work but is tormented by thoughts and emotions in connection with his/her symptoms.
@@ -584,7 +590,7 @@ items:
     description: |
       Have you been exposed to a whiplash trauma?
 
-      Did you neck pain start at that time? **(See also <2.120>)**
+      Did you neck pain start at that time? **(See also [2.120])**
     input: integer
     options:
       0: No
@@ -595,7 +601,7 @@ items:
     validate: [0-2,8,9]
     glossary: |
       Only if 2.026 (Neck pain) is positive Have you been exposed to a whiplash trauma?
-      Did you neck pain start at that time? (See also <2.124>)
+      Did you neck pain start at that time? (See also [2.124])
 
   - key: 2.028
     title: Widespread pain
@@ -813,9 +819,9 @@ items:
   - key: 2.episode7.section
     title: Neurological symptoms, incl. dissociative
     description: |
-      Paralysis is rated in **2.024** and skin sensibility disturbances in **2.025**.
+      Paralysis is rated in **[2.024]** and skin sensibility disturbances in **[2.025]**.
 
-      Dissociative or conversion symptoms are also rated here, but see **2.065**.
+      Dissociative or conversion symptoms are also rated here, but see **[2.065]**.
 
   - key: 2.056
     title: Alternative/complimentary rating
@@ -1550,7 +1556,7 @@ items:
       Patients may for instance avoid visiting family members or friends who are hospitalised or ill, avoid to read or watch TV programs about medical issues because it is too anxiety-provoking and may trigger the rumination.
 
   - key: 2.114
-    title: Duration of bodily preoccupation and illness worry (2.100-2.113)
+    title: Duration of bodily preoccupation and illness worry ([2.100]-[2.113])
     description: |
       In months
     input: integer
@@ -1596,17 +1602,9 @@ items:
   - key: 2.episode15.section
     title: Syndrome- or symptom-based diagnoses according to the patients
     description: |
-        Rating is based on the answers in **2010-2.090** or other parts of the interview or if those are inadequate, ask the patient directly.
+        Rating is based on the answers in **[2.010]-[2.090]** or other parts of the interview or if those are inadequate, ask the patient directly.
 
         *Does the patient believe, ort has the patient been told, that he or she suffers from a syndrome- or symptom-based diagnosis?*
-    input: integer
-    options:
-      0: Absent
-      1: Yes, but not 2
-      2: Fixed and persistent belief
-      8: Uncertain
-      9: NK
-    validate: [0, 1, 2, 8, 9]
     glossary: |
       2.117-2.123:
 
@@ -1616,31 +1614,79 @@ items:
     title: Fibromyalgia
     glossary: |
       The patient’s own belief or a diagnosis he/she has received.
+    input: integer
+    options:
+      0: Absent
+      1: Yes, but not 2
+      2: Fixed and persistent belief
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 8, 9]
 
   - key: 2.118
     title: CFS (Chronic Fatigue Syndrome)
     glossary: |
       The patient’s own belief or a diagnosis he/she has received.
+    input: integer
+    options:
+      0: Absent
+      1: Yes, but not 2
+      2: Fixed and persistent belief
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 8, 9]
 
   - key: 2.119
     title: IBS (Irritable Bowel Syndrome)
     glossary: |
       The patient’s own belief or a diagnosis he/she has received.
+    input: integer
+    options:
+      0: Absent
+      1: Yes, but not 2
+      2: Fixed and persistent belief
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 8, 9]
 
-  - key: "2.120"
+  - key: 2.120
     title: Pain syndrome (other than fibromyalgia)
     glossary: |
       The predominant complaint is a persistent and distressing pain that cannot be explained by a physical disorder, occurring in association with emotional conflict or psychosocial problems.  The 'stress' caused by these emotional or psychosocial problems should be sufficient to allow the               conclusion that they are the main causative factors.
+    input: integer
+    options:
+      0: Absent
+      1: Yes, but not 2
+      2: Fixed and persistent belief
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 8, 9]
 
   - key: 2.121
     title: Chronic whiplash (WAD)
     glossary: |
       The patient’s own belief or a diagnosis he/she has received.
+    input: integer
+    options:
+      0: Absent
+      1: Yes, but not 2
+      2: Fixed and persistent belief
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 8, 9]
 
   - key: 2.122
     title: Multiple Chemical Sensitivity (MCS)
     glossary: |
       The patient’s own belief or a diagnosis he/she has received.
+    input: integer
+    options:
+      0: Absent
+      1: Yes, but not 2
+      2: Fixed and persistent belief
+      8: Uncertain
+      9: NK
+    validate: [0, 1, 2, 8, 9]
 
   - key: 2.123
     title: Other
@@ -1648,6 +1694,7 @@ items:
       Specify_________________________
     glossary: |
       The patient’s own belief or a diagnosis he/she has received.
+    input: text
 
   - key: 2.episode16.section
     title: Events associated with onset of symptoms or illness
@@ -1712,7 +1759,7 @@ items:
   - key: 2.128
     title: Significant work-related stress or stress-related to your personal life
     description: |
-      *Stressful, busy everyday life but not **1.127***
+      *Stressful, busy everyday life but not **[1.127]***
     input: integer
     options:
       0: No particular stress
@@ -1738,7 +1785,7 @@ items:
   - key: 2.episode17.section
     title: Symptom- or illness attributions (prompt card if needed)
 
-  - key: "2.130"
+  - key: 2.130
     title: Symptom- or illness attribution
     description: |
       - *What do you think is causing your illness? (or symptoms)*
@@ -2018,9 +2065,7 @@ items:
       In Münchhausen's syndrome, apart from having factious disorder, the patient also has pseudologia fantastica meaning that the pt. tells often grandiose stories about who he/she is and has achieved (being wealthy, being a duke, a journalist, a speedway driver etc.). The pt. may dramatise - for instance get admitted to hospital under dramatic circumstances, e.g. become ill on a train, in a busy street, on the beach in the summer. They may also defraud in other aspects of life but not not so much for financial gain but more like a role play.
       The patients are fully aware that they produce or provoke their symptoms or disease themselves, despite they do not know what is driving them to do it. This is contrary to patients with functional disorders, who do not produce their symptoms themselves.
 
-
-      Check **27.068**.
-
+      Check **[27.068]**.
 
       Factitious mental illness; (included where?)
       Intentional production or feigning of mental illness injuries without clear external motivation (as in simulation) and where the truth is hidden from doctors. Check **27.068**.
