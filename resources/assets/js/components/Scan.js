@@ -4,7 +4,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { scanInfo, scanData } from '../data';
 import { ItemList } from './ItemList';
-import { ResponseContainer } from './Items';
+import { ResponseContainer } from './Response';
 import { setActiveItem } from '../actions';
 import {
   items,

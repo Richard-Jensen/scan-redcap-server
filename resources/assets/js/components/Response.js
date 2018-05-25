@@ -26,7 +26,8 @@ const Response = ({ items, dispatch, interview }) => {
       {item.options &&
         Object.keys(item.options).map(key => (
           <div key={key} onClick={() => dispatch(setResponse(item.key, key))}>
-            <b>{key}</b> {item.options[key]}
+            <b>{key}</b>{' '}
+            {key === response ? <b>{item.options[key]}</b> : item.options[key]}
           </div>
         ))}
       {hasInput && (
