@@ -19,10 +19,14 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('header')
 </head>
-<body>
+@guest
+<body class="not-logged-in">
+@else
+<body class="logged-in">
+@endguest
     <div id="app">
         <nav class="container">
-            <a class="" href="{{ url('/') }}">
+            <a class="logo" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
             </a>
 
@@ -30,7 +34,7 @@
                 <a class="nav-link{{ App::getLocale() == 'da' ? ' nav-link-active' : '' }}" href="/setlocale/da">DA</a>
                 <a class="nav-link{{ App::getLocale() == 'en' ? ' nav-link-active' : '' }}" href="/setlocale/en">EN</a>
                 @guest
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+
                 @else
                     <span class="nav-link">{{ Auth::user()->email }}</span>
                     <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>

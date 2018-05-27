@@ -21,3 +21,10 @@ export const setNote = ({ key, value }) => ({
     value
   }
 });
+
+export const flipSetting = ({ setting }) => ({
+  type: 'FLIP_SETTING',
+  payload: {
+    setting
+  }
+});

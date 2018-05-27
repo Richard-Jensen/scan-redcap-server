@@ -5,7 +5,7 @@ import { ItemCard } from './ItemCard';
 import { validateNumeric } from '../lib/helpers';
 import { Markdown } from './Markdown';
 
-const Response = ({ items, dispatch, interview }) => {
+const Response = ({ items, dispatch, interview, settings }) => {
   const item = items.find(item => item.key === interview.activeKey);
   if (!item) {
     return <div>No item found</div>;
@@ -171,10 +171,12 @@ const Response = ({ items, dispatch, interview }) => {
           </Fragment>
         )}
       </div>
-      <div className="interview-item-glossary">
-        <strong>Glossary</strong>
-        <Markdown source={item.glossary} />
-      </div>
+      {settings.showGlossary && (
+        <div className="interview-item-glossary">
+          <strong>Glossary</strong>
+          <Markdown source={item.glossary} />
+        </div>
+      )}
     </div>
   );
 };

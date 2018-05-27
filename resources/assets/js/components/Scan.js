@@ -4,6 +4,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { scanInfo, scanData } from '../data';
 import { ItemList } from './ItemList';
+import { Settings } from './Settings';
 import { ResponseContainer } from './Response';
 import { setActiveItem } from '../actions';
 import {
@@ -97,6 +98,9 @@ class Scan extends Component {
   render() {
     return (
       <Fragment>
+        <div>
+          <Settings />
+        </div>
         <div className="scan-app-main">
           <div className="interview-list">
             <ItemList
