@@ -49,6 +49,7 @@ const Response = ({ dispatch, interview, settings }) => {
 
   const note = (interview.notes && interview.notes[item.key]) || '';
   const hasInput = input || item.scale;
+  const showGlossary = settings.showGlossary && item.glossary;
 
   return (
     <div key={item.key} style={{ display: 'flex' }}>
@@ -190,7 +191,7 @@ const Response = ({ dispatch, interview, settings }) => {
           </Fragment>
         )}
       </div>
-      {settings.showGlossary && (
+      {showGlossary && (
         <div className="interview-item-glossary">
           <strong>Glossary</strong>
           <Markdown source={item.glossary} />
