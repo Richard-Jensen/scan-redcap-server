@@ -1334,7 +1334,7 @@ items:
       2: Severe preoccupation that considerably affects everyday life
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
     glossary: |
       The patient has thoughts or ideas about suffering from a disease that they can not, or only with great difficulty, stop. All thoughts are centred on a suspected disease, and the patient finds more and more "evidence" that he/she suffers from an often severe disease. The growing anxiety spiral       may ultimately make the patient seek medical attention. Rumination seems quite specific for health anxiety in the sense that other functional disorders that may present with illness worries do not display this symptom. But ruminations may also be present in (other) mental disorders like            anxiety disorders and depression.
 
@@ -1349,7 +1349,7 @@ items:
       2: Spends more than an hr. a day thinking about the disturbing condition/symptoms
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
     glossary: |
       How much time and energy the person devotes focusing on bothersome symptoms and their consequences. Typically associated with frequent medical visits
 
@@ -1371,7 +1371,7 @@ items:
       2: Excessive preoccupation involving severe daily troubles or numerous consultations or self-medication
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
     glossary: |
       This item is a rating of the patient’s awareness of natural or benign physical sensations and physiological reactions in the body as well as a rating of how bothered the patient is by even minor problems which may be  misinterpreted and make the patient develop the idea that it is something unnatural or abnormal that may be a sign of a pathological condition. The patient may have autonomic hypersensitivity hearing his/her own pulse or being aware of other natural physical phenomena of which others are rarely conscious.  For example, if getting bruises or irritated skin, he/she will be worried
 
@@ -1387,7 +1387,7 @@ items:
       2: Excessive preoccupation involving severe daily troubles or numerous consultations or self-medication
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
     glossary: |
       The patient is hig
   - key: 1.001 # each item begins with a dash and a space (- )
@@ -1416,7 +1416,7 @@ items:
       2: Mild affectability and excessive preoccupation resulting in frequently induced symptoms or considerable ruminations or frequent consultations
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
     glossary: |
       The patient responds with alarm to the slightest hint of illness. Hearing or reading about a disease, he/she is easily alarmed and inclined to fear having that disease. Likewise, if someone in the family, among friends, acquaintances or work colleagues falls ill, the patient may fear having         this disease.
 
@@ -1431,7 +1431,7 @@ items:
       2: Severe preoccupation, frequently induced symptoms with considerable ruminations or frequent consultations
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
     glossary: |
       The patient’s fear of being infected or contaminated if he/she has been with an ill person or if the patient touches dirty things or things that could be contaminated such as a toilet seat. The fear causes significant distress and / or makes the patient consult a doctor to make sure that nothing     is wrong.
       This is usually different from phobias and obsessions where the patient seldom consults a doctor for the dreaded disease, but instead for the distressing thought of it.
@@ -1451,7 +1451,7 @@ items:
       2: Extreme degree of insecurity and/or no compliance
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
     glossary: |
       Patients with Health anxiety are often afraid of taking medication contrary to patients with other functional disorders. It is the fear of medication that should be rated here and not the patients’ complaints about medication.
 
@@ -1621,7 +1621,7 @@ items:
       2: Fixed and persistent belief
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.118
     title: CFS (Chronic Fatigue Syndrome)
@@ -1634,7 +1634,7 @@ items:
       2: Fixed and persistent belief
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.119
     title: IBS (Irritable Bowel Syndrome)
@@ -1647,7 +1647,7 @@ items:
       2: Fixed and persistent belief
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.120
     title: Pain syndrome (other than fibromyalgia)
@@ -1660,7 +1660,7 @@ items:
       2: Fixed and persistent belief
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.121
     title: Chronic whiplash (WAD)
@@ -1673,7 +1673,7 @@ items:
       2: Fixed and persistent belief
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.122
     title: Multiple Chemical Sensitivity (MCS)
@@ -1686,7 +1686,7 @@ items:
       2: Fixed and persistent belief
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.123
     title: Other
@@ -1710,18 +1710,18 @@ items:
       2: Yes, clear connection / association
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.124
     title: Physical trauma (e.g. whiplash, fracture, head trauma)
     input: integer
     options:
       0: No particular trauma
-      2: Yes, but not 2
-      3: Yes, clear connection / association
+      1: Yes, but not 2
+      2: Yes, clear connection / association
       8: Uncertain
       9: NK
-    validate: [0, 2, 3, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.125
     title: Physical disease (e.g. infectious disease)
@@ -1732,7 +1732,7 @@ items:
       2: Yes, clear connection / association
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.126
     title: Emotional trauma, conflicts or strain
@@ -1743,7 +1743,7 @@ items:
       2: Yes, clear connection / association
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.127
     title: Significant social event (e.g. divorce, dismissal, bereavement)
@@ -1754,7 +1754,7 @@ items:
       2: Yes, clear connection / association
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.128
     title: Significant work-related stress or stress-related to your personal life
@@ -1767,7 +1767,7 @@ items:
       2: Yes, clear connection / association
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
     glossary: |
       Stressful, busy everyday life but not 1.127
 
@@ -1780,7 +1780,7 @@ items:
       2: Yes, clear connection / association
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.episode17.section
     title: Symptom- or illness attributions (prompt card if needed)
@@ -1803,7 +1803,7 @@ items:
       6: Unsure rating
       8: Uncertain
       9: NK
-    validate: [0-9]
+    validate: [0-6,8,9]
 
   - key: 2.131
     title: Identification of relieving or aggravating factors
@@ -1820,13 +1820,30 @@ items:
       2: Great difficulty or numerous and diffuse
       8: Unsure
       9: NA
-    validate: [0-999]
+    validate: [0-2,8,9]
     glossary:
       Can the patient identify factors that relieve the inconveniences or factors that
       aggravate the symptoms or the illness, or are these multiple and diffuse?
 
-  - key: 2.episode18.section
-    title: Age of onset
+  - key: 2.132
+    title: Age of onset of present functional disorder
+    description: |
+      (If the patient says “always", and cannot clafiry, rate 1
+    input: integer
+    options:
+      98: 98 years or older
+      99: N/A or NK
+    validate: [0-99]
+
+  - key: 2.133
+    title: Age of onset of first functional disorder
+    description: |
+      (If the patient says “always", and cannot clafiry, rate 1
+    input: integer
+    options:
+      98: 98 years or older
+      99: N/A or NK
+    validate: [0-99]
 
   - key: 2.episode19.section
     title: Differential diagnoses
@@ -1840,7 +1857,7 @@ items:
       2: Functional symptoms and physical disease are equally dominating
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.135
     title: Functional disorder or panic attacks, primary
@@ -1852,7 +1869,7 @@ items:
       3: Symptoms of anxiety more dominating or started first
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 3, 8, 9]
+    validate: [0-3,8,9]
 
   - key: 2.136
     title: Functional disorder or depression, primary (Cf 6.023)
@@ -1864,7 +1881,7 @@ items:
       3: Symptoms of depression more dominating or started first
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 3, 8, 9]
+    validate: [0-3,8,9]
 
   - key: 2.137
     title: Association between bodily distress and health anxiety
@@ -1876,7 +1893,7 @@ items:
       3: Health anxiety symptoms more dominating or started first
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 3, 8, 9]
+    validate: [0-3,8,9]
 
   - key: 2.138
     title: Functional disorder or other mental disease, primary
@@ -1885,10 +1902,31 @@ items:
       0: Absent or symptoms of only one type
       1: Bodily distress more dominating or started first
       2: Bodily distress and other mental disorder co-occur (comorbidity)
-      4: Symptoms from other mental disorder more dominating or started first
-      10: Uncertain
-      11: NK
-    validate: [0, 1, 2, 4, 10, 11]
+      3: Symptoms from other mental disorder more dominating or started first
+      8: Uncertain
+      9: NK
+    validate: [0-3,8,9]
+
+  - key: 2.139
+    title: Date of onset in PS or PE
+    input: date
+
+  - key: 2.140
+    title: Duration in PS or PE in days
+    input: integer
+    validate: [0-999]
+    periods: false
+
+  - key: 2.141
+    title: Date of onset in RE or LB
+    input: date
+    date_granularity: month_year
+
+  - key: 2.142
+    title: Duration in RE or LB in weeks
+    input: integer
+    validate: [0-999]
+    periods: false
 
   - key: 2.episode20.section
     title: Observed behaviour
@@ -1907,7 +1945,7 @@ items:
       3: The functional disorder is primarily felt as ego-syntonic
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 3, 8, 9]
+    validate: [0-3,8,9]
 
   - key: 2.144
     title: Emotional discrepancy (“belle indifference”)
@@ -1938,7 +1976,7 @@ items:
       2: Definitely present and to a pronounced extent
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.146
     title: Psycho-social communication style
@@ -1951,7 +1989,7 @@ items:
       2: Pronounced degree of psychosocial communication form
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.147
     title: Lack of chronology in symptom- and medical history
@@ -1968,7 +2006,7 @@ items:
       2: Pronounced
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.148
     title: Vague, diffuse symptom description and anamnesis
@@ -1983,7 +2021,7 @@ items:
       2: Pronounced
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.149
     title: Vague, diffuse description of previous treatments
@@ -1998,7 +2036,7 @@ items:
       2: Pronounced
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: "2.150"
     title: Affective description
@@ -2011,7 +2049,7 @@ items:
       2: Pronounced
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.151
     title: Inconsistency of information
@@ -2024,7 +2062,7 @@ items:
       2: Pronounced inconsistency
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 8, 9]
+    validate: [0-2,8,9]
 
   - key: 2.152
     title: Previous course of disease and treatments (according to medical records etc.)
@@ -2038,7 +2076,7 @@ items:
       3: Numerous and frequent contacts during several years with hospitals, specialists etc. without certain physical explanation
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 3, 8, 9]
+    validate: [0-3,8,9]
 
   - key: 2.153
     title: Motorically passive
@@ -2057,7 +2095,7 @@ items:
       3: Münchhausen's syndrome
       8: Uncertain
       9: NK
-    validate: [0, 1, 2, 3, 8, 9]
+    validate: [0-3,8,9]
     glossary:
       Intentional production or feigning of physical or psychological symptoms, sometimes self-inflicted injuries, medical disease or intoxication (e.g. insulin injection), or may manipulate with signs of disease (e.g. temperature, blood in urine) without clear external motivation (as opposed to              malingering) and where the truth is hidden from doctors and others.
 

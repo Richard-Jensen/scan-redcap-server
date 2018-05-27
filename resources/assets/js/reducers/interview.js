@@ -44,10 +44,23 @@ const interview = (state = initialState, action) => {
         activeKey: nextValidKey
       };
     case 'SET_RESPONSE':
-      const mergedResponses = {
-        ...responses,
-        [action.payload.key]: action.payload.value
-      };
+      let mergedResponses;
+      if (action.payload.period) {
+        let period = action.payload.period === 1 ? 'period_one' : 'period_two';
+
+        mergedResponses = {
+          ...responses,
+          [action.payload.key]: {
+            ...responses[action.payload.key],
+            [period]: action.payload.value
+          }
+        };
+      } else {
+        mergedResponses = {
+          ...responses,
+          [action.payload.key]: action.payload.value
+        };
+      }
 
       const { matched } = Algorithms.run(mergedResponses, routing);
       let disabledItems = [];

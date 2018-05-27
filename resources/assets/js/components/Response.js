@@ -11,6 +11,12 @@ const Response = ({ items, dispatch, interview }) => {
     return <div>No item found</div>;
   }
   let input = item.input;
+  let hasPeriods = true; // default periods to true
+  if (item.periods === 'false') hasPeriods = false;
+  if (input === 'date' || input === 'date_interval') {
+    hasPeriods = false;
+  }
+
   if (input === 'integer') {
     input = 'number';
   }
@@ -18,7 +24,15 @@ const Response = ({ items, dispatch, interview }) => {
     input = 'text';
   }
 
-  const response = (interview.responses && interview.responses[item.key]) || '';
+  let response = (interview.responses && interview.responses[item.key]) || '';
+
+  let one, two;
+  if (hasPeriods) {
+    response = (interview.responses && interview.responses[item.key]) || {};
+    one = response.period_one;
+    two = response.period_two;
+  }
+
   const note = (interview.notes && interview.notes[item.key]) || '';
   const hasInput = input || item.scale;
 
@@ -28,7 +42,12 @@ const Response = ({ items, dispatch, interview }) => {
         <ItemCard item={item} />
         {item.options &&
           Object.keys(item.options).map(key => (
-            <div key={key} onClick={() => dispatch(setResponse(item.key, key))}>
+            <div
+              key={key}
+              onClick={() =>
+                dispatch(setResponse({ key: item.key, value: key }))
+              }
+            >
               <b>{key}</b>{' '}
               {key === response ? (
                 <b>{item.options[key]}</b>
@@ -44,28 +63,107 @@ const Response = ({ items, dispatch, interview }) => {
         )}
         {hasInput && (
           <Fragment>
-            <label htmlFor="response">Response</label>
-            <input
-              type={input}
-              name="response"
-              onChange={event => {
-                if (
-                  item.validate &&
-                  validateNumeric(event.target.value, item.validate)
-                ) {
-                  dispatch(setResponse(item.key, event.target.value));
-                } else if (!item.validate) {
-                  dispatch(setResponse(item.key, event.target.value));
-                }
-              }}
-              placeholder={`Allowed responses: ${item.validate}`}
-              value={response}
-              autoFocus
-            />
+            {hasPeriods && (
+              <Fragment>
+                <label htmlFor="period_one">Period 1</label>
+                <input
+                  type={input}
+                  name="period_one"
+                  onChange={event => {
+                    if (
+                      item.validate &&
+                      validateNumeric(event.target.value, item.validate)
+                    ) {
+                      dispatch(
+                        setResponse({
+                          key: item.key,
+                          value: event.target.value,
+                          period: 1
+                        })
+                      );
+                    } else if (!item.validate) {
+                      dispatch(
+                        setResponse({
+                          key: item.key,
+                          value: event.target.value,
+                          period: 1
+                        })
+                      );
+                    }
+                  }}
+                  placeholder={`Allowed responses: ${item.validate}`}
+                  value={one}
+                  autoFocus
+                />
+
+                <label htmlFor="period_two">Period 2</label>
+                <input
+                  type={input}
+                  name="period_two"
+                  onChange={event => {
+                    if (
+                      item.validate &&
+                      validateNumeric(event.target.value, item.validate)
+                    ) {
+                      dispatch(
+                        setResponse({
+                          key: item.key,
+                          value: event.target.value,
+                          period: 2
+                        })
+                      );
+                    } else if (!item.validate) {
+                      dispatch(
+                        setResponse({
+                          key: item.key,
+                          value: event.target.value,
+                          period: 2
+                        })
+                      );
+                    }
+                  }}
+                  placeholder={`Allowed responses: ${item.validate}`}
+                  value={two}
+                />
+              </Fragment>
+            )}
+
+            {!hasPeriods && (
+              <Fragment>
+                <label htmlFor="response">Response</label>
+                <input
+                  type={input}
+                  name="response"
+                  onChange={event => {
+                    if (
+                      item.validate &&
+                      validateNumeric(event.target.value, item.validate)
+                    ) {
+                      dispatch(
+                        setResponse({
+                          key: item.key,
+                          value: event.target.value
+                        })
+                      );
+                    } else if (!item.validate) {
+                      dispatch(
+                        setResponse({
+                          key: item.key,
+                          value: event.target.value
+                        })
+                      );
+                    }
+                  }}
+                  placeholder={`Allowed responses: ${item.validate}`}
+                  value={response}
+                  autoFocus
+                />
+              </Fragment>
+            )}
 
             <textarea
               onChange={event =>
-                dispatch(setNote(item.key, event.target.value))
+                dispatch(setNote({ key: item.key, value: event.target.value }))
               }
               defaultValue={note}
               placeholder="Note"

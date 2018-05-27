@@ -1,19 +1,20 @@
-export const setActiveItem = key => ({
+export const setActiveItem = ({ key }) => ({
   type: 'SET_ACTIVE_ITEM',
   payload: {
     key
   }
 });
 
-export const setResponse = (key, value) => ({
+export const setResponse = ({ key, value, period }) => ({
   type: 'SET_RESPONSE',
   payload: {
     key,
-    value
+    value,
+    period
   }
 });
 
-export const setNote = (key, value) => ({
+export const setNote = ({ key, value }) => ({
   type: 'SET_NOTE',
   payload: {
     key,

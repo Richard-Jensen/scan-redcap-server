@@ -17,7 +17,7 @@ const ItemButton = ({ item, dispatch, interview, style, key }) => {
     <div
       style={style}
       key={key}
-      onClick={() => dispatch(setActiveItem(item.key))}
+      onClick={() => dispatch(setActiveItem({ key: item.key }))}
     >
       <div
         className={classNames('list-item', {

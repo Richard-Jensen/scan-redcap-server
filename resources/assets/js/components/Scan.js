@@ -62,14 +62,14 @@ class Scan extends Component {
     const activeKey = this.props.interview.activeKey;
     const nextItem = getNextItemByKey(activeKey);
 
-    this.props.dispatch(setActiveItem(nextItem.key));
+    this.props.dispatch(setActiveItem({ key: nextItem.key }));
   };
 
   goToPreviousItem = () => {
     const activeKey = this.props.interview.activeKey;
     const previousItem = getPreviousItemByKey(activeKey);
 
-    this.props.dispatch(setActiveItem(previousItem.key));
+    this.props.dispatch(setActiveItem({ key: previousItem.key }));
   };
 
   handleSelectChange = event => {
