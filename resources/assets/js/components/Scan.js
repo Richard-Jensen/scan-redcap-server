@@ -5,10 +5,12 @@ import { connect } from 'react-redux';
 import { scanInfo, scanData } from '../data';
 import { ItemList } from './ItemList';
 import { Settings } from './Settings';
+import { SearchItems } from './SearchItems';
 import { ResponseContainer } from './Response';
 import { setActiveItem } from '../actions';
 import {
   items,
+  scales,
   getItemByKey,
   getNextItemByKey,
   getPreviousItemByKey
@@ -100,6 +102,7 @@ class Scan extends Component {
       <Fragment>
         <div>
           <Settings />
+          <SearchItems />
         </div>
         <div className="scan-app-main">
           <div className="interview-list">
@@ -111,7 +114,7 @@ class Scan extends Component {
             />
           </div>
           <div className="interview-item">
-            <ResponseContainer items={items} />
+            <ResponseContainer />
           </div>
           <div className="interview-algorithms">
             <button

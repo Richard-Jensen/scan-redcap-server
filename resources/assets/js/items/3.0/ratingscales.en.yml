@@ -1,0 +1,116 @@
+1:
+  options:
+    0: This is a positive rating of absence. It does not mean 'not known' or 'uncertain whether present or not'. It can only be used if sufficient information is available to establish its accuracy.
+    1: This is a positive rating of presence, but presence of such a minor degree that it is not appropriate for use in classification. Like (0) it does not mean 'not known' or 'uncertain'. Ratings of (1) count in scores (but not for diagnostic purposes), which in turn influence the level allocated on the Index of Definition.
+    2: This rating means that the item is present at a level sufficient to use in classification. For this purpose it is equivalent to 3, but it contributes less to scores. In general, it is used when symptoms are of moderate severity during most of the period being assessed.
+    3: A rating of (3) is similar to (2) except that the symptom is present in severe form for most of the period under review.
+    5: The presence of psychotic symptoms can make the rating of Part One items very difficult, bevause of problems in interpreting the meaning of what R says, or because the symptoms (for example, anxiety or a phobia about leaving one's house) may themselves be based in psychotic experiences. The rating should only be made when there is genuine doubt about the nature of the symptom or the balance is in favor of the symptom being psychotic.
+    8: If, after an adequate examination, the interviewer is still not sure whether a symptom is present (rated 1-3) or absent (rated 0), the rating is (8). This is the only circumstance in which (8) is used. It should not be used to indicate a mild form of the symptom.
+    9: This rating is only used if the information needed to rate an item is incomplete in some respect, for example because of language or cognitive disorder, or lack of cooperation, or because the interviewer forgot to probe sufficiently deeply. It is distinguished from (8) because the examination was not, for whatever reason, carried out adequately. In the SCAN text, an instruction to 'use Scale I' simply means that it is not necessary to point out any individual rating characteristics for that item. Any point on Scale I can be selected, according to clinical judgement.
+  input: integer
+  validate: [0-3,5,8,9]
+
+1a:
+  options:
+    0: Symptoms absent after adequate Elaboration
+    1: Symptom has been present in the period being assessed, but only mildly
+    2: Symptom is definitely moderately present for most of the period or pronouncedly present for less than half of the period
+    3: Symptom is pronouncedly present for more than half of the period
+    5: Rating difficult due to psychotic disorder
+    6: Symptom is consistent with a well-defined physical disease
+    8: Symptom is present, but uncertain if it is functional
+    9: Not known, cannot be rated
+  input: integer
+  validate: [0-3,5,6,8,9]
+
+2:
+  options:
+    0: Symptom did not occur during PERIOD.
+    1: Symptom definitely occurred during the period but was probably uncommon or transitory.
+    2: Symptom was definitely present, on multiple occasions or for part of the time, during the period.
+    3: Symptom was present more or less continuously throughout the period.
+    5: Language difficulty, rated as present in Section 15, makes replies difficult to interpret.
+    8: Rater is unsure whether the phenomenon is present or absent, even after adequate examination
+    9: Not appropriate to make a rating because examination incomplete, e.g. because of refusal, omission, etc.
+  input: integer
+  validate: [0-3,5,8,9]
+
+3:
+  description: |
+    NB: Consider behavioral items for cognitive impairment also.
+
+    Most items in Sections 22-24 are rated on a 3-point scale (0-2) on the basis of severity and frequency during the past month. Information from records for the period should be used as well.
+
+    The examination should be supplemented by taking into account any other observations of relevance, e.g. is case records or information from professionals or relatives. Severe behavioral abnormalities may not be observed at examination because of the short time sample, but when they are present skilled direct observations are of great importance. The items listed are also worth rating because of their possible juxtaposition with other symptoms. The time period rated is the month before examination.
+
+    Many behavioral items are also included in Item Groups and can be rated in the Checklist.
+  options:
+    0: Behavior not present during past month.
+    1: Unequivocally present during past month, moderate severity only. Use all information available.
+    2: Present in severe form during past month or at examination.
+    8: Unsure whether present or not after adequate examination.
+    9: Not appropriate to make a rating because examination or records are incomplete, or behavior is due to a physical factor.
+  input: integer
+  validate: [0-2,8,9]
+
+4:
+  options:
+    0: Absent. Below IG threshold.
+    1: Subject to clinical discretion, at least two items should definitely pass PSE threshold level, PLUS at least moderate disability (interference with everyday activities) and/or moderate or severe distress resulting from the symptoms.
+    2: As 1, but with severe degree of distress and/or disability. Usually at least three items pass PSE threshold but this is at the interviewer's clinical discretion.
+    8: Uncertain whether IG is present (usually because of insufficient information).
+  input: integer
+  validate: [0-2,8]
+
+Att.:
+  description: |
+    Use the attributional rating scale to rate nature of influence on symptom presence or severity at the item level. The rating of 0 is the only ’negative’ rating, and can be used if there is clear evidence that treatment has resulted in a reduced rating. Ratings 1 - 8 represent attributions of etiologic effect, increasing the likelihood of an item being rated or its severity being increased. These attributions must only be made for symptoms/items that have positively rated, and should be entered into the dashed boxes below the standard episode rating boxes. The rating of 9 is reserved for indicating a trait characteristic. If no effect or trait is judged to be present leave the dashed box blank.
+  options:
+    0: Item rating reduced by effects of treatment
+    1: Alcohol
+    2: Other psychoactive substance
+    3: Effects of somatic psychiatric treatments (electroconvulsive therapy, antidepressant medication, neuroleptics, etc)
+    4: Known primary intracranial process (Alzheimer’s disease, Huntington’s disease, Parkinson’s disease, tumor, stroke, etc.)
+    5: Non-psychiatric medication, toxins
+    6: Other medication condition 1 (specify at Section 13 and/or Section 20)
+    7: Other medication condition 2 (specify at Section 13 and/or Section 20)
+    8: Other medication condition 3 (specify at Section 13 and/or Section 20)
+    9: Trait. Essentially lifelong characteristic of R.
+  input: integer
+  validate: [0-9]
+
+# scale 1a with descriptions
+# 1a:
+#   options:
+#     0:
+#       title: Symptoms absent after adequate Elaboration
+#       description: |
+#         This is a positive rating of presence, but so mildly that it is without clinical and hence diagnostic significance. As above, it doesn’t mean “not known” or “uncertain”. Doesn’t count for diagnostic purposes, but can be counted in sumscore, e.g. by using Index of Definitions. Not to be confused with 8.
+#     1:
+#       title: Symptom has been present in the period being assessed, but only mildly
+#       description: |
+#         This is a positive rating of presence, but so mildly that it is without clinical and hence diagnostic significance. As above, it doesn’t mean “not known” or “uncertain”. Doesn’t count for diagnostic purposes, but can be counted in sumscore, e.g. by using Index of Definitions. Not to be confused with 8.
+#     2:
+#       title: Symptom is definitely moderately present for most of the period or pronouncedly present for less than half of the period
+#       description: |
+#         At systematic review of medical records, symptoms registered in the records are in principle rated as 2 (definitely present). If medical records are lacking, rate at least 2 if the patient has seen a doctor due to the symptom, has received treatment (incl. self-medication) due to the symptom or if the symptom has caused behavioural changes (e.g. cessation of exercise)
+#     3:
+#       title: Symptom is pronouncedly present for more than half of the period
+#       description: |
+#         A severity of 2 or 3 is judged by the intensity, frequency and duration of the symptom. If in doubt, rate conservatively: 2.
+#
+#         If symptoms are of alternating intensity, perhaps for long periods, rate according to the intensity of the symptoms when they were most pronounced rather than according to duration.
+#     5:
+#       title: Rating difficult due to psychotic disorder
+#       description: |
+#         Presence of psychotic symptoms can make it difficult to rate Part 1 symptoms, either due to the psychotic disorder making it hard to understand what R says, or because the symptoms  (e.g. anxiety symptoms) can be provoked by psychotic experiences.
+#     6:
+#       title: Symptom is consistent with a well-defined physical disease
+#     8:
+#       title: Symptom is present, but uncertain if it is functional
+#       description: |
+#         If it is impossible, after thorough and adequate interviewing and collection of relevant information from doctors, medical records etc., to determine if the symptom is functional, this rating is used. Not to be confused with 1.
+#     9:
+#       title: Not known, cannot be rated
+#       description: |
+#         Used when information is missing due to rejection, insufficient communication, or because you have forgotten or refrained from asking, or because the item in question is irrelevant. Not to be confused with 0 or 8.

@@ -4,13 +4,27 @@ import { setActiveItem, setResponse, setNote } from '../actions';
 import { ItemCard } from './ItemCard';
 import { validateNumeric } from '../lib/helpers';
 import { Markdown } from './Markdown';
+import { items, scales, getItemByKey } from '../items';
 
-const Response = ({ items, dispatch, interview, settings }) => {
-  const item = items.find(item => item.key === interview.activeKey);
+const Response = ({ dispatch, interview, settings }) => {
+  let item = getItemByKey(interview.activeKey);
+
   if (!item) {
     return <div>No item found</div>;
   }
   let input = item.input;
+
+  let hasScale = item.scale;
+  if (hasScale && scales[item.scale]) {
+    const scale = scales[item.scale];
+    item = {
+      ...item,
+      options: scale.options,
+      validate: scale.validate,
+      input: scale.input
+    };
+  }
+
   let hasPeriods = true; // default periods to true
   if (item.periods === 'false') hasPeriods = false;
   if (input === 'date' || input === 'date_interval') {
