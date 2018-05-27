@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
 import { connect } from 'react-redux';
 import { scanInfo, scanData } from '../data';
 import { ItemList } from './ItemList';
@@ -42,7 +41,7 @@ class Scan extends Component {
   }
 
   getAlgorithmSets = () => {
-    axios
+    window.axios
       .get(`/algorithms.json`)
       .then(response => {
         this.setState({
@@ -100,9 +99,9 @@ class Scan extends Component {
   render() {
     return (
       <Fragment>
-        <div>
-          <Settings />
+        <div className="scan-app-top-bar">
           <SearchItems />
+          <Settings />
         </div>
         <div className="scan-app-main">
           <div className="interview-list">

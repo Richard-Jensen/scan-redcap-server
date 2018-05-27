@@ -518,6 +518,7 @@ items:
 
   - key: 2.017
     title: Others________________________________
+    input: string
 
   - key: 2.episode4.section
     title: Musculoskeletal symptoms/syndromes, incl. widespread pain, muscle tension etc.
@@ -613,7 +614,7 @@ items:
       3: Widespread pain in both sides of the body and both in upper and lower body
       8: Uncertain
       9: NK
-    validate: [0,1,2,3,8,9]
+    validate: [0-3,8,9]
     glossary: |
       Does R have pain both above and below the waistline and in both sides of the body, ie. body parts of all 4 body quadrants
 
@@ -1694,7 +1695,14 @@ items:
       Specify_________________________
     glossary: |
       The patient’s own belief or a diagnosis he/she has received.
-    input: text
+    input: integer
+    options:
+      0: Absent
+      1: Yes, but not 2
+      2: Fixed and persistent belief
+      8: Uncertain
+      9: NK
+    validate: [0-2,8,9]
 
   - key: 2.episode16.section
     title: Events associated with onset of symptoms or illness
@@ -1828,7 +1836,7 @@ items:
   - key: 2.132
     title: Age of onset of present functional disorder
     description: |
-      (If the patient says “always", and cannot clafiry, rate 1
+      (If the patient says “always", and cannot clafiry, rate 1)
     input: integer
     options:
       98: 98 years or older
@@ -1838,7 +1846,7 @@ items:
   - key: 2.133
     title: Age of onset of first functional disorder
     description: |
-      (If the patient says “always", and cannot clafiry, rate 1
+      (If the patient says “always", and cannot clafiry, rate 1)
     input: integer
     options:
       98: 98 years or older

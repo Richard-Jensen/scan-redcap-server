@@ -88,6 +88,7 @@ const Response = ({ dispatch, interview, settings }) => {
                       item.validate &&
                       validateNumeric(event.target.value, item.validate)
                     ) {
+                      console.log('validate', item.validate);
                       dispatch(
                         setResponse({
                           key: item.key,
@@ -175,13 +176,17 @@ const Response = ({ dispatch, interview, settings }) => {
               </Fragment>
             )}
 
-            <textarea
-              onChange={event =>
-                dispatch(setNote({ key: item.key, value: event.target.value }))
-              }
-              defaultValue={note}
-              placeholder="Note"
-            />
+            {settings.showItemNotes && (
+              <textarea
+                onChange={event =>
+                  dispatch(
+                    setNote({ key: item.key, value: event.target.value })
+                  )
+                }
+                defaultValue={note}
+                placeholder="Note"
+              />
+            )}
           </Fragment>
         )}
       </div>

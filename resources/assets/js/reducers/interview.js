@@ -4,7 +4,7 @@ import routing from '../items/3.0/section.2.routing.json';
 import Algorithms from '../data/Algorithms';
 
 let initialState = {
-  id: window.scanInfo.record_id,
+  id: window.scanInfo && window.scanInfo.record_id,
   activeKey: items[0],
   responses: {},
   disabledItems: [],

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Downshift from 'downshift';
 import { List } from 'react-virtualized';
 import { connect } from 'react-redux';
 import { items } from '../items';
 import { setActiveItem } from '../actions';
+import classNames from 'classnames';
 
 const Autocomplete = ({ items, onChange }) => {
   return (
@@ -32,9 +33,6 @@ const Autocomplete = ({ items, onChange }) => {
                   .includes(inputValue.toLowerCase()))
             );
           });
-        if (foundItems === null) {
-          foundItems = [];
-        }
 
         return (
           <div className="search-portal">
@@ -43,37 +41,44 @@ const Autocomplete = ({ items, onChange }) => {
               {...getInputProps({ placeholder: 'Find item...' })}
             />
             {isOpen ? (
-              <div className="search-results">
+              <Fragment>
                 {foundItems.length ? (
-                  <List
-                    style={{ outline: 'none' }}
-                    scrollToIndex={highlightedIndex || 0}
-                    height={400}
-                    width={600}
-                    rowHeight={42}
-                    rowCount={foundItems.length}
-                    overscanRowCount={5}
-                    rowRenderer={({ index, style }) => {
-                      const item = foundItems[index];
-                      return (
-                        <div
-                          key={index}
-                          {...getItemProps({
-                            item,
-                            index,
-                            style: {
-                              ...style
-                            }
-                          })}
-                          className="search-item"
-                        >
-                          {item.key} {item.title}
-                        </div>
-                      );
-                    }}
-                  />
+                  <div className="search-results">
+                    <List
+                      style={{ outline: 'none' }}
+                      scrollToIndex={highlightedIndex || 0}
+                      height={
+                        foundItems.length < 10 ? foundItems.length * 42 : 420
+                      }
+                      width={600}
+                      rowHeight={42}
+                      rowCount={foundItems.length}
+                      overscanRowCount={5}
+                      rowRenderer={({ index, style }) => {
+                        const item = foundItems[index];
+                        const isActive = highlightedIndex === index;
+                        return (
+                          <div
+                            key={index}
+                            {...getItemProps({
+                              item,
+                              index,
+                              style: {
+                                ...style
+                              }
+                            })}
+                            className={classNames('search-item', {
+                              'search-item-active': isActive
+                            })}
+                          >
+                            {item.key} {item.title}
+                          </div>
+                        );
+                      }}
+                    />
+                  </div>
                 ) : null}
-              </div>
+              </Fragment>
             ) : null}
           </div>
         );

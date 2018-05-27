@@ -1,3 +1,5 @@
+@import 'components/switch';
+
 $color-blue: #106cd6;
 $grey-lighter: #eee;
 
@@ -6,6 +8,16 @@ $grey-lighter: #eee;
   overflow: auto;
   border-top: 1px solid #ddd;
   display: flex;
+  flex-direction: column;
+}
+
+.scan-app-top-bar {
+  display: flex;
+  align-items: center;
+  background-color: #333;
+  height: 44px;
+  padding: 0 32px;
+  color: #fff;
 }
 
 .scan-app-main {
@@ -96,5 +108,79 @@ $grey-lighter: #eee;
   color: white;
   li {
     line-height: 1;
+  }
+}
+
+.search-portal {
+  position: relative;
+  display: flex;
+  height: 100%;
+}
+
+.search-results {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background-color: #fff;
+  color: #000;
+  max-width: 440px;
+  z-index: 1000;
+  overflow: hidden;
+  border-radius: 3px;
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.2);
+}
+
+.search-item {
+  padding: 8px 16px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  user-select: none;
+}
+
+.search-portal input {
+  color: #fff;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-height: inherit;
+}
+
+.search-item-active {
+  font-weight: bold;
+}
+
+.scan-app-settings {
+  position: relative;
+  height: 100%;
+  margin-left: 16px;
+}
+
+.scan-app-settings-label {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.scan-app-settings:hover .scan-app-settings-dropdown {
+  display: block;
+}
+
+.scan-app-settings-dropdown {
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background: #fff;
+  color: #000;
+  z-index: 1000;
+  width: 240px;
+  border-radius: 3px;
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.2);
+}
+
+.scan-app-settings-item {
+  padding: 8px 16px;
+  &:not(:last-child) {
+    border-bottom: 1px solid #eee;
   }
 }
