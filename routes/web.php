@@ -17,7 +17,7 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('setlocale/{locale}', function (Request $request, $locale) {
+Route::get('/setlocale/{locale}', function (Request $request, $locale) {
   if (in_array($locale, \Config::get('app.locales'))) {
     session()->put('locale', $locale);
   }
