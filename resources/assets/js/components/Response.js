@@ -40,13 +40,6 @@ const Response = ({ dispatch, interview, settings }) => {
 
   let response = (interview.responses && interview.responses[item.key]) || '';
 
-  let one, two;
-  if (hasPeriods) {
-    response = (interview.responses && interview.responses[item.key]) || {};
-    one = response.period_one;
-    two = response.period_two;
-  }
-
   const note = (interview.notes && interview.notes[item.key]) || '';
   const hasInput = input || item.scale;
   const showGlossary = settings.showGlossary && item.glossary;
@@ -78,104 +71,34 @@ const Response = ({ dispatch, interview, settings }) => {
         )}
         {hasInput && (
           <Fragment>
-            {hasPeriods && (
-              <Fragment>
-                <label htmlFor="period_one">Period 1</label>
-                <input
-                  type={input}
-                  name="period_one"
-                  onChange={event => {
-                    if (
-                      item.validate &&
-                      validateNumeric(event.target.value, item.validate)
-                    ) {
-                      console.log('validate', item.validate);
-                      dispatch(
-                        setResponse({
-                          key: item.key,
-                          value: event.target.value,
-                          period: 1
-                        })
-                      );
-                    } else if (!item.validate) {
-                      dispatch(
-                        setResponse({
-                          key: item.key,
-                          value: event.target.value,
-                          period: 1
-                        })
-                      );
-                    }
-                  }}
-                  placeholder={`Allowed responses: ${item.validate}`}
-                  value={one}
-                  autoFocus
-                />
-
-                <label htmlFor="period_two">Period 2</label>
-                <input
-                  type={input}
-                  name="period_two"
-                  onChange={event => {
-                    if (
-                      item.validate &&
-                      validateNumeric(event.target.value, item.validate)
-                    ) {
-                      dispatch(
-                        setResponse({
-                          key: item.key,
-                          value: event.target.value,
-                          period: 2
-                        })
-                      );
-                    } else if (!item.validate) {
-                      dispatch(
-                        setResponse({
-                          key: item.key,
-                          value: event.target.value,
-                          period: 2
-                        })
-                      );
-                    }
-                  }}
-                  placeholder={`Allowed responses: ${item.validate}`}
-                  value={two}
-                />
-              </Fragment>
-            )}
-
-            {!hasPeriods && (
-              <Fragment>
-                <label htmlFor="response">Response</label>
-                <input
-                  type={input}
-                  name="response"
-                  onChange={event => {
-                    if (
-                      item.validate &&
-                      validateNumeric(event.target.value, item.validate)
-                    ) {
-                      dispatch(
-                        setResponse({
-                          key: item.key,
-                          value: event.target.value
-                        })
-                      );
-                    } else if (!item.validate) {
-                      dispatch(
-                        setResponse({
-                          key: item.key,
-                          value: event.target.value
-                        })
-                      );
-                    }
-                  }}
-                  placeholder={`Allowed responses: ${item.validate}`}
-                  value={response}
-                  autoFocus
-                />
-              </Fragment>
-            )}
+            <label htmlFor="response">Response</label>
+            <input
+              type={input}
+              name="response"
+              onChange={event => {
+                if (
+                  item.validate &&
+                  validateNumeric(event.target.value, item.validate)
+                ) {
+                  dispatch(
+                    setResponse({
+                      key: item.key,
+                      value: event.target.value
+                    })
+                  );
+                } else if (!item.validate) {
+                  dispatch(
+                    setResponse({
+                      key: item.key,
+                      value: event.target.value
+                    })
+                  );
+                }
+              }}
+              placeholder={`Allowed responses: ${item.validate}`}
+              value={response}
+              autoFocus
+            />
 
             {settings.showItemNotes && (
               <textarea
