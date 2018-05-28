@@ -79,36 +79,39 @@ $grey-lighter: #eee;
 }
 
 .interview-item {
-  padding: 16px;
-  flex: 1;
-  flex-shrink: 0;
-  overflow: scroll;
+  height: 100%;
+  width: 100%;
 }
 
 .interview-item-glossary {
   padding: 16px;
-  width: 200px;
-  height: 400px;
+  width: 300px;
+  height: 100%;
   flex-shrink: 0;
   overflow: auto;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.2;
 }
 
 .interview-algorithms {
-  flex: 0 1 280px;
-  background: #222;
   padding: 16px;
+  height: 100%;
   overflow: scroll;
 }
 
 .interview-algorithms-evaluator-list {
-  max-height: 80%;
   overflow: auto;
-  color: white;
   li {
     line-height: 1;
   }
+}
+
+.interview-algorithms-evaluator-list-matched {
+  color: #64ad64;
+}
+
+.interview-algorithms-evaluator-list-not-matched {
+  color: #d44b4b;
 }
 
 .search-portal {

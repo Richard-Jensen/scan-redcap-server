@@ -1,3 +1,6 @@
+export const isTextareaInFocus = () =>
+  document.activeElement.tagName === 'TEXTAREA';
+
 // the value provided can be a string or a number
 // rules look like [0-10, 98, 99]
 export const validateNumeric = (value, rules) => {

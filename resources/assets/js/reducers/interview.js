@@ -5,7 +5,7 @@ import Algorithms from '../data/Algorithms';
 
 let initialState = {
   id: window.scanInfo && window.scanInfo.record_id,
-  activeKey: items[0],
+  activeKey: items[0].key,
   responses: {},
   disabledItems: [],
   notes: {},

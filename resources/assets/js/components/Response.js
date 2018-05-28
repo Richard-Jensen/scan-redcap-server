@@ -95,7 +95,9 @@ const Response = ({ dispatch, interview, settings }) => {
                   );
                 }
               }}
-              placeholder={`Allowed responses: ${item.validate}`}
+              placeholder={
+                item.validate && `Allowed responses: ${item.validate}`
+              }
               value={response}
               autoFocus
             />
