@@ -16,6 +16,7 @@ $grey-lighter: #eee;
   align-items: center;
   background-color: #333;
   height: 44px;
+  flex-shrink: 0;
   padding: 0 32px;
   color: #fff;
 }
@@ -76,6 +77,12 @@ $grey-lighter: #eee;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+}
+
+.interview-item-container {
+  display: flex;
+  padding: 32px;
+  height: 100%;
 }
 
 .interview-item {

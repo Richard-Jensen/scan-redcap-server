@@ -3,7 +3,7 @@ import Remarkable from 'remarkable';
 
 const md = new Remarkable();
 
-export const Markdown = ({ source }) => {
+export const Markdown = ({ source, style, className }) => {
   const renderedMarkdown = md.render(source);
   const markdownWithLinks = renderedMarkdown.replace(
     /(\[)(\d{1,2}\.\d+\w*)(\])/g,
@@ -12,6 +12,10 @@ export const Markdown = ({ source }) => {
     }
   );
   return source ? (
-    <div dangerouslySetInnerHTML={{ __html: markdownWithLinks }} />
+    <div
+      dangerouslySetInnerHTML={{ __html: markdownWithLinks }}
+      style={style}
+      className={className}
+    />
   ) : null;
 };

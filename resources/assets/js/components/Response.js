@@ -45,7 +45,7 @@ const Response = ({ dispatch, interview, settings }) => {
   const showGlossary = settings.showGlossary && item.glossary;
 
   return (
-    <div key={item.key} style={{ display: 'flex', padding: 32 }}>
+    <div key={item.key} className="interview-item-container">
       <div style={{ flex: 1 }}>
         <ItemCard item={item} />
         {item.options &&
@@ -119,7 +119,7 @@ const Response = ({ dispatch, interview, settings }) => {
       {showGlossary && (
         <div className="interview-item-glossary">
           <strong>Glossary</strong>
-          <Markdown source={item.glossary} />
+          <Markdown source={item.glossary} style={{ height: '100%' }} />
         </div>
       )}
     </div>
