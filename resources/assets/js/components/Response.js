@@ -45,7 +45,7 @@ const Response = ({ dispatch, interview, settings }) => {
   const showGlossary = settings.showGlossary && item.glossary;
 
   return (
-    <div key={item.key} style={{ display: 'flex' }}>
+    <div key={item.key} style={{ display: 'flex', padding: 32 }}>
       <div style={{ flex: 1 }}>
         <ItemCard item={item} />
         {item.options &&
