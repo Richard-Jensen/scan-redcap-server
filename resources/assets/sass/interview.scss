@@ -29,7 +29,7 @@ $grey-lighter: #eee;
 .interview-list {
   width: 240px;
   flex-shrink: 0;
-  overflow: scroll;
+  overflow: auto;
   background-color: #f3f6f8;
 
   .list-item {
