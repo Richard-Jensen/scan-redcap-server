@@ -52,6 +52,7 @@ const Response = ({ dispatch, interview, settings }) => {
           Object.keys(item.options).map(key => (
             <div
               key={key}
+              className="interview-response-list"
               onClick={() =>
                 dispatch(setResponse({ key: item.key, value: key }))
               }
@@ -74,6 +75,7 @@ const Response = ({ dispatch, interview, settings }) => {
             <label htmlFor="response">Response</label>
             <input
               type={input}
+              className={`interview-input interview-input-${input}`}
               name="response"
               onChange={event => {
                 if (
@@ -95,9 +97,7 @@ const Response = ({ dispatch, interview, settings }) => {
                   );
                 }
               }}
-              placeholder={
-                item.validate && `Allowed responses: ${item.validate}`
-              }
+              placeholder={item.validate}
               value={response}
               autoFocus
             />

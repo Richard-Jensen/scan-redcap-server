@@ -90,6 +90,37 @@ $grey-lighter: #eee;
   width: 100%;
 }
 
+.interview-response-list {
+  cursor: pointer;
+  &:hover {
+    background-color: #eee;
+  }
+}
+
+.interview-input {
+  &::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: #ccc;
+  }
+  &::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #ccc;
+  }
+  &:-ms-input-placeholder {
+    /* IE 10+ */
+    color: #ccc;
+  }
+  &:-moz-placeholder {
+    /* Firefox 18- */
+    color: #ccc;
+  }
+}
+
+.interview-input-number {
+  font-size: 32px;
+  width: auto;
+}
+
 .interview-item-glossary {
   padding: 16px;
   width: 300px;
