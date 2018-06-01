@@ -49,3 +49,18 @@ yarn && yarn watch
 #### 6. Go to the root of your server
 
 `localhost` or `scan-app.test` or where your local server serves your files.
+
+### Running commands on Heroku
+
+When pushing to a Heroku app composer installs all the necessary dependencies automatically.
+
+Environment variables are setup through `https://dashboard.heroku.com/apps/{app-name}/settings`
+
+Make sure to have a Heroku PostgreSQL addon installed (`https://dashboard.heroku.com/apps/{app-name}/resources`)
+
+Heroku commands:
+
+```sh
+# Run pending migrations
+heroku run php artisan migrate --app={app-name}
+```
