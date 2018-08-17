@@ -2,9 +2,10 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { setActiveItem, setResponse, setNote } from '../actions';
 import { ItemCard } from './ItemCard';
-import { validateNumeric } from '../lib/helpers';
+import { validateNumeric, isValueWithinWholeRangeOfRules, findClosestViableValueFromInvalidValue, selectValueBasedOnInputValue } from '../lib/helpers';
 import { Markdown } from './Markdown';
 import { items, scales, getItemByKey } from '../items';
+var previousValue = 0;
 
 const Response = ({ dispatch, interview, settings }) => {
   let item = getItemByKey(interview.activeKey);
@@ -76,12 +77,13 @@ const Response = ({ dispatch, interview, settings }) => {
             <input
               type={input}
               className={`interview-input interview-input-${input}`}
+              id="ResponseInput"
               name="response"
-              onChange={event => {
-                if (
-                  item.validate &&
-                  validateNumeric(event.target.value, item.validate)
-                ) {
+              onKeyDown={event =>{
+                if(event.keyCode==38){
+                console.log("test Arrow UP");
+                console.log(event.target.value)
+                if (item.validate && validateNumeric(event.target.value, item.validate)) {
                   dispatch(
                     setResponse({
                       key: item.key,
@@ -95,8 +97,44 @@ const Response = ({ dispatch, interview, settings }) => {
                       value: event.target.value
                     })
                   );
+                  }
+              }
+                else if (event.keyCode==40)
+                console.log("test Arrow DOWN")
+                if (item.validate && validateNumeric(event.target.value, item.validate)) {
+                  dispatch(
+                    setResponse({
+                      key: item.key,
+                      value: event.target.value
+                    })
+                  );
+                } else if (!item.validate) {
+                  dispatch(
+                    setResponse({
+                      key: item.key,
+                      value: event.target.value
+                    })
+                  );
+                event.preventDefault();
                 }
               }}
+              onChange={event => {
+                console.log("ONCHANGE")
+                if (item.validate && validateNumeric(event.target.value, item.validate)) {
+                  dispatch(
+                    setResponse({
+                      key: item.key,
+                      value: event.target.value
+                    })
+                  );
+                } else if (!item.validate) {
+                  dispatch(
+                    setResponse({
+                      key: item.key,
+                      value: event.target.value
+                    })
+                  );
+                }}}
               placeholder={item.validate}
               value={response}
               autoFocus
@@ -127,3 +165,23 @@ const Response = ({ dispatch, interview, settings }) => {
 };
 
 export const ResponseContainer = connect(state => state)(Response);
+    const manualInputChange = (value,valid) =>{
+                if (
+                  valid &&
+                  validateNumeric(value, valid)
+                ) {
+                  dispatch(
+                    setResponse({
+                      key: item.key,
+                      value: value
+                    })
+                  );
+                } else if (!valid) {
+                  dispatch(
+                    setResponse({
+                      key: item.key,
+                      value: value
+                    })
+                  );
+                }
+    };
