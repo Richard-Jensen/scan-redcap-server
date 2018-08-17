@@ -12,7 +12,5 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 .env
-scan.sublime-project
 scan.sublime-workspace
-Dockerfile
-docker-compose.yml
+

@@ -1,0 +1,41 @@
+version: '3.3'
+
+services:
+
+  app:
+    image: funklid/scan-redcap
+    build: .
+    container_name: scan-redcap
+    env_file:
+      - .env
+    ports:
+      - "4321:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql/mysql-server:5.7
+    # build: ./docker/mysql
+    hostname: mysql
+    container_name: scan-db
+    env_file:
+      - .env
+    volumes:
+    - mysql-data-scan-redcap:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.7
+    # volumes:
+    #   - ./docker/phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
+    env_file:
+      - .env
+    ports:
+      - "5432:80"
+    depends_on:
+      - mysql
+
+volumes:
+  mysql-data-scan-redcap:
+
