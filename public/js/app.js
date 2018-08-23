@@ -57959,11 +57959,13 @@ var Response = function Response(_ref) {
           id: 'ResponseInput',
           name: 'response',
           onKeyDown: function onKeyDown(event) {
-            var adjustment = 1;
+            var adjustment = 0;
             if (event.keyCode == 38) {
               adjustment = 1;
             } else if (event.keyCode == 40) {
               adjustment = -1;
+            } else {
+              return;
             }
             var bonus = adjustment;
             while (!(0, _helpers.validateNumeric)(parseInt(event.target.value) + bonus, item.validate) && (0, _helpers.isValueWithinWholeRangeOfRules)(parseInt(event.target.value) + bonus, item.validate)) {

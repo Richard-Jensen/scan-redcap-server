@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { setActiveItem, setResponse, setNote } from '../actions';
 import { ItemCard } from './ItemCard';
-import { validateNumeric, isValueWithinWholeRangeOfRules, findClosestViableValueFromInvalidValue, selectValueBasedOnInputValue } from '../lib/helpers';
+import { validateNumeric, isValueWithinWholeRangeOfRules } from '../lib/helpers';
 import { Markdown } from './Markdown';
 import { items, scales, getItemByKey } from '../items';
 var previousValue = 0;
@@ -80,13 +80,14 @@ const Response = ({ dispatch, interview, settings }) => {
               id="ResponseInput"
               name="response"
               onKeyDown={event =>{
-                let adjustment = 1;
+                let adjustment = 0;
                 if(event.keyCode==38){
                   adjustment = 1;
                 }
                 else if (event.keyCode==40){
                   adjustment = -1;
                 }
+                else {return;}
                 let bonus = adjustment;
                 while(!validateNumeric((parseInt(event.target.value) + bonus),item.validate)&&isValueWithinWholeRangeOfRules(parseInt(event.target.value)+bonus,item.validate)){
                   bonus = bonus + adjustment;
