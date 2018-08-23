@@ -94,8 +94,10 @@ const Response = ({ dispatch, interview, settings }) => {
                   }
                   if(isValueWithinWholeRangeOfRules(parseInt(event.target.value)+bonus,item.validate))
                   {
-                    dispatch(setResponse({key: item.key,value: parseInt(event.target.value)+bonus}));
-
+                    dispatch(
+                      setResponse({
+                        key: item.key,
+                        value: parseInt(event.target.value)+bonus}));
                     event.preventDefault();
                   }
               }}
