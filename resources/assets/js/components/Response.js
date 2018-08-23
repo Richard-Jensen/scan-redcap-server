@@ -80,46 +80,25 @@ const Response = ({ dispatch, interview, settings }) => {
               id="ResponseInput"
               name="response"
               onKeyDown={event =>{
+                let adjustment = 1;
                 if(event.keyCode==38){
-                console.log("test Arrow UP");
-                console.log(event.target.value)
-                if (item.validate && validateNumeric(event.target.value, item.validate)) {
-                  dispatch(
-                    setResponse({
-                      key: item.key,
-                      value: event.target.value
-                    })
-                  );
-                } else if (!item.validate) {
-                  dispatch(
-                    setResponse({
-                      key: item.key,
-                      value: event.target.value
-                    })
-                  );
-                  }
-              }
-                else if (event.keyCode==40)
-                console.log("test Arrow DOWN")
-                if (item.validate && validateNumeric(event.target.value, item.validate)) {
-                  dispatch(
-                    setResponse({
-                      key: item.key,
-                      value: event.target.value
-                    })
-                  );
-                } else if (!item.validate) {
-                  dispatch(
-                    setResponse({
-                      key: item.key,
-                      value: event.target.value
-                    })
-                  );
-                event.preventDefault();
+                  adjustment = 1;
                 }
+                else if (event.keyCode==40){
+                  adjustment = -1;
+                }
+                let bonus = adjustment;
+                while(!validateNumeric((parseInt(event.target.value) + bonus),item.validate)&&isValueWithinWholeRangeOfRules(parseInt(event.target.value)+bonus,item.validate)){
+                  bonus = bonus + adjustment;
+                  }
+                  if(isValueWithinWholeRangeOfRules(parseInt(event.target.value)+bonus,item.validate))
+                  {
+                    dispatch(setResponse({key: item.key,value: parseInt(event.target.value)+bonus}));
+
+                    event.preventDefault();
+                  }
               }}
               onChange={event => {
-                console.log("ONCHANGE")
                 if (item.validate && validateNumeric(event.target.value, item.validate)) {
                   dispatch(
                     setResponse({

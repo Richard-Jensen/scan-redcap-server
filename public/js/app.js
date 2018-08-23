@@ -57959,36 +57959,23 @@ var Response = function Response(_ref) {
           id: 'ResponseInput',
           name: 'response',
           onKeyDown: function onKeyDown(event) {
+            var adjustment = 1;
             if (event.keyCode == 38) {
-              console.log("test Arrow UP");
-              console.log(event.target.value);
-              if (item.validate && (0, _helpers.validateNumeric)(event.target.value, item.validate)) {
-                dispatch((0, _actions.setResponse)({
-                  key: item.key,
-                  value: event.target.value
-                }));
-              } else if (!item.validate) {
-                dispatch((0, _actions.setResponse)({
-                  key: item.key,
-                  value: event.target.value
-                }));
-              }
-            } else if (event.keyCode == 40) console.log("test Arrow DOWN");
-            if (item.validate && (0, _helpers.validateNumeric)(event.target.value, item.validate)) {
-              dispatch((0, _actions.setResponse)({
-                key: item.key,
-                value: event.target.value
-              }));
-            } else if (!item.validate) {
-              dispatch((0, _actions.setResponse)({
-                key: item.key,
-                value: event.target.value
-              }));
+              adjustment = 1;
+            } else if (event.keyCode == 40) {
+              adjustment = -1;
+            }
+            var bonus = adjustment;
+            while (!(0, _helpers.validateNumeric)(parseInt(event.target.value) + bonus, item.validate) && (0, _helpers.isValueWithinWholeRangeOfRules)(parseInt(event.target.value) + bonus, item.validate)) {
+              bonus = bonus + adjustment;
+            }
+            if ((0, _helpers.isValueWithinWholeRangeOfRules)(parseInt(event.target.value) + bonus, item.validate)) {
+              dispatch((0, _actions.setResponse)({ key: item.key, value: parseInt(event.target.value) + bonus }));
+
               event.preventDefault();
             }
           },
           onChange: function onChange(event) {
-            console.log("ONCHANGE");
             if (item.validate && (0, _helpers.validateNumeric)(event.target.value, item.validate)) {
               dispatch((0, _actions.setResponse)({
                 key: item.key,
@@ -65851,7 +65838,8 @@ var interview = function interview() {
       });
 
       var matchedKeys = Object.keys(matched);
-
+      console.log(responses);
+      console.log(mergedResponses);
       return _extends({}, state, {
         disabledItems: [].concat(_toConsumableArray(matchedKeys), _toConsumableArray(disabledItems)),
         responses: mergedResponses
