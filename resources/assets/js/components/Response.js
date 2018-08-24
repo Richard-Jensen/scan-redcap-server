@@ -81,6 +81,7 @@ const Response = ({ dispatch, interview, settings }) => {
               name="response"
               onKeyDown={event =>{
                 let adjustment = 0;
+                //Keycode 38 is arrow key up, 40 is down
                 if(event.keyCode==38){
                   adjustment = 1;
                 }
