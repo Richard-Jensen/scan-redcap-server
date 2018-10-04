@@ -72,7 +72,8 @@ const interview = (state = initialState, action) => {
       });
 
       const matchedKeys = Object.keys(matched);
-
+      console.log(responses);
+      console.log(mergedResponses);
       return {
         ...state,
         disabledItems: [...matchedKeys, ...disabledItems],

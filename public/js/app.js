@@ -5776,30 +5776,6 @@ var validateNumeric = exports.validateNumeric = function validateNumeric(value, 
   });
   return valid;
 };
-//TODO rename func MRJ
-//Brute forces a search for available options, then entering a non valid value into input; Based on it's own position, it will go high, then low, and then go for the option that it does NOT remember it has been; IE the old value
-var findClosestViableValueFromInvalidValue = exports.findClosestViableValueFromInvalidValue = function findClosestViableValueFromInvalidValue(value, rules) {
-  var nearest_high = parseInt(value, 10);
-  var nearest_low = parseInt(value, 10);
-  while (!validateNumeric(nearest_high, rules)) {
-    nearest_high++;
-    if (nearest_high > 20) return false;
-  }
-  while (!validateNumeric(nearest_low, rules)) {
-    nearest_low--;
-    if (nearest_low < -2) return false;
-  }
-  return [nearest_low, nearest_high];
-};
-
-var selectValueBasedOnInputValue = exports.selectValueBasedOnInputValue = function selectValueBasedOnInputValue(values, oldValue) {
-  /*if ((values[1]-values[0]=2)
-    return
-    return values[1];
-  else if (oldValue = values[1])
-    return values[0];*/
-
-};
 
 var isValueWithinWholeRangeOfRules = exports.isValueWithinWholeRangeOfRules = function isValueWithinWholeRangeOfRules(value, rules) {
 
@@ -56738,36 +56714,26 @@ var Response = function Response(_ref) {
           id: 'ResponseInput',
           name: 'response',
           onKeyDown: function onKeyDown(event) {
+            var adjustment = 0;
             if (event.keyCode == 38) {
-              console.log("test Arrow UP");
-              console.log(event.target.value);
-              if (item.validate && (0, _helpers.validateNumeric)(event.target.value, item.validate)) {
-                dispatch((0, _actions.setResponse)({
-                  key: item.key,
-                  value: event.target.value
-                }));
-              } else if (!item.validate) {
-                dispatch((0, _actions.setResponse)({
-                  key: item.key,
-                  value: event.target.value
-                }));
-              }
-            } else if (event.keyCode == 40) console.log("test Arrow DOWN");
-            if (item.validate && (0, _helpers.validateNumeric)(event.target.value, item.validate)) {
+              adjustment = 1;
+            } else if (event.keyCode == 40) {
+              adjustment = -1;
+            } else {
+              return;
+            }
+            var bonus = adjustment;
+            while (!(0, _helpers.validateNumeric)(parseInt(event.target.value) + bonus, item.validate) && (0, _helpers.isValueWithinWholeRangeOfRules)(parseInt(event.target.value) + bonus, item.validate)) {
+              bonus = bonus + adjustment;
+            }
+            if ((0, _helpers.isValueWithinWholeRangeOfRules)(parseInt(event.target.value) + bonus, item.validate)) {
               dispatch((0, _actions.setResponse)({
                 key: item.key,
-                value: event.target.value
-              }));
-            } else if (!item.validate) {
-              dispatch((0, _actions.setResponse)({
-                key: item.key,
-                value: event.target.value
-              }));
+                value: parseInt(event.target.value) + bonus }));
               event.preventDefault();
             }
           },
           onChange: function onChange(event) {
-            console.log("ONCHANGE");
             if (item.validate && (0, _helpers.validateNumeric)(event.target.value, item.validate)) {
               dispatch((0, _actions.setResponse)({
                 key: item.key,
@@ -64630,7 +64596,8 @@ var interview = function interview() {
       });
 
       var matchedKeys = Object.keys(matched);
-
+      console.log(responses);
+      console.log(mergedResponses);
       return _extends({}, state, {
         disabledItems: [].concat(_toConsumableArray(matchedKeys), _toConsumableArray(disabledItems)),
         responses: mergedResponses

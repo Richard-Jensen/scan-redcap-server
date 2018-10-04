@@ -29,32 +29,7 @@
       });
       return valid;
       };
-      //TODO rename func MRJ
-      //Brute forces a search for available options, then entering a non valid value into input; Based on it's own position, it will go high, then low, and then go for the option that it does NOT remember it has been; IE the old value
-      export const findClosestViableValueFromInvalidValue = (value, rules) =>{
-      var nearest_high = parseInt(value,10);
-      var nearest_low = parseInt(value,10);
-      while(!validateNumeric(nearest_high,rules))  {
-          nearest_high++;
-          if (nearest_high>20)
-            return false;
-      }
-      while(!validateNumeric(nearest_low,rules)){
-          nearest_low--;
-          if (nearest_low<-2)
-            return false;
-      }
-      return [nearest_low,nearest_high];
-      };
 
-      export const selectValueBasedOnInputValue = (values, oldValue)  =>{
-      /*if ((values[1]-values[0]=2)
-        return
-        return values[1];
-      else if (oldValue = values[1])
-        return values[0];*/
-
-    };
 
     export const isValueWithinWholeRangeOfRules = (value, rules) =>{
 
