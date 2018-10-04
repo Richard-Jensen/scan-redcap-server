@@ -71,3 +71,5 @@ RUN curl -sS https://getcomposer.org/installer | php && \
 # COPY public_html /var/www/html/
 
 COPY scan-apache.conf /etc/apache2/sites-enabled/scan-apache.conf
+
+# RUN chown www-data:www-data -R storage/

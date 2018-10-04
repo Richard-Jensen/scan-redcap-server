@@ -23,7 +23,7 @@ services:
     env_file:
       - .env
     volumes:
-    - mysql-data-scan-redcap:/var/lib/mysql
+      - mysql-data-scan-redcap:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:4.7
