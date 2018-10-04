@@ -2058,14 +2058,14 @@ module.exports = new Schema({
     __webpack_require__(141)
   ],
   implicit: [
-    __webpack_require__(334),
-    __webpack_require__(335)
+    __webpack_require__(330),
+    __webpack_require__(331)
   ],
   explicit: [
-    __webpack_require__(336),
-    __webpack_require__(341),
-    __webpack_require__(342),
-    __webpack_require__(343)
+    __webpack_require__(332),
+    __webpack_require__(337),
+    __webpack_require__(338),
+    __webpack_require__(339)
   ]
 });
 
@@ -2272,9 +2272,9 @@ module.exports = Schema.DEFAULT = new Schema({
     __webpack_require__(42)
   ],
   explicit: [
-    __webpack_require__(344),
-    __webpack_require__(345),
-    __webpack_require__(346)
+    __webpack_require__(340),
+    __webpack_require__(341),
+    __webpack_require__(342)
   ]
 });
 
@@ -2295,9 +2295,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 // import { items as en } from './items/2.1/scan.2.1.items.en.json';
 
 
-var _section2En = __webpack_require__(351);
+var _section2En = __webpack_require__(347);
 
-var _ratingscalesEn = __webpack_require__(352);
+var _ratingscalesEn = __webpack_require__(348);
 
 var _ratingscalesEn2 = _interopRequireDefault(_ratingscalesEn);
 
@@ -4734,9 +4734,9 @@ var Schema = __webpack_require__(30);
 
 module.exports = new Schema({
   explicit: [
-    __webpack_require__(327),
-    __webpack_require__(328),
-    __webpack_require__(329)
+    __webpack_require__(323),
+    __webpack_require__(324),
+    __webpack_require__(325)
   ]
 });
 
@@ -9868,7 +9868,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _DataLoader = __webpack_require__(318);
+var _DataLoader = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./DataLoader\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 var _DataLoader2 = _interopRequireDefault(_DataLoader);
 
@@ -10059,10 +10059,10 @@ module.exports = new Schema({
     __webpack_require__(83)
   ],
   implicit: [
-    __webpack_require__(330),
-    __webpack_require__(331),
-    __webpack_require__(332),
-    __webpack_require__(333)
+    __webpack_require__(326),
+    __webpack_require__(327),
+    __webpack_require__(328),
+    __webpack_require__(329)
   ]
 });
 
@@ -10083,7 +10083,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _remarkable = __webpack_require__(355);
+var _remarkable = __webpack_require__(351);
 
 var _remarkable2 = _interopRequireDefault(_remarkable);
 
@@ -12430,7 +12430,7 @@ module.exports = function normalizeReference(str) {
 /* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var freeGlobal = __webpack_require__(417);
+var freeGlobal = __webpack_require__(413);
 
 /** Detect free variable `self`. */
 var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
@@ -12458,7 +12458,7 @@ module.exports = Symbol;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(152);
-module.exports = __webpack_require__(424);
+module.exports = __webpack_require__(420);
 
 
 /***/ }),
@@ -13603,11 +13603,11 @@ var _Scan = __webpack_require__(211);
 
 var _Scan2 = _interopRequireDefault(_Scan);
 
-var _configureStore = __webpack_require__(407);
+var _configureStore = __webpack_require__(403);
 
 var _configureStore2 = _interopRequireDefault(_configureStore);
 
-var _throttle = __webpack_require__(414);
+var _throttle = __webpack_require__(410);
 
 var _throttle2 = _interopRequireDefault(_throttle);
 
@@ -34652,9 +34652,9 @@ var _Settings = __webpack_require__(314);
 
 var _Analysis = __webpack_require__(316);
 
-var _SearchItems = __webpack_require__(349);
+var _SearchItems = __webpack_require__(345);
 
-var _Response = __webpack_require__(353);
+var _Response = __webpack_require__(349);
 
 var _actions = __webpack_require__(33);
 
@@ -42372,11 +42372,11 @@ var _Algorithms = __webpack_require__(140);
 
 var _Algorithms2 = _interopRequireDefault(_Algorithms);
 
-var _section2Icd10En = __webpack_require__(322);
+var _section2Icd10En = __webpack_require__(318);
 
 var _section2Icd10En2 = _interopRequireDefault(_section2Icd10En);
 
-var _jsYaml = __webpack_require__(323);
+var _jsYaml = __webpack_require__(319);
 
 var _jsYaml2 = _interopRequireDefault(_jsYaml);
 
@@ -42692,148 +42692,9 @@ ClickOutside.propTypes = {
 
 /***/ }),
 /* 318 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _Diagnosis = __webpack_require__(319);
-
-var _Diagnosis2 = _interopRequireDefault(_Diagnosis);
-
-var _AlgorithmSegment = __webpack_require__(320);
-
-var _AlgorithmSegment2 = _interopRequireDefault(_AlgorithmSegment);
-
-var _Evaluator = __webpack_require__(321);
-
-var _Evaluator2 = _interopRequireDefault(_Evaluator);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var DataLoader = function () {
-  function DataLoader() {
-    _classCallCheck(this, DataLoader);
-  }
-
-  _createClass(DataLoader, null, [{
-    key: 'getEvaluator',
-    value: function getEvaluator(diagnoses) {
-      var algorithms = this.generateAlgorithms(this.loadDiagnoses(diagnoses));
-      var evaluator = new _Evaluator2.default(algorithms);
-      return evaluator;
-    }
-  }, {
-    key: 'loadDiagnoses',
-    value: function loadDiagnoses(diagnoses) {
-      return new Map(Object.entries(diagnoses));
-    }
-  }, {
-    key: 'generateAlgorithms',
-    value: function generateAlgorithms(diagnoses) {
-      var algorithms = new Map();
-
-      var workCopy = JSON.parse(JSON.stringify([].concat(_toConsumableArray(diagnoses))));
-
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = workCopy[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var _ref = _step.value;
-
-          var _ref2 = _slicedToArray(_ref, 2);
-
-          var key = _ref2[0];
-          var item = _ref2[1];
-
-          // Change the object type to Diagnosis
-          var diagnosis = Object.assign(new _Diagnosis2.default(), item);
-          // Add the name as a property
-          diagnosis.key = key;
-          // Change the object structure of algorithms
-          diagnosis.algorithm = this.generateAlgorithmSegments(diagnosis.algorithm[0]);
-
-          // Debug
-          if (false || key === 'F06F32C5'
-          // || key === 'OPDEP.counter'
-          // || key === 'F00.1.1'
-          // || key === 'AGORA'
-          // || key === 'AGORA.A'
-          ) {
-              diagnosis.debug = true;
-            }
-
-          // Update the value
-          algorithms.set(key, diagnosis);
-        }
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
-      }
-
-      return algorithms;
-    }
-
-    /**
-     * Turn the loaded algorithms into a more managable structure
-     */
-
-  }, {
-    key: 'generateAlgorithmSegments',
-    value: function generateAlgorithmSegments(value) {
-      var parent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      // let self = this;
-      if ((typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object') {
-        var alg = new _AlgorithmSegment2.default();
-        alg.operator = Object.keys(value)[0];
-        alg.children = value[alg.operator];
-        alg.children.forEach(function (element, index, arr) {
-          arr[index] = DataLoader.generateAlgorithmSegments(element, alg);
-        });
-        alg.parent = parent;
-        return alg;
-      }
-      if (typeof value === 'string' || typeof value === 'boolean') {
-        var _alg = new _AlgorithmSegment2.default();
-        _alg.operator = 'leaf';
-        _alg.expression = value;
-        _alg.parent = parent;
-        return _alg;
-      }
-    }
-  }]);
-
-  return DataLoader;
-}();
-
-exports.default = DataLoader;
+module.exports = {"F44":{"explanation":"Dissociative disorders any","algorithm":[{"AND":["$2.065 = 2"]}]},"F44.4":{"explanation":"Dissociative motor disorders","algorithm":[{"AND":["$2.065 = 2","$2.065a = 1","$2.065b = 1","$2.065c = 1","$2.065d = 1","$2.065e = 1"]}]},"F44.6":{"explanation":"Dissociative anaesthesia and sensory loss","algorithm":[{"AND":["$2.065 = 2","$2.065g = 1","$2.065h = 1","$2.065i = 1"]}]},"F44.9":{"explanation":"unspecificed","algorithm":[{"AND":["$2.065 = 2","$2.065j = 1","$2.065i = 1"]}]},"F45.0":{"explanation":"Somatization disorder","algorithm":[{"AND":["$!F45.0A","$!F45.0B","$!F45.0C","$!F45.0D","$!F45.0E"]}]},"F45.0a":{"explanation":"Somatization disorder withou excl. for other mentl conditions","algorithm":[{"AND":["$!F45.0A","$!F45.0B","$!F45.0C","$!F45.0D"]}]},"F45.0A":{"explanation":">= 6 somatoform symptoms without prominent autonomic symptoms and duration >= 2 years and variability of symptoms","algorithm":[{"AND":[{"AND":["$@F45.0A.counter >= 6"]},"$2.092 >= 24"]}]},"F45.0A.counter":{"explanation":"Number of any functional symptoms from SCAN ","algorithm":[{"SUM":["$2.011 = [1,2,3]","$2.012 = [1,2,3]","$2.013 = [1,2,3]","$2.014 = [1,2,3]","$2.015 = [1,2,3]","$2.016 = [1,2,3]","$2.017 = [1,2,3]","$2.019 = [1,2,3]","$2.020 = [1,2,3]","$2.021 = [1,2,3]","$2.022 = [1,2,3]","$2.023 = [1,2,3]","$2.024 = [1,2,3]","$2.025 = [1,2,3]","$2.026 = [1,2,3]","$2.032 = [1,2,3]","$2.033 = [1,2,3]","$2.034 = [1,2,3]","$2.035 = [1,2,3]","$2.036 = [1,2,3]","$2.037 = [1,2,3]","$2.038 = [1,2,3]","$2.039 = [1,2,3]","$2.040 = [1,2,3]","$2.041 = [1,2,3]","$2.046 = [1,2,3]","$2.047 = [1,2,3]","$2.048 = [1,2,3]","$2.049 = [1,2,3]","$2.050 = [1,2,3]","$2.051 = [1,2,3]","$2.052 = [1,2,3]","$2.053 = [1,2,3]","$2.054 = [1,2,3]","$2.055 = [1,2,3]","$2.057 = [1,2,3]","$2.058 = [1,2,3]","$2.059 = [1,2,3]","$2.060 = [1,2,3]","$2.061 = [1,2,3]","$2.062 = [1,2,3]","$2.063 = [1,2,3]","$2.064 = [1,2,3]","$2.067 = [1,2,3]","$2.068 = [1,2,3]","$2.069 = [1,2,3]","$2.070 = [1,2,3]","$2.073 = [1,2,3]","$2.074 = [1,2,3]","$2.075 = [1,2,3]","$2.076 = [1,2,3]","$2.077 = [1,2,3]","$2.078 = [1,2,3]","$2.079 = [1,2,3]","$2.081 = [1,2,3]","$2.082 = [1,2,3]","$2.083 = [1,2,3]","$2.084 = [1,2,3]","$2.085 = [1,2,3]","$2.086 = [1,2,3]","$2.087 = [1,2,3]","$2.089 = [1,2,3]","$2.090 = [1,2,3]"]}]},"F45.0B":{"explanation":"Preoccupation and distress repeated investigations","algorithm":[{"AND":["$2.101 = 2"]}]},"F45.0C":{"explanation":"Refusal of reassurance included","algorithm":[{"AND":["$2.109 = [2,3]"]}]},"F45.0D":{"explanation":"A total of >= 6 of the folllowing symp-toms from >=2 separate-groups","algorithm":[{"AND":["$@F45.0D.counter >= 6","$@F45.0DS >= 2"]}]},"F45.0D.counter":{"explanation":"Number of criteria D sympt excl.D11,D12,D4 ","algorithm":[{"SUM":["$!F45.0D1","$!F45.0D2","$!F45.0D3","$!F45.0D5","$!F45.0D6","$!F45.0D7","$!F45.0D8","$!F45.0D9","$!F45.0D10","$!F45.0D13","$!F45.0D14"]}]},"F45.0D1":{"explanation":"Abdominal pain","algorithm":[{"AND":["$2.037 = [1,2,3]"]}]},"F45.0D2":{"explanation":"Nausea","algorithm":[{"AND":["$2.036 = [1,2,3]"]}]},"F45.0D3":{"explanation":"Feeling bloated, full of gas, distended, heavy","algorithm":[{"AND":["$2.038 = [1,2,3]"]}]},"F45.0D5":{"explanation":"Vomiting, Regurgitation","algorithm":[{"OR":["$2.035 = [1,2,3]","$2.032 = [1,2,3]"]}]},"F45.0D6":{"explanation":"Alternating bowel movements ","algorithm":[{"OR":["$2.039 = [1,2,3]"]}]},"F45.0D7":{"explanation":"Breathlessness without exertion","algorithm":[{"AND":["$2.048 = [1,2,3]"]}]},"F45.0D8":{"explanation":"Precordial discomfort or chest pain","algorithm":[{"AND":["$2.047 = [1,2,3]"]}]},"F45.0D9":{"explanation":"Pains during urination or frequent urination","algorithm":[{"OR":["$2.067 = [1,2,3]","$2.69 = [1,2,3]"]}]},"F45.0D10":{"explanation":"Unpleasant sensations in or around the genitals ","algorithm":[{"AND":["$2.074 = [1,2,3]"]}]},"F45.0D13":{"explanation":"Pain in arms or legs or joints","algorithm":[{"OR":["$2.021 = [1,2,3]","$2.022 = [1,2,3]"]}]},"F45.0D14":{"explanation":"Unpleasant numbness or tingling sensations","algorithm":[{"AND":["$2.025 = [1,2,3]"]}]},"F45.0DS":{"explanation":"Symptoms from >= 2 organsystems","algorithm":[{"SUM":[{"OR":["$!F45.0D1","$!F45.0D2","$!F45.0D3","$!F45.0D5","$!F45.0D6"]},{"OR":["$!F45.0D7","$!F45.0D8"]},{"OR":["$!F45.0D9","$!F45.0D10"]},{"OR":["$!F45.0D13","$!F45.0D14"]}]}]},"F45.0E":{"explanation":"Preoccupation not primarily due to depression, anxiety or another psychiatric illness","algorithm":[{"AND":["$2.135 <> 3","$2.136 <> 3","$6.023 <> 1","$2.138 <> 3"]}]},"F45.1":{"explanation":"Undifferentiated somatoform disorder","algorithm":[{"AND":["$!F45.1A","$!F45.1B","$!F45.0C","$!F45.0E","$!F45.0 <> 1"]}]},"F45.1a":{"explanation":"Undifferentiated somatoform dis. without excl. for other mental disord.","algorithm":[{"AND":["$!F45.1A","$!F45.1B","$!F45.0C","$!F45.0E","$!F45.0a <> 1"]}]},"F45.1A":{"explanation":">= 6 somatoform symptoms for > 6 months","algorithm":[{"AND":["$@F45.0A.counter >= 6","$2.096 >= 6"]}]},"F45.1B":{"explanation":"Some distress or preoccupation included in A (2.101)","algorithm":[{"AND":["$2.101 = [1,2]"]}]},"F45.2":{"explanation":"Hypochondriacal disorder","algorithm":[{"AND":["$!F45.2ABC","$!F45.2D"]}]},"F45.2a":{"explanation":"Hypochondriacal disorder withou excl. for other mental disord.","algorithm":[{"AND":["$!F45.2ABC"]}]},"F45.2ABC":{"explanation":"(1) persistent belief for > 6months of 1 or 2 serious illnesses or (2) persistent preoccupation with presumed deformity","algorithm":[{"AND":[{"OR":["$2.101 = [1,2]","$16.011 = [2,3]","$2.116 = 1"]},"$2.101 = 1","$2.109 = [2,3]","$2.114 >= 6"]}]},"F45.2D":{"explanation":"Does not meet criteria for F2 disorders orF3 disorders","algorithm":[{"AND":["$2.135 <> 3","$2.136 <> 3","$6.023 <> 1","$2.137 <> 1","$2.138 <> 3"]}]},"F45.3":{"explanation":"Somatoform autonomic dysfunction","algorithm":[{"AND":["$!F45.3A","$!F45.3B","$!F45.3C","$!F45.3E"]}]},"F45.3a":{"explanation":"Somatoform autonomic dysfunction, without excl. for other mental disord","algorithm":[{"AND":["$!F45.3A","$!F45.3B","$!F45.3C"]}]},"F45.3A":{"explanation":"Autonomic hyperactivitet at least on oragnsystem","algorithm":[{"OR":["$@F45.3A1.counter >= 1","$@F45.3A2.counter >= 1","$@F45.3A3.counter >= 1","$@F45.3A4.counter >= 1","$@F45.3A5.counter >= 1"]}]},"F45.3A1.counter":{"explanation":"Hyperactivity CV syste ","algorithm":[{"SUM":["$2.046 = [1,2,3]","$2.047 = [1,2,3]","$2.050 = [1,2,3]","$2.053 = [1,2,3]"]}]},"F45.3A2.counter":{"explanation":"Upper GI aroual","algorithm":[{"SUM":["$2.032 = [1,2,3]","$2.033 = [1,2,3]","$2.034 = [1,2,3]","$2.035 = [1,2,3]"]}]},"F45.3A3.counter":{"explanation":"Lower GI symptoms)","algorithm":[{"SUM":["$2.036 = [1,2,3]","$2.037 = [1,2,3]","$2.038 = [1,2,3]","$2.039 = [1,2,3]","$2.040 = [1,2,3]","$2.041 = [1,2,3]"]}]},"F45.3A4.counter":{"explanation":"Hyperactivity pulmonal system ","algorithm":[{"SUM":["$2.048 = [1,2,3]","$2.049 = [1,2,3]","$2.052 = [1,2,3]"]}]},"F45.3A5.counter":{"explanation":"Counter,hyperactivitet urogenital system","algorithm":[{"SUM":["$2.067 = [1,2,3]","$2.069 = [1,2,3]","$2.070 = [1,2,3]","$2.076 = [1,2,3]"]}]},"F45.3B":{"explanation":">= 2 autonomic symptoms of 1-5","algorithm":[{"AND":["$@F45.3B.counter >= 2"]}]},"F45.3B.counter":{"explanation":"Autnome symptoms","algorithm":[{"SUM":["$2.046 = 1","$2.050 = 1","$2.052 = 1","$2.053 = 1","$2.054 = 1"]}]},"F45.3C.counter":{"explanation":"Other autnome symptoms","algorithm":[{"SUM":["$2.047 = 1","$2.048 = 1","$2.049 = 1","$2.012 = 1","$2.033 = 1","$2.041 = 1","$2.069 = 1","$2.038 = 1"]}]},"F45.3E":{"explanation":"Panic disorder not primar","algorithm":[{"AND":["$2.135 <> 3"]}]},"F45.4":{"explanation":"Persistent somatoform pain disorder","algorithm":[{"AND":["$!F45.4A","$!F45.4B"]}]},"F45.4a":{"explanation":"Persistent somatoform pain disorder, without exclud. for other mental dis.","algorithm":[{"AND":["$!F45.4A"]}]},"F45.4A":{"explanation":"Persistent severe, distressing pain for > 6 months ","algorithm":[{"AND":[{"OR":["$2.015 = [2,3]","$2.019 = [2,3]","$2.020 = [2,3]","$2.021 = [2,3]","$2.022 = [2,3]","$2.037 = [2,3]","$2.073 = [2,3]","$2.078 = [2,3]","$2.067 = [2,3]","$2.068 = [2,3]","$2.075 = [2,3]","$2.027 = [2,3]","$2.085 = [2,3]","$2.086 = [2,3]"]},"$2.093 = [2,3]","$2.096 >= 6"]}]},"F45.4B":{"explanation":"Not explained by other disorders","algorithm":[{"AND":["$2.135 <> 3","$2.136 <> 3","$2.137 <> 3","$6.023 <> 1","$2.138 <> 3","$!F45.0 <> 1","$!F45.1 <> 1"]}]},"F45.9":{"explanation":"Unspecified somatoform disorder (>= 4) somatoform symptoms but does not fulfil criteria for any specified category Some preoccupation, with duration >= 6 months Does not meet criteria forF45.0-.4 or F41 Does not meet criteria for F2 or F3 disorders","algorithm":[{"AND":["$@F45.0D.counter >= 4","$2.096 >= 6","$2.101 = [1,2,8]","$2.135 <> 3","$2.136 <> 3","$6.023 <> 1","$2.138 <> 3","$!F45.0 <> 1","$!F45.1 <> 1","$!F45.2 <> 1","$!F45.3 <> 1","$!F45.4 <> 1"]}]},"F45.9a":{"explanation":"Unspecified somatoform disorder withou exclus for other mental disord","algorithm":[{"AND":["$@F45.0D.counter >= 4","$2.096 >= 6","$2.101 = [1,2,8]","$2.135 <> 3","$2.136 <> 3","$6.023 <> 1","$2.138 <> 3","$!F45.0a <> 1","$!F45.1a <> 1","$!F45.2a <> 1","$!F45.3a <> 1","$!F45.4a <> 1"]}]},"F48.0":{"explanation":"Neurasthenia","algorithm":[{"AND":["$!F48.0AC","$!F48.0B","$!F48.0D","$!F48.0E"]}]},"F48.0a":{"explanation":"Neurasthenia, withou excl. for other mental disorder","algorithm":[{"AND":["$!F48.0AC","$!F48.0B","$!F48.0D"]}]},"F48.0AC":{"explanation":"(1) Excessive mental- or physical fatigue not recover on rest ","algorithm":[{"OR":["$2.012 = [2,3]"]}]},"F48.0B":{"explanation":">= 1 of following symptoms (1) muscular pains (2) dizziness (3) tension headaches (4) sleep disturbance ","algorithm":[{"OR":["$2.020 = [1,2,3]","$2.016 = [1,2,3]","$2.015 = [1,2,3]",{"OR":["$8.011 = [1,2]","$8.012 = [1,2]","$8.013 = [1,2]","$8.014 = [1,2]","$8.015 = [1,2]","$8.016 = [1,2]"]},"$3.003 = [2,3]","$3.009 = [2,3]"]}]},"F48.0D":{"explanation":"duration >= 3 months","algorithm":[{"AND":["$2.096 >= 3"]}]},"F48.0E":{"explanation":"not better explained by depression, panic disroder or anxietyciety","algorithm":[{"AND":["$2.135 <> 3","$2.136 <> 3","$6.023 <> 1"]}]},"Fatiq":{"explanation":"Counter fatiq ","algorithm":[{"SUM":["$3.007 = [1,2,3]","$7.006 = [1,2,3]","$2.012 = [1,2,3]"]}]},"nsomdg":{"explanation":"Any somatoform diagnose","algorithm":[{"SUM":["$!F44.4.7","$!F45.0i","$!F45.1i","$!F45.2i","$!F45.3i","$!F45.4i","$!F48.0"]}]},"DEP":{"explanation":"Any depression excl. dystymi","algorithm":[{"OR":["$!F31.30","$!F31.3","$!F31.31","$!F31.4","$!F31.5","$!F31.51","$!F31.50","$!F32.0","$!F32.00","$!F32.01","$!F32.10","$!F32.11","$!F32.2","$!F32.3","$!F32.30","$!F32.31","$!F32.9","$!F33","$!F33.0","$!F33.00","$!F33.01","$!F33.1","$!F33.10","$!F33.11","$!F33.2","$!F33.3","$!F33.30","$!F33.31","$!F33.9","$!F39"]}]},"DEPDYS":{"explanation":"Any depression or dystymi ","algorithm":[{"OR":["$!F31.30","$!F31.3","$!F31.31","$!F31.4","$!F31.5","$!F31.51","$!F31.50","$!F32.0","$!F32.00","$!F32.01","$!F32.1","$!F32.10","$!F32.11","$!F32.2","$!F32.3","$!F32.30","$!F32.31","$!F32.9","$!F33","$!F33.0","$!F33.00","$!F33.01","$!F33.1","$!F33.10","$!F33.11","$!F33.2","$!F33.3","$!F33.30","$!F33.31","$!F33.9","$!F34.0","$!F34.1","$!F34.9","$!F38.10","$!F39"]}]},"F0":{"explanation":"This is met when any of the F0 algorithms is met.","algorithm":[{"OR":["$!F00.03","$!F00","$!F00.0","$!F00.1","$!F00.2","$!F00.9","$!F01","$!F01.0","$!F01.1","$!F01.2","$!F01.3","$!F01.9","$!F02.0","$!F02.3","$!F02.4","$!F02.8","$!F03","$!F04","$!F05","$!F05.0","$!F05.1","$!F06","$!F06.0","$!F06.1","$!F06.2","$!F06.3","$!F06.4","$!F07","$!F07.0"]}]},"F00":{"explanation":"Dementia in Alzheimer's disease","algorithm":[{"AND":["$!F00A","$!F00B"]}]},"F00.0":{"explanation":"With early onset","algorithm":[{"AND":["$!F00.0.1","$!F00.0.2"]}]},"SCHIZII1":{"explanation":"delusions","algorithm":[{"AND":[{"OR":["$17.025 = [2,3]","$17.027 = [2,3]","$17.029 = [2,3]","$18.003 = [2,3]","$19.003 = [2,3]","$19.004 = [2,3]","$19.005 = [2,3]","$19.006 = [2,3]","$19.007 = [2,3]","$19.008 = [2,3]","$19.012 = [2,3]","$19.013 = [2,3]","$19.014 = [2,3]","$19.016 = [2,3]","$19.017 = [2,3]","$19.018 = [2,3]","$19.019 = [2,3]","$19.021 = [2,3]","$19.022 = [2,3]","$19.023 = [2,3]","$19.028 = [2,3]","$19.029 = [2,3]","$19.030 = [2,3]","$19.031 = [2,3]","$19.032 = [2,3]"]},"$19.045 = 0","$20.070 = [0,1]",{"OR":["$19.044 = [2,3]","$20.055 = [2,3]"]}]}]},"SCHIZII2":{"explanation":"hallucinations","algorithm":[{"AND":[{"OR":["$17.003 = [2,3]","$17.004 = [3,4]","$17.015 = [2,3]","$17.016 = [2,3]","$17.017 = [2,3]","$17.022 = [2,3]","$17.024 = [2,3]","$17.026 = [2,3]","$17.028 = [2,3]","$17.030 = [2,3]"]},"$17.034 = 0","$20.065 = [0,1]","$20.066 = [0,1]","$20.067 = [0,1]",{"OR":["$17.033 = [2,3]",{"OR":["$20.050 = [2,3]","$20.051 = [2,3]","$20.052 = [2,3]"]}]}]}]},"F06F320B.counter":{"explanation":"","algorithm":[{"SUM":["$!F32.0B1","$!F06F32B2","$!F06F32B3"]}]},"F06F320C.counter":{"explanation":"","algorithm":[{"SUM":["$!F32.0C1","$!F32.0C2","$!F32.0C3","$!F06F32C4","$!F06F32C5","$!F06F32C6","$!F32.0C7"]}]},"SOMSYND":{"explanation":"Somatic syndrome subtype criteria","algorithm":[{"AND":["$@SOMSYND.counter >= 4"]}]},"SOMSYND.counter":{"explanation":"","algorithm":[{"SUM":["$!SOMSYND1","$!SOMSYND2","$!SOMSYND3","$!SOMSYND4","$!SOMSYND5","$!SOMSYND6","$!SOMSYND7","$!SOMSYND8"]}]},"SOMSYND1":{"explanation":"loss of interest or pleasure","algorithm":[{"OR":["$6.004 = [2,3]","$7.004 = [2,3]"]}]},"SOMSYND2":{"explanation":"lack of emotional reactions","algorithm":[{"AND":["$6.008 = [2,3]"]}]},"SOMSYND3":{"explanation":"early awakening (> 2 hours)","algorithm":[{"AND":["$8.014 = 3"]}]},"SOMSYND4":{"explanation":"depression worse in morning","algorithm":[{"AND":["$6.009 = 1"]}]},"SOMSYND5":{"explanation":"objective retardation or agitation","algorithm":[{"OR":["$22.001 = [1,2]","$22.002 = [1,2]","$22.003 = [1,2]","$22.004 = [1,2]","$22.005 = [1,2]","$22.006 = [1,2]","$22.007 = [1,2]","$22.010 = [1,2]","$24.002 = [1,2]","$22.015 = [1,2]","$22.016 = [1,2]"]}]},"SOMSYND6":{"explanation":"loss of appetite","algorithm":[{"AND":["$8.005 = [2,3]"]}]},"SOMSYND7":{"explanation":"weight loss > 5% in 1 month","algorithm":[{"AND":["$8.006 = [2,3]"]}]},"SOMSYND8":{"explanation":"loss of libido","algorithm":[{"AND":["$8.024 = [2,3]","$8.025 = 1"]}]},"F20.4B.derived1":{"explanation":"Derived from F20.4B","algorithm":[{"SUM":["$!F20G1.2a","$!F20G1.2b","$!F20G1.2c","$!F20G1.2d"]}]},"DELONS":{"explanation":"Posttraumatic stress disorder - delayed onset","algorithm":[{"AND":["$!F43.1A","$!F43.1B","$!F43.1C","$!F43.1D","$13.094 = 3"]}]},"F48.1":{"explanation":"Depersonalisation - derealisation syndrome","algorithm":[{"AND":["$!F48.1A","$!F48.1B"]}]},"F48.1A":{"explanation":"(1) depersonalization or (2) derealization ","algorithm":[{"OR":[{"OR":["$3.012 = [2,3]","$16.008 = [2,3]","$16.009 = [2,3]","$16.010 = [2,3]"]},{"OR":["$16.006 = [2,3]","$16.007 = [2,3]"]}]}]},"F48.1B":{"explanation":"Insight present","algorithm":[{"AND":["$16.013 = 0",{"AND":["$!F05 = 0","$!F06 = 0","$!F1 = 0","$!F2 = 0","$!F3 = 0","$!F40.0 = 0","$!F40.1 = 0","$!F40.2 = 0","$!F40.9 = 0","$!F41.0 = 0","$!F41.1 = 0","$!F40.9 = 0"]}]}]}}
 
 /***/ }),
 /* 319 */
@@ -42842,40 +42703,12 @@ exports.default = DataLoader;
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var yaml = __webpack_require__(320);
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-/**
- * This class adds methods to the diagnosis objects.
- */
-var Diagnosis = function () {
-  function Diagnosis() {
-    _classCallCheck(this, Diagnosis);
-  }
+module.exports = yaml;
 
-  _createClass(Diagnosis, [{
-    key: 'firstThree',
-    value: function firstThree() {
-      return this.explanation.substring(0, 3);
-    }
-  }, {
-    key: 'isCounter',
-    value: function isCounter() {
-      if (this.algorithm.operator === 'SUM') {
-        return true;
-      }
-    }
-  }]);
-
-  return Diagnosis;
-}();
-
-exports.default = Diagnosis;
 
 /***/ }),
 /* 320 */
@@ -42884,1063 +42717,9 @@ exports.default = Diagnosis;
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * This class adds methods to the diagnosis segments.
- */
-var AlgorithmSegment = function () {
-  function AlgorithmSegment() {
-    _classCallCheck(this, AlgorithmSegment);
-  }
-
-  _createClass(AlgorithmSegment, [{
-    key: 'getComponent',
-    value: function getComponent(evaluator, handleClick, diagnoses) {
-      var _this = this;
-
-      if (this.operator === 'leaf') {
-        var color = 'black';
-        var status = '';
-        if (this.type === 'diagnosis') {
-          if (evaluator.evaluated[this.id]) {
-            color = 'red';
-            status = ' (met)';
-          } else {
-            color = 'green';
-            status = ' (not met)';
-          }
-        }
-        var explanation = '';
-        if (typeof diagnoses.get(this.id) !== 'undefined') {
-          if (diagnoses.get(this.id).explanation !== '') {
-            explanation = 'Explanation: ' + diagnoses.get(this.id).explanation;
-          }
-        }
-        return _react2.default.createElement(
-          'li',
-          { key: this.id + AlgorithmSegment.random() },
-          _react2.default.createElement(
-            'span',
-            {
-              style: { color: color, cursor: 'pointer' },
-              onClick: function onClick() {
-                return handleClick(_this.id);
-              }
-            },
-            this.id + status
-          ),
-          _react2.default.createElement('br', null),
-          _react2.default.createElement(
-            'span',
-            { style: { fontSize: '70%', fontWeight: 'bold' } },
-            explanation
-          )
-        );
-      } else {
-        return _react2.default.createElement(
-          'ul',
-          { key: AlgorithmSegment.random() },
-          Object.keys(this.children).map(function (alg) {
-            return _this.children[alg].getComponent(evaluator, handleClick, diagnoses);
-          })
-        );
-      }
-    }
-  }], [{
-    key: 'random',
-
-    /**
-     * Generates a random hexadecimal string to be used temporarily as a unique key
-     */
-    value: function random() {
-      return Math.floor((1 + Math.random()) * 0x100000000000).toString(16);
-    }
-  }]);
-
-  return AlgorithmSegment;
-}();
-
-exports.default = AlgorithmSegment;
-
-/***/ }),
-/* 321 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * The algorithms are resolved recursively.
- * If a leaf contains a reference to a diagnosis or algorithm not yet resolved,
- * the calculate method is called. The results are stored as properties directly
- * on this object. This ensures that no counter or diagnosis are resolved more
- * than once.
- */
-var Evaluator = function () {
-  // a: 0;
-
-  /**
-   * Set/import the object containing the previous calculated diagnoses
-   * This might not be necessary at all.
-   * They result in an infinite loop, still not sure why...
-   */
-  // set diagnoses(diagnoses) {
-  //   this.diagnoses = diagnoses;
-  // }
-
-  // get diagnoses() {
-  //   return this.diagnoses;
-  // }
-
-  function Evaluator(algorithms) {
-    _classCallCheck(this, Evaluator);
-
-    this.algorithms = algorithms;
-    this.evaluated = {};
-    this.missing = {};
-    this.matched = {};
-    this.notMatched = {};
-  }
-
-  /**
-   * Recursive function to avaluate the boolean value of a part of the algorithm
-   * structure (including the root algorithm for a diagnosis)
-   *
-   * @param  object/string value The leaf or algorithm structure
-   * @return boolean
-   */
-  // process(value) {
-  //   if ( typeof value === 'object' ) {
-  //     if ( Object.keys(value)[0] === 'AND' ) {
-  //       return this.and(value['AND']);
-  //     }
-  //     if ( Object.keys(value)[0] === 'OR' ) {
-  //       return this.or(value['OR']);
-  //     }
-  //     if ( Object.keys(value)[0] === 'XOR' ) {
-  //       return this.xor(value['XOR']);
-  //     }
-  //     if ( Object.keys(value)[0] === 'SUM' ) {
-  //       return this.sum(value['SUM']);
-  //     }
-  //   }
-  //   return this.leaf(value);
-  // }
-
-
-  _createClass(Evaluator, [{
-    key: 'process',
-    value: function process(component, diagnosis) {
-      var operator = component.operator.toLowerCase();
-      return this[operator](component, diagnosis);
-    }
-
-    /**
-     * If we are to be able to list diagnoses with incomplete dependencies, we
-     * have to look at every leaf. The solution is thus to save the output as a
-     * variable and return it in the end at the cost of performance.
-     *
-     * We still don't have a way to list partially fulfilled criteria, for that we
-     * have to store all the values where the check fails. We should do this
-     * perhaps in another function altogether, and revert this one back to the
-     * efficient method.
-     *
-     * How do we do this, and only show those which are relevant?
-     *
-     * @see issue #15
-     */
-
-  }, {
-    key: 'and',
-    value: function and(component, diagnosis) {
-      // console.log('AND');
-      // console.log(array);
-
-      var r = true;
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = component.children[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var value = _step.value;
-
-          if (!this.process(value, diagnosis)) {
-            r = false;
-            // return false;
-          }
-        }
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
-      }
-
-      return r;
-    }
-
-    /**
-     * If we are to be able to list diagnoses with incomplete dependencies, we
-     * have to look at every leaf. The solution is thus to save the output as a
-     * variable and return it in the end at the cost of performance.
-     *
-     * We still don't have a way to list partially fulfilled criteria, for that we
-     * have to store all the values where the check fails. We should do this
-     * perhaps in another function altogether, and revert this one back to the
-     * efficient method.
-     *
-     * How do we do this, and only show those which are relevant?
-     *
-     * @see issue #15
-     */
-
-  }, {
-    key: 'or',
-    value: function or(component, diagnosis) {
-      // console.log('OR');
-      // console.log(array);
-
-      var r = false;
-      var _iteratorNormalCompletion2 = true;
-      var _didIteratorError2 = false;
-      var _iteratorError2 = undefined;
-
-      try {
-        for (var _iterator2 = component.children[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-          var value = _step2.value;
-
-          if (this.process(value, diagnosis)) {
-            r = true;
-            // return true;
-          }
-        }
-      } catch (err) {
-        _didIteratorError2 = true;
-        _iteratorError2 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion2 && _iterator2.return) {
-            _iterator2.return();
-          }
-        } finally {
-          if (_didIteratorError2) {
-            throw _iteratorError2;
-          }
-        }
-      }
-
-      return r;
-    }
-
-    /**
-     * Multiinput exclusive or.
-     * If exactly one of the values in the input array evaluates to true, this
-     * method returns true.
-     */
-
-  }, {
-    key: 'xor',
-    value: function xor(component, diagnosis) {
-      // console.log('XOR');
-      // console.log(array);
-
-      var r = false;
-      var s = true;
-      var _iteratorNormalCompletion3 = true;
-      var _didIteratorError3 = false;
-      var _iteratorError3 = undefined;
-
-      try {
-        for (var _iterator3 = component.children[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-          var value = _step3.value;
-
-          if (this.process(value, diagnosis)) {
-            s ? r = true : r = false;
-            s = false;
-          }
-        }
-      } catch (err) {
-        _didIteratorError3 = true;
-        _iteratorError3 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion3 && _iterator3.return) {
-            _iterator3.return();
-          }
-        } finally {
-          if (_didIteratorError3) {
-            throw _iteratorError3;
-          }
-        }
-      }
-
-      return r;
-    }
-  }, {
-    key: 'sum',
-    value: function sum(component, diagnosis) {
-      // console.log('SUM');
-      // console.log(array);
-
-      var r = 0;
-      var _iteratorNormalCompletion4 = true;
-      var _didIteratorError4 = false;
-      var _iteratorError4 = undefined;
-
-      try {
-        for (var _iterator4 = component.children[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-          var value = _step4.value;
-
-          var part = this.process(value, diagnosis);
-          if (typeof part === 'boolean') {
-            if (part) {
-              r++;
-            }
-          }
-          if (typeof part === 'number') {
-            r += part;
-          }
-        }
-        // console.log(r);
-      } catch (err) {
-        _didIteratorError4 = true;
-        _iteratorError4 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion4 && _iterator4.return) {
-            _iterator4.return();
-          }
-        } finally {
-          if (_didIteratorError4) {
-            throw _iteratorError4;
-          }
-        }
-      }
-
-      return r;
-    }
-
-    /**
-     * Evaluate the leaf expression into a boolean value.
-     *
-     * The input must have the structure:
-     *     <variable> <operator> <value>
-     * The <operator> and <value> can be omitted, in that case the boolean value
-     * of the <variable> is returned if possible.
-     *
-     * <variable> is a string starting with the following characters:
-     * $  question answer
-     * $! diagnosis
-     * $@ counter
-     *
-     * <operator> is one of the following:
-     * (strict/typesafe) equality:     ===
-     * (loose) equality:               == , =
-     * Numerical comparison:           <, >, <=, >=
-     * (strict/typesafe) non-equality: !==
-     * (loose) non-equality:           !=, <>, ~=
-     *
-     * <value> must be JSON-parsable. For example:
-     * true, false, 7, [1,2,3], 'string', null, undefined, NaN
-     *
-     * If we test the variable for equality or compare against an array, the
-     * expression evaluates to true if one of the elements is a match. If we test
-     * for inequality against an array the expression evaluates to true if all the
-     * elements are different from the variable.
-     *
-     * @throws TypeError           If leaf is not a string (or boolean)
-     * @throws TypeError           If the variable is invalid
-     * @throws TypeError           If the operator is invalid
-     * @param  boolean/string leaf The leaf expression.
-     *                             We allow boolean values for now
-     * @return boolean             The value of the leaf
-     */
-
-  }, {
-    key: 'leaf',
-    value: function leaf(component, diagnosis) {
-      // This is for easy testing.
-      if (typeof component.expression === 'boolean') {
-        return component.expression;
-      }
-
-      if (typeof component.expression !== 'string') {
-        // TODO Do something to handle this
-        throw new TypeError('The algorithm leaf expression is not a string.');
-      }
-
-      var arr = component.expression.split(/\s/);
-      var variable = undefined;
-      var operator = undefined;
-      var values = undefined;
-
-      // The first word in the leaf is a question answer identifier ($\d)
-      // Use /^\$\d+\.\d*$/ for a more restrictive regex
-      if (arr[0].search(/^\$\d/) !== -1) {
-        component.id = arr[0].substring(1);
-        component.type = 'answer';
-        component.identifier = '$\\d';
-        variable = this.lookup(component, diagnosis); //arr[0].substring(1));
-        // console.log('This is a question answer: ' + arr[0] + ' and the value is ' + variable);
-      }
-
-      // The first word in the leaf is a diagnosis identifier ($!)
-      if (arr[0].search(/^\$!/) !== -1) {
-        component.id = arr[0].substring(2);
-        component.type = 'diagnosis';
-        component.identifier = '$!';
-        variable = this.lookup(component, diagnosis); //arr[0].substring(2));
-        // console.log('This is a diagnosis: ' + arr[0] + ' and the value is ' + variable);
-      }
-
-      // The first word in the leaf is a counter ($@)
-      if (arr[0].search(/^\$@/) !== -1) {
-        component.id = arr[0].substring(2);
-        component.type = 'diagnosis';
-        component.identifier = '$@';
-        variable = this.lookup(component, diagnosis); //arr[0].substring(2));
-        // console.log('This is a counter: ' + arr[0] + ' and the value is ' + variable);
-      }
-
-      // The first word in the leaf is a ??? ($$)
-      // All these refer to a question with an ICD-10 diagnosis, and all of them
-      // tests if the answer is different from the empty string.
-      // It is possible that this .js algorithm can handle this just fine with a
-      // simple lookup, so that's what we are doing here for a start.
-      if (arr[0].search(/^\$\$/) !== -1) {
-        // We need an offset of 2 to compensate for the extra control character
-        component.id = arr[0].substring(2);
-        component.type = 'answer';
-        component.identifier = '$$';
-        variable = this.lookup(component, diagnosis); //arr[0].substring(2));
-        // console.log('This is a $$: ' + arr[0] + ' and the value is ' + variable);
-      }
-
-      // The first word in the leaf is a ??? ($#)
-      // All these refer to a question with an ICD-10 diagnosis, and all of them
-      // tests if the answer is equal to or different from a string.
-      // It is possible that this .js algorithm can handle this just fine with a
-      // simple lookup, so that's what we are doing here for a start.
-      //
-      // All the compared strings are either F1 or F, and there are a lot of
-      // F-diagnoses in ICD-10. Perhaps we need another operator, 'like',
-      // 'notlike', 'contains', 'missing' or similar.
-      if (arr[0].search(/^\$#/) !== -1) {
-        // We need an offset of 2 to compensate for the extra control character
-        component.id = arr[0].substring(2);
-        component.type = 'answer';
-        component.identifier = '$#';
-        variable = this.lookup(component, diagnosis); //arr[0].substring(2));
-        // console.log('This is a $#: ' + arr[0] + ' and the value is ' + variable);
-      }
-
-      // If the first word in the leaf doesn't begin with '$', try to parse it.
-      // (This could for example be strings like '1' instead of true)
-      if (arr[0].search(/^[^$]/) !== -1) {
-        variable = JSON.parse(arr[0]);
-      }
-
-      // If the variable type is invalid or not recognized
-      if (typeof variable === 'undefined') {
-        console.log('Test: ' + arr[0] + ', Type:' + _typeof(arr[0]));
-        throw new TypeError('The variable is invalid: ' + arr[0]);
-      }
-
-      // If no operator is found, return the boolean value of the variable
-      if (typeof arr[1] === 'undefined') {
-        if (typeof variable === 'boolean' || typeof variable === 'number') {
-          return variable;
-        } else {
-          console.log('Undefined operator: ' + arr[0] + ' Variable: ' + (typeof variable === 'undefined' ? 'undefined' : _typeof(variable)));
-          return;
-        }
-      }
-
-      // Parse the operator
-      var allowedOperators = /^===$|^==$|^=$|^<$|^>$|^<=$|^>=$|^!==$|^!=$|^<>$|^~=$/;
-      if (typeof arr[1] !== 'string' || arr[1].search(allowedOperators) === -1) {
-        // Do something to handle this
-        throw new TypeError('This operator is invalid: ' + arr[1]);
-      }
-      operator = arr[1];
-      // console.log('This is the operator: ' + arr[1]);
-
-      // JSON parse
-      if (arr[2]) {
-        if (arr[2].search(/^\$\d/) !== -1) {
-          // Handles the case where one question answer needs to be
-          // compared to another
-          values = this.lookupAnswer(arr[2].substring(1));
-        } else {
-          // Parse the values
-          values = JSON.parse(arr[2]);
-        }
-
-        // Literals are packed in an array to simplify the loops below
-        if ((typeof values === 'undefined' ? 'undefined' : _typeof(values)) !== 'object') {
-          values = [values];
-        }
-      }
-
-      var evaluateLeafExpression = {
-        '===': function _(variable, values) {
-          var r = false;
-          var _iteratorNormalCompletion5 = true;
-          var _didIteratorError5 = false;
-          var _iteratorError5 = undefined;
-
-          try {
-            for (var _iterator5 = values[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-              var value = _step5.value;
-
-              if (variable === value) {
-                r = true;
-              }
-            }
-          } catch (err) {
-            _didIteratorError5 = true;
-            _iteratorError5 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion5 && _iterator5.return) {
-                _iterator5.return();
-              }
-            } finally {
-              if (_didIteratorError5) {
-                throw _iteratorError5;
-              }
-            }
-          }
-
-          return r;
-        },
-        '==': function _(variable, values) {
-          var r = false;
-          var _iteratorNormalCompletion6 = true;
-          var _didIteratorError6 = false;
-          var _iteratorError6 = undefined;
-
-          try {
-            for (var _iterator6 = values[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-              var value = _step6.value;
-
-              if (variable === value) {
-                r = true;
-              }
-            }
-          } catch (err) {
-            _didIteratorError6 = true;
-            _iteratorError6 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion6 && _iterator6.return) {
-                _iterator6.return();
-              }
-            } finally {
-              if (_didIteratorError6) {
-                throw _iteratorError6;
-              }
-            }
-          }
-
-          return r;
-        },
-        '=': function _(variable, values) {
-          var r = false;
-          var _iteratorNormalCompletion7 = true;
-          var _didIteratorError7 = false;
-          var _iteratorError7 = undefined;
-
-          try {
-            for (var _iterator7 = values[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
-              var value = _step7.value;
-
-              if (variable === value) {
-                r = true;
-              }
-            }
-          } catch (err) {
-            _didIteratorError7 = true;
-            _iteratorError7 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion7 && _iterator7.return) {
-                _iterator7.return();
-              }
-            } finally {
-              if (_didIteratorError7) {
-                throw _iteratorError7;
-              }
-            }
-          }
-
-          return r;
-        },
-        '<': function _(variable, values) {
-          var r = false;
-          var _iteratorNormalCompletion8 = true;
-          var _didIteratorError8 = false;
-          var _iteratorError8 = undefined;
-
-          try {
-            for (var _iterator8 = values[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-              var value = _step8.value;
-
-              if (variable < value) {
-                r = true;
-              }
-            }
-          } catch (err) {
-            _didIteratorError8 = true;
-            _iteratorError8 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion8 && _iterator8.return) {
-                _iterator8.return();
-              }
-            } finally {
-              if (_didIteratorError8) {
-                throw _iteratorError8;
-              }
-            }
-          }
-
-          return r;
-        },
-        '>': function _(variable, values) {
-          var r = false;
-          var _iteratorNormalCompletion9 = true;
-          var _didIteratorError9 = false;
-          var _iteratorError9 = undefined;
-
-          try {
-            for (var _iterator9 = values[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
-              var value = _step9.value;
-
-              if (variable > value) {
-                r = true;
-              }
-            }
-          } catch (err) {
-            _didIteratorError9 = true;
-            _iteratorError9 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion9 && _iterator9.return) {
-                _iterator9.return();
-              }
-            } finally {
-              if (_didIteratorError9) {
-                throw _iteratorError9;
-              }
-            }
-          }
-
-          return r;
-        },
-        '<=': function _(variable, values) {
-          var r = false;
-          var _iteratorNormalCompletion10 = true;
-          var _didIteratorError10 = false;
-          var _iteratorError10 = undefined;
-
-          try {
-            for (var _iterator10 = values[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
-              var value = _step10.value;
-
-              if (variable <= value) {
-                r = true;
-              }
-            }
-          } catch (err) {
-            _didIteratorError10 = true;
-            _iteratorError10 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion10 && _iterator10.return) {
-                _iterator10.return();
-              }
-            } finally {
-              if (_didIteratorError10) {
-                throw _iteratorError10;
-              }
-            }
-          }
-
-          return r;
-        },
-        '>=': function _(variable, values) {
-          var r = false;
-          var _iteratorNormalCompletion11 = true;
-          var _didIteratorError11 = false;
-          var _iteratorError11 = undefined;
-
-          try {
-            for (var _iterator11 = values[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
-              var value = _step11.value;
-
-              if (variable >= value) {
-                r = true;
-              }
-            }
-          } catch (err) {
-            _didIteratorError11 = true;
-            _iteratorError11 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion11 && _iterator11.return) {
-                _iterator11.return();
-              }
-            } finally {
-              if (_didIteratorError11) {
-                throw _iteratorError11;
-              }
-            }
-          }
-
-          return r;
-        },
-        '!==': function _(variable, values) {
-          var r = true;
-          var _iteratorNormalCompletion12 = true;
-          var _didIteratorError12 = false;
-          var _iteratorError12 = undefined;
-
-          try {
-            for (var _iterator12 = values[Symbol.iterator](), _step12; !(_iteratorNormalCompletion12 = (_step12 = _iterator12.next()).done); _iteratorNormalCompletion12 = true) {
-              var value = _step12.value;
-
-              if (variable === value) {
-                r = false;
-              }
-            }
-          } catch (err) {
-            _didIteratorError12 = true;
-            _iteratorError12 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion12 && _iterator12.return) {
-                _iterator12.return();
-              }
-            } finally {
-              if (_didIteratorError12) {
-                throw _iteratorError12;
-              }
-            }
-          }
-
-          return r;
-        },
-        '!=': function _(variable, values) {
-          var r = true;
-          var _iteratorNormalCompletion13 = true;
-          var _didIteratorError13 = false;
-          var _iteratorError13 = undefined;
-
-          try {
-            for (var _iterator13 = values[Symbol.iterator](), _step13; !(_iteratorNormalCompletion13 = (_step13 = _iterator13.next()).done); _iteratorNormalCompletion13 = true) {
-              var value = _step13.value;
-
-              if (variable === value) {
-                r = false;
-              }
-            }
-          } catch (err) {
-            _didIteratorError13 = true;
-            _iteratorError13 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion13 && _iterator13.return) {
-                _iterator13.return();
-              }
-            } finally {
-              if (_didIteratorError13) {
-                throw _iteratorError13;
-              }
-            }
-          }
-
-          return r;
-        },
-        '<>': function _(variable, values) {
-          var r = true;
-          var _iteratorNormalCompletion14 = true;
-          var _didIteratorError14 = false;
-          var _iteratorError14 = undefined;
-
-          try {
-            for (var _iterator14 = values[Symbol.iterator](), _step14; !(_iteratorNormalCompletion14 = (_step14 = _iterator14.next()).done); _iteratorNormalCompletion14 = true) {
-              var value = _step14.value;
-
-              if (variable === value) {
-                r = false;
-              }
-            }
-          } catch (err) {
-            _didIteratorError14 = true;
-            _iteratorError14 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion14 && _iterator14.return) {
-                _iterator14.return();
-              }
-            } finally {
-              if (_didIteratorError14) {
-                throw _iteratorError14;
-              }
-            }
-          }
-
-          return r;
-        },
-        '~=': function _(variable, values) {
-          var r = true;
-          var _iteratorNormalCompletion15 = true;
-          var _didIteratorError15 = false;
-          var _iteratorError15 = undefined;
-
-          try {
-            for (var _iterator15 = values[Symbol.iterator](), _step15; !(_iteratorNormalCompletion15 = (_step15 = _iterator15.next()).done); _iteratorNormalCompletion15 = true) {
-              var value = _step15.value;
-
-              if (variable === value) {
-                r = false;
-              }
-            }
-          } catch (err) {
-            _didIteratorError15 = true;
-            _iteratorError15 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion15 && _iterator15.return) {
-                _iterator15.return();
-              }
-            } finally {
-              if (_didIteratorError15) {
-                throw _iteratorError15;
-              }
-            }
-          }
-
-          return r;
-        },
-        undefined: function undefined(variable, values) {
-          throw new TypeError('The operator is undefined');
-        }
-      };
-
-      var r = evaluateLeafExpression[operator](variable, values);
-
-      // console.log(
-      //   'operator: ' + operator + ' ' +
-      //   'variable: ' + variable + ' ' +
-      //   'values: '   + values   + ' ' +
-      //   'boolean: '  + r        + ' '
-      // );
-
-      return r;
-    }
-
-    /**
-     * Lookup the answer value of the given id
-     * The found value is given to the JSON parser before return, i.e. a string
-     * with a number becomes an int, the string 'true' is the boolean etc.
-     *
-     * @param  string id The answer ID
-     * @return mixed     The JSON-parsed value or false if not found.
-     */
-
-  }, {
-    key: 'lookupAnswer',
-    value: function lookupAnswer(id) {
-      // console.log(id);
-      if (typeof this.answers[id] === 'undefined') {
-        // console.log('The answer with ID: ' + id + ' is undefined');
-        return false;
-        // If we throw exceptions here we'll not get the diagnosis id as a
-        // property on the diagnosis object.
-        // throw new ReferenceError('The answer with ID: ' + id + ' is undefined');
-      }
-      return JSON.parse(this.answers[id]);
-    }
-
-    /**
-     * Calculate a root branch when encountered as a leaf.
-     * The value is only calculated if it can't be found (undef) as a property of
-     * this object.
-     *
-     * @param  string      id The ID of the diagnosis/counter
-     * @return boolean/int    The value of the
-     */
-    // lookupAlgorithm(id) {
-
-    //   // Calculate
-    //   if ( typeof this.evaluated[id] === 'undefined' ) {
-
-    //     // Should we do a more explicit check here?
-    //     // Not necessary, all objects evaluate to true.
-    //     // @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling
-    //     if ( this.getAlgorithm(id) ) {
-    //       this.evaluated[id] = this.process(this.getAlgorithm(id));
-    //     }
-    //     else {
-    //       // The diagnosis doesn't exist in the algorithm set. Give a warning.
-    //       // console.log('The diagnosis: ' + id + ' isn\'t defined')
-    //       return false;
-    //     }
-    //   }
-
-    //   // Lookup
-    //   return this.evaluated[id];
-    // }
-
-  }, {
-    key: 'lookup',
-    value: function lookup(component, diagnosis) {
-      var self = this;
-      if (component.type === 'answer') {
-        if (typeof self.answers[component.id] === 'undefined') {
-          component.status = 'missing';
-          // console.log('The answer with ID: ' + id + ' is undefined');
-          return false;
-          // If we throw exceptions here we'll not get the diagnosis id as a
-          // property on the diagnosis object.
-          // throw new ReferenceError('The answer with ID: ' + id + ' is undefined');
-        }
-        // return JSON.parse(self.answers[component.id]);
-        try {
-          return JSON.parse(self.answers[component.id]);
-        } catch (e) {
-          // console.log('JSON error. Diagnosis: ' + diagnosis + ' Component: ' + component + ' Message: ' + e.message);
-          console.log(diagnosis);
-          console.log(component);
-          console.log(e);
-          return '';
-        }
-      }
-      if (component.type === 'diagnosis') {
-        // console.log(component);
-        // Calculate
-        if (typeof self.evaluated[component.id] === 'undefined') {
-          // Should we do a more explicit check here?
-          // Not necessary, all objects evaluate to true.
-          // @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling
-          if (self.getAlgorithm(component)) {
-            self.evaluated[component.id] = self.process(self.getAlgorithm(component), diagnosis);
-          } else {
-            component.status = 'missing';
-            // The diagnosis doesn't exist in the algorithm set. Give a warning.
-            // console.log('The diagnosis: ' + id + ' isn\'t defined')
-            return false;
-          }
-        }
-
-        // Lookup
-        return self.evaluated[component.id];
-      }
-    }
-
-    /**
-     * Find the attached algorithm to the given id if it exists
-     * @param  string         id The ID of the diagnosis/counter
-     * @return object/boolean    The algorithm object if it exists,
-     *                           false otherwise
-     */
-
-  }, {
-    key: 'getAlgorithm',
-    value: function getAlgorithm(component, diagnosis) {
-      if (_typeof(this.algorithms.get(component.id)) !== 'object') {
-        // console.log(component);
-        console.warn('The diagnosis with id: ' + component.id + ' does not exist in the diagnosis set');
-        // TODO The id doesn't have an entry in the algorithm set.
-        // Give the appropriate warning/error
-        return false;
-      }
-
-      if (_typeof(this.algorithms.get(component.id).algorithm) !== 'object') {
-        console.warn('The diagnosis with id: ' + component.id + ' does not have a well formed algorithm attached');
-        // TODO The id doesn't have a well formed algorithm attached.
-        // Give the appropriate warning/error
-        return false;
-      }
-
-      // NOTE If we need a more rigorous check here to see if the Algorithm is
-      // well formed, that code should be placed in process, since not
-      // all calls to that go through this function
-
-      // Return the algorithm object
-      return this.algorithms.get(component.id).algorithm; //[0]
-    }
-  }]);
-
-  return Evaluator;
-}();
-
-exports.default = Evaluator;
-
-/***/ }),
-/* 322 */
-/***/ (function(module, exports) {
-
-module.exports = {"F44":{"explanation":"Dissociative disorders any","algorithm":[{"AND":["$2.065 = 2"]}]},"F44.4":{"explanation":"Dissociative motor disorders","algorithm":[{"AND":["$2.065 = 2","$2.065a = 1","$2.065b = 1","$2.065c = 1","$2.065d = 1","$2.065e = 1"]}]},"F44.6":{"explanation":"Dissociative anaesthesia and sensory loss","algorithm":[{"AND":["$2.065 = 2","$2.065g = 1","$2.065h = 1","$2.065i = 1"]}]},"F44.9":{"explanation":"unspecificed","algorithm":[{"AND":["$2.065 = 2","$2.065j = 1","$2.065i = 1"]}]},"F45.0":{"explanation":"Somatization disorder","algorithm":[{"AND":["$!F45.0A","$!F45.0B","$!F45.0C","$!F45.0D","$!F45.0E"]}]},"F45.0a":{"explanation":"Somatization disorder withou excl. for other mentl conditions","algorithm":[{"AND":["$!F45.0A","$!F45.0B","$!F45.0C","$!F45.0D"]}]},"F45.0A":{"explanation":">= 6 somatoform symptoms without prominent autonomic symptoms and duration >= 2 years and variability of symptoms","algorithm":[{"AND":[{"AND":["$@F45.0A.counter >= 6"]},"$2.092 >= 24"]}]},"F45.0A.counter":{"explanation":"Number of any functional symptoms from SCAN ","algorithm":[{"SUM":["$2.011 = [1,2,3]","$2.012 = [1,2,3]","$2.013 = [1,2,3]","$2.014 = [1,2,3]","$2.015 = [1,2,3]","$2.016 = [1,2,3]","$2.017 = [1,2,3]","$2.019 = [1,2,3]","$2.020 = [1,2,3]","$2.021 = [1,2,3]","$2.022 = [1,2,3]","$2.023 = [1,2,3]","$2.024 = [1,2,3]","$2.025 = [1,2,3]","$2.026 = [1,2,3]","$2.032 = [1,2,3]","$2.033 = [1,2,3]","$2.034 = [1,2,3]","$2.035 = [1,2,3]","$2.036 = [1,2,3]","$2.037 = [1,2,3]","$2.038 = [1,2,3]","$2.039 = [1,2,3]","$2.040 = [1,2,3]","$2.041 = [1,2,3]","$2.046 = [1,2,3]","$2.047 = [1,2,3]","$2.048 = [1,2,3]","$2.049 = [1,2,3]","$2.050 = [1,2,3]","$2.051 = [1,2,3]","$2.052 = [1,2,3]","$2.053 = [1,2,3]","$2.054 = [1,2,3]","$2.055 = [1,2,3]","$2.057 = [1,2,3]","$2.058 = [1,2,3]","$2.059 = [1,2,3]","$2.060 = [1,2,3]","$2.061 = [1,2,3]","$2.062 = [1,2,3]","$2.063 = [1,2,3]","$2.064 = [1,2,3]","$2.067 = [1,2,3]","$2.068 = [1,2,3]","$2.069 = [1,2,3]","$2.070 = [1,2,3]","$2.073 = [1,2,3]","$2.074 = [1,2,3]","$2.075 = [1,2,3]","$2.076 = [1,2,3]","$2.077 = [1,2,3]","$2.078 = [1,2,3]","$2.079 = [1,2,3]","$2.081 = [1,2,3]","$2.082 = [1,2,3]","$2.083 = [1,2,3]","$2.084 = [1,2,3]","$2.085 = [1,2,3]","$2.086 = [1,2,3]","$2.087 = [1,2,3]","$2.089 = [1,2,3]","$2.090 = [1,2,3]"]}]},"F45.0B":{"explanation":"Preoccupation and distress repeated investigations","algorithm":[{"AND":["$2.101 = 2"]}]},"F45.0C":{"explanation":"Refusal of reassurance included","algorithm":[{"AND":["$2.109 = [2,3]"]}]},"F45.0D":{"explanation":"A total of >= 6 of the folllowing symp-toms from >=2 separate-groups","algorithm":[{"AND":["$@F45.0D.counter >= 6","$@F45.0DS >= 2"]}]},"F45.0D.counter":{"explanation":"Number of criteria D sympt excl.D11,D12,D4 ","algorithm":[{"SUM":["$!F45.0D1","$!F45.0D2","$!F45.0D3","$!F45.0D5","$!F45.0D6","$!F45.0D7","$!F45.0D8","$!F45.0D9","$!F45.0D10","$!F45.0D13","$!F45.0D14"]}]},"F45.0D1":{"explanation":"Abdominal pain","algorithm":[{"AND":["$2.037 = [1,2,3]"]}]},"F45.0D2":{"explanation":"Nausea","algorithm":[{"AND":["$2.036 = [1,2,3]"]}]},"F45.0D3":{"explanation":"Feeling bloated, full of gas, distended, heavy","algorithm":[{"AND":["$2.038 = [1,2,3]"]}]},"F45.0D5":{"explanation":"Vomiting, Regurgitation","algorithm":[{"OR":["$2.035 = [1,2,3]","$2.032 = [1,2,3]"]}]},"F45.0D6":{"explanation":"Alternating bowel movements ","algorithm":[{"OR":["$2.039 = [1,2,3]"]}]},"F45.0D7":{"explanation":"Breathlessness without exertion","algorithm":[{"AND":["$2.048 = [1,2,3]"]}]},"F45.0D8":{"explanation":"Precordial discomfort or chest pain","algorithm":[{"AND":["$2.047 = [1,2,3]"]}]},"F45.0D9":{"explanation":"Pains during urination or frequent urination","algorithm":[{"OR":["$2.067 = [1,2,3]","$2.69 = [1,2,3]"]}]},"F45.0D10":{"explanation":"Unpleasant sensations in or around the genitals ","algorithm":[{"AND":["$2.074 = [1,2,3]"]}]},"F45.0D13":{"explanation":"Pain in arms or legs or joints","algorithm":[{"OR":["$2.021 = [1,2,3]","$2.022 = [1,2,3]"]}]},"F45.0D14":{"explanation":"Unpleasant numbness or tingling sensations","algorithm":[{"AND":["$2.025 = [1,2,3]"]}]},"F45.0DS":{"explanation":"Symptoms from >= 2 organsystems","algorithm":[{"SUM":[{"OR":["$!F45.0D1","$!F45.0D2","$!F45.0D3","$!F45.0D5","$!F45.0D6"]},{"OR":["$!F45.0D7","$!F45.0D8"]},{"OR":["$!F45.0D9","$!F45.0D10"]},{"OR":["$!F45.0D13","$!F45.0D14"]}]}]},"F45.0E":{"explanation":"Preoccupation not primarily due to depression, anxiety or another psychiatric illness","algorithm":[{"AND":["$2.135 <> 3","$2.136 <> 3","$6.023 <> 1","$2.138 <> 3"]}]},"F45.1":{"explanation":"Undifferentiated somatoform disorder","algorithm":[{"AND":["$!F45.1A","$!F45.1B","$!F45.0C","$!F45.0E","$!F45.0 <> 1"]}]},"F45.1a":{"explanation":"Undifferentiated somatoform dis. without excl. for other mental disord.","algorithm":[{"AND":["$!F45.1A","$!F45.1B","$!F45.0C","$!F45.0E","$!F45.0a <> 1"]}]},"F45.1A":{"explanation":">= 6 somatoform symptoms for > 6 months","algorithm":[{"AND":["$@F45.0A.counter >= 6","$2.096 >= 6"]}]},"F45.1B":{"explanation":"Some distress or preoccupation included in A (2.101)","algorithm":[{"AND":["$2.101 = [1,2]"]}]},"F45.2":{"explanation":"Hypochondriacal disorder","algorithm":[{"AND":["$!F45.2ABC","$!F45.2D"]}]},"F45.2a":{"explanation":"Hypochondriacal disorder withou excl. for other mental disord.","algorithm":[{"AND":["$!F45.2ABC"]}]},"F45.2ABC":{"explanation":"(1) persistent belief for > 6months of 1 or 2 serious illnesses or (2) persistent preoccupation with presumed deformity","algorithm":[{"AND":[{"OR":["$2.101 = [1,2]","$16.011 = [2,3]","$2.116 = 1"]},"$2.101 = 1","$2.109 = [2,3]","$2.114 >= 6"]}]},"F45.2D":{"explanation":"Does not meet criteria for F2 disorders orF3 disorders","algorithm":[{"AND":["$2.135 <> 3","$2.136 <> 3","$6.023 <> 1","$2.137 <> 1","$2.138 <> 3"]}]},"F45.3":{"explanation":"Somatoform autonomic dysfunction","algorithm":[{"AND":["$!F45.3A","$!F45.3B","$!F45.3C","$!F45.3E"]}]},"F45.3a":{"explanation":"Somatoform autonomic dysfunction, without excl. for other mental disord","algorithm":[{"AND":["$!F45.3A","$!F45.3B","$!F45.3C"]}]},"F45.3A":{"explanation":"Autonomic hyperactivitet at least on oragnsystem","algorithm":[{"OR":["$@F45.3A1.counter >= 1","$@F45.3A2.counter >= 1","$@F45.3A3.counter >= 1","$@F45.3A4.counter >= 1","$@F45.3A5.counter >= 1"]}]},"F45.3A1.counter":{"explanation":"Hyperactivity CV syste ","algorithm":[{"SUM":["$2.046 = [1,2,3]","$2.047 = [1,2,3]","$2.050 = [1,2,3]","$2.053 = [1,2,3]"]}]},"F45.3A2.counter":{"explanation":"Upper GI aroual","algorithm":[{"SUM":["$2.032 = [1,2,3]","$2.033 = [1,2,3]","$2.034 = [1,2,3]","$2.035 = [1,2,3]"]}]},"F45.3A3.counter":{"explanation":"Lower GI symptoms)","algorithm":[{"SUM":["$2.036 = [1,2,3]","$2.037 = [1,2,3]","$2.038 = [1,2,3]","$2.039 = [1,2,3]","$2.040 = [1,2,3]","$2.041 = [1,2,3]"]}]},"F45.3A4.counter":{"explanation":"Hyperactivity pulmonal system ","algorithm":[{"SUM":["$2.048 = [1,2,3]","$2.049 = [1,2,3]","$2.052 = [1,2,3]"]}]},"F45.3A5.counter":{"explanation":"Counter,hyperactivitet urogenital system","algorithm":[{"SUM":["$2.067 = [1,2,3]","$2.069 = [1,2,3]","$2.070 = [1,2,3]","$2.076 = [1,2,3]"]}]},"F45.3B":{"explanation":">= 2 autonomic symptoms of 1-5","algorithm":[{"AND":["$@F45.3B.counter >= 2"]}]},"F45.3B.counter":{"explanation":"Autnome symptoms","algorithm":[{"SUM":["$2.046 = 1","$2.050 = 1","$2.052 = 1","$2.053 = 1","$2.054 = 1"]}]},"F45.3C.counter":{"explanation":"Other autnome symptoms","algorithm":[{"SUM":["$2.047 = 1","$2.048 = 1","$2.049 = 1","$2.012 = 1","$2.033 = 1","$2.041 = 1","$2.069 = 1","$2.038 = 1"]}]},"F45.3E":{"explanation":"Panic disorder not primar","algorithm":[{"AND":["$2.135 <> 3"]}]},"F45.4":{"explanation":"Persistent somatoform pain disorder","algorithm":[{"AND":["$!F45.4A","$!F45.4B"]}]},"F45.4a":{"explanation":"Persistent somatoform pain disorder, without exclud. for other mental dis.","algorithm":[{"AND":["$!F45.4A"]}]},"F45.4A":{"explanation":"Persistent severe, distressing pain for > 6 months ","algorithm":[{"AND":[{"OR":["$2.015 = [2,3]","$2.019 = [2,3]","$2.020 = [2,3]","$2.021 = [2,3]","$2.022 = [2,3]","$2.037 = [2,3]","$2.073 = [2,3]","$2.078 = [2,3]","$2.067 = [2,3]","$2.068 = [2,3]","$2.075 = [2,3]","$2.027 = [2,3]","$2.085 = [2,3]","$2.086 = [2,3]"]},"$2.093 = [2,3]","$2.096 >= 6"]}]},"F45.4B":{"explanation":"Not explained by other disorders","algorithm":[{"AND":["$2.135 <> 3","$2.136 <> 3","$2.137 <> 3","$6.023 <> 1","$2.138 <> 3","$!F45.0 <> 1","$!F45.1 <> 1"]}]},"F45.9":{"explanation":"Unspecified somatoform disorder (>= 4) somatoform symptoms but does not fulfil criteria for any specified category Some preoccupation, with duration >= 6 months Does not meet criteria forF45.0-.4 or F41 Does not meet criteria for F2 or F3 disorders","algorithm":[{"AND":["$@F45.0D.counter >= 4","$2.096 >= 6","$2.101 = [1,2,8]","$2.135 <> 3","$2.136 <> 3","$6.023 <> 1","$2.138 <> 3","$!F45.0 <> 1","$!F45.1 <> 1","$!F45.2 <> 1","$!F45.3 <> 1","$!F45.4 <> 1"]}]},"F45.9a":{"explanation":"Unspecified somatoform disorder withou exclus for other mental disord","algorithm":[{"AND":["$@F45.0D.counter >= 4","$2.096 >= 6","$2.101 = [1,2,8]","$2.135 <> 3","$2.136 <> 3","$6.023 <> 1","$2.138 <> 3","$!F45.0a <> 1","$!F45.1a <> 1","$!F45.2a <> 1","$!F45.3a <> 1","$!F45.4a <> 1"]}]},"F48.0":{"explanation":"Neurasthenia","algorithm":[{"AND":["$!F48.0AC","$!F48.0B","$!F48.0D","$!F48.0E"]}]},"F48.0a":{"explanation":"Neurasthenia, withou excl. for other mental disorder","algorithm":[{"AND":["$!F48.0AC","$!F48.0B","$!F48.0D"]}]},"F48.0AC":{"explanation":"(1) Excessive mental- or physical fatigue not recover on rest ","algorithm":[{"OR":["$2.012 = [2,3]"]}]},"F48.0B":{"explanation":">= 1 of following symptoms (1) muscular pains (2) dizziness (3) tension headaches (4) sleep disturbance ","algorithm":[{"OR":["$2.020 = [1,2,3]","$2.016 = [1,2,3]","$2.015 = [1,2,3]",{"OR":["$8.011 = [1,2]","$8.012 = [1,2]","$8.013 = [1,2]","$8.014 = [1,2]","$8.015 = [1,2]","$8.016 = [1,2]"]},"$3.003 = [2,3]","$3.009 = [2,3]"]}]},"F48.0D":{"explanation":"duration >= 3 months","algorithm":[{"AND":["$2.096 >= 3"]}]},"F48.0E":{"explanation":"not better explained by depression, panic disroder or anxietyciety","algorithm":[{"AND":["$2.135 <> 3","$2.136 <> 3","$6.023 <> 1"]}]},"Fatiq":{"explanation":"Counter fatiq ","algorithm":[{"SUM":["$3.007 = [1,2,3]","$7.006 = [1,2,3]","$2.012 = [1,2,3]"]}]},"nsomdg":{"explanation":"Any somatoform diagnose","algorithm":[{"SUM":["$!F44.4.7","$!F45.0i","$!F45.1i","$!F45.2i","$!F45.3i","$!F45.4i","$!F48.0"]}]},"DEP":{"explanation":"Any depression excl. dystymi","algorithm":[{"OR":["$!F31.30","$!F31.3","$!F31.31","$!F31.4","$!F31.5","$!F31.51","$!F31.50","$!F32.0","$!F32.00","$!F32.01","$!F32.10","$!F32.11","$!F32.2","$!F32.3","$!F32.30","$!F32.31","$!F32.9","$!F33","$!F33.0","$!F33.00","$!F33.01","$!F33.1","$!F33.10","$!F33.11","$!F33.2","$!F33.3","$!F33.30","$!F33.31","$!F33.9","$!F39"]}]},"DEPDYS":{"explanation":"Any depression or dystymi ","algorithm":[{"OR":["$!F31.30","$!F31.3","$!F31.31","$!F31.4","$!F31.5","$!F31.51","$!F31.50","$!F32.0","$!F32.00","$!F32.01","$!F32.1","$!F32.10","$!F32.11","$!F32.2","$!F32.3","$!F32.30","$!F32.31","$!F32.9","$!F33","$!F33.0","$!F33.00","$!F33.01","$!F33.1","$!F33.10","$!F33.11","$!F33.2","$!F33.3","$!F33.30","$!F33.31","$!F33.9","$!F34.0","$!F34.1","$!F34.9","$!F38.10","$!F39"]}]},"F0":{"explanation":"This is met when any of the F0 algorithms is met.","algorithm":[{"OR":["$!F00.03","$!F00","$!F00.0","$!F00.1","$!F00.2","$!F00.9","$!F01","$!F01.0","$!F01.1","$!F01.2","$!F01.3","$!F01.9","$!F02.0","$!F02.3","$!F02.4","$!F02.8","$!F03","$!F04","$!F05","$!F05.0","$!F05.1","$!F06","$!F06.0","$!F06.1","$!F06.2","$!F06.3","$!F06.4","$!F07","$!F07.0"]}]},"F00":{"explanation":"Dementia in Alzheimer's disease","algorithm":[{"AND":["$!F00A","$!F00B"]}]},"F00.0":{"explanation":"With early onset","algorithm":[{"AND":["$!F00.0.1","$!F00.0.2"]}]},"SCHIZII1":{"explanation":"delusions","algorithm":[{"AND":[{"OR":["$17.025 = [2,3]","$17.027 = [2,3]","$17.029 = [2,3]","$18.003 = [2,3]","$19.003 = [2,3]","$19.004 = [2,3]","$19.005 = [2,3]","$19.006 = [2,3]","$19.007 = [2,3]","$19.008 = [2,3]","$19.012 = [2,3]","$19.013 = [2,3]","$19.014 = [2,3]","$19.016 = [2,3]","$19.017 = [2,3]","$19.018 = [2,3]","$19.019 = [2,3]","$19.021 = [2,3]","$19.022 = [2,3]","$19.023 = [2,3]","$19.028 = [2,3]","$19.029 = [2,3]","$19.030 = [2,3]","$19.031 = [2,3]","$19.032 = [2,3]"]},"$19.045 = 0","$20.070 = [0,1]",{"OR":["$19.044 = [2,3]","$20.055 = [2,3]"]}]}]},"SCHIZII2":{"explanation":"hallucinations","algorithm":[{"AND":[{"OR":["$17.003 = [2,3]","$17.004 = [3,4]","$17.015 = [2,3]","$17.016 = [2,3]","$17.017 = [2,3]","$17.022 = [2,3]","$17.024 = [2,3]","$17.026 = [2,3]","$17.028 = [2,3]","$17.030 = [2,3]"]},"$17.034 = 0","$20.065 = [0,1]","$20.066 = [0,1]","$20.067 = [0,1]",{"OR":["$17.033 = [2,3]",{"OR":["$20.050 = [2,3]","$20.051 = [2,3]","$20.052 = [2,3]"]}]}]}]},"F06F320B.counter":{"explanation":"","algorithm":[{"SUM":["$!F32.0B1","$!F06F32B2","$!F06F32B3"]}]},"F06F320C.counter":{"explanation":"","algorithm":[{"SUM":["$!F32.0C1","$!F32.0C2","$!F32.0C3","$!F06F32C4","$!F06F32C5","$!F06F32C6","$!F32.0C7"]}]},"SOMSYND":{"explanation":"Somatic syndrome subtype criteria","algorithm":[{"AND":["$@SOMSYND.counter >= 4"]}]},"SOMSYND.counter":{"explanation":"","algorithm":[{"SUM":["$!SOMSYND1","$!SOMSYND2","$!SOMSYND3","$!SOMSYND4","$!SOMSYND5","$!SOMSYND6","$!SOMSYND7","$!SOMSYND8"]}]},"SOMSYND1":{"explanation":"loss of interest or pleasure","algorithm":[{"OR":["$6.004 = [2,3]","$7.004 = [2,3]"]}]},"SOMSYND2":{"explanation":"lack of emotional reactions","algorithm":[{"AND":["$6.008 = [2,3]"]}]},"SOMSYND3":{"explanation":"early awakening (> 2 hours)","algorithm":[{"AND":["$8.014 = 3"]}]},"SOMSYND4":{"explanation":"depression worse in morning","algorithm":[{"AND":["$6.009 = 1"]}]},"SOMSYND5":{"explanation":"objective retardation or agitation","algorithm":[{"OR":["$22.001 = [1,2]","$22.002 = [1,2]","$22.003 = [1,2]","$22.004 = [1,2]","$22.005 = [1,2]","$22.006 = [1,2]","$22.007 = [1,2]","$22.010 = [1,2]","$24.002 = [1,2]","$22.015 = [1,2]","$22.016 = [1,2]"]}]},"SOMSYND6":{"explanation":"loss of appetite","algorithm":[{"AND":["$8.005 = [2,3]"]}]},"SOMSYND7":{"explanation":"weight loss > 5% in 1 month","algorithm":[{"AND":["$8.006 = [2,3]"]}]},"SOMSYND8":{"explanation":"loss of libido","algorithm":[{"AND":["$8.024 = [2,3]","$8.025 = 1"]}]},"F20.4B.derived1":{"explanation":"Derived from F20.4B","algorithm":[{"SUM":["$!F20G1.2a","$!F20G1.2b","$!F20G1.2c","$!F20G1.2d"]}]},"DELONS":{"explanation":"Posttraumatic stress disorder - delayed onset","algorithm":[{"AND":["$!F43.1A","$!F43.1B","$!F43.1C","$!F43.1D","$13.094 = 3"]}]},"F48.1":{"explanation":"Depersonalisation - derealisation syndrome","algorithm":[{"AND":["$!F48.1A","$!F48.1B"]}]},"F48.1A":{"explanation":"(1) depersonalization or (2) derealization ","algorithm":[{"OR":[{"OR":["$3.012 = [2,3]","$16.008 = [2,3]","$16.009 = [2,3]","$16.010 = [2,3]"]},{"OR":["$16.006 = [2,3]","$16.007 = [2,3]"]}]}]},"F48.1B":{"explanation":"Insight present","algorithm":[{"AND":["$16.013 = 0",{"AND":["$!F05 = 0","$!F06 = 0","$!F1 = 0","$!F2 = 0","$!F3 = 0","$!F40.0 = 0","$!F40.1 = 0","$!F40.2 = 0","$!F40.9 = 0","$!F41.0 = 0","$!F41.1 = 0","$!F40.9 = 0"]}]}]}}
-
-/***/ }),
-/* 323 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-
-var yaml = __webpack_require__(324);
-
-
-module.exports = yaml;
-
-
-/***/ }),
-/* 324 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-
-var loader = __webpack_require__(325);
-var dumper = __webpack_require__(348);
+var loader = __webpack_require__(321);
+var dumper = __webpack_require__(344);
 
 
 function deprecated(name) {
@@ -43978,7 +42757,7 @@ module.exports.addConstructor = deprecated('addConstructor');
 
 
 /***/ }),
-/* 325 */
+/* 321 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43988,7 +42767,7 @@ module.exports.addConstructor = deprecated('addConstructor');
 
 var common              = __webpack_require__(29);
 var YAMLException       = __webpack_require__(41);
-var Mark                = __webpack_require__(326);
+var Mark                = __webpack_require__(322);
 var DEFAULT_SAFE_SCHEMA = __webpack_require__(42);
 var DEFAULT_FULL_SCHEMA = __webpack_require__(53);
 
@@ -45583,7 +44362,7 @@ module.exports.safeLoad    = safeLoad;
 
 
 /***/ }),
-/* 326 */
+/* 322 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45666,7 +44445,7 @@ module.exports = Mark;
 
 
 /***/ }),
-/* 327 */
+/* 323 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45681,7 +44460,7 @@ module.exports = new Type('tag:yaml.org,2002:str', {
 
 
 /***/ }),
-/* 328 */
+/* 324 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45696,7 +44475,7 @@ module.exports = new Type('tag:yaml.org,2002:seq', {
 
 
 /***/ }),
-/* 329 */
+/* 325 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45711,7 +44490,7 @@ module.exports = new Type('tag:yaml.org,2002:map', {
 
 
 /***/ }),
-/* 330 */
+/* 326 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45752,7 +44531,7 @@ module.exports = new Type('tag:yaml.org,2002:null', {
 
 
 /***/ }),
-/* 331 */
+/* 327 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45794,7 +44573,7 @@ module.exports = new Type('tag:yaml.org,2002:bool', {
 
 
 /***/ }),
-/* 332 */
+/* 328 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45974,7 +44753,7 @@ module.exports = new Type('tag:yaml.org,2002:int', {
 
 
 /***/ }),
-/* 333 */
+/* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46097,7 +44876,7 @@ module.exports = new Type('tag:yaml.org,2002:float', {
 
 
 /***/ }),
-/* 334 */
+/* 330 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46192,7 +44971,7 @@ module.exports = new Type('tag:yaml.org,2002:timestamp', {
 
 
 /***/ }),
-/* 335 */
+/* 331 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46211,7 +44990,7 @@ module.exports = new Type('tag:yaml.org,2002:merge', {
 
 
 /***/ }),
-/* 336 */
+/* 332 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46224,7 +45003,7 @@ var NodeBuffer;
 try {
   // A trick for browserified version, to not include `Buffer` shim
   var _require = require;
-  NodeBuffer = __webpack_require__(337).Buffer;
+  NodeBuffer = __webpack_require__(333).Buffer;
 } catch (__) {}
 
 var Type       = __webpack_require__(6);
@@ -46356,7 +45135,7 @@ module.exports = new Type('tag:yaml.org,2002:binary', {
 
 
 /***/ }),
-/* 337 */
+/* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46370,9 +45149,9 @@ module.exports = new Type('tag:yaml.org,2002:binary', {
 
 
 
-var base64 = __webpack_require__(338)
-var ieee754 = __webpack_require__(339)
-var isArray = __webpack_require__(340)
+var base64 = __webpack_require__(334)
+var ieee754 = __webpack_require__(335)
+var isArray = __webpack_require__(336)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -48153,7 +46932,7 @@ function isnan (val) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
 
 /***/ }),
-/* 338 */
+/* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48311,7 +47090,7 @@ function fromByteArray (uint8) {
 
 
 /***/ }),
-/* 339 */
+/* 335 */
 /***/ (function(module, exports) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -48401,7 +47180,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 
 /***/ }),
-/* 340 */
+/* 336 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -48412,7 +47191,7 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 341 */
+/* 337 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48463,7 +47242,7 @@ module.exports = new Type('tag:yaml.org,2002:omap', {
 
 
 /***/ }),
-/* 342 */
+/* 338 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48523,7 +47302,7 @@ module.exports = new Type('tag:yaml.org,2002:pairs', {
 
 
 /***/ }),
-/* 343 */
+/* 339 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48559,7 +47338,7 @@ module.exports = new Type('tag:yaml.org,2002:set', {
 
 
 /***/ }),
-/* 344 */
+/* 340 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48594,7 +47373,7 @@ module.exports = new Type('tag:yaml.org,2002:js/undefined', {
 
 
 /***/ }),
-/* 345 */
+/* 341 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48661,7 +47440,7 @@ module.exports = new Type('tag:yaml.org,2002:js/regexp', {
 
 
 /***/ }),
-/* 346 */
+/* 342 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48679,7 +47458,7 @@ var esprima;
 try {
   // workaround to exclude package from browserify list.
   var _require = require;
-  esprima = __webpack_require__(347);
+  esprima = __webpack_require__(343);
 } catch (_) {
   /*global window */
   if (typeof window !== 'undefined') esprima = window.esprima;
@@ -48760,7 +47539,7 @@ module.exports = new Type('tag:yaml.org,2002:js/function', {
 
 
 /***/ }),
-/* 347 */
+/* 343 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -55474,7 +54253,7 @@ return /******/ (function(modules) { // webpackBootstrap
 ;
 
 /***/ }),
-/* 348 */
+/* 344 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56306,7 +55085,7 @@ module.exports.safeDump = safeDump;
 
 
 /***/ }),
-/* 349 */
+/* 345 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56323,7 +55102,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _downshift = __webpack_require__(350);
+var _downshift = __webpack_require__(346);
 
 var _downshift2 = _interopRequireDefault(_downshift);
 
@@ -56433,7 +55212,7 @@ var SearchItems = exports.SearchItems = (0, _reactRedux.connect)(function (state
 })(Search);
 
 /***/ }),
-/* 350 */
+/* 346 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57815,19 +56594,19 @@ Downshift.resetIdCounter = resetIdCounter;
 
 
 /***/ }),
-/* 351 */
+/* 347 */
 /***/ (function(module, exports) {
 
 module.exports = {"items":[{"key":"2.section","title":"Somatoform and dissociative symptoms","description":"Adapt questions about disorders and treatments to local usage. Use information\nfrom informants and case records. Note that Section 2 generally defines episodes\nbased on a much longer duration than other Sections.\n","glossary":"Clinically, the difference between normality and the pathological behaviour may be based on a clinical judgment on how impaired and distressed the patient is by the health anxiety.\nWe may need an introduction including the discussion about MUS, mental vs. bodily, and that these conditions not nessesarily present mental disorders but are in between."},{"key":"2.001","title":"Physical wellness, past month","description":"How has your physical health been during the past month?\n\nHas it been excellent, good, fair or poor?\n","input":"integer","options":{"1":"Excellent","2":"Good","3":"Fair","4":"Poor","8":"Uncertain","9":"NK"},"validate":["1-4","8","9"],"glossary":"This item is concerned with the Respondent's own view of his or her physical health status; i.e. not only with the presence or absence of disease or disability but also with general physical well-being.  Respondents will use their own terms to describe health status.  The rating should          reflect this personal assessment rather than interviewer's interpretation of it.\n\nA rating of 1 must be based on a positive statement of physical well-being. Reasonably well (rated 2) corresponds to 'all right'; not positive, not negative.\n\nA rating of 3 ('fair') implies less than average wellness. Such a statement should be elucidated to inform subsequent questioning.  It may, for example, indicate physical disease, functional or dissociative or affective disorder, or a lifelong tendency (trait) to take a somewhat gloomy view of      things. These questions are raised later in the interview.\n\nAny statement implying a seriously poor state of health is rated 4.\n\nA feeling of positive wellness can be rated 1 in the presence of actual disease or disability if that is what R feels.\n\nThe scale is ordered in this way (1-4) to correspond with the general principle used elsewhere in the SCAN text, that greater disability or pathology has a higher score.\n\nThus 0 is not used, because, as the default rating for all items (except some in Section 21), it would automatically             indicate high positive wellness if left blank.\n"},{"key":"2.002","title":"Length of unwellness","description":"How long has your physical health been poor?\n\nWhen was the last time you were well (no somatic disease or functional disorder?)\n\nRate in months since the patient was last well.\n","input":"integer","options":{"0":"No health problems","800":"800 mths or more","888":"NK","999":"NA"},"validate":["0-800","888","999"],"glossary":"If item **[2.001]** is rated 3 or 4, specify the length of time in years and months that the unfitness has been present.\n"},{"key":"2.003","title":"Physical illness or disability, past year","description":"In the past year, have you had physical illnesses, injuries, pains or\nother disorders that have limited your activities in any way?\n\nWhat sort of problems have you had?\nDid the doctor/specialist tell you what was the matter?\n","input":"integer","options":{"0":"None","1":"Describes somatic symptoms or disorder without clear diagnosis","2":"States clear physical diagnosis","3":"Both physical diagnosis and functional symptoms/illness","8":"Uncertain","9":"NK"},"validate":["1-4","8","9"],"glossary":"This item refers to medical problems of a physical nature including illnesses, injuries and disabilities.\n\nTake into account all the information available including the results of recent investigations and examinations. It will sometimes be possible to accept the diagnosis that R gives, when backed by a convincing description, but always use 8 if there is doubt.\n\nAny medically diagnosed condition should be coded in **[2.007]** according to ICD-10.  If no significant illness or disability is present leave **[2.007] and [2.008]** blank.\n\nAn entry should only be made if **[2.003]** is coded 2 or 3; not including any indefinite or medically unexplained disorder.\n\nFor instance stomach ache without good evidence of gastric disease, should not be entered simply because R states, for example, \"I think I have a gastric ulcer\". A rating of 1 does not mean that there is no physical disease, only that the information has not established one and further enquiry      is necessary.\n"},{"key":"2.004","title":"Distressing somatic symptom, any","description":"How much does this distress you or disturb you daily life?\n","input":"integer","options":{"0":"None","1":"Present","9":"NK"},"validate":["0","1","9"],"help":"See also items [2.094] and [2.008].\n","glossary":"The patient has one or more distressing somatic symptoms or a symptom resulting in significant disruption of daily life. The symptoms or illness may be of any etiology, i.e. it may be symptoms of unknown etiology or from cancer, diabetes etc.\n\n(Criteria for DSM-V)\n"},{"key":"2.005","title":"Predominant pain","description":"Only if 2.003 is rated 2.\n\nIs pain the most predominant problem?\n","input":"integer","options":{"0":"No","1":"Yes","8":"Uncertain","9":"NK"},"validate":["0","1","8","9"],"help":"**Rate positively if pain is caused by physical disease predominates the illness picture:**\nSee also [2.093].\n(DSM-V specifier)\n"},{"key":"2.006","title":"Preoccupation with somatic symptoms and worry about physical health","description":"Are you afraid that something serious is wrong with you?\n\nHave you seen a doctor because of it? (within the past year)\n","input":"integer","options":{"0":"No particular preoccupation","1":"Present","9":"NK"},"validate":["0","1","9"],"help":"Rate on the basis of degree of preoccupation, illness conviction or distress, frequency of consultations and examinations, degree of symptoms or excessive illness worry.\n\nSee also [2.100].\n","glossary":"The item is identical with 2.101.\nRiddle item for Health or Illness anxiety / Hypochondrias, the item and except for the scoring, the item is identical with 2.101.\n\nA non-delusional preoccupation with fears of harboring a severe physical disease and/or a disproportionate thoughts about the seriousness of one's symptoms and disease.\nSee also HA section\n\nCUT-OFF => ???? (health anxiety) if there are no functional or dissociative symptoms based on the present information.\n\nAlways continue if there is no convincing medical explanation for the symptoms.\n\nIf [2.003] = 0 skip to HA\nIf [2.003] = 2 skip to [2.007] and then [2.100].\nIf [2.003] < > 0 or 2 continue.\n"},{"key":"2.episode1.section","title":"Well-defined physical diseases","description":"(In this section, items can be skipped or added)\n\nMark with a X, if the disorder is present and then write the diagnosis in letters (diagnosis codes can be kept as explanation).\n\nPrompt cards or questionnaires can be used.\n"},{"key":"2.007","title":"Well-defined physical diseases diagnosed by a doctor (lifetime)","description":"[Show a prompt card if necessary]\n\na.  Have you been told by a doctor that you have any of these diseases (a-r)\n\nb.  Were you given medicines for (a-r)?\n\nc.  Were you given laboratory examinations for (a-r)\n\nd.  Were you advised to make changes in your diet or life style for (a-r)?\n\ne.  Were you hospitalized or had surgery for (a-r)?\n\nf.  Did you ever stop or cut back your usual activities for a week or longer for (a-r)?\n","input":"integer","options":{"0":"Absent","1":"Present","8":"Uncertain","9":"NK"},"validate":["0","1","8","0"],"glossary":"Items are optional and not a part of the SCAN interview. Only well-defined and verified diagnoses made by physicians.\nThe functional somatic syndromes and functional disorders are not rated here.\nDisorders associated with mental retardation and/or autism e.g. Down’s Syndrome, foetal rubella etc. should be checked in CHS, ch. 27\n"},{"key":"2.007a","title":"High blood pressure","description":"(ICD-10: I10-I15)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007b","title":"Diabetes","description":"(ICD-10: E10-E14)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007c","title":"Osteoarthritis/rheumatoid arthritis","description":"(ICD-10: M00-M19)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007d","title":"Migraine/specified","description":"(ICD-10: G43, G44, R51)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007e","title":"Herniated disk","description":"(ICD-10: M40-M54)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007f","title":"Heart disease","description":"(ICD-10: I05-I09 og I20-I25)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007g","title":"Tuberculosis","description":"(ICD-10: A15-A19, B90, J65)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007h","title":"Asthma/chronic bronchitis","description":"(ICD-10: J30-J32, J35, J37, J40-J47)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007i","title":"Gastritis or ulcer","description":"(ICD-10: K25-K27)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007j","title":"Hepatitis","description":"(ICD-10: B18, K73, K75,9)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007k","title":"Kidney disease","description":"(ICD-10: N03-07, N11-15, N18-19, N25-28)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007l","title":"Parasite diseases/malaria","description":"(ICD-10: B50-B83)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007m","title":"Thyrois disease","description":"(ICD-10: E00-E07)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007n","title":"Tumor/cancer","description":"(ICD-10: C00-C97)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007o","title":"Stroke","description":"(ICD-10: I60-I69)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007p","title":"Epilepsia","description":"(ICD-10: G40)\n","input":"integer","options":{"1":"Present"}},{"key":"2.007q","title":"Multiple sclerosis","description":"(ICD-1010: G35)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007r","title":"HIV/AIDS","description":"(ICD-10: B20-B24)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007s","title":"Others","input":"string","description":"State which_____________________________________________\n"},{"key":"2.007t","title":"Others","input":"string","description":"State which_____________________________________________\n","help":"Disorders associated with mental retardation and/or autism e.g. Down’s Syndrome, foetal rubella etc. should be checked in CHS, ch. 27. The first box must have a letter indicating the ICD-10 chapter followed by up to 4 digits. If none, leave blank.\n"},{"key":"2.008","title":"Impact on activities and discomfort/distress due to well-defined physical disease, past year","description":"**(See also [2.094])**\n\nHave any of the above symptoms or disorders (2.007a-t) had an impact on your daily physical activities in the past year?\n\nHow much impact have these symptoms had on your daily physical activities in the past year?\n","input":"integer","options":{"0":"No influence or well-defined physical disease","1":"Only small influence","2":"Moderate or intermittent","3":"Severe to incapacitating","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"],"glossary":"Impairment due to well-defined physical disease. Impairment due to functional or dissociative symptoms is rated in **[2.094]**.\nWhether the disease causes clinically significant distress or impairment in social, occupational or other important areas of functioning.\n\nFor rating of functioning, you may use the concept of WHO’s disability assessment with its 5 dimensions. But it is important that also emotional distress is       rated here, i.e. a person may go to work but is tormented by thoughts and emotions in connection with his/her symptoms.\n"},{"key":"2.009","title":"Elaboration of physical symptoms","description":"Normally rated based on medical history and the patient's thoughts and worries about the condition. If the original disease is no longer present, the disorder is rated as a functional disorder, cf. 27.069.\n","input":"integer","options":{"1":"Absent","2":"Present","8":"Uncertain","9":"NK"},"validate":["1","2","8","9"],"glossary":"A well-defined medical symptom or condition is present (not including functional syndromes or disorders). The course, the treatment (i.e. compliance), health status or recovery of the medical condition is affected by the psychological factors.\nIf the medical condition is not present anymore, the condition is rated as a functional condition instead.\nNormally rated based on medical history and the patient's thoughts and worries about the condition.\n\nCUT OFF => ????  (health anxiety) if there are no functional or dissociative symptoms based on the present information, i.e. 2003 = 0 or 2\n\nAlways continue beyond the cut-off point if there is any doubt as to whether physical health problems have a clearly physical origin.  Begin the further exploration with a general probe, then ask a set of questions concerning R's contacts with expert practitioners.  In countries where expert        opinion is difficult to obtain the following ratings must be particularly circumspect.  Case records and information from people who know R should be taken into account.\n"},{"key":"2.episode2.section","title":"Physical symptoms","description":"**Use rating scale 1a if nothing else indicated.**\n\nRate on the basis of present information, incl. medical history.\n\nFor a symptom to be rated as being caused by well-known physical disease (or likely well-known physical disease), this well-known physical disease must be diagnosed in 2.007 or it must be an acute condition such as a flu. If you suspect that the patient has an undiagnosed physical disease, rate     8.\n","help":"**Elaborate:**\n\nGo through the symptoms as indicated by the patient, and check 2.010-2.090.\n\nElaborating questions:\n\n- How did it feel (the symptom)?\n- How pronounced was it?\n- How did it affect you?\n- Did you see a doctor about this?\n- Did you get special tests?\n- Did you get any treatment? What kind?\n- What did the doctor tell you was the matter?\n- What did you think yourself?\n\n**[Show prompt card if necessary]**\n","glossary":"Rate on the basis of present information, incl. medical history. Each symptom is rated if present, and do not attempt to judge if each individual symptom is \"medically explained\" or not. The diagnoses is based on the complete illness picture and not on individual symptoms!\nEmotional, social, stress ect. may not be present in patients presenting with functional disorders why you can not base you rating on such associated symptoms.\nIdeally one should rate if a symptom is due to a functional condition (like you rate if a symptoms is due a depression) but our current knowledge's and most doctors knowledge's about functional disorders is not sufficient for the time being that this can be done in a reliable way.\nFor a symptom to be rated as being attributed to well-known physical disease (or likely well-known physical disease), this well-known physical disease must be diagnosable, i.e. be diagnosed in 2.007 or it could be an acute condition such as a flu. If you suspect that the patient has an                undiagnosed physical disease, rate 8.  Functional somatic syndromes or functional disorders is not viewed as well-defined medical conditions.\n\nThe usual PSE rule 'if in doubt rate down' should not be applied to physical symptoms themselves.  Respondents should be encouraged to be forthcoming about their complaints.\n\nBecause each symptom can be described in terms that are highly culture-specific, the list is not exhaustive. There are sufficient items to cover contingencies. A clinical decision has to be made on the basis of local expert according to which item represents the complaint the most.         For research purposes, it is important to record the terms used by respondents to describe their problems. Documentation of these terms will generate a data base that can be used for further development of items with research and clinical applicability.\n\nResearch have shown that symptoms of some functional disorders cluster into organ systems. Therefor a alternative/complementary rating is also possible in which you simply ask if symptoms of that organ system is presented or not. If negative you may skip the organ system. If the interviewer is      experienced or  it is not  need to specific  individual symptoms one may only use the alternative/complementary rating.\n"},{"key":"2.episode3.section","title":"General/unspecific symptoms/syndromes, incl. fatigue"},{"key":"2.010","title":"Alternative/complimentary rating","description":"In the past year, have you had problems with fatigue, headache, dizziness,\nimpairment of memory, concentration difficulties or similar symptoms?\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"],"help":"**By use of questionnaire:**\n\nN: Negative questionnaire (use phrasing from mini SCAN)\n\nP: Positive questionnaire.\n"},{"key":"2.011","title":"General weakness or malaise","scale":"1a"},{"key":"2.012","title":"Pronounced and distressing fatigue","description":"If you feel exhausted following physical or mental exercise, how long does the exhaustion last?\n\nCan you recover by resting or relaxation?\n","scale":"1a","glossary":"Unwarranted fatiguability after even minor physical exertion or mental exercise.  The emphasis is on feelings of bodily or physical weakness and exhaustion after only minimal effort, accompanied by a feeling of muscular aches and pains.  Respondents experience the tiredness as unpleasant and        distressing.\n\n**Differentiation from other symptoms:**\n\nTiredness at the end of a hard day of physical or mental work (rate 0), or due to the after-effect of influenza, would not count.  The level of increase in fatiguability should be assessed against relevant previous experience, such as walking a familiar distance, climbing stairs,  reading a         book, doing calculations,etc.\nIs typically described as an unpleasant intrusion of distracting associations or recollections, difficulty in concentrating, focusing and sustaining attention, and generally inefficient thinking.  The condition is usually associated with decreased efficiency in coping with daily tasks.\nInability to restore mental and physical energy after excessive fatigue following even minor exercise.  This is a prolongation, lasting days or longer.  The sense of tiredness is usually accompanied by feelings of muscular aches and pains, and the Respondent is unable voluntarily to overcome        it. A main feature is inability to relax fully. Differentiate from normal sleepiness.\nRate 1 if the R can recover 2 or 3 if R can not recover.\n\nDifferentiate from item **3.007**, (how???)\n"},{"key":"2.013","title":"Impairment of memory","scale":"1a","glossary":"R complains of impairment or loss of memory.  The loss does not include anaesthesia for operations or during convulsions or fainting, or following head injury.\nSee also ???\n\nDissociative: The main feature is sudden loss of memory, usually of important recent events, not due to organic mental disorder and too great to be explained by ordinary forgetfulness or fatigue.  There is no integration of present experiences with memories of the past.  The amnesia is       presumed to be of psychogenic origin and is usually partial and selective.  The main problem is not in the registration or retention of the memory, but in the recall of facts usually associated with insoluble or unacceptable interpersonal problems, or traumatic events such as accidents or           unexpected bereavements.  The loss of memory may be an expression of emotional needs or failure of effective coping mechanisms.\n\n**Dissociative: Differentiation from other symptoms:**\n\nThere should be no evidence of a physical disorder that can explain the symptoms that characterize the disorder.  Amnesia induced by alcohol or drugs or by postictal amnesia in epilepsy should not be included here. Similarly,  subjective complaints of loss of memory (difficulty in                 recollection of important facts and events) experienced in depressive disorders should be distinguished.  Likewise, it is differentiated from other causes of subjective memory problem by the severity,  sudden onset or only affecting a specific event, and thus it may not necessarily be global          memory loss.\n"},{"key":"2.014","title":"Concentration difficulties (cf. 7.001-7.003)","scale":"1a","help":"See also??\n"},{"key":"2.015","title":"Headache, tension","scale":"1a"},{"key":"2.016","title":"Dizziness","scale":"1a"},{"key":"2.017","title":"Others________________________________","input":"string"},{"key":"2.episode4.section","title":"Musculoskeletal symptoms/syndromes, incl. widespread pain, muscle tension etc."},{"key":"2.018","title":"Alternative/complimentary rating","description":"Have you had pain or other discomfort from your muscles or joints, sensory disturbance or localised weakness e.g. in arms or legs?\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"],"help":"By use of questionnaire:\n\nN: Negative questionnaire (use phrasing from mini SCAN)\n\nP: Positive questionnaire.\n"},{"key":"2.019","title":"Back ache","scale":"1a"},{"key":"2.020","title":"Muscular aches and pains","scale":"1a"},{"key":"2.021","title":"Pain in arms or legs","scale":"1a"},{"key":"2.022","title":"Pain in the joints","scale":"1a"},{"key":"2.023","title":"Pain moving from one place to another","scale":"1a","glossary":"Pain moving around and from different locations in the body.\n"},{"key":"2.024","title":"Feelings of paresis or localized weakness","description":"- Have you been unable to move a hand, an arm or a leg?\n- Have your arms or legs felt heavy?\n- Have you had difficulty standing or walking without support?\n","scale":"1a","glossary":"This group covers muscular weakness (either periodic or unremitting). Problems when lifting, inability to stand up or to walk or inability to move any part of the body.\n"},{"key":"2.025","title":"Unpleasant numbness or tingling sensations","description":"Have you experienced loss of or changes in the sense of touch?\n","scale":"1a","glossary":"Includes different sensations such as tingling (slight stinging sensation/pins and needles), crawling or creeping sensation as well as feelings of heaviness or lightness anywhere in the body.\n"},{"key":"2.026","title":"Neck pain","description":"If yes:\n","scale":"1a"},{"key":"2.027","title":"Neck pain in connection with whiplash trauma","description":"Have you been exposed to a whiplash trauma?\n\nDid you neck pain start at that time? **(See also [2.120])**\n","input":"integer","options":{"0":"No","1":"Worsened by trauma","2":"Yes","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"Only if 2.026 (Neck pain) is positive Have you been exposed to a whiplash trauma?\nDid you neck pain start at that time? (See also [2.124])\n"},{"key":"2.028","title":"Widespread pain","input":"integer","option":{"0":"Non","1":"Only regional pain","2":"Widespread","3":"Widespread pain in both sides of the body and both in upper and lower body","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"],"glossary":"Does R have pain both above and below the waistline and in both sides of the body, ie. body parts of all 4 body quadrants\n"},{"key":"2.029","title":"Others___________________","input":"string"},{"key":"2.episode5.section","title":"Gastroinstestinal symptoms/syndrome (GI Arousal), incl. upper dyspepsia","description":"*Have you had any problems with your stomach such as pain, nausea, feeling bloated, burning sensation in the epigastrium or regurgitation?*\n"},{"key":"2.030","title":"Alternative/complimentary rating","description":"**Upper dyspepsia**\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"]},{"key":"2.031","title":"Alternative/complimentary rating","description":"**Lower GI symptoms**\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"],"help":"**By use of questionnaire:**\n\nN: Negative questionnaire (use phrasing from mini SCAN)\nAccording to the questionnaire, you haven't had problems with your stomach/bowels\n(…such as – read a couple of symptoms aloud). Is that correctly understood?\n(If no, fill in the symptoms list).\n\nP: Positive questionnaire\n(I.e. at least one symptom > a little, or disturbance of everyday activities >2).\n"},{"key":"2.032","title":"Regurgitation","description":"Do you ever have regurgitation?\n","scale":"1a"},{"key":"2.033","title":"Burning sensation in chest or epigastrium","description":"Do you have a stinging or burning sensation in the chest\nor upper epigastrium?\n","scale":"1a"},{"key":"2.034","title":"Heartburn","scale":"1a"},{"key":"2.035","title":"Vomiting","description":"Do you suffer from vomiting?\n","scale":"1a","glossary":"Vomiting, belching, regurgitation of food. Not, during pregnancy\n"},{"key":"2.036","title":"Nausea","scale":"1a","glossary":"Feeling of disgust, revulsion, sensation that precedes vomiting.\n"},{"key":"2.037","title":"Abdominal pain incl. gripes","description":"Have you had stomach ache or gripes?\n","scale":"1a","glossary":"Abdominal pain, cramps due to wind, bowel spasms, constipation. Loose bowels should be rated at 2.041\n"},{"key":"2.038","title":"Feeling bloated, full of gas, distended, heavy","scale":"1a","glossary":"This refers to constant or periodic unpleasant feelings in the stomach and upset stomach.  Foods that make the subject ill should be rated in 2.089.\n"},{"key":"2.039","title":"Alternating bowel movements","description":"(I.e. alternating constipation/normal or alternating constipation/diarrhoea or alternating normal/diarrhea?\n","scale":"1a"},{"key":"2.040","title":"Rumbling and churning in the stomach","scale":"1a","glossary":"Complaints of  frequent or loose bowels or diarrhoea.\n"},{"key":"2.041","title":"Diarrhoea or loose bowel movements","description":"**Rectal pain is rated in <2.068>**\n","scale":"1a"},{"key":"2.042","title":"Relief (pain and other symptoms) by defecation","input":"integer","options":{"0":"No","1":"Yes","8":"Uncertain","9":"NK"},"validate":["0","1","8","9"]},{"key":"2.043","title":"Onset (pain and other symptoms) is related to changes in defecation frequency","input":"integer","options":{"0":"No","1":"Yes","8":"Uncertain","9":"NK"},"validate":["0","1","8","9"]},{"key":"2.044","title":"Onset is related to change in the form (appearance) of the defecation","description":"Do you get pain or do the pain or other symptoms get worse in connection with changes in the form (appearance) of the defecation?\n","input":"integer","options":{"0":"No","1":"Yes","8":"Uncertain","9":"NK"},"validate":["0","1","8","9"]},{"key":"2.episode6.section","title":"Cardiovascular symptoms"},{"key":"2.045","title":"Alternative/complimentary rating","description":"In the past year, have you had symptoms from your heart or chest such as palpitations,\ndifficulty breathing, hot or cold swears?\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"],"help":"\">=3 symptoms\". Fulfills criteria for GS syndrome\n"},{"key":"2.046","title":"Palpitations/heart pounding","scale":"1a"},{"key":"2.047","title":"Precordial discomfort or chest pain","scale":"1a","glossary":"Aches, pains, pressure, burning, stinging feelings in the chest or above the heart.\n"},{"key":"2.048","title":"Breathlessness without exertion","scale":"1a","glossary":"Cannot breathe easily, smothering or choking feeling, difficulty breathing present when not making much effort.\n"},{"key":"2.049","title":"Hyperventilation","scale":"1a"},{"key":"2.050","title":"Hot or cold sweats","scale":"1a"},{"key":"2.051","title":"Trembling or shaking","scale":"1a"},{"key":"2.052","title":"Dry mouth","scale":"1a"},{"key":"2.053","title":"Flushing or blushing","scale":"1a"},{"key":"2.054","title":"Churning in stomach, 'butterflies'","scale":"1a"},{"key":"2.055","title":"Other cardiovascular complaints","description":"This item covers symptoms not included in the preceding items.\n","scale":"1a"},{"key":"2.episode7.section","title":"Neurological symptoms, incl. dissociative","description":"Paralysis is rated in **[2.024]** and skin sensibility disturbances in **[2.025]**.\n\nDissociative or conversion symptoms are also rated here, but see **[2.065]**.\n"},{"key":"2.056","title":"Alternative/complimentary rating","description":"Have you experienced spasms, fits, faintings, convulsions, loss of voice or, vision disturbances recently?\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 neurological symptoms"},"validate":["0-2"],"help":"**By use of questionnaire:**\n\nN: Negative questionnaire (use phrasing from mini SCAN)\n\nP: Positive questionnaire.\n"},{"key":"2.057","title":"Fainting","scale":"1a"},{"key":"2.058","title":"Loss of voice, aphonia, slurred speach","scale":"1a","glossary":"Loss of voice; loss of speech and other problems that relate to voice, pronunciation etc.\n"},{"key":"2.059","title":"Disturbance of vision, hearing or olfaction?","description":"Have you experienced loss or disturbance of vision, hearing or olfaction?\n","scale":"1a","glossary":"This symptom group includes blindness in one or both eyes and other visual problems (excluding blurred vision due to lack of proper glasses or double vision). Hearing is not hard-of-hearing with our without the use of hearing aid etc. Tinnitus is rated in 2.081 . Olfaction must not be due to      flu or similar well-defined cause.\n\nThere is a declared sensory loss on the skin which often has boundaries that do not fit into any neurological deficit.  These may be associated with different sensations like tingling or other paraesthesias.  There may be differential loss between the sensory modalities (touch, pain, heat,          vibration, etc.) which cannot be due to a neurological problem.\n\nThis item also covers the partial or complete loss of vision, hearing or smell which is of psychogenic origin.\n\nBeware of sophisticated subjects who have knowledge of patterns of neurosensory distributions.\n"},{"key":"2.060","title":"Spasms, fits or convulsions","description":"**Have you experienced convulsions recently?**\n\n- What were they like?\n- Did you lose consciousness altogether?\n- Did you hurt yourself by falling or biting your tongue?\n- Did you pass water or defecate in that connection\n","glossary":"Pseudoseizures. Convulsions may mimic epileptic seizures in which whole or parts of the body shake.  However, dissociative convulsions are usually longer in duration and with tongue biting and bruising due to falling, incontinence of urine is rare (but can occur).  There is not a true loss of            consciousness but a state of trance or dissociative stupor.\n\nA positive rating should not be made without full neurological investigation resulting in no evidence of organic disorder.  Pseudoseizures may be present in individuals with true epilepsy, complicating differentiation.\n"},{"key":"2.061","title":"Feeling of impaired coordination or balance","description":"Have your movements been unsteady or clumsy?\n","scale":"1a"},{"key":"2.062","title":"Involuntary, abnormal movements (besides convulsions)","description":"**(Tremor, dystonic movement, myoclonic walking)**\n\n- Have you been unable to move a hand, an arm or a leg?\n- Have you had difficulties standing or walking without support?\n- Have you had difficulties speaking or swallowing?\n- Try to tell explain more about it.\n","glossary":"The loss of ability to move the whole or parts of the body or limbs.  This item also includes speech.  These may mimic any neurological deficit such as astasia, abasia, akinesia, apraxia, aphonia, dysarthria, dyskinesia, paraparesis or paralysis.\n"},{"key":"2.063","title":"Difficulty swallowing or lump in throat","scale":"1a","glossary":"Feeling a lump in the throat ('globus hystericus').\n"},{"key":"2.064","title":"Other neurological complaints","scale":"1a","glossary":"This item covers symptoms not included in the preceding items.\n"},{"key":"2.episode8.section","title":"Dissociative or conversion disorder","description":"The symptoms rated elsewhere in chapter 2 can also be dissociative.\n","scale":"1a","glossary":"Dissociative symptoms are all characterized by a partial or complete disconnection between memories of the past, awareness of identity and of immediate sensations, and control of bodily movements.  Conscious control over which memories and sensations can be selected for immediate attention, and     what movements can be carried out, is impaired, although varying in degree from day to day and even from hour to hour.  The severity of impairment is often difficult to determine clinically.\n\nThe terms 'hysteria' and 'conversion' are avoided in ICD-10, and dissociative symptoms are presumed to be 'psychogenic' in origin, because closely associated with traumatic events, intolerable or insoluble problems, or disturbed relationships.  No particular theory of the mechanisms underlying      dissociation is assumed for purposes of this Glossary but secondary gain is a suggestive feature.\n\nPeople with dissociative symptoms often deny problems that are obvious to others.  An informant is then essential for proper rating.\n\nSee also items **17.020**, dissociative hallucinations, and **20.026** - **20.029**, which constitute the Checklist for Induced Psychosis.\n\nFor a definite rating the following features must be present:\n\n1. The clinical characteristics specified at each item.\n2. Some evidence of psychological causation - e.g. convincing temporal association with stressful events, relationship or other problems or needs - often denied by the respondent.  This requires a clinical judgement, usually based also on information from another informant. Association with            stress is rated at **2.065**.\n3. The presence of any relevant disorder of the central or peripheral nervous system should be specified at items **2.007a-t**.  If this fully explains the symptom, rate 9. Organic attribution should otherwise be rated as usual\n4. Positive ratings should never be made if the appropriate physical investigations have not been carried out.  Rate 8 in this case.\n\n**Differentiation from other symptoms:**\n\nDepersonalization and derealization are not associated with loss of conscious control over access to sensations, memories or movements, and only limited aspects of personal identity are affected.  In depersonalization, there may be a loss of the sense of self, but the people affected know who       they are.\n"},{"key":"2.065","title":"Dissociative symptoms associated with trauma or stress","description":"When you experienced (symptom), had you had a shocking experience or been under particular stress? (i.e. attacks, paralyses, couldn't see or hear)\n\n- Did you have personal problems at that time?\n\nE.g. traumatic events, troubling issues, insoluble problems\n","input":"integer","options":{"0":"No dissociative symptoms","1":"Yes, but not acute severe trauma at onset","2":"Acute severe psychological trauma/events in connection with onset","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"All dissociative disorders are presumed to be of psychogenic origin.  Onset is convincingly associated in time with a traumatic life event with intolerable or insoluble problems, or with disturbed interpersonal relationships, which R may not acknowledge or be aware of.  Loss of consciousness       or any other bodily function may be a sign of emotional need or conflict.  A disinterested informant is usually necessary.\n"},{"key":"2.episode9.section","title":"Urological symptoms"},{"key":"2.066","title":"Alternative/complimentary rating","description":"Have you had pain in the rectum, by urination or other problems by urination?\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"]},{"key":"2.067","title":"Pains during urination","scale":"1a","glossary":"Pain or burning sensation during urination. Not due to infection or similar.\n"},{"key":"2.068","title":"Pains in rectum","scale":"1a"},{"key":"2.069","title":"Frequent urination","scale":"1a","glossary":"Frequency of passing water, sense of urgency, or any similar urinary complaint. Not due to infection or similar\n"},{"key":"2.070","title":"Urine retention","scale":"1a","glossary":"Difficulty passing water, retention\n"},{"key":"2.071","title":"Others","scale":"1a"},{"key":"2.episode10.section","title":"Genital symptoms"},{"key":"2.072","title":"Alternative/complimentary rating","description":"Have you had problems with your lower body, menstruation, genitals or lack of libido?\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"]},{"key":"2.073","title":"Pains during menstruation","scale":"1a"},{"key":"2.074","title":"Unpleasant sensations in or around the genitals","scale":"1a"},{"key":"2.075","title":"Vulvodynia (if 2.051 is positive)","scale":"1a"},{"key":"2.076","title":"Irregular menstruation","scale":"1a"},{"key":"2.077","title":"Lack of libido","scale":"1a"},{"key":"2.078","title":"Pains during sexual intercourse","scale":"1a"},{"key":"2.079","title":"Other genital complaints","scale":"1a","glossary":"This item covers symptoms not included in the preceding items.\n"},{"key":"2.episode11.section","title":"Symptoms from other organ systems"},{"key":"2.080","title":"Alternative/complimentary rating","description":"Have you had other bothersome symptoms such as tinnitus, jaws, ears, nose, neck or eyes?\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"],"help":"**By use of questionnaire:**\n\nN: Negative questionnaire (use phrasing from mini SCAN)\n\nP: Positive questionnaire.\n"},{"key":"2.081","title":"Tinnitus","scale":"1a"},{"key":"2.082","title":"Ear, nose or throat (other than pain)","scale":"1a"},{"key":"2.083","title":"Teeth, jaw or oral cavity (other than pain)","scale":"1a"},{"key":"2.084","title":"Eyes, incl. visual disorders","scale":"1a"},{"key":"2.085","title":"Mandibular pain","description":"Have you had pain in the jaw or the muscle of mastication?\n","scale":"1a","glossary":"Pain in the jaw or the muscle of mastication.\n"},{"key":"2.086","title":"Pain in the temporomandibular joint","description":"Have you had pain in the temporomandibular joint\n","scale":"1a"},{"key":"2.087","title":"Others","scale":"1a"},{"key":"2.episode12.section","title":"Allergy, sensitivity to chemicals, odors or food"},{"key":"2.088","title":"Alternative/complimentary rating","description":"*Have you had problems with sensitivity to chemicals, odors or intolerance to foods?*\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"],"help":"**By use of questionnaire:**\n\nN: Negative questionnaire (use phrasing from mini SCAN)\n\nP: Positive questionnaire.\n"},{"key":"2.089","title":"Sensitivity to several foods","scale":"1a"},{"key":"2.090","title":"Sensitivity to odors and chemicals","description":"Do you react to an odor or a strong chemical agent without anyone around you getting any symptoms?\n\nIs it due to allergy? (If so, rate 6)\n\n**If yes**\n","scale":"1a"},{"key":"2.091","title":"Do the symptoms disappear post-exposure","description":"Do the symptoms disappear when you are no longer exposed to these odors or chemical agents?\n","scale":"1a"},{"key":"2.episode13.section","title":"Predominant symptom"},{"key":"2.092","title":"Main complaint or predominant symptom 2.010-2.090.","description":"Specified______________________\n\n(Rate 888 if the patients cannot indicate one single predominant symptom)\n\nWhich of these symptoms have bothered you the most?\n"},{"key":"2.093","title":"Pain disorder/syndrome (idiopathic/primary pain)","description":"If the primary problem is pain, the rater must decide if it can be characterised as pain syndrome/disorder.\n","input":"integer","options":{"0":"No pain syndrome/disorder","1":"Mild","2":"Moderate","3":"Severe","4":"Neuropathic","5":"Caused by well-defined physical disease (incl. tumor)","6":"Uncertain","8":"NK"},"validate":["0-6","8"]},{"key":"2.094","title":"Interference with activities and distress due to bodily distress or somatic symptoms","description":"You have mentioned **(summarise symptoms)** during **(specify the period)**. How much have the mentioned symptoms interfered with your daily quality of life and activities?\n","input":"integer","options":{"0":"No bodily distress symptoms","1":"Only little interference","2":"Moderate or intermittent interference or","3":"Severe or incapacitating interference or distress","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"],"glossary":"Whether the symptoms cause clinically significant distress or impairment in social, occupational or other important areas of functioning.\n\nFor rating of functioning, you may use the concept of WHO’s disability assessment with its 5 dimensions. But it is important that also emotional distress is      rated here, i.e. a person may go to work but is tormented by thoughts and emotions in connection with his/hers symptoms.\n"},{"key":"2.095","title":"Boom and bust cycle","description":"*Further to above item.*\n\nIf you are active and exceed the limits of your capacity for a day – do you then get exhausted or need to stay in bed for a day or more?\n\nIs this a well-known pattern to you that if you have to do something, i.e. go to a party, go an a travel or go to see a social worker, you will be exhausted for several days?\n","input":"integer","options":{"0":"No","1":"Mild/modest, I recognise this but not a major problem when I take care of myself","2":"Severe, with severe impact on my life","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.096","title":"Length of disorder or discomfort due to symptoms","description":"In months\n","input":"integer","options":{"0":"Absent","800":"800 mths or more","888":"NK","999":"NA"},"validate":["0-999"],"glossary":"This item refers to any symptoms rated present at 2.007-2.090). Rating is based on level oif distress and persistence.  Enter the number of months that the symptoms have been present.\n"},{"key":"2.097","title":"Variability of functional symptoms (\"slow\" variation)","description":"Over months or years. Change in illness picture, which can be relatively stable for e period and then suddenly change to a different organ system/illness picture).\nInformation from other sources should also be considered, e.g. case notes, referring doctor or family).\n\n- Have your symptoms or illness changed?\n- Have several things been wrong with you?\n","input":"integer","options":{"0":"Stable with small changes focused on the same relatively stable symptom/illness picture","1":"Symptoms have changed from one to one or several others relatively stable symptoms/illness pictures","2":"Several symptoms/illness pictures simultaneously","3":"No delimited symptoms/illness pictures","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"]},{"key":"2.098","title":"Variability of functional symptoms (“fast” variation)","description":"(hour-to-hour, day-to-day or week-to-week.)\n\nInformation from other sources should also be considered, e.g. case reports, referring doctor, family.)\n\n- Can there be differences as to how you feel from day to day or for week to week?\n- Can you be completely well on the days you feel fine?\n","input":"integer","options":{"0":"No fluctuation","1":"Moderate fluctuation","2":"Pronounced fluctuation","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"The intensity, type and severity of somatoform symptoms often vary over time. It may be a slow variation, i.e. in one time period (months or years) the patient may present a set of symptoms or an illness picture that may be relatively stable, whereas in another time period a different illness       picture may be predominating. In fast variation the symptoms vary from day-to-day or week-to-week. The illness may vary both fast and slow in the same patient.\n"},{"key":"2.099","title":"Worsening in illness and symptoms over time","description":"- Has your condition gradually worsened over time/over the years?\n- How?\n","input":"integer","options":{"0":"No, or constant","1":"Mild to modest worsening","2":"Severe worsening","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"In most well-defined medical conditions, the prognosis is well-known and the conditions follow a course characteristic for them. In functional disorders, the patients often regress over time and get more and more affected (if untreated). In most cases of distortions and fractures etc., the condition         improves over time, whereas in patients developing e.g. WAD (whiplash associated disorder), the conditions gradually become worse.\n"},{"key":"2.episode14.section","title":"Illness worry and preoccupation (health anxiety)","glossary":"Background:\n\nIllness worries and preoccupation is also often presented in functional disorders and in other conditions and thus not restricted to Health anxiety.  Therfore, this section should be used in any case of functional complaints and not only if Health anxiety / Hypochondria is suspected.\n\nDelineation from normality (may need editing)\nBeing attentive about one's health and bodily functions is important for the survival of human beings as it is a precondition for taking care of ourselves and seeking help if necessary. Illness worrying or health anxiety is thus on a dimension from being too little aware of their body signals       and functioning to patients severely disabled by unfounded health worries. The demarcation between and mal reactions and pathological health anxiety can not be established rigorously as it is the case in many other disorders.\n\nDifferences between OCD, Anxiety and Health anxiety.\nDespite there may seem to be some clinical similarities between OCD and health anxiety, there is little evidence for this. Although patients with OCD may have different compulsions or obsessions, it is the same compulsions, images and thoughts that keep returning again and again in a very     stereotypical form. Contrary to this, the worries and thoughts in health anxiety are not so stereotypical but vary much more with multiple thoughts and considerations about illnesses. A patient with health anxiety feels compelled to see a doctor to get reassured, but this is not because of a        compulsion saying that they need to see a doctor, but because they fear a health problem. Patients with health anxiety do not usually have other compulsions or obsessions. In health anxiety, the rumination is usually triggered by an external or internal stimulus like hearing about illness, and      the worrying usually relates to the trigger, whereas obsessive thoughts in OCD are usually solely intrusive with no specific trigger, although they may be a reaction to a stressor.\n"},{"key":"2.100","title":"Excessive preoccupation with well-defined physical diseases","description":"If the patient suffers from a serious physical disease (if not, skip to <2.101>).\n\n- Do you or others think that you are more worried about your disease (name the disease) than you ought to be?\n- What do others say - about whether you are too worried?\n","glossary":"Only if the patient suffers from a serious well-defined physical disease or health threat (i.e. rated in the WELL-DEFINED section) :\n\nSevere health worrying is a normal reaction when a severe disease such as cancer is suspected. The reaction has similar characteristics as other stress reactions to life events and is transient and disappears when the suspected disease is excluded or treated. The preoccupation is not excessive or     disproportionate in the light of the condition that is suspected, and usually patients do not panic but cope with their fear. In this case, is rated 0.\nHowever, such a real threat to health may trigger the onset of severe worries or  health anxiety. The patient is usually aware that the worries and preoccupations are unfounded or disproportionate if asked in a considerate way, despite it may be difficult for the patient to realise this during      an attack of overwhelming health anxiety.\n"},{"key":"2.101","title":"Preoccupation with somatic symptoms and worry about physical health","description":"- Are you afraid that something serious is wrong with you?\n- Have you seen a doctor because of it? (within the past year)\n","input":"integer","options":{"0":"No particular preoccupation, or condition not present","2":"Mild to moderate preoccupation","3":"Excessive preoccupation with visits to the doctor, examinations, continuous self-medication or pronounced difficulties in daily life.","8":"Uncertain","9":"NK"},"validate":["0","2","3","8","9"],"help":"Rate on the basis of degree of preoccupation, illness conviction or distress, frequency of consultations and examinations, degree of symptoms or excessive illness worry.\n","glossary":"A non-delusional preoccupation with fears of harboring a severe physical disease and/or a disproportionate toughs about the seriousness of one's symptoms and disease.\nThe symptom has the characteristics of worrying (see **3.001**) but is also distinguished:\n\n(I)\tBy an intense preoccupation with apparently normal sensations or physical signs or appearances.\nIf a medical condition is present the preoccupation is clearly excessive or disproportionate.\n\n**Differentiation from other symptoms:**\n\nModerate to severe social disablement often accompanies the symptom.\n\nIf there is true conviction of the presence of a nonexistent disease, rate at item **2.109** (repeated at **19.028** and, if in context of depressed mood, at **19.027**, and **19.028**).  Somatic hallucinations and delusional elaboration are rated at **17.028** and **17.029**.\n\nPhobias of contracting disease (**4.044**), or of medical situations (**4.043**), should be distinguished if they lack the two characteristics specified above.\n\nObsessional preoccupation with the possibility of harm from contamination or infection (**5.005**), must have the characteristic resistance against subjective compulsion.\n\nThe differentiation from phobias and obsessions can be difficult.  If criteria for more than one symptom are satisfied, each should be rated on its merits.  One does not exclude the others.\n"},{"key":"2.102","title":"Obsessive ruminating about illness","description":"- If you think about having a disease or being seriously ill, do you find it difficult to get it off your mind again?\n- Are you thinking about it constantly or are you winding yourself up?\n","input":"integer","options":{"0":"No particular preoccupation, or condition not present","1":"Mild to moderate preoccupation","2":"Severe preoccupation that considerably affects everyday life","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"The patient has thoughts or ideas about suffering from a disease that they can not, or only with great difficulty, stop. All thoughts are centred on a suspected disease, and the patient finds more and more \"evidence\" that he/she suffers from an often severe disease. The growing anxiety spiral       may ultimately make the patient seek medical attention. Rumination seems quite specific for health anxiety in the sense that other functional disorders that may present with illness worries do not display this symptom. But ruminations may also be present in (other) mental disorders like            anxiety disorders and depression.\n"},{"key":"2.103","title":"Time spent on illness worry and symptoms","description":"Do you spend much time or energy on your symptoms or disease, or do you worry about it or worry about being ill?\n","input":"integer","options":{"0":"No particular preoccupation, or condition not present","1":"Spends less than an hr. a day thinking about the disturbing condition/symptoms","2":"Spends more than an hr. a day thinking about the disturbing condition/symptoms","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"How much time and energy the person devotes focusing on bothersome symptoms and their consequences. Typically associated with frequent medical visits\n\n(DSM-V crit B3  + ICD-11 hrs. spent)\n"},{"key":"2.104","title":"Bodily preoccupation","description":"Are you generally very attentive of how your body is functioning and what is happening inside of it?\n\n- What have you noticed?\n- Do you sometimes think that the sensations you have in your body might be unnatural or even dangerous?\n- Does a bruise or an irritation of the skin make you worry that something serious might be wrong?\n- Do you often listen to your pulse?\n","input":"integer","options":{"0":"No particular preoccupation or condition not present","1":"Mild preoccupation, but not radically interfering with everyday life","2":"Excessive preoccupation involving severe daily troubles or numerous consultations or self-medication","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"This item is a rating of the patient’s awareness of natural or benign physical sensations and physiological reactions in the body as well as a rating of how bothered the patient is by even minor problems which may be  misinterpreted and make the patient develop the idea that it is something unnatural or abnormal that may be a sign of a pathological condition. The patient may have autonomic hypersensitivity hearing his/her own pulse or being aware of other natural physical phenomena of which others are rarely conscious.  For example, if getting bruises or irritated skin, he/she will be worried\n"},{"key":"2.105","title":"Preoccupation with medical information, health and disease","description":"- Are you generally very preoccupied with health issues e.g. in the media or on the internet?\n- Are you very interested in that?\n","input":"integer","options":{"0":"No particular preoccupation, or condition not present","1":"Mild preoccupation, but not radically interfering with everyday life","2":"Excessive preoccupation involving severe daily troubles or numerous consultations or self-medication","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"The patient is hig\n"},{"key":"1.001","title":"Item title","description":"Item description\n","input":"integer","validate":["0-999"],"options":{"1":"Option one","2":"Option two"}},{"key":"2.106","title":"Suggestibility and autosuggestibility","description":"If you read or hear about a disease in the media,\n\n- Do you become afraid of having this disease?\n- Do family members’ diseases make you afraid of having the same disease?*\n- Do you avoid reading about health issues to prevent getting afraid of having a disease\n- If you think about a disease, do you become afraid of having it?\n","input":"integer","options":{"0":"No particular preoccupation, or condition not present","1":"Mild to moderate preoccupation or somewhat affectable","2":"Mild affectability and excessive preoccupation resulting in frequently induced symptoms or considerable ruminations or frequent consultations","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"The patient responds with alarm to the slightest hint of illness. Hearing or reading about a disease, he/she is easily alarmed and inclined to fear having that disease. Likewise, if someone in the family, among friends, acquaintances or work colleagues falls ill, the patient may fear having         this disease.\n"},{"key":"2.107","title":"Fear of being infected or contaminated","description":"Are you afraid of being infected or catching a disease from others by being with someone who is ill or by touching dirty things, e.g. toilet seats?\n","input":"integer","options":{"0":"No particular preoccupation, or condition not present","1":"Mild to moderate preoccupation","2":"Severe preoccupation, frequently induced symptoms with considerable ruminations or frequent consultations","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"The patient’s fear of being infected or contaminated if he/she has been with an ill person or if the patient touches dirty things or things that could be contaminated such as a toilet seat. The fear causes significant distress and / or makes the patient consult a doctor to make sure that nothing     is wrong.\nThis is usually different from phobias and obsessions where the patient seldom consults a doctor for the dreaded disease, but instead for the distressing thought of it.\n\nThe differentiation from phobias (**4.044** & **4.043**)) and obsessions (**5.005**) can be difficult.  If the criteria for more than one symptom are met, each should be rated on its merits. One does not exclude others. See also the introduction to HA section.\n"},{"key":"2.108","title":"Fear of medication and compliance","description":"Are you generally comfortable about taking medication or are you worried about the possible side effects it might have?\n\nDo you take all the medication that the doctor prescribes, or do you sometimes give up taking it or skip a dosage because of fear of the medication?\n","input":"integer","options":{"0":"Normal degree of security/insecurity","1":"Some fear of medication or a certain degree of inappropriate administering of medication","2":"Extreme degree of insecurity and/or no compliance","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"Patients with Health anxiety are often afraid of taking medication contrary to patients with other functional disorders. It is the fear of medication that should be rated here and not the patients’ complaints about medication.\n"},{"key":"2.109","title":"Rejection of the doctor’s reassurance","description":"- Are you convinced that you have a physical disease?\n- Do you feel you need to have further examinations?\n- Has the doctors’ reassurance (previously) convinced you that you do not have a physical disease?\n- Have you told the doctor that you are not convinced? What did he say?\n- Were you reassured when the doctor said there was no reason to worry?\n","input":"integer","options":{"0":"Accepts reassurance","1":"Partly, but unable to maintain reassurance at one or more occasions","2":"Can only briefly maintain reassurance","3":"Continuously not accepting the doctor’s reassurances or explanations","4":"Delusional","8":"Uncertain","9":"NK"},"validate":["0-4","8","9"],"help":"The pt. expresses more or less pronounced degree of belief that s/he has a serious diseases or a bothering deformity in spite of the doctor’s reassurance that nothing is wrong.\n\nDo not mix up with fear of getting a disease <4.044>.\n\n- Dysmorphophobia is also rated at <16.011>.\n- Hypochondriacal delusions (unyielding conviction of having a serious disease) are rated in <19.027> and <19.028>. If these are part of another psychotic disorder, <19.027> and <19.028> are rated instead.\n","glossary":"The patient may seek reassurance by consulting a doctor but have difficulties in believing the doctor when told that there is nothing to worry about and when reassured, the worrying may return rapidly .\nWhen health anxiety or hypochondriacal preoccupation is most severe, it takes the form of refusal of medical reassurance, with a belief that disease is present even when no abnormality is found in repeated examinations.  Respondents may believe that a disease\n accounts for the symptoms and are        not satisfied with the way that medical experts have handled the case or with the conclusions and explanations offered. The patient  may contact one doctor (or other health care professionals) after another and accept many treatments,  but reject assurance that there is no adequate physical         cause for the symptoms or presumed deformity. The pt. might accept reassurance for short periods following or during medical investigations or interventions.\n\n\n**Differentiation from other symptoms:**\n\nDifferentiation from phobias and obsessions should not be difficult. Hypochondriacal delusions are rated at **19.028** or at **19.027** if in context of depression. If it is difficult to be sure of the presence of delusional conviction, rate as item **2.101**.\n"},{"key":"2.110","title":"Catastrophizing","description":"Do you expect serious consequences (i.e. serious disability, not being able to return to work, not being able to take care of your children, never being the same again) when you have symptoms?\n","scale":"1a","help":"**See also section 5 (Gabriel)**\n","glossary":"The patient is inclined to always  expect or fear serious consequences of symptoms and ailment, i.e. serious disability, not being able to return to work, not being able to take care of children, never being the same again and to choose the worst possible explanation        and misinterpret trivial illness or symptoms as serious disease or a health threat such as cancer or resulting in severe disability.\n"},{"key":"2.111","title":"Health anxiety by proxy","description":"Within the past year:\n\n- Have you often been worried that your child, your partner or others around you are sick?\n- Have you taken your child to the doctors because of it?\n- Have you pressured your partner to see the doctor because of it?\n- Do you check e.g. if your children have bruises or swollen lymph nodes or do you \"scan\" your children's bodies for changes e.g. when they take a bath?\n","input":"integer","options":{"0":"No particular preoccupation or the disorder is not present","1":"Mild to moderate preoccupation","2":"Severe preoccupation and takes child to the doctor, to examinations, self-medicates the child or marked distress in everyday life","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"The patient is typically worried about his/her child's health and is afraid that the child has a disease. It may also be another close relative such as spouse.\n"},{"key":"2.112","title":"Treatment-seeking behaviour in relation to health anxiety or symptoms past 2 years","description":"- How many doctors have you seen due to your illness/symptoms during the last two years?\n- Why have you seen so many different doctors?\n- Have you felt it was necessary to see other doctors or experts to get a second opinion or a different treatment (just to be on the safe side)?\n","input":"integer","options":{"0":"The patient has not unsolicited seen other doctors / treatment providers due to functional illness/health anxiety","1":"The patient has only once seen another doctor / treatment providers to functional illness/health anxiety","2":"The patient has actively consulted 2-3 different doctors / treatment providers due to functional illness/health anxiety","3":"The patient has actively consulted 4 or more different doctors / treatment providers due to functional illness/health anxiety","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"],"glossary":"The number of different doctors the patient has seen on the patient’s own initiative for medically unexplained physical symptoms during the past two years are rated. Change of doctor due to change of address, the doctor’s vacancy or referrals that are not requested by the patient are not            counted.\n"},{"key":"2.113","title":"Avoidance related to health anxiety or symptoms","description":"- Do you avoid things or situations that may make you worry about your health, e.g. reading or hearing about illness on TV, the internet or other places?\n- Do you get very nervous when you are going to see a doctor?\n- Do you avoid seeing a doctor or do you stay away from hospital admittance due to anxiety?\n","input":"integer","options":{"0":"No maladaptive avoidance due to health anxiety","1":"Mild to moderate maladaptive avoidance due to health anxiety","2":"Severe maladaptive avoidance due to health anxiety","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"Patients may for instance avoid visiting family members or friends who are hospitalised or ill, avoid to read or watch TV programs about medical issues because it is too anxiety-provoking and may trigger the rumination.\n"},{"key":"2.114","title":"Duration of bodily preoccupation and illness worry ([2.100]-[2.113])","description":"In months\n","input":"integer","options":{"0":"Absent","800":"800 mths or more","888":"NK","999":"NA"},"validate":["0-800","888","999"]},{"key":"2.115","title":"Interference with activities and distress due to health anxiety","description":"You have mentioned **[summarize symptoms]** during **[specify the period]**. How much have the mentioned symptoms interfered with your everyday activities?\n","input":"integer","options":{"0":"No health anxiety","1":"Only little interference","3":"Moderate or intermittent interference","4":"Severe to incapacitating interference","8":"Uncertain","9":"NK"},"validate":["0-4","8","9"],"glossary":"Whether the worrying and anxiety cause clinically significant distress or impairment in social, occupational or other important areas of functioning. For rating of functioning, you may use the concept of WHO’s disability assessment with its 5 dimensions. But it is important that also emotional      distress is rated here, i.e. a person may go to work but is tormented by thoughts and emotions in connection with his/hers symptoms.\n"},{"key":"2.116","title":"Dysmorphophobia","description":"Do you fear that there is a change or a deformity of your appearance?\n","input":"integer","options":{"0":"No dysmorphophobia","1":"Preoccupation with a presumed deformity or change of the appearance","8":"Uncertain","9":"NK"},"validate":["0","1","8","9"],"help":"Cf. dysmorphophobia, 16.011\n","glossary":"The patient is preoccupied with his/her appearance and deformity.\n"},{"key":"2.episode15.section","title":"Syndrome- or symptom-based diagnoses according to the patients","description":"Rating is based on the answers in **[2.010]-[2.090]** or other parts of the interview or if those are inadequate, ask the patient directly.\n\n*Does the patient believe, ort has the patient been told, that he or she suffers from a syndrome- or symptom-based diagnosis?*\n","glossary":"2.117-2.123:\n\nRate if the patient has ‘organised’ his/her symptoms into a “diagnostic” label or syndrome label. The label may not be named correctly from a medical point of view but includes labels such as heart disease, allergy etc. The importance is the rigidity, how pronounced the patient’s belief  is,        and whether there is any indication of doubt. The patient may have organised her/his symptoms in more than one diagnosis/condition simultaneously, but still qualifies for a rating of 1 or 2.\n"},{"key":"2.117","title":"Fibromyalgia","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.118","title":"CFS (Chronic Fatigue Syndrome)","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.119","title":"IBS (Irritable Bowel Syndrome)","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.120","title":"Pain syndrome (other than fibromyalgia)","glossary":"The predominant complaint is a persistent and distressing pain that cannot be explained by a physical disorder, occurring in association with emotional conflict or psychosocial problems.  The 'stress' caused by these emotional or psychosocial problems should be sufficient to allow the               conclusion that they are the main causative factors.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.121","title":"Chronic whiplash (WAD)","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.122","title":"Multiple Chemical Sensitivity (MCS)","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.123","title":"Other","description":"Specify_________________________\n","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.episode16.section","title":"Events associated with onset of symptoms or illness","description":"(if not brought to light during the first part of the interview, the patient is asked directly)\n- *How did your illness start (or the symptoms)?*\n- *Did other things happen in your life simultaneously?*\n- *Was there anything that triggered your illness?*\n","input":"integer","options":{"0":"No particular events","1":"Yes, but not 2","2":"Yes, clear connection / association","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.124","title":"Physical trauma (e.g. whiplash, fracture, head trauma)","input":"integer","options":{"0":"No particular trauma","1":"Yes, but not 2","2":"Yes, clear connection / association","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.125","title":"Physical disease (e.g. infectious disease)","input":"integer","options":{"0":"No particular disease","1":"Yes, but not 2","2":"Yes, clear connection / association","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.126","title":"Emotional trauma, conflicts or strain","input":"integer","options":{"0":"No particular events","1":"Yes, but not 2","2":"Yes, clear connection / association","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.127","title":"Significant social event (e.g. divorce, dismissal, bereavement)","input":"integer","options":{"0":"No particular events","1":"Yes, but not 2","2":"Yes, clear connection / association","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.128","title":"Significant work-related stress or stress-related to your personal life","description":"*Stressful, busy everyday life but not **[1.127]***\n","input":"integer","options":{"0":"No particular stress","1":"Yes, but not 2","2":"Yes, clear connection / association","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"Stressful, busy everyday life but not 1.127\n"},{"key":"2.129","title":"Exposure to strong odor or chemicals","input":"integer","options":{"0":"No particular exposure","1":"Yes, but not 2","2":"Yes, clear connection / association","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.episode17.section","title":"Symptom- or illness attributions (prompt card if needed)"},{"key":"2.130","title":"Symptom- or illness attribution","description":"- *What do you think is causing your illness? (or symptoms)*\n- *Do you think that stress, strain or your life situation could be the cause?*\n- *Are you firmly convinced or are you in doubt?*\n- *Why do you think so?*\n","input":"integer","options":{"0":"Unsure, has no theories on the cause, does not necessarily exclude strain and stress","1":"Has thought about the possibility, does not necessarily exclude strain and stress","2":"Convinced about 1 or more causalities (excluding psychosocial and stress)","3":"Has an elaborated theory and a rigid perception of causality (excluding psychosocial and stress)","4":"Psychotic delusion","5":"Well-defined somatic disease","6":"Unsure rating","8":"Uncertain","9":"NK"},"validate":["0-6","8","9"]},{"key":"2.131","title":"Identification of relieving or aggravating factors","description":"*Have you noticed if anything relieves or aggravates your illness?*\n\n*Can you do anything yourself to get better?*\n\n*Can the patient identify factors that alleviate the discomfort or factors that aggravate the illness, or are these numerous and diffuse?*\n","input":"integer","options":{"0":"Well-defined and few","1":"Some difficulty indicating the symptoms","2":"Great difficulty or numerous and diffuse","8":"Unsure","9":"NA"},"validate":["0-2","8","9"],"glossary":"Can the patient identify factors that relieve the inconveniences or factors that aggravate the symptoms or the illness, or are these multiple and diffuse?"},{"key":"2.132","title":"Age of onset of present functional disorder","description":"(If the patient says “always\", and cannot clafiry, rate 1)\n","input":"integer","options":{"98":"98 years or older","99":"N/A or NK"},"validate":["0-99"]},{"key":"2.133","title":"Age of onset of first functional disorder","description":"(If the patient says “always\", and cannot clafiry, rate 1)\n","input":"integer","options":{"98":"98 years or older","99":"N/A or NK"},"validate":["0-99"]},{"key":"2.episode19.section","title":"Differential diagnoses"},{"key":"2.134","title":"Relation between functional symptoms and well-defined physical disease","input":"integer","options":{"0":"Absent or symptoms of only one type","1":"Functional symptoms most dominating in the clinical picture","2":"Functional symptoms and physical disease are equally dominating","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.135","title":"Functional disorder or panic attacks, primary","input":"integer","options":{"0":"Absent or symptoms of only one type","1":"Bodily distress more dominating or started first","2":"Bodily distress and panic attacks co-occur (comorbidity)","3":"Symptoms of anxiety more dominating or started first","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"]},{"key":"2.136","title":"Functional disorder or depression, primary (Cf 6.023)","input":"integer","options":{"0":"Absent or symptoms of only one type","1":"Bodily distress more dominating or started first","2":"Bodily distress and depression co-occur (comorbidity)","3":"Symptoms of depression more dominating or started first","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"]},{"key":"2.137","title":"Association between bodily distress and health anxiety","input":"integer","options":{"0":"Absent or symptoms of only one type","1":"Bodily distress more dominating or started first","2":"Bodily distress and health anxiety co-occur (comorbidity)","3":"Health anxiety symptoms more dominating or started first","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"]},{"key":"2.138","title":"Functional disorder or other mental disease, primary","input":"integer","options":{"0":"Absent or symptoms of only one type","1":"Bodily distress more dominating or started first","2":"Bodily distress and other mental disorder co-occur (comorbidity)","3":"Symptoms from other mental disorder more dominating or started first","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"]},{"key":"2.139","title":"Date of onset in PS or PE","input":"date"},{"key":"2.140","title":"Duration in PS or PE in days","input":"integer","validate":["0-999"],"periods":"false"},{"key":"2.141","title":"Date of onset in RE or LB","input":"date","date_granularity":"month_year"},{"key":"2.142","title":"Duration in RE or LB in weeks","input":"integer","validate":["0-999"],"periods":"false"},{"key":"2.episode20.section","title":"Observed behaviour"},{"key":"2.143","title":"Ego-dystonic or ego-syntonic","description":"Ego-dystonic: The patient tends, at least partially, to describe symptoms or illness worry as being unfamiliar, unwelcome, tiresome or “unlike my nature”.\n\nEgo-syntonic:  The patient feels the symptoms or the illness worry as an integrated part of himself / herself and not as a cognitive inclination, even if the patient may be in doubt whether he or she has a physical illness.\n","input":"integer","options":{"0":"No functional disorder","1":"The functional disorder is primarily felt as ego-dystonic","2":"The functional  disorder is a mix of ego-dystonic and ego-syntonic","3":"The functional disorder is primarily felt as ego-syntonic","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"]},{"key":"2.144","title":"Emotional discrepancy (“belle indifference”)","description":"The patient’s presentation of his or her condition shows inadequate affect in relation to the severity of symptoms and the severity of illness the patient complains of.\n\nFor instance, the patient may smile with a curious resignation in spite of severe pain or impairment, and the patient may seem emotionally unaffected by his/her condition.\n","input":"integer","options":{"0":"No discrepancy","1":"Present to insignificant or mild extent","2":"Definitely present and together with functional symptoms","6":"Definitely present, but caused by a physical disease, e.g. multiple sclerosis","8":"Uncertain","9":"NK"},"validate":["0","1","2","6","8","9"]},{"key":"2.145","title":"Discrepancy between subjective complaints and observed behaviour","description":"There is a discrepancy between the patient’s adroitness and facial expressions during the interview and his/her symptoms description.\n\nFor instance, the patient moves and sits completely freely despite complaining of severe back pain or gives detailed information despite complaints of severe memory impairment.\n","input":"integer","options":{"0":"No discrepancy","1":"Present to insignificant or mild extent","2":"Definitely present and to a pronounced extent","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.146","title":"Psycho-social communication style","description":"The patient is more focused on communicating the level of disability, discomfort and lifestyle limitations than on the impact on the health.\n","input":"integer","options":{"0":"No psychosocial communication","1":"Present to insignificant or mild extent","2":"Pronounced degree of psychosocial communication form","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.147","title":"Lack of chronology in symptom- and medical history","description":"The interview is characterized by the patient having difficulty with the chronology of symptoms, diseases, examinations, hospitalizations etc.\n\nFor instance, it can be hard to find out if the pt. talks about symptoms that have been present at an earlier stage, or if the pt. is currently bothered by the symptoms, or if the pt. talks about an examination made recently or a long time ago.\n\nMust be evaluated in the light of what can be expected of any person having a long-standing and complicated course of disease.\n","input":"integer","options":{"0":"Absent","1":"To a mild extent","2":"Pronounced","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.148","title":"Vague, diffuse symptom description and anamnesis","description":"Symptoms are described vaguely, they are diffuse and maybe atypical/uncharacteristic and alternating throughout the interview.\n\nThe patient has difficulty answering questions in greater detail and specifying the complaints, e.g. localisation, intensity, nature (e.g. if a pain is burning or pricking). In some cases the patient even gets irritated at the interviewer, who maintains the questions on the symptoms                 localisation, intensity and periodicity etc.\n","input":"integer","options":{"0":"Absent","1":"To a mild extent","2":"Pronounced","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.149","title":"Vague, diffuse description of previous treatments","description":"The patient has difficulty describing which treatments he or she has undergone, and the effect is described vaguely or without certainty.\n\nThe pt. may mix up diagnostic procedures and treatment. Is critical towards earlier treatment and often indicates that the treatments have caused aggravation of the condition.\n","input":"integer","options":{"0":"Absent","1":"To a mild extent","2":"Pronounced","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.150","title":"Affective description","description":"Symptoms, illness, examinations, hospitalisations etc. are vividly described with a tendency to dramatise and exaggerate.\n","input":"integer","options":{"0":"Absent","1":"To a mild extent","2":"Pronounced","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.151","title":"Inconsistency of information","description":"The patient gives different and conflicting information throughout the interview, or there is a discrepancy between the information gathered from other sources (medical records, referring doctor, social services, family etc.) and the patient’s own information during the interview.\n","input":"integer","options":{"0":"No consistency","1":"Some inconsistency","2":"Pronounced inconsistency","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.152","title":"Previous course of disease and treatments (according to medical records etc.)","description":"Rating based on going through the medical records and information from doctors etc.\n","input":"integer","options":{"0":"No or only contact with own GP and not 1","1":"Frequent contacts primarily with own GP and without certain physical explanation","2":"Repeated contacts with hospitals and specialists without certain physical explanation","3":"Numerous and frequent contacts during several years with hospitals, specialists etc. without certain physical explanation","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"]},{"key":"2.153","title":"Motorically passive","description":"The patient stays still and moves less than normally\n"},{"key":"2.154","title":"Suspect malingering, factitious disorder or Münchhausen's syndrome (according to interview, medical records etc.)","description":"Factitious disorder is rated in checklist **2.065**\n","input":"integer","options":{"0":"No suspicion","1":"Malingering","2":"Factitious disorder","3":"Münchhausen's syndrome","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"],"glossary":"Intentional production or feigning of physical or psychological symptoms, sometimes self-inflicted injuries, medical disease or intoxication (e.g. insulin injection), or may manipulate with signs of disease (e.g. temperature, blood in urine) without clear external motivation (as opposed to              malingering) and where the truth is hidden from doctors and others.\n\nIn Münchhausen's syndrome, apart from having factious disorder, the patient also has pseudologia fantastica meaning that the pt. tells often grandiose stories about who he/she is and has achieved (being wealthy, being a duke, a journalist, a speedway driver etc.). The pt. may dramatise - for instance get admitted to hospital under dramatic circumstances, e.g. become ill on a train, in a busy street, on the beach in the summer. They may also defraud in other aspects of life but not not so much for financial gain but more like a role play. The patients are fully aware that they produce or provoke their symptoms or disease themselves, despite they do not know what is driving them to do it. This is contrary to patients with functional disorders, who do not produce their symptoms themselves.\nCheck **[27.068]**.\nFactitious mental illness; (included where?) Intentional production or feigning of mental illness injuries without clear external motivation (as in simulation) and where the truth is hidden from doctors. Check **27.068**."}]}
 
 /***/ }),
-/* 352 */
+/* 348 */
 /***/ (function(module, exports) {
 
 module.exports = {"1":{"options":{"0":"This is a positive rating of absence. It does not mean 'not known' or 'uncertain whether present or not'. It can only be used if sufficient information is available to establish its accuracy.","1":"This is a positive rating of presence, but presence of such a minor degree that it is not appropriate for use in classification. Like (0) it does not mean 'not known' or 'uncertain'. Ratings of (1) count in scores (but not for diagnostic purposes), which in turn influence the level allocated on the Index of Definition.","2":"This rating means that the item is present at a level sufficient to use in classification. For this purpose it is equivalent to 3, but it contributes less to scores. In general, it is used when symptoms are of moderate severity during most of the period being assessed.","3":"A rating of (3) is similar to (2) except that the symptom is present in severe form for most of the period under review.","5":"The presence of psychotic symptoms can make the rating of Part One items very difficult, bevause of problems in interpreting the meaning of what R says, or because the symptoms (for example, anxiety or a phobia about leaving one's house) may themselves be based in psychotic experiences. The rating should only be made when there is genuine doubt about the nature of the symptom or the balance is in favor of the symptom being psychotic.","8":"If, after an adequate examination, the interviewer is still not sure whether a symptom is present (rated 1-3) or absent (rated 0), the rating is (8). This is the only circumstance in which (8) is used. It should not be used to indicate a mild form of the symptom.","9":"This rating is only used if the information needed to rate an item is incomplete in some respect, for example because of language or cognitive disorder, or lack of cooperation, or because the interviewer forgot to probe sufficiently deeply. It is distinguished from (8) because the examination was not, for whatever reason, carried out adequately. In the SCAN text, an instruction to 'use Scale I' simply means that it is not necessary to point out any individual rating characteristics for that item. Any point on Scale I can be selected, according to clinical judgement."},"input":"integer","validate":["0-3","5","8","9"]},"2":{"options":{"0":"Symptom did not occur during PERIOD.","1":"Symptom definitely occurred during the period but was probably uncommon or transitory.","2":"Symptom was definitely present, on multiple occasions or for part of the time, during the period.","3":"Symptom was present more or less continuously throughout the period.","5":"Language difficulty, rated as present in Section 15, makes replies difficult to interpret.","8":"Rater is unsure whether the phenomenon is present or absent, even after adequate examination","9":"Not appropriate to make a rating because examination incomplete, e.g. because of refusal, omission, etc."},"input":"integer","validate":["0-3","5","8","9"]},"3":{"description":"NB: Consider behavioral items for cognitive impairment also.\n\nMost items in Sections 22-24 are rated on a 3-point scale (0-2) on the basis of severity and frequency during the past month. Information from records for the period should be used as well.\n\nThe examination should be supplemented by taking into account any other observations of relevance, e.g. is case records or information from professionals or relatives. Severe behavioral abnormalities may not be observed at examination because of the short time sample, but when they are present skilled direct observations are of great importance. The items listed are also worth rating because of their possible juxtaposition with other symptoms. The time period rated is the month before examination.\n\nMany behavioral items are also included in Item Groups and can be rated in the Checklist.\n","options":{"0":"Behavior not present during past month.","1":"Unequivocally present during past month, moderate severity only. Use all information available.","2":"Present in severe form during past month or at examination.","8":"Unsure whether present or not after adequate examination.","9":"Not appropriate to make a rating because examination or records are incomplete, or behavior is due to a physical factor."},"input":"integer","validate":["0-2","8","9"]},"4":{"options":{"0":"Absent. Below IG threshold.","1":"Subject to clinical discretion, at least two items should definitely pass PSE threshold level, PLUS at least moderate disability (interference with everyday activities) and/or moderate or severe distress resulting from the symptoms.","2":"As 1, but with severe degree of distress and/or disability. Usually at least three items pass PSE threshold but this is at the interviewer's clinical discretion.","8":"Uncertain whether IG is present (usually because of insufficient information)."},"input":"integer","validate":["0-2","8"]},"1a":{"options":{"0":"Symptoms absent after adequate Elaboration","1":"Symptom has been present in the period being assessed, but only mildly","2":"Symptom is definitely moderately present for most of the period or pronouncedly present for less than half of the period","3":"Symptom is pronouncedly present for more than half of the period","5":"Rating difficult due to psychotic disorder","6":"Symptom is consistent with a well-defined physical disease","8":"Symptom is present, but uncertain if it is functional","9":"Not known, cannot be rated"},"input":"integer","validate":["0-3","5","6","8","9"]},"Att.":{"description":"Use the attributional rating scale to rate nature of influence on symptom presence or severity at the item level. The rating of 0 is the only ’negative’ rating, and can be used if there is clear evidence that treatment has resulted in a reduced rating. Ratings 1 - 8 represent attributions of etiologic effect, increasing the likelihood of an item being rated or its severity being increased. These attributions must only be made for symptoms/items that have positively rated, and should be entered into the dashed boxes below the standard episode rating boxes. The rating of 9 is reserved for indicating a trait characteristic. If no effect or trait is judged to be present leave the dashed box blank.\n","options":{"0":"Item rating reduced by effects of treatment","1":"Alcohol","2":"Other psychoactive substance","3":"Effects of somatic psychiatric treatments (electroconvulsive therapy, antidepressant medication, neuroleptics, etc)","4":"Known primary intracranial process (Alzheimer’s disease, Huntington’s disease, Parkinson’s disease, tumor, stroke, etc.)","5":"Non-psychiatric medication, toxins","6":"Other medication condition 1 (specify at Section 13 and/or Section 20)","7":"Other medication condition 2 (specify at Section 13 and/or Section 20)","8":"Other medication condition 3 (specify at Section 13 and/or Section 20)","9":"Trait. Essentially lifelong characteristic of R."},"input":"integer","validate":["0-9"]}}
 
 /***/ }),
-/* 353 */
+/* 349 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57848,7 +56627,7 @@ var _reactRedux = __webpack_require__(22);
 
 var _actions = __webpack_require__(33);
 
-var _ItemCard = __webpack_require__(354);
+var _ItemCard = __webpack_require__(350);
 
 var _helpers = __webpack_require__(100);
 
@@ -58045,7 +56824,7 @@ var manualInputChange = function manualInputChange(value, valid) {
 };
 
 /***/ }),
-/* 354 */
+/* 350 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58132,17 +56911,17 @@ var ItemCard = exports.ItemCard = function ItemCard(_ref2) {
 };
 
 /***/ }),
-/* 355 */
+/* 351 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = __webpack_require__(356);
+module.exports = __webpack_require__(352);
 
 
 /***/ }),
-/* 356 */
+/* 352 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58153,10 +56932,10 @@ module.exports = __webpack_require__(356);
  */
 
 var assign       = __webpack_require__(13).assign;
-var Renderer     = __webpack_require__(357);
-var ParserCore   = __webpack_require__(359);
-var ParserBlock  = __webpack_require__(370);
-var ParserInline = __webpack_require__(385);
+var Renderer     = __webpack_require__(353);
+var ParserCore   = __webpack_require__(355);
+var ParserBlock  = __webpack_require__(366);
+var ParserInline = __webpack_require__(381);
 var Ruler        = __webpack_require__(55);
 
 /**
@@ -58164,9 +56943,9 @@ var Ruler        = __webpack_require__(55);
  */
 
 var config = {
-  'default':    __webpack_require__(404),
-  'full':       __webpack_require__(405),
-  'commonmark': __webpack_require__(406)
+  'default':    __webpack_require__(400),
+  'full':       __webpack_require__(401),
+  'commonmark': __webpack_require__(402)
 };
 
 /**
@@ -58344,7 +57123,7 @@ module.exports.utils = __webpack_require__(13);
 
 
 /***/ }),
-/* 357 */
+/* 353 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58355,7 +57134,7 @@ module.exports.utils = __webpack_require__(13);
  */
 
 var utils = __webpack_require__(13);
-var rules = __webpack_require__(358);
+var rules = __webpack_require__(354);
 
 /**
  * Expose `Renderer`
@@ -58426,7 +57205,7 @@ Renderer.prototype.render = function (tokens, options, env) {
 
 
 /***/ }),
-/* 358 */
+/* 354 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58862,7 +57641,7 @@ module.exports = rules;
 
 
 /***/ }),
-/* 359 */
+/* 355 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58879,15 +57658,15 @@ var Ruler = __webpack_require__(55);
  */
 
 var _rules = [
-  [ 'block',          __webpack_require__(360)          ],
-  [ 'abbr',           __webpack_require__(361)           ],
-  [ 'references',     __webpack_require__(362)     ],
-  [ 'inline',         __webpack_require__(363)         ],
-  [ 'footnote_tail',  __webpack_require__(364)  ],
-  [ 'abbr2',          __webpack_require__(365)          ],
-  [ 'replacements',   __webpack_require__(366)   ],
-  [ 'smartquotes',    __webpack_require__(367)    ],
-  [ 'linkify',        __webpack_require__(368)        ]
+  [ 'block',          __webpack_require__(356)          ],
+  [ 'abbr',           __webpack_require__(357)           ],
+  [ 'references',     __webpack_require__(358)     ],
+  [ 'inline',         __webpack_require__(359)         ],
+  [ 'footnote_tail',  __webpack_require__(360)  ],
+  [ 'abbr2',          __webpack_require__(361)          ],
+  [ 'replacements',   __webpack_require__(362)   ],
+  [ 'smartquotes',    __webpack_require__(363)    ],
+  [ 'linkify',        __webpack_require__(364)        ]
 ];
 
 /**
@@ -58927,7 +57706,7 @@ module.exports = Core;
 
 
 /***/ }),
-/* 360 */
+/* 356 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58951,7 +57730,7 @@ module.exports = function block(state) {
 
 
 /***/ }),
-/* 361 */
+/* 357 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59028,7 +57807,7 @@ module.exports = function abbr(state) {
 
 
 /***/ }),
-/* 362 */
+/* 358 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59133,7 +57912,7 @@ module.exports = function references(state) {
 
 
 /***/ }),
-/* 363 */
+/* 359 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59153,7 +57932,7 @@ module.exports = function inline(state) {
 
 
 /***/ }),
-/* 364 */
+/* 360 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59255,7 +58034,7 @@ module.exports = function footnote_block(state) {
 
 
 /***/ }),
-/* 365 */
+/* 361 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59350,7 +58129,7 @@ module.exports = function abbr2(state) {
 
 
 /***/ }),
-/* 366 */
+/* 362 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59421,7 +58200,7 @@ module.exports = function replace(state) {
 
 
 /***/ }),
-/* 367 */
+/* 363 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59541,7 +58320,7 @@ module.exports = function smartquotes(state) {
 
 
 /***/ }),
-/* 368 */
+/* 364 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59552,7 +58331,7 @@ module.exports = function smartquotes(state) {
 
 
 
-var Autolinker = __webpack_require__(369);
+var Autolinker = __webpack_require__(365);
 
 
 var LINK_SCAN_RE = /www|@|\:\/\//;
@@ -59709,7 +58488,7 @@ module.exports = function linkify(state) {
 
 
 /***/ }),
-/* 369 */
+/* 365 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
@@ -62039,7 +60818,7 @@ return Autolinker;
 
 
 /***/ }),
-/* 370 */
+/* 366 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62050,25 +60829,25 @@ return Autolinker;
  */
 
 var Ruler      = __webpack_require__(55);
-var StateBlock = __webpack_require__(371);
+var StateBlock = __webpack_require__(367);
 
 /**
  * Parser rules
  */
 
 var _rules = [
-  [ 'code',       __webpack_require__(372) ],
-  [ 'fences',     __webpack_require__(373),     [ 'paragraph', 'blockquote', 'list' ] ],
-  [ 'blockquote', __webpack_require__(374), [ 'paragraph', 'blockquote', 'list' ] ],
-  [ 'hr',         __webpack_require__(375),         [ 'paragraph', 'blockquote', 'list' ] ],
-  [ 'list',       __webpack_require__(376),       [ 'paragraph', 'blockquote' ] ],
-  [ 'footnote',   __webpack_require__(377),   [ 'paragraph' ] ],
-  [ 'heading',    __webpack_require__(378),    [ 'paragraph', 'blockquote' ] ],
-  [ 'lheading',   __webpack_require__(379) ],
-  [ 'htmlblock',  __webpack_require__(380),  [ 'paragraph', 'blockquote' ] ],
-  [ 'table',      __webpack_require__(382),      [ 'paragraph' ] ],
-  [ 'deflist',    __webpack_require__(383),    [ 'paragraph' ] ],
-  [ 'paragraph',  __webpack_require__(384) ]
+  [ 'code',       __webpack_require__(368) ],
+  [ 'fences',     __webpack_require__(369),     [ 'paragraph', 'blockquote', 'list' ] ],
+  [ 'blockquote', __webpack_require__(370), [ 'paragraph', 'blockquote', 'list' ] ],
+  [ 'hr',         __webpack_require__(371),         [ 'paragraph', 'blockquote', 'list' ] ],
+  [ 'list',       __webpack_require__(372),       [ 'paragraph', 'blockquote' ] ],
+  [ 'footnote',   __webpack_require__(373),   [ 'paragraph' ] ],
+  [ 'heading',    __webpack_require__(374),    [ 'paragraph', 'blockquote' ] ],
+  [ 'lheading',   __webpack_require__(375) ],
+  [ 'htmlblock',  __webpack_require__(376),  [ 'paragraph', 'blockquote' ] ],
+  [ 'table',      __webpack_require__(378),      [ 'paragraph' ] ],
+  [ 'deflist',    __webpack_require__(379),    [ 'paragraph' ] ],
+  [ 'paragraph',  __webpack_require__(380) ]
 ];
 
 /**
@@ -62201,7 +60980,7 @@ module.exports = ParserBlock;
 
 
 /***/ }),
-/* 371 */
+/* 367 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62366,7 +61145,7 @@ module.exports = StateBlock;
 
 
 /***/ }),
-/* 372 */
+/* 368 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62409,7 +61188,7 @@ module.exports = function code(state, startLine, endLine/*, silent*/) {
 
 
 /***/ }),
-/* 373 */
+/* 369 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62507,7 +61286,7 @@ module.exports = function fences(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 374 */
+/* 370 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62647,7 +61426,7 @@ module.exports = function blockquote(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 375 */
+/* 371 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62699,7 +61478,7 @@ module.exports = function hr(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 376 */
+/* 372 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62972,7 +61751,7 @@ module.exports = function list(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 377 */
+/* 373 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63046,7 +61825,7 @@ module.exports = function footnote(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 378 */
+/* 374 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63111,7 +61890,7 @@ module.exports = function heading(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 379 */
+/* 375 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63173,7 +61952,7 @@ module.exports = function lheading(state, startLine, endLine/*, silent*/) {
 
 
 /***/ }),
-/* 380 */
+/* 376 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63182,7 +61961,7 @@ module.exports = function lheading(state, startLine, endLine/*, silent*/) {
 
 
 
-var block_names = __webpack_require__(381);
+var block_names = __webpack_require__(377);
 
 
 var HTML_TAG_OPEN_RE = /^<([a-zA-Z]{1,15})[\s\/>]/;
@@ -63254,7 +62033,7 @@ module.exports = function htmlblock(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 381 */
+/* 377 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63323,7 +62102,7 @@ module.exports = html_blocks;
 
 
 /***/ }),
-/* 382 */
+/* 378 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63468,7 +62247,7 @@ module.exports = function table(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 383 */
+/* 379 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63682,7 +62461,7 @@ module.exports = function deflist(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 384 */
+/* 380 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63748,7 +62527,7 @@ module.exports = function paragraph(state, startLine/*, endLine*/) {
 
 
 /***/ }),
-/* 385 */
+/* 381 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63767,22 +62546,22 @@ var utils       = __webpack_require__(13);
  */
 
 var _rules = [
-  [ 'text',            __webpack_require__(386) ],
-  [ 'newline',         __webpack_require__(387) ],
-  [ 'escape',          __webpack_require__(388) ],
-  [ 'backticks',       __webpack_require__(389) ],
-  [ 'del',             __webpack_require__(390) ],
-  [ 'ins',             __webpack_require__(391) ],
-  [ 'mark',            __webpack_require__(392) ],
-  [ 'emphasis',        __webpack_require__(393) ],
-  [ 'sub',             __webpack_require__(394) ],
-  [ 'sup',             __webpack_require__(395) ],
-  [ 'links',           __webpack_require__(396) ],
-  [ 'footnote_inline', __webpack_require__(397) ],
-  [ 'footnote_ref',    __webpack_require__(398) ],
-  [ 'autolink',        __webpack_require__(399) ],
-  [ 'htmltag',         __webpack_require__(401) ],
-  [ 'entity',          __webpack_require__(403) ]
+  [ 'text',            __webpack_require__(382) ],
+  [ 'newline',         __webpack_require__(383) ],
+  [ 'escape',          __webpack_require__(384) ],
+  [ 'backticks',       __webpack_require__(385) ],
+  [ 'del',             __webpack_require__(386) ],
+  [ 'ins',             __webpack_require__(387) ],
+  [ 'mark',            __webpack_require__(388) ],
+  [ 'emphasis',        __webpack_require__(389) ],
+  [ 'sub',             __webpack_require__(390) ],
+  [ 'sup',             __webpack_require__(391) ],
+  [ 'links',           __webpack_require__(392) ],
+  [ 'footnote_inline', __webpack_require__(393) ],
+  [ 'footnote_ref',    __webpack_require__(394) ],
+  [ 'autolink',        __webpack_require__(395) ],
+  [ 'htmltag',         __webpack_require__(397) ],
+  [ 'entity',          __webpack_require__(399) ]
 ];
 
 /**
@@ -63916,7 +62695,7 @@ module.exports = ParserInline;
 
 
 /***/ }),
-/* 386 */
+/* 382 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63975,7 +62754,7 @@ module.exports = function text(state, silent) {
 
 
 /***/ }),
-/* 387 */
+/* 383 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64036,7 +62815,7 @@ module.exports = function newline(state, silent) {
 
 
 /***/ }),
-/* 388 */
+/* 384 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64092,7 +62871,7 @@ module.exports = function escape(state, silent) {
 
 
 /***/ }),
-/* 389 */
+/* 385 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64145,7 +62924,7 @@ module.exports = function backticks(state, silent) {
 
 
 /***/ }),
-/* 390 */
+/* 386 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64236,7 +63015,7 @@ module.exports = function del(state, silent) {
 
 
 /***/ }),
-/* 391 */
+/* 387 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64327,7 +63106,7 @@ module.exports = function ins(state, silent) {
 
 
 /***/ }),
-/* 392 */
+/* 388 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64418,7 +63197,7 @@ module.exports = function del(state, silent) {
 
 
 /***/ }),
-/* 393 */
+/* 389 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64574,7 +63353,7 @@ module.exports = function emphasis(state, silent) {
 
 
 /***/ }),
-/* 394 */
+/* 390 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64639,7 +63418,7 @@ module.exports = function sub(state, silent) {
 
 
 /***/ }),
-/* 395 */
+/* 391 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64704,7 +63483,7 @@ module.exports = function sup(state, silent) {
 
 
 /***/ }),
-/* 396 */
+/* 392 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64881,7 +63660,7 @@ module.exports = function links(state, silent) {
 
 
 /***/ }),
-/* 397 */
+/* 393 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64941,7 +63720,7 @@ module.exports = function footnote_inline(state, silent) {
 
 
 /***/ }),
-/* 398 */
+/* 394 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65010,7 +63789,7 @@ module.exports = function footnote_ref(state, silent) {
 
 
 /***/ }),
-/* 399 */
+/* 395 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65018,7 +63797,7 @@ module.exports = function footnote_ref(state, silent) {
 
 
 
-var url_schemas   = __webpack_require__(400);
+var url_schemas   = __webpack_require__(396);
 var normalizeLink = __webpack_require__(146);
 
 
@@ -65095,7 +63874,7 @@ module.exports = function autolink(state, silent) {
 
 
 /***/ }),
-/* 400 */
+/* 396 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65274,7 +64053,7 @@ module.exports = [
 
 
 /***/ }),
-/* 401 */
+/* 397 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65283,7 +64062,7 @@ module.exports = [
 
 
 
-var HTML_TAG_RE = __webpack_require__(402).HTML_TAG_RE;
+var HTML_TAG_RE = __webpack_require__(398).HTML_TAG_RE;
 
 
 function isLetter(ch) {
@@ -65330,7 +64109,7 @@ module.exports = function htmltag(state, silent) {
 
 
 /***/ }),
-/* 402 */
+/* 398 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65396,7 +64175,7 @@ module.exports.HTML_TAG_RE = HTML_TAG_RE;
 
 
 /***/ }),
-/* 403 */
+/* 399 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65451,7 +64230,7 @@ module.exports = function entity(state, silent) {
 
 
 /***/ }),
-/* 404 */
+/* 400 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65538,7 +64317,7 @@ module.exports = {
 
 
 /***/ }),
-/* 405 */
+/* 401 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65583,7 +64362,7 @@ module.exports = {
 
 
 /***/ }),
-/* 406 */
+/* 402 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65661,7 +64440,7 @@ module.exports = {
 
 
 /***/ }),
-/* 407 */
+/* 403 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65670,11 +64449,11 @@ module.exports = {
 if (false) {
   module.exports = require('./configureStore.prod');
 } else {
-  module.exports = __webpack_require__(408);
+  module.exports = __webpack_require__(404);
 }
 
 /***/ }),
-/* 408 */
+/* 404 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65688,9 +64467,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _redux = __webpack_require__(62);
 
-var _middlewares = __webpack_require__(409);
+var _middlewares = __webpack_require__(405);
 
-var _reducers = __webpack_require__(410);
+var _reducers = __webpack_require__(406);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -65707,7 +64486,7 @@ exports.default = function (persistedState) {
 };
 
 /***/ }),
-/* 409 */
+/* 405 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65726,7 +64505,7 @@ var loggerMiddleware = exports.loggerMiddleware = function loggerMiddleware(stor
 };
 
 /***/ }),
-/* 410 */
+/* 406 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65738,11 +64517,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(62);
 
-var _interview = __webpack_require__(411);
+var _interview = __webpack_require__(407);
 
 var _interview2 = _interopRequireDefault(_interview);
 
-var _settings = __webpack_require__(413);
+var _settings = __webpack_require__(409);
 
 var _settings2 = _interopRequireDefault(_settings);
 
@@ -65754,7 +64533,7 @@ exports.default = (0, _redux.combineReducers)({
 });
 
 /***/ }),
-/* 411 */
+/* 407 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65770,7 +64549,7 @@ var _data = __webpack_require__(63);
 
 var _items = __webpack_require__(54);
 
-var _section2Routing = __webpack_require__(412);
+var _section2Routing = __webpack_require__(408);
 
 var _section2Routing2 = _interopRequireDefault(_section2Routing);
 
@@ -65868,13 +64647,13 @@ var interview = function interview() {
 exports.default = interview;
 
 /***/ }),
-/* 412 */
+/* 408 */
 /***/ (function(module, exports) {
 
 module.exports = {"2.005":{"explanation":"2.005 is only active if 2.003 = 2","algorithm":[{"AND":["$2.003 != 2"]}]},"2.006.router":{"explanation":"If <2.003> = 0 skip to HA If <2.003> = 2 skip to <2.007> and then <2.100>. If <2.003> < > 0 or 2 continue.","algorithm":[{"AND":["$2.003 = 2"]}],"skip_items":["2.008","2.009","2.episode2.section","2.episode3.section","2.010","2.011","2.012","2.013","2.014","2.015","2.016","2.017","2.episode4.section","2.018","2.019","2.020","2.021","2.022","2.023","2.024","2.025","2.026","2.027","2.028","2.029","2.episode5.section","2.030","2.031","2.032","2.033","2.034","2.035","2.036","2.037","2.038","2.039","2.040","2.041","2.042","2.043","2.044","2.episode6.section","2.045","2.046","2.047","2.048","2.049","2.050","2.051","2.052","2.053","2.054","2.055","2.episode7.section","2.056","2.057","2.058","2.059","2.060","2.061","2.062","2.063","2.064","2.episode8.section","2.065","2.episode9.section","2.066","2.067","2.068","2.069","2.070","2.071","2.episode10.section","2.072","2.073","2.074","2.075","2.076","2.077","2.078","2.079","2.episode11.section","2.080","2.081","2.082","2.083","2.084","2.085","2.086","2.087","2.episode12.section","2.088","2.089","2.090","2.091","2.episode13.section","2.092","2.093","2.094","2.095","2.096","2.097","2.098","2.099"]},"2.027":{"explanation":"2.027 not active if 2.026 = 0","algorithm":[{"AND":["$2.026 = 0"]}]}}
 
 /***/ }),
-/* 413 */
+/* 409 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65908,10 +64687,10 @@ var settings = function settings() {
 exports.default = settings;
 
 /***/ }),
-/* 414 */
+/* 410 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var debounce = __webpack_require__(415),
+var debounce = __webpack_require__(411),
     isObject = __webpack_require__(85);
 
 /** Error message constants. */
@@ -65983,12 +64762,12 @@ module.exports = throttle;
 
 
 /***/ }),
-/* 415 */
+/* 411 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(85),
-    now = __webpack_require__(416),
-    toNumber = __webpack_require__(418);
+    now = __webpack_require__(412),
+    toNumber = __webpack_require__(414);
 
 /** Error message constants. */
 var FUNC_ERROR_TEXT = 'Expected a function';
@@ -66179,7 +64958,7 @@ module.exports = debounce;
 
 
 /***/ }),
-/* 416 */
+/* 412 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var root = __webpack_require__(149);
@@ -66208,7 +64987,7 @@ module.exports = now;
 
 
 /***/ }),
-/* 417 */
+/* 413 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */
@@ -66219,11 +64998,11 @@ module.exports = freeGlobal;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
 
 /***/ }),
-/* 418 */
+/* 414 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(85),
-    isSymbol = __webpack_require__(419);
+    isSymbol = __webpack_require__(415);
 
 /** Used as references for various `Number` constants. */
 var NAN = 0 / 0;
@@ -66291,11 +65070,11 @@ module.exports = toNumber;
 
 
 /***/ }),
-/* 419 */
+/* 415 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(420),
-    isObjectLike = __webpack_require__(423);
+var baseGetTag = __webpack_require__(416),
+    isObjectLike = __webpack_require__(419);
 
 /** `Object#toString` result references. */
 var symbolTag = '[object Symbol]';
@@ -66326,12 +65105,12 @@ module.exports = isSymbol;
 
 
 /***/ }),
-/* 420 */
+/* 416 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Symbol = __webpack_require__(150),
-    getRawTag = __webpack_require__(421),
-    objectToString = __webpack_require__(422);
+    getRawTag = __webpack_require__(417),
+    objectToString = __webpack_require__(418);
 
 /** `Object#toString` result references. */
 var nullTag = '[object Null]',
@@ -66360,7 +65139,7 @@ module.exports = baseGetTag;
 
 
 /***/ }),
-/* 421 */
+/* 417 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Symbol = __webpack_require__(150);
@@ -66412,7 +65191,7 @@ module.exports = getRawTag;
 
 
 /***/ }),
-/* 422 */
+/* 418 */
 /***/ (function(module, exports) {
 
 /** Used for built-in method references. */
@@ -66440,7 +65219,7 @@ module.exports = objectToString;
 
 
 /***/ }),
-/* 423 */
+/* 419 */
 /***/ (function(module, exports) {
 
 /**
@@ -66475,7 +65254,7 @@ module.exports = isObjectLike;
 
 
 /***/ }),
-/* 424 */
+/* 420 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
