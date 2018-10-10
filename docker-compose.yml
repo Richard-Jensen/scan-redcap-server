@@ -5,7 +5,7 @@ services:
   app:
     image: funklid/scan-redcap
     build: .
-    container_name: scan
+    container_name: scan-redcap
     env_file:
       - .env
     ports:
@@ -32,7 +32,7 @@ services:
     env_file:
       - .env
     ports:
-      - "6432:80"
+      - "5432:80"
     depends_on:
       - mysql
 
