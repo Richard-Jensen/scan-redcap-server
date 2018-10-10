@@ -74,7 +74,7 @@ items:
       3: Both physical diagnosis and functional symptoms/illness
       8: Uncertain
       9: NK
-    validate: [1-4,8,9]
+    validate: [0-3,8,9]
     glossary: |
       This item refers to medical problems of a physical nature including illnesses, injuries and disabilities.
 
