@@ -7,16 +7,23 @@ import { Markdown } from './Markdown';
 import { items, scales, getItemByKey } from '../items';
 import Slider from 'react-rangeslider';
 import 'react-rangeslider/lib/index.css'
-// import Horizontal from './Horizontal'
+import Horizontal from './Horizontal'
+
 
 var previousValue = 0;
 var currentPos = 0;
+var slider = <Horizontal/>;
 var sliderVal = 0;
-
 
 // TODO: Make this a class extending Component
 
-const Response = ({ dispatch, interview, settings }) => {
+class Response extends Component {
+
+render() {
+  let dispatch = this.props.dispatch;
+  let interview = this.props.interview;
+  let settings = this.props.setting;
+
   let item = getItemByKey(interview.activeKey);
 
   if (!item) {
@@ -106,15 +113,15 @@ const Response = ({ dispatch, interview, settings }) => {
     if (pair[0].includes("-")) {
      return ([
       <b>{pair[0] + " "}</b>,
-      // <Horizontal
-      // id='Slider'
-      // min={
-      //   parseInt(pair[0].split('-')[0])
-      // }
-      // max={
-      //   parseInt(pair[0].split('-')[1])
-      // }
-      // />
+      <Horizontal
+      id='Slider'
+      min={
+        parseInt(pair[0].split('-')[0])
+      }
+      max={
+        parseInt(pair[0].split('-')[1])
+      }
+      />
       ]);
    }
    else {
@@ -126,6 +133,12 @@ const Response = ({ dispatch, interview, settings }) => {
  }
 
  // Handler for when changing Slider
+
+
+ function handleChange(value) {
+  currentValueSlider = value;
+}
+
 
  // Returns the specific interview item.
  return (
@@ -140,12 +153,8 @@ const Response = ({ dispatch, interview, settings }) => {
       onClick={() => {
         currentPos = getIndex(pair, Options)
         if (pair[0].includes("-")) {
-          // TODO: This is a hack, do it properly. Change 12 to sliderVal.
-          dispatch(
-            setResponse({
-              key: item.key,
-              value: 1
-            }))
+          // TODO: This is a hack, do it properly. Change 0 to sliderVal.
+          dispatch(setResponse({ key: item.key, value: 0 }))
         }
         else {
           dispatch(setResponse({ key: item.key, value: pair[0] }))
@@ -241,7 +250,8 @@ const Response = ({ dispatch, interview, settings }) => {
       )}
     </div>
     );
-};
+}
+}
 
 export const ResponseContainer = connect(state => state)(Response);
 const manualInputChange = (value,valid) =>{
