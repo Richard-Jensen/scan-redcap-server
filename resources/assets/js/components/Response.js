@@ -6,8 +6,8 @@ import { validateNumeric, isValueWithinWholeRangeOfRules } from '../lib/helpers'
 import { Markdown } from './Markdown';
 import { items, scales, getItemByKey } from '../items';
 import Slider from 'react-rangeslider';
-import 'react-rangeslider/lib/index.css'
-// import Horizontal from './Horizontal'
+import 'react-rangeslider/lib/index.css';
+import Horizontal from './Horizontal';
 
 var previousValue = 0;
 var currentPos = 0;
@@ -18,6 +18,7 @@ var sliderVal = 0;
 
 const Response = ({ dispatch, interview, settings }) => {
   let item = getItemByKey(interview.activeKey);
+  let inputBox = React.createRef();
 
   if (!item) {
     return <div>No item found</div>;
@@ -104,26 +105,30 @@ const Response = ({ dispatch, interview, settings }) => {
 
   function write(response, pair) {
     if (pair[0].includes("-")) {
-     return ([
+    //var inputBox = document.getElementById("ResponseInput")
+    return ([
       <b>{pair[0] + " "}</b>,
-      // <Horizontal
-      // id='Slider'
-      // min={
-      //   parseInt(pair[0].split('-')[0])
-      // }
-      // max={
-      //   parseInt(pair[0].split('-')[1])
-      // }
-      // />
+      <Horizontal
+      id='Slider'
+      defaultValue="Won't focus"
+      min={
+        parseInt(pair[0].split('-')[0])
+      }
+      max={
+        parseInt(pair[0].split('-')[1])
+      }
+      interview={interview}
+      inputBox={inputBox}
+      />
       ]);
-   }
-   else {
-     return ([
-      <b>{pair[0] + " "}</b>,
-      isActive(response,pair, pair[1])
-      ]);
-   }
+  }
+  else {
+   return ([
+    <b>{pair[0] + " "}</b>,
+    isActive(response,pair, pair[1])
+    ]);
  }
+}
 
  // Handler for when changing Slider
 
@@ -140,18 +145,13 @@ const Response = ({ dispatch, interview, settings }) => {
       onClick={() => {
         currentPos = getIndex(pair, Options)
         if (pair[0].includes("-")) {
-          // TODO: This is a hack, do it properly. Change 12 to sliderVal.
-          dispatch(
-            setResponse({
-              key: item.key,
-              value: 1
-            }))
+          //So far, the Horizontal class handles all this
         }
         else {
           dispatch(setResponse({ key: item.key, value: pair[0] }))
         }
-        var inputBox = document.getElementById("ResponseInput")
-        inputBox.focus()
+        inputBox.current.focus()
+
       }
     }
     >
@@ -171,67 +171,74 @@ const Response = ({ dispatch, interview, settings }) => {
       className={`interview-input interview-input-${input}`}
       id="ResponseInput"
       name="response"
+      ref={inputBox}
       onKeyDown={event =>{
           //Keycode 38 is arrow key up, 40 is down
           if(event.keyCode==38) {
-            dispatch(
-              setResponse({
-                key: item.key,
-                value: Options[currentPos + 1][0]
-              })
-              );
-            event.preventDefault();
-            currentPos++;
-          }
-          else if (event.keyCode==40){
-            dispatch(
-              setResponse({
-                key: item.key,
-                value: Options[currentPos - 1][0]
-              })
-              );
-            event.preventDefault();
-            currentPos--;
-          }
-          else {return;}
-        }}
-        onChange={event => {
-          if (item.validate && validateNumeric(event.target.value, item.validate)) {
-            dispatch(
-              setResponse({
-                key: item.key,
-                value: event.target.value
-              })
-              );
-            currentPos = getIndex_0(event.target.value, Options);
-          }
-          else if (!item.validate) {
-            dispatch(
-              setResponse({
-                key: item.key,
-                value: event.target.value
-              })
-              );
-          }}}
-
-          placeholder={item.validate}
-          value={response}
-          autoFocus
-          />
-
-          {settings.showItemNotes && (
-            <textarea
-            onChange={event =>
-              dispatch(
-                setNote({ key: item.key, value: event.target.value })
-                )
+            if (currentPos === (Options.length - 1)) {}
+              else {
+                dispatch(
+                  setResponse({
+                    key: item.key,
+                    value: Options[currentPos + 1][0]
+                  })
+                  );
+                event.preventDefault();
+                currentPos++;
+              }
             }
-            defaultValue={note}
-            placeholder="Note"
-            />
-            )}
-          </Fragment>
-          )}
+            else if (event.keyCode==40){
+              if (currentPos === 0) {return;}
+                else {
+                  dispatch(
+                    setResponse({
+                      key: item.key,
+                      value: Options[currentPos - 1][0]
+                    })
+                    );
+                  event.preventDefault();
+                  currentPos--;
+                }
+              }
+              else {return;}
+            }}
+            onChange={event => {
+              if (item.validate && validateNumeric(event.target.value, pair[0])) {
+                dispatch(
+                  setResponse({
+                    key: item.key,
+                    value: event.target.value
+                  })
+                  );
+                currentPos = getIndex_0(event.target.value, Options);
+              }
+              else if (!item.validate) {
+                dispatch(
+                  setResponse({
+                    key: item.key,
+                    value: event.target.value
+                  })
+                  );
+              }}}
+
+              placeholder={item.validate}
+              value={response}
+              autoFocus
+              />
+
+              {settings.showItemNotes && (
+                <textarea
+                onChange={event =>
+                  dispatch(
+                    setNote({ key: item.key, value: event.target.value })
+                    )
+                }
+                defaultValue={note}
+                placeholder="Note"
+                />
+                )}
+              </Fragment>
+              )}
     </div>
     {showGlossary && (
       <div className="interview-item-glossary">

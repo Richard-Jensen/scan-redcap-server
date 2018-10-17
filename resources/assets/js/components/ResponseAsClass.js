@@ -6,41 +6,37 @@ import { validateNumeric, isValueWithinWholeRangeOfRules } from '../lib/helpers'
 import { Markdown } from './Markdown';
 import { items, scales, getItemByKey } from '../items';
 import Slider from 'react-rangeslider';
-import 'react-rangeslider/lib/index.css'
-import Horizontal from './Horizontal'
-
+import 'react-rangeslider/lib/index.css';
+import Horizontal from './Horizontal';
 
 var previousValue = 0;
 var currentPos = 0;
-var slider = <Horizontal/>;
 var sliderVal = 0;
+
 
 // TODO: Make this a class extending Component
 
-class Response extends Component {
+Class Response extends Component {
 
-render() {
-  let dispatch = this.props.dispatch;
-  let interview = this.props.interview;
-  let settings = this.props.setting;
+  render() {
+    let item = getItemByKey(interview.activeKey);
+    let myRef = React.createRef();
 
-  let item = getItemByKey(interview.activeKey);
+    if (!item) {
+      return <div>No item found</div>;
+    }
+    let input = item.input;
 
-  if (!item) {
-    return <div>No item found</div>;
-  }
-  let input = item.input;
-
-  let hasScale = item.scale;
-  if (hasScale && scales[item.scale]) {
-    const scale = scales[item.scale];
-    item = {
-      ...item,
-      options: scale.options,
-      validate: scale.validate,
-      input: scale.input
-    };
-  }
+    let hasScale = item.scale;
+    if (hasScale && scales[item.scale]) {
+      const scale = scales[item.scale];
+      item = {
+        ...item,
+        options: scale.options,
+        validate: scale.validate,
+        input: scale.input
+      };
+    }
 
   let hasPeriods = true; // default periods to true
   if (item.periods === 'false') hasPeriods = false;
@@ -111,7 +107,8 @@ render() {
 
   function write(response, pair) {
     if (pair[0].includes("-")) {
-     return ([
+    //var inputBox = document.getElementById("ResponseInput")
+    return ([
       <b>{pair[0] + " "}</b>,
       <Horizontal
       id='Slider'
@@ -121,24 +118,20 @@ render() {
       max={
         parseInt(pair[0].split('-')[1])
       }
+      interview={interview}
+      inputBox={myRef}
       />
       ]);
-   }
-   else {
-     return ([
+  }
+  else {
+    return (
       <b>{pair[0] + " "}</b>,
       isActive(response,pair, pair[1])
       ]);
-   }
- }
-
- // Handler for when changing Slider
-
-
- function handleChange(value) {
-  currentValueSlider = value;
+  }
 }
 
+ // Handler for when changing Slider
 
  // Returns the specific interview item.
  return (
@@ -153,14 +146,14 @@ render() {
       onClick={() => {
         currentPos = getIndex(pair, Options)
         if (pair[0].includes("-")) {
-          // TODO: This is a hack, do it properly. Change 0 to sliderVal.
-          dispatch(setResponse({ key: item.key, value: 0 }))
+          //So far, the Horizontal class handles all this
         }
         else {
           dispatch(setResponse({ key: item.key, value: pair[0] }))
         }
         var inputBox = document.getElementById("ResponseInput")
         inputBox.focus()
+
       }
     }
     >
@@ -180,6 +173,7 @@ render() {
       className={`interview-input interview-input-${input}`}
       id="ResponseInput"
       name="response"
+      ref={myRef}
       onKeyDown={event =>{
           //Keycode 38 is arrow key up, 40 is down
           if(event.keyCode==38) {
@@ -205,7 +199,7 @@ render() {
           else {return;}
         }}
         onChange={event => {
-          if (item.validate && validateNumeric(event.target.value, item.validate)) {
+          if (item.validate && validateNumeric(event.target.value, pair[0])) {
             dispatch(
               setResponse({
                 key: item.key,
@@ -249,11 +243,11 @@ render() {
       </div>
       )}
     </div>
-    );
+    )
 }
 }
 
-export const ResponseContainer = connect(state => state)(Response);
+export default Response = connect()(Response);
 const manualInputChange = (value,valid) =>{
   if (
     valid &&
@@ -274,3 +268,4 @@ const manualInputChange = (value,valid) =>{
     );
 }
 };
+

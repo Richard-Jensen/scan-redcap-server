@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 152);
+/******/ 	return __webpack_require__(__webpack_require__.s = 154);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,7 +73,7 @@
 if (false) {
   module.exports = require('./cjs/react.production.min.js');
 } else {
-  module.exports = __webpack_require__(176);
+  module.exports = __webpack_require__(178);
 }
 
 
@@ -102,7 +102,7 @@ if (false) {
 /* unused harmony export bpfrpt_proptype_VisibleCellRange */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_ScalingCellSizeAndPositionManager__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_ScalingCellSizeAndPositionManager__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
 
@@ -256,7 +256,7 @@ if (true) {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(189)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(191)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
@@ -288,7 +288,7 @@ exports.default = function (instance, Constructor) {
 
 exports.__esModule = true;
 
-var _defineProperty = __webpack_require__(105);
+var _defineProperty = __webpack_require__(106);
 
 var _defineProperty2 = _interopRequireDefault(_defineProperty);
 
@@ -392,7 +392,7 @@ module.exports = Type;
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(216), __esModule: true };
+module.exports = { "default": __webpack_require__(218), __esModule: true };
 
 /***/ }),
 /* 8 */
@@ -403,7 +403,7 @@ module.exports = { "default": __webpack_require__(216), __esModule: true };
 
 exports.__esModule = true;
 
-var _typeof2 = __webpack_require__(106);
+var _typeof2 = __webpack_require__(107);
 
 var _typeof3 = _interopRequireDefault(_typeof2);
 
@@ -426,15 +426,15 @@ exports.default = function (self, call) {
 
 exports.__esModule = true;
 
-var _setPrototypeOf = __webpack_require__(239);
+var _setPrototypeOf = __webpack_require__(241);
 
 var _setPrototypeOf2 = _interopRequireDefault(_setPrototypeOf);
 
-var _create = __webpack_require__(243);
+var _create = __webpack_require__(245);
 
 var _create2 = _interopRequireDefault(_create);
 
-var _typeof2 = __webpack_require__(106);
+var _typeof2 = __webpack_require__(107);
 
 var _typeof3 = _interopRequireDefault(_typeof2);
 
@@ -472,8 +472,8 @@ if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var store = __webpack_require__(66)('wks');
-var uid = __webpack_require__(44);
+var store = __webpack_require__(67)('wks');
+var uid = __webpack_require__(45);
 var Symbol = __webpack_require__(10).Symbol;
 var USE_SYMBOL = typeof Symbol == 'function';
 
@@ -490,14 +490,14 @@ $exports.store = store;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Grid__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Grid__ = __webpack_require__(116);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_0__Grid__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__Grid__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__accessibilityOverscanIndicesGetter__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__accessibilityOverscanIndicesGetter__ = __webpack_require__(274);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__accessibilityOverscanIndicesGetter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__defaultCellRangeRenderer__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__defaultCellRangeRenderer__ = __webpack_require__(120);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_2__defaultCellRangeRenderer__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__defaultOverscanIndicesGetter__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__defaultOverscanIndicesGetter__ = __webpack_require__(119);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_3__defaultOverscanIndicesGetter__["c"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__types__ = __webpack_require__(1);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_4__types__["e"]; });
@@ -622,7 +622,7 @@ function fromCodePoint(c) {
 
 var NAMED_ENTITY_RE   = /&([a-z#][a-z0-9]{1,31});/gi;
 var DIGITAL_ENTITY_TEST_RE = /^#((?:x[a-f0-9]{1,8}|[0-9]{1,8}))/i;
-var entities = __webpack_require__(144);
+var entities = __webpack_require__(145);
 
 function replaceEntityPattern(match, name) {
   var code = 0;
@@ -688,8 +688,8 @@ exports.escapeHtml        = escapeHtml;
 "use strict";
 
 
-var bind = __webpack_require__(86);
-var isBuffer = __webpack_require__(157);
+var bind = __webpack_require__(88);
+var isBuffer = __webpack_require__(159);
 
 /*global toString:true*/
 
@@ -1063,7 +1063,7 @@ module.exports = $export;
 /* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(20);
+var isObject = __webpack_require__(21);
 module.exports = function (it) {
   if (!isObject(it)) throw TypeError(it + ' is not an object!');
   return it;
@@ -1079,7 +1079,7 @@ module.exports = function (it) {
 
 exports.__esModule = true;
 
-var _assign = __webpack_require__(116);
+var _assign = __webpack_require__(117);
 
 var _assign2 = _interopRequireDefault(_assign);
 
@@ -1160,14 +1160,33 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 /***/ }),
 /* 19 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(195);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Provider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["b"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createProvider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connectAdvanced", function() { return __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connect", function() { return __WEBPACK_IMPORTED_MODULE_2__connect_connect__["a"]; });
+
+
+
+
+
+
+/***/ }),
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var anObject = __webpack_require__(16);
-var IE8_DOM_DEFINE = __webpack_require__(104);
-var toPrimitive = __webpack_require__(69);
+var IE8_DOM_DEFINE = __webpack_require__(105);
+var toPrimitive = __webpack_require__(70);
 var dP = Object.defineProperty;
 
-exports.f = __webpack_require__(21) ? Object.defineProperty : function defineProperty(O, P, Attributes) {
+exports.f = __webpack_require__(22) ? Object.defineProperty : function defineProperty(O, P, Attributes) {
   anObject(O);
   P = toPrimitive(P, true);
   anObject(Attributes);
@@ -1181,7 +1200,7 @@ exports.f = __webpack_require__(21) ? Object.defineProperty : function definePro
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports) {
 
 module.exports = function (it) {
@@ -1190,32 +1209,13 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Thank's IE8 for his funny defineProperty
-module.exports = !__webpack_require__(27)(function () {
+module.exports = !__webpack_require__(28)(function () {
   return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
 });
-
-
-/***/ }),
-/* 22 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(188);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__ = __webpack_require__(96);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(193);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Provider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["b"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createProvider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connectAdvanced", function() { return __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connect", function() { return __WEBPACK_IMPORTED_MODULE_2__connect_connect__["a"]; });
-
-
-
-
 
 
 /***/ }),
@@ -1232,9 +1232,9 @@ module.exports = function (it, key) {
 /* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var dP = __webpack_require__(19);
-var createDesc = __webpack_require__(46);
-module.exports = __webpack_require__(21) ? function (object, key, value) {
+var dP = __webpack_require__(20);
+var createDesc = __webpack_require__(47);
+module.exports = __webpack_require__(22) ? function (object, key, value) {
   return dP.f(object, key, createDesc(1, value));
 } : function (object, key, value) {
   object[key] = value;
@@ -1247,8 +1247,8 @@ module.exports = __webpack_require__(21) ? function (object, key, value) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // to indexed object, toObject with fallback for non-array-like ES3 strings
-var IObject = __webpack_require__(110);
-var defined = __webpack_require__(64);
+var IObject = __webpack_require__(111);
+var defined = __webpack_require__(65);
 module.exports = function (it) {
   return IObject(defined(it));
 };
@@ -1283,6 +1283,62 @@ module.exports = g;
 
 /***/ }),
 /* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var setActiveItem = exports.setActiveItem = function setActiveItem(_ref) {
+  var key = _ref.key;
+  return {
+    type: 'SET_ACTIVE_ITEM',
+    payload: {
+      key: key
+    }
+  };
+};
+
+var setResponse = exports.setResponse = function setResponse(_ref2) {
+  var key = _ref2.key,
+      value = _ref2.value,
+      period = _ref2.period;
+  return {
+    type: 'SET_RESPONSE',
+    payload: {
+      key: key,
+      value: value,
+      period: period
+    }
+  };
+};
+
+var setNote = exports.setNote = function setNote(_ref3) {
+  var key = _ref3.key,
+      value = _ref3.value;
+  return {
+    type: 'SET_NOTE',
+    payload: {
+      key: key,
+      value: value
+    }
+  };
+};
+
+var flipSetting = exports.flipSetting = function flipSetting(_ref4) {
+  var setting = _ref4.setting;
+  return {
+    type: 'FLIP_SETTING',
+    payload: {
+      setting: setting
+    }
+  };
+};
+
+/***/ }),
+/* 28 */
 /***/ (function(module, exports) {
 
 module.exports = function (exec) {
@@ -1295,14 +1351,14 @@ module.exports = function (exec) {
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports) {
 
 module.exports = {};
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1342,7 +1398,7 @@ var bpfrpt_proptype_SizeInfo =  false ? null : {
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1408,7 +1464,7 @@ module.exports.extend         = extend;
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1416,7 +1472,7 @@ module.exports.extend         = extend;
 
 /*eslint-disable max-len*/
 
-var common        = __webpack_require__(30);
+var common        = __webpack_require__(31);
 var YAMLException = __webpack_require__(41);
 var Type          = __webpack_require__(6);
 
@@ -1523,7 +1579,7 @@ module.exports = Schema;
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1563,65 +1619,9 @@ if (false) {
   checkDCE();
   module.exports = require('./cjs/react-dom.production.min.js');
 } else {
-  module.exports = __webpack_require__(177);
+  module.exports = __webpack_require__(179);
 }
 
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var setActiveItem = exports.setActiveItem = function setActiveItem(_ref) {
-  var key = _ref.key;
-  return {
-    type: 'SET_ACTIVE_ITEM',
-    payload: {
-      key: key
-    }
-  };
-};
-
-var setResponse = exports.setResponse = function setResponse(_ref2) {
-  var key = _ref2.key,
-      value = _ref2.value,
-      period = _ref2.period;
-  return {
-    type: 'SET_RESPONSE',
-    payload: {
-      key: key,
-      value: value,
-      period: period
-    }
-  };
-};
-
-var setNote = exports.setNote = function setNote(_ref3) {
-  var key = _ref3.key,
-      value = _ref3.value;
-  return {
-    type: 'SET_NOTE',
-    payload: {
-      key: key,
-      value: value
-    }
-  };
-};
-
-var flipSetting = exports.flipSetting = function flipSetting(_ref4) {
-  var setting = _ref4.setting;
-  return {
-    type: 'FLIP_SETTING',
-    payload: {
-      setting: setting
-    }
-  };
-};
 
 /***/ }),
 /* 34 */
@@ -1635,7 +1635,7 @@ module.exports = true;
 /***/ (function(module, exports, __webpack_require__) {
 
 // optional / simple context binding
-var aFunction = __webpack_require__(45);
+var aFunction = __webpack_require__(46);
 module.exports = function (fn, that, length) {
   aFunction(fn);
   if (that === undefined) return fn;
@@ -1661,8 +1661,8 @@ module.exports = function (fn, that, length) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 / 15.2.3.14 Object.keys(O)
-var $keys = __webpack_require__(109);
-var enumBugKeys = __webpack_require__(72);
+var $keys = __webpack_require__(110);
+var enumBugKeys = __webpack_require__(73);
 
 module.exports = Object.keys || function keys(O) {
   return $keys(O, enumBugKeys);
@@ -1854,9 +1854,9 @@ function polyfill(Component) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return cancelAnimationTimeout; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return requestAnimationTimeout; });
 /* unused harmony export bpfrpt_proptype_AnimationTimeoutId */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(256);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(258);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__animationFrame__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__animationFrame__ = __webpack_require__(273);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
 
@@ -2050,22 +2050,22 @@ module.exports = YAMLException;
 
 
 
-var Schema = __webpack_require__(31);
+var Schema = __webpack_require__(32);
 
 
 module.exports = new Schema({
   include: [
-    __webpack_require__(141)
+    __webpack_require__(142)
   ],
   implicit: [
-    __webpack_require__(335),
-    __webpack_require__(336)
+    __webpack_require__(337),
+    __webpack_require__(338)
   ],
   explicit: [
-    __webpack_require__(337),
-    __webpack_require__(342),
-    __webpack_require__(343),
-    __webpack_require__(344)
+    __webpack_require__(339),
+    __webpack_require__(344),
+    __webpack_require__(345),
+    __webpack_require__(346)
   ]
 });
 
@@ -2074,15 +2074,72 @@ module.exports = new Schema({
 /* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.scales = exports.items = exports.getPreviousItemByKey = exports.getNextItemByKey = exports.getItemByIndex = exports.getItemByKey = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; // import { items as da } from './items/2.1/scan.2.1.items.da.json';
+// import { items as en } from './items/2.1/scan.2.1.items.en.json';
+
+
+var _section2En = __webpack_require__(354);
+
+var _ratingscalesEn = __webpack_require__(355);
+
+var _ratingscalesEn2 = _interopRequireDefault(_ratingscalesEn);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var items = _section2En.items;
+
+// make sure every item's key is a string
+exports.items = items = items.map(function (item) {
+  if (typeof item.key !== 'string') {
+    return _extends({}, item, { key: item.key.toString() });
+  }
+  return item;
+});
+
+var getItemByKey = exports.getItemByKey = function getItemByKey(key) {
+  return items.find(function (item) {
+    return item.key === key;
+  });
+};
+var getItemByIndex = exports.getItemByIndex = function getItemByIndex(index) {
+  return items[index];
+};
+
+var getNextItemByKey = exports.getNextItemByKey = function getNextItemByKey(key) {
+  var index = items.indexOf(getItemByKey(key)) + 1;
+  if (!items[index]) index = 0;
+  return items[index];
+};
+var getPreviousItemByKey = exports.getPreviousItemByKey = function getPreviousItemByKey(key) {
+  var index = items.indexOf(getItemByKey(key)) - 1;
+  if (!items[index]) index = items.length - 1;
+  return items[index];
+};
+
+exports.items = items;
+exports.scales = _ratingscalesEn2.default;
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
 // 7.1.13 ToObject(argument)
-var defined = __webpack_require__(64);
+var defined = __webpack_require__(65);
 module.exports = function (it) {
   return Object(defined(it));
 };
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports) {
 
 var id = 0;
@@ -2093,7 +2150,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports) {
 
 module.exports = function (it) {
@@ -2103,7 +2160,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports) {
 
 module.exports = function (bitmap, value) {
@@ -2117,15 +2174,15 @@ module.exports = function (bitmap, value) {
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var $at = __webpack_require__(222)(true);
+var $at = __webpack_require__(224)(true);
 
 // 21.1.3.27 String.prototype[@@iterator]()
-__webpack_require__(107)(String, 'String', function (iterated) {
+__webpack_require__(108)(String, 'String', function (iterated) {
   this._t = String(iterated); // target
   this._i = 0;                // next index
 // 21.1.5.2.1 %StringIteratorPrototype%.next()
@@ -2141,10 +2198,10 @@ __webpack_require__(107)(String, 'String', function (iterated) {
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var def = __webpack_require__(19).f;
+var def = __webpack_require__(20).f;
 var has = __webpack_require__(23);
 var TAG = __webpack_require__(11)('toStringTag');
 
@@ -2154,13 +2211,13 @@ module.exports = function (it, tag, stat) {
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(227);
+__webpack_require__(229);
 var global = __webpack_require__(10);
 var hide = __webpack_require__(24);
-var Iterators = __webpack_require__(28);
+var Iterators = __webpack_require__(29);
 var TO_STRING_TAG = __webpack_require__(11)('toStringTag');
 
 var DOMIterables = ('CSSRuleList,CSSStyleDeclaration,CSSValueList,ClientRectList,DOMRectList,DOMStringList,' +
@@ -2179,14 +2236,14 @@ for (var i = 0; i < DOMIterables.length; i++) {
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports) {
 
 exports.f = {}.propertyIsEnumerable;
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2227,7 +2284,7 @@ var bpfrpt_proptype_Scroll =  false ? null : {
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2248,7 +2305,7 @@ var SortDirection = {
 /* harmony default export */ __webpack_exports__["a"] = (SortDirection);
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2264,7 +2321,7 @@ var SortDirection = {
 
 
 
-var Schema = __webpack_require__(31);
+var Schema = __webpack_require__(32);
 
 
 module.exports = Schema.DEFAULT = new Schema({
@@ -2272,69 +2329,12 @@ module.exports = Schema.DEFAULT = new Schema({
     __webpack_require__(42)
   ],
   explicit: [
-    __webpack_require__(345),
-    __webpack_require__(346),
-    __webpack_require__(347)
+    __webpack_require__(347),
+    __webpack_require__(348),
+    __webpack_require__(349)
   ]
 });
 
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.scales = exports.items = exports.getPreviousItemByKey = exports.getNextItemByKey = exports.getItemByIndex = exports.getItemByKey = undefined;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; // import { items as da } from './items/2.1/scan.2.1.items.da.json';
-// import { items as en } from './items/2.1/scan.2.1.items.en.json';
-
-
-var _section2En = __webpack_require__(352);
-
-var _ratingscalesEn = __webpack_require__(353);
-
-var _ratingscalesEn2 = _interopRequireDefault(_ratingscalesEn);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var items = _section2En.items;
-
-// make sure every item's key is a string
-exports.items = items = items.map(function (item) {
-  if (typeof item.key !== 'string') {
-    return _extends({}, item, { key: item.key.toString() });
-  }
-  return item;
-});
-
-var getItemByKey = exports.getItemByKey = function getItemByKey(key) {
-  return items.find(function (item) {
-    return item.key === key;
-  });
-};
-var getItemByIndex = exports.getItemByIndex = function getItemByIndex(index) {
-  return items[index];
-};
-
-var getNextItemByKey = exports.getNextItemByKey = function getNextItemByKey(key) {
-  var index = items.indexOf(getItemByKey(key)) + 1;
-  if (!items[index]) index = 0;
-  return items[index];
-};
-var getPreviousItemByKey = exports.getPreviousItemByKey = function getPreviousItemByKey(key) {
-  var index = items.indexOf(getItemByKey(key)) - 1;
-  if (!items[index]) index = items.length - 1;
-  return items[index];
-};
-
-exports.items = items;
-exports.scales = _ratingscalesEn2.default;
 
 /***/ }),
 /* 55 */
@@ -2690,7 +2690,7 @@ module.exports = function parseLinkLabel(state, start) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(14);
-var normalizeHeaderName = __webpack_require__(160);
+var normalizeHeaderName = __webpack_require__(162);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -2706,10 +2706,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(87);
+    adapter = __webpack_require__(89);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(87);
+    adapter = __webpack_require__(89);
   }
   return adapter;
 }
@@ -2784,7 +2784,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(159)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(161)))
 
 /***/ }),
 /* 58 */
@@ -2896,7 +2896,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *
- *
+ * 
  */
 
 function makeEmptyFunction(arg) {
@@ -2942,7 +2942,7 @@ module.exports = emptyFunction;
 var printWarning = function() {};
 
 if (true) {
-  var ReactPropTypesSecret = __webpack_require__(94);
+  var ReactPropTypesSecret = __webpack_require__(96);
   var loggedTypeFailures = {};
 
   printWarning = function(text) {
@@ -3063,7 +3063,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "applyMiddleware", function() { return applyMiddleware; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "compose", function() { return compose; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__DO_NOT_USE__ActionTypes", function() { return ActionTypes; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_symbol_observable__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_symbol_observable__ = __webpack_require__(198);
 
 
 /**
@@ -3677,6 +3677,101 @@ var saveInterview = exports.saveInterview = function saveInterview(id, data) {
 
 /***/ }),
 /* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var isTextareaInFocus = exports.isTextareaInFocus = function isTextareaInFocus() {
+  return document.activeElement.tagName === 'TEXTAREA';
+};
+
+// the value provided can be a string or a number
+// rules look like [0-10, 98, 99]
+var validateNumeric = exports.validateNumeric = function validateNumeric(value, rules) {
+  var valid = false;
+  // allow empty input
+  if (value === '') return true;
+  rules.forEach(function (rule) {
+    // if the validator contains an interval string (like "0-10") we parse the
+    // numbers and check if the value is included in the interval
+    if (typeof rule === 'string' && rule.includes('-')) {
+      var range = rule.split('-').map(function (n) {
+        return parseInt(n, 10);
+      });
+
+      if (value >= range[0] && value <= range[1]) {
+        valid = true;
+      }
+    } else if (typeof rule === 'string') {
+      if (rule === value.toString()) {
+        valid = true;
+      }
+    } else if (typeof rule === 'number' && (rule === parseInt(value, 10) || rule.toString().includes(value))) {
+      // if the rule is a number we check it against the value provided
+      valid = true;
+    }
+  });
+  return valid;
+};
+
+var isValueWithinWholeRangeOfRules = exports.isValueWithinWholeRangeOfRules = function isValueWithinWholeRangeOfRules(value, rules) {
+
+  var high = 0;
+  var low = 100;
+  rules.forEach(function (rule) {
+    // if the validator contains an interval string (like "0-10") we parse the
+    // numbers and check if the value is included in the interval
+    if (typeof rule === 'string' && rule.includes('-')) {
+      var range = rule.split('-').map(function (n) {
+        return parseInt(n, 10);
+      });
+      if (low > range[0]) {
+        low = range[0];
+      }
+      if (high < range[0]) {
+        high = range[0];
+      }
+      if (low > range[1]) {
+        low = range[1];
+      }
+      if (high < range[1]) {
+        high = range[1];
+      }
+    } else if (typeof rule === 'string') {
+      rule === parseInt(value, 10);
+      if (low > rule) {
+        low = rule;
+      }
+      if (high < rule) {
+        high = rule;
+      }
+    } else if (
+    // if the rule is a number we check it against the value provided
+    typeof rule === 'number' && (rule === parseInt(value, 10) || rule.toString().includes(value))) {
+      if (low > rule) {
+        low = rule;
+      }
+      if (high < rule) {
+        high = rule;
+      }
+    }
+  });
+  value = parseInt(value, 10);
+  high = parseInt(high, 10);
+  low = parseInt(low, 10);
+  if (value >= low && value <= high) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+/***/ }),
+/* 65 */
 /***/ (function(module, exports) {
 
 // 7.2.1 RequireObjectCoercible(argument)
@@ -3687,18 +3782,18 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var shared = __webpack_require__(66)('keys');
-var uid = __webpack_require__(44);
+var shared = __webpack_require__(67)('keys');
+var uid = __webpack_require__(45);
 module.exports = function (key) {
   return shared[key] || (shared[key] = uid(key));
 };
 
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var core = __webpack_require__(5);
@@ -3716,13 +3811,13 @@ var store = global[SHARED] || (global[SHARED] = {});
 
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // most Object methods by ES6 should accept primitives
 var $export = __webpack_require__(15);
 var core = __webpack_require__(5);
-var fails = __webpack_require__(27);
+var fails = __webpack_require__(28);
 module.exports = function (KEY, exec) {
   var fn = (core.Object || {})[KEY] || Object[KEY];
   var exp = {};
@@ -3732,10 +3827,10 @@ module.exports = function (KEY, exec) {
 
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(20);
+var isObject = __webpack_require__(21);
 var document = __webpack_require__(10).document;
 // typeof document.createElement is 'object' in old IE
 var is = isObject(document) && isObject(document.createElement);
@@ -3745,11 +3840,11 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.1 ToPrimitive(input [, PreferredType])
-var isObject = __webpack_require__(20);
+var isObject = __webpack_require__(21);
 // instead of the ES6 spec version, we didn't implement @@toPrimitive case
 // and the second argument - flag - preferred type is a string
 module.exports = function (it, S) {
@@ -3763,7 +3858,7 @@ module.exports = function (it, S) {
 
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports) {
 
 // 7.1.4 ToInteger
@@ -3775,27 +3870,27 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 var anObject = __webpack_require__(16);
-var dPs = __webpack_require__(224);
-var enumBugKeys = __webpack_require__(72);
-var IE_PROTO = __webpack_require__(65)('IE_PROTO');
+var dPs = __webpack_require__(226);
+var enumBugKeys = __webpack_require__(73);
+var IE_PROTO = __webpack_require__(66)('IE_PROTO');
 var Empty = function () { /* empty */ };
 var PROTOTYPE = 'prototype';
 
 // Create object with fake `null` prototype: use iframe Object with cleared prototype
 var createDict = function () {
   // Thrash, waste and sodomy: IE GC bug
-  var iframe = __webpack_require__(68)('iframe');
+  var iframe = __webpack_require__(69)('iframe');
   var i = enumBugKeys.length;
   var lt = '<';
   var gt = '>';
   var iframeDocument;
   iframe.style.display = 'none';
-  __webpack_require__(112).appendChild(iframe);
+  __webpack_require__(113).appendChild(iframe);
   iframe.src = 'javascript:'; // eslint-disable-line no-script-url
   // createDict = iframe.contentWindow.Object;
   // html.removeChild(iframe);
@@ -3822,7 +3917,7 @@ module.exports = Object.create || function create(O, Properties) {
 
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports) {
 
 // IE 8- don't enum bug keys
@@ -3832,21 +3927,21 @@ module.exports = (
 
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports.f = __webpack_require__(11);
 
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(10);
 var core = __webpack_require__(5);
 var LIBRARY = __webpack_require__(34);
-var wksExt = __webpack_require__(73);
-var defineProperty = __webpack_require__(19).f;
+var wksExt = __webpack_require__(74);
+var defineProperty = __webpack_require__(20).f;
 module.exports = function (name) {
   var $Symbol = core.Symbol || (core.Symbol = LIBRARY ? {} : global.Symbol || {});
   if (name.charAt(0) != '_' && !(name in $Symbol)) defineProperty($Symbol, name, { value: wksExt.f(name) });
@@ -3854,25 +3949,25 @@ module.exports = function (name) {
 
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports) {
 
 exports.f = Object.getOwnPropertySymbols;
 
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var pIE = __webpack_require__(50);
-var createDesc = __webpack_require__(46);
+var pIE = __webpack_require__(51);
+var createDesc = __webpack_require__(47);
 var toIObject = __webpack_require__(25);
-var toPrimitive = __webpack_require__(69);
+var toPrimitive = __webpack_require__(70);
 var has = __webpack_require__(23);
-var IE8_DOM_DEFINE = __webpack_require__(104);
+var IE8_DOM_DEFINE = __webpack_require__(105);
 var gOPD = Object.getOwnPropertyDescriptor;
 
-exports.f = __webpack_require__(21) ? gOPD : function getOwnPropertyDescriptor(O, P) {
+exports.f = __webpack_require__(22) ? gOPD : function getOwnPropertyDescriptor(O, P) {
   O = toIObject(O);
   P = toPrimitive(P, true);
   if (IE8_DOM_DEFINE) try {
@@ -3883,18 +3978,18 @@ exports.f = __webpack_require__(21) ? gOPD : function getOwnPropertyDescriptor(O
 
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_objectWithoutProperties__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_objectWithoutProperties__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_objectWithoutProperties___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_objectWithoutProperties__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__CellSizeAndPositionManager__ = __webpack_require__(250);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__maxElementSize_js__ = __webpack_require__(251);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__CellSizeAndPositionManager__ = __webpack_require__(252);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__maxElementSize_js__ = __webpack_require__(253);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__types__ = __webpack_require__(1);
 
 
@@ -4107,7 +4202,7 @@ var ScalingCellSizeAndPositionManager = function () {
 
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4128,12 +4223,12 @@ exports.default = function (obj, keys) {
 };
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = createCallbackMemoizer;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys__ = __webpack_require__(118);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys__);
 
 /**
@@ -4169,7 +4264,7 @@ function createCallbackMemoizer() {
 }
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // getting tag from 19.1.3.6 Object.prototype.toString()
@@ -4198,13 +4293,13 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 // 25.4.1.5 NewPromiseCapability(C)
-var aFunction = __webpack_require__(45);
+var aFunction = __webpack_require__(46);
 
 function PromiseCapability(C) {
   var resolve, reject;
@@ -4223,7 +4318,7 @@ module.exports.f = function (C) {
 
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4232,7 +4327,7 @@ module.exports.f = function (C) {
 /* unused harmony export bpfrpt_proptype_Positioner */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_defineProperty__ = __webpack_require__(293);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_defineProperty__ = __webpack_require__(295);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_defineProperty___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_defineProperty__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of__);
@@ -4249,7 +4344,7 @@ module.exports.f = function (C) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_react_lifecycles_compat__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__PositionCache__ = __webpack_require__(294);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__PositionCache__ = __webpack_require__(296);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__utils_requestAnimationTimeout__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_prop_types__);
@@ -4718,7 +4813,7 @@ var bpfrpt_proptype_Positioner =  false ? null : __WEBPACK_IMPORTED_MODULE_12_pr
 
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4729,20 +4824,60 @@ var bpfrpt_proptype_Positioner =  false ? null : __WEBPACK_IMPORTED_MODULE_12_pr
 
 
 
-var Schema = __webpack_require__(31);
+var Schema = __webpack_require__(32);
 
 
 module.exports = new Schema({
   explicit: [
-    __webpack_require__(328),
-    __webpack_require__(329),
-    __webpack_require__(330)
+    __webpack_require__(330),
+    __webpack_require__(331),
+    __webpack_require__(332)
   ]
 });
 
 
 /***/ }),
-/* 84 */
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Markdown = undefined;
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _remarkable = __webpack_require__(357);
+
+var _remarkable2 = _interopRequireDefault(_remarkable);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var md = new _remarkable2.default();
+
+var Markdown = exports.Markdown = function Markdown(_ref) {
+  var source = _ref.source,
+      style = _ref.style,
+      className = _ref.className;
+
+  var renderedMarkdown = md.render(source);
+  var markdownWithLinks = renderedMarkdown.replace(/(\[)(\d{1,2}\.\d+\w*)(\])/g, function (match, p1, p2) {
+    return '<a data-item="' + p2 + '">' + p2 + '</a>';
+  });
+  return source ? _react2.default.createElement('div', {
+    dangerouslySetInnerHTML: { __html: markdownWithLinks },
+    style: style,
+    className: className
+  }) : null;
+};
+
+/***/ }),
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4825,7 +4960,7 @@ module.exports = StateInline;
 
 
 /***/ }),
-/* 85 */
+/* 87 */
 /***/ (function(module, exports) {
 
 /**
@@ -4862,7 +4997,7 @@ module.exports = isObject;
 
 
 /***/ }),
-/* 86 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4880,19 +5015,19 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 87 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(14);
-var settle = __webpack_require__(161);
-var buildURL = __webpack_require__(163);
-var parseHeaders = __webpack_require__(164);
-var isURLSameOrigin = __webpack_require__(165);
-var createError = __webpack_require__(88);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(166);
+var settle = __webpack_require__(163);
+var buildURL = __webpack_require__(165);
+var parseHeaders = __webpack_require__(166);
+var isURLSameOrigin = __webpack_require__(167);
+var createError = __webpack_require__(90);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(168);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -4989,7 +5124,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(167);
+      var cookies = __webpack_require__(169);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -5067,13 +5202,13 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 88 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var enhanceError = __webpack_require__(162);
+var enhanceError = __webpack_require__(164);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -5092,7 +5227,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 89 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5104,7 +5239,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 90 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5130,7 +5265,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 91 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5189,7 +5324,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 module.exports = invariant;
 
 /***/ }),
-/* 92 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5212,7 +5347,7 @@ if (true) {
 module.exports = emptyObject;
 
 /***/ }),
-/* 93 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5280,7 +5415,7 @@ if (true) {
 module.exports = warning;
 
 /***/ }),
-/* 94 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5299,7 +5434,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 95 */
+/* 97 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5323,19 +5458,19 @@ var storeShape = __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.shape({
 });
 
 /***/ }),
-/* 96 */
+/* 98 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = connectAdvanced;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__ = __webpack_require__(192);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(193);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_Subscription__ = __webpack_require__(192);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_PropTypes__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_Subscription__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_PropTypes__ = __webpack_require__(97);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -5627,14 +5762,14 @@ selectorFactory) {
 }
 
 /***/ }),
-/* 97 */
+/* 99 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = wrapMapToPropsConstant;
 /* unused harmony export getDependsOnOwnProps */
 /* harmony export (immutable) */ __webpack_exports__["b"] = wrapMapToPropsFunc;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_verifyPlainObject__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_verifyPlainObject__ = __webpack_require__(100);
 
 
 function wrapMapToPropsConstant(getConstant) {
@@ -5652,7 +5787,7 @@ function wrapMapToPropsConstant(getConstant) {
 // dependsOnOwnProps is used by createMapToPropsProxy to determine whether to pass props as args
 // to the mapToProps function being wrapped. It is also used by makePurePropsSelector to determine
 // whether mapToProps needs to be invoked when props have changed.
-//
+// 
 // A length of one signals that mapToProps does not depend on props from the parent component.
 // A length of zero is assumed to mean mapToProps is getting args via arguments or ...args and
 // therefore not reporting its length accurately..
@@ -5662,16 +5797,16 @@ function getDependsOnOwnProps(mapToProps) {
 
 // Used by whenMapStateToPropsIsFunction and whenMapDispatchToPropsIsFunction,
 // this function wraps mapToProps in a proxy function which does several things:
-//
+// 
 //  * Detects whether the mapToProps function being called depends on props, which
 //    is used by selectorFactory to decide if it should reinvoke on props changes.
-//
+//    
 //  * On first call, handles mapToProps if returns another function, and treats that
 //    new function as the true mapToProps for subsequent calls.
-//
+//    
 //  * On first call, verifies the first result is a plain object, in order to warn
 //    the developer that their mapToProps function is not returning a valid result.
-//
+//    
 function wrapMapToPropsFunc(mapToProps, methodName) {
   return function initProxySelector(dispatch, _ref) {
     var displayName = _ref.displayName;
@@ -5704,12 +5839,12 @@ function wrapMapToPropsFunc(mapToProps, methodName) {
 }
 
 /***/ }),
-/* 98 */
+/* 100 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = verifyPlainObject;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(201);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__warning__ = __webpack_require__(61);
 
 
@@ -5721,11 +5856,11 @@ function verifyPlainObject(value, displayName, methodName) {
 }
 
 /***/ }),
-/* 99 */
+/* 101 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__root_js__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__root_js__ = __webpack_require__(203);
 
 
 /** Built-in value references. */
@@ -5735,134 +5870,39 @@ var Symbol = __WEBPACK_IMPORTED_MODULE_0__root_js__["a" /* default */].Symbol;
 
 
 /***/ }),
-/* 100 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var isTextareaInFocus = exports.isTextareaInFocus = function isTextareaInFocus() {
-  return document.activeElement.tagName === 'TEXTAREA';
-};
-
-// the value provided can be a string or a number
-// rules look like [0-10, 98, 99]
-var validateNumeric = exports.validateNumeric = function validateNumeric(value, rules) {
-  var valid = false;
-  // allow empty input
-  if (value === '') return true;
-  rules.forEach(function (rule) {
-    // if the validator contains an interval string (like "0-10") we parse the
-    // numbers and check if the value is included in the interval
-    if (typeof rule === 'string' && rule.includes('-')) {
-      var range = rule.split('-').map(function (n) {
-        return parseInt(n, 10);
-      });
-
-      if (value >= range[0] && value <= range[1]) {
-        valid = true;
-      }
-    } else if (typeof rule === 'string') {
-      if (rule === value.toString()) {
-        valid = true;
-      }
-    } else if (typeof rule === 'number' && (rule === parseInt(value, 10) || rule.toString().includes(value))) {
-      // if the rule is a number we check it against the value provided
-      valid = true;
-    }
-  });
-  return valid;
-};
-
-var isValueWithinWholeRangeOfRules = exports.isValueWithinWholeRangeOfRules = function isValueWithinWholeRangeOfRules(value, rules) {
-
-  var high = 0;
-  var low = 100;
-  rules.forEach(function (rule) {
-    // if the validator contains an interval string (like "0-10") we parse the
-    // numbers and check if the value is included in the interval
-    if (typeof rule === 'string' && rule.includes('-')) {
-      var range = rule.split('-').map(function (n) {
-        return parseInt(n, 10);
-      });
-      if (low > range[0]) {
-        low = range[0];
-      }
-      if (high < range[0]) {
-        high = range[0];
-      }
-      if (low > range[1]) {
-        low = range[1];
-      }
-      if (high < range[1]) {
-        high = range[1];
-      }
-    } else if (typeof rule === 'string') {
-      rule === parseInt(value, 10);
-      if (low > rule) {
-        low = rule;
-      }
-      if (high < rule) {
-        high = rule;
-      }
-    } else if (
-    // if the rule is a number we check it against the value provided
-    typeof rule === 'number' && (rule === parseInt(value, 10) || rule.toString().includes(value))) {
-      if (low > rule) {
-        low = rule;
-      }
-      if (high < rule) {
-        high = rule;
-      }
-    }
-  });
-  value = parseInt(value, 10);
-  high = parseInt(high, 10);
-  low = parseInt(low, 10);
-  if (value >= low && value <= high) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
-/***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ArrowKeyStepper__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ArrowKeyStepper__ = __webpack_require__(217);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "ArrowKeyStepper", function() { return __WEBPACK_IMPORTED_MODULE_0__ArrowKeyStepper__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__AutoSizer__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__AutoSizer__ = __webpack_require__(275);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "AutoSizer", function() { return __WEBPACK_IMPORTED_MODULE_1__AutoSizer__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__CellMeasurer__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__CellMeasurer__ = __webpack_require__(130);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "CellMeasurer", function() { return __WEBPACK_IMPORTED_MODULE_2__CellMeasurer__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "CellMeasurerCache", function() { return __WEBPACK_IMPORTED_MODULE_2__CellMeasurer__["b"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Collection__ = __webpack_require__(276);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Collection__ = __webpack_require__(278);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Collection", function() { return __WEBPACK_IMPORTED_MODULE_3__Collection__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ColumnSizer__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ColumnSizer__ = __webpack_require__(285);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "ColumnSizer", function() { return __WEBPACK_IMPORTED_MODULE_4__ColumnSizer__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Grid__ = __webpack_require__(12);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "accessibilityOverscanIndicesGetter", function() { return __WEBPACK_IMPORTED_MODULE_5__Grid__["b"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "defaultCellRangeRenderer", function() { return __WEBPACK_IMPORTED_MODULE_5__Grid__["h"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "defaultOverscanIndicesGetter", function() { return __WEBPACK_IMPORTED_MODULE_5__Grid__["i"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Grid", function() { return __WEBPACK_IMPORTED_MODULE_5__Grid__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__InfiniteLoader__ = __webpack_require__(285);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__InfiniteLoader__ = __webpack_require__(287);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "InfiniteLoader", function() { return __WEBPACK_IMPORTED_MODULE_6__InfiniteLoader__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__List__ = __webpack_require__(287);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__List__ = __webpack_require__(289);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "List", function() { return __WEBPACK_IMPORTED_MODULE_7__List__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Masonry__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Masonry__ = __webpack_require__(293);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createMasonryCellPositioner", function() { return __WEBPACK_IMPORTED_MODULE_8__Masonry__["b"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Masonry", function() { return __WEBPACK_IMPORTED_MODULE_8__Masonry__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__MultiGrid__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__MultiGrid__ = __webpack_require__(306);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MultiGrid", function() { return __WEBPACK_IMPORTED_MODULE_9__MultiGrid__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ScrollSync__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ScrollSync__ = __webpack_require__(309);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "ScrollSync", function() { return __WEBPACK_IMPORTED_MODULE_10__ScrollSync__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__Table__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__Table__ = __webpack_require__(311);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createTableMultiSort", function() { return __WEBPACK_IMPORTED_MODULE_11__Table__["e"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTableCellDataGetter", function() { return __WEBPACK_IMPORTED_MODULE_11__Table__["f"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTableCellRenderer", function() { return __WEBPACK_IMPORTED_MODULE_11__Table__["g"]; });
@@ -5873,7 +5913,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Column", function() { return __WEBPACK_IMPORTED_MODULE_11__Table__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "SortDirection", function() { return __WEBPACK_IMPORTED_MODULE_11__Table__["b"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "SortIndicator", function() { return __WEBPACK_IMPORTED_MODULE_11__Table__["c"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__WindowScroller__ = __webpack_require__(312);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__WindowScroller__ = __webpack_require__(314);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "WindowScroller", function() { return __WEBPACK_IMPORTED_MODULE_12__WindowScroller__["a"]; });
 
 
@@ -5890,7 +5930,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5908,7 +5948,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_lifecycles_compat__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Grid__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__types__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__types__ = __webpack_require__(127);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_prop_types__);
 
@@ -6102,13 +6142,13 @@ Object(__WEBPACK_IMPORTED_MODULE_6_react_lifecycles_compat__["a" /* polyfill */]
 
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
 var has = __webpack_require__(23);
-var toObject = __webpack_require__(43);
-var IE_PROTO = __webpack_require__(65)('IE_PROTO');
+var toObject = __webpack_require__(44);
+var IE_PROTO = __webpack_require__(66)('IE_PROTO');
 var ObjectProto = Object.prototype;
 
 module.exports = Object.getPrototypeOf || function (O) {
@@ -6121,22 +6161,22 @@ module.exports = Object.getPrototypeOf || function (O) {
 
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = !__webpack_require__(21) && !__webpack_require__(27)(function () {
-  return Object.defineProperty(__webpack_require__(68)('div'), 'a', { get: function () { return 7; } }).a != 7;
+module.exports = !__webpack_require__(22) && !__webpack_require__(28)(function () {
+  return Object.defineProperty(__webpack_require__(69)('div'), 'a', { get: function () { return 7; } }).a != 7;
 });
 
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(218), __esModule: true };
+module.exports = { "default": __webpack_require__(220), __esModule: true };
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6144,11 +6184,11 @@ module.exports = { "default": __webpack_require__(218), __esModule: true };
 
 exports.__esModule = true;
 
-var _iterator = __webpack_require__(220);
+var _iterator = __webpack_require__(222);
 
 var _iterator2 = _interopRequireDefault(_iterator);
 
-var _symbol = __webpack_require__(230);
+var _symbol = __webpack_require__(232);
 
 var _symbol2 = _interopRequireDefault(_symbol);
 
@@ -6163,19 +6203,19 @@ exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.d
 };
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var LIBRARY = __webpack_require__(34);
 var $export = __webpack_require__(15);
-var redefine = __webpack_require__(108);
+var redefine = __webpack_require__(109);
 var hide = __webpack_require__(24);
-var Iterators = __webpack_require__(28);
-var $iterCreate = __webpack_require__(223);
-var setToStringTag = __webpack_require__(48);
-var getPrototypeOf = __webpack_require__(103);
+var Iterators = __webpack_require__(29);
+var $iterCreate = __webpack_require__(225);
+var setToStringTag = __webpack_require__(49);
+var getPrototypeOf = __webpack_require__(104);
 var ITERATOR = __webpack_require__(11)('iterator');
 var BUGGY = !([].keys && 'next' in [].keys()); // Safari has buggy iterators w/o `next`
 var FF_ITERATOR = '@@iterator';
@@ -6239,20 +6279,20 @@ module.exports = function (Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCE
 
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(24);
 
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var has = __webpack_require__(23);
 var toIObject = __webpack_require__(25);
-var arrayIndexOf = __webpack_require__(225)(false);
-var IE_PROTO = __webpack_require__(65)('IE_PROTO');
+var arrayIndexOf = __webpack_require__(227)(false);
+var IE_PROTO = __webpack_require__(66)('IE_PROTO');
 
 module.exports = function (object, names) {
   var O = toIObject(object);
@@ -6269,7 +6309,7 @@ module.exports = function (object, names) {
 
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // fallback for non-array-like ES3 and non-enumerable old V8 strings
@@ -6281,11 +6321,11 @@ module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
 
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.15 ToLength
-var toInteger = __webpack_require__(70);
+var toInteger = __webpack_require__(71);
 var min = Math.min;
 module.exports = function (it) {
   return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
@@ -6293,7 +6333,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var document = __webpack_require__(10).document;
@@ -6301,12 +6341,12 @@ module.exports = document && document.documentElement;
 
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
-var $keys = __webpack_require__(109);
-var hiddenKeys = __webpack_require__(72).concat('length', 'prototype');
+var $keys = __webpack_require__(110);
+var hiddenKeys = __webpack_require__(73).concat('length', 'prototype');
 
 exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
   return $keys(O, hiddenKeys);
@@ -6314,18 +6354,18 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
 
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports) {
 
 
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export DEFAULT_SCROLLING_RESET_TIME_INTERVAL */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__);
@@ -6343,13 +6383,13 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_classnames__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_classnames___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_classnames__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__utils_calculateSizeAndPositionDataAndUpdateScrollOffset__ = __webpack_require__(249);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__utils_ScalingCellSizeAndPositionManager__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__utils_createCallbackMemoizer__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__defaultOverscanIndicesGetter__ = __webpack_require__(118);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__utils_updateScrollIndexHelper__ = __webpack_require__(254);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__defaultCellRangeRenderer__ = __webpack_require__(119);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_dom_helpers_util_scrollbarSize__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__utils_calculateSizeAndPositionDataAndUpdateScrollOffset__ = __webpack_require__(251);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__utils_ScalingCellSizeAndPositionManager__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__utils_createCallbackMemoizer__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__defaultOverscanIndicesGetter__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__utils_updateScrollIndexHelper__ = __webpack_require__(256);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__defaultCellRangeRenderer__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_dom_helpers_util_scrollbarSize__ = __webpack_require__(121);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_dom_helpers_util_scrollbarSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_dom_helpers_util_scrollbarSize__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_react_lifecycles_compat__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__utils_requestAnimationTimeout__ = __webpack_require__(39);
@@ -7911,19 +7951,19 @@ Object(__WEBPACK_IMPORTED_MODULE_16_react_lifecycles_compat__["a" /* polyfill */
 
 
 /***/ }),
-/* 116 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(246), __esModule: true };
-
-/***/ }),
 /* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(252), __esModule: true };
+module.exports = { "default": __webpack_require__(248), __esModule: true };
 
 /***/ }),
 /* 118 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(254), __esModule: true };
+
+/***/ }),
+/* 119 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7970,7 +8010,7 @@ function defaultOverscanIndicesGetter(_ref) {
 
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8122,7 +8162,7 @@ function warnAboutMissingStyle(parent, renderedCell) {
 
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8152,7 +8192,7 @@ exports.default = function (recalc) {
   return size;
 };
 
-var _inDOM = __webpack_require__(255);
+var _inDOM = __webpack_require__(257);
 
 var _inDOM2 = _interopRequireDefault(_inDOM);
 
@@ -8163,12 +8203,12 @@ var size = void 0;
 module.exports = exports['default'];
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var classof = __webpack_require__(80);
+var classof = __webpack_require__(81);
 var ITERATOR = __webpack_require__(11)('iterator');
-var Iterators = __webpack_require__(28);
+var Iterators = __webpack_require__(29);
 module.exports = __webpack_require__(5).getIteratorMethod = function (it) {
   if (it != undefined) return it[ITERATOR]
     || it['@@iterator']
@@ -8177,12 +8217,12 @@ module.exports = __webpack_require__(5).getIteratorMethod = function (it) {
 
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.3.20 SpeciesConstructor(O, defaultConstructor)
 var anObject = __webpack_require__(16);
-var aFunction = __webpack_require__(45);
+var aFunction = __webpack_require__(46);
 var SPECIES = __webpack_require__(11)('species');
 module.exports = function (O, D) {
   var C = anObject(O).constructor;
@@ -8192,13 +8232,13 @@ module.exports = function (O, D) {
 
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ctx = __webpack_require__(35);
-var invoke = __webpack_require__(263);
-var html = __webpack_require__(112);
-var cel = __webpack_require__(68);
+var invoke = __webpack_require__(265);
+var html = __webpack_require__(113);
+var cel = __webpack_require__(69);
 var global = __webpack_require__(10);
 var process = global.process;
 var setTask = global.setImmediate;
@@ -8282,7 +8322,7 @@ module.exports = {
 
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports) {
 
 module.exports = function (exec) {
@@ -8295,12 +8335,12 @@ module.exports = function (exec) {
 
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var anObject = __webpack_require__(16);
-var isObject = __webpack_require__(20);
-var newPromiseCapability = __webpack_require__(81);
+var isObject = __webpack_require__(21);
+var newPromiseCapability = __webpack_require__(82);
 
 module.exports = function (C, x) {
   anObject(C);
@@ -8313,7 +8353,7 @@ module.exports = function (C, x) {
 
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8328,7 +8368,7 @@ var bpfrpt_proptype_ScrollIndices =  false ? null : {
 
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8346,7 +8386,7 @@ var bpfrpt_proptype_ScrollIndices =  false ? null : {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__vendor_detectElementResize__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__vendor_detectElementResize__ = __webpack_require__(129);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_prop_types__);
 
@@ -8542,7 +8582,7 @@ AutoSizer.propTypes =  false ? null : {
 
 
 /***/ }),
-/* 128 */
+/* 129 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8744,12 +8784,12 @@ function createDetectElementResize(nonce) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(26)))
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__CellMeasurer__ = __webpack_require__(274);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CellMeasurerCache__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__CellMeasurer__ = __webpack_require__(276);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CellMeasurerCache__ = __webpack_require__(277);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__CellMeasurer__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__CellMeasurerCache__["a"]; });
 
@@ -8759,7 +8799,7 @@ function createDetectElementResize(nonce) {
 
 
 /***/ }),
-/* 130 */
+/* 131 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8778,13 +8818,13 @@ var bpfrpt_proptype_CellMeasureCache =  false ? null : {
 
 
 /***/ }),
-/* 131 */
+/* 132 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_own_property_descriptor__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_own_property_descriptor__ = __webpack_require__(290);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_own_property_descriptor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_own_property_descriptor__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of__);
@@ -8801,7 +8841,7 @@ var bpfrpt_proptype_CellMeasureCache =  false ? null : {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_classnames__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_classnames___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_classnames__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__types__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__types__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_prop_types__);
 
@@ -9169,7 +9209,7 @@ List.propTypes =  false ? null : {
 
 
 /***/ }),
-/* 132 */
+/* 133 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9195,7 +9235,7 @@ function defaultCellDataGetter(_ref) {
 
 
 /***/ }),
-/* 133 */
+/* 134 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9219,7 +9259,7 @@ function defaultCellRenderer(_ref) {
 
 
 /***/ }),
-/* 134 */
+/* 135 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9248,14 +9288,14 @@ defaultHeaderRowRenderer.propTypes =  false ? null : __WEBPACK_IMPORTED_MODULE_1
 
 
 /***/ }),
-/* 135 */
+/* 136 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = defaultHeaderRenderer;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SortIndicator__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SortIndicator__ = __webpack_require__(137);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__types__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
@@ -9293,7 +9333,7 @@ defaultHeaderRenderer.propTypes =  false ? null : __WEBPACK_IMPORTED_MODULE_2__t
 
 
 /***/ }),
-/* 136 */
+/* 137 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9304,7 +9344,7 @@ defaultHeaderRenderer.propTypes =  false ? null : __WEBPACK_IMPORTED_MODULE_2__t
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__SortDirection__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__SortDirection__ = __webpack_require__(53);
 
 
 
@@ -9334,7 +9374,7 @@ SortIndicator.propTypes =  true ? {
 } : {};
 
 /***/ }),
-/* 137 */
+/* 138 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9414,7 +9454,7 @@ defaultRowRenderer.propTypes =  false ? null : __WEBPACK_IMPORTED_MODULE_2__type
 
 
 /***/ }),
-/* 138 */
+/* 139 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9430,10 +9470,10 @@ defaultRowRenderer.propTypes =  false ? null : __WEBPACK_IMPORTED_MODULE_2__type
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__defaultHeaderRenderer__ = __webpack_require__(135);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__defaultCellRenderer__ = __webpack_require__(133);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__defaultCellDataGetter__ = __webpack_require__(132);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__SortDirection__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__defaultHeaderRenderer__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__defaultCellRenderer__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__defaultCellDataGetter__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__SortDirection__ = __webpack_require__(53);
 
 
 
@@ -9540,7 +9580,7 @@ Column.propTypes =  true ? {
 } : {};
 
 /***/ }),
-/* 139 */
+/* 140 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9559,11 +9599,11 @@ Column.propTypes =  true ? {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utils_onScroll__ = __webpack_require__(313);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__utils_dimensions__ = __webpack_require__(314);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__vendor_detectElementResize__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utils_onScroll__ = __webpack_require__(315);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__utils_dimensions__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__vendor_detectElementResize__ = __webpack_require__(129);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_prop_types__);
 
@@ -9826,7 +9866,7 @@ WindowScroller.propTypes =  false ? null : {
 
 
 /***/ }),
-/* 140 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9844,7 +9884,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _DataLoader = __webpack_require__(319);
+var _DataLoader = __webpack_require__(321);
 
 var _DataLoader2 = _interopRequireDefault(_DataLoader);
 
@@ -9987,7 +10027,7 @@ var Algorithms = function () {
 exports.default = Algorithms;
 
 /***/ }),
-/* 141 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10001,18 +10041,18 @@ exports.default = Algorithms;
 
 
 
-var Schema = __webpack_require__(31);
+var Schema = __webpack_require__(32);
 
 
 module.exports = new Schema({
   include: [
-    __webpack_require__(142)
+    __webpack_require__(143)
   ]
 });
 
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10027,24 +10067,24 @@ module.exports = new Schema({
 
 
 
-var Schema = __webpack_require__(31);
+var Schema = __webpack_require__(32);
 
 
 module.exports = new Schema({
   include: [
-    __webpack_require__(83)
+    __webpack_require__(84)
   ],
   implicit: [
-    __webpack_require__(331),
-    __webpack_require__(332),
     __webpack_require__(333),
-    __webpack_require__(334)
+    __webpack_require__(334),
+    __webpack_require__(335),
+    __webpack_require__(336)
   ]
 });
 
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10053,38 +10093,85 @@ module.exports = new Schema({
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Markdown = undefined;
+exports.ItemCard = undefined;
 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _remarkable = __webpack_require__(356);
-
-var _remarkable2 = _interopRequireDefault(_remarkable);
+var _Markdown = __webpack_require__(85);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var md = new _remarkable2.default();
+var Header = function Header(_ref) {
+  var item = _ref.item,
+      isActive = _ref.isActive;
+  return _react2.default.createElement(
+    'b',
+    null,
+    (item.input || item.scale) && _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(
+        'span',
+        null,
+        item.key
+      )
+    ),
+    _react2.default.createElement(
+      'div',
+      null,
+      item.title
+    )
+  );
+};
 
-var Markdown = exports.Markdown = function Markdown(_ref) {
-  var source = _ref.source,
-      style = _ref.style,
-      className = _ref.className;
+var ItemCard = exports.ItemCard = function ItemCard(_ref2) {
+  var isActive = _ref2.isActive,
+      index = _ref2.index,
+      item = _ref2.item,
+      dispatch = _ref2.dispatch,
+      response = _ref2.response;
+  var key = item.key,
+      description = item.description,
+      help = item.help,
+      validate = item.validate,
+      options = item.options;
+  var input = item.input;
 
-  var renderedMarkdown = md.render(source);
-  var markdownWithLinks = renderedMarkdown.replace(/(\[)(\d{1,2}\.\d+\w*)(\])/g, function (match, p1, p2) {
-    return '<a data-item="' + p2 + '">' + p2 + '</a>';
-  });
-  return source ? _react2.default.createElement('div', {
-    dangerouslySetInnerHTML: { __html: markdownWithLinks },
-    style: style,
-    className: className
-  }) : null;
+
+  if (input === 'integer') {
+    input = 'number';
+  }
+  if (input === 'string') {
+    input = 'text';
+  }
+
+  if (!input) {
+    return _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(Header, { item: item, isActive: isActive }),
+      _react2.default.createElement(_Markdown.Markdown, { source: description }),
+      _react2.default.createElement(_Markdown.Markdown, { source: help })
+    );
+  }
+
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'div',
+      { style: { flex: 3 } },
+      _react2.default.createElement(Header, { item: item, isActive: isActive }),
+      _react2.default.createElement(_Markdown.Markdown, { source: description }),
+      _react2.default.createElement(_Markdown.Markdown, { source: help })
+    )
+  );
 };
 
 /***/ }),
-/* 144 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12225,14 +12312,14 @@ module.exports = {
 
 
 /***/ }),
-/* 145 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 
-var normalizeLink = __webpack_require__(146);
+var normalizeLink = __webpack_require__(147);
 var unescapeMd    = __webpack_require__(13).unescapeMd;
 
 /**
@@ -12315,7 +12402,7 @@ module.exports = function parseLinkDestination(state, pos) {
 
 
 /***/ }),
-/* 146 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12335,7 +12422,7 @@ module.exports = function normalizeLink(url) {
 
 
 /***/ }),
-/* 147 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12388,7 +12475,7 @@ module.exports = function parseLinkTitle(state, pos) {
 
 
 /***/ }),
-/* 148 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12403,7 +12490,7 @@ module.exports = function normalizeReference(str) {
 
 
 /***/ }),
-/* 149 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12413,7 +12500,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Rangeslider = __webpack_require__(408);
+var _Rangeslider = __webpack_require__(409);
 
 var _Rangeslider2 = _interopRequireDefault(_Rangeslider);
 
@@ -12422,7 +12509,38 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = _Rangeslider2.default;
 
 /***/ }),
-/* 150 */
+/* 151 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(412);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(414)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../css-loader/index.js!./index.css", function() {
+			var newContent = require("!!../../css-loader/index.js!./index.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var freeGlobal = __webpack_require__(427);
@@ -12437,10 +12555,10 @@ module.exports = root;
 
 
 /***/ }),
-/* 151 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var root = __webpack_require__(150);
+var root = __webpack_require__(152);
 
 /** Built-in value references. */
 var Symbol = root.Symbol;
@@ -12449,27 +12567,27 @@ module.exports = Symbol;
 
 
 /***/ }),
-/* 152 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(153);
+__webpack_require__(155);
 module.exports = __webpack_require__(434);
 
 
 /***/ }),
-/* 153 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(154);
+__webpack_require__(156);
 if (document.getElementById('scan-app')) {
-  __webpack_require__(175);
+  __webpack_require__(177);
 }
 
 /***/ }),
-/* 154 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12481,7 +12599,7 @@ if (document.getElementById('scan-app')) {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(155);
+window.axios = __webpack_require__(157);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -12500,21 +12618,21 @@ if (token) {
 }
 
 /***/ }),
-/* 155 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(156);
+module.exports = __webpack_require__(158);
 
 /***/ }),
-/* 156 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(14);
-var bind = __webpack_require__(86);
-var Axios = __webpack_require__(158);
+var bind = __webpack_require__(88);
+var Axios = __webpack_require__(160);
 var defaults = __webpack_require__(57);
 
 /**
@@ -12548,15 +12666,15 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(90);
-axios.CancelToken = __webpack_require__(173);
-axios.isCancel = __webpack_require__(89);
+axios.Cancel = __webpack_require__(92);
+axios.CancelToken = __webpack_require__(175);
+axios.isCancel = __webpack_require__(91);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(174);
+axios.spread = __webpack_require__(176);
 
 module.exports = axios;
 
@@ -12565,7 +12683,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 157 */
+/* 159 */
 /***/ (function(module, exports) {
 
 /*!
@@ -12592,7 +12710,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 158 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12600,8 +12718,8 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(57);
 var utils = __webpack_require__(14);
-var InterceptorManager = __webpack_require__(168);
-var dispatchRequest = __webpack_require__(169);
+var InterceptorManager = __webpack_require__(170);
+var dispatchRequest = __webpack_require__(171);
 
 /**
  * Create a new instance of Axios
@@ -12678,7 +12796,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 159 */
+/* 161 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -12868,7 +12986,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 160 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12887,13 +13005,13 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 161 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var createError = __webpack_require__(88);
+var createError = __webpack_require__(90);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -12920,7 +13038,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 162 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12948,7 +13066,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 163 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13021,7 +13139,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 164 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13081,7 +13199,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 165 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13156,7 +13274,7 @@ module.exports = (
 
 
 /***/ }),
-/* 166 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13199,7 +13317,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 167 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13259,7 +13377,7 @@ module.exports = (
 
 
 /***/ }),
-/* 168 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13318,18 +13436,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 169 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(14);
-var transformData = __webpack_require__(170);
-var isCancel = __webpack_require__(89);
+var transformData = __webpack_require__(172);
+var isCancel = __webpack_require__(91);
 var defaults = __webpack_require__(57);
-var isAbsoluteURL = __webpack_require__(171);
-var combineURLs = __webpack_require__(172);
+var isAbsoluteURL = __webpack_require__(173);
+var combineURLs = __webpack_require__(174);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -13411,7 +13529,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 170 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13438,7 +13556,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 171 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13459,7 +13577,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 172 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13480,13 +13598,13 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 173 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var Cancel = __webpack_require__(90);
+var Cancel = __webpack_require__(92);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -13544,7 +13662,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 174 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13578,7 +13696,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 175 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13588,13 +13706,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(32);
+var _reactDom = __webpack_require__(33);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactRedux = __webpack_require__(22);
+var _reactRedux = __webpack_require__(19);
 
-var _Scan = __webpack_require__(212);
+var _Scan = __webpack_require__(214);
 
 var _Scan2 = _interopRequireDefault(_Scan);
 
@@ -13625,7 +13743,7 @@ _reactDom2.default.render(_react2.default.createElement(
 ), document.getElementById('scan-app'));
 
 /***/ }),
-/* 176 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13647,9 +13765,9 @@ if (true) {
 'use strict';
 
 var _assign = __webpack_require__(58);
-var invariant = __webpack_require__(91);
-var emptyObject = __webpack_require__(92);
-var warning = __webpack_require__(93);
+var invariant = __webpack_require__(93);
+var emptyObject = __webpack_require__(94);
+var warning = __webpack_require__(95);
 var emptyFunction = __webpack_require__(59);
 var checkPropTypes = __webpack_require__(60);
 
@@ -15118,7 +15236,7 @@ module.exports = react;
 
 
 /***/ }),
-/* 177 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15139,19 +15257,19 @@ if (true) {
   (function() {
 'use strict';
 
-var invariant = __webpack_require__(91);
+var invariant = __webpack_require__(93);
 var React = __webpack_require__(0);
-var warning = __webpack_require__(93);
-var ExecutionEnvironment = __webpack_require__(178);
+var warning = __webpack_require__(95);
+var ExecutionEnvironment = __webpack_require__(180);
 var _assign = __webpack_require__(58);
 var emptyFunction = __webpack_require__(59);
 var checkPropTypes = __webpack_require__(60);
-var getActiveElement = __webpack_require__(179);
-var shallowEqual = __webpack_require__(180);
-var containsNode = __webpack_require__(181);
-var emptyObject = __webpack_require__(92);
-var hyphenateStyleName = __webpack_require__(184);
-var camelizeStyleName = __webpack_require__(186);
+var getActiveElement = __webpack_require__(181);
+var shallowEqual = __webpack_require__(182);
+var containsNode = __webpack_require__(183);
+var emptyObject = __webpack_require__(94);
+var hyphenateStyleName = __webpack_require__(186);
+var camelizeStyleName = __webpack_require__(188);
 
 // Relying on the `invariant()` implementation lets us
 // have preserve the format and params in the www builds.
@@ -32555,7 +32673,7 @@ module.exports = reactDom;
 
 
 /***/ }),
-/* 178 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32594,7 +32712,7 @@ var ExecutionEnvironment = {
 module.exports = ExecutionEnvironment;
 
 /***/ }),
-/* 179 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32636,7 +32754,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 180 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32647,7 +32765,7 @@ module.exports = getActiveElement;
  * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
- *
+ * 
  */
 
 /*eslint-disable no-self-compare */
@@ -32707,7 +32825,7 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 181 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32719,10 +32837,10 @@ module.exports = shallowEqual;
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *
- *
+ * 
  */
 
-var isTextNode = __webpack_require__(182);
+var isTextNode = __webpack_require__(184);
 
 /*eslint-disable no-bitwise */
 
@@ -32750,7 +32868,7 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
-/* 182 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32765,7 +32883,7 @@ module.exports = containsNode;
  * @typechecks
  */
 
-var isNode = __webpack_require__(183);
+var isNode = __webpack_require__(185);
 
 /**
  * @param {*} object The object to check.
@@ -32778,7 +32896,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 183 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32806,7 +32924,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 184 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32821,7 +32939,7 @@ module.exports = isNode;
 
 
 
-var hyphenate = __webpack_require__(185);
+var hyphenate = __webpack_require__(187);
 
 var msPattern = /^ms-/;
 
@@ -32848,7 +32966,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 185 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32884,7 +33002,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 186 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32899,7 +33017,7 @@ module.exports = hyphenate;
 
 
 
-var camelize = __webpack_require__(187);
+var camelize = __webpack_require__(189);
 
 var msPattern = /^-ms-/;
 
@@ -32927,7 +33045,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 187 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32962,7 +33080,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 188 */
+/* 190 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -32971,7 +33089,7 @@ module.exports = camelize;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_PropTypes__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_PropTypes__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_warning__ = __webpack_require__(61);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -33047,7 +33165,7 @@ function createProvider() {
 /* harmony default export */ __webpack_exports__["b"] = (createProvider());
 
 /***/ }),
-/* 189 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33062,7 +33180,7 @@ function createProvider() {
 
 var assign = __webpack_require__(58);
 
-var ReactPropTypesSecret = __webpack_require__(94);
+var ReactPropTypesSecret = __webpack_require__(96);
 var checkPropTypes = __webpack_require__(60);
 
 var printWarning = function() {};
@@ -33609,7 +33727,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 
 /***/ }),
-/* 190 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33684,7 +33802,7 @@ module.exports = hoistNonReactStatics;
 
 
 /***/ }),
-/* 191 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33740,7 +33858,7 @@ module.exports = invariant;
 
 
 /***/ }),
-/* 192 */
+/* 194 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33839,17 +33957,17 @@ var Subscription = function () {
 
 
 /***/ }),
-/* 193 */
+/* 195 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export createConnect */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_connectAdvanced__ = __webpack_require__(96);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_shallowEqual__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mapDispatchToProps__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapStateToProps__ = __webpack_require__(208);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mergeProps__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__selectorFactory__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_connectAdvanced__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_shallowEqual__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mapDispatchToProps__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapStateToProps__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mergeProps__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__selectorFactory__ = __webpack_require__(212);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -33866,7 +33984,7 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
   selectorFactory, which has the signature:
 
     (dispatch, options) => (nextState, nextOwnProps) => nextFinalProps
-
+  
   connect passes its args to connectAdvanced as options, which will in turn pass them to
   selectorFactory each time a Connect component instance is instantiated or hot reloaded.
 
@@ -33955,7 +34073,7 @@ function createConnect() {
 /* harmony default export */ __webpack_exports__["a"] = (createConnect());
 
 /***/ }),
-/* 194 */
+/* 196 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33992,7 +34110,7 @@ function shallowEqual(objA, objB) {
 }
 
 /***/ }),
-/* 195 */
+/* 197 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34000,7 +34118,7 @@ function shallowEqual(objA, objB) {
 /* unused harmony export whenMapDispatchToPropsIsMissing */
 /* unused harmony export whenMapDispatchToPropsIsObject */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__wrapMapToProps__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__wrapMapToProps__ = __webpack_require__(99);
 
 
 
@@ -34023,11 +34141,11 @@ function whenMapDispatchToPropsIsObject(mapDispatchToProps) {
 /* harmony default export */ __webpack_exports__["a"] = ([whenMapDispatchToPropsIsFunction, whenMapDispatchToPropsIsMissing, whenMapDispatchToPropsIsObject]);
 
 /***/ }),
-/* 196 */
+/* 198 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(global, module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ponyfill_js__ = __webpack_require__(198);
+/* WEBPACK VAR INJECTION */(function(global, module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ponyfill_js__ = __webpack_require__(200);
 /* global window */
 
 
@@ -34048,10 +34166,10 @@ if (typeof self !== 'undefined') {
 var result = Object(__WEBPACK_IMPORTED_MODULE_0__ponyfill_js__["a" /* default */])(root);
 /* harmony default export */ __webpack_exports__["a"] = (result);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(26), __webpack_require__(197)(module)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(26), __webpack_require__(199)(module)))
 
 /***/ }),
-/* 197 */
+/* 199 */
 /***/ (function(module, exports) {
 
 module.exports = function(originalModule) {
@@ -34081,7 +34199,7 @@ module.exports = function(originalModule) {
 
 
 /***/ }),
-/* 198 */
+/* 200 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34106,13 +34224,13 @@ function symbolObservablePonyfill(root) {
 
 
 /***/ }),
-/* 199 */
+/* 201 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__baseGetTag_js__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getPrototype_js__ = __webpack_require__(205);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__isObjectLike_js__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__baseGetTag_js__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getPrototype_js__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__isObjectLike_js__ = __webpack_require__(209);
 
 
 
@@ -34178,13 +34296,13 @@ function isPlainObject(value) {
 
 
 /***/ }),
-/* 200 */
+/* 202 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getRawTag_js__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__objectToString_js__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getRawTag_js__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__objectToString_js__ = __webpack_require__(206);
 
 
 
@@ -34216,11 +34334,11 @@ function baseGetTag(value) {
 
 
 /***/ }),
-/* 201 */
+/* 203 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__freeGlobal_js__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__freeGlobal_js__ = __webpack_require__(204);
 
 
 /** Detect free variable `self`. */
@@ -34233,7 +34351,7 @@ var root = __WEBPACK_IMPORTED_MODULE_0__freeGlobal_js__["a" /* default */] || fr
 
 
 /***/ }),
-/* 202 */
+/* 204 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34245,11 +34363,11 @@ var freeGlobal = typeof global == 'object' && global && global.Object === Object
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(26)))
 
 /***/ }),
-/* 203 */
+/* 205 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(101);
 
 
 /** Used for built-in method references. */
@@ -34299,7 +34417,7 @@ function getRawTag(value) {
 
 
 /***/ }),
-/* 204 */
+/* 206 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34328,11 +34446,11 @@ function objectToString(value) {
 
 
 /***/ }),
-/* 205 */
+/* 207 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__overArg_js__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__overArg_js__ = __webpack_require__(208);
 
 
 /** Built-in value references. */
@@ -34342,7 +34460,7 @@ var getPrototype = Object(__WEBPACK_IMPORTED_MODULE_0__overArg_js__["a" /* defau
 
 
 /***/ }),
-/* 206 */
+/* 208 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34364,7 +34482,7 @@ function overArg(func, transform) {
 
 
 /***/ }),
-/* 207 */
+/* 209 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34400,13 +34518,13 @@ function isObjectLike(value) {
 
 
 /***/ }),
-/* 208 */
+/* 210 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export whenMapStateToPropsIsFunction */
 /* unused harmony export whenMapStateToPropsIsMissing */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__wrapMapToProps__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__wrapMapToProps__ = __webpack_require__(99);
 
 
 function whenMapStateToPropsIsFunction(mapStateToProps) {
@@ -34422,7 +34540,7 @@ function whenMapStateToPropsIsMissing(mapStateToProps) {
 /* harmony default export */ __webpack_exports__["a"] = ([whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing]);
 
 /***/ }),
-/* 209 */
+/* 211 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34430,7 +34548,7 @@ function whenMapStateToPropsIsMissing(mapStateToProps) {
 /* unused harmony export wrapMergePropsFunc */
 /* unused harmony export whenMergePropsIsFunction */
 /* unused harmony export whenMergePropsIsOmitted */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_verifyPlainObject__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_verifyPlainObject__ = __webpack_require__(100);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -34478,14 +34596,14 @@ function whenMergePropsIsOmitted(mergeProps) {
 /* harmony default export */ __webpack_exports__["a"] = ([whenMergePropsIsFunction, whenMergePropsIsOmitted]);
 
 /***/ }),
-/* 210 */
+/* 212 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export impureFinalPropsSelectorFactory */
 /* unused harmony export pureFinalPropsSelectorFactory */
 /* harmony export (immutable) */ __webpack_exports__["a"] = finalPropsSelectorFactory;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__verifySubselectors__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__verifySubselectors__ = __webpack_require__(213);
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 
@@ -34590,7 +34708,7 @@ function finalPropsSelectorFactory(dispatch, _ref2) {
 }
 
 /***/ }),
-/* 211 */
+/* 213 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34615,7 +34733,7 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
 }
 
 /***/ }),
-/* 212 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34631,29 +34749,29 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(32);
+var _reactDom = __webpack_require__(33);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactRedux = __webpack_require__(22);
+var _reactRedux = __webpack_require__(19);
 
 var _data = __webpack_require__(63);
 
-var _helpers = __webpack_require__(100);
+var _helpers = __webpack_require__(64);
 
-var _ItemList = __webpack_require__(213);
+var _ItemList = __webpack_require__(215);
 
-var _Settings = __webpack_require__(315);
+var _Settings = __webpack_require__(317);
 
-var _Analysis = __webpack_require__(317);
+var _Analysis = __webpack_require__(319);
 
-var _SearchItems = __webpack_require__(350);
+var _SearchItems = __webpack_require__(352);
 
-var _Response = __webpack_require__(354);
+var _Response = __webpack_require__(356);
 
-var _actions = __webpack_require__(33);
+var _actions = __webpack_require__(27);
 
-var _items = __webpack_require__(54);
+var _items = __webpack_require__(43);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34750,7 +34868,7 @@ exports.default = (0, _reactRedux.connect)(function (state) {
 })(Scan);
 
 /***/ }),
-/* 213 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34765,9 +34883,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _ItemListButton = __webpack_require__(214);
+var _ItemListButton = __webpack_require__(216);
 
-var _reactVirtualized = __webpack_require__(101);
+var _reactVirtualized = __webpack_require__(102);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34808,7 +34926,7 @@ var ItemList = exports.ItemList = function ItemList(_ref) {
 };
 
 /***/ }),
-/* 214 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34823,9 +34941,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(22);
+var _reactRedux = __webpack_require__(19);
 
-var _actions = __webpack_require__(33);
+var _actions = __webpack_require__(27);
 
 var _classnames = __webpack_require__(18);
 
@@ -34886,14 +35004,14 @@ var ItemListButton = exports.ItemListButton = (0, _reactRedux.connect)(function 
 })(ItemButton);
 
 /***/ }),
-/* 215 */
+/* 217 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ArrowKeyStepper__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ArrowKeyStepper__ = __webpack_require__(103);
 /* unused harmony reexport default */
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__ArrowKeyStepper__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__types__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__types__ = __webpack_require__(127);
 /* unused harmony reexport bpfrpt_proptype_ScrollIndices */
 
 
@@ -34904,22 +35022,22 @@ var ItemListButton = exports.ItemListButton = (0, _reactRedux.connect)(function 
 
 
 /***/ }),
-/* 216 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(217);
+__webpack_require__(219);
 module.exports = __webpack_require__(5).Object.getPrototypeOf;
 
 
 /***/ }),
-/* 217 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.9 Object.getPrototypeOf(O)
-var toObject = __webpack_require__(43);
-var $getPrototypeOf = __webpack_require__(103);
+var toObject = __webpack_require__(44);
+var $getPrototypeOf = __webpack_require__(104);
 
-__webpack_require__(67)('getPrototypeOf', function () {
+__webpack_require__(68)('getPrototypeOf', function () {
   return function getPrototypeOf(it) {
     return $getPrototypeOf(toObject(it));
   };
@@ -34927,10 +35045,10 @@ __webpack_require__(67)('getPrototypeOf', function () {
 
 
 /***/ }),
-/* 218 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(219);
+__webpack_require__(221);
 var $Object = __webpack_require__(5).Object;
 module.exports = function defineProperty(it, key, desc) {
   return $Object.defineProperty(it, key, desc);
@@ -34938,35 +35056,35 @@ module.exports = function defineProperty(it, key, desc) {
 
 
 /***/ }),
-/* 219 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $export = __webpack_require__(15);
 // 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
-$export($export.S + $export.F * !__webpack_require__(21), 'Object', { defineProperty: __webpack_require__(19).f });
-
-
-/***/ }),
-/* 220 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(221), __esModule: true };
-
-/***/ }),
-/* 221 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(47);
-__webpack_require__(49);
-module.exports = __webpack_require__(73).f('iterator');
+$export($export.S + $export.F * !__webpack_require__(22), 'Object', { defineProperty: __webpack_require__(20).f });
 
 
 /***/ }),
 /* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var toInteger = __webpack_require__(70);
-var defined = __webpack_require__(64);
+module.exports = { "default": __webpack_require__(223), __esModule: true };
+
+/***/ }),
+/* 223 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(48);
+__webpack_require__(50);
+module.exports = __webpack_require__(74).f('iterator');
+
+
+/***/ }),
+/* 224 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var toInteger = __webpack_require__(71);
+var defined = __webpack_require__(65);
 // true  -> String#at
 // false -> String#codePointAt
 module.exports = function (TO_STRING) {
@@ -34985,14 +35103,14 @@ module.exports = function (TO_STRING) {
 
 
 /***/ }),
-/* 223 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var create = __webpack_require__(71);
-var descriptor = __webpack_require__(46);
-var setToStringTag = __webpack_require__(48);
+var create = __webpack_require__(72);
+var descriptor = __webpack_require__(47);
+var setToStringTag = __webpack_require__(49);
 var IteratorPrototype = {};
 
 // 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
@@ -35005,14 +35123,14 @@ module.exports = function (Constructor, NAME, next) {
 
 
 /***/ }),
-/* 224 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var dP = __webpack_require__(19);
+var dP = __webpack_require__(20);
 var anObject = __webpack_require__(16);
 var getKeys = __webpack_require__(36);
 
-module.exports = __webpack_require__(21) ? Object.defineProperties : function defineProperties(O, Properties) {
+module.exports = __webpack_require__(22) ? Object.defineProperties : function defineProperties(O, Properties) {
   anObject(O);
   var keys = getKeys(Properties);
   var length = keys.length;
@@ -35024,14 +35142,14 @@ module.exports = __webpack_require__(21) ? Object.defineProperties : function de
 
 
 /***/ }),
-/* 225 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // false -> Array#indexOf
 // true  -> Array#includes
 var toIObject = __webpack_require__(25);
-var toLength = __webpack_require__(111);
-var toAbsoluteIndex = __webpack_require__(226);
+var toLength = __webpack_require__(112);
+var toAbsoluteIndex = __webpack_require__(228);
 module.exports = function (IS_INCLUDES) {
   return function ($this, el, fromIndex) {
     var O = toIObject($this);
@@ -35053,10 +35171,10 @@ module.exports = function (IS_INCLUDES) {
 
 
 /***/ }),
-/* 226 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var toInteger = __webpack_require__(70);
+var toInteger = __webpack_require__(71);
 var max = Math.max;
 var min = Math.min;
 module.exports = function (index, length) {
@@ -35066,21 +35184,21 @@ module.exports = function (index, length) {
 
 
 /***/ }),
-/* 227 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var addToUnscopables = __webpack_require__(228);
-var step = __webpack_require__(229);
-var Iterators = __webpack_require__(28);
+var addToUnscopables = __webpack_require__(230);
+var step = __webpack_require__(231);
+var Iterators = __webpack_require__(29);
 var toIObject = __webpack_require__(25);
 
 // 22.1.3.4 Array.prototype.entries()
 // 22.1.3.13 Array.prototype.keys()
 // 22.1.3.29 Array.prototype.values()
 // 22.1.3.30 Array.prototype[@@iterator]()
-module.exports = __webpack_require__(107)(Array, 'Array', function (iterated, kind) {
+module.exports = __webpack_require__(108)(Array, 'Array', function (iterated, kind) {
   this._t = toIObject(iterated); // target
   this._i = 0;                   // next index
   this._k = kind;                // kind
@@ -35107,14 +35225,14 @@ addToUnscopables('entries');
 
 
 /***/ }),
-/* 228 */
+/* 230 */
 /***/ (function(module, exports) {
 
 module.exports = function () { /* empty */ };
 
 
 /***/ }),
-/* 229 */
+/* 231 */
 /***/ (function(module, exports) {
 
 module.exports = function (done, value) {
@@ -35123,24 +35241,24 @@ module.exports = function (done, value) {
 
 
 /***/ }),
-/* 230 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(231), __esModule: true };
+module.exports = { "default": __webpack_require__(233), __esModule: true };
 
 /***/ }),
-/* 231 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(232);
-__webpack_require__(114);
-__webpack_require__(237);
-__webpack_require__(238);
+__webpack_require__(234);
+__webpack_require__(115);
+__webpack_require__(239);
+__webpack_require__(240);
 module.exports = __webpack_require__(5).Symbol;
 
 
 /***/ }),
-/* 232 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35148,28 +35266,28 @@ module.exports = __webpack_require__(5).Symbol;
 // ECMAScript 6 symbols shim
 var global = __webpack_require__(10);
 var has = __webpack_require__(23);
-var DESCRIPTORS = __webpack_require__(21);
+var DESCRIPTORS = __webpack_require__(22);
 var $export = __webpack_require__(15);
-var redefine = __webpack_require__(108);
-var META = __webpack_require__(233).KEY;
-var $fails = __webpack_require__(27);
-var shared = __webpack_require__(66);
-var setToStringTag = __webpack_require__(48);
-var uid = __webpack_require__(44);
+var redefine = __webpack_require__(109);
+var META = __webpack_require__(235).KEY;
+var $fails = __webpack_require__(28);
+var shared = __webpack_require__(67);
+var setToStringTag = __webpack_require__(49);
+var uid = __webpack_require__(45);
 var wks = __webpack_require__(11);
-var wksExt = __webpack_require__(73);
-var wksDefine = __webpack_require__(74);
-var enumKeys = __webpack_require__(234);
-var isArray = __webpack_require__(235);
+var wksExt = __webpack_require__(74);
+var wksDefine = __webpack_require__(75);
+var enumKeys = __webpack_require__(236);
+var isArray = __webpack_require__(237);
 var anObject = __webpack_require__(16);
-var isObject = __webpack_require__(20);
+var isObject = __webpack_require__(21);
 var toIObject = __webpack_require__(25);
-var toPrimitive = __webpack_require__(69);
-var createDesc = __webpack_require__(46);
-var _create = __webpack_require__(71);
-var gOPNExt = __webpack_require__(236);
-var $GOPD = __webpack_require__(76);
-var $DP = __webpack_require__(19);
+var toPrimitive = __webpack_require__(70);
+var createDesc = __webpack_require__(47);
+var _create = __webpack_require__(72);
+var gOPNExt = __webpack_require__(238);
+var $GOPD = __webpack_require__(77);
+var $DP = __webpack_require__(20);
 var $keys = __webpack_require__(36);
 var gOPD = $GOPD.f;
 var dP = $DP.f;
@@ -35293,9 +35411,9 @@ if (!USE_NATIVE) {
 
   $GOPD.f = $getOwnPropertyDescriptor;
   $DP.f = $defineProperty;
-  __webpack_require__(113).f = gOPNExt.f = $getOwnPropertyNames;
-  __webpack_require__(50).f = $propertyIsEnumerable;
-  __webpack_require__(75).f = $getOwnPropertySymbols;
+  __webpack_require__(114).f = gOPNExt.f = $getOwnPropertyNames;
+  __webpack_require__(51).f = $propertyIsEnumerable;
+  __webpack_require__(76).f = $getOwnPropertySymbols;
 
   if (DESCRIPTORS && !__webpack_require__(34)) {
     redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
@@ -35381,18 +35499,18 @@ setToStringTag(global.JSON, 'JSON', true);
 
 
 /***/ }),
-/* 233 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var META = __webpack_require__(44)('meta');
-var isObject = __webpack_require__(20);
+var META = __webpack_require__(45)('meta');
+var isObject = __webpack_require__(21);
 var has = __webpack_require__(23);
-var setDesc = __webpack_require__(19).f;
+var setDesc = __webpack_require__(20).f;
 var id = 0;
 var isExtensible = Object.isExtensible || function () {
   return true;
 };
-var FREEZE = !__webpack_require__(27)(function () {
+var FREEZE = !__webpack_require__(28)(function () {
   return isExtensible(Object.preventExtensions({}));
 });
 var setMeta = function (it) {
@@ -35440,13 +35558,13 @@ var meta = module.exports = {
 
 
 /***/ }),
-/* 234 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // all enumerable object keys, includes symbols
 var getKeys = __webpack_require__(36);
-var gOPS = __webpack_require__(75);
-var pIE = __webpack_require__(50);
+var gOPS = __webpack_require__(76);
+var pIE = __webpack_require__(51);
 module.exports = function (it) {
   var result = getKeys(it);
   var getSymbols = gOPS.f;
@@ -35461,7 +35579,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 235 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.2.2 IsArray(argument)
@@ -35472,12 +35590,12 @@ module.exports = Array.isArray || function isArray(arg) {
 
 
 /***/ }),
-/* 236 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
 var toIObject = __webpack_require__(25);
-var gOPN = __webpack_require__(113).f;
+var gOPN = __webpack_require__(114).f;
 var toString = {}.toString;
 
 var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
@@ -35497,49 +35615,49 @@ module.exports.f = function getOwnPropertyNames(it) {
 
 
 /***/ }),
-/* 237 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(74)('asyncIterator');
-
-
-/***/ }),
-/* 238 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(74)('observable');
-
-
-/***/ }),
 /* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(240), __esModule: true };
+__webpack_require__(75)('asyncIterator');
+
 
 /***/ }),
 /* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(241);
-module.exports = __webpack_require__(5).Object.setPrototypeOf;
+__webpack_require__(75)('observable');
 
 
 /***/ }),
 /* 241 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// 19.1.3.19 Object.setPrototypeOf(O, proto)
-var $export = __webpack_require__(15);
-$export($export.S, 'Object', { setPrototypeOf: __webpack_require__(242).set });
-
+module.exports = { "default": __webpack_require__(242), __esModule: true };
 
 /***/ }),
 /* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(243);
+module.exports = __webpack_require__(5).Object.setPrototypeOf;
+
+
+/***/ }),
+/* 243 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.3.19 Object.setPrototypeOf(O, proto)
+var $export = __webpack_require__(15);
+$export($export.S, 'Object', { setPrototypeOf: __webpack_require__(244).set });
+
+
+/***/ }),
+/* 244 */
+/***/ (function(module, exports, __webpack_require__) {
+
 // Works with __proto__ only. Old v8 can't work with null proto objects.
 /* eslint-disable no-proto */
-var isObject = __webpack_require__(20);
+var isObject = __webpack_require__(21);
 var anObject = __webpack_require__(16);
 var check = function (O, proto) {
   anObject(O);
@@ -35549,7 +35667,7 @@ module.exports = {
   set: Object.setPrototypeOf || ('__proto__' in {} ? // eslint-disable-line
     function (test, buggy, set) {
       try {
-        set = __webpack_require__(35)(Function.call, __webpack_require__(76).f(Object.prototype, '__proto__').set, 2);
+        set = __webpack_require__(35)(Function.call, __webpack_require__(77).f(Object.prototype, '__proto__').set, 2);
         set(test, []);
         buggy = !(test instanceof Array);
       } catch (e) { buggy = true; }
@@ -35565,16 +35683,16 @@ module.exports = {
 
 
 /***/ }),
-/* 243 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(244), __esModule: true };
+module.exports = { "default": __webpack_require__(246), __esModule: true };
 
 /***/ }),
-/* 244 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(245);
+__webpack_require__(247);
 var $Object = __webpack_require__(5).Object;
 module.exports = function create(P, D) {
   return $Object.create(P, D);
@@ -35582,48 +35700,48 @@ module.exports = function create(P, D) {
 
 
 /***/ }),
-/* 245 */
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $export = __webpack_require__(15);
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
-$export($export.S, 'Object', { create: __webpack_require__(71) });
-
-
-/***/ }),
-/* 246 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(247);
-module.exports = __webpack_require__(5).Object.assign;
-
-
-/***/ }),
-/* 247 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// 19.1.3.1 Object.assign(target, source)
-var $export = __webpack_require__(15);
-
-$export($export.S + $export.F, 'Object', { assign: __webpack_require__(248) });
+$export($export.S, 'Object', { create: __webpack_require__(72) });
 
 
 /***/ }),
 /* 248 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(249);
+module.exports = __webpack_require__(5).Object.assign;
+
+
+/***/ }),
+/* 249 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.3.1 Object.assign(target, source)
+var $export = __webpack_require__(15);
+
+$export($export.S + $export.F, 'Object', { assign: __webpack_require__(250) });
+
+
+/***/ }),
+/* 250 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 // 19.1.2.1 Object.assign(target, source, ...)
 var getKeys = __webpack_require__(36);
-var gOPS = __webpack_require__(75);
-var pIE = __webpack_require__(50);
-var toObject = __webpack_require__(43);
-var IObject = __webpack_require__(110);
+var gOPS = __webpack_require__(76);
+var pIE = __webpack_require__(51);
+var toObject = __webpack_require__(44);
+var IObject = __webpack_require__(111);
 var $assign = Object.assign;
 
 // should work with symbols and should have deterministic property order (V8 bug)
-module.exports = !$assign || __webpack_require__(27)(function () {
+module.exports = !$assign || __webpack_require__(28)(function () {
   var A = {};
   var B = {};
   // eslint-disable-next-line no-undef
@@ -35650,7 +35768,7 @@ module.exports = !$assign || __webpack_require__(27)(function () {
 
 
 /***/ }),
-/* 249 */
+/* 251 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -35686,7 +35804,7 @@ function calculateSizeAndPositionDataAndUpdateScrollOffset(_ref) {
  */
 
 /***/ }),
-/* 250 */
+/* 252 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36005,7 +36123,7 @@ var CellSizeAndPositionManager = function () {
 
 
 /***/ }),
-/* 251 */
+/* 253 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36031,22 +36149,22 @@ var getMaxElementSize = function getMaxElementSize() {
 };
 
 /***/ }),
-/* 252 */
+/* 254 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(253);
+__webpack_require__(255);
 module.exports = __webpack_require__(5).Object.keys;
 
 
 /***/ }),
-/* 253 */
+/* 255 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 Object.keys(O)
-var toObject = __webpack_require__(43);
+var toObject = __webpack_require__(44);
 var $keys = __webpack_require__(36);
 
-__webpack_require__(67)('keys', function () {
+__webpack_require__(68)('keys', function () {
   return function keys(it) {
     return $keys(toObject(it));
   };
@@ -36054,12 +36172,12 @@ __webpack_require__(67)('keys', function () {
 
 
 /***/ }),
-/* 254 */
+/* 256 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = updateScrollIndexHelper;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ScalingCellSizeAndPositionManager_js__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ScalingCellSizeAndPositionManager_js__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__types__ = __webpack_require__(1);
 
 
@@ -36110,7 +36228,7 @@ function updateScrollIndexHelper(_ref) {
 
 
 /***/ }),
-/* 255 */
+/* 257 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36123,26 +36241,26 @@ exports.default = !!(typeof window !== 'undefined' && window.document && window.
 module.exports = exports['default'];
 
 /***/ }),
-/* 256 */
+/* 258 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(257), __esModule: true };
+module.exports = { "default": __webpack_require__(259), __esModule: true };
 
 /***/ }),
-/* 257 */
+/* 259 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(114);
-__webpack_require__(47);
-__webpack_require__(49);
-__webpack_require__(258);
-__webpack_require__(269);
-__webpack_require__(270);
+__webpack_require__(115);
+__webpack_require__(48);
+__webpack_require__(50);
+__webpack_require__(260);
+__webpack_require__(271);
+__webpack_require__(272);
 module.exports = __webpack_require__(5).Promise;
 
 
 /***/ }),
-/* 258 */
+/* 260 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36150,19 +36268,19 @@ module.exports = __webpack_require__(5).Promise;
 var LIBRARY = __webpack_require__(34);
 var global = __webpack_require__(10);
 var ctx = __webpack_require__(35);
-var classof = __webpack_require__(80);
+var classof = __webpack_require__(81);
 var $export = __webpack_require__(15);
-var isObject = __webpack_require__(20);
-var aFunction = __webpack_require__(45);
-var anInstance = __webpack_require__(259);
-var forOf = __webpack_require__(260);
-var speciesConstructor = __webpack_require__(122);
-var task = __webpack_require__(123).set;
-var microtask = __webpack_require__(264)();
-var newPromiseCapabilityModule = __webpack_require__(81);
-var perform = __webpack_require__(124);
-var userAgent = __webpack_require__(265);
-var promiseResolve = __webpack_require__(125);
+var isObject = __webpack_require__(21);
+var aFunction = __webpack_require__(46);
+var anInstance = __webpack_require__(261);
+var forOf = __webpack_require__(262);
+var speciesConstructor = __webpack_require__(123);
+var task = __webpack_require__(124).set;
+var microtask = __webpack_require__(266)();
+var newPromiseCapabilityModule = __webpack_require__(82);
+var perform = __webpack_require__(125);
+var userAgent = __webpack_require__(267);
+var promiseResolve = __webpack_require__(126);
 var PROMISE = 'Promise';
 var TypeError = global.TypeError;
 var process = global.process;
@@ -36337,7 +36455,7 @@ if (!USE_NATIVE) {
     this._h = 0;              // <- rejection state, 0 - default, 1 - handled, 2 - unhandled
     this._n = false;          // <- notify
   };
-  Internal.prototype = __webpack_require__(266)($Promise.prototype, {
+  Internal.prototype = __webpack_require__(268)($Promise.prototype, {
     // 25.4.5.3 Promise.prototype.then(onFulfilled, onRejected)
     then: function then(onFulfilled, onRejected) {
       var reaction = newPromiseCapability(speciesConstructor(this, $Promise));
@@ -36368,8 +36486,8 @@ if (!USE_NATIVE) {
 }
 
 $export($export.G + $export.W + $export.F * !USE_NATIVE, { Promise: $Promise });
-__webpack_require__(48)($Promise, PROMISE);
-__webpack_require__(267)(PROMISE);
+__webpack_require__(49)($Promise, PROMISE);
+__webpack_require__(269)(PROMISE);
 Wrapper = __webpack_require__(5)[PROMISE];
 
 // statics
@@ -36388,7 +36506,7 @@ $export($export.S + $export.F * (LIBRARY || !USE_NATIVE), PROMISE, {
     return promiseResolve(LIBRARY && this === Wrapper ? $Promise : this, x);
   }
 });
-$export($export.S + $export.F * !(USE_NATIVE && __webpack_require__(268)(function (iter) {
+$export($export.S + $export.F * !(USE_NATIVE && __webpack_require__(270)(function (iter) {
   $Promise.all(iter)['catch'](empty);
 })), PROMISE, {
   // 25.4.4.1 Promise.all(iterable)
@@ -36435,7 +36553,7 @@ $export($export.S + $export.F * !(USE_NATIVE && __webpack_require__(268)(functio
 
 
 /***/ }),
-/* 259 */
+/* 261 */
 /***/ (function(module, exports) {
 
 module.exports = function (it, Constructor, name, forbiddenField) {
@@ -36446,15 +36564,15 @@ module.exports = function (it, Constructor, name, forbiddenField) {
 
 
 /***/ }),
-/* 260 */
+/* 262 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ctx = __webpack_require__(35);
-var call = __webpack_require__(261);
-var isArrayIter = __webpack_require__(262);
+var call = __webpack_require__(263);
+var isArrayIter = __webpack_require__(264);
 var anObject = __webpack_require__(16);
-var toLength = __webpack_require__(111);
-var getIterFn = __webpack_require__(121);
+var toLength = __webpack_require__(112);
+var getIterFn = __webpack_require__(122);
 var BREAK = {};
 var RETURN = {};
 var exports = module.exports = function (iterable, entries, fn, that, ITERATOR) {
@@ -36477,7 +36595,7 @@ exports.RETURN = RETURN;
 
 
 /***/ }),
-/* 261 */
+/* 263 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // call something on iterator step with safe closing on error
@@ -36495,11 +36613,11 @@ module.exports = function (iterator, fn, value, entries) {
 
 
 /***/ }),
-/* 262 */
+/* 264 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // check on default Array iterator
-var Iterators = __webpack_require__(28);
+var Iterators = __webpack_require__(29);
 var ITERATOR = __webpack_require__(11)('iterator');
 var ArrayProto = Array.prototype;
 
@@ -36509,7 +36627,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 263 */
+/* 265 */
 /***/ (function(module, exports) {
 
 // fast apply, http://jsperf.lnkit.com/fast-apply/5
@@ -36531,11 +36649,11 @@ module.exports = function (fn, args, that) {
 
 
 /***/ }),
-/* 264 */
+/* 266 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(10);
-var macrotask = __webpack_require__(123).set;
+var macrotask = __webpack_require__(124).set;
 var Observer = global.MutationObserver || global.WebKitMutationObserver;
 var process = global.process;
 var Promise = global.Promise;
@@ -36606,7 +36724,7 @@ module.exports = function () {
 
 
 /***/ }),
-/* 265 */
+/* 267 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(10);
@@ -36616,7 +36734,7 @@ module.exports = navigator && navigator.userAgent || '';
 
 
 /***/ }),
-/* 266 */
+/* 268 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var hide = __webpack_require__(24);
@@ -36629,15 +36747,15 @@ module.exports = function (target, src, safe) {
 
 
 /***/ }),
-/* 267 */
+/* 269 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var global = __webpack_require__(10);
 var core = __webpack_require__(5);
-var dP = __webpack_require__(19);
-var DESCRIPTORS = __webpack_require__(21);
+var dP = __webpack_require__(20);
+var DESCRIPTORS = __webpack_require__(22);
 var SPECIES = __webpack_require__(11)('species');
 
 module.exports = function (KEY) {
@@ -36650,7 +36768,7 @@ module.exports = function (KEY) {
 
 
 /***/ }),
-/* 268 */
+/* 270 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ITERATOR = __webpack_require__(11)('iterator');
@@ -36678,7 +36796,7 @@ module.exports = function (exec, skipClosing) {
 
 
 /***/ }),
-/* 269 */
+/* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36687,8 +36805,8 @@ module.exports = function (exec, skipClosing) {
 var $export = __webpack_require__(15);
 var core = __webpack_require__(5);
 var global = __webpack_require__(10);
-var speciesConstructor = __webpack_require__(122);
-var promiseResolve = __webpack_require__(125);
+var speciesConstructor = __webpack_require__(123);
+var promiseResolve = __webpack_require__(126);
 
 $export($export.P + $export.R, 'Promise', { 'finally': function (onFinally) {
   var C = speciesConstructor(this, core.Promise || global.Promise);
@@ -36705,15 +36823,15 @@ $export($export.P + $export.R, 'Promise', { 'finally': function (onFinally) {
 
 
 /***/ }),
-/* 270 */
+/* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 // https://github.com/tc39/proposal-promise-try
 var $export = __webpack_require__(15);
-var newPromiseCapability = __webpack_require__(81);
-var perform = __webpack_require__(124);
+var newPromiseCapability = __webpack_require__(82);
+var perform = __webpack_require__(125);
 
 $export($export.S, 'Promise', { 'try': function (callbackfn) {
   var promiseCapability = newPromiseCapability.f(this);
@@ -36724,7 +36842,7 @@ $export($export.S, 'Promise', { 'try': function (callbackfn) {
 
 
 /***/ }),
-/* 271 */
+/* 273 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36757,7 +36875,7 @@ var raf = request;
 var caf = cancel;
 
 /***/ }),
-/* 272 */
+/* 274 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36809,18 +36927,18 @@ function defaultOverscanIndicesGetter(_ref) {
 
 
 /***/ }),
-/* 273 */
+/* 275 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AutoSizer__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AutoSizer__ = __webpack_require__(128);
 /* unused harmony reexport default */
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__AutoSizer__["a"]; });
 
 
 
 /***/ }),
-/* 274 */
+/* 276 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36836,9 +36954,9 @@ function defaultOverscanIndicesGetter(_ref) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_dom__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_dom__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__types__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__types__ = __webpack_require__(131);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_prop_types__);
 
@@ -37016,7 +37134,7 @@ if (true) {
 
 
 /***/ }),
-/* 275 */
+/* 277 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37026,7 +37144,7 @@ if (true) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__types__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__types__ = __webpack_require__(131);
 
 
 
@@ -37238,11 +37356,11 @@ function defaultKeyMapper(rowIndex, columnIndex) {
 
 
 /***/ }),
-/* 276 */
+/* 278 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Collection__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Collection__ = __webpack_require__(279);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__Collection__["a"]; });
 
 
@@ -37250,13 +37368,13 @@ function defaultKeyMapper(rowIndex, columnIndex) {
 
 
 /***/ }),
-/* 277 */
+/* 279 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of__);
@@ -37272,10 +37390,10 @@ function defaultKeyMapper(rowIndex, columnIndex) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__CollectionView__ = __webpack_require__(278);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__utils_calculateSizeAndPositionData__ = __webpack_require__(279);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__utils_getUpdatedOffsetForIndex__ = __webpack_require__(282);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__types__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__CollectionView__ = __webpack_require__(280);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__utils_calculateSizeAndPositionData__ = __webpack_require__(281);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__utils_getUpdatedOffsetForIndex__ = __webpack_require__(284);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__types__ = __webpack_require__(30);
 
 
 
@@ -37564,7 +37682,7 @@ function defaultCellGroupRenderer(_ref4) {
 
 
 /***/ }),
-/* 278 */
+/* 280 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37587,8 +37705,8 @@ function defaultCellGroupRenderer(_ref4) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_react_lifecycles_compat__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__utils_createCallbackMemoizer__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_dom_helpers_util_scrollbarSize__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__utils_createCallbackMemoizer__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_dom_helpers_util_scrollbarSize__ = __webpack_require__(121);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_dom_helpers_util_scrollbarSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_dom_helpers_util_scrollbarSize__);
 
 
@@ -38210,12 +38328,12 @@ Object(__WEBPACK_IMPORTED_MODULE_9_react_lifecycles_compat__["a" /* polyfill */]
 /* harmony default export */ __webpack_exports__["a"] = (CollectionView);
 
 /***/ }),
-/* 279 */
+/* 281 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = calculateSizeAndPositionData;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SectionManager__ = __webpack_require__(280);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SectionManager__ = __webpack_require__(282);
 
 
 function calculateSizeAndPositionData(_ref) {
@@ -38254,25 +38372,25 @@ function calculateSizeAndPositionData(_ref) {
 }
 
 /***/ }),
-/* 280 */
+/* 282 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys__ = __webpack_require__(118);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Section__ = __webpack_require__(281);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__types__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Section__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__types__ = __webpack_require__(30);
 
 
 
 /**
  * Window Sections are used to group nearby cells.
  * This enables us to more quickly determine which cells to display in a given region of the Window.
- *
+ * 
  */
 
 
@@ -38415,7 +38533,7 @@ var SectionManager = function () {
 
 
 /***/ }),
-/* 281 */
+/* 283 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -38423,7 +38541,7 @@ var SectionManager = function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__types__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__types__ = __webpack_require__(30);
 
 
 
@@ -38490,7 +38608,7 @@ var Section = function () {
 
 
 /***/ }),
-/* 282 */
+/* 284 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -38531,11 +38649,11 @@ function getUpdatedOffsetForIndex(_ref) {
 }
 
 /***/ }),
-/* 283 */
+/* 285 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ColumnSizer__ = __webpack_require__(284);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ColumnSizer__ = __webpack_require__(286);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__ColumnSizer__["a"]; });
 
 
@@ -38543,7 +38661,7 @@ function getUpdatedOffsetForIndex(_ref) {
 
 
 /***/ }),
-/* 284 */
+/* 286 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -38677,11 +38795,11 @@ ColumnSizer.propTypes =  true ? {
 } : {};
 
 /***/ }),
-/* 285 */
+/* 287 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__InfiniteLoader__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__InfiniteLoader__ = __webpack_require__(288);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__InfiniteLoader__["a"]; });
 
 
@@ -38689,7 +38807,7 @@ ColumnSizer.propTypes =  true ? {
 
 
 /***/ }),
-/* 286 */
+/* 288 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -38710,7 +38828,7 @@ ColumnSizer.propTypes =  true ? {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_createCallbackMemoizer__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_createCallbackMemoizer__ = __webpack_require__(80);
 
 
 
@@ -39001,14 +39119,14 @@ function forceUpdateReactVirtualizedComponent(component) {
 }
 
 /***/ }),
-/* 287 */
+/* 289 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__List__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__List__ = __webpack_require__(132);
 /* unused harmony reexport default */
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__List__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__types__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__types__ = __webpack_require__(52);
 /* unused harmony reexport bpfrpt_proptype_RowRendererParams */
 
 
@@ -39019,16 +39137,16 @@ function forceUpdateReactVirtualizedComponent(component) {
 
 
 /***/ }),
-/* 288 */
+/* 290 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(289), __esModule: true };
+module.exports = { "default": __webpack_require__(291), __esModule: true };
 
 /***/ }),
-/* 289 */
+/* 291 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(290);
+__webpack_require__(292);
 var $Object = __webpack_require__(5).Object;
 module.exports = function getOwnPropertyDescriptor(it, key) {
   return $Object.getOwnPropertyDescriptor(it, key);
@@ -39036,14 +39154,14 @@ module.exports = function getOwnPropertyDescriptor(it, key) {
 
 
 /***/ }),
-/* 290 */
+/* 292 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
 var toIObject = __webpack_require__(25);
-var $getOwnPropertyDescriptor = __webpack_require__(76).f;
+var $getOwnPropertyDescriptor = __webpack_require__(77).f;
 
-__webpack_require__(67)('getOwnPropertyDescriptor', function () {
+__webpack_require__(68)('getOwnPropertyDescriptor', function () {
   return function getOwnPropertyDescriptor(it, key) {
     return $getOwnPropertyDescriptor(toIObject(it), key);
   };
@@ -39051,12 +39169,12 @@ __webpack_require__(67)('getOwnPropertyDescriptor', function () {
 
 
 /***/ }),
-/* 291 */
+/* 293 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createCellPositioner__ = __webpack_require__(292);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Masonry__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createCellPositioner__ = __webpack_require__(294);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Masonry__ = __webpack_require__(83);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__createCellPositioner__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__Masonry__["a"]; });
 
@@ -39066,12 +39184,12 @@ __webpack_require__(67)('getOwnPropertyDescriptor', function () {
 
 
 /***/ }),
-/* 292 */
+/* 294 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = createCellPositioner;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Masonry__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Masonry__ = __webpack_require__(83);
 
 
 function createCellPositioner(_ref) {
@@ -39130,7 +39248,7 @@ function createCellPositioner(_ref) {
 
 
 /***/ }),
-/* 293 */
+/* 295 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39138,7 +39256,7 @@ function createCellPositioner(_ref) {
 
 exports.__esModule = true;
 
-var _defineProperty = __webpack_require__(105);
+var _defineProperty = __webpack_require__(106);
 
 var _defineProperty2 = _interopRequireDefault(_defineProperty);
 
@@ -39160,17 +39278,17 @@ exports.default = function (obj, key, value) {
 };
 
 /***/ }),
-/* 294 */
+/* 296 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_slicedToArray__ = __webpack_require__(295);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_slicedToArray__ = __webpack_require__(297);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_slicedToArray___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_slicedToArray__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__vendor_intervalTree__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__vendor_intervalTree__ = __webpack_require__(304);
 
 
 
@@ -39274,7 +39392,7 @@ var PositionCache = function () {
 /* harmony default export */ __webpack_exports__["a"] = (PositionCache);
 
 /***/ }),
-/* 295 */
+/* 297 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39282,11 +39400,11 @@ var PositionCache = function () {
 
 exports.__esModule = true;
 
-var _isIterable2 = __webpack_require__(296);
+var _isIterable2 = __webpack_require__(298);
 
 var _isIterable3 = _interopRequireDefault(_isIterable2);
 
-var _getIterator2 = __webpack_require__(299);
+var _getIterator2 = __webpack_require__(301);
 
 var _getIterator3 = _interopRequireDefault(_getIterator2);
 
@@ -39331,27 +39449,27 @@ exports.default = function () {
 }();
 
 /***/ }),
-/* 296 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(297), __esModule: true };
-
-/***/ }),
-/* 297 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(49);
-__webpack_require__(47);
-module.exports = __webpack_require__(298);
-
-
-/***/ }),
 /* 298 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var classof = __webpack_require__(80);
+module.exports = { "default": __webpack_require__(299), __esModule: true };
+
+/***/ }),
+/* 299 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(50);
+__webpack_require__(48);
+module.exports = __webpack_require__(300);
+
+
+/***/ }),
+/* 300 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var classof = __webpack_require__(81);
 var ITERATOR = __webpack_require__(11)('iterator');
-var Iterators = __webpack_require__(28);
+var Iterators = __webpack_require__(29);
 module.exports = __webpack_require__(5).isIterable = function (it) {
   var O = Object(it);
   return O[ITERATOR] !== undefined
@@ -39362,26 +39480,26 @@ module.exports = __webpack_require__(5).isIterable = function (it) {
 
 
 /***/ }),
-/* 299 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(300), __esModule: true };
-
-/***/ }),
-/* 300 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(49);
-__webpack_require__(47);
-module.exports = __webpack_require__(301);
-
-
-/***/ }),
 /* 301 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = { "default": __webpack_require__(302), __esModule: true };
+
+/***/ }),
+/* 302 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(50);
+__webpack_require__(48);
+module.exports = __webpack_require__(303);
+
+
+/***/ }),
+/* 303 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var anObject = __webpack_require__(16);
-var get = __webpack_require__(121);
+var get = __webpack_require__(122);
 module.exports = __webpack_require__(5).getIterator = function (it) {
   var iterFn = get(it);
   if (typeof iterFn != 'function') throw TypeError(it + ' is not iterable!');
@@ -39390,12 +39508,12 @@ module.exports = __webpack_require__(5).getIterator = function (it) {
 
 
 /***/ }),
-/* 302 */
+/* 304 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = createWrapper;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__binarySearchBounds__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__binarySearchBounds__ = __webpack_require__(305);
 /**
  * Binary Search Bounds
  * https://github.com/mikolalysenko/interval-tree-1d
@@ -39782,7 +39900,7 @@ function createWrapper(intervals) {
 }
 
 /***/ }),
-/* 303 */
+/* 305 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -39987,11 +40105,11 @@ function dispatchBsearchEQ(a, y, c, l, h) {
 });
 
 /***/ }),
-/* 304 */
+/* 306 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MultiGrid__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MultiGrid__ = __webpack_require__(307);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__MultiGrid__["a"]; });
 
 
@@ -39999,13 +40117,13 @@ function dispatchBsearchEQ(a, y, c, l, h) {
 
 
 /***/ }),
-/* 305 */
+/* 307 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_objectWithoutProperties__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of__);
@@ -40022,7 +40140,7 @@ function dispatchBsearchEQ(a, y, c, l, h) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_react_lifecycles_compat__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__CellMeasurerCacheDecorator__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__CellMeasurerCacheDecorator__ = __webpack_require__(308);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__Grid__ = __webpack_require__(12);
 
 
@@ -40879,7 +40997,7 @@ Object(__WEBPACK_IMPORTED_MODULE_9_react_lifecycles_compat__["a" /* polyfill */]
 /* harmony default export */ __webpack_exports__["a"] = (MultiGrid);
 
 /***/ }),
-/* 306 */
+/* 308 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -40887,7 +41005,7 @@ Object(__WEBPACK_IMPORTED_MODULE_9_react_lifecycles_compat__["a" /* polyfill */]
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__CellMeasurer__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__CellMeasurer__ = __webpack_require__(130);
 
 
 
@@ -40995,11 +41113,11 @@ var CellMeasurerCacheDecorator = function () {
 /* harmony default export */ __webpack_exports__["a"] = (CellMeasurerCacheDecorator);
 
 /***/ }),
-/* 307 */
+/* 309 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ScrollSync__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ScrollSync__ = __webpack_require__(310);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__ScrollSync__["a"]; });
 
 
@@ -41007,7 +41125,7 @@ var CellMeasurerCacheDecorator = function () {
 
 
 /***/ }),
-/* 308 */
+/* 310 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -41116,20 +41234,20 @@ ScrollSync.propTypes =  true ? {
 } : {};
 
 /***/ }),
-/* 309 */
+/* 311 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createMultiSort__ = __webpack_require__(310);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__defaultCellDataGetter__ = __webpack_require__(132);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__defaultCellRenderer__ = __webpack_require__(133);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__defaultHeaderRowRenderer_js__ = __webpack_require__(134);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__defaultHeaderRenderer__ = __webpack_require__(135);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__defaultRowRenderer__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Column__ = __webpack_require__(138);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__SortDirection__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__SortIndicator__ = __webpack_require__(136);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__Table__ = __webpack_require__(311);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createMultiSort__ = __webpack_require__(312);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__defaultCellDataGetter__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__defaultCellRenderer__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__defaultHeaderRowRenderer_js__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__defaultHeaderRenderer__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__defaultRowRenderer__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Column__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__SortDirection__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__SortIndicator__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__Table__ = __webpack_require__(313);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_0__createMultiSort__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_1__defaultCellDataGetter__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_2__defaultCellRenderer__["a"]; });
@@ -41155,7 +41273,7 @@ ScrollSync.propTypes =  true ? {
 
 
 /***/ }),
-/* 310 */
+/* 312 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -41225,7 +41343,7 @@ function createMultiSort(sortCallback) {
 }
 
 /***/ }),
-/* 311 */
+/* 313 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -41243,17 +41361,17 @@ function createMultiSort(sortCallback) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_classnames__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_classnames___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_classnames__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Column__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Column__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_react_dom__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_react_dom__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__Grid__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__defaultRowRenderer__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__defaultHeaderRowRenderer__ = __webpack_require__(134);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__SortDirection__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__defaultRowRenderer__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__defaultHeaderRowRenderer__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__SortDirection__ = __webpack_require__(53);
 
 
 
@@ -42038,11 +42156,11 @@ Table.propTypes =  true ? {
 
 
 /***/ }),
-/* 312 */
+/* 314 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__WindowScroller__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__WindowScroller__ = __webpack_require__(140);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__WindowScroller__["a"]; });
 /* unused harmony reexport IS_SCROLLING_TIMEOUT */
 
@@ -42051,14 +42169,14 @@ Table.propTypes =  true ? {
 
 
 /***/ }),
-/* 313 */
+/* 315 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = registerScrollListener;
 /* harmony export (immutable) */ __webpack_exports__["b"] = unregisterScrollListener;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_requestAnimationTimeout__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__WindowScroller_js__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__WindowScroller_js__ = __webpack_require__(140);
 
 
 
@@ -42136,7 +42254,7 @@ function unregisterScrollListener(component, element) {
 
 
 /***/ }),
-/* 314 */
+/* 316 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -42226,7 +42344,7 @@ function getScrollOffset(element) {
 }
 
 /***/ }),
-/* 315 */
+/* 317 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42241,11 +42359,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(22);
+var _reactRedux = __webpack_require__(19);
 
-var _actions = __webpack_require__(33);
+var _actions = __webpack_require__(27);
 
-var _Switch = __webpack_require__(316);
+var _Switch = __webpack_require__(318);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -42295,7 +42413,7 @@ var Settings = exports.Settings = (0, _reactRedux.connect)(function (state) {
 })(SettingsView);
 
 /***/ }),
-/* 316 */
+/* 318 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42342,7 +42460,7 @@ var Switch = exports.Switch = function Switch(_ref) {
 };
 
 /***/ }),
-/* 317 */
+/* 319 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42359,19 +42477,19 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(22);
+var _reactRedux = __webpack_require__(19);
 
-var _ClickOutside = __webpack_require__(318);
+var _ClickOutside = __webpack_require__(320);
 
-var _Algorithms = __webpack_require__(140);
+var _Algorithms = __webpack_require__(141);
 
 var _Algorithms2 = _interopRequireDefault(_Algorithms);
 
-var _section2Icd10En = __webpack_require__(323);
+var _section2Icd10En = __webpack_require__(325);
 
 var _section2Icd10En2 = _interopRequireDefault(_section2Icd10En);
 
-var _jsYaml = __webpack_require__(324);
+var _jsYaml = __webpack_require__(326);
 
 var _jsYaml2 = _interopRequireDefault(_jsYaml);
 
@@ -42595,7 +42713,7 @@ var Analysis = exports.Analysis = (0, _reactRedux.connect)(function (state) {
 })(AnalysisModal);
 
 /***/ }),
-/* 318 */
+/* 320 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42686,7 +42804,7 @@ ClickOutside.propTypes = {
 };
 
 /***/ }),
-/* 319 */
+/* 321 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42702,15 +42820,15 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Diagnosis = __webpack_require__(320);
+var _Diagnosis = __webpack_require__(322);
 
 var _Diagnosis2 = _interopRequireDefault(_Diagnosis);
 
-var _AlgorithmSegment = __webpack_require__(321);
+var _AlgorithmSegment = __webpack_require__(323);
 
 var _AlgorithmSegment2 = _interopRequireDefault(_AlgorithmSegment);
 
-var _Evaluator = __webpack_require__(322);
+var _Evaluator = __webpack_require__(324);
 
 var _Evaluator2 = _interopRequireDefault(_Evaluator);
 
@@ -42831,7 +42949,7 @@ var DataLoader = function () {
 exports.default = DataLoader;
 
 /***/ }),
-/* 320 */
+/* 322 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42873,7 +42991,7 @@ var Diagnosis = function () {
 exports.default = Diagnosis;
 
 /***/ }),
-/* 321 */
+/* 323 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42971,7 +43089,7 @@ var AlgorithmSegment = function () {
 exports.default = AlgorithmSegment;
 
 /***/ }),
-/* 322 */
+/* 324 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43907,35 +44025,35 @@ var Evaluator = function () {
 exports.default = Evaluator;
 
 /***/ }),
-/* 323 */
+/* 325 */
 /***/ (function(module, exports) {
 
 module.exports = {"F44":{"explanation":"Dissociative disorders any","algorithm":[{"AND":["$2.065 = 2"]}]},"F44.4":{"explanation":"Dissociative motor disorders","algorithm":[{"AND":["$2.065 = 2","$2.065a = 1","$2.065b = 1","$2.065c = 1","$2.065d = 1","$2.065e = 1"]}]},"F44.6":{"explanation":"Dissociative anaesthesia and sensory loss","algorithm":[{"AND":["$2.065 = 2","$2.065g = 1","$2.065h = 1","$2.065i = 1"]}]},"F44.9":{"explanation":"unspecificed","algorithm":[{"AND":["$2.065 = 2","$2.065j = 1","$2.065i = 1"]}]},"F45.0":{"explanation":"Somatization disorder","algorithm":[{"AND":["$!F45.0A","$!F45.0B","$!F45.0C","$!F45.0D","$!F45.0E"]}]},"F45.0a":{"explanation":"Somatization disorder withou excl. for other mentl conditions","algorithm":[{"AND":["$!F45.0A","$!F45.0B","$!F45.0C","$!F45.0D"]}]},"F45.0A":{"explanation":">= 6 somatoform symptoms without prominent autonomic symptoms and duration >= 2 years and variability of symptoms","algorithm":[{"AND":[{"AND":["$@F45.0A.counter >= 6"]},"$2.092 >= 24"]}]},"F45.0A.counter":{"explanation":"Number of any functional symptoms from SCAN ","algorithm":[{"SUM":["$2.011 = [1,2,3]","$2.012 = [1,2,3]","$2.013 = [1,2,3]","$2.014 = [1,2,3]","$2.015 = [1,2,3]","$2.016 = [1,2,3]","$2.017 = [1,2,3]","$2.019 = [1,2,3]","$2.020 = [1,2,3]","$2.021 = [1,2,3]","$2.022 = [1,2,3]","$2.023 = [1,2,3]","$2.024 = [1,2,3]","$2.025 = [1,2,3]","$2.026 = [1,2,3]","$2.032 = [1,2,3]","$2.033 = [1,2,3]","$2.034 = [1,2,3]","$2.035 = [1,2,3]","$2.036 = [1,2,3]","$2.037 = [1,2,3]","$2.038 = [1,2,3]","$2.039 = [1,2,3]","$2.040 = [1,2,3]","$2.041 = [1,2,3]","$2.046 = [1,2,3]","$2.047 = [1,2,3]","$2.048 = [1,2,3]","$2.049 = [1,2,3]","$2.050 = [1,2,3]","$2.051 = [1,2,3]","$2.052 = [1,2,3]","$2.053 = [1,2,3]","$2.054 = [1,2,3]","$2.055 = [1,2,3]","$2.057 = [1,2,3]","$2.058 = [1,2,3]","$2.059 = [1,2,3]","$2.060 = [1,2,3]","$2.061 = [1,2,3]","$2.062 = [1,2,3]","$2.063 = [1,2,3]","$2.064 = [1,2,3]","$2.067 = [1,2,3]","$2.068 = [1,2,3]","$2.069 = [1,2,3]","$2.070 = [1,2,3]","$2.073 = [1,2,3]","$2.074 = [1,2,3]","$2.075 = [1,2,3]","$2.076 = [1,2,3]","$2.077 = [1,2,3]","$2.078 = [1,2,3]","$2.079 = [1,2,3]","$2.081 = [1,2,3]","$2.082 = [1,2,3]","$2.083 = [1,2,3]","$2.084 = [1,2,3]","$2.085 = [1,2,3]","$2.086 = [1,2,3]","$2.087 = [1,2,3]","$2.089 = [1,2,3]","$2.090 = [1,2,3]"]}]},"F45.0B":{"explanation":"Preoccupation and distress repeated investigations","algorithm":[{"AND":["$2.101 = 2"]}]},"F45.0C":{"explanation":"Refusal of reassurance included","algorithm":[{"AND":["$2.109 = [2,3]"]}]},"F45.0D":{"explanation":"A total of >= 6 of the folllowing symp-toms from >=2 separate-groups","algorithm":[{"AND":["$@F45.0D.counter >= 6","$@F45.0DS >= 2"]}]},"F45.0D.counter":{"explanation":"Number of criteria D sympt excl.D11,D12,D4 ","algorithm":[{"SUM":["$!F45.0D1","$!F45.0D2","$!F45.0D3","$!F45.0D5","$!F45.0D6","$!F45.0D7","$!F45.0D8","$!F45.0D9","$!F45.0D10","$!F45.0D13","$!F45.0D14"]}]},"F45.0D1":{"explanation":"Abdominal pain","algorithm":[{"AND":["$2.037 = [1,2,3]"]}]},"F45.0D2":{"explanation":"Nausea","algorithm":[{"AND":["$2.036 = [1,2,3]"]}]},"F45.0D3":{"explanation":"Feeling bloated, full of gas, distended, heavy","algorithm":[{"AND":["$2.038 = [1,2,3]"]}]},"F45.0D5":{"explanation":"Vomiting, Regurgitation","algorithm":[{"OR":["$2.035 = [1,2,3]","$2.032 = [1,2,3]"]}]},"F45.0D6":{"explanation":"Alternating bowel movements ","algorithm":[{"OR":["$2.039 = [1,2,3]"]}]},"F45.0D7":{"explanation":"Breathlessness without exertion","algorithm":[{"AND":["$2.048 = [1,2,3]"]}]},"F45.0D8":{"explanation":"Precordial discomfort or chest pain","algorithm":[{"AND":["$2.047 = [1,2,3]"]}]},"F45.0D9":{"explanation":"Pains during urination or frequent urination","algorithm":[{"OR":["$2.067 = [1,2,3]","$2.69 = [1,2,3]"]}]},"F45.0D10":{"explanation":"Unpleasant sensations in or around the genitals ","algorithm":[{"AND":["$2.074 = [1,2,3]"]}]},"F45.0D13":{"explanation":"Pain in arms or legs or joints","algorithm":[{"OR":["$2.021 = [1,2,3]","$2.022 = [1,2,3]"]}]},"F45.0D14":{"explanation":"Unpleasant numbness or tingling sensations","algorithm":[{"AND":["$2.025 = [1,2,3]"]}]},"F45.0DS":{"explanation":"Symptoms from >= 2 organsystems","algorithm":[{"SUM":[{"OR":["$!F45.0D1","$!F45.0D2","$!F45.0D3","$!F45.0D5","$!F45.0D6"]},{"OR":["$!F45.0D7","$!F45.0D8"]},{"OR":["$!F45.0D9","$!F45.0D10"]},{"OR":["$!F45.0D13","$!F45.0D14"]}]}]},"F45.0E":{"explanation":"Preoccupation not primarily due to depression, anxiety or another psychiatric illness","algorithm":[{"AND":["$2.135 <> 3","$2.136 <> 3","$6.023 <> 1","$2.138 <> 3"]}]},"F45.1":{"explanation":"Undifferentiated somatoform disorder","algorithm":[{"AND":["$!F45.1A","$!F45.1B","$!F45.0C","$!F45.0E","$!F45.0 <> 1"]}]},"F45.1a":{"explanation":"Undifferentiated somatoform dis. without excl. for other mental disord.","algorithm":[{"AND":["$!F45.1A","$!F45.1B","$!F45.0C","$!F45.0E","$!F45.0a <> 1"]}]},"F45.1A":{"explanation":">= 6 somatoform symptoms for > 6 months","algorithm":[{"AND":["$@F45.0A.counter >= 6","$2.096 >= 6"]}]},"F45.1B":{"explanation":"Some distress or preoccupation included in A (2.101)","algorithm":[{"AND":["$2.101 = [1,2]"]}]},"F45.2":{"explanation":"Hypochondriacal disorder","algorithm":[{"AND":["$!F45.2ABC","$!F45.2D"]}]},"F45.2a":{"explanation":"Hypochondriacal disorder withou excl. for other mental disord.","algorithm":[{"AND":["$!F45.2ABC"]}]},"F45.2ABC":{"explanation":"(1) persistent belief for > 6months of 1 or 2 serious illnesses or (2) persistent preoccupation with presumed deformity","algorithm":[{"AND":[{"OR":["$2.101 = [1,2]","$16.011 = [2,3]","$2.116 = 1"]},"$2.101 = 1","$2.109 = [2,3]","$2.114 >= 6"]}]},"F45.2D":{"explanation":"Does not meet criteria for F2 disorders orF3 disorders","algorithm":[{"AND":["$2.135 <> 3","$2.136 <> 3","$6.023 <> 1","$2.137 <> 1","$2.138 <> 3"]}]},"F45.3":{"explanation":"Somatoform autonomic dysfunction","algorithm":[{"AND":["$!F45.3A","$!F45.3B","$!F45.3C","$!F45.3E"]}]},"F45.3a":{"explanation":"Somatoform autonomic dysfunction, without excl. for other mental disord","algorithm":[{"AND":["$!F45.3A","$!F45.3B","$!F45.3C"]}]},"F45.3A":{"explanation":"Autonomic hyperactivitet at least on oragnsystem","algorithm":[{"OR":["$@F45.3A1.counter >= 1","$@F45.3A2.counter >= 1","$@F45.3A3.counter >= 1","$@F45.3A4.counter >= 1","$@F45.3A5.counter >= 1"]}]},"F45.3A1.counter":{"explanation":"Hyperactivity CV syste ","algorithm":[{"SUM":["$2.046 = [1,2,3]","$2.047 = [1,2,3]","$2.050 = [1,2,3]","$2.053 = [1,2,3]"]}]},"F45.3A2.counter":{"explanation":"Upper GI aroual","algorithm":[{"SUM":["$2.032 = [1,2,3]","$2.033 = [1,2,3]","$2.034 = [1,2,3]","$2.035 = [1,2,3]"]}]},"F45.3A3.counter":{"explanation":"Lower GI symptoms)","algorithm":[{"SUM":["$2.036 = [1,2,3]","$2.037 = [1,2,3]","$2.038 = [1,2,3]","$2.039 = [1,2,3]","$2.040 = [1,2,3]","$2.041 = [1,2,3]"]}]},"F45.3A4.counter":{"explanation":"Hyperactivity pulmonal system ","algorithm":[{"SUM":["$2.048 = [1,2,3]","$2.049 = [1,2,3]","$2.052 = [1,2,3]"]}]},"F45.3A5.counter":{"explanation":"Counter,hyperactivitet urogenital system","algorithm":[{"SUM":["$2.067 = [1,2,3]","$2.069 = [1,2,3]","$2.070 = [1,2,3]","$2.076 = [1,2,3]"]}]},"F45.3B":{"explanation":">= 2 autonomic symptoms of 1-5","algorithm":[{"AND":["$@F45.3B.counter >= 2"]}]},"F45.3B.counter":{"explanation":"Autnome symptoms","algorithm":[{"SUM":["$2.046 = 1","$2.050 = 1","$2.052 = 1","$2.053 = 1","$2.054 = 1"]}]},"F45.3C.counter":{"explanation":"Other autnome symptoms","algorithm":[{"SUM":["$2.047 = 1","$2.048 = 1","$2.049 = 1","$2.012 = 1","$2.033 = 1","$2.041 = 1","$2.069 = 1","$2.038 = 1"]}]},"F45.3E":{"explanation":"Panic disorder not primar","algorithm":[{"AND":["$2.135 <> 3"]}]},"F45.4":{"explanation":"Persistent somatoform pain disorder","algorithm":[{"AND":["$!F45.4A","$!F45.4B"]}]},"F45.4a":{"explanation":"Persistent somatoform pain disorder, without exclud. for other mental dis.","algorithm":[{"AND":["$!F45.4A"]}]},"F45.4A":{"explanation":"Persistent severe, distressing pain for > 6 months ","algorithm":[{"AND":[{"OR":["$2.015 = [2,3]","$2.019 = [2,3]","$2.020 = [2,3]","$2.021 = [2,3]","$2.022 = [2,3]","$2.037 = [2,3]","$2.073 = [2,3]","$2.078 = [2,3]","$2.067 = [2,3]","$2.068 = [2,3]","$2.075 = [2,3]","$2.027 = [2,3]","$2.085 = [2,3]","$2.086 = [2,3]"]},"$2.093 = [2,3]","$2.096 >= 6"]}]},"F45.4B":{"explanation":"Not explained by other disorders","algorithm":[{"AND":["$2.135 <> 3","$2.136 <> 3","$2.137 <> 3","$6.023 <> 1","$2.138 <> 3","$!F45.0 <> 1","$!F45.1 <> 1"]}]},"F45.9":{"explanation":"Unspecified somatoform disorder (>= 4) somatoform symptoms but does not fulfil criteria for any specified category Some preoccupation, with duration >= 6 months Does not meet criteria forF45.0-.4 or F41 Does not meet criteria for F2 or F3 disorders","algorithm":[{"AND":["$@F45.0D.counter >= 4","$2.096 >= 6","$2.101 = [1,2,8]","$2.135 <> 3","$2.136 <> 3","$6.023 <> 1","$2.138 <> 3","$!F45.0 <> 1","$!F45.1 <> 1","$!F45.2 <> 1","$!F45.3 <> 1","$!F45.4 <> 1"]}]},"F45.9a":{"explanation":"Unspecified somatoform disorder withou exclus for other mental disord","algorithm":[{"AND":["$@F45.0D.counter >= 4","$2.096 >= 6","$2.101 = [1,2,8]","$2.135 <> 3","$2.136 <> 3","$6.023 <> 1","$2.138 <> 3","$!F45.0a <> 1","$!F45.1a <> 1","$!F45.2a <> 1","$!F45.3a <> 1","$!F45.4a <> 1"]}]},"F48.0":{"explanation":"Neurasthenia","algorithm":[{"AND":["$!F48.0AC","$!F48.0B","$!F48.0D","$!F48.0E"]}]},"F48.0a":{"explanation":"Neurasthenia, withou excl. for other mental disorder","algorithm":[{"AND":["$!F48.0AC","$!F48.0B","$!F48.0D"]}]},"F48.0AC":{"explanation":"(1) Excessive mental- or physical fatigue not recover on rest ","algorithm":[{"OR":["$2.012 = [2,3]"]}]},"F48.0B":{"explanation":">= 1 of following symptoms (1) muscular pains (2) dizziness (3) tension headaches (4) sleep disturbance ","algorithm":[{"OR":["$2.020 = [1,2,3]","$2.016 = [1,2,3]","$2.015 = [1,2,3]",{"OR":["$8.011 = [1,2]","$8.012 = [1,2]","$8.013 = [1,2]","$8.014 = [1,2]","$8.015 = [1,2]","$8.016 = [1,2]"]},"$3.003 = [2,3]","$3.009 = [2,3]"]}]},"F48.0D":{"explanation":"duration >= 3 months","algorithm":[{"AND":["$2.096 >= 3"]}]},"F48.0E":{"explanation":"not better explained by depression, panic disroder or anxietyciety","algorithm":[{"AND":["$2.135 <> 3","$2.136 <> 3","$6.023 <> 1"]}]},"Fatiq":{"explanation":"Counter fatiq ","algorithm":[{"SUM":["$3.007 = [1,2,3]","$7.006 = [1,2,3]","$2.012 = [1,2,3]"]}]},"nsomdg":{"explanation":"Any somatoform diagnose","algorithm":[{"SUM":["$!F44.4.7","$!F45.0i","$!F45.1i","$!F45.2i","$!F45.3i","$!F45.4i","$!F48.0"]}]},"DEP":{"explanation":"Any depression excl. dystymi","algorithm":[{"OR":["$!F31.30","$!F31.3","$!F31.31","$!F31.4","$!F31.5","$!F31.51","$!F31.50","$!F32.0","$!F32.00","$!F32.01","$!F32.10","$!F32.11","$!F32.2","$!F32.3","$!F32.30","$!F32.31","$!F32.9","$!F33","$!F33.0","$!F33.00","$!F33.01","$!F33.1","$!F33.10","$!F33.11","$!F33.2","$!F33.3","$!F33.30","$!F33.31","$!F33.9","$!F39"]}]},"DEPDYS":{"explanation":"Any depression or dystymi ","algorithm":[{"OR":["$!F31.30","$!F31.3","$!F31.31","$!F31.4","$!F31.5","$!F31.51","$!F31.50","$!F32.0","$!F32.00","$!F32.01","$!F32.1","$!F32.10","$!F32.11","$!F32.2","$!F32.3","$!F32.30","$!F32.31","$!F32.9","$!F33","$!F33.0","$!F33.00","$!F33.01","$!F33.1","$!F33.10","$!F33.11","$!F33.2","$!F33.3","$!F33.30","$!F33.31","$!F33.9","$!F34.0","$!F34.1","$!F34.9","$!F38.10","$!F39"]}]},"F0":{"explanation":"This is met when any of the F0 algorithms is met.","algorithm":[{"OR":["$!F00.03","$!F00","$!F00.0","$!F00.1","$!F00.2","$!F00.9","$!F01","$!F01.0","$!F01.1","$!F01.2","$!F01.3","$!F01.9","$!F02.0","$!F02.3","$!F02.4","$!F02.8","$!F03","$!F04","$!F05","$!F05.0","$!F05.1","$!F06","$!F06.0","$!F06.1","$!F06.2","$!F06.3","$!F06.4","$!F07","$!F07.0"]}]},"F00":{"explanation":"Dementia in Alzheimer's disease","algorithm":[{"AND":["$!F00A","$!F00B"]}]},"F00.0":{"explanation":"With early onset","algorithm":[{"AND":["$!F00.0.1","$!F00.0.2"]}]},"SCHIZII1":{"explanation":"delusions","algorithm":[{"AND":[{"OR":["$17.025 = [2,3]","$17.027 = [2,3]","$17.029 = [2,3]","$18.003 = [2,3]","$19.003 = [2,3]","$19.004 = [2,3]","$19.005 = [2,3]","$19.006 = [2,3]","$19.007 = [2,3]","$19.008 = [2,3]","$19.012 = [2,3]","$19.013 = [2,3]","$19.014 = [2,3]","$19.016 = [2,3]","$19.017 = [2,3]","$19.018 = [2,3]","$19.019 = [2,3]","$19.021 = [2,3]","$19.022 = [2,3]","$19.023 = [2,3]","$19.028 = [2,3]","$19.029 = [2,3]","$19.030 = [2,3]","$19.031 = [2,3]","$19.032 = [2,3]"]},"$19.045 = 0","$20.070 = [0,1]",{"OR":["$19.044 = [2,3]","$20.055 = [2,3]"]}]}]},"SCHIZII2":{"explanation":"hallucinations","algorithm":[{"AND":[{"OR":["$17.003 = [2,3]","$17.004 = [3,4]","$17.015 = [2,3]","$17.016 = [2,3]","$17.017 = [2,3]","$17.022 = [2,3]","$17.024 = [2,3]","$17.026 = [2,3]","$17.028 = [2,3]","$17.030 = [2,3]"]},"$17.034 = 0","$20.065 = [0,1]","$20.066 = [0,1]","$20.067 = [0,1]",{"OR":["$17.033 = [2,3]",{"OR":["$20.050 = [2,3]","$20.051 = [2,3]","$20.052 = [2,3]"]}]}]}]},"F06F320B.counter":{"explanation":"","algorithm":[{"SUM":["$!F32.0B1","$!F06F32B2","$!F06F32B3"]}]},"F06F320C.counter":{"explanation":"","algorithm":[{"SUM":["$!F32.0C1","$!F32.0C2","$!F32.0C3","$!F06F32C4","$!F06F32C5","$!F06F32C6","$!F32.0C7"]}]},"SOMSYND":{"explanation":"Somatic syndrome subtype criteria","algorithm":[{"AND":["$@SOMSYND.counter >= 4"]}]},"SOMSYND.counter":{"explanation":"","algorithm":[{"SUM":["$!SOMSYND1","$!SOMSYND2","$!SOMSYND3","$!SOMSYND4","$!SOMSYND5","$!SOMSYND6","$!SOMSYND7","$!SOMSYND8"]}]},"SOMSYND1":{"explanation":"loss of interest or pleasure","algorithm":[{"OR":["$6.004 = [2,3]","$7.004 = [2,3]"]}]},"SOMSYND2":{"explanation":"lack of emotional reactions","algorithm":[{"AND":["$6.008 = [2,3]"]}]},"SOMSYND3":{"explanation":"early awakening (> 2 hours)","algorithm":[{"AND":["$8.014 = 3"]}]},"SOMSYND4":{"explanation":"depression worse in morning","algorithm":[{"AND":["$6.009 = 1"]}]},"SOMSYND5":{"explanation":"objective retardation or agitation","algorithm":[{"OR":["$22.001 = [1,2]","$22.002 = [1,2]","$22.003 = [1,2]","$22.004 = [1,2]","$22.005 = [1,2]","$22.006 = [1,2]","$22.007 = [1,2]","$22.010 = [1,2]","$24.002 = [1,2]","$22.015 = [1,2]","$22.016 = [1,2]"]}]},"SOMSYND6":{"explanation":"loss of appetite","algorithm":[{"AND":["$8.005 = [2,3]"]}]},"SOMSYND7":{"explanation":"weight loss > 5% in 1 month","algorithm":[{"AND":["$8.006 = [2,3]"]}]},"SOMSYND8":{"explanation":"loss of libido","algorithm":[{"AND":["$8.024 = [2,3]","$8.025 = 1"]}]},"F20.4B.derived1":{"explanation":"Derived from F20.4B","algorithm":[{"SUM":["$!F20G1.2a","$!F20G1.2b","$!F20G1.2c","$!F20G1.2d"]}]},"DELONS":{"explanation":"Posttraumatic stress disorder - delayed onset","algorithm":[{"AND":["$!F43.1A","$!F43.1B","$!F43.1C","$!F43.1D","$13.094 = 3"]}]},"F48.1":{"explanation":"Depersonalisation - derealisation syndrome","algorithm":[{"AND":["$!F48.1A","$!F48.1B"]}]},"F48.1A":{"explanation":"(1) depersonalization or (2) derealization ","algorithm":[{"OR":[{"OR":["$3.012 = [2,3]","$16.008 = [2,3]","$16.009 = [2,3]","$16.010 = [2,3]"]},{"OR":["$16.006 = [2,3]","$16.007 = [2,3]"]}]}]},"F48.1B":{"explanation":"Insight present","algorithm":[{"AND":["$16.013 = 0",{"AND":["$!F05 = 0","$!F06 = 0","$!F1 = 0","$!F2 = 0","$!F3 = 0","$!F40.0 = 0","$!F40.1 = 0","$!F40.2 = 0","$!F40.9 = 0","$!F41.0 = 0","$!F41.1 = 0","$!F40.9 = 0"]}]}]}}
 
 /***/ }),
-/* 324 */
+/* 326 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 
-var yaml = __webpack_require__(325);
+var yaml = __webpack_require__(327);
 
 
 module.exports = yaml;
 
 
 /***/ }),
-/* 325 */
+/* 327 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 
-var loader = __webpack_require__(326);
-var dumper = __webpack_require__(349);
+var loader = __webpack_require__(328);
+var dumper = __webpack_require__(351);
 
 
 function deprecated(name) {
@@ -43946,12 +44064,12 @@ function deprecated(name) {
 
 
 module.exports.Type                = __webpack_require__(6);
-module.exports.Schema              = __webpack_require__(31);
-module.exports.FAILSAFE_SCHEMA     = __webpack_require__(83);
-module.exports.JSON_SCHEMA         = __webpack_require__(142);
-module.exports.CORE_SCHEMA         = __webpack_require__(141);
+module.exports.Schema              = __webpack_require__(32);
+module.exports.FAILSAFE_SCHEMA     = __webpack_require__(84);
+module.exports.JSON_SCHEMA         = __webpack_require__(143);
+module.exports.CORE_SCHEMA         = __webpack_require__(142);
 module.exports.DEFAULT_SAFE_SCHEMA = __webpack_require__(42);
-module.exports.DEFAULT_FULL_SCHEMA = __webpack_require__(53);
+module.exports.DEFAULT_FULL_SCHEMA = __webpack_require__(54);
 module.exports.load                = loader.load;
 module.exports.loadAll             = loader.loadAll;
 module.exports.safeLoad            = loader.safeLoad;
@@ -43961,9 +44079,9 @@ module.exports.safeDump            = dumper.safeDump;
 module.exports.YAMLException       = __webpack_require__(41);
 
 // Deprecated schema names from JS-YAML 2.0.x
-module.exports.MINIMAL_SCHEMA = __webpack_require__(83);
+module.exports.MINIMAL_SCHEMA = __webpack_require__(84);
 module.exports.SAFE_SCHEMA    = __webpack_require__(42);
-module.exports.DEFAULT_SCHEMA = __webpack_require__(53);
+module.exports.DEFAULT_SCHEMA = __webpack_require__(54);
 
 // Deprecated functions from JS-YAML 1.x.x
 module.exports.scan           = deprecated('scan');
@@ -43973,7 +44091,7 @@ module.exports.addConstructor = deprecated('addConstructor');
 
 
 /***/ }),
-/* 326 */
+/* 328 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43981,11 +44099,11 @@ module.exports.addConstructor = deprecated('addConstructor');
 
 /*eslint-disable max-len,no-use-before-define*/
 
-var common              = __webpack_require__(30);
+var common              = __webpack_require__(31);
 var YAMLException       = __webpack_require__(41);
-var Mark                = __webpack_require__(327);
+var Mark                = __webpack_require__(329);
 var DEFAULT_SAFE_SCHEMA = __webpack_require__(42);
-var DEFAULT_FULL_SCHEMA = __webpack_require__(53);
+var DEFAULT_FULL_SCHEMA = __webpack_require__(54);
 
 
 var _hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -45578,14 +45696,14 @@ module.exports.safeLoad    = safeLoad;
 
 
 /***/ }),
-/* 327 */
+/* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 
-var common = __webpack_require__(30);
+var common = __webpack_require__(31);
 
 
 function Mark(name, buffer, position, line, column) {
@@ -45661,7 +45779,7 @@ module.exports = Mark;
 
 
 /***/ }),
-/* 328 */
+/* 330 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45676,7 +45794,7 @@ module.exports = new Type('tag:yaml.org,2002:str', {
 
 
 /***/ }),
-/* 329 */
+/* 331 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45691,7 +45809,7 @@ module.exports = new Type('tag:yaml.org,2002:seq', {
 
 
 /***/ }),
-/* 330 */
+/* 332 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45706,7 +45824,7 @@ module.exports = new Type('tag:yaml.org,2002:map', {
 
 
 /***/ }),
-/* 331 */
+/* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45747,7 +45865,7 @@ module.exports = new Type('tag:yaml.org,2002:null', {
 
 
 /***/ }),
-/* 332 */
+/* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45789,13 +45907,13 @@ module.exports = new Type('tag:yaml.org,2002:bool', {
 
 
 /***/ }),
-/* 333 */
+/* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var common = __webpack_require__(30);
+var common = __webpack_require__(31);
 var Type   = __webpack_require__(6);
 
 function isHexCode(c) {
@@ -45969,13 +46087,13 @@ module.exports = new Type('tag:yaml.org,2002:int', {
 
 
 /***/ }),
-/* 334 */
+/* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var common = __webpack_require__(30);
+var common = __webpack_require__(31);
 var Type   = __webpack_require__(6);
 
 var YAML_FLOAT_PATTERN = new RegExp(
@@ -46092,7 +46210,7 @@ module.exports = new Type('tag:yaml.org,2002:float', {
 
 
 /***/ }),
-/* 335 */
+/* 337 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46187,7 +46305,7 @@ module.exports = new Type('tag:yaml.org,2002:timestamp', {
 
 
 /***/ }),
-/* 336 */
+/* 338 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46206,7 +46324,7 @@ module.exports = new Type('tag:yaml.org,2002:merge', {
 
 
 /***/ }),
-/* 337 */
+/* 339 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46219,7 +46337,7 @@ var NodeBuffer;
 try {
   // A trick for browserified version, to not include `Buffer` shim
   var _require = require;
-  NodeBuffer = __webpack_require__(338).Buffer;
+  NodeBuffer = __webpack_require__(340).Buffer;
 } catch (__) {}
 
 var Type       = __webpack_require__(6);
@@ -46351,7 +46469,7 @@ module.exports = new Type('tag:yaml.org,2002:binary', {
 
 
 /***/ }),
-/* 338 */
+/* 340 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46365,9 +46483,9 @@ module.exports = new Type('tag:yaml.org,2002:binary', {
 
 
 
-var base64 = __webpack_require__(339)
-var ieee754 = __webpack_require__(340)
-var isArray = __webpack_require__(341)
+var base64 = __webpack_require__(341)
+var ieee754 = __webpack_require__(342)
+var isArray = __webpack_require__(343)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -48148,7 +48266,7 @@ function isnan (val) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(26)))
 
 /***/ }),
-/* 339 */
+/* 341 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48306,7 +48424,7 @@ function fromByteArray (uint8) {
 
 
 /***/ }),
-/* 340 */
+/* 342 */
 /***/ (function(module, exports) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -48396,7 +48514,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 
 /***/ }),
-/* 341 */
+/* 343 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -48407,7 +48525,7 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 342 */
+/* 344 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48458,7 +48576,7 @@ module.exports = new Type('tag:yaml.org,2002:omap', {
 
 
 /***/ }),
-/* 343 */
+/* 345 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48518,7 +48636,7 @@ module.exports = new Type('tag:yaml.org,2002:pairs', {
 
 
 /***/ }),
-/* 344 */
+/* 346 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48554,7 +48672,7 @@ module.exports = new Type('tag:yaml.org,2002:set', {
 
 
 /***/ }),
-/* 345 */
+/* 347 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48589,7 +48707,7 @@ module.exports = new Type('tag:yaml.org,2002:js/undefined', {
 
 
 /***/ }),
-/* 346 */
+/* 348 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48656,7 +48774,7 @@ module.exports = new Type('tag:yaml.org,2002:js/regexp', {
 
 
 /***/ }),
-/* 347 */
+/* 349 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48674,7 +48792,7 @@ var esprima;
 try {
   // workaround to exclude package from browserify list.
   var _require = require;
-  esprima = __webpack_require__(348);
+  esprima = __webpack_require__(350);
 } catch (_) {
   /*global window */
   if (typeof window !== 'undefined') esprima = window.esprima;
@@ -48755,7 +48873,7 @@ module.exports = new Type('tag:yaml.org,2002:js/function', {
 
 
 /***/ }),
-/* 348 */
+/* 350 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -55469,7 +55587,7 @@ return /******/ (function(modules) { // webpackBootstrap
 ;
 
 /***/ }),
-/* 349 */
+/* 351 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55477,9 +55595,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /*eslint-disable no-use-before-define*/
 
-var common              = __webpack_require__(30);
+var common              = __webpack_require__(31);
 var YAMLException       = __webpack_require__(41);
-var DEFAULT_FULL_SCHEMA = __webpack_require__(53);
+var DEFAULT_FULL_SCHEMA = __webpack_require__(54);
 var DEFAULT_SAFE_SCHEMA = __webpack_require__(42);
 
 var _toString       = Object.prototype.toString;
@@ -56301,7 +56419,7 @@ module.exports.safeDump = safeDump;
 
 
 /***/ }),
-/* 350 */
+/* 352 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56318,17 +56436,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _downshift = __webpack_require__(351);
+var _downshift = __webpack_require__(353);
 
 var _downshift2 = _interopRequireDefault(_downshift);
 
-var _reactVirtualized = __webpack_require__(101);
+var _reactVirtualized = __webpack_require__(102);
 
-var _reactRedux = __webpack_require__(22);
+var _reactRedux = __webpack_require__(19);
 
-var _items = __webpack_require__(54);
+var _items = __webpack_require__(43);
 
-var _actions = __webpack_require__(33);
+var _actions = __webpack_require__(27);
 
 var _classnames = __webpack_require__(18);
 
@@ -56428,7 +56546,7 @@ var SearchItems = exports.SearchItems = (0, _reactRedux.connect)(function (state
 })(Search);
 
 /***/ }),
-/* 351 */
+/* 353 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57810,19 +57928,19 @@ Downshift.resetIdCounter = resetIdCounter;
 
 
 /***/ }),
-/* 352 */
+/* 354 */
 /***/ (function(module, exports) {
 
 module.exports = {"items":[{"key":"2.section","title":"Somatoform and dissociative symptoms","description":"Adapt questions about disorders and treatments to local usage. Use information\nfrom informants and case records. Note that Section 2 generally defines episodes\nbased on a much longer duration than other Sections.\n","glossary":"Clinically, the difference between normality and the pathological behaviour may be based on a clinical judgment on how impaired and distressed the patient is by the health anxiety.\nWe may need an introduction including the discussion about MUS, mental vs. bodily, and that these conditions not nessesarily present mental disorders but are in between."},{"key":"2.001","title":"Physical wellness, past month","description":"How has your physical health been during the past month?\n\nHas it been excellent, good, fair or poor?\n","input":"integer","options":{"1":"Excellent","2":"Good","3":"Fair","4":"Poor","8":"Uncertain","9":"NK"},"validate":["1-4","8","9"],"glossary":"This item is concerned with the Respondent's own view of his or her physical health status; i.e. not only with the presence or absence of disease or disability but also with general physical well-being.  Respondents will use their own terms to describe health status.  The rating should          reflect this personal assessment rather than interviewer's interpretation of it.\n\nA rating of 1 must be based on a positive statement of physical well-being. Reasonably well (rated 2) corresponds to 'all right'; not positive, not negative.\n\nA rating of 3 ('fair') implies less than average wellness. Such a statement should be elucidated to inform subsequent questioning.  It may, for example, indicate physical disease, functional or dissociative or affective disorder, or a lifelong tendency (trait) to take a somewhat gloomy view of      things. These questions are raised later in the interview.\n\nAny statement implying a seriously poor state of health is rated 4.\n\nA feeling of positive wellness can be rated 1 in the presence of actual disease or disability if that is what R feels.\n\nThe scale is ordered in this way (1-4) to correspond with the general principle used elsewhere in the SCAN text, that greater disability or pathology has a higher score.\n\nThus 0 is not used, because, as the default rating for all items (except some in Section 21), it would automatically             indicate high positive wellness if left blank.\n"},{"key":"2.002","title":"Length of unwellness","description":"How long has your physical health been poor?\n\nWhen was the last time you were well (no somatic disease or functional disorder?)\n\nRate in months since the patient was last well.\n","input":"integer","options":{"800":"800 mths or more","888":"NK","999":"NA","0-799":"No health problems"},"validate":["0-800","888","999"],"glossary":"If item **[2.001]** is rated 3 or 4, specify the length of time in years and months that the unfitness has been present.\n"},{"key":"2.003","title":"Physical illness or disability, past year","description":"In the past year, have you had physical illnesses, injuries, pains or\nother disorders that have limited your activities in any way?\n\nWhat sort of problems have you had?\nDid the doctor/specialist tell you what was the matter?\n","input":"integer","options":{"0":"None","1":"Describes somatic symptoms or disorder without clear diagnosis","2":"States clear physical diagnosis","3":"Both physical diagnosis and functional symptoms/illness","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"],"glossary":"This item refers to medical problems of a physical nature including illnesses, injuries and disabilities.\n\nTake into account all the information available including the results of recent investigations and examinations. It will sometimes be possible to accept the diagnosis that R gives, when backed by a convincing description, but always use 8 if there is doubt.\n\nAny medically diagnosed condition should be coded in **[2.007]** according to ICD-10.  If no significant illness or disability is present leave **[2.007] and [2.008]** blank.\n\nAn entry should only be made if **[2.003]** is coded 2 or 3; not including any indefinite or medically unexplained disorder.\n\nFor instance stomach ache without good evidence of gastric disease, should not be entered simply because R states, for example, \"I think I have a gastric ulcer\". A rating of 1 does not mean that there is no physical disease, only that the information has not established one and further enquiry      is necessary.\n"},{"key":"2.004","title":"Distressing somatic symptom, any","description":"How much does this distress you or disturb you daily life?\n","input":"integer","options":{"0":"None","1":"Present","9":"NK"},"validate":["0","1","9"],"help":"See also items [2.094] and [2.008].\n","glossary":"The patient has one or more distressing somatic symptoms or a symptom resulting in significant disruption of daily life. The symptoms or illness may be of any etiology, i.e. it may be symptoms of unknown etiology or from cancer, diabetes etc.\n\n(Criteria for DSM-V)\n"},{"key":"2.005","title":"Predominant pain","description":"Only if 2.003 is rated 2.\n\nIs pain the most predominant problem?\n","input":"integer","options":{"0":"No","1":"Yes","8":"Uncertain","9":"NK"},"validate":["0","1","8","9"],"help":"**Rate positively if pain is caused by physical disease predominates the illness picture:**\nSee also [2.093].\n(DSM-V specifier)\n"},{"key":"2.006","title":"Preoccupation with somatic symptoms and worry about physical health","description":"Are you afraid that something serious is wrong with you?\n\nHave you seen a doctor because of it? (within the past year)\n","input":"integer","options":{"0":"No particular preoccupation","1":"Present","9":"NK"},"validate":["0","1","9"],"help":"Rate on the basis of degree of preoccupation, illness conviction or distress, frequency of consultations and examinations, degree of symptoms or excessive illness worry.\n\nSee also [2.100].\n","glossary":"The item is identical with 2.101.\nRiddle item for Health or Illness anxiety / Hypochondrias, the item and except for the scoring, the item is identical with 2.101.\n\nA non-delusional preoccupation with fears of harboring a severe physical disease and/or a disproportionate thoughts about the seriousness of one's symptoms and disease.\nSee also HA section\n\nCUT-OFF => ???? (health anxiety) if there are no functional or dissociative symptoms based on the present information.\n\nAlways continue if there is no convincing medical explanation for the symptoms.\n\nIf [2.003] = 0 skip to HA\nIf [2.003] = 2 skip to [2.007] and then [2.100].\nIf [2.003] < > 0 or 2 continue.\n"},{"key":"2.episode1.section","title":"Well-defined physical diseases","description":"(In this section, items can be skipped or added)\n\nMark with a X, if the disorder is present and then write the diagnosis in letters (diagnosis codes can be kept as explanation).\n\nPrompt cards or questionnaires can be used.\n"},{"key":"2.007","title":"Well-defined physical diseases diagnosed by a doctor (lifetime)","description":"[Show a prompt card if necessary]\n\na.  Have you been told by a doctor that you have any of these diseases (a-r)\n\nb.  Were you given medicines for (a-r)?\n\nc.  Were you given laboratory examinations for (a-r)\n\nd.  Were you advised to make changes in your diet or life style for (a-r)?\n\ne.  Were you hospitalized or had surgery for (a-r)?\n\nf.  Did you ever stop or cut back your usual activities for a week or longer for (a-r)?\n","input":"integer","options":{"0":"Absent","1":"Present","8":"Uncertain","9":"NK"},"validate":["0","1","8","0"],"glossary":"Items are optional and not a part of the SCAN interview. Only well-defined and verified diagnoses made by physicians.\nThe functional somatic syndromes and functional disorders are not rated here.\nDisorders associated with mental retardation and/or autism e.g. Down’s Syndrome, foetal rubella etc. should be checked in CHS, ch. 27\n"},{"key":"2.007a","title":"High blood pressure","description":"(ICD-10: I10-I15)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007b","title":"Diabetes","description":"(ICD-10: E10-E14)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007c","title":"Osteoarthritis/rheumatoid arthritis","description":"(ICD-10: M00-M19)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007d","title":"Migraine/specified","description":"(ICD-10: G43, G44, R51)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007e","title":"Herniated disk","description":"(ICD-10: M40-M54)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007f","title":"Heart disease","description":"(ICD-10: I05-I09 og I20-I25)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007g","title":"Tuberculosis","description":"(ICD-10: A15-A19, B90, J65)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007h","title":"Asthma/chronic bronchitis","description":"(ICD-10: J30-J32, J35, J37, J40-J47)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007i","title":"Gastritis or ulcer","description":"(ICD-10: K25-K27)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007j","title":"Hepatitis","description":"(ICD-10: B18, K73, K75,9)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007k","title":"Kidney disease","description":"(ICD-10: N03-07, N11-15, N18-19, N25-28)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007l","title":"Parasite diseases/malaria","description":"(ICD-10: B50-B83)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007m","title":"Thyrois disease","description":"(ICD-10: E00-E07)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007n","title":"Tumor/cancer","description":"(ICD-10: C00-C97)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007o","title":"Stroke","description":"(ICD-10: I60-I69)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007p","title":"Epilepsia","description":"(ICD-10: G40)\n","input":"integer","options":{"1":"Present"}},{"key":"2.007q","title":"Multiple sclerosis","description":"(ICD-1010: G35)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007r","title":"HIV/AIDS","description":"(ICD-10: B20-B24)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007s","title":"Others","input":"string","description":"State which_____________________________________________\n"},{"key":"2.007t","title":"Others","input":"string","description":"State which_____________________________________________\n","help":"Disorders associated with mental retardation and/or autism e.g. Down’s Syndrome, foetal rubella etc. should be checked in CHS, ch. 27. The first box must have a letter indicating the ICD-10 chapter followed by up to 4 digits. If none, leave blank.\n"},{"key":"2.008","title":"Impact on activities and discomfort/distress due to well-defined physical disease, past year","description":"**(See also [2.094])**\n\nHave any of the above symptoms or disorders (2.007a-t) had an impact on your daily physical activities in the past year?\n\nHow much impact have these symptoms had on your daily physical activities in the past year?\n","input":"integer","options":{"0":"No influence or well-defined physical disease","1":"Only small influence","2":"Moderate or intermittent","3":"Severe to incapacitating","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"],"glossary":"Impairment due to well-defined physical disease. Impairment due to functional or dissociative symptoms is rated in **[2.094]**.\nWhether the disease causes clinically significant distress or impairment in social, occupational or other important areas of functioning.\n\nFor rating of functioning, you may use the concept of WHO’s disability assessment with its 5 dimensions. But it is important that also emotional distress is       rated here, i.e. a person may go to work but is tormented by thoughts and emotions in connection with his/her symptoms.\n"},{"key":"2.009","title":"Elaboration of physical symptoms","description":"Normally rated based on medical history and the patient's thoughts and worries about the condition. If the original disease is no longer present, the disorder is rated as a functional disorder, cf. 27.069.\n","input":"integer","options":{"1":"Absent","2":"Present","8":"Uncertain","9":"NK"},"validate":["1","2","8","9"],"glossary":"A well-defined medical symptom or condition is present (not including functional syndromes or disorders). The course, the treatment (i.e. compliance), health status or recovery of the medical condition is affected by the psychological factors.\nIf the medical condition is not present anymore, the condition is rated as a functional condition instead.\nNormally rated based on medical history and the patient's thoughts and worries about the condition.\n\nCUT OFF => ????  (health anxiety) if there are no functional or dissociative symptoms based on the present information, i.e. 2003 = 0 or 2\n\nAlways continue beyond the cut-off point if there is any doubt as to whether physical health problems have a clearly physical origin.  Begin the further exploration with a general probe, then ask a set of questions concerning R's contacts with expert practitioners.  In countries where expert        opinion is difficult to obtain the following ratings must be particularly circumspect.  Case records and information from people who know R should be taken into account.\n"},{"key":"2.episode2.section","title":"Physical symptoms","description":"**Use rating scale 1a if nothing else indicated.**\n\nRate on the basis of present information, incl. medical history.\n\nFor a symptom to be rated as being caused by well-known physical disease (or likely well-known physical disease), this well-known physical disease must be diagnosed in 2.007 or it must be an acute condition such as a flu. If you suspect that the patient has an undiagnosed physical disease, rate     8.\n","help":"**Elaborate:**\n\nGo through the symptoms as indicated by the patient, and check 2.010-2.090.\n\nElaborating questions:\n\n- How did it feel (the symptom)?\n- How pronounced was it?\n- How did it affect you?\n- Did you see a doctor about this?\n- Did you get special tests?\n- Did you get any treatment? What kind?\n- What did the doctor tell you was the matter?\n- What did you think yourself?\n\n**[Show prompt card if necessary]**\n","glossary":"Rate on the basis of present information, incl. medical history. Each symptom is rated if present, and do not attempt to judge if each individual symptom is \"medically explained\" or not. The diagnoses is based on the complete illness picture and not on individual symptoms!\nEmotional, social, stress ect. may not be present in patients presenting with functional disorders why you can not base you rating on such associated symptoms.\nIdeally one should rate if a symptom is due to a functional condition (like you rate if a symptoms is due a depression) but our current knowledge's and most doctors knowledge's about functional disorders is not sufficient for the time being that this can be done in a reliable way.\nFor a symptom to be rated as being attributed to well-known physical disease (or likely well-known physical disease), this well-known physical disease must be diagnosable, i.e. be diagnosed in 2.007 or it could be an acute condition such as a flu. If you suspect that the patient has an                undiagnosed physical disease, rate 8.  Functional somatic syndromes or functional disorders is not viewed as well-defined medical conditions.\n\nThe usual PSE rule 'if in doubt rate down' should not be applied to physical symptoms themselves.  Respondents should be encouraged to be forthcoming about their complaints.\n\nBecause each symptom can be described in terms that are highly culture-specific, the list is not exhaustive. There are sufficient items to cover contingencies. A clinical decision has to be made on the basis of local expert according to which item represents the complaint the most.         For research purposes, it is important to record the terms used by respondents to describe their problems. Documentation of these terms will generate a data base that can be used for further development of items with research and clinical applicability.\n\nResearch have shown that symptoms of some functional disorders cluster into organ systems. Therefor a alternative/complementary rating is also possible in which you simply ask if symptoms of that organ system is presented or not. If negative you may skip the organ system. If the interviewer is      experienced or  it is not  need to specific  individual symptoms one may only use the alternative/complementary rating.\n"},{"key":"2.episode3.section","title":"General/unspecific symptoms/syndromes, incl. fatigue"},{"key":"2.010","title":"Alternative/complimentary rating","description":"In the past year, have you had problems with fatigue, headache, dizziness,\nimpairment of memory, concentration difficulties or similar symptoms?\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"],"help":"**By use of questionnaire:**\n\nN: Negative questionnaire (use phrasing from mini SCAN)\n\nP: Positive questionnaire.\n"},{"key":"2.011","title":"General weakness or malaise","scale":"1a"},{"key":"2.012","title":"Pronounced and distressing fatigue","description":"If you feel exhausted following physical or mental exercise, how long does the exhaustion last?\n\nCan you recover by resting or relaxation?\n","scale":"1a","glossary":"Unwarranted fatiguability after even minor physical exertion or mental exercise.  The emphasis is on feelings of bodily or physical weakness and exhaustion after only minimal effort, accompanied by a feeling of muscular aches and pains.  Respondents experience the tiredness as unpleasant and        distressing.\n\n**Differentiation from other symptoms:**\n\nTiredness at the end of a hard day of physical or mental work (rate 0), or due to the after-effect of influenza, would not count.  The level of increase in fatiguability should be assessed against relevant previous experience, such as walking a familiar distance, climbing stairs,  reading a         book, doing calculations,etc.\nIs typically described as an unpleasant intrusion of distracting associations or recollections, difficulty in concentrating, focusing and sustaining attention, and generally inefficient thinking.  The condition is usually associated with decreased efficiency in coping with daily tasks.\nInability to restore mental and physical energy after excessive fatigue following even minor exercise.  This is a prolongation, lasting days or longer.  The sense of tiredness is usually accompanied by feelings of muscular aches and pains, and the Respondent is unable voluntarily to overcome        it. A main feature is inability to relax fully. Differentiate from normal sleepiness.\nRate 1 if the R can recover 2 or 3 if R can not recover.\n\nDifferentiate from item **3.007**, (how???)\n"},{"key":"2.013","title":"Impairment of memory","scale":"1a","glossary":"R complains of impairment or loss of memory.  The loss does not include anaesthesia for operations or during convulsions or fainting, or following head injury.\nSee also ???\n\nDissociative: The main feature is sudden loss of memory, usually of important recent events, not due to organic mental disorder and too great to be explained by ordinary forgetfulness or fatigue.  There is no integration of present experiences with memories of the past.  The amnesia is       presumed to be of psychogenic origin and is usually partial and selective.  The main problem is not in the registration or retention of the memory, but in the recall of facts usually associated with insoluble or unacceptable interpersonal problems, or traumatic events such as accidents or           unexpected bereavements.  The loss of memory may be an expression of emotional needs or failure of effective coping mechanisms.\n\n**Dissociative: Differentiation from other symptoms:**\n\nThere should be no evidence of a physical disorder that can explain the symptoms that characterize the disorder.  Amnesia induced by alcohol or drugs or by postictal amnesia in epilepsy should not be included here. Similarly,  subjective complaints of loss of memory (difficulty in                 recollection of important facts and events) experienced in depressive disorders should be distinguished.  Likewise, it is differentiated from other causes of subjective memory problem by the severity,  sudden onset or only affecting a specific event, and thus it may not necessarily be global          memory loss.\n"},{"key":"2.014","title":"Concentration difficulties (cf. 7.001-7.003)","scale":"1a","help":"See also??\n"},{"key":"2.015","title":"Headache, tension","scale":"1a"},{"key":"2.016","title":"Dizziness","scale":"1a"},{"key":"2.017","title":"Others________________________________","input":"string"},{"key":"2.episode4.section","title":"Musculoskeletal symptoms/syndromes, incl. widespread pain, muscle tension etc."},{"key":"2.018","title":"Alternative/complimentary rating","description":"Have you had pain or other discomfort from your muscles or joints, sensory disturbance or localised weakness e.g. in arms or legs?\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"],"help":"By use of questionnaire:\n\nN: Negative questionnaire (use phrasing from mini SCAN)\n\nP: Positive questionnaire.\n"},{"key":"2.019","title":"Back ache","scale":"1a"},{"key":"2.020","title":"Muscular aches and pains","scale":"1a"},{"key":"2.021","title":"Pain in arms or legs","scale":"1a"},{"key":"2.022","title":"Pain in the joints","scale":"1a"},{"key":"2.023","title":"Pain moving from one place to another","scale":"1a","glossary":"Pain moving around and from different locations in the body.\n"},{"key":"2.024","title":"Feelings of paresis or localized weakness","description":"- Have you been unable to move a hand, an arm or a leg?\n- Have your arms or legs felt heavy?\n- Have you had difficulty standing or walking without support?\n","scale":"1a","glossary":"This group covers muscular weakness (either periodic or unremitting). Problems when lifting, inability to stand up or to walk or inability to move any part of the body.\n"},{"key":"2.025","title":"Unpleasant numbness or tingling sensations","description":"Have you experienced loss of or changes in the sense of touch?\n","scale":"1a","glossary":"Includes different sensations such as tingling (slight stinging sensation/pins and needles), crawling or creeping sensation as well as feelings of heaviness or lightness anywhere in the body.\n"},{"key":"2.026","title":"Neck pain","description":"If yes:\n","scale":"1a"},{"key":"2.027","title":"Neck pain in connection with whiplash trauma","description":"Have you been exposed to a whiplash trauma?\n\nDid you neck pain start at that time? **(See also [2.120])**\n","input":"integer","options":{"0":"No","1":"Worsened by trauma","2":"Yes","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"Only if 2.026 (Neck pain) is positive Have you been exposed to a whiplash trauma?\nDid you neck pain start at that time? (See also [2.124])\n"},{"key":"2.028","title":"Widespread pain","input":"integer","option":{"0":"Non","1":"Only regional pain","2":"Widespread","3":"Widespread pain in both sides of the body and both in upper and lower body","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"],"glossary":"Does R have pain both above and below the waistline and in both sides of the body, ie. body parts of all 4 body quadrants\n"},{"key":"2.029","title":"Others___________________","input":"string"},{"key":"2.episode5.section","title":"Gastroinstestinal symptoms/syndrome (GI Arousal), incl. upper dyspepsia","description":"*Have you had any problems with your stomach such as pain, nausea, feeling bloated, burning sensation in the epigastrium or regurgitation?*\n"},{"key":"2.030","title":"Alternative/complimentary rating","description":"**Upper dyspepsia**\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"]},{"key":"2.031","title":"Alternative/complimentary rating","description":"**Lower GI symptoms**\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"],"help":"**By use of questionnaire:**\n\nN: Negative questionnaire (use phrasing from mini SCAN)\nAccording to the questionnaire, you haven't had problems with your stomach/bowels\n(…such as – read a couple of symptoms aloud). Is that correctly understood?\n(If no, fill in the symptoms list).\n\nP: Positive questionnaire\n(I.e. at least one symptom > a little, or disturbance of everyday activities >2).\n"},{"key":"2.032","title":"Regurgitation","description":"Do you ever have regurgitation?\n","scale":"1a"},{"key":"2.033","title":"Burning sensation in chest or epigastrium","description":"Do you have a stinging or burning sensation in the chest\nor upper epigastrium?\n","scale":"1a"},{"key":"2.034","title":"Heartburn","scale":"1a"},{"key":"2.035","title":"Vomiting","description":"Do you suffer from vomiting?\n","scale":"1a","glossary":"Vomiting, belching, regurgitation of food. Not, during pregnancy\n"},{"key":"2.036","title":"Nausea","scale":"1a","glossary":"Feeling of disgust, revulsion, sensation that precedes vomiting.\n"},{"key":"2.037","title":"Abdominal pain incl. gripes","description":"Have you had stomach ache or gripes?\n","scale":"1a","glossary":"Abdominal pain, cramps due to wind, bowel spasms, constipation. Loose bowels should be rated at 2.041\n"},{"key":"2.038","title":"Feeling bloated, full of gas, distended, heavy","scale":"1a","glossary":"This refers to constant or periodic unpleasant feelings in the stomach and upset stomach.  Foods that make the subject ill should be rated in 2.089.\n"},{"key":"2.039","title":"Alternating bowel movements","description":"(I.e. alternating constipation/normal or alternating constipation/diarrhoea or alternating normal/diarrhea?\n","scale":"1a"},{"key":"2.040","title":"Rumbling and churning in the stomach","scale":"1a","glossary":"Complaints of  frequent or loose bowels or diarrhoea.\n"},{"key":"2.041","title":"Diarrhoea or loose bowel movements","description":"**Rectal pain is rated in <2.068>**\n","scale":"1a"},{"key":"2.042","title":"Relief (pain and other symptoms) by defecation","input":"integer","options":{"0":"No","1":"Yes","8":"Uncertain","9":"NK"},"validate":["0","1","8","9"]},{"key":"2.043","title":"Onset (pain and other symptoms) is related to changes in defecation frequency","input":"integer","options":{"0":"No","1":"Yes","8":"Uncertain","9":"NK"},"validate":["0","1","8","9"]},{"key":"2.044","title":"Onset is related to change in the form (appearance) of the defecation","description":"Do you get pain or do the pain or other symptoms get worse in connection with changes in the form (appearance) of the defecation?\n","input":"integer","options":{"0":"No","1":"Yes","8":"Uncertain","9":"NK"},"validate":["0","1","8","9"]},{"key":"2.episode6.section","title":"Cardiovascular symptoms"},{"key":"2.045","title":"Alternative/complimentary rating","description":"In the past year, have you had symptoms from your heart or chest such as palpitations,\ndifficulty breathing, hot or cold swears?\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"],"help":"\">=3 symptoms\". Fulfills criteria for GS syndrome\n"},{"key":"2.046","title":"Palpitations/heart pounding","scale":"1a"},{"key":"2.047","title":"Precordial discomfort or chest pain","scale":"1a","glossary":"Aches, pains, pressure, burning, stinging feelings in the chest or above the heart.\n"},{"key":"2.048","title":"Breathlessness without exertion","scale":"1a","glossary":"Cannot breathe easily, smothering or choking feeling, difficulty breathing present when not making much effort.\n"},{"key":"2.049","title":"Hyperventilation","scale":"1a"},{"key":"2.050","title":"Hot or cold sweats","scale":"1a"},{"key":"2.051","title":"Trembling or shaking","scale":"1a"},{"key":"2.052","title":"Dry mouth","scale":"1a"},{"key":"2.053","title":"Flushing or blushing","scale":"1a"},{"key":"2.054","title":"Churning in stomach, 'butterflies'","scale":"1a"},{"key":"2.055","title":"Other cardiovascular complaints","description":"This item covers symptoms not included in the preceding items.\n","scale":"1a"},{"key":"2.episode7.section","title":"Neurological symptoms, incl. dissociative","description":"Paralysis is rated in **[2.024]** and skin sensibility disturbances in **[2.025]**.\n\nDissociative or conversion symptoms are also rated here, but see **[2.065]**.\n"},{"key":"2.056","title":"Alternative/complimentary rating","description":"Have you experienced spasms, fits, faintings, convulsions, loss of voice or, vision disturbances recently?\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 neurological symptoms"},"validate":["0-2"],"help":"**By use of questionnaire:**\n\nN: Negative questionnaire (use phrasing from mini SCAN)\n\nP: Positive questionnaire.\n"},{"key":"2.057","title":"Fainting","scale":"1a"},{"key":"2.058","title":"Loss of voice, aphonia, slurred speach","scale":"1a","glossary":"Loss of voice; loss of speech and other problems that relate to voice, pronunciation etc.\n"},{"key":"2.059","title":"Disturbance of vision, hearing or olfaction?","description":"Have you experienced loss or disturbance of vision, hearing or olfaction?\n","scale":"1a","glossary":"This symptom group includes blindness in one or both eyes and other visual problems (excluding blurred vision due to lack of proper glasses or double vision). Hearing is not hard-of-hearing with our without the use of hearing aid etc. Tinnitus is rated in 2.081 . Olfaction must not be due to      flu or similar well-defined cause.\n\nThere is a declared sensory loss on the skin which often has boundaries that do not fit into any neurological deficit.  These may be associated with different sensations like tingling or other paraesthesias.  There may be differential loss between the sensory modalities (touch, pain, heat,          vibration, etc.) which cannot be due to a neurological problem.\n\nThis item also covers the partial or complete loss of vision, hearing or smell which is of psychogenic origin.\n\nBeware of sophisticated subjects who have knowledge of patterns of neurosensory distributions.\n"},{"key":"2.060","title":"Spasms, fits or convulsions","description":"**Have you experienced convulsions recently?**\n\n- What were they like?\n- Did you lose consciousness altogether?\n- Did you hurt yourself by falling or biting your tongue?\n- Did you pass water or defecate in that connection\n","glossary":"Pseudoseizures. Convulsions may mimic epileptic seizures in which whole or parts of the body shake.  However, dissociative convulsions are usually longer in duration and with tongue biting and bruising due to falling, incontinence of urine is rare (but can occur).  There is not a true loss of            consciousness but a state of trance or dissociative stupor.\n\nA positive rating should not be made without full neurological investigation resulting in no evidence of organic disorder.  Pseudoseizures may be present in individuals with true epilepsy, complicating differentiation.\n"},{"key":"2.061","title":"Feeling of impaired coordination or balance","description":"Have your movements been unsteady or clumsy?\n","scale":"1a"},{"key":"2.062","title":"Involuntary, abnormal movements (besides convulsions)","description":"**(Tremor, dystonic movement, myoclonic walking)**\n\n- Have you been unable to move a hand, an arm or a leg?\n- Have you had difficulties standing or walking without support?\n- Have you had difficulties speaking or swallowing?\n- Try to tell explain more about it.\n","glossary":"The loss of ability to move the whole or parts of the body or limbs.  This item also includes speech.  These may mimic any neurological deficit such as astasia, abasia, akinesia, apraxia, aphonia, dysarthria, dyskinesia, paraparesis or paralysis.\n"},{"key":"2.063","title":"Difficulty swallowing or lump in throat","scale":"1a","glossary":"Feeling a lump in the throat ('globus hystericus').\n"},{"key":"2.064","title":"Other neurological complaints","scale":"1a","glossary":"This item covers symptoms not included in the preceding items.\n"},{"key":"2.episode8.section","title":"Dissociative or conversion disorder","description":"The symptoms rated elsewhere in chapter 2 can also be dissociative.\n","scale":"1a","glossary":"Dissociative symptoms are all characterized by a partial or complete disconnection between memories of the past, awareness of identity and of immediate sensations, and control of bodily movements.  Conscious control over which memories and sensations can be selected for immediate attention, and     what movements can be carried out, is impaired, although varying in degree from day to day and even from hour to hour.  The severity of impairment is often difficult to determine clinically.\n\nThe terms 'hysteria' and 'conversion' are avoided in ICD-10, and dissociative symptoms are presumed to be 'psychogenic' in origin, because closely associated with traumatic events, intolerable or insoluble problems, or disturbed relationships.  No particular theory of the mechanisms underlying      dissociation is assumed for purposes of this Glossary but secondary gain is a suggestive feature.\n\nPeople with dissociative symptoms often deny problems that are obvious to others.  An informant is then essential for proper rating.\n\nSee also items **17.020**, dissociative hallucinations, and **20.026** - **20.029**, which constitute the Checklist for Induced Psychosis.\n\nFor a definite rating the following features must be present:\n\n1. The clinical characteristics specified at each item.\n2. Some evidence of psychological causation - e.g. convincing temporal association with stressful events, relationship or other problems or needs - often denied by the respondent.  This requires a clinical judgement, usually based also on information from another informant. Association with            stress is rated at **2.065**.\n3. The presence of any relevant disorder of the central or peripheral nervous system should be specified at items **2.007a-t**.  If this fully explains the symptom, rate 9. Organic attribution should otherwise be rated as usual\n4. Positive ratings should never be made if the appropriate physical investigations have not been carried out.  Rate 8 in this case.\n\n**Differentiation from other symptoms:**\n\nDepersonalization and derealization are not associated with loss of conscious control over access to sensations, memories or movements, and only limited aspects of personal identity are affected.  In depersonalization, there may be a loss of the sense of self, but the people affected know who       they are.\n"},{"key":"2.065","title":"Dissociative symptoms associated with trauma or stress","description":"When you experienced (symptom), had you had a shocking experience or been under particular stress? (i.e. attacks, paralyses, couldn't see or hear)\n\n- Did you have personal problems at that time?\n\nE.g. traumatic events, troubling issues, insoluble problems\n","input":"integer","options":{"0":"No dissociative symptoms","1":"Yes, but not acute severe trauma at onset","2":"Acute severe psychological trauma/events in connection with onset","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"All dissociative disorders are presumed to be of psychogenic origin.  Onset is convincingly associated in time with a traumatic life event with intolerable or insoluble problems, or with disturbed interpersonal relationships, which R may not acknowledge or be aware of.  Loss of consciousness       or any other bodily function may be a sign of emotional need or conflict.  A disinterested informant is usually necessary.\n"},{"key":"2.episode9.section","title":"Urological symptoms"},{"key":"2.066","title":"Alternative/complimentary rating","description":"Have you had pain in the rectum, by urination or other problems by urination?\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"]},{"key":"2.067","title":"Pains during urination","scale":"1a","glossary":"Pain or burning sensation during urination. Not due to infection or similar.\n"},{"key":"2.068","title":"Pains in rectum","scale":"1a"},{"key":"2.069","title":"Frequent urination","scale":"1a","glossary":"Frequency of passing water, sense of urgency, or any similar urinary complaint. Not due to infection or similar\n"},{"key":"2.070","title":"Urine retention","scale":"1a","glossary":"Difficulty passing water, retention\n"},{"key":"2.071","title":"Others","scale":"1a"},{"key":"2.episode10.section","title":"Genital symptoms"},{"key":"2.072","title":"Alternative/complimentary rating","description":"Have you had problems with your lower body, menstruation, genitals or lack of libido?\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"]},{"key":"2.073","title":"Pains during menstruation","scale":"1a"},{"key":"2.074","title":"Unpleasant sensations in or around the genitals","scale":"1a"},{"key":"2.075","title":"Vulvodynia (if 2.051 is positive)","scale":"1a"},{"key":"2.076","title":"Irregular menstruation","scale":"1a"},{"key":"2.077","title":"Lack of libido","scale":"1a"},{"key":"2.078","title":"Pains during sexual intercourse","scale":"1a"},{"key":"2.079","title":"Other genital complaints","scale":"1a","glossary":"This item covers symptoms not included in the preceding items.\n"},{"key":"2.episode11.section","title":"Symptoms from other organ systems"},{"key":"2.080","title":"Alternative/complimentary rating","description":"Have you had other bothersome symptoms such as tinnitus, jaws, ears, nose, neck or eyes?\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"],"help":"**By use of questionnaire:**\n\nN: Negative questionnaire (use phrasing from mini SCAN)\n\nP: Positive questionnaire.\n"},{"key":"2.081","title":"Tinnitus","scale":"1a"},{"key":"2.082","title":"Ear, nose or throat (other than pain)","scale":"1a"},{"key":"2.083","title":"Teeth, jaw or oral cavity (other than pain)","scale":"1a"},{"key":"2.084","title":"Eyes, incl. visual disorders","scale":"1a"},{"key":"2.085","title":"Mandibular pain","description":"Have you had pain in the jaw or the muscle of mastication?\n","scale":"1a","glossary":"Pain in the jaw or the muscle of mastication.\n"},{"key":"2.086","title":"Pain in the temporomandibular joint","description":"Have you had pain in the temporomandibular joint\n","scale":"1a"},{"key":"2.087","title":"Others","scale":"1a"},{"key":"2.episode12.section","title":"Allergy, sensitivity to chemicals, odors or food"},{"key":"2.088","title":"Alternative/complimentary rating","description":"*Have you had problems with sensitivity to chemicals, odors or intolerance to foods?*\n","input":"integer","options":{"0":"No significant discomfort","1":"1-2 symptoms","2":">=3 symptoms"},"validate":["0-2"],"help":"**By use of questionnaire:**\n\nN: Negative questionnaire (use phrasing from mini SCAN)\n\nP: Positive questionnaire.\n"},{"key":"2.089","title":"Sensitivity to several foods","scale":"1a"},{"key":"2.090","title":"Sensitivity to odors and chemicals","description":"Do you react to an odor or a strong chemical agent without anyone around you getting any symptoms?\n\nIs it due to allergy? (If so, rate 6)\n\n**If yes**\n","scale":"1a"},{"key":"2.091","title":"Do the symptoms disappear post-exposure","description":"Do the symptoms disappear when you are no longer exposed to these odors or chemical agents?\n","scale":"1a"},{"key":"2.episode13.section","title":"Predominant symptom"},{"key":"2.092","title":"Main complaint or predominant symptom 2.010-2.090.","description":"Specified______________________\n\n(Rate 888 if the patients cannot indicate one single predominant symptom)\n\nWhich of these symptoms have bothered you the most?\n"},{"key":"2.093","title":"Pain disorder/syndrome (idiopathic/primary pain)","description":"If the primary problem is pain, the rater must decide if it can be characterised as pain syndrome/disorder.\n","input":"integer","options":{"0":"No pain syndrome/disorder","1":"Mild","2":"Moderate","3":"Severe","4":"Neuropathic","5":"Caused by well-defined physical disease (incl. tumor)","6":"Uncertain","8":"NK"},"validate":["0-6","8"]},{"key":"2.094","title":"Interference with activities and distress due to bodily distress or somatic symptoms","description":"You have mentioned **(summarise symptoms)** during **(specify the period)**. How much have the mentioned symptoms interfered with your daily quality of life and activities?\n","input":"integer","options":{"0":"No bodily distress symptoms","1":"Only little interference","2":"Moderate or intermittent interference or","3":"Severe or incapacitating interference or distress","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"],"glossary":"Whether the symptoms cause clinically significant distress or impairment in social, occupational or other important areas of functioning.\n\nFor rating of functioning, you may use the concept of WHO’s disability assessment with its 5 dimensions. But it is important that also emotional distress is      rated here, i.e. a person may go to work but is tormented by thoughts and emotions in connection with his/hers symptoms.\n"},{"key":"2.095","title":"Boom and bust cycle","description":"*Further to above item.*\n\nIf you are active and exceed the limits of your capacity for a day – do you then get exhausted or need to stay in bed for a day or more?\n\nIs this a well-known pattern to you that if you have to do something, i.e. go to a party, go an a travel or go to see a social worker, you will be exhausted for several days?\n","input":"integer","options":{"0":"No","1":"Mild/modest, I recognise this but not a major problem when I take care of myself","2":"Severe, with severe impact on my life","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.096","title":"Length of disorder or discomfort due to symptoms","description":"In months\n","input":"integer","options":{"0":"Absent","800":"800 mths or more","888":"NK","999":"NA"},"validate":["0-999"],"glossary":"This item refers to any symptoms rated present at 2.007-2.090). Rating is based on level oif distress and persistence.  Enter the number of months that the symptoms have been present.\n"},{"key":"2.097","title":"Variability of functional symptoms (\"slow\" variation)","description":"Over months or years. Change in illness picture, which can be relatively stable for e period and then suddenly change to a different organ system/illness picture).\nInformation from other sources should also be considered, e.g. case notes, referring doctor or family).\n\n- Have your symptoms or illness changed?\n- Have several things been wrong with you?\n","input":"integer","options":{"0":"Stable with small changes focused on the same relatively stable symptom/illness picture","1":"Symptoms have changed from one to one or several others relatively stable symptoms/illness pictures","2":"Several symptoms/illness pictures simultaneously","3":"No delimited symptoms/illness pictures","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"]},{"key":"2.098","title":"Variability of functional symptoms (“fast” variation)","description":"(hour-to-hour, day-to-day or week-to-week.)\n\nInformation from other sources should also be considered, e.g. case reports, referring doctor, family.)\n\n- Can there be differences as to how you feel from day to day or for week to week?\n- Can you be completely well on the days you feel fine?\n","input":"integer","options":{"0":"No fluctuation","1":"Moderate fluctuation","2":"Pronounced fluctuation","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"The intensity, type and severity of somatoform symptoms often vary over time. It may be a slow variation, i.e. in one time period (months or years) the patient may present a set of symptoms or an illness picture that may be relatively stable, whereas in another time period a different illness       picture may be predominating. In fast variation the symptoms vary from day-to-day or week-to-week. The illness may vary both fast and slow in the same patient.\n"},{"key":"2.099","title":"Worsening in illness and symptoms over time","description":"- Has your condition gradually worsened over time/over the years?\n- How?\n","input":"integer","options":{"0":"No, or constant","1":"Mild to modest worsening","2":"Severe worsening","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"In most well-defined medical conditions, the prognosis is well-known and the conditions follow a course characteristic for them. In functional disorders, the patients often regress over time and get more and more affected (if untreated). In most cases of distortions and fractures etc., the condition         improves over time, whereas in patients developing e.g. WAD (whiplash associated disorder), the conditions gradually become worse.\n"},{"key":"2.episode14.section","title":"Illness worry and preoccupation (health anxiety)","glossary":"Background:\n\nIllness worries and preoccupation is also often presented in functional disorders and in other conditions and thus not restricted to Health anxiety.  Therfore, this section should be used in any case of functional complaints and not only if Health anxiety / Hypochondria is suspected.\n\nDelineation from normality (may need editing)\nBeing attentive about one's health and bodily functions is important for the survival of human beings as it is a precondition for taking care of ourselves and seeking help if necessary. Illness worrying or health anxiety is thus on a dimension from being too little aware of their body signals       and functioning to patients severely disabled by unfounded health worries. The demarcation between and mal reactions and pathological health anxiety can not be established rigorously as it is the case in many other disorders.\n\nDifferences between OCD, Anxiety and Health anxiety.\nDespite there may seem to be some clinical similarities between OCD and health anxiety, there is little evidence for this. Although patients with OCD may have different compulsions or obsessions, it is the same compulsions, images and thoughts that keep returning again and again in a very     stereotypical form. Contrary to this, the worries and thoughts in health anxiety are not so stereotypical but vary much more with multiple thoughts and considerations about illnesses. A patient with health anxiety feels compelled to see a doctor to get reassured, but this is not because of a        compulsion saying that they need to see a doctor, but because they fear a health problem. Patients with health anxiety do not usually have other compulsions or obsessions. In health anxiety, the rumination is usually triggered by an external or internal stimulus like hearing about illness, and      the worrying usually relates to the trigger, whereas obsessive thoughts in OCD are usually solely intrusive with no specific trigger, although they may be a reaction to a stressor.\n"},{"key":"2.100","title":"Excessive preoccupation with well-defined physical diseases","description":"If the patient suffers from a serious physical disease (if not, skip to <2.101>).\n\n- Do you or others think that you are more worried about your disease (name the disease) than you ought to be?\n- What do others say - about whether you are too worried?\n","glossary":"Only if the patient suffers from a serious well-defined physical disease or health threat (i.e. rated in the WELL-DEFINED section) :\n\nSevere health worrying is a normal reaction when a severe disease such as cancer is suspected. The reaction has similar characteristics as other stress reactions to life events and is transient and disappears when the suspected disease is excluded or treated. The preoccupation is not excessive or     disproportionate in the light of the condition that is suspected, and usually patients do not panic but cope with their fear. In this case, is rated 0.\nHowever, such a real threat to health may trigger the onset of severe worries or  health anxiety. The patient is usually aware that the worries and preoccupations are unfounded or disproportionate if asked in a considerate way, despite it may be difficult for the patient to realise this during      an attack of overwhelming health anxiety.\n"},{"key":"2.101","title":"Preoccupation with somatic symptoms and worry about physical health","description":"- Are you afraid that something serious is wrong with you?\n- Have you seen a doctor because of it? (within the past year)\n","input":"integer","options":{"0":"No particular preoccupation, or condition not present","2":"Mild to moderate preoccupation","3":"Excessive preoccupation with visits to the doctor, examinations, continuous self-medication or pronounced difficulties in daily life.","8":"Uncertain","9":"NK"},"validate":["0","2","3","8","9"],"help":"Rate on the basis of degree of preoccupation, illness conviction or distress, frequency of consultations and examinations, degree of symptoms or excessive illness worry.\n","glossary":"A non-delusional preoccupation with fears of harboring a severe physical disease and/or a disproportionate toughs about the seriousness of one's symptoms and disease.\nThe symptom has the characteristics of worrying (see **3.001**) but is also distinguished:\n\n(I)\tBy an intense preoccupation with apparently normal sensations or physical signs or appearances.\nIf a medical condition is present the preoccupation is clearly excessive or disproportionate.\n\n**Differentiation from other symptoms:**\n\nModerate to severe social disablement often accompanies the symptom.\n\nIf there is true conviction of the presence of a nonexistent disease, rate at item **2.109** (repeated at **19.028** and, if in context of depressed mood, at **19.027**, and **19.028**).  Somatic hallucinations and delusional elaboration are rated at **17.028** and **17.029**.\n\nPhobias of contracting disease (**4.044**), or of medical situations (**4.043**), should be distinguished if they lack the two characteristics specified above.\n\nObsessional preoccupation with the possibility of harm from contamination or infection (**5.005**), must have the characteristic resistance against subjective compulsion.\n\nThe differentiation from phobias and obsessions can be difficult.  If criteria for more than one symptom are satisfied, each should be rated on its merits.  One does not exclude the others.\n"},{"key":"2.102","title":"Obsessive ruminating about illness","description":"- If you think about having a disease or being seriously ill, do you find it difficult to get it off your mind again?\n- Are you thinking about it constantly or are you winding yourself up?\n","input":"integer","options":{"0":"No particular preoccupation, or condition not present","1":"Mild to moderate preoccupation","2":"Severe preoccupation that considerably affects everyday life","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"The patient has thoughts or ideas about suffering from a disease that they can not, or only with great difficulty, stop. All thoughts are centred on a suspected disease, and the patient finds more and more \"evidence\" that he/she suffers from an often severe disease. The growing anxiety spiral       may ultimately make the patient seek medical attention. Rumination seems quite specific for health anxiety in the sense that other functional disorders that may present with illness worries do not display this symptom. But ruminations may also be present in (other) mental disorders like            anxiety disorders and depression.\n"},{"key":"2.103","title":"Time spent on illness worry and symptoms","description":"Do you spend much time or energy on your symptoms or disease, or do you worry about it or worry about being ill?\n","input":"integer","options":{"0":"No particular preoccupation, or condition not present","1":"Spends less than an hr. a day thinking about the disturbing condition/symptoms","2":"Spends more than an hr. a day thinking about the disturbing condition/symptoms","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"How much time and energy the person devotes focusing on bothersome symptoms and their consequences. Typically associated with frequent medical visits\n\n(DSM-V crit B3  + ICD-11 hrs. spent)\n"},{"key":"2.104","title":"Bodily preoccupation","description":"Are you generally very attentive of how your body is functioning and what is happening inside of it?\n\n- What have you noticed?\n- Do you sometimes think that the sensations you have in your body might be unnatural or even dangerous?\n- Does a bruise or an irritation of the skin make you worry that something serious might be wrong?\n- Do you often listen to your pulse?\n","input":"integer","options":{"0":"No particular preoccupation or condition not present","1":"Mild preoccupation, but not radically interfering with everyday life","2":"Excessive preoccupation involving severe daily troubles or numerous consultations or self-medication","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"This item is a rating of the patient’s awareness of natural or benign physical sensations and physiological reactions in the body as well as a rating of how bothered the patient is by even minor problems which may be  misinterpreted and make the patient develop the idea that it is something unnatural or abnormal that may be a sign of a pathological condition. The patient may have autonomic hypersensitivity hearing his/her own pulse or being aware of other natural physical phenomena of which others are rarely conscious.  For example, if getting bruises or irritated skin, he/she will be worried\n"},{"key":"2.105","title":"Preoccupation with medical information, health and disease","description":"- Are you generally very preoccupied with health issues e.g. in the media or on the internet?\n- Are you very interested in that?\n","input":"integer","options":{"0":"No particular preoccupation, or condition not present","1":"Mild preoccupation, but not radically interfering with everyday life","2":"Excessive preoccupation involving severe daily troubles or numerous consultations or self-medication","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"The patient is hig\n"},{"key":"1.001","title":"Item title","description":"Item description\n","input":"integer","validate":["0-999"],"options":{"1":"Option one","2":"Option two"}},{"key":"2.106","title":"Suggestibility and autosuggestibility","description":"If you read or hear about a disease in the media,\n\n- Do you become afraid of having this disease?\n- Do family members’ diseases make you afraid of having the same disease?*\n- Do you avoid reading about health issues to prevent getting afraid of having a disease\n- If you think about a disease, do you become afraid of having it?\n","input":"integer","options":{"0":"No particular preoccupation, or condition not present","1":"Mild to moderate preoccupation or somewhat affectable","2":"Mild affectability and excessive preoccupation resulting in frequently induced symptoms or considerable ruminations or frequent consultations","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"The patient responds with alarm to the slightest hint of illness. Hearing or reading about a disease, he/she is easily alarmed and inclined to fear having that disease. Likewise, if someone in the family, among friends, acquaintances or work colleagues falls ill, the patient may fear having         this disease.\n"},{"key":"2.107","title":"Fear of being infected or contaminated","description":"Are you afraid of being infected or catching a disease from others by being with someone who is ill or by touching dirty things, e.g. toilet seats?\n","input":"integer","options":{"0":"No particular preoccupation, or condition not present","1":"Mild to moderate preoccupation","2":"Severe preoccupation, frequently induced symptoms with considerable ruminations or frequent consultations","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"The patient’s fear of being infected or contaminated if he/she has been with an ill person or if the patient touches dirty things or things that could be contaminated such as a toilet seat. The fear causes significant distress and / or makes the patient consult a doctor to make sure that nothing     is wrong.\nThis is usually different from phobias and obsessions where the patient seldom consults a doctor for the dreaded disease, but instead for the distressing thought of it.\n\nThe differentiation from phobias (**4.044** & **4.043**)) and obsessions (**5.005**) can be difficult.  If the criteria for more than one symptom are met, each should be rated on its merits. One does not exclude others. See also the introduction to HA section.\n"},{"key":"2.108","title":"Fear of medication and compliance","description":"Are you generally comfortable about taking medication or are you worried about the possible side effects it might have?\n\nDo you take all the medication that the doctor prescribes, or do you sometimes give up taking it or skip a dosage because of fear of the medication?\n","input":"integer","options":{"0":"Normal degree of security/insecurity","1":"Some fear of medication or a certain degree of inappropriate administering of medication","2":"Extreme degree of insecurity and/or no compliance","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"Patients with Health anxiety are often afraid of taking medication contrary to patients with other functional disorders. It is the fear of medication that should be rated here and not the patients’ complaints about medication.\n"},{"key":"2.109","title":"Rejection of the doctor’s reassurance","description":"- Are you convinced that you have a physical disease?\n- Do you feel you need to have further examinations?\n- Has the doctors’ reassurance (previously) convinced you that you do not have a physical disease?\n- Have you told the doctor that you are not convinced? What did he say?\n- Were you reassured when the doctor said there was no reason to worry?\n","input":"integer","options":{"0":"Accepts reassurance","1":"Partly, but unable to maintain reassurance at one or more occasions","2":"Can only briefly maintain reassurance","3":"Continuously not accepting the doctor’s reassurances or explanations","4":"Delusional","8":"Uncertain","9":"NK"},"validate":["0-4","8","9"],"help":"The pt. expresses more or less pronounced degree of belief that s/he has a serious diseases or a bothering deformity in spite of the doctor’s reassurance that nothing is wrong.\n\nDo not mix up with fear of getting a disease <4.044>.\n\n- Dysmorphophobia is also rated at <16.011>.\n- Hypochondriacal delusions (unyielding conviction of having a serious disease) are rated in <19.027> and <19.028>. If these are part of another psychotic disorder, <19.027> and <19.028> are rated instead.\n","glossary":"The patient may seek reassurance by consulting a doctor but have difficulties in believing the doctor when told that there is nothing to worry about and when reassured, the worrying may return rapidly .\nWhen health anxiety or hypochondriacal preoccupation is most severe, it takes the form of refusal of medical reassurance, with a belief that disease is present even when no abnormality is found in repeated examinations.  Respondents may believe that a disease\n accounts for the symptoms and are        not satisfied with the way that medical experts have handled the case or with the conclusions and explanations offered. The patient  may contact one doctor (or other health care professionals) after another and accept many treatments,  but reject assurance that there is no adequate physical         cause for the symptoms or presumed deformity. The pt. might accept reassurance for short periods following or during medical investigations or interventions.\n\n\n**Differentiation from other symptoms:**\n\nDifferentiation from phobias and obsessions should not be difficult. Hypochondriacal delusions are rated at **19.028** or at **19.027** if in context of depression. If it is difficult to be sure of the presence of delusional conviction, rate as item **2.101**.\n"},{"key":"2.110","title":"Catastrophizing","description":"Do you expect serious consequences (i.e. serious disability, not being able to return to work, not being able to take care of your children, never being the same again) when you have symptoms?\n","scale":"1a","help":"**See also section 5 (Gabriel)**\n","glossary":"The patient is inclined to always  expect or fear serious consequences of symptoms and ailment, i.e. serious disability, not being able to return to work, not being able to take care of children, never being the same again and to choose the worst possible explanation        and misinterpret trivial illness or symptoms as serious disease or a health threat such as cancer or resulting in severe disability.\n"},{"key":"2.111","title":"Health anxiety by proxy","description":"Within the past year:\n\n- Have you often been worried that your child, your partner or others around you are sick?\n- Have you taken your child to the doctors because of it?\n- Have you pressured your partner to see the doctor because of it?\n- Do you check e.g. if your children have bruises or swollen lymph nodes or do you \"scan\" your children's bodies for changes e.g. when they take a bath?\n","input":"integer","options":{"0":"No particular preoccupation or the disorder is not present","1":"Mild to moderate preoccupation","2":"Severe preoccupation and takes child to the doctor, to examinations, self-medicates the child or marked distress in everyday life","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"The patient is typically worried about his/her child's health and is afraid that the child has a disease. It may also be another close relative such as spouse.\n"},{"key":"2.112","title":"Treatment-seeking behaviour in relation to health anxiety or symptoms past 2 years","description":"- How many doctors have you seen due to your illness/symptoms during the last two years?\n- Why have you seen so many different doctors?\n- Have you felt it was necessary to see other doctors or experts to get a second opinion or a different treatment (just to be on the safe side)?\n","input":"integer","options":{"0":"The patient has not unsolicited seen other doctors / treatment providers due to functional illness/health anxiety","1":"The patient has only once seen another doctor / treatment providers to functional illness/health anxiety","2":"The patient has actively consulted 2-3 different doctors / treatment providers due to functional illness/health anxiety","3":"The patient has actively consulted 4 or more different doctors / treatment providers due to functional illness/health anxiety","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"],"glossary":"The number of different doctors the patient has seen on the patient’s own initiative for medically unexplained physical symptoms during the past two years are rated. Change of doctor due to change of address, the doctor’s vacancy or referrals that are not requested by the patient are not            counted.\n"},{"key":"2.113","title":"Avoidance related to health anxiety or symptoms","description":"- Do you avoid things or situations that may make you worry about your health, e.g. reading or hearing about illness on TV, the internet or other places?\n- Do you get very nervous when you are going to see a doctor?\n- Do you avoid seeing a doctor or do you stay away from hospital admittance due to anxiety?\n","input":"integer","options":{"0":"No maladaptive avoidance due to health anxiety","1":"Mild to moderate maladaptive avoidance due to health anxiety","2":"Severe maladaptive avoidance due to health anxiety","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"Patients may for instance avoid visiting family members or friends who are hospitalised or ill, avoid to read or watch TV programs about medical issues because it is too anxiety-provoking and may trigger the rumination.\n"},{"key":"2.114","title":"Duration of bodily preoccupation and illness worry ([2.100]-[2.113])","description":"In months\n","input":"integer","options":{"0":"Absent","800":"800 mths or more","888":"NK","999":"NA"},"validate":["0-800","888","999"]},{"key":"2.115","title":"Interference with activities and distress due to health anxiety","description":"You have mentioned **[summarize symptoms]** during **[specify the period]**. How much have the mentioned symptoms interfered with your everyday activities?\n","input":"integer","options":{"0":"No health anxiety","1":"Only little interference","3":"Moderate or intermittent interference","4":"Severe to incapacitating interference","8":"Uncertain","9":"NK"},"validate":["0-4","8","9"],"glossary":"Whether the worrying and anxiety cause clinically significant distress or impairment in social, occupational or other important areas of functioning. For rating of functioning, you may use the concept of WHO’s disability assessment with its 5 dimensions. But it is important that also emotional      distress is rated here, i.e. a person may go to work but is tormented by thoughts and emotions in connection with his/hers symptoms.\n"},{"key":"2.116","title":"Dysmorphophobia","description":"Do you fear that there is a change or a deformity of your appearance?\n","input":"integer","options":{"0":"No dysmorphophobia","1":"Preoccupation with a presumed deformity or change of the appearance","8":"Uncertain","9":"NK"},"validate":["0","1","8","9"],"help":"Cf. dysmorphophobia, 16.011\n","glossary":"The patient is preoccupied with his/her appearance and deformity.\n"},{"key":"2.episode15.section","title":"Syndrome- or symptom-based diagnoses according to the patients","description":"Rating is based on the answers in **[2.010]-[2.090]** or other parts of the interview or if those are inadequate, ask the patient directly.\n\n*Does the patient believe, ort has the patient been told, that he or she suffers from a syndrome- or symptom-based diagnosis?*\n","glossary":"2.117-2.123:\n\nRate if the patient has ‘organised’ his/her symptoms into a “diagnostic” label or syndrome label. The label may not be named correctly from a medical point of view but includes labels such as heart disease, allergy etc. The importance is the rigidity, how pronounced the patient’s belief  is,        and whether there is any indication of doubt. The patient may have organised her/his symptoms in more than one diagnosis/condition simultaneously, but still qualifies for a rating of 1 or 2.\n"},{"key":"2.117","title":"Fibromyalgia","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.118","title":"CFS (Chronic Fatigue Syndrome)","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.119","title":"IBS (Irritable Bowel Syndrome)","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.120","title":"Pain syndrome (other than fibromyalgia)","glossary":"The predominant complaint is a persistent and distressing pain that cannot be explained by a physical disorder, occurring in association with emotional conflict or psychosocial problems.  The 'stress' caused by these emotional or psychosocial problems should be sufficient to allow the               conclusion that they are the main causative factors.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.121","title":"Chronic whiplash (WAD)","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.122","title":"Multiple Chemical Sensitivity (MCS)","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.123","title":"Other","description":"Specify_________________________\n","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.episode16.section","title":"Events associated with onset of symptoms or illness","description":"(if not brought to light during the first part of the interview, the patient is asked directly)\n- *How did your illness start (or the symptoms)?*\n- *Did other things happen in your life simultaneously?*\n- *Was there anything that triggered your illness?*\n","input":"integer","options":{"0":"No particular events","1":"Yes, but not 2","2":"Yes, clear connection / association","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.124","title":"Physical trauma (e.g. whiplash, fracture, head trauma)","input":"integer","options":{"0":"No particular trauma","1":"Yes, but not 2","2":"Yes, clear connection / association","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.125","title":"Physical disease (e.g. infectious disease)","input":"integer","options":{"0":"No particular disease","1":"Yes, but not 2","2":"Yes, clear connection / association","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.126","title":"Emotional trauma, conflicts or strain","input":"integer","options":{"0":"No particular events","1":"Yes, but not 2","2":"Yes, clear connection / association","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.127","title":"Significant social event (e.g. divorce, dismissal, bereavement)","input":"integer","options":{"0":"No particular events","1":"Yes, but not 2","2":"Yes, clear connection / association","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.128","title":"Significant work-related stress or stress-related to your personal life","description":"*Stressful, busy everyday life but not **[1.127]***\n","input":"integer","options":{"0":"No particular stress","1":"Yes, but not 2","2":"Yes, clear connection / association","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"Stressful, busy everyday life but not 1.127\n"},{"key":"2.129","title":"Exposure to strong odor or chemicals","input":"integer","options":{"0":"No particular exposure","1":"Yes, but not 2","2":"Yes, clear connection / association","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.episode17.section","title":"Symptom- or illness attributions (prompt card if needed)"},{"key":"2.130","title":"Symptom- or illness attribution","description":"- *What do you think is causing your illness? (or symptoms)*\n- *Do you think that stress, strain or your life situation could be the cause?*\n- *Are you firmly convinced or are you in doubt?*\n- *Why do you think so?*\n","input":"integer","options":{"0":"Unsure, has no theories on the cause, does not necessarily exclude strain and stress","1":"Has thought about the possibility, does not necessarily exclude strain and stress","2":"Convinced about 1 or more causalities (excluding psychosocial and stress)","3":"Has an elaborated theory and a rigid perception of causality (excluding psychosocial and stress)","4":"Psychotic delusion","5":"Well-defined somatic disease","6":"Unsure rating","8":"Uncertain","9":"NK"},"validate":["0-6","8","9"]},{"key":"2.131","title":"Identification of relieving or aggravating factors","description":"*Have you noticed if anything relieves or aggravates your illness?*\n\n*Can you do anything yourself to get better?*\n\n*Can the patient identify factors that alleviate the discomfort or factors that aggravate the illness, or are these numerous and diffuse?*\n","input":"integer","options":{"0":"Well-defined and few","1":"Some difficulty indicating the symptoms","2":"Great difficulty or numerous and diffuse","8":"Unsure","9":"NA"},"validate":["0-2","8","9"],"glossary":"Can the patient identify factors that relieve the inconveniences or factors that aggravate the symptoms or the illness, or are these multiple and diffuse?"},{"key":"2.132","title":"Age of onset of present functional disorder","description":"(If the patient says “always\", and cannot clafiry, rate 1)\n","input":"integer","options":{"98":"98 years or older","99":"N/A or NK"},"validate":["0-99"]},{"key":"2.133","title":"Age of onset of first functional disorder","description":"(If the patient says “always\", and cannot clafiry, rate 1)\n","input":"integer","options":{"98":"98 years or older","99":"N/A or NK"},"validate":["0-99"]},{"key":"2.episode19.section","title":"Differential diagnoses"},{"key":"2.134","title":"Relation between functional symptoms and well-defined physical disease","input":"integer","options":{"0":"Absent or symptoms of only one type","1":"Functional symptoms most dominating in the clinical picture","2":"Functional symptoms and physical disease are equally dominating","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.135","title":"Functional disorder or panic attacks, primary","input":"integer","options":{"0":"Absent or symptoms of only one type","1":"Bodily distress more dominating or started first","2":"Bodily distress and panic attacks co-occur (comorbidity)","3":"Symptoms of anxiety more dominating or started first","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"]},{"key":"2.136","title":"Functional disorder or depression, primary (Cf 6.023)","input":"integer","options":{"0":"Absent or symptoms of only one type","1":"Bodily distress more dominating or started first","2":"Bodily distress and depression co-occur (comorbidity)","3":"Symptoms of depression more dominating or started first","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"]},{"key":"2.137","title":"Association between bodily distress and health anxiety","input":"integer","options":{"0":"Absent or symptoms of only one type","1":"Bodily distress more dominating or started first","2":"Bodily distress and health anxiety co-occur (comorbidity)","3":"Health anxiety symptoms more dominating or started first","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"]},{"key":"2.138","title":"Functional disorder or other mental disease, primary","input":"integer","options":{"0":"Absent or symptoms of only one type","1":"Bodily distress more dominating or started first","2":"Bodily distress and other mental disorder co-occur (comorbidity)","3":"Symptoms from other mental disorder more dominating or started first","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"]},{"key":"2.139","title":"Date of onset in PS or PE","input":"date"},{"key":"2.140","title":"Duration in PS or PE in days","input":"integer","validate":["0-999"],"periods":"false"},{"key":"2.141","title":"Date of onset in RE or LB","input":"date","date_granularity":"month_year"},{"key":"2.142","title":"Duration in RE or LB in weeks","input":"integer","validate":["0-999"],"periods":"false"},{"key":"2.episode20.section","title":"Observed behaviour"},{"key":"2.143","title":"Ego-dystonic or ego-syntonic","description":"Ego-dystonic: The patient tends, at least partially, to describe symptoms or illness worry as being unfamiliar, unwelcome, tiresome or “unlike my nature”.\n\nEgo-syntonic:  The patient feels the symptoms or the illness worry as an integrated part of himself / herself and not as a cognitive inclination, even if the patient may be in doubt whether he or she has a physical illness.\n","input":"integer","options":{"0":"No functional disorder","1":"The functional disorder is primarily felt as ego-dystonic","2":"The functional  disorder is a mix of ego-dystonic and ego-syntonic","3":"The functional disorder is primarily felt as ego-syntonic","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"]},{"key":"2.144","title":"Emotional discrepancy (“belle indifference”)","description":"The patient’s presentation of his or her condition shows inadequate affect in relation to the severity of symptoms and the severity of illness the patient complains of.\n\nFor instance, the patient may smile with a curious resignation in spite of severe pain or impairment, and the patient may seem emotionally unaffected by his/her condition.\n","input":"integer","options":{"0":"No discrepancy","1":"Present to insignificant or mild extent","2":"Definitely present and together with functional symptoms","6":"Definitely present, but caused by a physical disease, e.g. multiple sclerosis","8":"Uncertain","9":"NK"},"validate":["0","1","2","6","8","9"]},{"key":"2.145","title":"Discrepancy between subjective complaints and observed behaviour","description":"There is a discrepancy between the patient’s adroitness and facial expressions during the interview and his/her symptoms description.\n\nFor instance, the patient moves and sits completely freely despite complaining of severe back pain or gives detailed information despite complaints of severe memory impairment.\n","input":"integer","options":{"0":"No discrepancy","1":"Present to insignificant or mild extent","2":"Definitely present and to a pronounced extent","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.146","title":"Psycho-social communication style","description":"The patient is more focused on communicating the level of disability, discomfort and lifestyle limitations than on the impact on the health.\n","input":"integer","options":{"0":"No psychosocial communication","1":"Present to insignificant or mild extent","2":"Pronounced degree of psychosocial communication form","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.147","title":"Lack of chronology in symptom- and medical history","description":"The interview is characterized by the patient having difficulty with the chronology of symptoms, diseases, examinations, hospitalizations etc.\n\nFor instance, it can be hard to find out if the pt. talks about symptoms that have been present at an earlier stage, or if the pt. is currently bothered by the symptoms, or if the pt. talks about an examination made recently or a long time ago.\n\nMust be evaluated in the light of what can be expected of any person having a long-standing and complicated course of disease.\n","input":"integer","options":{"0":"Absent","1":"To a mild extent","2":"Pronounced","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.148","title":"Vague, diffuse symptom description and anamnesis","description":"Symptoms are described vaguely, they are diffuse and maybe atypical/uncharacteristic and alternating throughout the interview.\n\nThe patient has difficulty answering questions in greater detail and specifying the complaints, e.g. localisation, intensity, nature (e.g. if a pain is burning or pricking). In some cases the patient even gets irritated at the interviewer, who maintains the questions on the symptoms                 localisation, intensity and periodicity etc.\n","input":"integer","options":{"0":"Absent","1":"To a mild extent","2":"Pronounced","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.149","title":"Vague, diffuse description of previous treatments","description":"The patient has difficulty describing which treatments he or she has undergone, and the effect is described vaguely or without certainty.\n\nThe pt. may mix up diagnostic procedures and treatment. Is critical towards earlier treatment and often indicates that the treatments have caused aggravation of the condition.\n","input":"integer","options":{"0":"Absent","1":"To a mild extent","2":"Pronounced","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.150","title":"Affective description","description":"Symptoms, illness, examinations, hospitalisations etc. are vividly described with a tendency to dramatise and exaggerate.\n","input":"integer","options":{"0":"Absent","1":"To a mild extent","2":"Pronounced","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.151","title":"Inconsistency of information","description":"The patient gives different and conflicting information throughout the interview, or there is a discrepancy between the information gathered from other sources (medical records, referring doctor, social services, family etc.) and the patient’s own information during the interview.\n","input":"integer","options":{"0":"No consistency","1":"Some inconsistency","2":"Pronounced inconsistency","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.152","title":"Previous course of disease and treatments (according to medical records etc.)","description":"Rating based on going through the medical records and information from doctors etc.\n","input":"integer","options":{"0":"No or only contact with own GP and not 1","1":"Frequent contacts primarily with own GP and without certain physical explanation","2":"Repeated contacts with hospitals and specialists without certain physical explanation","3":"Numerous and frequent contacts during several years with hospitals, specialists etc. without certain physical explanation","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"]},{"key":"2.153","title":"Motorically passive","description":"The patient stays still and moves less than normally\n"},{"key":"2.154","title":"Suspect malingering, factitious disorder or Münchhausen's syndrome (according to interview, medical records etc.)","description":"Factitious disorder is rated in checklist **2.065**\n","input":"integer","options":{"0":"No suspicion","1":"Malingering","2":"Factitious disorder","3":"Münchhausen's syndrome","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"],"glossary":"Intentional production or feigning of physical or psychological symptoms, sometimes self-inflicted injuries, medical disease or intoxication (e.g. insulin injection), or may manipulate with signs of disease (e.g. temperature, blood in urine) without clear external motivation (as opposed to              malingering) and where the truth is hidden from doctors and others.\n\nIn Münchhausen's syndrome, apart from having factious disorder, the patient also has pseudologia fantastica meaning that the pt. tells often grandiose stories about who he/she is and has achieved (being wealthy, being a duke, a journalist, a speedway driver etc.). The pt. may dramatise - for instance get admitted to hospital under dramatic circumstances, e.g. become ill on a train, in a busy street, on the beach in the summer. They may also defraud in other aspects of life but not not so much for financial gain but more like a role play. The patients are fully aware that they produce or provoke their symptoms or disease themselves, despite they do not know what is driving them to do it. This is contrary to patients with functional disorders, who do not produce their symptoms themselves.\nCheck **[27.068]**.\nFactitious mental illness; (included where?) Intentional production or feigning of mental illness injuries without clear external motivation (as in simulation) and where the truth is hidden from doctors. Check **27.068**."}]}
 
 /***/ }),
-/* 353 */
+/* 355 */
 /***/ (function(module, exports) {
 
 module.exports = {"1":{"options":{"0":"This is a positive rating of absence. It does not mean 'not known' or 'uncertain whether present or not'. It can only be used if sufficient information is available to establish its accuracy.","1":"This is a positive rating of presence, but presence of such a minor degree that it is not appropriate for use in classification. Like (0) it does not mean 'not known' or 'uncertain'. Ratings of (1) count in scores (but not for diagnostic purposes), which in turn influence the level allocated on the Index of Definition.","2":"This rating means that the item is present at a level sufficient to use in classification. For this purpose it is equivalent to 3, but it contributes less to scores. In general, it is used when symptoms are of moderate severity during most of the period being assessed.","3":"A rating of (3) is similar to (2) except that the symptom is present in severe form for most of the period under review.","5":"The presence of psychotic symptoms can make the rating of Part One items very difficult, bevause of problems in interpreting the meaning of what R says, or because the symptoms (for example, anxiety or a phobia about leaving one's house) may themselves be based in psychotic experiences. The rating should only be made when there is genuine doubt about the nature of the symptom or the balance is in favor of the symptom being psychotic.","8":"If, after an adequate examination, the interviewer is still not sure whether a symptom is present (rated 1-3) or absent (rated 0), the rating is (8). This is the only circumstance in which (8) is used. It should not be used to indicate a mild form of the symptom.","9":"This rating is only used if the information needed to rate an item is incomplete in some respect, for example because of language or cognitive disorder, or lack of cooperation, or because the interviewer forgot to probe sufficiently deeply. It is distinguished from (8) because the examination was not, for whatever reason, carried out adequately. In the SCAN text, an instruction to 'use Scale I' simply means that it is not necessary to point out any individual rating characteristics for that item. Any point on Scale I can be selected, according to clinical judgement."},"input":"integer","validate":["0-3","5","8","9"]},"2":{"options":{"0":"Symptom did not occur during PERIOD.","1":"Symptom definitely occurred during the period but was probably uncommon or transitory.","2":"Symptom was definitely present, on multiple occasions or for part of the time, during the period.","3":"Symptom was present more or less continuously throughout the period.","5":"Language difficulty, rated as present in Section 15, makes replies difficult to interpret.","8":"Rater is unsure whether the phenomenon is present or absent, even after adequate examination","9":"Not appropriate to make a rating because examination incomplete, e.g. because of refusal, omission, etc."},"input":"integer","validate":["0-3","5","8","9"]},"3":{"description":"NB: Consider behavioral items for cognitive impairment also.\n\nMost items in Sections 22-24 are rated on a 3-point scale (0-2) on the basis of severity and frequency during the past month. Information from records for the period should be used as well.\n\nThe examination should be supplemented by taking into account any other observations of relevance, e.g. is case records or information from professionals or relatives. Severe behavioral abnormalities may not be observed at examination because of the short time sample, but when they are present skilled direct observations are of great importance. The items listed are also worth rating because of their possible juxtaposition with other symptoms. The time period rated is the month before examination.\n\nMany behavioral items are also included in Item Groups and can be rated in the Checklist.\n","options":{"0":"Behavior not present during past month.","1":"Unequivocally present during past month, moderate severity only. Use all information available.","2":"Present in severe form during past month or at examination.","8":"Unsure whether present or not after adequate examination.","9":"Not appropriate to make a rating because examination or records are incomplete, or behavior is due to a physical factor."},"input":"integer","validate":["0-2","8","9"]},"4":{"options":{"0":"Absent. Below IG threshold.","1":"Subject to clinical discretion, at least two items should definitely pass PSE threshold level, PLUS at least moderate disability (interference with everyday activities) and/or moderate or severe distress resulting from the symptoms.","2":"As 1, but with severe degree of distress and/or disability. Usually at least three items pass PSE threshold but this is at the interviewer's clinical discretion.","8":"Uncertain whether IG is present (usually because of insufficient information)."},"input":"integer","validate":["0-2","8"]},"1a":{"options":{"0":"Symptoms absent after adequate Elaboration","1":"Symptom has been present in the period being assessed, but only mildly","2":"Symptom is definitely moderately present for most of the period or pronouncedly present for less than half of the period","3":"Symptom is pronouncedly present for more than half of the period","5":"Rating difficult due to psychotic disorder","6":"Symptom is consistent with a well-defined physical disease","8":"Symptom is present, but uncertain if it is functional","9":"Not known, cannot be rated"},"input":"integer","validate":["0-3","5","6","8","9"]},"Att.":{"description":"Use the attributional rating scale to rate nature of influence on symptom presence or severity at the item level. The rating of 0 is the only ’negative’ rating, and can be used if there is clear evidence that treatment has resulted in a reduced rating. Ratings 1 - 8 represent attributions of etiologic effect, increasing the likelihood of an item being rated or its severity being increased. These attributions must only be made for symptoms/items that have positively rated, and should be entered into the dashed boxes below the standard episode rating boxes. The rating of 9 is reserved for indicating a trait characteristic. If no effect or trait is judged to be present leave the dashed box blank.\n","options":{"0":"Item rating reduced by effects of treatment","1":"Alcohol","2":"Other psychoactive substance","3":"Effects of somatic psychiatric treatments (electroconvulsive therapy, antidepressant medication, neuroleptics, etc)","4":"Known primary intracranial process (Alzheimer’s disease, Huntington’s disease, Parkinson’s disease, tumor, stroke, etc.)","5":"Non-psychiatric medication, toxins","6":"Other medication condition 1 (specify at Section 13 and/or Section 20)","7":"Other medication condition 2 (specify at Section 13 and/or Section 20)","8":"Other medication condition 3 (specify at Section 13 and/or Section 20)","9":"Trait. Essentially lifelong characteristic of R."},"input":"integer","validate":["0-9"]}}
 
 /***/ }),
-/* 354 */
+/* 356 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57839,27 +57957,29 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(22);
+var _reactRedux = __webpack_require__(19);
 
-var _actions = __webpack_require__(33);
+var _actions = __webpack_require__(27);
 
-var _ItemCard = __webpack_require__(355);
+var _ItemCard = __webpack_require__(144);
 
-var _helpers = __webpack_require__(100);
+var _helpers = __webpack_require__(64);
 
-var _Markdown = __webpack_require__(143);
+var _Markdown = __webpack_require__(85);
 
-var _items = __webpack_require__(54);
+var _items = __webpack_require__(43);
 
-var _reactRangeslider = __webpack_require__(149);
+var _reactRangeslider = __webpack_require__(150);
 
 var _reactRangeslider2 = _interopRequireDefault(_reactRangeslider);
 
-__webpack_require__(411);
+__webpack_require__(151);
+
+var _Horizontal = __webpack_require__(416);
+
+var _Horizontal2 = _interopRequireDefault(_Horizontal);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// import Horizontal from './Horizontal'
 
 var previousValue = 0;
 var currentPos = 0;
@@ -57873,6 +57993,7 @@ var Response = function Response(_ref) {
       settings = _ref.settings;
 
   var item = (0, _items.getItemByKey)(interview.activeKey);
+  var inputBox = _react2.default.createRef();
 
   if (!item) {
     return _react2.default.createElement(
@@ -57963,11 +58084,19 @@ var Response = function Response(_ref) {
 
   function write(response, pair) {
     if (pair[0].includes("-")) {
+      //var inputBox = document.getElementById("ResponseInput")
       return [_react2.default.createElement(
         'b',
         null,
         pair[0] + " "
-      )];
+      ), _react2.default.createElement(_Horizontal2.default, {
+        id: 'Slider',
+        defaultValue: 'Won\'t focus',
+        min: parseInt(pair[0].split('-')[0]),
+        max: parseInt(pair[0].split('-')[1]),
+        interview: interview,
+        inputBox: inputBox
+      })];
     } else {
       return [_react2.default.createElement(
         'b',
@@ -57996,16 +58125,11 @@ var Response = function Response(_ref) {
             onClick: function onClick() {
               currentPos = getIndex(pair, Options);
               if (pair[0].includes("-")) {
-                // TODO: This is a hack, do it properly. Change 12 to sliderVal.
-                dispatch((0, _actions.setResponse)({
-                  key: item.key,
-                  value: 1
-                }));
+                //So far, the Horizontal class handles all this
               } else {
                 dispatch((0, _actions.setResponse)({ key: item.key, value: pair[0] }));
               }
-              var inputBox = document.getElementById("ResponseInput");
-              inputBox.focus();
+              inputBox.current.focus();
             }
           },
           write(response, pair)
@@ -58034,28 +58158,35 @@ var Response = function Response(_ref) {
           className: 'interview-input interview-input-' + input,
           id: 'ResponseInput',
           name: 'response',
+          ref: inputBox,
           onKeyDown: function onKeyDown(event) {
             //Keycode 38 is arrow key up, 40 is down
             if (event.keyCode == 38) {
-              dispatch((0, _actions.setResponse)({
-                key: item.key,
-                value: Options[currentPos + 1][0]
-              }));
-              event.preventDefault();
-              currentPos++;
+              if (currentPos === Options.length - 1) {} else {
+                dispatch((0, _actions.setResponse)({
+                  key: item.key,
+                  value: Options[currentPos + 1][0]
+                }));
+                event.preventDefault();
+                currentPos++;
+              }
             } else if (event.keyCode == 40) {
-              dispatch((0, _actions.setResponse)({
-                key: item.key,
-                value: Options[currentPos - 1][0]
-              }));
-              event.preventDefault();
-              currentPos--;
+              if (currentPos === 0) {
+                return;
+              } else {
+                dispatch((0, _actions.setResponse)({
+                  key: item.key,
+                  value: Options[currentPos - 1][0]
+                }));
+                event.preventDefault();
+                currentPos--;
+              }
             } else {
               return;
             }
           },
           onChange: function onChange(event) {
-            if (item.validate && (0, _helpers.validateNumeric)(event.target.value, item.validate)) {
+            if (item.validate && (0, _helpers.validateNumeric)(event.target.value, pair[0])) {
               dispatch((0, _actions.setResponse)({
                 key: item.key,
                 value: event.target.value
@@ -58113,104 +58244,17 @@ var manualInputChange = function manualInputChange(value, valid) {
 };
 
 /***/ }),
-/* 355 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.ItemCard = undefined;
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Markdown = __webpack_require__(143);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Header = function Header(_ref) {
-  var item = _ref.item,
-      isActive = _ref.isActive;
-  return _react2.default.createElement(
-    'b',
-    null,
-    (item.input || item.scale) && _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(
-        'span',
-        null,
-        item.key
-      )
-    ),
-    _react2.default.createElement(
-      'div',
-      null,
-      item.title
-    )
-  );
-};
-
-var ItemCard = exports.ItemCard = function ItemCard(_ref2) {
-  var isActive = _ref2.isActive,
-      index = _ref2.index,
-      item = _ref2.item,
-      dispatch = _ref2.dispatch,
-      response = _ref2.response;
-  var key = item.key,
-      description = item.description,
-      help = item.help,
-      validate = item.validate,
-      options = item.options;
-  var input = item.input;
-
-
-  if (input === 'integer') {
-    input = 'number';
-  }
-  if (input === 'string') {
-    input = 'text';
-  }
-
-  if (!input) {
-    return _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(Header, { item: item, isActive: isActive }),
-      _react2.default.createElement(_Markdown.Markdown, { source: description }),
-      _react2.default.createElement(_Markdown.Markdown, { source: help })
-    );
-  }
-
-  return _react2.default.createElement(
-    'div',
-    null,
-    _react2.default.createElement(
-      'div',
-      { style: { flex: 3 } },
-      _react2.default.createElement(Header, { item: item, isActive: isActive }),
-      _react2.default.createElement(_Markdown.Markdown, { source: description }),
-      _react2.default.createElement(_Markdown.Markdown, { source: help })
-    )
-  );
-};
-
-/***/ }),
-/* 356 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(357);
-
-
-/***/ }),
 /* 357 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = __webpack_require__(358);
+
+
+/***/ }),
+/* 358 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58221,10 +58265,10 @@ module.exports = __webpack_require__(357);
  */
 
 var assign       = __webpack_require__(13).assign;
-var Renderer     = __webpack_require__(358);
-var ParserCore   = __webpack_require__(360);
-var ParserBlock  = __webpack_require__(371);
-var ParserInline = __webpack_require__(386);
+var Renderer     = __webpack_require__(359);
+var ParserCore   = __webpack_require__(361);
+var ParserBlock  = __webpack_require__(372);
+var ParserInline = __webpack_require__(387);
 var Ruler        = __webpack_require__(55);
 
 /**
@@ -58232,9 +58276,9 @@ var Ruler        = __webpack_require__(55);
  */
 
 var config = {
-  'default':    __webpack_require__(405),
-  'full':       __webpack_require__(406),
-  'commonmark': __webpack_require__(407)
+  'default':    __webpack_require__(406),
+  'full':       __webpack_require__(407),
+  'commonmark': __webpack_require__(408)
 };
 
 /**
@@ -58412,7 +58456,7 @@ module.exports.utils = __webpack_require__(13);
 
 
 /***/ }),
-/* 358 */
+/* 359 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58423,7 +58467,7 @@ module.exports.utils = __webpack_require__(13);
  */
 
 var utils = __webpack_require__(13);
-var rules = __webpack_require__(359);
+var rules = __webpack_require__(360);
 
 /**
  * Expose `Renderer`
@@ -58494,7 +58538,7 @@ Renderer.prototype.render = function (tokens, options, env) {
 
 
 /***/ }),
-/* 359 */
+/* 360 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58930,7 +58974,7 @@ module.exports = rules;
 
 
 /***/ }),
-/* 360 */
+/* 361 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58947,15 +58991,15 @@ var Ruler = __webpack_require__(55);
  */
 
 var _rules = [
-  [ 'block',          __webpack_require__(361)          ],
-  [ 'abbr',           __webpack_require__(362)           ],
-  [ 'references',     __webpack_require__(363)     ],
-  [ 'inline',         __webpack_require__(364)         ],
-  [ 'footnote_tail',  __webpack_require__(365)  ],
-  [ 'abbr2',          __webpack_require__(366)          ],
-  [ 'replacements',   __webpack_require__(367)   ],
-  [ 'smartquotes',    __webpack_require__(368)    ],
-  [ 'linkify',        __webpack_require__(369)        ]
+  [ 'block',          __webpack_require__(362)          ],
+  [ 'abbr',           __webpack_require__(363)           ],
+  [ 'references',     __webpack_require__(364)     ],
+  [ 'inline',         __webpack_require__(365)         ],
+  [ 'footnote_tail',  __webpack_require__(366)  ],
+  [ 'abbr2',          __webpack_require__(367)          ],
+  [ 'replacements',   __webpack_require__(368)   ],
+  [ 'smartquotes',    __webpack_require__(369)    ],
+  [ 'linkify',        __webpack_require__(370)        ]
 ];
 
 /**
@@ -58995,7 +59039,7 @@ module.exports = Core;
 
 
 /***/ }),
-/* 361 */
+/* 362 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59019,7 +59063,7 @@ module.exports = function block(state) {
 
 
 /***/ }),
-/* 362 */
+/* 363 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59029,7 +59073,7 @@ module.exports = function block(state) {
 
 
 
-var StateInline    = __webpack_require__(84);
+var StateInline    = __webpack_require__(86);
 var parseLinkLabel = __webpack_require__(56);
 
 
@@ -59096,18 +59140,18 @@ module.exports = function abbr(state) {
 
 
 /***/ }),
-/* 363 */
+/* 364 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 
-var StateInline          = __webpack_require__(84);
+var StateInline          = __webpack_require__(86);
 var parseLinkLabel       = __webpack_require__(56);
-var parseLinkDestination = __webpack_require__(145);
-var parseLinkTitle       = __webpack_require__(147);
-var normalizeReference   = __webpack_require__(148);
+var parseLinkDestination = __webpack_require__(146);
+var parseLinkTitle       = __webpack_require__(148);
+var normalizeReference   = __webpack_require__(149);
 
 
 function parseReference(str, parser, options, env) {
@@ -59201,7 +59245,7 @@ module.exports = function references(state) {
 
 
 /***/ }),
-/* 364 */
+/* 365 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59221,7 +59265,7 @@ module.exports = function inline(state) {
 
 
 /***/ }),
-/* 365 */
+/* 366 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59323,7 +59367,7 @@ module.exports = function footnote_block(state) {
 
 
 /***/ }),
-/* 366 */
+/* 367 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59418,7 +59462,7 @@ module.exports = function abbr2(state) {
 
 
 /***/ }),
-/* 367 */
+/* 368 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59489,7 +59533,7 @@ module.exports = function replace(state) {
 
 
 /***/ }),
-/* 368 */
+/* 369 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59609,7 +59653,7 @@ module.exports = function smartquotes(state) {
 
 
 /***/ }),
-/* 369 */
+/* 370 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59620,7 +59664,7 @@ module.exports = function smartquotes(state) {
 
 
 
-var Autolinker = __webpack_require__(370);
+var Autolinker = __webpack_require__(371);
 
 
 var LINK_SCAN_RE = /www|@|\:\/\//;
@@ -59777,7 +59821,7 @@ module.exports = function linkify(state) {
 
 
 /***/ }),
-/* 370 */
+/* 371 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
@@ -59809,91 +59853,91 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root,
 /**
  * @class Autolinker
  * @extends Object
- *
- * Utility class used to process a given string of text, and wrap the URLs, email addresses, and Twitter handles in
+ * 
+ * Utility class used to process a given string of text, and wrap the URLs, email addresses, and Twitter handles in 
  * the appropriate anchor (&lt;a&gt;) tags to turn them into links.
- *
+ * 
  * Any of the configuration options may be provided in an Object (map) provided to the Autolinker constructor, which
  * will configure how the {@link #link link()} method will process the links.
- *
+ * 
  * For example:
- *
+ * 
  *     var autolinker = new Autolinker( {
  *         newWindow : false,
  *         truncate  : 30
  *     } );
- *
+ *     
  *     var html = autolinker.link( "Joe went to www.yahoo.com" );
  *     // produces: 'Joe went to <a href="http://www.yahoo.com">yahoo.com</a>'
- *
- *
+ * 
+ * 
  * The {@link #static-link static link()} method may also be used to inline options into a single call, which may
  * be more convenient for one-off uses. For example:
- *
+ * 
  *     var html = Autolinker.link( "Joe went to www.yahoo.com", {
  *         newWindow : false,
  *         truncate  : 30
  *     } );
  *     // produces: 'Joe went to <a href="http://www.yahoo.com">yahoo.com</a>'
- *
- *
+ * 
+ * 
  * ## Custom Replacements of Links
- *
+ * 
  * If the configuration options do not provide enough flexibility, a {@link #replaceFn} may be provided to fully customize
  * the output of Autolinker. This function is called once for each URL/Email/Twitter handle match that is encountered.
- *
+ * 
  * For example:
- *
+ * 
  *     var input = "...";  // string with URLs, Email Addresses, and Twitter Handles
- *
+ *     
  *     var linkedText = Autolinker.link( input, {
  *         replaceFn : function( autolinker, match ) {
  *             console.log( "href = ", match.getAnchorHref() );
  *             console.log( "text = ", match.getAnchorText() );
- *
+ *         
  *             switch( match.getType() ) {
- *                 case 'url' :
+ *                 case 'url' : 
  *                     console.log( "url: ", match.getUrl() );
- *
+ *                     
  *                     if( match.getUrl().indexOf( 'mysite.com' ) === -1 ) {
  *                         var tag = autolinker.getTagBuilder().build( match );  // returns an `Autolinker.HtmlTag` instance, which provides mutator methods for easy changes
  *                         tag.setAttr( 'rel', 'nofollow' );
  *                         tag.addClass( 'external-link' );
- *
+ *                         
  *                         return tag;
- *
+ *                         
  *                     } else {
  *                         return true;  // let Autolinker perform its normal anchor tag replacement
  *                     }
- *
+ *                     
  *                 case 'email' :
  *                     var email = match.getEmail();
  *                     console.log( "email: ", email );
- *
+ *                     
  *                     if( email === "my@own.address" ) {
  *                         return false;  // don't auto-link this particular email address; leave as-is
  *                     } else {
  *                         return;  // no return value will have Autolinker perform its normal anchor tag replacement (same as returning `true`)
  *                     }
- *
+ *                 
  *                 case 'twitter' :
  *                     var twitterHandle = match.getTwitterHandle();
  *                     console.log( twitterHandle );
- *
+ *                     
  *                     return '<a href="http://newplace.to.link.twitter.handles.to/">' + twitterHandle + '</a>';
  *             }
  *         }
  *     } );
- *
- *
+ * 
+ * 
  * The function may return the following values:
- *
+ * 
  * - `true` (Boolean): Allow Autolinker to replace the match as it normally would.
  * - `false` (Boolean): Do not replace the current match at all - leave as-is.
  * - Any String: If a string is returned from the function, the string will be used directly as the replacement HTML for
  *   the match.
  * - An {@link Autolinker.HtmlTag} instance, which can be used to build/modify an HTML tag before writing out its HTML text.
- *
+ * 
  * @constructor
  * @param {Object} [config] The configuration options for the Autolinker instance, specified in an Object (map).
  */
@@ -59904,124 +59948,124 @@ var Autolinker = function( cfg ) {
 
 Autolinker.prototype = {
 	constructor : Autolinker,  // fix constructor property
-
+	
 	/**
 	 * @cfg {Boolean} urls
-	 *
+	 * 
 	 * `true` if miscellaneous URLs should be automatically linked, `false` if they should not be.
 	 */
 	urls : true,
-
+	
 	/**
 	 * @cfg {Boolean} email
-	 *
+	 * 
 	 * `true` if email addresses should be automatically linked, `false` if they should not be.
 	 */
 	email : true,
-
+	
 	/**
 	 * @cfg {Boolean} twitter
-	 *
+	 * 
 	 * `true` if Twitter handles ("@example") should be automatically linked, `false` if they should not be.
 	 */
 	twitter : true,
-
+	
 	/**
 	 * @cfg {Boolean} newWindow
-	 *
+	 * 
 	 * `true` if the links should open in a new window, `false` otherwise.
 	 */
 	newWindow : true,
-
+	
 	/**
 	 * @cfg {Boolean} stripPrefix
-	 *
-	 * `true` if 'http://' or 'https://' and/or the 'www.' should be stripped from the beginning of URL links' text,
+	 * 
+	 * `true` if 'http://' or 'https://' and/or the 'www.' should be stripped from the beginning of URL links' text, 
 	 * `false` otherwise.
 	 */
 	stripPrefix : true,
-
+	
 	/**
 	 * @cfg {Number} truncate
-	 *
-	 * A number for how many characters long URLs/emails/twitter handles should be truncated to inside the text of
-	 * a link. If the URL/email/twitter is over this number of characters, it will be truncated to this length by
+	 * 
+	 * A number for how many characters long URLs/emails/twitter handles should be truncated to inside the text of 
+	 * a link. If the URL/email/twitter is over this number of characters, it will be truncated to this length by 
 	 * adding a two period ellipsis ('..') to the end of the string.
-	 *
+	 * 
 	 * For example: A url like 'http://www.yahoo.com/some/long/path/to/a/file' truncated to 25 characters might look
 	 * something like this: 'yahoo.com/some/long/pat..'
 	 */
 	truncate : undefined,
-
+	
 	/**
 	 * @cfg {String} className
-	 *
+	 * 
 	 * A CSS class name to add to the generated links. This class will be added to all links, as well as this class
 	 * plus url/email/twitter suffixes for styling url/email/twitter links differently.
-	 *
+	 * 
 	 * For example, if this config is provided as "myLink", then:
-	 *
+	 * 
 	 * - URL links will have the CSS classes: "myLink myLink-url"
 	 * - Email links will have the CSS classes: "myLink myLink-email", and
 	 * - Twitter links will have the CSS classes: "myLink myLink-twitter"
 	 */
 	className : "",
-
+	
 	/**
 	 * @cfg {Function} replaceFn
-	 *
+	 * 
 	 * A function to individually process each URL/Email/Twitter match found in the input string.
-	 *
+	 * 
 	 * See the class's description for usage.
-	 *
+	 * 
 	 * This function is called with the following parameters:
-	 *
+	 * 
 	 * @cfg {Autolinker} replaceFn.autolinker The Autolinker instance, which may be used to retrieve child objects from (such
 	 *   as the instance's {@link #getTagBuilder tag builder}).
 	 * @cfg {Autolinker.match.Match} replaceFn.match The Match instance which can be used to retrieve information about the
 	 *   {@link Autolinker.match.Url URL}/{@link Autolinker.match.Email email}/{@link Autolinker.match.Twitter Twitter}
 	 *   match that the `replaceFn` is currently processing.
 	 */
-
-
+	
+	
 	/**
 	 * @private
 	 * @property {Autolinker.htmlParser.HtmlParser} htmlParser
-	 *
+	 * 
 	 * The HtmlParser instance used to skip over HTML tags, while finding text nodes to process. This is lazily instantiated
 	 * in the {@link #getHtmlParser} method.
 	 */
 	htmlParser : undefined,
-
+	
 	/**
 	 * @private
 	 * @property {Autolinker.matchParser.MatchParser} matchParser
-	 *
+	 * 
 	 * The MatchParser instance used to find URL/email/Twitter matches in the text nodes of an input string passed to
 	 * {@link #link}. This is lazily instantiated in the {@link #getMatchParser} method.
 	 */
 	matchParser : undefined,
-
+	
 	/**
 	 * @private
 	 * @property {Autolinker.AnchorTagBuilder} tagBuilder
-	 *
+	 * 
 	 * The AnchorTagBuilder instance used to build the URL/email/Twitter replacement anchor tags. This is lazily instantiated
 	 * in the {@link #getTagBuilder} method.
 	 */
 	tagBuilder : undefined,
-
-
+	
+	
 	/**
-	 * Automatically links URLs, email addresses, and Twitter handles found in the given chunk of HTML.
+	 * Automatically links URLs, email addresses, and Twitter handles found in the given chunk of HTML. 
 	 * Does not link URLs found within HTML tags.
-	 *
+	 * 
 	 * For instance, if given the text: `You should go to http://www.yahoo.com`, then the result
 	 * will be `You should go to &lt;a href="http://www.yahoo.com"&gt;http://www.yahoo.com&lt;/a&gt;`
-	 *
+	 * 
 	 * This method finds the text around any HTML elements in the input `textOrHtml`, which will be the text that is processed.
 	 * Any original HTML elements will be left as-is, as well as the text that is already wrapped in anchor (&lt;a&gt;) tags.
-	 *
+	 * 
 	 * @param {String} textOrHtml The HTML or text to link URLs, email addresses, and Twitter handles within (depending on if
 	 *   the {@link #urls}, {@link #email}, and {@link #twitter} options are enabled).
 	 * @return {String} The HTML, with URLs/emails/Twitter handles automatically linked.
@@ -60031,12 +60075,12 @@ Autolinker.prototype = {
 		    htmlNodes = htmlParser.parse( textOrHtml ),
 		    anchorTagStackCount = 0,  // used to only process text around anchor tags, and any inner text/html they may have
 		    resultHtml = [];
-
+		
 		for( var i = 0, len = htmlNodes.length; i < len; i++ ) {
 			var node = htmlNodes[ i ],
 			    nodeType = node.getType(),
 			    nodeText = node.getText();
-
+			
 			if( nodeType === 'element' ) {
 				// Process HTML nodes in the input `textOrHtml`
 				if( node.getTagName() === 'a' ) {
@@ -60047,35 +60091,35 @@ Autolinker.prototype = {
 					}
 				}
 				resultHtml.push( nodeText );  // now add the text of the tag itself verbatim
-
+				
 			} else if( nodeType === 'entity' ) {
 				resultHtml.push( nodeText );  // append HTML entity nodes (such as '&nbsp;') verbatim
-
+				
 			} else {
 				// Process text nodes in the input `textOrHtml`
 				if( anchorTagStackCount === 0 ) {
 					// If we're not within an <a> tag, process the text node to linkify
 					var linkifiedStr = this.linkifyStr( nodeText );
 					resultHtml.push( linkifiedStr );
-
+					
 				} else {
-					// `text` is within an <a> tag, simply append the text - we do not want to autolink anything
+					// `text` is within an <a> tag, simply append the text - we do not want to autolink anything 
 					// already within an <a>...</a> tag
 					resultHtml.push( nodeText );
 				}
 			}
 		}
-
+		
 		return resultHtml.join( "" );
 	},
-
-
+	
+	
 	/**
-	 * Process the text that lies in between HTML tags, performing the anchor tag replacements for matched
-	 * URLs/emails/Twitter handles, and returns the string with the replacements made.
-	 *
+	 * Process the text that lies in between HTML tags, performing the anchor tag replacements for matched 
+	 * URLs/emails/Twitter handles, and returns the string with the replacements made. 
+	 * 
 	 * This method does the actual wrapping of URLs/emails/Twitter handles with anchor tags.
-	 *
+	 * 
 	 * @private
 	 * @param {String} str The string of text to auto-link.
 	 * @return {String} The text with anchor tags auto-filled.
@@ -60083,13 +60127,13 @@ Autolinker.prototype = {
 	linkifyStr : function( str ) {
 		return this.getMatchParser().replace( str, this.createMatchReturnVal, this );
 	},
-
-
+	
+	
 	/**
 	 * Creates the return string value for a given match in the input string, for the {@link #processTextNode} method.
-	 *
+	 * 
 	 * This method handles the {@link #replaceFn}, if one was provided.
-	 *
+	 * 
 	 * @private
 	 * @param {Autolinker.match.Match} match The Match object that represents the match.
 	 * @return {String} The string that the `match` should be replaced with. This is usually the anchor tag string, but
@@ -60101,52 +60145,52 @@ Autolinker.prototype = {
 		if( this.replaceFn ) {
 			replaceFnResult = this.replaceFn.call( this, this, match );  // Autolinker instance is the context, and the first arg
 		}
-
+		
 		if( typeof replaceFnResult === 'string' ) {
 			return replaceFnResult;  // `replaceFn` returned a string, use that
-
+			
 		} else if( replaceFnResult === false ) {
 			return match.getMatchedText();  // no replacement for the match
-
+			
 		} else if( replaceFnResult instanceof Autolinker.HtmlTag ) {
 			return replaceFnResult.toString();
-
+		
 		} else {  // replaceFnResult === true, or no/unknown return value from function
 			// Perform Autolinker's default anchor tag generation
 			var tagBuilder = this.getTagBuilder(),
 			    anchorTag = tagBuilder.build( match );  // returns an Autolinker.HtmlTag instance
-
+			
 			return anchorTag.toString();
 		}
 	},
-
-
+	
+	
 	/**
 	 * Lazily instantiates and returns the {@link #htmlParser} instance for this Autolinker instance.
-	 *
+	 * 
 	 * @protected
 	 * @return {Autolinker.htmlParser.HtmlParser}
 	 */
 	getHtmlParser : function() {
 		var htmlParser = this.htmlParser;
-
+		
 		if( !htmlParser ) {
 			htmlParser = this.htmlParser = new Autolinker.htmlParser.HtmlParser();
 		}
-
+		
 		return htmlParser;
 	},
-
-
+	
+	
 	/**
 	 * Lazily instantiates and returns the {@link #matchParser} instance for this Autolinker instance.
-	 *
+	 * 
 	 * @protected
 	 * @return {Autolinker.matchParser.MatchParser}
 	 */
 	getMatchParser : function() {
 		var matchParser = this.matchParser;
-
+		
 		if( !matchParser ) {
 			matchParser = this.matchParser = new Autolinker.matchParser.MatchParser( {
 				urls : this.urls,
@@ -60155,35 +60199,35 @@ Autolinker.prototype = {
 				stripPrefix : this.stripPrefix
 			} );
 		}
-
+		
 		return matchParser;
 	},
-
-
+	
+	
 	/**
 	 * Returns the {@link #tagBuilder} instance for this Autolinker instance, lazily instantiating it
 	 * if it does not yet exist.
-	 *
-	 * This method may be used in a {@link #replaceFn} to generate the {@link Autolinker.HtmlTag HtmlTag} instance that
+	 * 
+	 * This method may be used in a {@link #replaceFn} to generate the {@link Autolinker.HtmlTag HtmlTag} instance that 
 	 * Autolinker would normally generate, and then allow for modifications before returning it. For example:
-	 *
+	 * 
 	 *     var html = Autolinker.link( "Test google.com", {
 	 *         replaceFn : function( autolinker, match ) {
 	 *             var tag = autolinker.getTagBuilder().build( match );  // returns an {@link Autolinker.HtmlTag} instance
 	 *             tag.setAttr( 'rel', 'nofollow' );
-	 *
+	 *             
 	 *             return tag;
 	 *         }
 	 *     } );
-	 *
+	 *     
 	 *     // generated html:
 	 *     //   Test <a href="http://google.com" target="_blank" rel="nofollow">google.com</a>
-	 *
+	 * 
 	 * @return {Autolinker.AnchorTagBuilder}
 	 */
 	getTagBuilder : function() {
 		var tagBuilder = this.tagBuilder;
-
+		
 		if( !tagBuilder ) {
 			tagBuilder = this.tagBuilder = new Autolinker.AnchorTagBuilder( {
 				newWindow   : this.newWindow,
@@ -60191,7 +60235,7 @@ Autolinker.prototype = {
 				className   : this.className
 			} );
 		}
-
+		
 		return tagBuilder;
 	}
 
@@ -60199,17 +60243,17 @@ Autolinker.prototype = {
 
 
 /**
- * Automatically links URLs, email addresses, and Twitter handles found in the given chunk of HTML.
+ * Automatically links URLs, email addresses, and Twitter handles found in the given chunk of HTML. 
  * Does not link URLs found within HTML tags.
- *
+ * 
  * For instance, if given the text: `You should go to http://www.yahoo.com`, then the result
  * will be `You should go to &lt;a href="http://www.yahoo.com"&gt;http://www.yahoo.com&lt;/a&gt;`
- *
+ * 
  * Example:
- *
+ * 
  *     var linkedText = Autolinker.link( "Go to google.com", { newWindow: false } );
  *     // Produces: "Go to <a href="http://google.com">google.com</a>"
- *
+ * 
  * @static
  * @param {String} textOrHtml The HTML or text to find URLs, email addresses, and Twitter handles within (depending on if
  *   the {@link #urls}, {@link #email}, and {@link #twitter} options are enabled).
@@ -60232,22 +60276,22 @@ Autolinker.matchParser = {};
 /**
  * @class Autolinker.Util
  * @singleton
- *
+ * 
  * A few utility methods for Autolinker.
  */
 Autolinker.Util = {
-
+	
 	/**
 	 * @property {Function} abstractMethod
-	 *
+	 * 
 	 * A function object which represents an abstract method.
 	 */
 	abstractMethod : function() { throw "abstract"; },
-
-
+	
+	
 	/**
 	 * Assigns (shallow copies) the properties of `src` onto `dest`.
-	 *
+	 * 
 	 * @param {Object} dest The destination object.
 	 * @param {Object} src The source object.
 	 * @return {Object} The destination object (`dest`)
@@ -60258,14 +60302,14 @@ Autolinker.Util = {
 				dest[ prop ] = src[ prop ];
 			}
 		}
-
+		
 		return dest;
 	},
-
-
+	
+	
 	/**
 	 * Extends `superclass` to create a new subclass, adding the `protoProps` to the new subclass's prototype.
-	 *
+	 * 
 	 * @param {Function} superclass The constructor function for the superclass.
 	 * @param {Object} protoProps The methods/properties to add to the subclass's prototype. This may contain the
 	 *   special property `constructor`, which will be used as the new subclass's constructor function.
@@ -60273,33 +60317,33 @@ Autolinker.Util = {
 	 */
 	extend : function( superclass, protoProps ) {
 		var superclassProto = superclass.prototype;
-
+		
 		var F = function() {};
 		F.prototype = superclassProto;
-
+		
 		var subclass;
 		if( protoProps.hasOwnProperty( 'constructor' ) ) {
 			subclass = protoProps.constructor;
 		} else {
 			subclass = function() { superclassProto.constructor.apply( this, arguments ); };
 		}
-
+		
 		var subclassProto = subclass.prototype = new F();  // set up prototype chain
 		subclassProto.constructor = subclass;  // fix constructor property
 		subclassProto.superclass = superclassProto;
-
+		
 		delete protoProps.constructor;  // don't re-assign constructor property to the prototype, since a new function may have been created (`subclass`), which is now already there
 		Autolinker.Util.assign( subclassProto, protoProps );
-
+		
 		return subclass;
 	},
-
-
+	
+	
 	/**
 	 * Truncates the `str` at `len - ellipsisChars.length`, and adds the `ellipsisChars` to the
-	 * end of the string (by default, two periods: '..'). If the `str` length does not exceed
+	 * end of the string (by default, two periods: '..'). If the `str` length does not exceed 
 	 * `len`, the string will be returned unchanged.
-	 *
+	 * 
 	 * @param {String} str The string to truncate and add an ellipsis to.
 	 * @param {Number} truncateLen The length to truncate the string at.
 	 * @param {String} [ellipsisChars=..] The ellipsis character(s) to add to the end of `str`
@@ -60312,11 +60356,11 @@ Autolinker.Util = {
 		}
 		return str;
 	},
-
-
+	
+	
 	/**
 	 * Supports `Array.prototype.indexOf()` functionality for old IE (IE8 and below).
-	 *
+	 * 
 	 * @param {Array} arr The array to find an element of.
 	 * @param {*} element The element to find in the array, and return the index of.
 	 * @return {Number} The index of the `element`, or -1 if it was not found.
@@ -60324,7 +60368,7 @@ Autolinker.Util = {
 	indexOf : function( arr, element ) {
 		if( Array.prototype.indexOf ) {
 			return arr.indexOf( element );
-
+			
 		} else {
 			for( var i = 0, len = arr.length; i < len; i++ ) {
 				if( arr[ i ] === element ) return i;
@@ -60332,112 +60376,112 @@ Autolinker.Util = {
 			return -1;
 		}
 	},
-
-
-
+	
+	
+	
 	/**
 	 * Performs the functionality of what modern browsers do when `String.prototype.split()` is called
 	 * with a regular expression that contains capturing parenthesis.
-	 *
+	 * 
 	 * For example:
-	 *
-	 *     // Modern browsers:
+	 * 
+	 *     // Modern browsers: 
 	 *     "a,b,c".split( /(,)/ );  // --> [ 'a', ',', 'b', ',', 'c' ]
-	 *
+	 *     
 	 *     // Old IE (including IE8):
 	 *     "a,b,c".split( /(,)/ );  // --> [ 'a', 'b', 'c' ]
-	 *
+	 *     
 	 * This method emulates the functionality of modern browsers for the old IE case.
-	 *
+	 * 
 	 * @param {String} str The string to split.
 	 * @param {RegExp} splitRegex The regular expression to split the input `str` on. The splitting
-	 *   character(s) will be spliced into the array, as in the "modern browsers" example in the
-	 *   description of this method.
+	 *   character(s) will be spliced into the array, as in the "modern browsers" example in the 
+	 *   description of this method. 
 	 *   Note #1: the supplied regular expression **must** have the 'g' flag specified.
-	 *   Note #2: for simplicity's sake, the regular expression does not need
+	 *   Note #2: for simplicity's sake, the regular expression does not need 
 	 *   to contain capturing parenthesis - it will be assumed that any match has them.
 	 * @return {String[]} The split array of strings, with the splitting character(s) included.
 	 */
 	splitAndCapture : function( str, splitRegex ) {
 		if( !splitRegex.global ) throw new Error( "`splitRegex` must have the 'g' flag set" );
-
+		
 		var result = [],
 		    lastIdx = 0,
 		    match;
-
+		
 		while( match = splitRegex.exec( str ) ) {
 			result.push( str.substring( lastIdx, match.index ) );
 			result.push( match[ 0 ] );  // push the splitting char(s)
-
+			
 			lastIdx = match.index + match[ 0 ].length;
 		}
 		result.push( str.substring( lastIdx ) );
-
+		
 		return result;
 	}
-
+	
 };
 /*global Autolinker */
 /*jshint boss:true */
 /**
  * @class Autolinker.HtmlTag
  * @extends Object
- *
+ * 
  * Represents an HTML tag, which can be used to easily build/modify HTML tags programmatically.
- *
+ * 
  * Autolinker uses this abstraction to create HTML tags, and then write them out as strings. You may also use
  * this class in your code, especially within a {@link Autolinker#replaceFn replaceFn}.
- *
+ * 
  * ## Examples
- *
+ * 
  * Example instantiation:
- *
+ * 
  *     var tag = new Autolinker.HtmlTag( {
  *         tagName : 'a',
  *         attrs   : { 'href': 'http://google.com', 'class': 'external-link' },
  *         innerHtml : 'Google'
  *     } );
- *
+ *     
  *     tag.toString();  // <a href="http://google.com" class="external-link">Google</a>
- *
+ *     
  *     // Individual accessor methods
  *     tag.getTagName();                 // 'a'
  *     tag.getAttr( 'href' );            // 'http://google.com'
  *     tag.hasClass( 'external-link' );  // true
- *
- *
+ * 
+ * 
  * Using mutator methods (which may be used in combination with instantiation config properties):
- *
+ * 
  *     var tag = new Autolinker.HtmlTag();
  *     tag.setTagName( 'a' );
  *     tag.setAttr( 'href', 'http://google.com' );
  *     tag.addClass( 'external-link' );
  *     tag.setInnerHtml( 'Google' );
- *
+ *     
  *     tag.getTagName();                 // 'a'
  *     tag.getAttr( 'href' );            // 'http://google.com'
  *     tag.hasClass( 'external-link' );  // true
- *
+ *     
  *     tag.toString();  // <a href="http://google.com" class="external-link">Google</a>
- *
- *
+ *     
+ * 
  * ## Example use within a {@link Autolinker#replaceFn replaceFn}
- *
+ * 
  *     var html = Autolinker.link( "Test google.com", {
  *         replaceFn : function( autolinker, match ) {
  *             var tag = autolinker.getTagBuilder().build( match );  // returns an {@link Autolinker.HtmlTag} instance, configured with the Match's href and anchor text
  *             tag.setAttr( 'rel', 'nofollow' );
- *
+ *             
  *             return tag;
  *         }
  *     } );
- *
+ *     
  *     // generated html:
  *     //   Test <a href="http://google.com" target="_blank" rel="nofollow">google.com</a>
- *
- *
+ *     
+ *     
  * ## Example use with a new tag for the replacement
- *
+ * 
  *     var html = Autolinker.link( "Test google.com", {
  *         replaceFn : function( autolinker, match ) {
  *             var tag = new Autolinker.HtmlTag( {
@@ -60445,73 +60489,73 @@ Autolinker.Util = {
  *                 attrs   : { 'title': 'Load URL: ' + match.getAnchorHref() },
  *                 innerHtml : 'Load URL: ' + match.getAnchorText()
  *             } );
- *
+ *             
  *             return tag;
  *         }
  *     } );
- *
+ *     
  *     // generated html:
  *     //   Test <button title="Load URL: http://google.com">Load URL: google.com</button>
  */
 Autolinker.HtmlTag = Autolinker.Util.extend( Object, {
-
+	
 	/**
 	 * @cfg {String} tagName
-	 *
+	 * 
 	 * The tag name. Ex: 'a', 'button', etc.
-	 *
+	 * 
 	 * Not required at instantiation time, but should be set using {@link #setTagName} before {@link #toString}
 	 * is executed.
 	 */
-
+	
 	/**
 	 * @cfg {Object.<String, String>} attrs
-	 *
+	 * 
 	 * An key/value Object (map) of attributes to create the tag with. The keys are the attribute names, and the
 	 * values are the attribute values.
 	 */
-
+	
 	/**
 	 * @cfg {String} innerHtml
-	 *
-	 * The inner HTML for the tag.
-	 *
-	 * Note the camel case name on `innerHtml`. Acronyms are camelCased in this utility (such as not to run into the acronym
+	 * 
+	 * The inner HTML for the tag. 
+	 * 
+	 * Note the camel case name on `innerHtml`. Acronyms are camelCased in this utility (such as not to run into the acronym 
 	 * naming inconsistency that the DOM developers created with `XMLHttpRequest`). You may alternatively use {@link #innerHTML}
 	 * if you prefer, but this one is recommended.
 	 */
-
+	
 	/**
 	 * @cfg {String} innerHTML
-	 *
+	 * 
 	 * Alias of {@link #innerHtml}, accepted for consistency with the browser DOM api, but prefer the camelCased version
 	 * for acronym names.
 	 */
-
-
+	
+	
 	/**
 	 * @protected
 	 * @property {RegExp} whitespaceRegex
-	 *
+	 * 
 	 * Regular expression used to match whitespace in a string of CSS classes.
 	 */
 	whitespaceRegex : /\s+/,
-
-
+	
+	
 	/**
 	 * @constructor
 	 * @param {Object} [cfg] The configuration properties for this class, in an Object (map)
 	 */
 	constructor : function( cfg ) {
 		Autolinker.Util.assign( this, cfg );
-
+		
 		this.innerHtml = this.innerHtml || this.innerHTML;  // accept either the camelCased form or the fully capitalized acronym
 	},
-
-
+	
+	
 	/**
 	 * Sets the tag name that will be used to generate the tag with.
-	 *
+	 * 
 	 * @param {String} tagName
 	 * @return {Autolinker.HtmlTag} This HtmlTag instance, so that method calls may be chained.
 	 */
@@ -60519,21 +60563,21 @@ Autolinker.HtmlTag = Autolinker.Util.extend( Object, {
 		this.tagName = tagName;
 		return this;
 	},
-
-
+	
+	
 	/**
 	 * Retrieves the tag name.
-	 *
+	 * 
 	 * @return {String}
 	 */
 	getTagName : function() {
 		return this.tagName || "";
 	},
-
-
+	
+	
 	/**
 	 * Sets an attribute on the HtmlTag.
-	 *
+	 * 
 	 * @param {String} attrName The attribute name to set.
 	 * @param {String} attrValue The attribute value to set.
 	 * @return {Autolinker.HtmlTag} This HtmlTag instance, so that method calls may be chained.
@@ -60541,60 +60585,60 @@ Autolinker.HtmlTag = Autolinker.Util.extend( Object, {
 	setAttr : function( attrName, attrValue ) {
 		var tagAttrs = this.getAttrs();
 		tagAttrs[ attrName ] = attrValue;
-
+		
 		return this;
 	},
-
-
+	
+	
 	/**
 	 * Retrieves an attribute from the HtmlTag. If the attribute does not exist, returns `undefined`.
-	 *
+	 * 
 	 * @param {String} name The attribute name to retrieve.
 	 * @return {String} The attribute's value, or `undefined` if it does not exist on the HtmlTag.
 	 */
 	getAttr : function( attrName ) {
 		return this.getAttrs()[ attrName ];
 	},
-
-
+	
+	
 	/**
 	 * Sets one or more attributes on the HtmlTag.
-	 *
+	 * 
 	 * @param {Object.<String, String>} attrs A key/value Object (map) of the attributes to set.
 	 * @return {Autolinker.HtmlTag} This HtmlTag instance, so that method calls may be chained.
 	 */
 	setAttrs : function( attrs ) {
 		var tagAttrs = this.getAttrs();
 		Autolinker.Util.assign( tagAttrs, attrs );
-
+		
 		return this;
 	},
-
-
+	
+	
 	/**
 	 * Retrieves the attributes Object (map) for the HtmlTag.
-	 *
+	 * 
 	 * @return {Object.<String, String>} A key/value object of the attributes for the HtmlTag.
 	 */
 	getAttrs : function() {
 		return this.attrs || ( this.attrs = {} );
 	},
-
-
+	
+	
 	/**
 	 * Sets the provided `cssClass`, overwriting any current CSS classes on the HtmlTag.
-	 *
+	 * 
 	 * @param {String} cssClass One or more space-separated CSS classes to set (overwrite).
 	 * @return {Autolinker.HtmlTag} This HtmlTag instance, so that method calls may be chained.
 	 */
 	setClass : function( cssClass ) {
 		return this.setAttr( 'class', cssClass );
 	},
-
-
+	
+	
 	/**
 	 * Convenience method to add one or more CSS classes to the HtmlTag. Will not add duplicate CSS classes.
-	 *
+	 * 
 	 * @param {String} cssClass One or more space-separated CSS classes to add.
 	 * @return {Autolinker.HtmlTag} This HtmlTag instance, so that method calls may be chained.
 	 */
@@ -60605,21 +60649,21 @@ Autolinker.HtmlTag = Autolinker.Util.extend( Object, {
 		    classes = ( !classAttr ) ? [] : classAttr.split( whitespaceRegex ),
 		    newClasses = cssClass.split( whitespaceRegex ),
 		    newClass;
-
+		
 		while( newClass = newClasses.shift() ) {
 			if( indexOf( classes, newClass ) === -1 ) {
 				classes.push( newClass );
 			}
 		}
-
+		
 		this.getAttrs()[ 'class' ] = classes.join( " " );
 		return this;
 	},
-
-
+	
+	
 	/**
 	 * Convenience method to remove one or more CSS classes from the HtmlTag.
-	 *
+	 * 
 	 * @param {String} cssClass One or more space-separated CSS classes to remove.
 	 * @return {Autolinker.HtmlTag} This HtmlTag instance, so that method calls may be chained.
 	 */
@@ -60630,92 +60674,92 @@ Autolinker.HtmlTag = Autolinker.Util.extend( Object, {
 		    classes = ( !classAttr ) ? [] : classAttr.split( whitespaceRegex ),
 		    removeClasses = cssClass.split( whitespaceRegex ),
 		    removeClass;
-
+		
 		while( classes.length && ( removeClass = removeClasses.shift() ) ) {
 			var idx = indexOf( classes, removeClass );
 			if( idx !== -1 ) {
 				classes.splice( idx, 1 );
 			}
 		}
-
+		
 		this.getAttrs()[ 'class' ] = classes.join( " " );
 		return this;
 	},
-
-
+	
+	
 	/**
 	 * Convenience method to retrieve the CSS class(es) for the HtmlTag, which will each be separated by spaces when
 	 * there are multiple.
-	 *
+	 * 
 	 * @return {String}
 	 */
 	getClass : function() {
 		return this.getAttrs()[ 'class' ] || "";
 	},
-
-
+	
+	
 	/**
 	 * Convenience method to check if the tag has a CSS class or not.
-	 *
+	 * 
 	 * @param {String} cssClass The CSS class to check for.
 	 * @return {Boolean} `true` if the HtmlTag has the CSS class, `false` otherwise.
 	 */
 	hasClass : function( cssClass ) {
 		return ( ' ' + this.getClass() + ' ' ).indexOf( ' ' + cssClass + ' ' ) !== -1;
 	},
-
-
+	
+	
 	/**
 	 * Sets the inner HTML for the tag.
-	 *
+	 * 
 	 * @param {String} html The inner HTML to set.
 	 * @return {Autolinker.HtmlTag} This HtmlTag instance, so that method calls may be chained.
 	 */
 	setInnerHtml : function( html ) {
 		this.innerHtml = html;
-
+		
 		return this;
 	},
-
-
+	
+	
 	/**
 	 * Retrieves the inner HTML for the tag.
-	 *
+	 * 
 	 * @return {String}
 	 */
 	getInnerHtml : function() {
 		return this.innerHtml || "";
 	},
-
-
+	
+	
 	/**
 	 * Override of superclass method used to generate the HTML string for the tag.
-	 *
+	 * 
 	 * @return {String}
 	 */
 	toString : function() {
 		var tagName = this.getTagName(),
 		    attrsStr = this.buildAttrsStr();
-
+		
 		attrsStr = ( attrsStr ) ? ' ' + attrsStr : '';  // prepend a space if there are actually attributes
-
+		
 		return [ '<', tagName, attrsStr, '>', this.getInnerHtml(), '</', tagName, '>' ].join( "" );
 	},
-
-
+	
+	
 	/**
-	 * Support method for {@link #toString}, returns the string space-separated key="value" pairs, used to populate
+	 * Support method for {@link #toString}, returns the string space-separated key="value" pairs, used to populate 
 	 * the stringified HtmlTag.
-	 *
+	 * 
 	 * @protected
 	 * @return {String} Example return: `attr1="value1" attr2="value2"`
 	 */
 	buildAttrsStr : function() {
 		if( !this.attrs ) return "";  // no `attrs` Object (map) has been set, return empty string
-
+		
 		var attrs = this.getAttrs(),
 		    attrsArr = [];
-
+		
 		for( var prop in attrs ) {
 			if( attrs.hasOwnProperty( prop ) ) {
 				attrsArr.push( prop + '="' + attrs[ prop ] + '"' );
@@ -60723,7 +60767,7 @@ Autolinker.HtmlTag = Autolinker.Util.extend( Object, {
 		}
 		return attrsArr.join( " " );
 	}
-
+	
 } );
 /*global Autolinker */
 /*jshint sub:true */
@@ -60731,43 +60775,43 @@ Autolinker.HtmlTag = Autolinker.Util.extend( Object, {
  * @protected
  * @class Autolinker.AnchorTagBuilder
  * @extends Object
- *
+ * 
  * Builds anchor (&lt;a&gt;) tags for the Autolinker utility when a match is found.
- *
- * Normally this class is instantiated, configured, and used internally by an {@link Autolinker} instance, but may
+ * 
+ * Normally this class is instantiated, configured, and used internally by an {@link Autolinker} instance, but may 
  * actually be retrieved in a {@link Autolinker#replaceFn replaceFn} to create {@link Autolinker.HtmlTag HtmlTag} instances
  * which may be modified before returning from the {@link Autolinker#replaceFn replaceFn}. For example:
- *
+ * 
  *     var html = Autolinker.link( "Test google.com", {
  *         replaceFn : function( autolinker, match ) {
  *             var tag = autolinker.getTagBuilder().build( match );  // returns an {@link Autolinker.HtmlTag} instance
  *             tag.setAttr( 'rel', 'nofollow' );
- *
+ *             
  *             return tag;
  *         }
  *     } );
- *
+ *     
  *     // generated html:
  *     //   Test <a href="http://google.com" target="_blank" rel="nofollow">google.com</a>
  */
 Autolinker.AnchorTagBuilder = Autolinker.Util.extend( Object, {
-
+	
 	/**
 	 * @cfg {Boolean} newWindow
 	 * @inheritdoc Autolinker#newWindow
 	 */
-
+	
 	/**
 	 * @cfg {Number} truncate
 	 * @inheritdoc Autolinker#truncate
 	 */
-
+	
 	/**
 	 * @cfg {String} className
 	 * @inheritdoc Autolinker#className
 	 */
-
-
+	
+	
 	/**
 	 * @constructor
 	 * @param {Object} [cfg] The configuration options for the AnchorTagBuilder instance, specified in an Object (map).
@@ -60775,12 +60819,12 @@ Autolinker.AnchorTagBuilder = Autolinker.Util.extend( Object, {
 	constructor : function( cfg ) {
 		Autolinker.Util.assign( this, cfg );
 	},
-
-
+	
+	
 	/**
 	 * Generates the actual anchor (&lt;a&gt;) tag to use in place of the matched URL/email/Twitter text,
 	 * via its `match` object.
-	 *
+	 * 
 	 * @param {Autolinker.match.Match} match The Match instance to generate an anchor tag from.
 	 * @return {Autolinker.HtmlTag} The HtmlTag instance for the anchor tag.
 	 */
@@ -60790,24 +60834,24 @@ Autolinker.AnchorTagBuilder = Autolinker.Util.extend( Object, {
 			attrs     : this.createAttrs( match.getType(), match.getAnchorHref() ),
 			innerHtml : this.processAnchorText( match.getAnchorText() )
 		} );
-
+		
 		return tag;
 	},
-
-
+	
+	
 	/**
 	 * Creates the Object (map) of the HTML attributes for the anchor (&lt;a&gt;) tag being generated.
-	 *
+	 * 
 	 * @protected
 	 * @param {"url"/"email"/"twitter"} matchType The type of match that an anchor tag is being generated for.
 	 * @param {String} href The href for the anchor tag.
-	 * @return {Object} A key/value Object (map) of the anchor tag's attributes.
+	 * @return {Object} A key/value Object (map) of the anchor tag's attributes. 
 	 */
 	createAttrs : function( matchType, anchorHref ) {
 		var attrs = {
 			'href' : anchorHref  // we'll always have the `href` attribute
 		};
-
+		
 		var cssClass = this.createCssClass( matchType );
 		if( cssClass ) {
 			attrs[ 'class' ] = cssClass;
@@ -60815,15 +60859,15 @@ Autolinker.AnchorTagBuilder = Autolinker.Util.extend( Object, {
 		if( this.newWindow ) {
 			attrs[ 'target' ] = "_blank";
 		}
-
+		
 		return attrs;
 	},
-
-
+	
+	
 	/**
 	 * Creates the CSS class that will be used for a given anchor tag, based on the `matchType` and the {@link #className}
 	 * config.
-	 *
+	 * 
 	 * @private
 	 * @param {"url"/"email"/"twitter"} matchType The type of match that an anchor tag is being generated for.
 	 * @return {String} The CSS class string for the link. Example return: "myLink myLink-url". If no {@link #className}
@@ -60831,32 +60875,32 @@ Autolinker.AnchorTagBuilder = Autolinker.Util.extend( Object, {
 	 */
 	createCssClass : function( matchType ) {
 		var className = this.className;
-
-		if( !className )
+		
+		if( !className ) 
 			return "";
 		else
 			return className + " " + className + "-" + matchType;  // ex: "myLink myLink-url", "myLink myLink-email", or "myLink myLink-twitter"
 	},
-
-
+	
+	
 	/**
 	 * Processes the `anchorText` by truncating the text according to the {@link #truncate} config.
-	 *
+	 * 
 	 * @private
 	 * @param {String} anchorText The anchor tag's text (i.e. what will be displayed).
 	 * @return {String} The processed `anchorText`.
 	 */
 	processAnchorText : function( anchorText ) {
 		anchorText = this.doTruncate( anchorText );
-
+		
 		return anchorText;
 	},
-
-
+	
+	
 	/**
 	 * Performs the truncation of the `anchorText`, if the `anchorText` is longer than the {@link #truncate} option.
 	 * Truncates the text to 2 characters fewer than the {@link #truncate} option, and adds ".." to the end.
-	 *
+	 * 
 	 * @private
 	 * @param {String} text The anchor tag's text (i.e. what will be displayed).
 	 * @return {String} The truncated anchor text.
@@ -60864,31 +60908,31 @@ Autolinker.AnchorTagBuilder = Autolinker.Util.extend( Object, {
 	doTruncate : function( anchorText ) {
 		return Autolinker.Util.ellipsis( anchorText, this.truncate || Number.POSITIVE_INFINITY );
 	}
-
+	
 } );
 /*global Autolinker */
 /**
  * @private
  * @class Autolinker.htmlParser.HtmlParser
  * @extends Object
- *
- * An HTML parser implementation which simply walks an HTML string and returns an array of
+ * 
+ * An HTML parser implementation which simply walks an HTML string and returns an array of 
  * {@link Autolinker.htmlParser.HtmlNode HtmlNodes} that represent the basic HTML structure of the input string.
- *
+ * 
  * Autolinker uses this to only link URLs/emails/Twitter handles within text nodes, effectively ignoring / "walking
  * around" HTML tags.
  */
 Autolinker.htmlParser.HtmlParser = Autolinker.Util.extend( Object, {
-
+	
 	/**
 	 * @private
 	 * @property {RegExp} htmlRegex
-	 *
+	 * 
 	 * The regular expression used to pull out HTML tags from a string. Handles namespaced HTML tags and
 	 * attribute names, as specified by http://www.w3.org/TR/html-markup/syntax.html.
-	 *
+	 * 
 	 * Capturing groups:
-	 *
+	 * 
 	 * 1. The "!DOCTYPE" tag name, if a tag is a &lt;!DOCTYPE&gt; tag.
 	 * 2. If it is an end tag, this group will have the '/'.
 	 * 3. The tag name for all tags (other than the &lt;!DOCTYPE&gt; tag)
@@ -60898,61 +60942,61 @@ Autolinker.htmlParser.HtmlParser = Autolinker.Util.extend( Object, {
 		    attrNameRegex = /[^\s\0"'>\/=\x01-\x1F\x7F]+/,   // the unicode range accounts for excluding control chars, and the delete char
 		    attrValueRegex = /(?:"[^"]*?"|'[^']*?'|[^'"=<>`\s]+)/, // double quoted, single quoted, or unquoted attribute values
 		    nameEqualsValueRegex = attrNameRegex.source + '(?:\\s*=\\s*' + attrValueRegex.source + ')?';  // optional '=[value]'
-
+		
 		return new RegExp( [
-			// for <!DOCTYPE> tag. Ex: <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">)
+			// for <!DOCTYPE> tag. Ex: <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">) 
 			'(?:',
 				'<(!DOCTYPE)',  // *** Capturing Group 1 - If it's a doctype tag
-
+					
 					// Zero or more attributes following the tag name
 					'(?:',
 						'\\s+',  // one or more whitespace chars before an attribute
-
+						
 						// Either:
-						// A. attr="value", or
-						// B. "value" alone (To cover example doctype tag: <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">)
+						// A. attr="value", or 
+						// B. "value" alone (To cover example doctype tag: <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">) 
 						'(?:', nameEqualsValueRegex, '|', attrValueRegex.source + ')',
 					')*',
 				'>',
 			')',
-
+			
 			'|',
-
+			
 			// All other HTML tags (i.e. tags that are not <!DOCTYPE>)
 			'(?:',
-				'<(/)?',  // Beginning of a tag. Either '<' for a start tag, or '</' for an end tag.
+				'<(/)?',  // Beginning of a tag. Either '<' for a start tag, or '</' for an end tag. 
 				          // *** Capturing Group 2: The slash or an empty string. Slash ('/') for end tag, empty string for start or self-closing tag.
-
+			
 					// *** Capturing Group 3 - The tag name
 					'(' + tagNameRegex.source + ')',
-
+					
 					// Zero or more attributes following the tag name
 					'(?:',
 						'\\s+',                // one or more whitespace chars before an attribute
 						nameEqualsValueRegex,  // attr="value" (with optional ="value" part)
 					')*',
-
+					
 					'\\s*/?',  // any trailing spaces and optional '/' before the closing '>'
 				'>',
 			')'
 		].join( "" ), 'gi' );
 	} )(),
-
+	
 	/**
 	 * @private
 	 * @property {RegExp} htmlCharacterEntitiesRegex
 	 *
 	 * The regular expression that matches common HTML character entities.
-	 *
+	 * 
 	 * Ignoring &amp; as it could be part of a query string -- handling it separately.
 	 */
 	htmlCharacterEntitiesRegex: /(&nbsp;|&#160;|&lt;|&#60;|&gt;|&#62;|&quot;|&#34;|&#39;)/gi,
-
-
+	
+	
 	/**
 	 * Parses an HTML string and returns a simple array of {@link Autolinker.htmlParser.HtmlNode HtmlNodes} to represent
-	 * the HTML structure of the input string.
-	 *
+	 * the HTML structure of the input string. 
+	 * 
 	 * @param {String} html The HTML to parse.
 	 * @return {Autolinker.htmlParser.HtmlNode[]}
 	 */
@@ -60962,70 +61006,70 @@ Autolinker.htmlParser.HtmlParser = Autolinker.Util.extend( Object, {
 		    lastIndex = 0,
 		    textAndEntityNodes,
 		    nodes = [];  // will be the result of the method
-
+		
 		while( ( currentResult = htmlRegex.exec( html ) ) !== null ) {
 			var tagText = currentResult[ 0 ],
-			    tagName = currentResult[ 1 ] || currentResult[ 3 ],  // The <!DOCTYPE> tag (ex: "!DOCTYPE"), or another tag (ex: "a" or "img")
+			    tagName = currentResult[ 1 ] || currentResult[ 3 ],  // The <!DOCTYPE> tag (ex: "!DOCTYPE"), or another tag (ex: "a" or "img") 
 			    isClosingTag = !!currentResult[ 2 ],
 			    inBetweenTagsText = html.substring( lastIndex, currentResult.index );
-
+			
 			// Push TextNodes and EntityNodes for any text found between tags
 			if( inBetweenTagsText ) {
 				textAndEntityNodes = this.parseTextAndEntityNodes( inBetweenTagsText );
 				nodes.push.apply( nodes, textAndEntityNodes );
 			}
-
+			
 			// Push the ElementNode
 			nodes.push( this.createElementNode( tagText, tagName, isClosingTag ) );
-
+			
 			lastIndex = currentResult.index + tagText.length;
 		}
-
+		
 		// Process any remaining text after the last HTML element. Will process all of the text if there were no HTML elements.
 		if( lastIndex < html.length ) {
 			var text = html.substring( lastIndex );
-
+			
 			// Push TextNodes and EntityNodes for any text found between tags
 			if( text ) {
 				textAndEntityNodes = this.parseTextAndEntityNodes( text );
 				nodes.push.apply( nodes, textAndEntityNodes );
 			}
 		}
-
+		
 		return nodes;
 	},
-
-
+	
+	
 	/**
 	 * Parses text and HTML entity nodes from a given string. The input string should not have any HTML tags (elements)
 	 * within it.
-	 *
+	 * 
 	 * @private
 	 * @param {String} text The text to parse.
-	 * @return {Autolinker.htmlParser.HtmlNode[]} An array of HtmlNodes to represent the
+	 * @return {Autolinker.htmlParser.HtmlNode[]} An array of HtmlNodes to represent the 
 	 *   {@link Autolinker.htmlParser.TextNode TextNodes} and {@link Autolinker.htmlParser.EntityNode EntityNodes} found.
 	 */
 	parseTextAndEntityNodes : function( text ) {
 		var nodes = [],
 		    textAndEntityTokens = Autolinker.Util.splitAndCapture( text, this.htmlCharacterEntitiesRegex );  // split at HTML entities, but include the HTML entities in the results array
-
+		
 		// Every even numbered token is a TextNode, and every odd numbered token is an EntityNode
-		// For example: an input `text` of "Test &quot;this&quot; today" would turn into the
+		// For example: an input `text` of "Test &quot;this&quot; today" would turn into the 
 		//   `textAndEntityTokens`: [ 'Test ', '&quot;', 'this', '&quot;', ' today' ]
 		for( var i = 0, len = textAndEntityTokens.length; i < len; i += 2 ) {
 			var textToken = textAndEntityTokens[ i ],
 			    entityToken = textAndEntityTokens[ i + 1 ];
-
+			
 			if( textToken ) nodes.push( this.createTextNode( textToken ) );
 			if( entityToken ) nodes.push( this.createEntityNode( entityToken ) );
 		}
 		return nodes;
 	},
-
-
+	
+	
 	/**
 	 * Factory method to create an {@link Autolinker.htmlParser.ElementNode ElementNode}.
-	 *
+	 * 
 	 * @private
 	 * @param {String} tagText The full text of the tag (element) that was matched, including its attributes.
 	 * @param {String} tagName The name of the tag. Ex: An &lt;img&gt; tag would be passed to this method as "img".
@@ -61039,11 +61083,11 @@ Autolinker.htmlParser.HtmlParser = Autolinker.Util.extend( Object, {
 			closing : isClosingTag
 		} );
 	},
-
-
+	
+	
 	/**
 	 * Factory method to create a {@link Autolinker.htmlParser.EntityNode EntityNode}.
-	 *
+	 * 
 	 * @private
 	 * @param {String} text The text that was matched for the HTML entity (such as '&amp;nbsp;').
 	 * @return {Autolinker.htmlParser.EntityNode}
@@ -61051,11 +61095,11 @@ Autolinker.htmlParser.HtmlParser = Autolinker.Util.extend( Object, {
 	createEntityNode : function( text ) {
 		return new Autolinker.htmlParser.EntityNode( { text: text } );
 	},
-
-
+	
+	
 	/**
 	 * Factory method to create a {@link Autolinker.htmlParser.TextNode TextNode}.
-	 *
+	 * 
 	 * @private
 	 * @param {String} text The text that was matched.
 	 * @return {Autolinker.htmlParser.TextNode}
@@ -61063,27 +61107,27 @@ Autolinker.htmlParser.HtmlParser = Autolinker.Util.extend( Object, {
 	createTextNode : function( text ) {
 		return new Autolinker.htmlParser.TextNode( { text: text } );
 	}
-
+	
 } );
 /*global Autolinker */
 /**
  * @abstract
  * @class Autolinker.htmlParser.HtmlNode
- *
+ * 
  * Represents an HTML node found in an input string. An HTML node is one of the following:
- *
+ * 
  * 1. An {@link Autolinker.htmlParser.ElementNode ElementNode}, which represents HTML tags.
  * 2. A {@link Autolinker.htmlParser.TextNode TextNode}, which represents text outside or within HTML tags.
  * 3. A {@link Autolinker.htmlParser.EntityNode EntityNode}, which represents one of the known HTML
  *    entities that Autolinker looks for. This includes common ones such as &amp;quot; and &amp;nbsp;
  */
 Autolinker.htmlParser.HtmlNode = Autolinker.Util.extend( Object, {
-
+	
 	/**
 	 * @cfg {String} text (required)
-	 *
-	 * The original text that was matched for the HtmlNode.
-	 *
+	 * 
+	 * The original text that was matched for the HtmlNode. 
+	 * 
 	 * - In the case of an {@link Autolinker.htmlParser.ElementNode ElementNode}, this will be the tag's
 	 *   text.
 	 * - In the case of a {@link Autolinker.htmlParser.TextNode TextNode}, this will be the text itself.
@@ -61091,8 +61135,8 @@ Autolinker.htmlParser.HtmlNode = Autolinker.Util.extend( Object, {
 	 *   the HTML entity.
 	 */
 	text : "",
-
-
+	
+	
 	/**
 	 * @constructor
 	 * @param {Object} cfg The configuration properties for the Match instance, specified in an Object (map).
@@ -61101,19 +61145,19 @@ Autolinker.htmlParser.HtmlNode = Autolinker.Util.extend( Object, {
 		Autolinker.Util.assign( this, cfg );
 	},
 
-
+	
 	/**
 	 * Returns a string name for the type of node that this class represents.
-	 *
+	 * 
 	 * @abstract
 	 * @return {String}
 	 */
 	getType : Autolinker.Util.abstractMethod,
-
-
+	
+	
 	/**
 	 * Retrieves the {@link #text} for the HtmlNode.
-	 *
+	 * 
 	 * @return {String}
 	 */
 	getText : function() {
@@ -61125,274 +61169,274 @@ Autolinker.htmlParser.HtmlNode = Autolinker.Util.extend( Object, {
 /**
  * @class Autolinker.htmlParser.ElementNode
  * @extends Autolinker.htmlParser.HtmlNode
- *
+ * 
  * Represents an HTML element node that has been parsed by the {@link Autolinker.htmlParser.HtmlParser}.
- *
+ * 
  * See this class's superclass ({@link Autolinker.htmlParser.HtmlNode}) for more details.
  */
 Autolinker.htmlParser.ElementNode = Autolinker.Util.extend( Autolinker.htmlParser.HtmlNode, {
-
+	
 	/**
 	 * @cfg {String} tagName (required)
-	 *
+	 * 
 	 * The name of the tag that was matched.
 	 */
 	tagName : '',
-
+	
 	/**
 	 * @cfg {Boolean} closing (required)
-	 *
+	 * 
 	 * `true` if the element (tag) is a closing tag, `false` if its an opening tag.
 	 */
 	closing : false,
 
-
+	
 	/**
 	 * Returns a string name for the type of node that this class represents.
-	 *
+	 * 
 	 * @return {String}
 	 */
 	getType : function() {
 		return 'element';
 	},
-
+	
 
 	/**
 	 * Returns the HTML element's (tag's) name. Ex: for an &lt;img&gt; tag, returns "img".
-	 *
+	 * 
 	 * @return {String}
 	 */
 	getTagName : function() {
 		return this.tagName;
 	},
-
-
+	
+	
 	/**
 	 * Determines if the HTML element (tag) is a closing tag. Ex: &lt;div&gt; returns
 	 * `false`, while &lt;/div&gt; returns `true`.
-	 *
+	 * 
 	 * @return {Boolean}
 	 */
 	isClosing : function() {
 		return this.closing;
 	}
-
+	
 } );
 /*global Autolinker */
 /**
  * @class Autolinker.htmlParser.EntityNode
  * @extends Autolinker.htmlParser.HtmlNode
- *
+ * 
  * Represents a known HTML entity node that has been parsed by the {@link Autolinker.htmlParser.HtmlParser}.
  * Ex: '&amp;nbsp;', or '&amp#160;' (which will be retrievable from the {@link #getText} method.
- *
- * Note that this class will only be returned from the HtmlParser for the set of checked HTML entity nodes
+ * 
+ * Note that this class will only be returned from the HtmlParser for the set of checked HTML entity nodes 
  * defined by the {@link Autolinker.htmlParser.HtmlParser#htmlCharacterEntitiesRegex}.
- *
+ * 
  * See this class's superclass ({@link Autolinker.htmlParser.HtmlNode}) for more details.
  */
 Autolinker.htmlParser.EntityNode = Autolinker.Util.extend( Autolinker.htmlParser.HtmlNode, {
-
+	
 	/**
 	 * Returns a string name for the type of node that this class represents.
-	 *
+	 * 
 	 * @return {String}
 	 */
 	getType : function() {
 		return 'entity';
 	}
-
+	
 } );
 /*global Autolinker */
 /**
  * @class Autolinker.htmlParser.TextNode
  * @extends Autolinker.htmlParser.HtmlNode
- *
+ * 
  * Represents a text node that has been parsed by the {@link Autolinker.htmlParser.HtmlParser}.
- *
+ * 
  * See this class's superclass ({@link Autolinker.htmlParser.HtmlNode}) for more details.
  */
 Autolinker.htmlParser.TextNode = Autolinker.Util.extend( Autolinker.htmlParser.HtmlNode, {
-
+	
 	/**
 	 * Returns a string name for the type of node that this class represents.
-	 *
+	 * 
 	 * @return {String}
 	 */
 	getType : function() {
 		return 'text';
 	}
-
+	
 } );
 /*global Autolinker */
 /**
  * @private
  * @class Autolinker.matchParser.MatchParser
  * @extends Object
- *
- * Used by Autolinker to parse {@link #urls URLs}, {@link #emails email addresses}, and {@link #twitter Twitter handles},
+ * 
+ * Used by Autolinker to parse {@link #urls URLs}, {@link #emails email addresses}, and {@link #twitter Twitter handles}, 
  * given an input string of text.
- *
+ * 
  * The MatchParser is fed a non-HTML string in order to search out URLs, email addresses and Twitter handles. Autolinker
  * first uses the {@link HtmlParser} to "walk around" HTML tags, and then the text around the HTML tags is passed into
  * the MatchParser in order to find the actual matches.
  */
 Autolinker.matchParser.MatchParser = Autolinker.Util.extend( Object, {
-
+	
 	/**
 	 * @cfg {Boolean} urls
-	 *
+	 * 
 	 * `true` if miscellaneous URLs should be automatically linked, `false` if they should not be.
 	 */
 	urls : true,
-
+	
 	/**
 	 * @cfg {Boolean} email
-	 *
+	 * 
 	 * `true` if email addresses should be automatically linked, `false` if they should not be.
 	 */
 	email : true,
-
+	
 	/**
 	 * @cfg {Boolean} twitter
-	 *
+	 * 
 	 * `true` if Twitter handles ("@example") should be automatically linked, `false` if they should not be.
 	 */
 	twitter : true,
-
+	
 	/**
 	 * @cfg {Boolean} stripPrefix
-	 *
+	 * 
 	 * `true` if 'http://' or 'https://' and/or the 'www.' should be stripped from the beginning of URL links' text
 	 * in {@link Autolinker.match.Url URL matches}, `false` otherwise.
-	 *
+	 * 
 	 * TODO: Handle this before a URL Match object is instantiated.
 	 */
 	stripPrefix : true,
-
-
+	
+	
 	/**
 	 * @private
 	 * @property {RegExp} matcherRegex
-	 *
+	 * 
 	 * The regular expression that matches URLs, email addresses, and Twitter handles.
-	 *
+	 * 
 	 * This regular expression has the following capturing groups:
-	 *
-	 * 1. Group that is used to determine if there is a Twitter handle match (i.e. \@someTwitterUser). Simply check for its
-	 *    existence to determine if there is a Twitter handle match. The next couple of capturing groups give information
+	 * 
+	 * 1. Group that is used to determine if there is a Twitter handle match (i.e. \@someTwitterUser). Simply check for its 
+	 *    existence to determine if there is a Twitter handle match. The next couple of capturing groups give information 
 	 *    about the Twitter handle match.
 	 * 2. The whitespace character before the \@sign in a Twitter handle. This is needed because there are no lookbehinds in
 	 *    JS regular expressions, and can be used to reconstruct the original string in a replace().
 	 * 3. The Twitter handle itself in a Twitter match. If the match is '@someTwitterUser', the handle is 'someTwitterUser'.
-	 * 4. Group that matches an email address. Used to determine if the match is an email address, as well as holding the full
+	 * 4. Group that matches an email address. Used to determine if the match is an email address, as well as holding the full 
 	 *    address. Ex: 'me@my.com'
 	 * 5. Group that matches a URL in the input text. Ex: 'http://google.com', 'www.google.com', or just 'google.com'.
 	 *    This also includes a path, url parameters, or hash anchors. Ex: google.com/path/to/file?q1=1&q2=2#myAnchor
 	 * 6. Group that matches a protocol URL (i.e. 'http://google.com'). This is used to match protocol URLs with just a single
 	 *    word, like 'http://localhost', where we won't double check that the domain name has at least one '.' in it.
-	 * 7. A protocol-relative ('//') match for the case of a 'www.' prefixed URL. Will be an empty string if it is not a
+	 * 7. A protocol-relative ('//') match for the case of a 'www.' prefixed URL. Will be an empty string if it is not a 
 	 *    protocol-relative match. We need to know the character before the '//' in order to determine if it is a valid match
 	 *    or the // was in a string we don't want to auto-link.
-	 * 8. A protocol-relative ('//') match for the case of a known TLD prefixed URL. Will be an empty string if it is not a
-	 *    protocol-relative match. See #6 for more info.
+	 * 8. A protocol-relative ('//') match for the case of a known TLD prefixed URL. Will be an empty string if it is not a 
+	 *    protocol-relative match. See #6 for more info. 
 	 */
 	matcherRegex : (function() {
 		var twitterRegex = /(^|[^\w])@(\w{1,15})/,              // For matching a twitter handle. Ex: @gregory_jacobs
-
+		    
 		    emailRegex = /(?:[\-;:&=\+\$,\w\.]+@)/,             // something@ for email addresses (a.k.a. local-part)
-
+		    
 		    protocolRegex = /(?:[A-Za-z][-.+A-Za-z0-9]+:(?![A-Za-z][-.+A-Za-z0-9]+:\/\/)(?!\d+\/?)(?:\/\/)?)/,  // match protocol, allow in format "http://" or "mailto:". However, do not match the first part of something like 'link:http://www.google.com' (i.e. don't match "link:"). Also, make sure we don't interpret 'google.com:8000' as if 'google.com' was a protocol here (i.e. ignore a trailing port number in this regex)
 		    wwwRegex = /(?:www\.)/,                             // starting with 'www.'
 		    domainNameRegex = /[A-Za-z0-9\.\-]*[A-Za-z0-9\-]/,  // anything looking at all like a domain, non-unicode domains, not ending in a period
 		    tldRegex = /\.(?:international|construction|contractors|enterprises|photography|productions|foundation|immobilien|industries|management|properties|technology|christmas|community|directory|education|equipment|institute|marketing|solutions|vacations|bargains|boutique|builders|catering|cleaning|clothing|computer|democrat|diamonds|graphics|holdings|lighting|partners|plumbing|supplies|training|ventures|academy|careers|company|cruises|domains|exposed|flights|florist|gallery|guitars|holiday|kitchen|neustar|okinawa|recipes|rentals|reviews|shiksha|singles|support|systems|agency|berlin|camera|center|coffee|condos|dating|estate|events|expert|futbol|kaufen|luxury|maison|monash|museum|nagoya|photos|repair|report|social|supply|tattoo|tienda|travel|viajes|villas|vision|voting|voyage|actor|build|cards|cheap|codes|dance|email|glass|house|mango|ninja|parts|photo|shoes|solar|today|tokyo|tools|watch|works|aero|arpa|asia|best|bike|blue|buzz|camp|club|cool|coop|farm|fish|gift|guru|info|jobs|kiwi|kred|land|limo|link|menu|mobi|moda|name|pics|pink|post|qpon|rich|ruhr|sexy|tips|vote|voto|wang|wien|wiki|zone|bar|bid|biz|cab|cat|ceo|com|edu|gov|int|kim|mil|net|onl|org|pro|pub|red|tel|uno|wed|xxx|xyz|ac|ad|ae|af|ag|ai|al|am|an|ao|aq|ar|as|at|au|aw|ax|az|ba|bb|bd|be|bf|bg|bh|bi|bj|bm|bn|bo|br|bs|bt|bv|bw|by|bz|ca|cc|cd|cf|cg|ch|ci|ck|cl|cm|cn|co|cr|cu|cv|cw|cx|cy|cz|de|dj|dk|dm|do|dz|ec|ee|eg|er|es|et|eu|fi|fj|fk|fm|fo|fr|ga|gb|gd|ge|gf|gg|gh|gi|gl|gm|gn|gp|gq|gr|gs|gt|gu|gw|gy|hk|hm|hn|hr|ht|hu|id|ie|il|im|in|io|iq|ir|is|it|je|jm|jo|jp|ke|kg|kh|ki|km|kn|kp|kr|kw|ky|kz|la|lb|lc|li|lk|lr|ls|lt|lu|lv|ly|ma|mc|md|me|mg|mh|mk|ml|mm|mn|mo|mp|mq|mr|ms|mt|mu|mv|mw|mx|my|mz|na|nc|ne|nf|ng|ni|nl|no|np|nr|nu|nz|om|pa|pe|pf|pg|ph|pk|pl|pm|pn|pr|ps|pt|pw|py|qa|re|ro|rs|ru|rw|sa|sb|sc|sd|se|sg|sh|si|sj|sk|sl|sm|sn|so|sr|st|su|sv|sx|sy|sz|tc|td|tf|tg|th|tj|tk|tl|tm|tn|to|tp|tr|tt|tv|tw|tz|ua|ug|uk|us|uy|uz|va|vc|ve|vg|vi|vn|vu|wf|ws|ye|yt|za|zm|zw)\b/,   // match our known top level domains (TLDs)
-
+		    
 		    // Allow optional path, query string, and hash anchor, not ending in the following characters: "?!:,.;"
 		    // http://blog.codinghorror.com/the-problem-with-urls/
 		    urlSuffixRegex = /[\-A-Za-z0-9+&@#\/%=~_()|'$*\[\]?!:,.;]*[\-A-Za-z0-9+&@#\/%=~_()|'$*\[\]]/;
-
+		
 		return new RegExp( [
-			'(',  // *** Capturing group $1, which can be used to check for a twitter handle match. Use group $3 for the actual twitter handle though. $2 may be used to reconstruct the original string in a replace()
-				// *** Capturing group $2, which matches the whitespace character before the '@' sign (needed because of no lookbehinds), and
+			'(',  // *** Capturing group $1, which can be used to check for a twitter handle match. Use group $3 for the actual twitter handle though. $2 may be used to reconstruct the original string in a replace() 
+				// *** Capturing group $2, which matches the whitespace character before the '@' sign (needed because of no lookbehinds), and 
 				// *** Capturing group $3, which matches the actual twitter handle
 				twitterRegex.source,
 			')',
-
+			
 			'|',
-
+			
 			'(',  // *** Capturing group $4, which is used to determine an email match
 				emailRegex.source,
 				domainNameRegex.source,
 				tldRegex.source,
 			')',
-
+			
 			'|',
-
+			
 			'(',  // *** Capturing group $5, which is used to match a URL
 				'(?:', // parens to cover match for protocol (optional), and domain
 					'(',  // *** Capturing group $6, for a protocol-prefixed url (ex: http://google.com)
 						protocolRegex.source,
 						domainNameRegex.source,
 					')',
-
+					
 					'|',
-
+					
 					'(?:',  // non-capturing paren for a 'www.' prefixed url (ex: www.google.com)
 						'(.?//)?',  // *** Capturing group $7 for an optional protocol-relative URL. Must be at the beginning of the string or start with a non-word character
 						wwwRegex.source,
 						domainNameRegex.source,
 					')',
-
+					
 					'|',
-
+					
 					'(?:',  // non-capturing paren for known a TLD url (ex: google.com)
 						'(.?//)?',  // *** Capturing group $8 for an optional protocol-relative URL. Must be at the beginning of the string or start with a non-word character
 						domainNameRegex.source,
 						tldRegex.source,
 					')',
 				')',
-
+				
 				'(?:' + urlSuffixRegex.source + ')?',  // match for path, query string, and/or hash anchor - optional
 			')'
 		].join( "" ), 'gi' );
 	} )(),
-
+	
 	/**
 	 * @private
 	 * @property {RegExp} charBeforeProtocolRelMatchRegex
-	 *
+	 * 
 	 * The regular expression used to retrieve the character before a protocol-relative URL match.
-	 *
+	 * 
 	 * This is used in conjunction with the {@link #matcherRegex}, which needs to grab the character before a protocol-relative
 	 * '//' due to the lack of a negative look-behind in JavaScript regular expressions. The character before the match is stripped
 	 * from the URL.
 	 */
 	charBeforeProtocolRelMatchRegex : /^(.)?\/\//,
-
+	
 	/**
 	 * @private
 	 * @property {Autolinker.MatchValidator} matchValidator
-	 *
+	 * 
 	 * The MatchValidator object, used to filter out any false positives from the {@link #matcherRegex}. See
 	 * {@link Autolinker.MatchValidator} for details.
 	 */
-
-
+	
+	
 	/**
 	 * @constructor
 	 * @param {Object} [cfg] The configuration options for the AnchorTagBuilder instance, specified in an Object (map).
 	 */
 	constructor : function( cfg ) {
 		Autolinker.Util.assign( this, cfg );
-
+	
 		this.matchValidator = new Autolinker.MatchValidator();
 	},
-
-
+	
+	
 	/**
 	 * Parses the input `text` to search for URLs/emails/Twitter handles, and calls the `replaceFn`
 	 * to allow replacements of the matches. Returns the `text` with matches replaced.
-	 *
+	 * 
 	 * @param {String} text The text to search and repace matches in.
 	 * @param {Function} replaceFn The iterator function to handle the replacements. The function takes a
 	 *   single argument, a {@link Autolinker.match.Match} object, and should return the text that should
@@ -61402,15 +61446,15 @@ Autolinker.matchParser.MatchParser = Autolinker.Util.extend( Object, {
 	 */
 	replace : function( text, replaceFn, contextObj ) {
 		var me = this;  // for closure
-
+		
 		return text.replace( this.matcherRegex, function( matchStr, $1, $2, $3, $4, $5, $6, $7, $8 ) {
 			var matchDescObj = me.processCandidateMatch( matchStr, $1, $2, $3, $4, $5, $6, $7, $8 );  // "match description" object
-
-			// Return out with no changes for match types that are disabled (url, email, twitter), or for matches that are
+			
+			// Return out with no changes for match types that are disabled (url, email, twitter), or for matches that are 
 			// invalid (false positives from the matcherRegex, which can't use look-behinds since they are unavailable in JS).
 			if( !matchDescObj ) {
 				return matchStr;
-
+				
 			} else {
 				// Generate replacement text for the match from the `replaceFn`
 				var replaceStr = replaceFn.call( contextObj, matchDescObj.match );
@@ -61418,94 +61462,94 @@ Autolinker.matchParser.MatchParser = Autolinker.Util.extend( Object, {
 			}
 		} );
 	},
-
-
+	
+	
 	/**
-	 * Processes a candidate match from the {@link #matcherRegex}.
-	 *
+	 * Processes a candidate match from the {@link #matcherRegex}. 
+	 * 
 	 * Not all matches found by the regex are actual URL/email/Twitter matches, as determined by the {@link #matchValidator}. In
 	 * this case, the method returns `null`. Otherwise, a valid Object with `prefixStr`, `match`, and `suffixStr` is returned.
-	 *
+	 * 
 	 * @private
 	 * @param {String} matchStr The full match that was found by the {@link #matcherRegex}.
 	 * @param {String} twitterMatch The matched text of a Twitter handle, if the match is a Twitter match.
-	 * @param {String} twitterHandlePrefixWhitespaceChar The whitespace char before the @ sign in a Twitter handle match. This
+	 * @param {String} twitterHandlePrefixWhitespaceChar The whitespace char before the @ sign in a Twitter handle match. This 
 	 *   is needed because of no lookbehinds in JS regexes, and is need to re-include the character for the anchor tag replacement.
 	 * @param {String} twitterHandle The actual Twitter user (i.e the word after the @ sign in a Twitter match).
 	 * @param {String} emailAddressMatch The matched email address for an email address match.
 	 * @param {String} urlMatch The matched URL string for a URL match.
 	 * @param {String} protocolUrlMatch The match URL string for a protocol match. Ex: 'http://yahoo.com'. This is used to match
 	 *   something like 'http://localhost', where we won't double check that the domain name has at least one '.' in it.
-	 * @param {String} wwwProtocolRelativeMatch The '//' for a protocol-relative match from a 'www' url, with the character that
+	 * @param {String} wwwProtocolRelativeMatch The '//' for a protocol-relative match from a 'www' url, with the character that 
 	 *   comes before the '//'.
-	 * @param {String} tldProtocolRelativeMatch The '//' for a protocol-relative match from a TLD (top level domain) match, with
+	 * @param {String} tldProtocolRelativeMatch The '//' for a protocol-relative match from a TLD (top level domain) match, with 
 	 *   the character that comes before the '//'.
-	 *
+	 *   
 	 * @return {Object} A "match description object". This will be `null` if the match was invalid, or if a match type is disabled.
 	 *   Otherwise, this will be an Object (map) with the following properties:
 	 * @return {String} return.prefixStr The char(s) that should be prepended to the replacement string. These are char(s) that
-	 *   were needed to be included from the regex match that were ignored by processing code, and should be re-inserted into
+	 *   were needed to be included from the regex match that were ignored by processing code, and should be re-inserted into 
 	 *   the replacement stream.
 	 * @return {String} return.suffixStr The char(s) that should be appended to the replacement string. These are char(s) that
-	 *   were needed to be included from the regex match that were ignored by processing code, and should be re-inserted into
+	 *   were needed to be included from the regex match that were ignored by processing code, and should be re-inserted into 
 	 *   the replacement stream.
 	 * @return {Autolinker.match.Match} return.match The Match object that represents the match that was found.
 	 */
-	processCandidateMatch : function(
-		matchStr, twitterMatch, twitterHandlePrefixWhitespaceChar, twitterHandle,
+	processCandidateMatch : function( 
+		matchStr, twitterMatch, twitterHandlePrefixWhitespaceChar, twitterHandle, 
 		emailAddressMatch, urlMatch, protocolUrlMatch, wwwProtocolRelativeMatch, tldProtocolRelativeMatch
 	) {
-		// Note: The `matchStr` variable wil be fixed up to remove characters that are no longer needed (which will
+		// Note: The `matchStr` variable wil be fixed up to remove characters that are no longer needed (which will 
 		// be added to `prefixStr` and `suffixStr`).
-
+		
 		var protocolRelativeMatch = wwwProtocolRelativeMatch || tldProtocolRelativeMatch,
 		    match,  // Will be an Autolinker.match.Match object
-
+		    
 		    prefixStr = "",       // A string to use to prefix the anchor tag that is created. This is needed for the Twitter handle match
 		    suffixStr = "";       // A string to suffix the anchor tag that is created. This is used if there is a trailing parenthesis that should not be auto-linked.
-
-
-		// Return out with `null` for match types that are disabled (url, email, twitter), or for matches that are
+		    
+		
+		// Return out with `null` for match types that are disabled (url, email, twitter), or for matches that are 
 		// invalid (false positives from the matcherRegex, which can't use look-behinds since they are unavailable in JS).
 		if(
 			( twitterMatch && !this.twitter ) || ( emailAddressMatch && !this.email ) || ( urlMatch && !this.urls ) ||
-			!this.matchValidator.isValidMatch( urlMatch, protocolUrlMatch, protocolRelativeMatch )
+			!this.matchValidator.isValidMatch( urlMatch, protocolUrlMatch, protocolRelativeMatch ) 
 		) {
 			return null;
 		}
-
+		
 		// Handle a closing parenthesis at the end of the match, and exclude it if there is not a matching open parenthesis
-		// in the match itself.
+		// in the match itself. 
 		if( this.matchHasUnbalancedClosingParen( matchStr ) ) {
 			matchStr = matchStr.substr( 0, matchStr.length - 1 );  // remove the trailing ")"
 			suffixStr = ")";  // this will be added after the generated <a> tag
 		}
-
-
+		
+		
 		if( emailAddressMatch ) {
 			match = new Autolinker.match.Email( { matchedText: matchStr, email: emailAddressMatch } );
-
+			
 		} else if( twitterMatch ) {
-			// fix up the `matchStr` if there was a preceding whitespace char, which was needed to determine the match
+			// fix up the `matchStr` if there was a preceding whitespace char, which was needed to determine the match 
 			// itself (since there are no look-behinds in JS regexes)
 			if( twitterHandlePrefixWhitespaceChar ) {
 				prefixStr = twitterHandlePrefixWhitespaceChar;
 				matchStr = matchStr.slice( 1 );  // remove the prefixed whitespace char from the match
 			}
 			match = new Autolinker.match.Twitter( { matchedText: matchStr, twitterHandle: twitterHandle } );
-
+			
 		} else {  // url match
 			// If it's a protocol-relative '//' match, remove the character before the '//' (which the matcherRegex needed
 			// to match due to the lack of a negative look-behind in JavaScript regular expressions)
 			if( protocolRelativeMatch ) {
 				var charBeforeMatch = protocolRelativeMatch.match( this.charBeforeProtocolRelMatchRegex )[ 1 ] || "";
-
+				
 				if( charBeforeMatch ) {  // fix up the `matchStr` if there was a preceding char before a protocol-relative match, which was needed to determine the match itself (since there are no look-behinds in JS regexes)
 					prefixStr = charBeforeMatch;
 					matchStr = matchStr.slice( 1 );  // remove the prefixed char from the match
 				}
 			}
-
+			
 			match = new Autolinker.match.Url( {
 				matchedText : matchStr,
 				url : matchStr,
@@ -61514,47 +61558,47 @@ Autolinker.matchParser.MatchParser = Autolinker.Util.extend( Object, {
 				stripPrefix : this.stripPrefix
 			} );
 		}
-
+		
 		return {
 			prefixStr : prefixStr,
 			suffixStr : suffixStr,
 			match     : match
 		};
 	},
-
-
+	
+	
 	/**
 	 * Determines if a match found has an unmatched closing parenthesis. If so, this parenthesis will be removed
 	 * from the match itself, and appended after the generated anchor tag in {@link #processTextNode}.
-	 *
+	 * 
 	 * A match may have an extra closing parenthesis at the end of the match because the regular expression must include parenthesis
-	 * for URLs such as "wikipedia.com/something_(disambiguation)", which should be auto-linked.
-	 *
+	 * for URLs such as "wikipedia.com/something_(disambiguation)", which should be auto-linked. 
+	 * 
 	 * However, an extra parenthesis *will* be included when the URL itself is wrapped in parenthesis, such as in the case of
-	 * "(wikipedia.com/something_(disambiguation))". In this case, the last closing parenthesis should *not* be part of the URL
+	 * "(wikipedia.com/something_(disambiguation))". In this case, the last closing parenthesis should *not* be part of the URL 
 	 * itself, and this method will return `true`.
-	 *
+	 * 
 	 * @private
 	 * @param {String} matchStr The full match string from the {@link #matcherRegex}.
 	 * @return {Boolean} `true` if there is an unbalanced closing parenthesis at the end of the `matchStr`, `false` otherwise.
 	 */
 	matchHasUnbalancedClosingParen : function( matchStr ) {
 		var lastChar = matchStr.charAt( matchStr.length - 1 );
-
+		
 		if( lastChar === ')' ) {
 			var openParensMatch = matchStr.match( /\(/g ),
 			    closeParensMatch = matchStr.match( /\)/g ),
 			    numOpenParens = ( openParensMatch && openParensMatch.length ) || 0,
 			    numCloseParens = ( closeParensMatch && closeParensMatch.length ) || 0;
-
+			
 			if( numOpenParens < numCloseParens ) {
 				return true;
 			}
 		}
-
+		
 		return false;
 	}
-
+	
 } );
 /*global Autolinker */
 /*jshint scripturl:true */
@@ -61562,77 +61606,77 @@ Autolinker.matchParser.MatchParser = Autolinker.Util.extend( Object, {
  * @private
  * @class Autolinker.MatchValidator
  * @extends Object
- *
+ * 
  * Used by Autolinker to filter out false positives from the {@link Autolinker#matcherRegex}.
- *
+ * 
  * Due to the limitations of regular expressions (including the missing feature of look-behinds in JS regular expressions),
  * we cannot always determine the validity of a given match. This class applies a bit of additional logic to filter out any
  * false positives that have been matched by the {@link Autolinker#matcherRegex}.
  */
 Autolinker.MatchValidator = Autolinker.Util.extend( Object, {
-
+	
 	/**
 	 * @private
 	 * @property {RegExp} invalidProtocolRelMatchRegex
-	 *
-	 * The regular expression used to check a potential protocol-relative URL match, coming from the
+	 * 
+	 * The regular expression used to check a potential protocol-relative URL match, coming from the 
 	 * {@link Autolinker#matcherRegex}. A protocol-relative URL is, for example, "//yahoo.com"
-	 *
-	 * This regular expression checks to see if there is a word character before the '//' match in order to determine if
-	 * we should actually autolink a protocol-relative URL. This is needed because there is no negative look-behind in
-	 * JavaScript regular expressions.
-	 *
-	 * For instance, we want to autolink something like "Go to: //google.com", but we don't want to autolink something
+	 * 
+	 * This regular expression checks to see if there is a word character before the '//' match in order to determine if 
+	 * we should actually autolink a protocol-relative URL. This is needed because there is no negative look-behind in 
+	 * JavaScript regular expressions. 
+	 * 
+	 * For instance, we want to autolink something like "Go to: //google.com", but we don't want to autolink something 
 	 * like "abc//google.com"
 	 */
 	invalidProtocolRelMatchRegex : /^[\w]\/\//,
-
+	
 	/**
 	 * Regex to test for a full protocol, with the two trailing slashes. Ex: 'http://'
-	 *
+	 * 
 	 * @private
 	 * @property {RegExp} hasFullProtocolRegex
 	 */
 	hasFullProtocolRegex : /^[A-Za-z][-.+A-Za-z0-9]+:\/\//,
-
+	
 	/**
 	 * Regex to find the URI scheme, such as 'mailto:'.
-	 *
+	 * 
 	 * This is used to filter out 'javascript:' and 'vbscript:' schemes.
-	 *
+	 * 
 	 * @private
 	 * @property {RegExp} uriSchemeRegex
 	 */
 	uriSchemeRegex : /^[A-Za-z][-.+A-Za-z0-9]+:/,
-
+	
 	/**
 	 * Regex to determine if at least one word char exists after the protocol (i.e. after the ':')
-	 *
+	 * 
 	 * @private
 	 * @property {RegExp} hasWordCharAfterProtocolRegex
 	 */
 	hasWordCharAfterProtocolRegex : /:[^\s]*?[A-Za-z]/,
-
-
+	
+	
 	/**
 	 * Determines if a given match found by {@link Autolinker#processTextNode} is valid. Will return `false` for:
-	 *
-	 * 1) URL matches which do not have at least have one period ('.') in the domain name (effectively skipping over
+	 * 
+	 * 1) URL matches which do not have at least have one period ('.') in the domain name (effectively skipping over 
 	 *    matches like "abc:def"). However, URL matches with a protocol will be allowed (ex: 'http://localhost')
 	 * 2) URL matches which do not have at least one word character in the domain name (effectively skipping over
 	 *    matches like "git:1.0").
-	 * 3) A protocol-relative url match (a URL beginning with '//') whose previous character is a word character
+	 * 3) A protocol-relative url match (a URL beginning with '//') whose previous character is a word character 
 	 *    (effectively skipping over strings like "abc//google.com")
-	 *
+	 * 
 	 * Otherwise, returns `true`.
-	 *
+	 * 
 	 * @param {String} urlMatch The matched URL, if there was one. Will be an empty string if the match is not a URL match.
 	 * @param {String} protocolUrlMatch The match URL string for a protocol match. Ex: 'http://yahoo.com'. This is used to match
 	 *   something like 'http://localhost', where we won't double check that the domain name has at least one '.' in it.
 	 * @param {String} protocolRelativeMatch The protocol-relative string for a URL match (i.e. '//'), possibly with a preceding
 	 *   character (ex, a space, such as: ' //', or a letter, such as: 'a//'). The match is invalid if there is a word character
 	 *   preceding the '//'.
-	 * @return {Boolean} `true` if the match given is valid and should be processed, or `false` if the match is invalid and/or
+	 * @return {Boolean} `true` if the match given is valid and should be processed, or `false` if the match is invalid and/or 
 	 *   should just not be processed.
 	 */
 	isValidMatch : function( urlMatch, protocolUrlMatch, protocolRelativeMatch ) {
@@ -61644,36 +61688,36 @@ Autolinker.MatchValidator = Autolinker.Util.extend( Object, {
 		) {
 			return false;
 		}
-
+		
 		return true;
 	},
-
-
+	
+	
 	/**
-	 * Determines if the URI scheme is a valid scheme to be autolinked. Returns `false` if the scheme is
+	 * Determines if the URI scheme is a valid scheme to be autolinked. Returns `false` if the scheme is 
 	 * 'javascript:' or 'vbscript:'
-	 *
+	 * 
 	 * @private
-	 * @param {String} uriSchemeMatch The match URL string for a full URI scheme match. Ex: 'http://yahoo.com'
+	 * @param {String} uriSchemeMatch The match URL string for a full URI scheme match. Ex: 'http://yahoo.com' 
 	 *   or 'mailto:a@a.com'.
 	 * @return {Boolean} `true` if the scheme is a valid one, `false` otherwise.
 	 */
 	isValidUriScheme : function( uriSchemeMatch ) {
 		var uriScheme = uriSchemeMatch.match( this.uriSchemeRegex )[ 0 ].toLowerCase();
-
+		
 		return ( uriScheme !== 'javascript:' && uriScheme !== 'vbscript:' );
 	},
-
-
+	
+	
 	/**
 	 * Determines if a URL match does not have either:
-	 *
+	 * 
 	 * a) a full protocol (i.e. 'http://'), or
 	 * b) at least one dot ('.') in the domain name (for a non-full-protocol match).
-	 *
+	 * 
 	 * Either situation is considered an invalid URL (ex: 'git:d' does not have either the '://' part, or at least one dot
 	 * in the domain name. If the match was 'git:abc.com', we would consider this valid.)
-	 *
+	 * 
 	 * @private
 	 * @param {String} urlMatch The matched URL, if there was one. Will be an empty string if the match is not a URL match.
 	 * @param {String} protocolUrlMatch The match URL string for a protocol match. Ex: 'http://yahoo.com'. This is used to match
@@ -61684,14 +61728,14 @@ Autolinker.MatchValidator = Autolinker.Util.extend( Object, {
 	urlMatchDoesNotHaveProtocolOrDot : function( urlMatch, protocolUrlMatch ) {
 		return ( !!urlMatch && ( !protocolUrlMatch || !this.hasFullProtocolRegex.test( protocolUrlMatch ) ) && urlMatch.indexOf( '.' ) === -1 );
 	},
-
-
+	
+	
 	/**
 	 * Determines if a URL match does not have at least one word character after the protocol (i.e. in the domain name).
-	 *
-	 * At least one letter character must exist in the domain name after a protocol match. Ex: skip over something
+	 * 
+	 * At least one letter character must exist in the domain name after a protocol match. Ex: skip over something 
 	 * like "git:1.0"
-	 *
+	 * 
 	 * @private
 	 * @param {String} urlMatch The matched URL, if there was one. Will be an empty string if the match is not a URL match.
 	 * @param {String} protocolUrlMatch The match URL string for a protocol match. Ex: 'http://yahoo.com'. This is used to
@@ -61707,13 +61751,13 @@ Autolinker.MatchValidator = Autolinker.Util.extend( Object, {
 			return false;
 		}
 	},
-
-
+	
+	
 	/**
 	 * Determines if a protocol-relative match is an invalid one. This method returns `true` if there is a `protocolRelativeMatch`,
 	 * and that match contains a word character before the '//' (i.e. it must contain whitespace or nothing before the '//' in
 	 * order to be considered valid).
-	 *
+	 * 
 	 * @private
 	 * @param {String} protocolRelativeMatch The protocol-relative string for a URL match (i.e. '//'), possibly with a preceding
 	 *   character (ex, a space, such as: ' //', or a letter, such as: 'a//'). The match is invalid if there is a word character
@@ -61729,43 +61773,43 @@ Autolinker.MatchValidator = Autolinker.Util.extend( Object, {
 /**
  * @abstract
  * @class Autolinker.match.Match
- *
- * Represents a match found in an input string which should be Autolinked. A Match object is what is provided in a
+ * 
+ * Represents a match found in an input string which should be Autolinked. A Match object is what is provided in a 
  * {@link Autolinker#replaceFn replaceFn}, and may be used to query for details about the match.
- *
+ * 
  * For example:
- *
+ * 
  *     var input = "...";  // string with URLs, Email Addresses, and Twitter Handles
- *
+ *     
  *     var linkedText = Autolinker.link( input, {
  *         replaceFn : function( autolinker, match ) {
  *             console.log( "href = ", match.getAnchorHref() );
  *             console.log( "text = ", match.getAnchorText() );
- *
+ *         
  *             switch( match.getType() ) {
- *                 case 'url' :
+ *                 case 'url' : 
  *                     console.log( "url: ", match.getUrl() );
- *
+ *                     
  *                 case 'email' :
  *                     console.log( "email: ", match.getEmail() );
- *
+ *                     
  *                 case 'twitter' :
  *                     console.log( "twitter: ", match.getTwitterHandle() );
  *             }
  *         }
  *     } );
- *
+ *     
  * See the {@link Autolinker} class for more details on using the {@link Autolinker#replaceFn replaceFn}.
  */
 Autolinker.match.Match = Autolinker.Util.extend( Object, {
-
+	
 	/**
 	 * @cfg {String} matchedText (required)
-	 *
+	 * 
 	 * The original text that was matched.
 	 */
-
-
+	
+	
 	/**
 	 * @constructor
 	 * @param {Object} cfg The configuration properties for the Match instance, specified in an Object (map).
@@ -61774,38 +61818,38 @@ Autolinker.match.Match = Autolinker.Util.extend( Object, {
 		Autolinker.Util.assign( this, cfg );
 	},
 
-
+	
 	/**
 	 * Returns a string name for the type of match that this class represents.
-	 *
+	 * 
 	 * @abstract
 	 * @return {String}
 	 */
 	getType : Autolinker.Util.abstractMethod,
-
-
+	
+	
 	/**
 	 * Returns the original text that was matched.
-	 *
+	 * 
 	 * @return {String}
 	 */
 	getMatchedText : function() {
 		return this.matchedText;
 	},
-
+	
 
 	/**
 	 * Returns the anchor href that should be generated for the match.
-	 *
+	 * 
 	 * @abstract
 	 * @return {String}
 	 */
 	getAnchorHref : Autolinker.Util.abstractMethod,
-
-
+	
+	
 	/**
 	 * Returns the anchor text that should be generated for the match.
-	 *
+	 * 
 	 * @abstract
 	 * @return {String}
 	 */
@@ -61816,232 +61860,232 @@ Autolinker.match.Match = Autolinker.Util.extend( Object, {
 /**
  * @class Autolinker.match.Email
  * @extends Autolinker.match.Match
- *
+ * 
  * Represents a Email match found in an input string which should be Autolinked.
- *
+ * 
  * See this class's superclass ({@link Autolinker.match.Match}) for more details.
  */
 Autolinker.match.Email = Autolinker.Util.extend( Autolinker.match.Match, {
-
+	
 	/**
 	 * @cfg {String} email (required)
-	 *
+	 * 
 	 * The email address that was matched.
 	 */
-
+	
 
 	/**
 	 * Returns a string name for the type of match that this class represents.
-	 *
+	 * 
 	 * @return {String}
 	 */
 	getType : function() {
 		return 'email';
 	},
-
-
+	
+	
 	/**
 	 * Returns the email address that was matched.
-	 *
+	 * 
 	 * @return {String}
 	 */
 	getEmail : function() {
 		return this.email;
 	},
-
+	
 
 	/**
 	 * Returns the anchor href that should be generated for the match.
-	 *
+	 * 
 	 * @return {String}
 	 */
 	getAnchorHref : function() {
 		return 'mailto:' + this.email;
 	},
-
-
+	
+	
 	/**
 	 * Returns the anchor text that should be generated for the match.
-	 *
+	 * 
 	 * @return {String}
 	 */
 	getAnchorText : function() {
 		return this.email;
 	}
-
+	
 } );
 /*global Autolinker */
 /**
  * @class Autolinker.match.Twitter
  * @extends Autolinker.match.Match
- *
+ * 
  * Represents a Twitter match found in an input string which should be Autolinked.
- *
+ * 
  * See this class's superclass ({@link Autolinker.match.Match}) for more details.
  */
 Autolinker.match.Twitter = Autolinker.Util.extend( Autolinker.match.Match, {
-
+	
 	/**
 	 * @cfg {String} twitterHandle (required)
-	 *
+	 * 
 	 * The Twitter handle that was matched.
 	 */
-
+	
 
 	/**
 	 * Returns the type of match that this class represents.
-	 *
+	 * 
 	 * @return {String}
 	 */
 	getType : function() {
 		return 'twitter';
 	},
-
-
+	
+	
 	/**
 	 * Returns a string name for the type of match that this class represents.
-	 *
+	 * 
 	 * @return {String}
 	 */
 	getTwitterHandle : function() {
 		return this.twitterHandle;
 	},
-
+	
 
 	/**
 	 * Returns the anchor href that should be generated for the match.
-	 *
+	 * 
 	 * @return {String}
 	 */
 	getAnchorHref : function() {
 		return 'https://twitter.com/' + this.twitterHandle;
 	},
-
-
+	
+	
 	/**
 	 * Returns the anchor text that should be generated for the match.
-	 *
+	 * 
 	 * @return {String}
 	 */
 	getAnchorText : function() {
 		return '@' + this.twitterHandle;
 	}
-
+	
 } );
 /*global Autolinker */
 /**
  * @class Autolinker.match.Url
  * @extends Autolinker.match.Match
- *
+ * 
  * Represents a Url match found in an input string which should be Autolinked.
- *
+ * 
  * See this class's superclass ({@link Autolinker.match.Match}) for more details.
  */
 Autolinker.match.Url = Autolinker.Util.extend( Autolinker.match.Match, {
-
+	
 	/**
 	 * @cfg {String} url (required)
-	 *
+	 * 
 	 * The url that was matched.
 	 */
-
+	
 	/**
 	 * @cfg {Boolean} protocolUrlMatch (required)
-	 *
+	 * 
 	 * `true` if the URL is a match which already has a protocol (i.e. 'http://'), `false` if the match was from a 'www' or
 	 * known TLD match.
 	 */
-
+	
 	/**
 	 * @cfg {Boolean} protocolRelativeMatch (required)
-	 *
+	 * 
 	 * `true` if the URL is a protocol-relative match. A protocol-relative match is a URL that starts with '//',
 	 * and will be either http:// or https:// based on the protocol that the site is loaded under.
 	 */
-
+	
 	/**
 	 * @cfg {Boolean} stripPrefix (required)
 	 * @inheritdoc Autolinker#stripPrefix
 	 */
-
+	
 
 	/**
 	 * @private
 	 * @property {RegExp} urlPrefixRegex
-	 *
+	 * 
 	 * A regular expression used to remove the 'http://' or 'https://' and/or the 'www.' from URLs.
 	 */
 	urlPrefixRegex: /^(https?:\/\/)?(www\.)?/i,
-
+	
 	/**
 	 * @private
 	 * @property {RegExp} protocolRelativeRegex
-	 *
+	 * 
 	 * The regular expression used to remove the protocol-relative '//' from the {@link #url} string, for purposes
 	 * of {@link #getAnchorText}. A protocol-relative URL is, for example, "//yahoo.com"
 	 */
 	protocolRelativeRegex : /^\/\//,
-
+	
 	/**
 	 * @private
 	 * @property {Boolean} protocolPrepended
-	 *
+	 * 
 	 * Will be set to `true` if the 'http://' protocol has been prepended to the {@link #url} (because the
 	 * {@link #url} did not have a protocol)
 	 */
 	protocolPrepended : false,
-
+	
 
 	/**
 	 * Returns a string name for the type of match that this class represents.
-	 *
+	 * 
 	 * @return {String}
 	 */
 	getType : function() {
 		return 'url';
 	},
-
-
+	
+	
 	/**
 	 * Returns the url that was matched, assuming the protocol to be 'http://' if the original
 	 * match was missing a protocol.
-	 *
+	 * 
 	 * @return {String}
 	 */
 	getUrl : function() {
 		var url = this.url;
-
+		
 		// if the url string doesn't begin with a protocol, assume 'http://'
 		if( !this.protocolRelativeMatch && !this.protocolUrlMatch && !this.protocolPrepended ) {
 			url = this.url = 'http://' + url;
-
+			
 			this.protocolPrepended = true;
 		}
-
+		
 		return url;
 	},
-
+	
 
 	/**
 	 * Returns the anchor href that should be generated for the match.
-	 *
+	 * 
 	 * @return {String}
 	 */
 	getAnchorHref : function() {
 		var url = this.getUrl();
-
-		return url.replace( /&amp;/g, '&' );  // any &amp;'s in the URL should be converted back to '&' if they were displayed as &amp; in the source html
+		
+		return url.replace( /&amp;/g, '&' );  // any &amp;'s in the URL should be converted back to '&' if they were displayed as &amp; in the source html 
 	},
-
-
+	
+	
 	/**
 	 * Returns the anchor text that should be generated for the match.
-	 *
+	 * 
 	 * @return {String}
 	 */
 	getAnchorText : function() {
 		var anchorText = this.getUrl();
-
+		
 		if( this.protocolRelativeMatch ) {
 			// Strip off any protocol-relative '//' from the anchor text
 			anchorText = this.stripProtocolRelativePrefix( anchorText );
@@ -62050,18 +62094,18 @@ Autolinker.match.Url = Autolinker.Util.extend( Autolinker.match.Match, {
 			anchorText = this.stripUrlPrefix( anchorText );
 		}
 		anchorText = this.removeTrailingSlash( anchorText );  // remove trailing slash, if there is one
-
+		
 		return anchorText;
 	},
-
-
+	
+	
 	// ---------------------------------------
-
+	
 	// Utility Functionality
-
+	
 	/**
 	 * Strips the URL prefix (such as "http://" or "https://") from the given text.
-	 *
+	 * 
 	 * @private
 	 * @param {String} text The text of the anchor that is being generated, for which to strip off the
 	 *   url prefix (such as stripping off "http://")
@@ -62070,11 +62114,11 @@ Autolinker.match.Url = Autolinker.Util.extend( Autolinker.match.Match, {
 	stripUrlPrefix : function( text ) {
 		return text.replace( this.urlPrefixRegex, '' );
 	},
-
-
+	
+	
 	/**
 	 * Strips any protocol-relative '//' from the anchor text.
-	 *
+	 * 
 	 * @private
 	 * @param {String} text The text of the anchor that is being generated, for which to strip off the
 	 *   protocol-relative prefix (such as stripping off "//")
@@ -62083,11 +62127,11 @@ Autolinker.match.Url = Autolinker.Util.extend( Autolinker.match.Match, {
 	stripProtocolRelativePrefix : function( text ) {
 		return text.replace( this.protocolRelativeRegex, '' );
 	},
-
-
+	
+	
 	/**
 	 * Removes any trailing slash from the given `anchorText`, in preparation for the text to be displayed.
-	 *
+	 * 
 	 * @private
 	 * @param {String} anchorText The text of the anchor that is being generated, for which to remove any trailing
 	 *   slash ('/') that may exist.
@@ -62099,7 +62143,7 @@ Autolinker.match.Url = Autolinker.Util.extend( Autolinker.match.Match, {
 		}
 		return anchorText;
 	}
-
+	
 } );
 return Autolinker;
 
@@ -62107,7 +62151,7 @@ return Autolinker;
 
 
 /***/ }),
-/* 371 */
+/* 372 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62118,25 +62162,25 @@ return Autolinker;
  */
 
 var Ruler      = __webpack_require__(55);
-var StateBlock = __webpack_require__(372);
+var StateBlock = __webpack_require__(373);
 
 /**
  * Parser rules
  */
 
 var _rules = [
-  [ 'code',       __webpack_require__(373) ],
-  [ 'fences',     __webpack_require__(374),     [ 'paragraph', 'blockquote', 'list' ] ],
-  [ 'blockquote', __webpack_require__(375), [ 'paragraph', 'blockquote', 'list' ] ],
-  [ 'hr',         __webpack_require__(376),         [ 'paragraph', 'blockquote', 'list' ] ],
-  [ 'list',       __webpack_require__(377),       [ 'paragraph', 'blockquote' ] ],
-  [ 'footnote',   __webpack_require__(378),   [ 'paragraph' ] ],
-  [ 'heading',    __webpack_require__(379),    [ 'paragraph', 'blockquote' ] ],
-  [ 'lheading',   __webpack_require__(380) ],
-  [ 'htmlblock',  __webpack_require__(381),  [ 'paragraph', 'blockquote' ] ],
-  [ 'table',      __webpack_require__(383),      [ 'paragraph' ] ],
-  [ 'deflist',    __webpack_require__(384),    [ 'paragraph' ] ],
-  [ 'paragraph',  __webpack_require__(385) ]
+  [ 'code',       __webpack_require__(374) ],
+  [ 'fences',     __webpack_require__(375),     [ 'paragraph', 'blockquote', 'list' ] ],
+  [ 'blockquote', __webpack_require__(376), [ 'paragraph', 'blockquote', 'list' ] ],
+  [ 'hr',         __webpack_require__(377),         [ 'paragraph', 'blockquote', 'list' ] ],
+  [ 'list',       __webpack_require__(378),       [ 'paragraph', 'blockquote' ] ],
+  [ 'footnote',   __webpack_require__(379),   [ 'paragraph' ] ],
+  [ 'heading',    __webpack_require__(380),    [ 'paragraph', 'blockquote' ] ],
+  [ 'lheading',   __webpack_require__(381) ],
+  [ 'htmlblock',  __webpack_require__(382),  [ 'paragraph', 'blockquote' ] ],
+  [ 'table',      __webpack_require__(384),      [ 'paragraph' ] ],
+  [ 'deflist',    __webpack_require__(385),    [ 'paragraph' ] ],
+  [ 'paragraph',  __webpack_require__(386) ]
 ];
 
 /**
@@ -62269,7 +62313,7 @@ module.exports = ParserBlock;
 
 
 /***/ }),
-/* 372 */
+/* 373 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62434,7 +62478,7 @@ module.exports = StateBlock;
 
 
 /***/ }),
-/* 373 */
+/* 374 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62477,7 +62521,7 @@ module.exports = function code(state, startLine, endLine/*, silent*/) {
 
 
 /***/ }),
-/* 374 */
+/* 375 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62575,7 +62619,7 @@ module.exports = function fences(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 375 */
+/* 376 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62715,7 +62759,7 @@ module.exports = function blockquote(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 376 */
+/* 377 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62767,7 +62811,7 @@ module.exports = function hr(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 377 */
+/* 378 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63040,7 +63084,7 @@ module.exports = function list(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 378 */
+/* 379 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63114,7 +63158,7 @@ module.exports = function footnote(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 379 */
+/* 380 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63179,7 +63223,7 @@ module.exports = function heading(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 380 */
+/* 381 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63241,7 +63285,7 @@ module.exports = function lheading(state, startLine, endLine/*, silent*/) {
 
 
 /***/ }),
-/* 381 */
+/* 382 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63250,7 +63294,7 @@ module.exports = function lheading(state, startLine, endLine/*, silent*/) {
 
 
 
-var block_names = __webpack_require__(382);
+var block_names = __webpack_require__(383);
 
 
 var HTML_TAG_OPEN_RE = /^<([a-zA-Z]{1,15})[\s\/>]/;
@@ -63322,7 +63366,7 @@ module.exports = function htmlblock(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 382 */
+/* 383 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63391,7 +63435,7 @@ module.exports = html_blocks;
 
 
 /***/ }),
-/* 383 */
+/* 384 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63536,7 +63580,7 @@ module.exports = function table(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 384 */
+/* 385 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63750,7 +63794,7 @@ module.exports = function deflist(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 385 */
+/* 386 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63816,7 +63860,7 @@ module.exports = function paragraph(state, startLine/*, endLine*/) {
 
 
 /***/ }),
-/* 386 */
+/* 387 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63827,7 +63871,7 @@ module.exports = function paragraph(state, startLine/*, endLine*/) {
  */
 
 var Ruler       = __webpack_require__(55);
-var StateInline = __webpack_require__(84);
+var StateInline = __webpack_require__(86);
 var utils       = __webpack_require__(13);
 
 /**
@@ -63835,22 +63879,22 @@ var utils       = __webpack_require__(13);
  */
 
 var _rules = [
-  [ 'text',            __webpack_require__(387) ],
-  [ 'newline',         __webpack_require__(388) ],
-  [ 'escape',          __webpack_require__(389) ],
-  [ 'backticks',       __webpack_require__(390) ],
-  [ 'del',             __webpack_require__(391) ],
-  [ 'ins',             __webpack_require__(392) ],
-  [ 'mark',            __webpack_require__(393) ],
-  [ 'emphasis',        __webpack_require__(394) ],
-  [ 'sub',             __webpack_require__(395) ],
-  [ 'sup',             __webpack_require__(396) ],
-  [ 'links',           __webpack_require__(397) ],
-  [ 'footnote_inline', __webpack_require__(398) ],
-  [ 'footnote_ref',    __webpack_require__(399) ],
-  [ 'autolink',        __webpack_require__(400) ],
-  [ 'htmltag',         __webpack_require__(402) ],
-  [ 'entity',          __webpack_require__(404) ]
+  [ 'text',            __webpack_require__(388) ],
+  [ 'newline',         __webpack_require__(389) ],
+  [ 'escape',          __webpack_require__(390) ],
+  [ 'backticks',       __webpack_require__(391) ],
+  [ 'del',             __webpack_require__(392) ],
+  [ 'ins',             __webpack_require__(393) ],
+  [ 'mark',            __webpack_require__(394) ],
+  [ 'emphasis',        __webpack_require__(395) ],
+  [ 'sub',             __webpack_require__(396) ],
+  [ 'sup',             __webpack_require__(397) ],
+  [ 'links',           __webpack_require__(398) ],
+  [ 'footnote_inline', __webpack_require__(399) ],
+  [ 'footnote_ref',    __webpack_require__(400) ],
+  [ 'autolink',        __webpack_require__(401) ],
+  [ 'htmltag',         __webpack_require__(403) ],
+  [ 'entity',          __webpack_require__(405) ]
 ];
 
 /**
@@ -63984,7 +64028,7 @@ module.exports = ParserInline;
 
 
 /***/ }),
-/* 387 */
+/* 388 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64043,7 +64087,7 @@ module.exports = function text(state, silent) {
 
 
 /***/ }),
-/* 388 */
+/* 389 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64104,7 +64148,7 @@ module.exports = function newline(state, silent) {
 
 
 /***/ }),
-/* 389 */
+/* 390 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64160,7 +64204,7 @@ module.exports = function escape(state, silent) {
 
 
 /***/ }),
-/* 390 */
+/* 391 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64213,7 +64257,7 @@ module.exports = function backticks(state, silent) {
 
 
 /***/ }),
-/* 391 */
+/* 392 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64304,7 +64348,7 @@ module.exports = function del(state, silent) {
 
 
 /***/ }),
-/* 392 */
+/* 393 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64395,7 +64439,7 @@ module.exports = function ins(state, silent) {
 
 
 /***/ }),
-/* 393 */
+/* 394 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64486,7 +64530,7 @@ module.exports = function del(state, silent) {
 
 
 /***/ }),
-/* 394 */
+/* 395 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64642,7 +64686,7 @@ module.exports = function emphasis(state, silent) {
 
 
 /***/ }),
-/* 395 */
+/* 396 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64707,7 +64751,7 @@ module.exports = function sub(state, silent) {
 
 
 /***/ }),
-/* 396 */
+/* 397 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64772,7 +64816,7 @@ module.exports = function sup(state, silent) {
 
 
 /***/ }),
-/* 397 */
+/* 398 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64781,9 +64825,9 @@ module.exports = function sup(state, silent) {
 
 
 var parseLinkLabel       = __webpack_require__(56);
-var parseLinkDestination = __webpack_require__(145);
-var parseLinkTitle       = __webpack_require__(147);
-var normalizeReference   = __webpack_require__(148);
+var parseLinkDestination = __webpack_require__(146);
+var parseLinkTitle       = __webpack_require__(148);
+var normalizeReference   = __webpack_require__(149);
 
 
 module.exports = function links(state, silent) {
@@ -64949,7 +64993,7 @@ module.exports = function links(state, silent) {
 
 
 /***/ }),
-/* 398 */
+/* 399 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65009,7 +65053,7 @@ module.exports = function footnote_inline(state, silent) {
 
 
 /***/ }),
-/* 399 */
+/* 400 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65078,7 +65122,7 @@ module.exports = function footnote_ref(state, silent) {
 
 
 /***/ }),
-/* 400 */
+/* 401 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65086,8 +65130,8 @@ module.exports = function footnote_ref(state, silent) {
 
 
 
-var url_schemas   = __webpack_require__(401);
-var normalizeLink = __webpack_require__(146);
+var url_schemas   = __webpack_require__(402);
+var normalizeLink = __webpack_require__(147);
 
 
 /*eslint max-len:0*/
@@ -65163,7 +65207,7 @@ module.exports = function autolink(state, silent) {
 
 
 /***/ }),
-/* 401 */
+/* 402 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65342,7 +65386,7 @@ module.exports = [
 
 
 /***/ }),
-/* 402 */
+/* 403 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65351,7 +65395,7 @@ module.exports = [
 
 
 
-var HTML_TAG_RE = __webpack_require__(403).HTML_TAG_RE;
+var HTML_TAG_RE = __webpack_require__(404).HTML_TAG_RE;
 
 
 function isLetter(ch) {
@@ -65398,7 +65442,7 @@ module.exports = function htmltag(state, silent) {
 
 
 /***/ }),
-/* 403 */
+/* 404 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65464,7 +65508,7 @@ module.exports.HTML_TAG_RE = HTML_TAG_RE;
 
 
 /***/ }),
-/* 404 */
+/* 405 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65472,7 +65516,7 @@ module.exports.HTML_TAG_RE = HTML_TAG_RE;
 
 
 
-var entities          = __webpack_require__(144);
+var entities          = __webpack_require__(145);
 var has               = __webpack_require__(13).has;
 var isValidEntityCode = __webpack_require__(13).isValidEntityCode;
 var fromCodePoint     = __webpack_require__(13).fromCodePoint;
@@ -65519,7 +65563,7 @@ module.exports = function entity(state, silent) {
 
 
 /***/ }),
-/* 405 */
+/* 406 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65606,7 +65650,7 @@ module.exports = {
 
 
 /***/ }),
-/* 406 */
+/* 407 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65651,7 +65695,7 @@ module.exports = {
 
 
 /***/ }),
-/* 407 */
+/* 408 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65729,7 +65773,7 @@ module.exports = {
 
 
 /***/ }),
-/* 408 */
+/* 409 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65753,11 +65797,11 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _resizeObserverPolyfill = __webpack_require__(409);
+var _resizeObserverPolyfill = __webpack_require__(410);
 
 var _resizeObserverPolyfill2 = _interopRequireDefault(_resizeObserverPolyfill);
 
-var _utils = __webpack_require__(410);
+var _utils = __webpack_require__(411);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -66215,7 +66259,7 @@ Slider.defaultProps = {
 exports.default = Slider;
 
 /***/ }),
-/* 409 */
+/* 410 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67248,7 +67292,7 @@ var index = (function () {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(26)))
 
 /***/ }),
-/* 410 */
+/* 411 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67278,37 +67322,6 @@ function capitalize(str) {
  */
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
-}
-
-/***/ }),
-/* 411 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(412);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(414)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../css-loader/index.js!./index.css", function() {
-			var newContent = require("!!../../css-loader/index.js!./index.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
 }
 
 /***/ }),
@@ -67862,7 +67875,121 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 416 */,
+/* 416 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(19);
+
+var _actions = __webpack_require__(27);
+
+var _ItemCard = __webpack_require__(144);
+
+var _helpers = __webpack_require__(64);
+
+var _Markdown = __webpack_require__(85);
+
+var _items = __webpack_require__(43);
+
+var _reactRangeslider = __webpack_require__(150);
+
+var _reactRangeslider2 = _interopRequireDefault(_reactRangeslider);
+
+__webpack_require__(151);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var createHandlers = function createHandlers(dispatch, interview) {
+  var handleChange = function handleChange(value) {
+    dispatch((0, _actions.setResponse)({
+      key: interview.activeKey,
+      value: value
+    }));
+  };
+  var handleChangeStart = function handleChangeStart() {
+    console.log('Change event started');
+  };
+  var handleChangeComplete = function handleChangeComplete() {
+    console.log('Change event completed');
+  };
+  return {
+    handleChangeStart: handleChangeStart,
+    handleChange: handleChange,
+    handleChangeComplete: handleChangeComplete
+  };
+};
+
+var Horizontal = function (_Component) {
+  _inherits(Horizontal, _Component);
+
+  function Horizontal(props, context, dispatch) {
+    _classCallCheck(this, Horizontal);
+
+    var _this = _possibleConstructorReturn(this, (Horizontal.__proto__ || Object.getPrototypeOf(Horizontal)).call(this, props, context));
+
+    _this.handleChange = function (value) {
+      _this.setState({
+        value: value
+      }), _this.handlers.handleChange(value);
+      _this.props.inputBox.focus();
+    };
+
+    _this.state = {
+      value: 0
+    };
+    _this.handlers = createHandlers(_this.props.dispatch, _this.props.interview);
+    return _this;
+  }
+
+  _createClass(Horizontal, [{
+    key: 'render',
+    value: function render() {
+      var value = this.state.value;
+
+      return _react2.default.createElement(
+        'div',
+        { className: 'slider' },
+        _react2.default.createElement(_reactRangeslider2.default, {
+          min: this.props.min,
+          max: this.props.max,
+          value: value,
+          onChangeStart: this.handlers.handleChangeStart,
+          onChange: this.handleChange,
+          onChangeComplete: this.handlers.handleChangeComplete
+        }),
+        _react2.default.createElement(
+          'div',
+          { className: 'value' },
+          value
+        )
+      );
+    }
+  }]);
+
+  return Horizontal;
+}(_react.Component);
+
+exports.default = (0, _reactRedux.connect)()(Horizontal);
+
+/***/ }),
 /* 417 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -67970,13 +68097,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _data = __webpack_require__(63);
 
-var _items = __webpack_require__(54);
+var _items = __webpack_require__(43);
 
 var _section2Routing = __webpack_require__(422);
 
 var _section2Routing2 = _interopRequireDefault(_section2Routing);
 
-var _Algorithms = __webpack_require__(140);
+var _Algorithms = __webpack_require__(141);
 
 var _Algorithms2 = _interopRequireDefault(_Algorithms);
 
@@ -68115,7 +68242,7 @@ exports.default = settings;
 /***/ (function(module, exports, __webpack_require__) {
 
 var debounce = __webpack_require__(425),
-    isObject = __webpack_require__(85);
+    isObject = __webpack_require__(87);
 
 /** Error message constants. */
 var FUNC_ERROR_TEXT = 'Expected a function';
@@ -68189,7 +68316,7 @@ module.exports = throttle;
 /* 425 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(85),
+var isObject = __webpack_require__(87),
     now = __webpack_require__(426),
     toNumber = __webpack_require__(428);
 
@@ -68385,7 +68512,7 @@ module.exports = debounce;
 /* 426 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var root = __webpack_require__(150);
+var root = __webpack_require__(152);
 
 /**
  * Gets the timestamp of the number of milliseconds that have elapsed since
@@ -68425,7 +68552,7 @@ module.exports = freeGlobal;
 /* 428 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(85),
+var isObject = __webpack_require__(87),
     isSymbol = __webpack_require__(429);
 
 /** Used as references for various `Number` constants. */
@@ -68532,7 +68659,7 @@ module.exports = isSymbol;
 /* 430 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(151),
+var Symbol = __webpack_require__(153),
     getRawTag = __webpack_require__(431),
     objectToString = __webpack_require__(432);
 
@@ -68566,7 +68693,7 @@ module.exports = baseGetTag;
 /* 431 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(151);
+var Symbol = __webpack_require__(153);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
