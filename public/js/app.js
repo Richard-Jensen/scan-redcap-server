@@ -34769,6 +34769,8 @@ var _SearchItems = __webpack_require__(352);
 
 var _Response = __webpack_require__(356);
 
+var _Response2 = _interopRequireDefault(_Response);
+
 var _actions = __webpack_require__(27);
 
 var _items = __webpack_require__(43);
@@ -34853,7 +34855,11 @@ var Scan = function (_Component) {
           _react2.default.createElement(
             'div',
             { className: 'interview-item' },
-            _react2.default.createElement(_Response.ResponseContainer, null)
+            _react2.default.createElement(_Response2.default, {
+              dispatch: this.props.dispatch,
+              interview: this.props.interview,
+              settings: this.props.settings
+            })
           )
         )
       );
@@ -57949,9 +57955,10 @@ module.exports = {"1":{"options":{"0":"This is a positive rating of absence. It 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ResponseContainer = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
 
@@ -57981,254 +57988,613 @@ var _Horizontal2 = _interopRequireDefault(_Horizontal);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*import React, { Fragment, Component } from 'react';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               import { connect } from 'react-redux';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               import { setActiveItem, setResponse, setNote } from '../actions';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               import { ItemCard } from './ItemCard';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               import { validateNumeric, isValueWithinWholeRangeOfRules } from '../lib/helpers';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               import { Markdown } from './Markdown';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               import { items, scales, getItemByKey } from '../items';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               import Slider from 'react-rangeslider';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               import 'react-rangeslider/lib/index.css';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               import Horizontal from './Horizontal';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               var previousValue = 0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               var currentPos = 0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               var sliderVal = 0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               // TODO: Make this a class extending Component
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               const Response = ({ dispatch, interview, settings }) => {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 let item = getItemByKey(interview.activeKey);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 let inputBox = React.createRef();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 if (!item) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   return <div>No item found</div>;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 let input = item.input;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 let hasScale = item.scale;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 if (hasScale && scales[item.scale]) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   const scale = scales[item.scale];
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   item = {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ...item,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     options: scale.options,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     validate: scale.validate,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     input: scale.input
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   };
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 let hasPeriods = true; // default periods to true
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 if (item.periods === 'false') hasPeriods = false;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 if (input === 'date' || input === 'date_interval') {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   hasPeriods = false;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 if (input === 'integer') {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   input = 'number';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 if (input === 'string') {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   input = 'text';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 let response = (interview.responses && interview.responses[item.key]) || '';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 const note = (interview.notes && interview.notes[item.key]) || '';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 const hasInput = input || item.scale;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 const showGlossary = settings.showGlossary && item.glossary;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 // Compare function, used to sort the upcomming Options array, so that for example 0-799 is smaller than 800
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 // TODO: This only correctly sorts if x is an interval with values less than y. Currently a complete hack.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 function compareKey(x,y) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   if (x < y) return -1;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   if (x === y) return 0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   if (x > y) return 1;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 //Array containing the options, as pairs with 0th enntry the key, and second entry the description.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 const Options = [];
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 if (item.options) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Object.keys(item.options).map(key =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     Options.push(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       [key, item.options[key]]
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       )
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     );
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Options.sort(compareKey);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 // Function returning the index of a possible element in an array.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 function getIndex(value, arr) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   for(var i = 0; i < arr.length; i++) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     if(arr[i] === value) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       return i;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   return -1; //to handle the case where the value doesn't exist
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 // Function returning the index of a possible element in an array, given that the array contains lists with at least 1 element..
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 function getIndex_0(value, arr) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   for(var i = 0; i < arr.length; i++) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     if(arr[i][0] === value) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       return i;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   return -1; //to handle the case where the value doesn't exist
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 function isActive(response, pair, input) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   if (response === pair[0]) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     return <b>{input}</b>;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   else {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     return input;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 function write(response, pair) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   if (pair[0].includes("-")) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   //var inputBox = document.getElementById("ResponseInput")
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   return ([
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <b>{pair[0] + " "}</b>,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <Horizontal
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     id='Slider'
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     min={
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       parseInt(pair[0].split('-')[0])
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     max={
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       parseInt(pair[0].split('-')[1])
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     interview={interview}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     inputBox={inputBox}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 else {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  return ([
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   <b>{pair[0] + " "}</b>,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   isActive(response,pair, pair[1])
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                // Handler for when changing Slider
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                // Returns the specific interview item.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                return (
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <div key={item.key} className="interview-item-container">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <div style={{ flex: 1 }}>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <ItemCard item={item} />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 {item.options &&
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Options.map(pair => (
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <div
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     key={pair[0]}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     className="interview-response-list"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     onClick={() => {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       currentPos = getIndex(pair, Options)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       if (pair[0].includes("-")) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         //So far, the Horizontal class handles all this
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       else {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         dispatch(setResponse({ key: item.key, value: pair[0] }))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       inputBox.current.focus()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   {write(response,pair)}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ))}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   {item.scale && (
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     Scale: <strong>{item.scale}</strong>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     )}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   {hasInput && (
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <Fragment>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <label htmlFor="response">Response</label>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <input
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     type={input}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     className={`interview-input interview-input-${input}`}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     id="ResponseInput"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     name="response"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ref={inputBox}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     onKeyDown={event =>{
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         //Keycode 38 is arrow key up, 40 is down
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         if(event.keyCode==38) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           if (currentPos === (Options.length - 1)) {return;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           else {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             dispatch(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               setResponse({
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 key: item.key,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 value: Options[currentPos + 1][0]
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               })
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               );
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             event.preventDefault();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             currentPos++;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         else if (event.keyCode==40){
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           dispatch(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             setResponse({
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               key: item.key,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               value: Options[currentPos - 1][0]
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             })
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             );
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           event.preventDefault();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           currentPos--;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       else {return;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     onChange={event => {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       if (item.validate && validateNumeric(event.target.value, pair[0])) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         dispatch(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           setResponse({
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             key: item.key,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             value: event.target.value
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           })
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           );
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         currentPos = getIndex_0(event.target.value, Options);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       else if (!item.validate) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         dispatch(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           setResponse({
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             key: item.key,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             value: event.target.value
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           })
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           );
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       }}}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       placeholder={item.validate}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       value={response}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       autoFocus
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       {settings.showItemNotes && (
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         <textarea
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         onChange={event =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           dispatch(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             setNote({ key: item.key, value: event.target.value })
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             )
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         defaultValue={note}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         placeholder="Note"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         )}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </Fragment>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       )}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   {showGlossary && (
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <div className="interview-item-glossary">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <strong>Glossary</strong>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <Markdown source={item.glossary} style={{ height: '100%' }} />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     )}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   );
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               };
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               export const ResponseContainer = connect(state => state)(Response);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               const manualInputChange = (value,valid) =>{
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 if (
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   valid &&
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   validateNumeric(value, valid)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   dispatch(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     setResponse({
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       key: item.key,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       value: value
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     })
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     );
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               } else if (!valid) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 dispatch(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   setResponse({
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     key: item.key,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     value: value
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   })
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   );
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               };*/
+
 var previousValue = 0;
 var currentPos = 0;
 var sliderVal = 0;
 
-// TODO: Make this a class extending Component
+// Now it is actually a class!
 
-var Response = function Response(_ref) {
-  var dispatch = _ref.dispatch,
-      interview = _ref.interview,
-      settings = _ref.settings;
+var Response = function (_React$Component) {
+  _inherits(Response, _React$Component);
 
-  var item = (0, _items.getItemByKey)(interview.activeKey);
-  var inputBox = _react2.default.createRef();
+  function Response(props) {
+    _classCallCheck(this, Response);
 
-  if (!item) {
-    return _react2.default.createElement(
-      'div',
-      null,
-      'No item found'
-    );
+    var _this = _possibleConstructorReturn(this, (Response.__proto__ || Object.getPrototypeOf(Response)).call(this, props));
+
+    _this.write = function (response, pair) {
+      if (pair[0].includes("-")) {
+        return [_react2.default.createElement(
+          'b',
+          null,
+          pair[0] + " "
+        ), _react2.default.createElement(_Horizontal2.default, {
+          id: 'Slider',
+          responseValue: this.state.value,
+          min: parseInt(pair[0].split('-')[0]),
+          max: parseInt(pair[0].split('-')[1]),
+          ref: this.slider,
+          response: this,
+          interview: this.props.interview,
+          inputBox: this.inputBox
+        })];
+      } else {
+        return [_react2.default.createElement(
+          'b',
+          null,
+          pair[0] + " "
+        ), this.isActive(response, pair, pair[1])];
+      }
+    };
+
+    _this.handleChangeStart = function () {
+      console.log('Change event started');
+    };
+
+    _this.handleChange = function (value) {
+      dispatch((0, _actions.setResponse)({
+        key: this.interview.activeKey,
+        value: value
+      }));
+    };
+
+    _this.handleChangeComplete = function () {
+      console.log('Change event completed');
+    };
+
+    _this.getIndex = function (value, arr) {
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i] === value) {
+          return i;
+        }
+      }
+      return -1; //to handle the case where the value doesn't exist
+    };
+
+    _this.getIndex_0 = function (value, arr) {
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i][0] === value) {
+          return i;
+        }
+      }
+      return -1; //to handle the case where the value doesn't exist
+    };
+
+    _this.isActive = function (response, pair, input) {
+      if (response === pair[0]) {
+        return _react2.default.createElement(
+          'b',
+          null,
+          input
+        );
+      } else {
+        return input;
+      }
+    };
+
+    _this.state = {
+      item: (0, _items.getItemByKey)(_this.props.interview.activeKey),
+      value: 0,
+      slider: null,
+      currentPos: 0
+    };
+    _this.inputBox = _react2.default.createRef();
+    _this.slider = _react2.default.createRef();
+    return _this;
   }
-  var input = item.input;
 
-  var hasScale = item.scale;
-  if (hasScale && _items.scales[item.scale]) {
-    var scale = _items.scales[item.scale];
-    item = _extends({}, item, {
-      options: scale.options,
-      validate: scale.validate,
-      input: scale.input
-    });
-  }
+  // Function to create the options, which can be a Slider
+  // TODO: Unneccessary arguments interview and inputBox
 
-  var hasPeriods = true; // default periods to true
-  if (item.periods === 'false') hasPeriods = false;
-  if (input === 'date' || input === 'date_interval') {
-    hasPeriods = false;
-  }
 
-  if (input === 'integer') {
-    input = 'number';
-  }
-  if (input === 'string') {
-    input = 'text';
-  }
+  //Handler methods for the slider
 
-  var response = interview.responses && interview.responses[item.key] || '';
-
-  var note = interview.notes && interview.notes[item.key] || '';
-  var hasInput = input || item.scale;
-  var showGlossary = settings.showGlossary && item.glossary;
-
-  // Compare function, used to sort the upcomming Options array, so that for example 0-799 is smaller than 800
-  // TODO: This only correctly sorts if x is an interval with values less than y. Currently a complete hack.
-  function compareKey(x, y) {
-    if (x < y) return -1;
-    if (x === y) return 0;
-    if (x > y) return 1;
-  }
-
-  //Array containing the options, as pairs with 0th enntry the key, and second entry the description.
-  var Options = [];
-  if (item.options) {
-    Object.keys(item.options).map(function (key) {
-      return Options.push([key, item.options[key]]);
-    });
-    Options.sort(compareKey);
-  }
 
   // Function returning the index of a possible element in an array.
-  function getIndex(value, arr) {
-    for (var i = 0; i < arr.length; i++) {
-      if (arr[i] === value) {
-        return i;
-      }
-    }
-    return -1; //to handle the case where the value doesn't exist
-  }
+
 
   // Function returning the index of a possible element in an array, given that the array contains lists with at least 1 element..
-  function getIndex_0(value, arr) {
-    for (var i = 0; i < arr.length; i++) {
-      if (arr[i][0] === value) {
-        return i;
-      }
-    }
-    return -1; //to handle the case where the value doesn't exist
-  }
 
-  function isActive(response, pair, input) {
-    if (response === pair[0]) {
-      return _react2.default.createElement(
-        'b',
-        null,
-        input
-      );
-    } else {
-      return input;
-    }
-  }
 
-  function write(response, pair) {
-    if (pair[0].includes("-")) {
-      //var inputBox = document.getElementById("ResponseInput")
-      return [_react2.default.createElement(
-        'b',
-        null,
-        pair[0] + " "
-      ), _react2.default.createElement(_Horizontal2.default, {
-        id: 'Slider',
-        defaultValue: 'Won\'t focus',
-        min: parseInt(pair[0].split('-')[0]),
-        max: parseInt(pair[0].split('-')[1]),
-        interview: interview,
-        inputBox: inputBox
-      })];
-    } else {
-      return [_react2.default.createElement(
-        'b',
-        null,
-        pair[0] + " "
-      ), isActive(response, pair, pair[1])];
-    }
-  }
+  _createClass(Response, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
 
-  // Handler for when changing Slider
+      var dispatch = this.props.dispatch;
+      var interview = this.props.interview;
+      var settings = this.props.settings;
 
-  // Returns the specific interview item.
-  return _react2.default.createElement(
-    'div',
-    { key: item.key, className: 'interview-item-container' },
-    _react2.default.createElement(
-      'div',
-      { style: { flex: 1 } },
-      _react2.default.createElement(_ItemCard.ItemCard, { item: item }),
-      item.options && Options.map(function (pair) {
+      var item = (0, _items.getItemByKey)(interview.activeKey);
+      //let inputBox = React.createRef();
+
+      if (!item) {
         return _react2.default.createElement(
           'div',
-          {
-            key: pair[0],
-            className: 'interview-response-list',
-            onClick: function onClick() {
-              currentPos = getIndex(pair, Options);
-              if (pair[0].includes("-")) {
-                //So far, the Horizontal class handles all this
-              } else {
-                dispatch((0, _actions.setResponse)({ key: item.key, value: pair[0] }));
-              }
-              inputBox.current.focus();
-            }
-          },
-          write(response, pair)
-        );
-      }),
-      item.scale && _react2.default.createElement(
-        'div',
-        null,
-        'Scale: ',
-        _react2.default.createElement(
-          'strong',
           null,
-          item.scale
-        )
-      ),
-      hasInput && _react2.default.createElement(
-        _react.Fragment,
-        null,
+          'No item found'
+        );
+      }
+      var input = item.input;
+
+      var hasScale = item.scale;
+      if (hasScale && _items.scales[item.scale]) {
+        var scale = _items.scales[item.scale];
+        item = _extends({}, item, {
+          options: scale.options,
+          validate: scale.validate,
+          input: scale.input
+        });
+      }
+
+      var hasPeriods = true; // default periods to true
+      if (item.periods === 'false') hasPeriods = false;
+      if (input === 'date' || input === 'date_interval') {
+        hasPeriods = false;
+      }
+
+      if (input === 'integer') {
+        input = 'number';
+      }
+      if (input === 'string') {
+        input = 'text';
+      }
+
+      var response = interview.responses && interview.responses[item.key] || '';
+
+      var note = interview.notes && interview.notes[item.key] || '';
+      var hasInput = input || item.scale;
+      var showGlossary = settings.showGlossary && item.glossary;
+
+      // Compare function, used to sort the upcomming Options array, so that for example 0-799 is smaller than 800
+      // TODO: This only correctly sorts if x is an interval with values less than y. Currently a complete hack.
+      function compareKey(x, y) {
+        if (x < y) return -1;
+        if (x === y) return 0;
+        if (x > y) return 1;
+      }
+
+      //Array containing the options, as pairs with 0th enntry the key, and second entry the description.
+      var Options = [];
+      if (item.options) {
+        Object.keys(item.options).map(function (key) {
+          return Options.push([key, item.options[key]]);
+        });
+        Options.sort(compareKey);
+      }
+
+      // Returns the specific interview item.
+      return _react2.default.createElement(
+        'div',
+        { key: item.key, className: 'interview-item-container' },
         _react2.default.createElement(
-          'label',
-          { htmlFor: 'response' },
-          'Response'
+          'div',
+          { style: { flex: 1 } },
+          _react2.default.createElement(_ItemCard.ItemCard, { item: item }),
+          item.options && Options.map(function (pair) {
+            return _react2.default.createElement(
+              'div',
+              {
+                key: pair[0],
+                className: 'interview-response-list',
+                onClick: function onClick() {
+                  currentPos = _this2.getIndex(pair, Options);
+                  if (pair[0].includes("-")) {
+                    //So far, the Horizontal class handles all this
+                  } else {
+                    dispatch((0, _actions.setResponse)({ key: item.key, value: pair[0] }));
+                  }
+                  _this2.inputBox.current.focus();
+                }
+              },
+              _this2.write(response, pair)
+            );
+          }),
+          item.scale && _react2.default.createElement(
+            'div',
+            null,
+            'Scale: ',
+            _react2.default.createElement(
+              'strong',
+              null,
+              item.scale
+            )
+          ),
+          hasInput && _react2.default.createElement(
+            _react.Fragment,
+            null,
+            _react2.default.createElement(
+              'label',
+              { htmlFor: 'response' },
+              'Response'
+            ),
+            _react2.default.createElement('input', {
+              type: input,
+              className: 'interview-input interview-input-' + input,
+              id: 'ResponseInput',
+              name: 'response',
+              ref: this.inputBox,
+              onKeyDown: function onKeyDown(event) {
+                //Keycode 38 is arrow key up, 40 is down
+                if (event.keyCode == 38) {
+                  if (currentPos === Options.length - 1) {
+                    return;
+                  } else if (currentPos === 0 && !event.shiftKey) {
+                    _this2.setState({
+                      value: _this2.state.value + 1
+                    });
+                    dispatch((0, _actions.setResponse)({
+                      key: item.key,
+                      value: _this2.state.value + 1
+                    }));
+                    event.preventDefault();
+                  } else {
+                    dispatch((0, _actions.setResponse)({
+                      key: item.key,
+                      value: Options[currentPos + 1][0]
+                    }));
+                    event.preventDefault();
+                    currentPos++;
+                  }
+                } else if (event.keyCode == 40) {
+                  if (currentPos === 1) {
+                    dispatch((0, _actions.setResponse)({
+                      key: item.key,
+                      value: _this2.state.value
+                    }));
+                    event.preventDefault();
+                    currentPos--;
+                    _this2.inputBox.current.focus();
+                  } else if (currentPos === 0) {
+                    _this2.setState({
+                      value: _this2.state.value - 1
+                    });
+                    dispatch((0, _actions.setResponse)({
+                      key: item.key,
+                      value: _this2.state.value - 1
+                    }));
+                    event.preventDefault();
+                  } else {
+                    dispatch((0, _actions.setResponse)({
+                      key: item.key,
+                      value: Options[currentPos - 1][0]
+                    }));
+                    event.preventDefault();
+                    currentPos--;
+                  }
+                } else {
+                  return;
+                }
+              },
+              onChange: function onChange(event) {
+                if (item.validate && (0, _helpers.validateNumeric)(event.target.value, Object.keys(item.options))) {
+                  dispatch((0, _actions.setResponse)({
+                    key: item.key,
+                    value: event.target.value
+                  }));
+                  if (event.target.value < 800) {
+                    currentPos = 0;
+                  } else {
+                    currentPos = _this2.getIndex_0(event.target.value, Options);
+                  }
+                  _this2.setState({
+                    value: parseInt(event.target.value)
+                  });
+                } else if (!item.validate) {
+                  dispatch((0, _actions.setResponse)({
+                    key: item.key,
+                    value: event.target.value
+                  }));
+                }
+              },
+
+              placeholder: item.validate,
+              value: response,
+              autoFocus: true
+            }),
+            settings.showItemNotes && _react2.default.createElement('textarea', {
+              onChange: function onChange(event) {
+                return dispatch((0, _actions.setNote)({ key: item.key, value: event.target.value }));
+              },
+              defaultValue: note,
+              placeholder: 'Note'
+            })
+          )
         ),
-        _react2.default.createElement('input', {
-          type: input,
-          className: 'interview-input interview-input-' + input,
-          id: 'ResponseInput',
-          name: 'response',
-          ref: inputBox,
-          onKeyDown: function onKeyDown(event) {
-            //Keycode 38 is arrow key up, 40 is down
-            if (event.keyCode == 38) {
-              if (currentPos === Options.length - 1) {} else {
-                dispatch((0, _actions.setResponse)({
-                  key: item.key,
-                  value: Options[currentPos + 1][0]
-                }));
-                event.preventDefault();
-                currentPos++;
-              }
-            } else if (event.keyCode == 40) {
-              if (currentPos === 0) {
-                return;
-              } else {
-                dispatch((0, _actions.setResponse)({
-                  key: item.key,
-                  value: Options[currentPos - 1][0]
-                }));
-                event.preventDefault();
-                currentPos--;
-              }
-            } else {
-              return;
-            }
-          },
-          onChange: function onChange(event) {
-            if (item.validate && (0, _helpers.validateNumeric)(event.target.value, pair[0])) {
-              dispatch((0, _actions.setResponse)({
-                key: item.key,
-                value: event.target.value
-              }));
-              currentPos = getIndex_0(event.target.value, Options);
-            } else if (!item.validate) {
-              dispatch((0, _actions.setResponse)({
-                key: item.key,
-                value: event.target.value
-              }));
-            }
-          },
+        showGlossary && _react2.default.createElement(
+          'div',
+          { className: 'interview-item-glossary' },
+          _react2.default.createElement(
+            'strong',
+            null,
+            'Glossary'
+          ),
+          _react2.default.createElement(_Markdown.Markdown, { source: item.glossary, style: { height: '100%' } })
+        )
+      );
+    }
+  }]);
 
-          placeholder: item.validate,
-          value: response,
-          autoFocus: true
-        }),
-        settings.showItemNotes && _react2.default.createElement('textarea', {
-          onChange: function onChange(event) {
-            return dispatch((0, _actions.setNote)({ key: item.key, value: event.target.value }));
-          },
-          defaultValue: note,
-          placeholder: 'Note'
-        })
-      )
-    ),
-    showGlossary && _react2.default.createElement(
-      'div',
-      { className: 'interview-item-glossary' },
-      _react2.default.createElement(
-        'strong',
-        null,
-        'Glossary'
-      ),
-      _react2.default.createElement(_Markdown.Markdown, { source: item.glossary, style: { height: '100%' } })
-    )
-  );
-};
+  return Response;
+}(_react2.default.Component);
 
-var ResponseContainer = exports.ResponseContainer = (0, _reactRedux.connect)(function (state) {
-  return state;
-})(Response);
+exports.default = (0, _reactRedux.connect)()(Response);
+
 var manualInputChange = function manualInputChange(value, valid) {
   if (valid && (0, _helpers.validateNumeric)(value, valid)) {
     dispatch((0, _actions.setResponse)({
@@ -67948,8 +68314,16 @@ var Horizontal = function (_Component) {
     _this.handleChange = function (value) {
       _this.setState({
         value: value
-      }), _this.handlers.handleChange(value);
-      _this.props.inputBox.focus();
+      });
+      _this.handlers.handleChange(value);
+      _this.props.response.setState({
+        value: value
+      });
+    };
+
+    _this.handleComplete = function () {
+      console.log('Change event completed');
+      _this.props.inputBox.current.focus();
     };
 
     _this.state = {
@@ -67960,9 +68334,14 @@ var Horizontal = function (_Component) {
   }
 
   _createClass(Horizontal, [{
+    key: 'getValue',
+    value: function getValue() {
+      return this.state.value;
+    }
+  }, {
     key: 'render',
     value: function render() {
-      var value = this.state.value;
+      var value = this.props.responseValue.value;
 
       return _react2.default.createElement(
         'div',
@@ -67970,10 +68349,10 @@ var Horizontal = function (_Component) {
         _react2.default.createElement(_reactRangeslider2.default, {
           min: this.props.min,
           max: this.props.max,
-          value: value,
-          onChangeStart: this.handlers.handleChangeStart,
+          value: this.props.responseValue,
+          onChangeStart: console.log('Change event started'),
           onChange: this.handleChange,
-          onChangeComplete: this.handlers.handleChangeComplete
+          onChangeComplete: this.handleComplete
         }),
         _react2.default.createElement(
           'div',

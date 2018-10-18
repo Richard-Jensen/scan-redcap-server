@@ -7,7 +7,7 @@ import { ItemList } from './ItemList';
 import { Settings } from './Settings';
 import { Analysis } from './Analysis';
 import { SearchItems } from './SearchItems';
-import { ResponseContainer } from './Response';
+import Response from './Response';
 import { setActiveItem } from '../actions';
 import {
   items,
@@ -68,7 +68,11 @@ class Scan extends Component {
             />
           </div>
           <div className="interview-item">
-            <ResponseContainer />
+            <Response
+            dispatch={this.props.dispatch}
+            interview={this.props.interview}
+            settings={this.props.settings}
+            />
           </div>
         </div>
       </Fragment>

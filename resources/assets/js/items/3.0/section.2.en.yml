@@ -50,7 +50,7 @@ items:
       Rate in months since the patient was last well.
     input: integer
     options:
-      0-799: No health problems
+      '0-799': No health problems
       800: 800 mths or more
       888: NK
       999: NA

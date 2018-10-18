@@ -18,6 +18,10 @@ var sliderVal = 0;
 
 Class Response extends Component {
 
+  dispatch = this.props.dispatch;
+  interview = this.props.interview;
+  settings = this.props.settings;
+
   render() {
     let item = getItemByKey(interview.activeKey);
     let myRef = React.createRef();
@@ -247,7 +251,7 @@ Class Response extends Component {
 }
 }
 
-export default Response = connect()(Response);
+export const ResponseContainer = connect(state => state)(Response);
 const manualInputChange = (value,valid) =>{
   if (
     valid &&

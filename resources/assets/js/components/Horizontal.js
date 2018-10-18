@@ -30,38 +30,47 @@ let createHandlers = function(dispatch, interview) {
 
 class Horizontal extends Component {
   constructor (props, context, dispatch) {
-    super(props, context)
+    super(props, context);
     this.state = {
       value: 0,
     };
     this.handlers = createHandlers(this.props.dispatch, this.props.interview);
   }
 
+  getValue() {
+    return this.state.value
+  }
+
   handleChange = value => {
     this.setState({
       value: value
-    }),
+    })
     this.handlers.handleChange(value)
-    this.props.inputBox.focus()
-    }
+    this.props.response.setState({
+      value: value
+    })
+  }
 
-
+  handleComplete = () => {
+    console.log('Change event completed')
+    this.props.inputBox.current.focus()
+  }
 
   render () {
-    const { value } = this.state
+    const { value } = this.props.responseValue
     return (
       <div className='slider'>
       <Slider
       min={this.props.min}
       max={this.props.max}
-      value={value}
-      onChangeStart={this.handlers.handleChangeStart}
+      value={this.props.responseValue}
+      onChangeStart={console.log('Change event started')}
       onChange={this.handleChange}
-      onChangeComplete={this.handlers.handleChangeComplete}
+      onChangeComplete={this.handleComplete}
       />
       <div className='value'>{value}</div>
       </div>
-    )
+      )
   }
 }
 
