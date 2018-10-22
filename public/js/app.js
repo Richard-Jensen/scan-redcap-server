@@ -58006,14 +58006,10 @@ var Response = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Response.__proto__ || Object.getPrototypeOf(Response)).call(this, props));
 
-    _this.write = function (response, pair) {
+    _this.write = function (array, pair) {
       if (pair[0].includes("-")) {
         hasSlider = true;
-        return [_react2.default.createElement(
-          'b',
-          null,
-          pair[0] + " "
-        ), _react2.default.createElement(_Horizontal2.default, {
+        return [this.isActive(array, pair, pair[1]), _react2.default.createElement(_Horizontal2.default, {
           id: 'Slider',
           responseValue: this.state.value,
           min: parseInt(pair[0].split('-')[0]),
@@ -58028,23 +58024,8 @@ var Response = function (_React$Component) {
           'b',
           null,
           pair[0] + " "
-        ), this.isActive(response, pair, pair[1])];
+        ), this.isActive(array, pair, pair[1])];
       }
-    };
-
-    _this.handleChangeStart = function () {
-      console.log('Change event started');
-    };
-
-    _this.handleChange = function (value) {
-      dispatch((0, _actions.setResponse)({
-        key: this.interview.activeKey,
-        value: value
-      }));
-    };
-
-    _this.handleChangeComplete = function () {
-      console.log('Change event completed');
     };
 
     _this.getIndex = function (value, arr) {
@@ -58065,8 +58046,8 @@ var Response = function (_React$Component) {
       return -1; //to handle the case where the value doesn't exist
     };
 
-    _this.isActive = function (response, pair, input) {
-      if (response === pair[0]) {
+    _this.isActive = function (array, pair, input) {
+      if (this.currentPos === this.getIndex(pair, array)) {
         return _react2.default.createElement(
           'b',
           null,
@@ -58090,9 +58071,6 @@ var Response = function (_React$Component) {
 
   // Function to create the options, which can be a Slider
   // TODO: Unneccessary arguments interview and inputBox
-
-
-  //Handler methods for the slider
 
 
   // Function returning the index of a possible element in an array.
@@ -58194,7 +58172,7 @@ var Response = function (_React$Component) {
                   _this2.inputBox.current.focus();
                 }
               },
-              _this2.write(response, pair)
+              _this2.write(Options, pair)
             );
           }),
           item.scale && _react2.default.createElement(
@@ -58232,7 +58210,7 @@ var Response = function (_React$Component) {
                       if (_this2.state.value == 799) {
                         dispatch((0, _actions.setResponse)({
                           key: item.key,
-                          value: 800
+                          value: "800"
                         }));
                         _this2.currentPos++;
                       } else if (event.target.value == "") {
@@ -58250,7 +58228,7 @@ var Response = function (_React$Component) {
                         });
                         dispatch((0, _actions.setResponse)({
                           key: item.key,
-                          value: parseInt(_this2.state.value) + 1
+                          value: (parseInt(_this2.state.value) + 1).toString()
                         }));
                         event.preventDefault();
                       }
@@ -58284,7 +58262,7 @@ var Response = function (_React$Component) {
                     } else if (_this2.currentPos == 1) {
                       dispatch((0, _actions.setResponse)({
                         key: item.key,
-                        value: _this2.state.value
+                        value: _this2.state.value.toString()
                       }));
                       event.preventDefault();
                       _this2.currentPos--;
@@ -58294,24 +58272,15 @@ var Response = function (_React$Component) {
                         return;
                       } else {
                         // This is terrible hack, but for some reason, it will not show 0 in the inputbox unless I specify 0 as "0". This also means that when adding 1 when pressing uparrow, it returns "1". and then "11", since for strings, + is concatination, so we have to use parseInt there.
-                        if (_this2.state.value == 1) {
-                          dispatch((0, _actions.setResponse)({
-                            key: item.key,
-                            value: "0"
-                          }));
-                          _this2.setState({
-                            value: 0
-                          });
-                        } else {
-                          _this2.setState({
-                            value: _this2.state.value - 1
-                          });
-                          dispatch((0, _actions.setResponse)({
-                            key: item.key,
-                            value: _this2.state.value - 1
-                          }));
-                          event.preventDefault();
-                        }
+
+                        _this2.setState({
+                          value: _this2.state.value - 1
+                        });
+                        dispatch((0, _actions.setResponse)({
+                          key: item.key,
+                          value: (_this2.state.value - 1).toString()
+                        }));
+                        event.preventDefault();
                       }
                     } else {
                       dispatch((0, _actions.setResponse)({
@@ -68088,7 +68057,7 @@ var createHandlers = function createHandlers(dispatch, interview) {
   var handleChange = function handleChange(value) {
     dispatch((0, _actions.setResponse)({
       key: interview.activeKey,
-      value: value
+      value: value.toString()
     }));
   };
   var handleChangeStart = function handleChangeStart() {
@@ -68150,7 +68119,7 @@ var Horizontal = function (_Component) {
         _react2.default.createElement(_reactRangeslider2.default, {
           min: this.props.min,
           max: this.props.max,
-          value: this.props.responseValue,
+          value: parseInt(this.props.responseValue),
           onChangeStart: console.log('Change event started'),
           onChange: this.handleChange,
           onChangeComplete: this.handleComplete

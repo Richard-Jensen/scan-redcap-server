@@ -30,11 +30,11 @@ class Response extends React.Component {
 
   // Function to create the options, which can be a Slider
   // TODO: Unneccessary arguments interview and inputBox
-  write = function(response, pair) {
+  write = function(array, pair) {
     if (pair[0].includes("-")) {
       hasSlider = true;
       return ([
-        <b>{pair[0] + " "}</b>,
+        this.isActive(array,pair,pair[1]),
         <Horizontal
         id='Slider'
         responseValue={this.state.value}
@@ -54,26 +54,10 @@ class Response extends React.Component {
     else {
      return ([
       <b>{pair[0] + " "}</b>,
-      this.isActive(response,pair, pair[1])
+      this.isActive(array,pair, pair[1])
       ]);
    }
  };
-
- //Handler methods for the slider
- handleChangeStart = function() {
-  console.log('Change event started')
-};
-
-handleChange = function(value) {
-  dispatch(setResponse({
-    key: this.interview.activeKey,
-    value: value
-  }))
-};
-
-handleChangeComplete = function() {
-  console.log('Change event completed')
-};
 
   // Function returning the index of a possible element in an array.
   getIndex = function(value, arr) {
@@ -95,8 +79,8 @@ handleChangeComplete = function() {
     return -1; //to handle the case where the value doesn't exist
   }
 
-  isActive = function(response, pair, input) {
-    if (response === pair[0]) {
+  isActive = function(array, pair, input) {
+    if (this.currentPos === this.getIndex(pair,array)) {
       return <b>{input}</b>;
     }
     else {
@@ -192,7 +176,7 @@ handleChangeComplete = function() {
       }
     }
     >
-    {this.write(response,pair)}
+    {this.write(Options,pair)}
     </div>
     ))}
       {item.scale && (
@@ -219,7 +203,7 @@ handleChangeComplete = function() {
                 if (this.state.value == 799) {
                   dispatch(setResponse({
                     key: item.key,
-                    value: 800
+                    value: "800"
                   }));
                   this.currentPos++;
                 }
@@ -239,7 +223,7 @@ handleChangeComplete = function() {
                   })
                   dispatch(setResponse({
                     key: item.key,
-                    value: parseInt(this.state.value) + 1
+                    value: (parseInt(this.state.value) + 1).toString()
                   }));
                   event.preventDefault();
                 }
@@ -283,7 +267,7 @@ handleChangeComplete = function() {
               else if (this.currentPos == 1) {
                 dispatch(setResponse({
                   key: item.key,
-                  value: this.state.value
+                  value: this.state.value.toString()
                 }));
                 event.preventDefault();
                 this.currentPos--;
@@ -293,25 +277,16 @@ handleChangeComplete = function() {
                 if (this.state.value == 0) {return;}
                 else {
                   // This is terrible hack, but for some reason, it will not show 0 in the inputbox unless I specify 0 as "0". This also means that when adding 1 when pressing uparrow, it returns "1". and then "11", since for strings, + is concatination, so we have to use parseInt there.
-                  if (this.state.value == 1) {
-                    dispatch(setResponse({
-                      key: item.key,
-                      value: "0"
-                    }));
-                    this.setState({
-                      value: 0
-                    })
-                  }
-                  else {
+
                     this.setState({
                       value: this.state.value - 1
                     })
                     dispatch(setResponse({
                       key: item.key,
-                      value: this.state.value - 1
+                      value: (this.state.value - 1).toString()
                     }));
                     event.preventDefault();
-                  }}}
+                  }}
 
                   else {
                     dispatch(
