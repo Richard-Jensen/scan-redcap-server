@@ -12,7 +12,7 @@ let createHandlers = function(dispatch, interview) {
   let handleChange = function(value) {
     dispatch(setResponse({
       key: interview.activeKey,
-      value: value
+      value: value.toString()
     }))
   };
   let handleChangeStart = function() {
@@ -63,7 +63,7 @@ class Horizontal extends Component {
       <Slider
       min={this.props.min}
       max={this.props.max}
-      value={this.props.responseValue}
+      value={parseInt(this.props.responseValue)}
       onChangeStart={console.log('Change event started')}
       onChange={this.handleChange}
       onChangeComplete={this.handleComplete}

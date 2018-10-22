@@ -12,8 +12,6 @@ import Horizontal from './Horizontal';
 
 var hasSlider = false;
 
-
-// Now it is actually a class!
 class Response extends React.Component {
 
   constructor(props) {
@@ -29,12 +27,11 @@ class Response extends React.Component {
   }
 
   // Function to create the options, which can be a Slider
-  // TODO: Unneccessary arguments interview and inputBox
-  write = function(response, pair) {
+ write = function(array, pair) {
     if (pair[0].includes("-")) {
       hasSlider = true;
       return ([
-        <b>{pair[0] + " "}</b>,
+        this.isActive(array,pair,pair[1]),
         <Horizontal
         id='Slider'
         responseValue={this.state.value}
@@ -54,26 +51,20 @@ class Response extends React.Component {
     else {
      return ([
       <b>{pair[0] + " "}</b>,
-      this.isActive(response,pair, pair[1])
+      this.isActive(array,pair, pair[1])
       ]);
    }
  };
 
- //Handler methods for the slider
- handleChangeStart = function() {
-  console.log('Change event started')
-};
+ isActive = function(array, pair, input) {
+    if (this.currentPos === this.getIndex(pair,array)) {
+      return <b>{input}</b>;
+    }
+    else {
+      return input;
+    }
+  }
 
-handleChange = function(value) {
-  dispatch(setResponse({
-    key: this.interview.activeKey,
-    value: value
-  }))
-};
-
-handleChangeComplete = function() {
-  console.log('Change event completed')
-};
 
   // Function returning the index of a possible element in an array.
   getIndex = function(value, arr) {
@@ -93,15 +84,6 @@ handleChangeComplete = function() {
       }
     }
     return -1; //to handle the case where the value doesn't exist
-  }
-
-  isActive = function(response, pair, input) {
-    if (response === pair[0]) {
-      return <b>{input}</b>;
-    }
-    else {
-      return input;
-    }
   }
 
   render() {
@@ -181,18 +163,16 @@ handleChangeComplete = function() {
         key={pair[0]}
         className="interview-response-list"
         onClick={() => {
+          if (pair[0].includes('-')) {}
+            else {
           this.currentPos = this.getIndex(pair, Options)
-          if (pair[0].includes("-")) {
-          //So far, the Horizontal class handles all this
-        }
-        else {
           dispatch(setResponse({ key: item.key, value: pair[0] }))
+          this.inputBox.current.focus()
         }
-        this.inputBox.current.focus()
       }
     }
     >
-    {this.write(response,pair)}
+    {this.write(Options,pair)}
     </div>
     ))}
       {item.scale && (
@@ -219,7 +199,7 @@ handleChangeComplete = function() {
                 if (this.state.value == 799) {
                   dispatch(setResponse({
                     key: item.key,
-                    value: 800
+                    value: "800"
                   }));
                   this.currentPos++;
                 }
@@ -239,7 +219,7 @@ handleChangeComplete = function() {
                   })
                   dispatch(setResponse({
                     key: item.key,
-                    value: parseInt(this.state.value) + 1
+                    value: (parseInt(this.state.value) + 1).toString()
                   }));
                   event.preventDefault();
                 }
@@ -248,7 +228,7 @@ handleChangeComplete = function() {
                 dispatch(
                   setResponse({
                     key: item.key,
-                    value: Options[this.currentPos + 1][0]
+                    value: Options[this.state.currentPos + 1][0]
                   })
                   );
                 event.preventDefault();
@@ -259,7 +239,7 @@ handleChangeComplete = function() {
               dispatch(
                 setResponse({
                   key: item.key,
-                  value: Options[this.currentPos + 1][0]
+                  value: Options[this.state.currentPos + 1][0]
                 })
                 );
               event.preventDefault();
@@ -270,7 +250,6 @@ handleChangeComplete = function() {
             if (hasSlider) {
               if (event.target.value == "") {
                 if (this.currentPos == 1) {
-
                 }
                 dispatch(setResponse({
                   key: item.key,
@@ -283,116 +262,106 @@ handleChangeComplete = function() {
               else if (this.currentPos == 1) {
                 dispatch(setResponse({
                   key: item.key,
-                  value: this.state.value
+                  value: this.state.value.toString()
                 }));
                 event.preventDefault();
                 this.currentPos--;
                 this.inputBox.current.focus();
               }
-              else if (this.currentPos == 0) {
+              else if (this.state.currentPos == 0) {
                 if (this.state.value == 0) {return;}
                 else {
-                  // This is terrible hack, but for some reason, it will not show 0 in the inputbox unless I specify 0 as "0". This also means that when adding 1 when pressing uparrow, it returns "1". and then "11", since for strings, + is concatination, so we have to use parseInt there.
-                  if (this.state.value == 1) {
-                    dispatch(setResponse({
-                      key: item.key,
-                      value: "0"
-                    }));
-                    this.setState({
-                      value: 0
-                    })
-                  }
-                  else {
-                    this.setState({
-                      value: this.state.value - 1
-                    })
-                    dispatch(setResponse({
-                      key: item.key,
-                      value: this.state.value - 1
-                    }));
-                    event.preventDefault();
-                  }}}
-
-                  else {
-                    dispatch(
-                      setResponse({
-                        key: item.key,
-                        value: Options[this.currentPos - 1][0]
-                      })
-                      );
-                    event.preventDefault();
-                    this.currentPos--;
-                  }
-                }
+                  this.setState({
+                    value: this.state.value - 1
+                  })
+                  dispatch(setResponse({
+                    key: item.key,
+                    value: (this.state.value - 1).toString()
+                  }));
+                  event.preventDefault();
+                }}
                 else {
+                  console.log(this.state.currentPos);
                   dispatch(
                     setResponse({
                       key: item.key,
-                      value: Options[this.currentPos - 1][0]
+                      value: Options[this.state.currentPos - 1][0]
                     })
                     );
                   event.preventDefault();
                   this.currentPos--;
-                }}
+                }
+              }
+              else {
+                console.log(this.state.currentPos);
+                dispatch(
+                  setResponse({
+                    key: item.key,
+                    value: Options[this.state.currentPos - 1][0]
+                  })
+                  );
+                event.preventDefault();
+                this.currentPos--;
               }}
-              onChange={event => {
-                if (item.validate && validateNumeric(event.target.value, Object.keys(item.options))) {
-                  dispatch(
-                    setResponse({
-                      key: item.key,
-                      value: event.target.value
-                    })
-                    );
-                  if (hasSlider) {
-                    if (event.target.value == "") {
-                      this.currentPos = 0;
-                    }
-                    else {
-                      dispatch(setResponse({
-                        key: item.key,
-                        value: event.target.value
-                      }));
-                      this.setState({
-                        value: event.target.value
-                      });
-                    }
+            }}
+            onChange={event => {
+              if (item.validate && validateNumeric(event.target.value, Object.keys(item.options))) {
+                dispatch(
+                  setResponse({
+                    key: item.key,
+                    value: event.target.value
+                  })
+                  );
+                if (hasSlider) {
+                  if (event.target.value == "") {
+                    this.currentPos = 0;
                   }
                   else {
-                    if (event.target.value == "") {
-                      this.currentPos = 0;
-                    }
-                    else {
-                      this.currentPos = this.getIndex_0(event.target.value, Options);
-                    }
-                  }
-                }
-                else if (!item.validate) {
-                  dispatch(
-                    setResponse({
+                    dispatch(setResponse({
                       key: item.key,
                       value: event.target.value
-                    })
-                    );
-                }}}
-
-                placeholder={item.validate}
-                value={response}
-                autoFocus
-                />
-
-                {settings.showItemNotes && (
-                  <textarea
-                  onChange={event =>
-                    dispatch(
-                      setNote({ key: item.key, value: event.target.value })
-                      )
+                    }));
+                    this.setState({
+                      value: event.target.value
+                    });
                   }
-                  defaultValue={note}
-                  placeholder="Note"
-                  />
-                  )}
-                </Fragment>
+                }
+                else {
+                  if (event.target.value == "") {
+                    this.currentPos = 0;
+                  }
+                  else {
+                    this.currentPos = this.getIndex_0(event.target.value, Options);
+                  }
+                }
+              }
+              else if (!item.validate) {
+                dispatch(
+                  setResponse({
+                    key: item.key,
+                    value: event.target.value
+                  })
+                  );
+              }}}
+
+              placeholder={item.validate}
+              value={response}
+              autoFocus
+              />
+
+              {settings.showItemNotes && (
+                <textarea
+                onChange={event =>
+                  dispatch(
+                    setNote({ key: item.key, value: event.target.value })
+                    )
+                }
+                defaultValue={note}
+                placeholder="Note"
+                />
                 )}
+              </Fragment>
+              )}
 </div>
 {showGlossary && (
   <div className="interview-item-glossary">
