@@ -30,11 +30,11 @@ class Response extends React.Component {
 
   // Function to create the options, which can be a Slider
   // TODO: Unneccessary arguments interview and inputBox
-  write = function(array, pair) {
+  write = function(response, pair) {
     if (pair[0].includes("-")) {
       hasSlider = true;
       return ([
-        this.isActive(array,pair,pair[1]),
+        <b>{pair[0] + " "}</b>,
         <Horizontal
         id='Slider'
         responseValue={this.state.value}
@@ -54,10 +54,26 @@ class Response extends React.Component {
     else {
      return ([
       <b>{pair[0] + " "}</b>,
-      this.isActive(array,pair, pair[1])
+      this.isActive(response,pair, pair[1])
       ]);
    }
  };
+
+ //Handler methods for the slider
+ handleChangeStart = function() {
+  console.log('Change event started')
+};
+
+handleChange = function(value) {
+  dispatch(setResponse({
+    key: this.interview.activeKey,
+    value: value
+  }))
+};
+
+handleChangeComplete = function() {
+  console.log('Change event completed')
+};
 
   // Function returning the index of a possible element in an array.
   getIndex = function(value, arr) {
@@ -79,8 +95,8 @@ class Response extends React.Component {
     return -1; //to handle the case where the value doesn't exist
   }
 
-  isActive = function(array, pair, input) {
-    if (this.currentPos === this.getIndex(pair,array)) {
+  isActive = function(response, pair, input) {
+    if (response === pair[0]) {
       return <b>{input}</b>;
     }
     else {
@@ -176,7 +192,7 @@ class Response extends React.Component {
       }
     }
     >
-    {this.write(Options,pair)}
+    {this.write(response,pair)}
     </div>
     ))}
       {item.scale && (
@@ -200,7 +216,7 @@ class Response extends React.Component {
             if (hasSlider) {
               if (this.currentPos == (Options.length - 1)) {return;}
               else if (this.currentPos == 0 && !event.shiftKey) {
-                if (this.state.value == 799) {
+                if (this.state.value == "799") {
                   dispatch(setResponse({
                     key: item.key,
                     value: "800"
@@ -277,7 +293,16 @@ class Response extends React.Component {
                 if (this.state.value == 0) {return;}
                 else {
                   // This is terrible hack, but for some reason, it will not show 0 in the inputbox unless I specify 0 as "0". This also means that when adding 1 when pressing uparrow, it returns "1". and then "11", since for strings, + is concatination, so we have to use parseInt there.
-
+                  if (this.state.value == 1) {
+                    dispatch(setResponse({
+                      key: item.key,
+                      value: "0"
+                    }));
+                    this.setState({
+                      value: 0
+                    })
+                  }
+                  else {
                     this.setState({
                       value: this.state.value - 1
                     })
@@ -286,7 +311,7 @@ class Response extends React.Component {
                       value: (this.state.value - 1).toString()
                     }));
                     event.preventDefault();
-                  }}
+                  }}}
 
                   else {
                     dispatch(
@@ -315,7 +340,7 @@ class Response extends React.Component {
                   dispatch(
                     setResponse({
                       key: item.key,
-                      value: event.target.value
+                      value: event.target.value.toString()
                     })
                     );
                   if (hasSlider) {
@@ -325,7 +350,7 @@ class Response extends React.Component {
                     else {
                       dispatch(setResponse({
                         key: item.key,
-                        value: event.target.value
+                        value: event.target.value.toString()
                       }));
                       this.setState({
                         value: event.target.value
@@ -345,7 +370,7 @@ class Response extends React.Component {
                   dispatch(
                     setResponse({
                       key: item.key,
-                      value: event.target.value
+                      value: event.target.value.toString()
                     })
                     );
                 }}}

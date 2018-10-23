@@ -22,7 +22,7 @@ class AnalysisModal extends Component {
 
   getAlgorithmSets = () => {
     window.axios
-      .get(`/algorithms.json`)
+      .get('/algorithms.json')
       .then(response => {
         this.setState({
           algorithmSets: response.data
