@@ -30,11 +30,11 @@ class Response extends React.Component {
 
   // Function to create the options, which can be a Slider
   // TODO: Unneccessary arguments interview and inputBox
-  write = function(response, pair) {
+  write = function(array, pair) {
     if (pair[0].includes("-")) {
       hasSlider = true;
       return ([
-        <b>{pair[0] + " "}</b>,
+        this.isActive(array, pair, pair[1]),
         <Horizontal
         id='Slider'
         responseValue={this.state.value}
@@ -54,26 +54,10 @@ class Response extends React.Component {
     else {
      return ([
       <b>{pair[0] + " "}</b>,
-      this.isActive(response,pair, pair[1])
+      this.isActive(array,pair, pair[1])
       ]);
    }
  };
-
- //Handler methods for the slider
- handleChangeStart = function() {
-  console.log('Change event started')
-};
-
-handleChange = function(value) {
-  dispatch(setResponse({
-    key: this.interview.activeKey,
-    value: value
-  }))
-};
-
-handleChangeComplete = function() {
-  console.log('Change event completed')
-};
 
   // Function returning the index of a possible element in an array.
   getIndex = function(value, arr) {
@@ -95,8 +79,8 @@ handleChangeComplete = function() {
     return -1; //to handle the case where the value doesn't exist
   }
 
-  isActive = function(response, pair, input) {
-    if (response === pair[0]) {
+  isActive = function(array, pair, input) {
+    if (this.currentPos === this.getIndex(pair,array)) {
       return <b>{input}</b>;
     }
     else {
@@ -168,7 +152,13 @@ handleChangeComplete = function() {
     Options.sort(compareKey);
   }
 
+  if (this.getIndex_0(response, Options) != -1) {
+    this.currentPos = this.getIndex_0(response, Options);
+  }
 
+  if (response.includes('-')) {
+    this.currentPos = 0;
+  }
 
   // Returns the specific interview item.
   return (
@@ -192,7 +182,7 @@ handleChangeComplete = function() {
       }
     }
     >
-    {this.write(response,pair)}
+    {this.write(Options,pair)}
     </div>
     ))}
       {item.scale && (
@@ -256,6 +246,10 @@ handleChangeComplete = function() {
               }
             }
             else {
+              if (this.currentPos == (Options.length - 1)) {
+                return;
+              }
+              else {
               dispatch(
                 setResponse({
                   key: item.key,
@@ -264,6 +258,7 @@ handleChangeComplete = function() {
                 );
               event.preventDefault();
               this.currentPos++;
+            }
             }
           }
           else if (event.keyCode==40) {
@@ -325,6 +320,8 @@ handleChangeComplete = function() {
                   }
                 }
                 else {
+                  if (this.currentPos == 0) {return;}
+                  else {
                   dispatch(
                     setResponse({
                       key: item.key,
@@ -333,7 +330,7 @@ handleChangeComplete = function() {
                     );
                   event.preventDefault();
                   this.currentPos--;
-                }}
+                }}}
               }}
               onChange={event => {
                 if (item.validate && validateNumeric(event.target.value, Object.keys(item.options))) {
@@ -347,52 +344,49 @@ handleChangeComplete = function() {
                     if (event.target.value == "") {
                       this.currentPos = 0;
                     }
-                    else {
-                      dispatch(setResponse({
-                        key: item.key,
-                        value: event.target.value.toString()
-                      }));
+                    else if (event.target.value < 800) {
                       this.setState({
                         value: event.target.value
                       });
-                    }
-                  }
-                  else {
-                    if (event.target.value == "") {
                       this.currentPos = 0;
                     }
                     else {
-                      this.currentPos = this.getIndex_0(event.target.value, Options);
+                      this.currentPos = this.getIndex_0(event.target.value, Options)
                     }
                   }
-                }
-                else if (!item.validate) {
-                  dispatch(
-                    setResponse({
-                      key: item.key,
-                      value: event.target.value.toString()
-                    })
-                    );
-                }}}
-
-                placeholder={item.validate}
-                value={response}
-                autoFocus
-                />
-
-                {settings.showItemNotes && (
-                  <textarea
-                  onChange={event =>
+                  else {
+                    // TODO: Decide whether deleting all input should set currentPos to 0 or let it be as it is
+                    if (event.target.value == "") {}
+                      else {
+                       this.currentPos = this.getIndex_0(event.target.value, Options);
+                     }}
+                   }
+                   else if (!item.validate) {
                     dispatch(
-                      setNote({ key: item.key, value: event.target.value })
-                      )
-                  }
-                  defaultValue={note}
-                  placeholder="Note"
+                      setResponse({
+                        key: item.key,
+                        value: event.target.value.toString()
+                      })
+                      );
+                  }}}
+                  placeholder={item.validate}
+                  value={response}
+                  autoFocus
                   />
+
+                  {settings.showItemNotes && (
+                    <textarea
+                    onChange={event =>
+                      dispatch(
+                        setNote({ key: item.key, value: event.target.value })
+                        )
+                    }
+                    defaultValue={note}
+                    placeholder="Note"
+                    />
+                    )}
+                  </Fragment>
                   )}
-                </Fragment>
-                )}
 </div>
 {showGlossary && (
   <div className="interview-item-glossary">
