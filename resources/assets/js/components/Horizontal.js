@@ -41,13 +41,18 @@ class Horizontal extends Component {
     return this.state.value
   }
 
+  handleChangeStart = () => {
+    console.log('Change event started')
+  }
+
   handleChange = value => {
     this.setState({
       value: value
     })
     this.handlers.handleChange(value)
     this.props.response.setState({
-      value: value
+      value: value,
+      currentPos: 0
     })
   }
 
@@ -64,7 +69,7 @@ class Horizontal extends Component {
       min={this.props.min}
       max={this.props.max}
       value={parseInt(this.props.responseValue)}
-      onChangeStart={console.log('Change event started')}
+      onChangeStart={this.handleChangeStart}
       onChange={this.handleChange}
       onChangeComplete={this.handleComplete}
       />

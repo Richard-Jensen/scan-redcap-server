@@ -31,7 +31,7 @@ class Response extends React.Component {
   // Function to create the options, which can be a Slider
   // TODO: Unneccessary arguments interview and inputBox
   write = function(array, pair) {
-    if (pair[0].includes("-")) {
+      if (pair[0].includes("-")) {
       hasSlider = true;
       return ([
         this.isActive(array, pair, pair[1]),
@@ -57,6 +57,7 @@ class Response extends React.Component {
       this.isActive(array,pair, pair[1])
       ]);
    }
+
  };
 
   // Function returning the index of a possible element in an array.
@@ -80,7 +81,7 @@ class Response extends React.Component {
   }
 
   isActive = function(array, pair, input) {
-    if (this.currentPos === this.getIndex(pair,array)) {
+    if (this.state.currentPos === this.getIndex(pair,array)) {
       return <b>{input}</b>;
     }
     else {
@@ -96,8 +97,6 @@ class Response extends React.Component {
     hasSlider = false;
 
     let item = getItemByKey(interview.activeKey);
-    //let inputBox = React.createRef();
-
     if (!item) {
       return <div>No item found</div>;
     }
@@ -153,11 +152,11 @@ class Response extends React.Component {
   }
 
   if (this.getIndex_0(response, Options) != -1) {
-    this.currentPos = this.getIndex_0(response, Options);
+    this.state.currentPos = this.getIndex_0(response, Options);
   }
 
   if (response.includes('-')) {
-    this.currentPos = 0;
+    this.state.currentPos = 0;
   }
 
   // Returns the specific interview item.
@@ -171,7 +170,9 @@ class Response extends React.Component {
         key={pair[0]}
         className="interview-response-list"
         onClick={() => {
-          this.currentPos = this.getIndex(pair, Options)
+          this.setState({
+            currentPos: this.getIndex(pair, Options)
+          })
           if (pair[0].includes("-")) {
           //So far, the Horizontal class handles all this
         }
@@ -204,14 +205,16 @@ class Response extends React.Component {
           // TODO: This fits question 2.002, and I believe all other questions with a option which can be varied, but should be made more general (e.g., value: 800)
           if(event.keyCode==38) {
             if (hasSlider) {
-              if (this.currentPos == (Options.length - 1)) {return;}
-              else if (this.currentPos == 0 && !event.shiftKey) {
+              if (this.state.currentPos == (Options.length - 1)) {return;}
+              else if (this.state.currentPos == 0 && !event.shiftKey) {
                 if (this.state.value == "799") {
                   dispatch(setResponse({
                     key: item.key,
                     value: "800"
                   }));
-                  this.currentPos++;
+                  this.setState({
+                    currentPos: this.state.currentPos + 1
+                  });
                 }
                 else if (event.target.value == ""){
                   dispatch(setResponse({
@@ -238,33 +241,37 @@ class Response extends React.Component {
                 dispatch(
                   setResponse({
                     key: item.key,
-                    value: Options[this.currentPos + 1][0]
+                    value: Options[this.state.currentPos + 1][0]
                   })
                   );
                 event.preventDefault();
-                this.currentPos++;
+                this.setState({
+                    currentPos: this.state.currentPos + 1
+                  });
               }
             }
             else {
-              if (this.currentPos == (Options.length - 1)) {
+              if (this.state.currentPos == (Options.length - 1)) {
                 return;
               }
               else {
               dispatch(
                 setResponse({
                   key: item.key,
-                  value: Options[this.currentPos + 1][0]
+                  value: Options[this.state.currentPos + 1][0]
                 })
                 );
               event.preventDefault();
-              this.currentPos++;
+              this.setState({
+                    currentPos: this.state.currentPos + 1
+                  });
             }
             }
           }
           else if (event.keyCode==40) {
             if (hasSlider) {
               if (event.target.value == "") {
-                if (this.currentPos == 1) {
+                if (this.state.currentPos == 1) {
 
                 }
                 dispatch(setResponse({
@@ -275,16 +282,16 @@ class Response extends React.Component {
                   value: 0
                 })
               }
-              else if (this.currentPos == 1) {
+              else if (this.state.currentPos == 1) {
                 dispatch(setResponse({
                   key: item.key,
                   value: this.state.value.toString()
                 }));
                 event.preventDefault();
-                this.currentPos--;
+                this.state.currentPos--;
                 this.inputBox.current.focus();
               }
-              else if (this.currentPos == 0) {
+              else if (this.state.currentPos == 0) {
                 if (this.state.value == 0) {return;}
                 else {
                   // This is terrible hack, but for some reason, it will not show 0 in the inputbox unless I specify 0 as "0". This also means that when adding 1 when pressing uparrow, it returns "1". and then "11", since for strings, + is concatination, so we have to use parseInt there.
@@ -312,24 +319,24 @@ class Response extends React.Component {
                     dispatch(
                       setResponse({
                         key: item.key,
-                        value: Options[this.currentPos - 1][0]
+                        value: Options[this.state.currentPos - 1][0]
                       })
                       );
                     event.preventDefault();
-                    this.currentPos--;
+                    this.state.currentPos--;
                   }
                 }
                 else {
-                  if (this.currentPos == 0) {return;}
+                  if (this.state.currentPos == 0) {return;}
                   else {
                   dispatch(
                     setResponse({
                       key: item.key,
-                      value: Options[this.currentPos - 1][0]
+                      value: Options[this.state.currentPos - 1][0]
                     })
                     );
                   event.preventDefault();
-                  this.currentPos--;
+                  this.state.currentPos--;
                 }}}
               }}
               onChange={event => {
@@ -342,23 +349,23 @@ class Response extends React.Component {
                     );
                   if (hasSlider) {
                     if (event.target.value == "") {
-                      this.currentPos = 0;
+                      this.state.currentPos = 0;
                     }
                     else if (event.target.value < 800) {
                       this.setState({
                         value: event.target.value
                       });
-                      this.currentPos = 0;
+                      this.state.currentPos = 0;
                     }
                     else {
-                      this.currentPos = this.getIndex_0(event.target.value, Options)
+                      this.state.currentPos = this.getIndex_0(event.target.value, Options)
                     }
                   }
                   else {
                     // TODO: Decide whether deleting all input should set currentPos to 0 or let it be as it is
                     if (event.target.value == "") {}
                       else {
-                       this.currentPos = this.getIndex_0(event.target.value, Options);
+                       this.state.currentPos = this.getIndex_0(event.target.value, Options);
                      }}
                    }
                    else if (!item.validate) {

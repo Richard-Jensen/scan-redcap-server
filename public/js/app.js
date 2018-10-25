@@ -58047,7 +58047,7 @@ var Response = function (_React$Component) {
     };
 
     _this.isActive = function (array, pair, input) {
-      if (this.currentPos === this.getIndex(pair, array)) {
+      if (this.state.currentPos === this.getIndex(pair, array)) {
         return _react2.default.createElement(
           'b',
           null,
@@ -58091,8 +58091,6 @@ var Response = function (_React$Component) {
       hasSlider = false;
 
       var item = (0, _items.getItemByKey)(interview.activeKey);
-      //let inputBox = React.createRef();
-
       if (!item) {
         return _react2.default.createElement(
           'div',
@@ -58149,11 +58147,11 @@ var Response = function (_React$Component) {
       }
 
       if (this.getIndex_0(response, Options) != -1) {
-        this.currentPos = this.getIndex_0(response, Options);
+        this.state.currentPos = this.getIndex_0(response, Options);
       }
 
       if (response.includes('-')) {
-        this.currentPos = 0;
+        this.state.currentPos = 0;
       }
 
       // Returns the specific interview item.
@@ -58171,7 +58169,9 @@ var Response = function (_React$Component) {
                 key: pair[0],
                 className: 'interview-response-list',
                 onClick: function onClick() {
-                  _this2.currentPos = _this2.getIndex(pair, Options);
+                  _this2.setState({
+                    currentPos: _this2.getIndex(pair, Options)
+                  });
                   if (pair[0].includes("-")) {
                     //So far, the Horizontal class handles all this
                   } else {
@@ -58212,15 +58212,17 @@ var Response = function (_React$Component) {
                 // TODO: This fits question 2.002, and I believe all other questions with a option which can be varied, but should be made more general (e.g., value: 800)
                 if (event.keyCode == 38) {
                   if (hasSlider) {
-                    if (_this2.currentPos == Options.length - 1) {
+                    if (_this2.state.currentPos == Options.length - 1) {
                       return;
-                    } else if (_this2.currentPos == 0 && !event.shiftKey) {
+                    } else if (_this2.state.currentPos == 0 && !event.shiftKey) {
                       if (_this2.state.value == "799") {
                         dispatch((0, _actions.setResponse)({
                           key: item.key,
                           value: "800"
                         }));
-                        _this2.currentPos++;
+                        _this2.setState({
+                          currentPos: _this2.state.currentPos + 1
+                        });
                       } else if (event.target.value == "") {
                         dispatch((0, _actions.setResponse)({
                           key: item.key,
@@ -58243,27 +58245,31 @@ var Response = function (_React$Component) {
                     } else {
                       dispatch((0, _actions.setResponse)({
                         key: item.key,
-                        value: Options[_this2.currentPos + 1][0]
+                        value: Options[_this2.state.currentPos + 1][0]
                       }));
                       event.preventDefault();
-                      _this2.currentPos++;
+                      _this2.setState({
+                        currentPos: _this2.state.currentPos + 1
+                      });
                     }
                   } else {
-                    if (_this2.currentPos == Options.length - 1) {
+                    if (_this2.state.currentPos == Options.length - 1) {
                       return;
                     } else {
                       dispatch((0, _actions.setResponse)({
                         key: item.key,
-                        value: Options[_this2.currentPos + 1][0]
+                        value: Options[_this2.state.currentPos + 1][0]
                       }));
                       event.preventDefault();
-                      _this2.currentPos++;
+                      _this2.setState({
+                        currentPos: _this2.state.currentPos + 1
+                      });
                     }
                   }
                 } else if (event.keyCode == 40) {
                   if (hasSlider) {
                     if (event.target.value == "") {
-                      if (_this2.currentPos == 1) {}
+                      if (_this2.state.currentPos == 1) {}
                       dispatch((0, _actions.setResponse)({
                         key: item.key,
                         value: "0"
@@ -58271,15 +58277,15 @@ var Response = function (_React$Component) {
                       _this2.setState({
                         value: 0
                       });
-                    } else if (_this2.currentPos == 1) {
+                    } else if (_this2.state.currentPos == 1) {
                       dispatch((0, _actions.setResponse)({
                         key: item.key,
                         value: _this2.state.value.toString()
                       }));
                       event.preventDefault();
-                      _this2.currentPos--;
+                      _this2.state.currentPos--;
                       _this2.inputBox.current.focus();
-                    } else if (_this2.currentPos == 0) {
+                    } else if (_this2.state.currentPos == 0) {
                       if (_this2.state.value == 0) {
                         return;
                       } else {
@@ -58306,21 +58312,21 @@ var Response = function (_React$Component) {
                     } else {
                       dispatch((0, _actions.setResponse)({
                         key: item.key,
-                        value: Options[_this2.currentPos - 1][0]
+                        value: Options[_this2.state.currentPos - 1][0]
                       }));
                       event.preventDefault();
-                      _this2.currentPos--;
+                      _this2.state.currentPos--;
                     }
                   } else {
-                    if (_this2.currentPos == 0) {
+                    if (_this2.state.currentPos == 0) {
                       return;
                     } else {
                       dispatch((0, _actions.setResponse)({
                         key: item.key,
-                        value: Options[_this2.currentPos - 1][0]
+                        value: Options[_this2.state.currentPos - 1][0]
                       }));
                       event.preventDefault();
-                      _this2.currentPos--;
+                      _this2.state.currentPos--;
                     }
                   }
                 }
@@ -58333,19 +58339,19 @@ var Response = function (_React$Component) {
                   }));
                   if (hasSlider) {
                     if (event.target.value == "") {
-                      _this2.currentPos = 0;
+                      _this2.state.currentPos = 0;
                     } else if (event.target.value < 800) {
                       _this2.setState({
                         value: event.target.value
                       });
-                      _this2.currentPos = 0;
+                      _this2.state.currentPos = 0;
                     } else {
-                      _this2.currentPos = _this2.getIndex_0(event.target.value, Options);
+                      _this2.state.currentPos = _this2.getIndex_0(event.target.value, Options);
                     }
                   } else {
                     // TODO: Decide whether deleting all input should set currentPos to 0 or let it be as it is
                     if (event.target.value == "") {} else {
-                      _this2.currentPos = _this2.getIndex_0(event.target.value, Options);
+                      _this2.state.currentPos = _this2.getIndex_0(event.target.value, Options);
                     }
                   }
                 } else if (!item.validate) {
@@ -68103,13 +68109,18 @@ var Horizontal = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (Horizontal.__proto__ || Object.getPrototypeOf(Horizontal)).call(this, props, context));
 
+    _this.handleChangeStart = function () {
+      console.log('Change event started');
+    };
+
     _this.handleChange = function (value) {
       _this.setState({
         value: value
       });
       _this.handlers.handleChange(value);
       _this.props.response.setState({
-        value: value
+        value: value,
+        currentPos: 0
       });
     };
 
@@ -68142,7 +68153,7 @@ var Horizontal = function (_Component) {
           min: this.props.min,
           max: this.props.max,
           value: parseInt(this.props.responseValue),
-          onChangeStart: console.log('Change event started'),
+          onChangeStart: this.handleChangeStart,
           onChange: this.handleChange,
           onChangeComplete: this.handleComplete
         }),
