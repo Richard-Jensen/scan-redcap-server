@@ -7,13 +7,8 @@ import { Markdown } from './Markdown';
 import { items, scales, getItemByKey } from '../items';
 import Slider from 'react-rangeslider';
 import 'react-rangeslider/lib/index.css';
-import Horizontal from './Horizontal';
+import ResponseSlider from './ResponseSlider';
 
-
-var hasSlider = false;
-
-
-// Now it is actually a class!
 class Response extends React.Component {
 
   constructor(props) {
@@ -22,21 +17,23 @@ class Response extends React.Component {
       item: getItemByKey(this.props.interview.activeKey),
       value: 0,
       hasSlider: false,
-      currentPos: 0
+      currentPos: null,
+      // Making sure that if not initialized, min-max is the empty set
+      min: 1,
+      max: 0
     };
     this.inputBox = React.createRef();
     this.slider = React.createRef();
   }
 
-  // Function to create the options, which can be a Slider
-  // TODO: Unneccessary arguments interview and inputBox
   write = function(array, pair) {
-      if (pair[0].includes("-")) {
-      hasSlider = true;
+    if (pair[0].includes("-")) {
+      this.state.hasSlider = true;
       return ([
         this.isActive(array, pair, pair[1]),
-        <Horizontal
+        <ResponseSlider
         id='Slider'
+        array={array}
         responseValue={this.state.value}
         min={
           parseInt(pair[0].split('-')[0])
@@ -94,7 +91,7 @@ class Response extends React.Component {
     const interview = this.props.interview;
     const settings = this.props.settings;
 
-    hasSlider = false;
+    this.state.hasSlider = false;
 
     let item = getItemByKey(interview.activeKey);
     if (!item) {
@@ -132,6 +129,11 @@ class Response extends React.Component {
   const hasInput = input || item.scale;
   const showGlossary = settings.showGlossary && item.glossary;
 
+  //TODO: This is just a short hack for trying to fix the issue of text size changing. Do this propper with CSS!
+  const divStyle = {
+    fontSize: 40,
+  };
+
   // Compare function, used to sort the upcomming Options array, so that for example 0-799 is smaller than 800
   // TODO: This only correctly sorts if x is an interval with values less than y. Currently a complete hack.
   function compareKey(x,y) {
@@ -151,13 +153,43 @@ class Response extends React.Component {
     Options.sort(compareKey);
   }
 
-  if (this.getIndex_0(response, Options) != -1) {
-    this.state.currentPos = this.getIndex_0(response, Options);
+  const ranges = [];
+  Options.map(pair => {
+    if (pair[0].includes('-')) {
+      ranges.push(pair[0])
+    }
+  })
+
+  if (!(ranges.length === 0)) {
+    this.state.min = parseInt(ranges[0].split('-')[0])
+    this.state.max = parseInt(ranges[0].split('-')[1])
   }
 
-  if (response.includes('-')) {
-    this.state.currentPos = 0;
+  if (response !== '') {
+    if (this.getIndex_0(response, Options) != -1) {
+      this.state.currentPos = this.getIndex_0(response, Options);
+    }
+    else if ((this.state.min <= parseInt(response)) && (parseInt(response) <= this.state.max)) {
+      this.state.currentPos = this.getIndex_0(this.state.min + '-' + this.state.max, Options)
+      this.state.value = parseInt(response)
+    }
   }
+  else {
+    this.state.currentPos = null
+  }
+
+  console.log('CurrentPos: ' + this.state.currentPos)
+  console.log('min: ' + this.state.min)
+  console.log('value: ' + this.state.value)
+  console.log('max: ' + this.state.max)
+  console.log('response: ' + response)
+
+/*  if (this.getIndex_0(response, Options) != -1) {
+    this.state.currentPos = this.getIndex_0(response, Options);
+  }
+  else if ((this.state.min <= parseInt(response)) && (parseInt(response) <= this.state.max)) {
+    this.state.currentPos = this.getIndex_0(this.state.min + '-' + this.state.max, Options)
+  }*/
 
   // Returns the specific interview item.
   return (
@@ -174,7 +206,7 @@ class Response extends React.Component {
             currentPos: this.getIndex(pair, Options)
           })
           if (pair[0].includes("-")) {
-          //So far, the Horizontal class handles all this
+          //So far, the ResponseSlider class handles all this
         }
         else {
           dispatch(setResponse({ key: item.key, value: pair[0] }))
@@ -196,33 +228,48 @@ class Response extends React.Component {
         <label htmlFor="response">Response</label>
         <input
         type={input}
+        style={divStyle}
         className={`interview-input interview-input-${input}`}
         id="ResponseInput"
         name="response"
         ref={this.inputBox}
-        onKeyDown={event =>{
+        onKeyDown={event => {
           //Keycode 38 is arrow key up, 40 is down
-          // TODO: This fits question 2.002, and I believe all other questions with a option which can be varied, but should be made more general (e.g., value: 800)
+          // TODO: Refactor this. It's a huge mess.
           if(event.keyCode==38) {
-            if (hasSlider) {
-              if (this.state.currentPos == (Options.length - 1)) {return;}
-              else if (this.state.currentPos == 0 && !event.shiftKey) {
-                if (this.state.value == "799") {
-                  dispatch(setResponse({
-                    key: item.key,
-                    value: "800"
-                  }));
-                  this.setState({
-                    currentPos: this.state.currentPos + 1
-                  });
+            if (this.state.currentPos === null) {
+              dispatch(setResponse({
+                key: item.key,
+                value: Options[0][0]
+              }))
+              this.setState({
+                currentPos: 0
+              })
+              event.preventDefault()
+            }
+            else {
+              if (Options[this.state.currentPos][0].includes('-') && !event.shiftKey) {
+                if (this.state.value === this.state.max) {
+                  if (this.state.currentPos === (Options.length - 1)) {
+                    return
+                  }
+                  else {
+                    dispatch(setResponse({
+                      key: item.key,
+                      value: Options[this.state.currentPos + 1][0]
+                    }));
+                    this.setState({
+                      currentPos: this.state.currentPos + 1
+                    });
+                  }
                 }
-                else if (event.target.value == ""){
+                else if (event.target.value == "") {
                   dispatch(setResponse({
                     key: item.key,
-                    value: "0"
+                    value: this.state.min
                   }));
                   this.setState({
-                    value: 0
+                    value: parseInt(this.state.min)
                   })
                   event.preventDefault();
                 }
@@ -237,6 +284,21 @@ class Response extends React.Component {
                   event.preventDefault();
                 }
               }
+              else if (this.state.currentPos === (Options.length - 1)) {
+                return
+              }
+              else if (Options[this.state.currentPos + 1][0].includes('-')) {
+                dispatch(
+                  setResponse({
+                    key: item.key,
+                    value: this.state.value.toString()
+                  })
+                  );
+                this.setState({
+                  currentPos: this.state.currentPos + 1
+                });
+                event.preventDefault();
+              }
               else {
                 dispatch(
                   setResponse({
@@ -246,154 +308,149 @@ class Response extends React.Component {
                   );
                 event.preventDefault();
                 this.setState({
-                    currentPos: this.state.currentPos + 1
-                  });
+                  currentPos: this.state.currentPos + 1
+                });
               }
             }
+          }
+          else if (event.keyCode==40) {
+            if (this.state.currentPos === null) {
+              dispatch(setResponse({
+                key: item.key,
+                value: Options[0][0]
+              }))
+              this.setState({
+                currentPos: 0
+              })
+            }
             else {
-              if (this.state.currentPos == (Options.length - 1)) {
-                return;
+              if (Options[this.state.currentPos][0].includes('-') && !event.shiftKey) {
+                if (this.state.value === this.state.min) {
+                  if (this.state.currentPos === 0) {
+                    if (Options.length === 1) {
+                      dispatch(setResponse({
+                        key: item.key,
+                        value: 1
+                      }))
+                    }
+                    else {
+                     return
+                   }
+                 }
+                 else {
+                  dispatch(setResponse({
+                    key: item.key,
+                    value: Options[this.state.currentPos - 1][0]
+                  }));
+                  this.setState({
+                    currentPos: this.state.currentPos - 1
+                  });
+                }
+              }
+              else if (event.target.value == "") {
+                dispatch(setResponse({
+                  key: item.key,
+                  value: this.state.min
+                }));
+                this.setState({
+                  value: parseInt(this.state.min)
+                })
+                event.preventDefault();
               }
               else {
+                this.setState({
+                  value: parseInt(this.state.value) - 1
+                })
+                dispatch(setResponse({
+                  key: item.key,
+                  value: (parseInt(this.state.value) - 1).toString()
+                }));
+                event.preventDefault();
+              }
+            }
+            else if (this.state.currentPos === 0) {
+              return
+            }
+            else if (Options[this.state.currentPos - 1][0].includes('-')) {
+              this.setState({
+                currentPos: this.state.currentPos - 1
+              });
               dispatch(
                 setResponse({
                   key: item.key,
-                  value: Options[this.state.currentPos + 1][0]
+                  value: this.state.value
+                })
+                );
+              event.preventDefault();
+            }
+            else {
+              dispatch(
+                setResponse({
+                  key: item.key,
+                  value: Options[this.state.currentPos - 1][0]
                 })
                 );
               event.preventDefault();
               this.setState({
-                    currentPos: this.state.currentPos + 1
-                  });
-            }
+                currentPos: this.state.currentPos - 1
+              });
             }
           }
-          else if (event.keyCode==40) {
-            if (hasSlider) {
-              if (event.target.value == "") {
-                if (this.state.currentPos == 1) {
+        }
+      }
+    }
 
-                }
-                dispatch(setResponse({
-                  key: item.key,
-                  value: "0"
-                }))
-                this.setState({
-                  value: 0
-                })
-              }
-              else if (this.state.currentPos == 1) {
-                dispatch(setResponse({
-                  key: item.key,
-                  value: this.state.value.toString()
-                }));
-                event.preventDefault();
-                this.state.currentPos--;
-                this.inputBox.current.focus();
-              }
-              else if (this.state.currentPos == 0) {
-                if (this.state.value == 0) {return;}
-                else {
-                  // This is terrible hack, but for some reason, it will not show 0 in the inputbox unless I specify 0 as "0". This also means that when adding 1 when pressing uparrow, it returns "1". and then "11", since for strings, + is concatination, so we have to use parseInt there.
-                  if (this.state.value == 1) {
-                    dispatch(setResponse({
-                      key: item.key,
-                      value: "0"
-                    }));
-                    this.setState({
-                      value: 0
-                    })
-                  }
-                  else {
-                    this.setState({
-                      value: this.state.value - 1
-                    })
-                    dispatch(setResponse({
-                      key: item.key,
-                      value: (this.state.value - 1).toString()
-                    }));
-                    event.preventDefault();
-                  }}}
+    onChange={event => {
+      if (validateNumeric(event.target.value, Object.keys(item.options))) {
+        dispatch(
+          setResponse({
+            key: item.key,
+            value: event.target.value.toString()
+          })
+          );
+        if (this.state.hasSlider) {
+          if (event.target.value == "") {
+            this.setState({
+              currentPos: 1
+            })
+          }
+          else if ((this.state.min <= event.target.value) && (event.target.value <= this.state.max)) {
+            this.setState({
+              value: event.target.value,
+              currentPos: this.getIndex_0(this.state.min + '-' + this.state.max, Options)
+            });
+          }
+          else {
+            this.state.currentPos = this.getIndex_0(event.target.value, Options)
+          }
+        }
+        else {
+          // TODO: Decide whether deleting all input should set currentPos to 0 or let it be as it is
+          if (event.target.value == "") {}
+            else {
+             this.state.currentPos = this.getIndex_0(event.target.value, Options);
+           }}
 
-                  else {
-                    dispatch(
-                      setResponse({
-                        key: item.key,
-                        value: Options[this.state.currentPos - 1][0]
-                      })
-                      );
-                    event.preventDefault();
-                    this.state.currentPos--;
-                  }
-                }
-                else {
-                  if (this.state.currentPos == 0) {return;}
-                  else {
-                  dispatch(
-                    setResponse({
-                      key: item.key,
-                      value: Options[this.state.currentPos - 1][0]
-                    })
-                    );
-                  event.preventDefault();
-                  this.state.currentPos--;
-                }}}
-              }}
-              onChange={event => {
-                if (item.validate && validateNumeric(event.target.value, Object.keys(item.options))) {
-                  dispatch(
-                    setResponse({
-                      key: item.key,
-                      value: event.target.value.toString()
-                    })
-                    );
-                  if (hasSlider) {
-                    if (event.target.value == "") {
-                      this.state.currentPos = 0;
-                    }
-                    else if (event.target.value < 800) {
-                      this.setState({
-                        value: event.target.value
-                      });
-                      this.state.currentPos = 0;
-                    }
-                    else {
-                      this.state.currentPos = this.getIndex_0(event.target.value, Options)
-                    }
-                  }
-                  else {
-                    // TODO: Decide whether deleting all input should set currentPos to 0 or let it be as it is
-                    if (event.target.value == "") {}
-                      else {
-                       this.state.currentPos = this.getIndex_0(event.target.value, Options);
-                     }}
-                   }
-                   else if (!item.validate) {
-                    dispatch(
-                      setResponse({
-                        key: item.key,
-                        value: event.target.value.toString()
-                      })
-                      );
-                  }}}
-                  placeholder={item.validate}
-                  value={response}
-                  autoFocus
-                  />
+         }
+       }}
+       placeholder={item.validate}
+       value={response}
+       autoFocus
+       />
 
-                  {settings.showItemNotes && (
-                    <textarea
-                    onChange={event =>
-                      dispatch(
-                        setNote({ key: item.key, value: event.target.value })
-                        )
-                    }
-                    defaultValue={note}
-                    placeholder="Note"
-                    />
-                    )}
-                  </Fragment>
-                  )}
+       {settings.showItemNotes && (
+        <textarea
+        onChange={event =>
+          dispatch(
+            setNote({ key: item.key, value: event.target.value })
+            )
+        }
+        defaultValue={note}
+        placeholder="Note"
+        />
+        )}
+       </Fragment>
+       )}
 </div>
 {showGlossary && (
   <div className="interview-item-glossary">
