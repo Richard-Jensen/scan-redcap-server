@@ -1,5 +1,5 @@
 import { scanData } from '../data';
-import { getNextItemByKey, items } from '../items';
+import { getNextItemByKey, getPreviousItemByKey, items } from '../items';
 import routing from '../items/3.0/section.2.routing.json';
 import Algorithms from '../data/Algorithms';
 
@@ -18,16 +18,27 @@ if (scanData.data) {
   initialState = scanData.data;
 }
 
-const nextItemIsDisabled = (state, key) => state.disabledItems.includes(key);
+export const nextItemIsDisabled = (state, key) => state.disabledItems.includes(getNextItemByKey(key).key);
+export const previousItemIsDisabled = (state, key) => state.disabledItems.includes(getPreviousItemByKey(key).key);
 
-const getNextValidKey = (state, key) => {
+export const getNextValidKey = (state, key) => {
   const nextItem = getNextItemByKey(key);
 
   if (nextItemIsDisabled(state, key)) {
-    return getNextValidKey(state, nextItem.key);
-  } else {
-    return key;
-  }
+   return getNextValidKey(state, nextItem.key);
+ } else {
+  return nextItem.key;
+}
+};
+
+export const getPreviousValidKey = (state, key) => {
+  const previousItem = getPreviousItemByKey(key);
+
+  if (previousItemIsDisabled(state, key)) {
+   return getPreviousValidKey(state, previousItem.key);
+ } else {
+  return previousItem.key;
+}
 };
 
 const interview = (state = initialState, action) => {
@@ -35,60 +46,58 @@ const interview = (state = initialState, action) => {
 
   switch (action.type) {
     case 'SET_ACTIVE_ITEM':
-      const { key } = action.payload;
+    const { key } = action.payload;
 
-      const nextValidKey = getNextValidKey(state, key);
-
-      return {
-        ...state,
-        activeKey: nextValidKey
-      };
+    return {
+      ...state,
+      activeKey: key
+    };
     case 'SET_RESPONSE':
-      let mergedResponses;
-      if (action.payload.period) {
-        let period = action.payload.period === 1 ? 'period_one' : 'period_two';
+    let mergedResponses;
+    if (action.payload.period) {
+      let period = action.payload.period === 1 ? 'period_one' : 'period_two';
 
-        mergedResponses = {
-          ...responses,
-          [action.payload.key]: {
-            ...responses[action.payload.key],
-            [period]: action.payload.value
-          }
-        };
-      } else {
-        mergedResponses = {
-          ...responses,
-          [action.payload.key]: action.payload.value
-        };
+      mergedResponses = {
+        ...responses,
+        [action.payload.key]: {
+          ...responses[action.payload.key],
+          [period]: action.payload.value
+        }
+      };
+    } else {
+      mergedResponses = {
+        ...responses,
+        [action.payload.key]: action.payload.value
+      };
+    }
+
+    const { matched } = Algorithms.run(mergedResponses, routing);
+    let disabledItems = [];
+    Object.keys(matched).forEach(key => {
+      const algorithm = matched[key];
+      if (algorithm.skip_items) {
+        disabledItems = [disabledItems, ...algorithm.skip_items];
       }
+    });
 
-      const { matched } = Algorithms.run(mergedResponses, routing);
-      let disabledItems = [];
-      Object.keys(matched).forEach(key => {
-        const algorithm = matched[key];
-        if (algorithm.skip_items) {
-          disabledItems = [disabledItems, ...algorithm.skip_items];
-        }
-      });
-
-      const matchedKeys = Object.keys(matched);
-      console.log(responses);
-      console.log(mergedResponses);
-      return {
-        ...state,
-        disabledItems: [...matchedKeys, ...disabledItems],
-        responses: mergedResponses
-      };
+    const matchedKeys = Object.keys(matched);
+    console.log(responses);
+    console.log(mergedResponses);
+    return {
+      ...state,
+      disabledItems: [...matchedKeys, ...disabledItems],
+      responses: mergedResponses
+    };
     case 'SET_NOTE':
-      return {
-        ...state,
-        notes: {
-          ...state.notes,
-          [action.payload.key]: action.payload.value
-        }
-      };
+    return {
+      ...state,
+      notes: {
+        ...state.notes,
+        [action.payload.key]: action.payload.value
+      }
+    };
     default:
-      return state;
+    return state;
   }
 };
 

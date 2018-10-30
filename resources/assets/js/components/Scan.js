@@ -8,6 +8,7 @@ import { Settings } from './Settings';
 import { Analysis } from './Analysis';
 import { SearchItems } from './SearchItems';
 import Response from './Response';
+import { getNextValidKey, getPreviousValidKey } from '../reducers/interview';
 import { setActiveItem } from '../actions';
 import {
   items,
@@ -38,16 +39,16 @@ class Scan extends Component {
 
   goToNextItem = () => {
     const activeKey = this.props.interview.activeKey;
-    const nextItem = getNextItemByKey(activeKey);
+    const nextValidKey = getNextValidKey(this.props.interview, activeKey);
 
-    this.props.dispatch(setActiveItem({ key: nextItem.key }));
+    this.props.dispatch(setActiveItem({ key: nextValidKey}));
   };
 
   goToPreviousItem = () => {
     const activeKey = this.props.interview.activeKey;
-    const previousItem = getPreviousItemByKey(activeKey);
+    const previousValidKey = getPreviousValidKey(this.props.interview, activeKey);
 
-    this.props.dispatch(setActiveItem({ key: previousItem.key }));
+    this.props.dispatch(setActiveItem({ key: previousValidKey}));
   };
 
   render() {

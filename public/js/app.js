@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 154);
+/******/ 	return __webpack_require__(__webpack_require__.s = 155);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,7 +73,7 @@
 if (false) {
   module.exports = require('./cjs/react.production.min.js');
 } else {
-  module.exports = __webpack_require__(178);
+  module.exports = __webpack_require__(179);
 }
 
 
@@ -256,7 +256,7 @@ if (true) {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(191)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(192)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
@@ -392,7 +392,7 @@ module.exports = Type;
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(218), __esModule: true };
+module.exports = { "default": __webpack_require__(219), __esModule: true };
 
 /***/ }),
 /* 8 */
@@ -426,11 +426,11 @@ exports.default = function (self, call) {
 
 exports.__esModule = true;
 
-var _setPrototypeOf = __webpack_require__(241);
+var _setPrototypeOf = __webpack_require__(242);
 
 var _setPrototypeOf2 = _interopRequireDefault(_setPrototypeOf);
 
-var _create = __webpack_require__(245);
+var _create = __webpack_require__(246);
 
 var _create2 = _interopRequireDefault(_create);
 
@@ -493,7 +493,7 @@ $exports.store = store;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Grid__ = __webpack_require__(116);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_0__Grid__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__Grid__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__accessibilityOverscanIndicesGetter__ = __webpack_require__(274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__accessibilityOverscanIndicesGetter__ = __webpack_require__(275);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__accessibilityOverscanIndicesGetter__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__defaultCellRangeRenderer__ = __webpack_require__(120);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_2__defaultCellRangeRenderer__["a"]; });
@@ -689,7 +689,7 @@ exports.escapeHtml        = escapeHtml;
 
 
 var bind = __webpack_require__(88);
-var isBuffer = __webpack_require__(159);
+var isBuffer = __webpack_require__(160);
 
 /*global toString:true*/
 
@@ -1164,9 +1164,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(191);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(196);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Provider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["b"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createProvider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connectAdvanced", function() { return __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__["a"]; });
@@ -1619,7 +1619,7 @@ if (false) {
   checkDCE();
   module.exports = require('./cjs/react-dom.production.min.js');
 } else {
-  module.exports = __webpack_require__(179);
+  module.exports = __webpack_require__(180);
 }
 
 
@@ -1854,9 +1854,9 @@ function polyfill(Component) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return cancelAnimationTimeout; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return requestAnimationTimeout; });
 /* unused harmony export bpfrpt_proptype_AnimationTimeoutId */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(258);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(259);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__animationFrame__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__animationFrame__ = __webpack_require__(274);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
 
@@ -2058,14 +2058,14 @@ module.exports = new Schema({
     __webpack_require__(142)
   ],
   implicit: [
-    __webpack_require__(337),
-    __webpack_require__(338)
+    __webpack_require__(338),
+    __webpack_require__(339)
   ],
   explicit: [
-    __webpack_require__(339),
-    __webpack_require__(344),
+    __webpack_require__(340),
     __webpack_require__(345),
-    __webpack_require__(346)
+    __webpack_require__(346),
+    __webpack_require__(347)
   ]
 });
 
@@ -2086,9 +2086,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 // import { items as en } from './items/2.1/scan.2.1.items.en.json';
 
 
-var _section2En = __webpack_require__(354);
+var _section2En = __webpack_require__(355);
 
-var _ratingscalesEn = __webpack_require__(355);
+var _ratingscalesEn = __webpack_require__(356);
 
 var _ratingscalesEn2 = _interopRequireDefault(_ratingscalesEn);
 
@@ -2179,7 +2179,7 @@ module.exports = function (bitmap, value) {
 
 "use strict";
 
-var $at = __webpack_require__(224)(true);
+var $at = __webpack_require__(225)(true);
 
 // 21.1.3.27 String.prototype[@@iterator]()
 __webpack_require__(108)(String, 'String', function (iterated) {
@@ -2214,7 +2214,7 @@ module.exports = function (it, tag, stat) {
 /* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(229);
+__webpack_require__(230);
 var global = __webpack_require__(10);
 var hide = __webpack_require__(24);
 var Iterators = __webpack_require__(29);
@@ -2329,9 +2329,9 @@ module.exports = Schema.DEFAULT = new Schema({
     __webpack_require__(42)
   ],
   explicit: [
-    __webpack_require__(347),
     __webpack_require__(348),
-    __webpack_require__(349)
+    __webpack_require__(349),
+    __webpack_require__(350)
   ]
 });
 
@@ -2690,7 +2690,7 @@ module.exports = function parseLinkLabel(state, start) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(14);
-var normalizeHeaderName = __webpack_require__(162);
+var normalizeHeaderName = __webpack_require__(163);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -2784,7 +2784,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(161)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(162)))
 
 /***/ }),
 /* 58 */
@@ -3063,7 +3063,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "applyMiddleware", function() { return applyMiddleware; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "compose", function() { return compose; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__DO_NOT_USE__ActionTypes", function() { return ActionTypes; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_symbol_observable__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_symbol_observable__ = __webpack_require__(199);
 
 
 /**
@@ -3875,7 +3875,7 @@ module.exports = function (it) {
 
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 var anObject = __webpack_require__(16);
-var dPs = __webpack_require__(226);
+var dPs = __webpack_require__(227);
 var enumBugKeys = __webpack_require__(73);
 var IE_PROTO = __webpack_require__(66)('IE_PROTO');
 var Empty = function () { /* empty */ };
@@ -3988,8 +3988,8 @@ exports.f = __webpack_require__(22) ? gOPD : function getOwnPropertyDescriptor(O
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__CellSizeAndPositionManager__ = __webpack_require__(252);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__maxElementSize_js__ = __webpack_require__(253);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__CellSizeAndPositionManager__ = __webpack_require__(253);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__maxElementSize_js__ = __webpack_require__(254);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__types__ = __webpack_require__(1);
 
 
@@ -4327,7 +4327,7 @@ module.exports.f = function (C) {
 /* unused harmony export bpfrpt_proptype_Positioner */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_defineProperty__ = __webpack_require__(295);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_defineProperty__ = __webpack_require__(296);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_defineProperty___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_defineProperty__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of__);
@@ -4344,7 +4344,7 @@ module.exports.f = function (C) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_react_lifecycles_compat__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__PositionCache__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__PositionCache__ = __webpack_require__(297);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__utils_requestAnimationTimeout__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_prop_types__);
@@ -4829,9 +4829,9 @@ var Schema = __webpack_require__(32);
 
 module.exports = new Schema({
   explicit: [
-    __webpack_require__(330),
     __webpack_require__(331),
-    __webpack_require__(332)
+    __webpack_require__(332),
+    __webpack_require__(333)
   ]
 });
 
@@ -4852,7 +4852,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _remarkable = __webpack_require__(357);
+var _remarkable = __webpack_require__(358);
 
 var _remarkable2 = _interopRequireDefault(_remarkable);
 
@@ -5022,12 +5022,12 @@ module.exports = function bind(fn, thisArg) {
 
 
 var utils = __webpack_require__(14);
-var settle = __webpack_require__(163);
-var buildURL = __webpack_require__(165);
-var parseHeaders = __webpack_require__(166);
-var isURLSameOrigin = __webpack_require__(167);
+var settle = __webpack_require__(164);
+var buildURL = __webpack_require__(166);
+var parseHeaders = __webpack_require__(167);
+var isURLSameOrigin = __webpack_require__(168);
 var createError = __webpack_require__(90);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(168);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(169);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -5124,7 +5124,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(169);
+      var cookies = __webpack_require__(170);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -5208,7 +5208,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(164);
+var enhanceError = __webpack_require__(165);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -5463,13 +5463,13 @@ var storeShape = __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.shape({
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = connectAdvanced;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__ = __webpack_require__(193);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(194);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_Subscription__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_Subscription__ = __webpack_require__(195);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_PropTypes__ = __webpack_require__(97);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -5844,7 +5844,7 @@ function wrapMapToPropsFunc(mapToProps, methodName) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = verifyPlainObject;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(202);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__warning__ = __webpack_require__(61);
 
 
@@ -5860,7 +5860,7 @@ function verifyPlainObject(value, displayName, methodName) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__root_js__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__root_js__ = __webpack_require__(204);
 
 
 /** Built-in value references. */
@@ -5875,34 +5875,34 @@ var Symbol = __WEBPACK_IMPORTED_MODULE_0__root_js__["a" /* default */].Symbol;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ArrowKeyStepper__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ArrowKeyStepper__ = __webpack_require__(218);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "ArrowKeyStepper", function() { return __WEBPACK_IMPORTED_MODULE_0__ArrowKeyStepper__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__AutoSizer__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__AutoSizer__ = __webpack_require__(276);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "AutoSizer", function() { return __WEBPACK_IMPORTED_MODULE_1__AutoSizer__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__CellMeasurer__ = __webpack_require__(130);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "CellMeasurer", function() { return __WEBPACK_IMPORTED_MODULE_2__CellMeasurer__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "CellMeasurerCache", function() { return __WEBPACK_IMPORTED_MODULE_2__CellMeasurer__["b"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Collection__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Collection__ = __webpack_require__(279);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Collection", function() { return __WEBPACK_IMPORTED_MODULE_3__Collection__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ColumnSizer__ = __webpack_require__(285);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ColumnSizer__ = __webpack_require__(286);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "ColumnSizer", function() { return __WEBPACK_IMPORTED_MODULE_4__ColumnSizer__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Grid__ = __webpack_require__(12);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "accessibilityOverscanIndicesGetter", function() { return __WEBPACK_IMPORTED_MODULE_5__Grid__["b"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "defaultCellRangeRenderer", function() { return __WEBPACK_IMPORTED_MODULE_5__Grid__["h"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "defaultOverscanIndicesGetter", function() { return __WEBPACK_IMPORTED_MODULE_5__Grid__["i"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Grid", function() { return __WEBPACK_IMPORTED_MODULE_5__Grid__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__InfiniteLoader__ = __webpack_require__(287);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__InfiniteLoader__ = __webpack_require__(288);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "InfiniteLoader", function() { return __WEBPACK_IMPORTED_MODULE_6__InfiniteLoader__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__List__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__List__ = __webpack_require__(290);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "List", function() { return __WEBPACK_IMPORTED_MODULE_7__List__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Masonry__ = __webpack_require__(293);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Masonry__ = __webpack_require__(294);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createMasonryCellPositioner", function() { return __WEBPACK_IMPORTED_MODULE_8__Masonry__["b"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Masonry", function() { return __WEBPACK_IMPORTED_MODULE_8__Masonry__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__MultiGrid__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__MultiGrid__ = __webpack_require__(307);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MultiGrid", function() { return __WEBPACK_IMPORTED_MODULE_9__MultiGrid__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ScrollSync__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ScrollSync__ = __webpack_require__(310);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "ScrollSync", function() { return __WEBPACK_IMPORTED_MODULE_10__ScrollSync__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__Table__ = __webpack_require__(311);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__Table__ = __webpack_require__(312);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createTableMultiSort", function() { return __WEBPACK_IMPORTED_MODULE_11__Table__["e"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTableCellDataGetter", function() { return __WEBPACK_IMPORTED_MODULE_11__Table__["f"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTableCellRenderer", function() { return __WEBPACK_IMPORTED_MODULE_11__Table__["g"]; });
@@ -5913,7 +5913,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Column", function() { return __WEBPACK_IMPORTED_MODULE_11__Table__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "SortDirection", function() { return __WEBPACK_IMPORTED_MODULE_11__Table__["b"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "SortIndicator", function() { return __WEBPACK_IMPORTED_MODULE_11__Table__["c"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__WindowScroller__ = __webpack_require__(314);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__WindowScroller__ = __webpack_require__(315);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "WindowScroller", function() { return __WEBPACK_IMPORTED_MODULE_12__WindowScroller__["a"]; });
 
 
@@ -6173,7 +6173,7 @@ module.exports = !__webpack_require__(22) && !__webpack_require__(28)(function (
 /* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(220), __esModule: true };
+module.exports = { "default": __webpack_require__(221), __esModule: true };
 
 /***/ }),
 /* 107 */
@@ -6184,11 +6184,11 @@ module.exports = { "default": __webpack_require__(220), __esModule: true };
 
 exports.__esModule = true;
 
-var _iterator = __webpack_require__(222);
+var _iterator = __webpack_require__(223);
 
 var _iterator2 = _interopRequireDefault(_iterator);
 
-var _symbol = __webpack_require__(232);
+var _symbol = __webpack_require__(233);
 
 var _symbol2 = _interopRequireDefault(_symbol);
 
@@ -6213,7 +6213,7 @@ var $export = __webpack_require__(15);
 var redefine = __webpack_require__(109);
 var hide = __webpack_require__(24);
 var Iterators = __webpack_require__(29);
-var $iterCreate = __webpack_require__(225);
+var $iterCreate = __webpack_require__(226);
 var setToStringTag = __webpack_require__(49);
 var getPrototypeOf = __webpack_require__(104);
 var ITERATOR = __webpack_require__(11)('iterator');
@@ -6291,7 +6291,7 @@ module.exports = __webpack_require__(24);
 
 var has = __webpack_require__(23);
 var toIObject = __webpack_require__(25);
-var arrayIndexOf = __webpack_require__(227)(false);
+var arrayIndexOf = __webpack_require__(228)(false);
 var IE_PROTO = __webpack_require__(66)('IE_PROTO');
 
 module.exports = function (object, names) {
@@ -6383,11 +6383,11 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_classnames__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_classnames___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_classnames__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__utils_calculateSizeAndPositionDataAndUpdateScrollOffset__ = __webpack_require__(251);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__utils_calculateSizeAndPositionDataAndUpdateScrollOffset__ = __webpack_require__(252);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__utils_ScalingCellSizeAndPositionManager__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__utils_createCallbackMemoizer__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__defaultOverscanIndicesGetter__ = __webpack_require__(119);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__utils_updateScrollIndexHelper__ = __webpack_require__(256);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__utils_updateScrollIndexHelper__ = __webpack_require__(257);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__defaultCellRangeRenderer__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_dom_helpers_util_scrollbarSize__ = __webpack_require__(121);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_dom_helpers_util_scrollbarSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_dom_helpers_util_scrollbarSize__);
@@ -7954,13 +7954,13 @@ Object(__WEBPACK_IMPORTED_MODULE_16_react_lifecycles_compat__["a" /* polyfill */
 /* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(248), __esModule: true };
+module.exports = { "default": __webpack_require__(249), __esModule: true };
 
 /***/ }),
 /* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(254), __esModule: true };
+module.exports = { "default": __webpack_require__(255), __esModule: true };
 
 /***/ }),
 /* 119 */
@@ -8192,7 +8192,7 @@ exports.default = function (recalc) {
   return size;
 };
 
-var _inDOM = __webpack_require__(257);
+var _inDOM = __webpack_require__(258);
 
 var _inDOM2 = _interopRequireDefault(_inDOM);
 
@@ -8236,7 +8236,7 @@ module.exports = function (O, D) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var ctx = __webpack_require__(35);
-var invoke = __webpack_require__(265);
+var invoke = __webpack_require__(266);
 var html = __webpack_require__(113);
 var cel = __webpack_require__(69);
 var global = __webpack_require__(10);
@@ -8788,8 +8788,8 @@ function createDetectElementResize(nonce) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__CellMeasurer__ = __webpack_require__(276);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CellMeasurerCache__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__CellMeasurer__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CellMeasurerCache__ = __webpack_require__(278);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__CellMeasurer__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__CellMeasurerCache__["a"]; });
 
@@ -8824,7 +8824,7 @@ var bpfrpt_proptype_CellMeasureCache =  false ? null : {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_own_property_descriptor__ = __webpack_require__(290);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_own_property_descriptor__ = __webpack_require__(291);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_own_property_descriptor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_own_property_descriptor__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of__);
@@ -9601,8 +9601,8 @@ Column.propTypes =  true ? {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utils_onScroll__ = __webpack_require__(315);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__utils_dimensions__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utils_onScroll__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__utils_dimensions__ = __webpack_require__(317);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__vendor_detectElementResize__ = __webpack_require__(129);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_prop_types__);
@@ -9884,7 +9884,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _DataLoader = __webpack_require__(321);
+var _DataLoader = __webpack_require__(322);
 
 var _DataLoader2 = _interopRequireDefault(_DataLoader);
 
@@ -10075,10 +10075,10 @@ module.exports = new Schema({
     __webpack_require__(84)
   ],
   implicit: [
-    __webpack_require__(333),
     __webpack_require__(334),
     __webpack_require__(335),
-    __webpack_require__(336)
+    __webpack_require__(336),
+    __webpack_require__(337)
   ]
 });
 
@@ -12500,7 +12500,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Rangeslider = __webpack_require__(409);
+var _Rangeslider = __webpack_require__(410);
 
 var _Rangeslider2 = _interopRequireDefault(_Rangeslider);
 
@@ -12515,7 +12515,7 @@ exports.default = _Rangeslider2.default;
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(412);
+var content = __webpack_require__(413);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -12523,7 +12523,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(414)(content, options);
+var update = __webpack_require__(415)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -12543,6 +12543,133 @@ if(false) {
 /* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getPreviousValidKey = exports.getNextValidKey = exports.previousItemIsDisabled = exports.nextItemIsDisabled = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _data = __webpack_require__(63);
+
+var _items = __webpack_require__(43);
+
+var _section2Routing = __webpack_require__(418);
+
+var _section2Routing2 = _interopRequireDefault(_section2Routing);
+
+var _Algorithms = __webpack_require__(141);
+
+var _Algorithms2 = _interopRequireDefault(_Algorithms);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var initialState = {
+  id: window.scanInfo && window.scanInfo.record_id,
+  activeKey: _items.items[0].key,
+  responses: {},
+  disabledItems: [],
+  notes: {},
+  settings: {
+    showGlossary: true
+  }
+};
+
+if (_data.scanData.data) {
+  initialState = _data.scanData.data;
+}
+
+var nextItemIsDisabled = exports.nextItemIsDisabled = function nextItemIsDisabled(state, key) {
+  return state.disabledItems.includes((0, _items.getNextItemByKey)(key).key);
+};
+var previousItemIsDisabled = exports.previousItemIsDisabled = function previousItemIsDisabled(state, key) {
+  return state.disabledItems.includes((0, _items.getPreviousItemByKey)(key).key);
+};
+
+var getNextValidKey = exports.getNextValidKey = function getNextValidKey(state, key) {
+  var nextItem = (0, _items.getNextItemByKey)(key);
+
+  if (nextItemIsDisabled(state, key)) {
+    return getNextValidKey(state, nextItem.key);
+  } else {
+    return nextItem.key;
+  }
+};
+
+var getPreviousValidKey = exports.getPreviousValidKey = function getPreviousValidKey(state, key) {
+  var previousItem = (0, _items.getPreviousItemByKey)(key);
+
+  if (previousItemIsDisabled(state, key)) {
+    return getPreviousValidKey(state, previousItem.key);
+  } else {
+    return previousItem.key;
+  }
+};
+
+var interview = function interview() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments[1];
+  var responses = state.responses;
+
+
+  switch (action.type) {
+    case 'SET_ACTIVE_ITEM':
+      var key = action.payload.key;
+
+
+      return _extends({}, state, {
+        activeKey: key
+      });
+    case 'SET_RESPONSE':
+      var mergedResponses = void 0;
+      if (action.payload.period) {
+        var period = action.payload.period === 1 ? 'period_one' : 'period_two';
+
+        mergedResponses = _extends({}, responses, _defineProperty({}, action.payload.key, _extends({}, responses[action.payload.key], _defineProperty({}, period, action.payload.value))));
+      } else {
+        mergedResponses = _extends({}, responses, _defineProperty({}, action.payload.key, action.payload.value));
+      }
+
+      var _Algorithms$run = _Algorithms2.default.run(mergedResponses, _section2Routing2.default),
+          matched = _Algorithms$run.matched;
+
+      var disabledItems = [];
+      Object.keys(matched).forEach(function (key) {
+        var algorithm = matched[key];
+        if (algorithm.skip_items) {
+          disabledItems = [disabledItems].concat(_toConsumableArray(algorithm.skip_items));
+        }
+      });
+
+      var matchedKeys = Object.keys(matched);
+      console.log(responses);
+      console.log(mergedResponses);
+      return _extends({}, state, {
+        disabledItems: [].concat(_toConsumableArray(matchedKeys), _toConsumableArray(disabledItems)),
+        responses: mergedResponses
+      });
+    case 'SET_NOTE':
+      return _extends({}, state, {
+        notes: _extends({}, state.notes, _defineProperty({}, action.payload.key, action.payload.value))
+      });
+    default:
+      return state;
+  }
+};
+
+exports.default = interview;
+
+/***/ }),
+/* 153 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var freeGlobal = __webpack_require__(427);
 
 /** Detect free variable `self`. */
@@ -12555,10 +12682,10 @@ module.exports = root;
 
 
 /***/ }),
-/* 153 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var root = __webpack_require__(152);
+var root = __webpack_require__(153);
 
 /** Built-in value references. */
 var Symbol = root.Symbol;
@@ -12567,27 +12694,27 @@ module.exports = Symbol;
 
 
 /***/ }),
-/* 154 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(155);
+__webpack_require__(156);
 module.exports = __webpack_require__(434);
 
 
 /***/ }),
-/* 155 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(156);
+__webpack_require__(157);
 if (document.getElementById('scan-app')) {
-  __webpack_require__(177);
+  __webpack_require__(178);
 }
 
 /***/ }),
-/* 156 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12599,7 +12726,7 @@ if (document.getElementById('scan-app')) {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(157);
+window.axios = __webpack_require__(158);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -12618,13 +12745,13 @@ if (token) {
 }
 
 /***/ }),
-/* 157 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(158);
+module.exports = __webpack_require__(159);
 
 /***/ }),
-/* 158 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12632,7 +12759,7 @@ module.exports = __webpack_require__(158);
 
 var utils = __webpack_require__(14);
 var bind = __webpack_require__(88);
-var Axios = __webpack_require__(160);
+var Axios = __webpack_require__(161);
 var defaults = __webpack_require__(57);
 
 /**
@@ -12667,14 +12794,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(92);
-axios.CancelToken = __webpack_require__(175);
+axios.CancelToken = __webpack_require__(176);
 axios.isCancel = __webpack_require__(91);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(176);
+axios.spread = __webpack_require__(177);
 
 module.exports = axios;
 
@@ -12683,7 +12810,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 159 */
+/* 160 */
 /***/ (function(module, exports) {
 
 /*!
@@ -12710,7 +12837,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 160 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12718,8 +12845,8 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(57);
 var utils = __webpack_require__(14);
-var InterceptorManager = __webpack_require__(170);
-var dispatchRequest = __webpack_require__(171);
+var InterceptorManager = __webpack_require__(171);
+var dispatchRequest = __webpack_require__(172);
 
 /**
  * Create a new instance of Axios
@@ -12796,7 +12923,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 161 */
+/* 162 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -12986,7 +13113,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 162 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13005,7 +13132,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 163 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13038,7 +13165,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 164 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13066,7 +13193,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 165 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13139,7 +13266,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 166 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13199,7 +13326,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 167 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13274,7 +13401,7 @@ module.exports = (
 
 
 /***/ }),
-/* 168 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13317,7 +13444,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 169 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13377,7 +13504,7 @@ module.exports = (
 
 
 /***/ }),
-/* 170 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13436,18 +13563,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 171 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(14);
-var transformData = __webpack_require__(172);
+var transformData = __webpack_require__(173);
 var isCancel = __webpack_require__(91);
 var defaults = __webpack_require__(57);
-var isAbsoluteURL = __webpack_require__(173);
-var combineURLs = __webpack_require__(174);
+var isAbsoluteURL = __webpack_require__(174);
+var combineURLs = __webpack_require__(175);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -13529,7 +13656,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 172 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13556,7 +13683,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 173 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13577,7 +13704,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 174 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13598,7 +13725,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 175 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13662,7 +13789,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 176 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13696,7 +13823,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 177 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13712,11 +13839,11 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _reactRedux = __webpack_require__(19);
 
-var _Scan = __webpack_require__(214);
+var _Scan = __webpack_require__(215);
 
 var _Scan2 = _interopRequireDefault(_Scan);
 
-var _configureStore = __webpack_require__(417);
+var _configureStore = __webpack_require__(419);
 
 var _configureStore2 = _interopRequireDefault(_configureStore);
 
@@ -13743,7 +13870,7 @@ _reactDom2.default.render(_react2.default.createElement(
 ), document.getElementById('scan-app'));
 
 /***/ }),
-/* 178 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15236,7 +15363,7 @@ module.exports = react;
 
 
 /***/ }),
-/* 179 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15260,16 +15387,16 @@ if (true) {
 var invariant = __webpack_require__(93);
 var React = __webpack_require__(0);
 var warning = __webpack_require__(95);
-var ExecutionEnvironment = __webpack_require__(180);
+var ExecutionEnvironment = __webpack_require__(181);
 var _assign = __webpack_require__(58);
 var emptyFunction = __webpack_require__(59);
 var checkPropTypes = __webpack_require__(60);
-var getActiveElement = __webpack_require__(181);
-var shallowEqual = __webpack_require__(182);
-var containsNode = __webpack_require__(183);
+var getActiveElement = __webpack_require__(182);
+var shallowEqual = __webpack_require__(183);
+var containsNode = __webpack_require__(184);
 var emptyObject = __webpack_require__(94);
-var hyphenateStyleName = __webpack_require__(186);
-var camelizeStyleName = __webpack_require__(188);
+var hyphenateStyleName = __webpack_require__(187);
+var camelizeStyleName = __webpack_require__(189);
 
 // Relying on the `invariant()` implementation lets us
 // have preserve the format and params in the www builds.
@@ -32673,7 +32800,7 @@ module.exports = reactDom;
 
 
 /***/ }),
-/* 180 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32712,7 +32839,7 @@ var ExecutionEnvironment = {
 module.exports = ExecutionEnvironment;
 
 /***/ }),
-/* 181 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32754,7 +32881,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 182 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32825,7 +32952,7 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 183 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32840,7 +32967,7 @@ module.exports = shallowEqual;
  * 
  */
 
-var isTextNode = __webpack_require__(184);
+var isTextNode = __webpack_require__(185);
 
 /*eslint-disable no-bitwise */
 
@@ -32868,7 +32995,7 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
-/* 184 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32883,7 +33010,7 @@ module.exports = containsNode;
  * @typechecks
  */
 
-var isNode = __webpack_require__(185);
+var isNode = __webpack_require__(186);
 
 /**
  * @param {*} object The object to check.
@@ -32896,7 +33023,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 185 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32924,7 +33051,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 186 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32939,7 +33066,7 @@ module.exports = isNode;
 
 
 
-var hyphenate = __webpack_require__(187);
+var hyphenate = __webpack_require__(188);
 
 var msPattern = /^ms-/;
 
@@ -32966,7 +33093,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 187 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33002,7 +33129,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 188 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33017,7 +33144,7 @@ module.exports = hyphenate;
 
 
 
-var camelize = __webpack_require__(189);
+var camelize = __webpack_require__(190);
 
 var msPattern = /^-ms-/;
 
@@ -33045,7 +33172,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 189 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33080,7 +33207,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 190 */
+/* 191 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33165,7 +33292,7 @@ function createProvider() {
 /* harmony default export */ __webpack_exports__["b"] = (createProvider());
 
 /***/ }),
-/* 191 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33727,7 +33854,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 
 /***/ }),
-/* 192 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33802,7 +33929,7 @@ module.exports = hoistNonReactStatics;
 
 
 /***/ }),
-/* 193 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33858,7 +33985,7 @@ module.exports = invariant;
 
 
 /***/ }),
-/* 194 */
+/* 195 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33957,17 +34084,17 @@ var Subscription = function () {
 
 
 /***/ }),
-/* 195 */
+/* 196 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export createConnect */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_connectAdvanced__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_shallowEqual__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mapDispatchToProps__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapStateToProps__ = __webpack_require__(210);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mergeProps__ = __webpack_require__(211);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__selectorFactory__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_shallowEqual__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mapDispatchToProps__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapStateToProps__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mergeProps__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__selectorFactory__ = __webpack_require__(213);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -34073,7 +34200,7 @@ function createConnect() {
 /* harmony default export */ __webpack_exports__["a"] = (createConnect());
 
 /***/ }),
-/* 196 */
+/* 197 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34110,7 +34237,7 @@ function shallowEqual(objA, objB) {
 }
 
 /***/ }),
-/* 197 */
+/* 198 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34141,11 +34268,11 @@ function whenMapDispatchToPropsIsObject(mapDispatchToProps) {
 /* harmony default export */ __webpack_exports__["a"] = ([whenMapDispatchToPropsIsFunction, whenMapDispatchToPropsIsMissing, whenMapDispatchToPropsIsObject]);
 
 /***/ }),
-/* 198 */
+/* 199 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(global, module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ponyfill_js__ = __webpack_require__(200);
+/* WEBPACK VAR INJECTION */(function(global, module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ponyfill_js__ = __webpack_require__(201);
 /* global window */
 
 
@@ -34166,10 +34293,10 @@ if (typeof self !== 'undefined') {
 var result = Object(__WEBPACK_IMPORTED_MODULE_0__ponyfill_js__["a" /* default */])(root);
 /* harmony default export */ __webpack_exports__["a"] = (result);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(26), __webpack_require__(199)(module)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(26), __webpack_require__(200)(module)))
 
 /***/ }),
-/* 199 */
+/* 200 */
 /***/ (function(module, exports) {
 
 module.exports = function(originalModule) {
@@ -34199,7 +34326,7 @@ module.exports = function(originalModule) {
 
 
 /***/ }),
-/* 200 */
+/* 201 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34224,13 +34351,13 @@ function symbolObservablePonyfill(root) {
 
 
 /***/ }),
-/* 201 */
+/* 202 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__baseGetTag_js__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getPrototype_js__ = __webpack_require__(207);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__isObjectLike_js__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__baseGetTag_js__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getPrototype_js__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__isObjectLike_js__ = __webpack_require__(210);
 
 
 
@@ -34296,13 +34423,13 @@ function isPlainObject(value) {
 
 
 /***/ }),
-/* 202 */
+/* 203 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getRawTag_js__ = __webpack_require__(205);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__objectToString_js__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getRawTag_js__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__objectToString_js__ = __webpack_require__(207);
 
 
 
@@ -34334,11 +34461,11 @@ function baseGetTag(value) {
 
 
 /***/ }),
-/* 203 */
+/* 204 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__freeGlobal_js__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__freeGlobal_js__ = __webpack_require__(205);
 
 
 /** Detect free variable `self`. */
@@ -34351,7 +34478,7 @@ var root = __WEBPACK_IMPORTED_MODULE_0__freeGlobal_js__["a" /* default */] || fr
 
 
 /***/ }),
-/* 204 */
+/* 205 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34363,7 +34490,7 @@ var freeGlobal = typeof global == 'object' && global && global.Object === Object
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(26)))
 
 /***/ }),
-/* 205 */
+/* 206 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34417,7 +34544,7 @@ function getRawTag(value) {
 
 
 /***/ }),
-/* 206 */
+/* 207 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34446,11 +34573,11 @@ function objectToString(value) {
 
 
 /***/ }),
-/* 207 */
+/* 208 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__overArg_js__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__overArg_js__ = __webpack_require__(209);
 
 
 /** Built-in value references. */
@@ -34460,7 +34587,7 @@ var getPrototype = Object(__WEBPACK_IMPORTED_MODULE_0__overArg_js__["a" /* defau
 
 
 /***/ }),
-/* 208 */
+/* 209 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34482,7 +34609,7 @@ function overArg(func, transform) {
 
 
 /***/ }),
-/* 209 */
+/* 210 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34518,7 +34645,7 @@ function isObjectLike(value) {
 
 
 /***/ }),
-/* 210 */
+/* 211 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34540,7 +34667,7 @@ function whenMapStateToPropsIsMissing(mapStateToProps) {
 /* harmony default export */ __webpack_exports__["a"] = ([whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing]);
 
 /***/ }),
-/* 211 */
+/* 212 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34596,14 +34723,14 @@ function whenMergePropsIsOmitted(mergeProps) {
 /* harmony default export */ __webpack_exports__["a"] = ([whenMergePropsIsFunction, whenMergePropsIsOmitted]);
 
 /***/ }),
-/* 212 */
+/* 213 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export impureFinalPropsSelectorFactory */
 /* unused harmony export pureFinalPropsSelectorFactory */
 /* harmony export (immutable) */ __webpack_exports__["a"] = finalPropsSelectorFactory;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__verifySubselectors__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__verifySubselectors__ = __webpack_require__(214);
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 
@@ -34708,7 +34835,7 @@ function finalPropsSelectorFactory(dispatch, _ref2) {
 }
 
 /***/ }),
-/* 213 */
+/* 214 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34733,7 +34860,7 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
 }
 
 /***/ }),
-/* 214 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34759,17 +34886,19 @@ var _data = __webpack_require__(63);
 
 var _helpers = __webpack_require__(64);
 
-var _ItemList = __webpack_require__(215);
+var _ItemList = __webpack_require__(216);
 
-var _Settings = __webpack_require__(317);
+var _Settings = __webpack_require__(318);
 
-var _Analysis = __webpack_require__(319);
+var _Analysis = __webpack_require__(320);
 
-var _SearchItems = __webpack_require__(352);
+var _SearchItems = __webpack_require__(353);
 
-var _Response = __webpack_require__(356);
+var _Response = __webpack_require__(357);
 
 var _Response2 = _interopRequireDefault(_Response);
+
+var _interview = __webpack_require__(152);
 
 var _actions = __webpack_require__(27);
 
@@ -34807,14 +34936,14 @@ var Scan = function (_Component) {
       }
     }, _this.goToNextItem = function () {
       var activeKey = _this.props.interview.activeKey;
-      var nextItem = (0, _items.getNextItemByKey)(activeKey);
+      var nextValidKey = (0, _interview.getNextValidKey)(_this.props.interview, activeKey);
 
-      _this.props.dispatch((0, _actions.setActiveItem)({ key: nextItem.key }));
+      _this.props.dispatch((0, _actions.setActiveItem)({ key: nextValidKey }));
     }, _this.goToPreviousItem = function () {
       var activeKey = _this.props.interview.activeKey;
-      var previousItem = (0, _items.getPreviousItemByKey)(activeKey);
+      var previousValidKey = (0, _interview.getPreviousValidKey)(_this.props.interview, activeKey);
 
-      _this.props.dispatch((0, _actions.setActiveItem)({ key: previousItem.key }));
+      _this.props.dispatch((0, _actions.setActiveItem)({ key: previousValidKey }));
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -34874,7 +35003,7 @@ exports.default = (0, _reactRedux.connect)(function (state) {
 })(Scan);
 
 /***/ }),
-/* 215 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34889,7 +35018,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _ItemListButton = __webpack_require__(216);
+var _ItemListButton = __webpack_require__(217);
 
 var _reactVirtualized = __webpack_require__(102);
 
@@ -34932,7 +35061,7 @@ var ItemList = exports.ItemList = function ItemList(_ref) {
 };
 
 /***/ }),
-/* 216 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35010,7 +35139,7 @@ var ItemListButton = exports.ItemListButton = (0, _reactRedux.connect)(function 
 })(ItemButton);
 
 /***/ }),
-/* 217 */
+/* 218 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -35028,15 +35157,15 @@ var ItemListButton = exports.ItemListButton = (0, _reactRedux.connect)(function 
 
 
 /***/ }),
-/* 218 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(219);
+__webpack_require__(220);
 module.exports = __webpack_require__(5).Object.getPrototypeOf;
 
 
 /***/ }),
-/* 219 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.9 Object.getPrototypeOf(O)
@@ -35051,10 +35180,10 @@ __webpack_require__(68)('getPrototypeOf', function () {
 
 
 /***/ }),
-/* 220 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(221);
+__webpack_require__(222);
 var $Object = __webpack_require__(5).Object;
 module.exports = function defineProperty(it, key, desc) {
   return $Object.defineProperty(it, key, desc);
@@ -35062,7 +35191,7 @@ module.exports = function defineProperty(it, key, desc) {
 
 
 /***/ }),
-/* 221 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $export = __webpack_require__(15);
@@ -35071,13 +35200,13 @@ $export($export.S + $export.F * !__webpack_require__(22), 'Object', { defineProp
 
 
 /***/ }),
-/* 222 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(223), __esModule: true };
+module.exports = { "default": __webpack_require__(224), __esModule: true };
 
 /***/ }),
-/* 223 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(48);
@@ -35086,7 +35215,7 @@ module.exports = __webpack_require__(74).f('iterator');
 
 
 /***/ }),
-/* 224 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var toInteger = __webpack_require__(71);
@@ -35109,7 +35238,7 @@ module.exports = function (TO_STRING) {
 
 
 /***/ }),
-/* 225 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35129,7 +35258,7 @@ module.exports = function (Constructor, NAME, next) {
 
 
 /***/ }),
-/* 226 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var dP = __webpack_require__(20);
@@ -35148,14 +35277,14 @@ module.exports = __webpack_require__(22) ? Object.defineProperties : function de
 
 
 /***/ }),
-/* 227 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // false -> Array#indexOf
 // true  -> Array#includes
 var toIObject = __webpack_require__(25);
 var toLength = __webpack_require__(112);
-var toAbsoluteIndex = __webpack_require__(228);
+var toAbsoluteIndex = __webpack_require__(229);
 module.exports = function (IS_INCLUDES) {
   return function ($this, el, fromIndex) {
     var O = toIObject($this);
@@ -35177,7 +35306,7 @@ module.exports = function (IS_INCLUDES) {
 
 
 /***/ }),
-/* 228 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var toInteger = __webpack_require__(71);
@@ -35190,13 +35319,13 @@ module.exports = function (index, length) {
 
 
 /***/ }),
-/* 229 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var addToUnscopables = __webpack_require__(230);
-var step = __webpack_require__(231);
+var addToUnscopables = __webpack_require__(231);
+var step = __webpack_require__(232);
 var Iterators = __webpack_require__(29);
 var toIObject = __webpack_require__(25);
 
@@ -35231,14 +35360,14 @@ addToUnscopables('entries');
 
 
 /***/ }),
-/* 230 */
+/* 231 */
 /***/ (function(module, exports) {
 
 module.exports = function () { /* empty */ };
 
 
 /***/ }),
-/* 231 */
+/* 232 */
 /***/ (function(module, exports) {
 
 module.exports = function (done, value) {
@@ -35247,24 +35376,24 @@ module.exports = function (done, value) {
 
 
 /***/ }),
-/* 232 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(233), __esModule: true };
-
-/***/ }),
 /* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(234);
+module.exports = { "default": __webpack_require__(234), __esModule: true };
+
+/***/ }),
+/* 234 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(235);
 __webpack_require__(115);
-__webpack_require__(239);
 __webpack_require__(240);
+__webpack_require__(241);
 module.exports = __webpack_require__(5).Symbol;
 
 
 /***/ }),
-/* 234 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35275,7 +35404,7 @@ var has = __webpack_require__(23);
 var DESCRIPTORS = __webpack_require__(22);
 var $export = __webpack_require__(15);
 var redefine = __webpack_require__(109);
-var META = __webpack_require__(235).KEY;
+var META = __webpack_require__(236).KEY;
 var $fails = __webpack_require__(28);
 var shared = __webpack_require__(67);
 var setToStringTag = __webpack_require__(49);
@@ -35283,15 +35412,15 @@ var uid = __webpack_require__(45);
 var wks = __webpack_require__(11);
 var wksExt = __webpack_require__(74);
 var wksDefine = __webpack_require__(75);
-var enumKeys = __webpack_require__(236);
-var isArray = __webpack_require__(237);
+var enumKeys = __webpack_require__(237);
+var isArray = __webpack_require__(238);
 var anObject = __webpack_require__(16);
 var isObject = __webpack_require__(21);
 var toIObject = __webpack_require__(25);
 var toPrimitive = __webpack_require__(70);
 var createDesc = __webpack_require__(47);
 var _create = __webpack_require__(72);
-var gOPNExt = __webpack_require__(238);
+var gOPNExt = __webpack_require__(239);
 var $GOPD = __webpack_require__(77);
 var $DP = __webpack_require__(20);
 var $keys = __webpack_require__(36);
@@ -35505,7 +35634,7 @@ setToStringTag(global.JSON, 'JSON', true);
 
 
 /***/ }),
-/* 235 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var META = __webpack_require__(45)('meta');
@@ -35564,7 +35693,7 @@ var meta = module.exports = {
 
 
 /***/ }),
-/* 236 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // all enumerable object keys, includes symbols
@@ -35585,7 +35714,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 237 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.2.2 IsArray(argument)
@@ -35596,7 +35725,7 @@ module.exports = Array.isArray || function isArray(arg) {
 
 
 /***/ }),
-/* 238 */
+/* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
@@ -35621,44 +35750,44 @@ module.exports.f = function getOwnPropertyNames(it) {
 
 
 /***/ }),
-/* 239 */
+/* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(75)('asyncIterator');
 
 
 /***/ }),
-/* 240 */
+/* 241 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(75)('observable');
 
 
 /***/ }),
-/* 241 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(242), __esModule: true };
-
-/***/ }),
 /* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(243);
-module.exports = __webpack_require__(5).Object.setPrototypeOf;
-
+module.exports = { "default": __webpack_require__(243), __esModule: true };
 
 /***/ }),
 /* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// 19.1.3.19 Object.setPrototypeOf(O, proto)
-var $export = __webpack_require__(15);
-$export($export.S, 'Object', { setPrototypeOf: __webpack_require__(244).set });
+__webpack_require__(244);
+module.exports = __webpack_require__(5).Object.setPrototypeOf;
 
 
 /***/ }),
 /* 244 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.3.19 Object.setPrototypeOf(O, proto)
+var $export = __webpack_require__(15);
+$export($export.S, 'Object', { setPrototypeOf: __webpack_require__(245).set });
+
+
+/***/ }),
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Works with __proto__ only. Old v8 can't work with null proto objects.
@@ -35689,16 +35818,16 @@ module.exports = {
 
 
 /***/ }),
-/* 245 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(246), __esModule: true };
-
-/***/ }),
 /* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(247);
+module.exports = { "default": __webpack_require__(247), __esModule: true };
+
+/***/ }),
+/* 247 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(248);
 var $Object = __webpack_require__(5).Object;
 module.exports = function create(P, D) {
   return $Object.create(P, D);
@@ -35706,7 +35835,7 @@ module.exports = function create(P, D) {
 
 
 /***/ }),
-/* 247 */
+/* 248 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $export = __webpack_require__(15);
@@ -35715,25 +35844,25 @@ $export($export.S, 'Object', { create: __webpack_require__(72) });
 
 
 /***/ }),
-/* 248 */
+/* 249 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(249);
+__webpack_require__(250);
 module.exports = __webpack_require__(5).Object.assign;
 
 
 /***/ }),
-/* 249 */
+/* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.3.1 Object.assign(target, source)
 var $export = __webpack_require__(15);
 
-$export($export.S + $export.F, 'Object', { assign: __webpack_require__(250) });
+$export($export.S + $export.F, 'Object', { assign: __webpack_require__(251) });
 
 
 /***/ }),
-/* 250 */
+/* 251 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35774,7 +35903,7 @@ module.exports = !$assign || __webpack_require__(28)(function () {
 
 
 /***/ }),
-/* 251 */
+/* 252 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -35810,7 +35939,7 @@ function calculateSizeAndPositionDataAndUpdateScrollOffset(_ref) {
  */
 
 /***/ }),
-/* 252 */
+/* 253 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36129,7 +36258,7 @@ var CellSizeAndPositionManager = function () {
 
 
 /***/ }),
-/* 253 */
+/* 254 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36155,15 +36284,15 @@ var getMaxElementSize = function getMaxElementSize() {
 };
 
 /***/ }),
-/* 254 */
+/* 255 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(255);
+__webpack_require__(256);
 module.exports = __webpack_require__(5).Object.keys;
 
 
 /***/ }),
-/* 255 */
+/* 256 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 Object.keys(O)
@@ -36178,7 +36307,7 @@ __webpack_require__(68)('keys', function () {
 
 
 /***/ }),
-/* 256 */
+/* 257 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36234,7 +36363,7 @@ function updateScrollIndexHelper(_ref) {
 
 
 /***/ }),
-/* 257 */
+/* 258 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36247,26 +36376,26 @@ exports.default = !!(typeof window !== 'undefined' && window.document && window.
 module.exports = exports['default'];
 
 /***/ }),
-/* 258 */
+/* 259 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(259), __esModule: true };
+module.exports = { "default": __webpack_require__(260), __esModule: true };
 
 /***/ }),
-/* 259 */
+/* 260 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(115);
 __webpack_require__(48);
 __webpack_require__(50);
-__webpack_require__(260);
-__webpack_require__(271);
+__webpack_require__(261);
 __webpack_require__(272);
+__webpack_require__(273);
 module.exports = __webpack_require__(5).Promise;
 
 
 /***/ }),
-/* 260 */
+/* 261 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36278,14 +36407,14 @@ var classof = __webpack_require__(81);
 var $export = __webpack_require__(15);
 var isObject = __webpack_require__(21);
 var aFunction = __webpack_require__(46);
-var anInstance = __webpack_require__(261);
-var forOf = __webpack_require__(262);
+var anInstance = __webpack_require__(262);
+var forOf = __webpack_require__(263);
 var speciesConstructor = __webpack_require__(123);
 var task = __webpack_require__(124).set;
-var microtask = __webpack_require__(266)();
+var microtask = __webpack_require__(267)();
 var newPromiseCapabilityModule = __webpack_require__(82);
 var perform = __webpack_require__(125);
-var userAgent = __webpack_require__(267);
+var userAgent = __webpack_require__(268);
 var promiseResolve = __webpack_require__(126);
 var PROMISE = 'Promise';
 var TypeError = global.TypeError;
@@ -36461,7 +36590,7 @@ if (!USE_NATIVE) {
     this._h = 0;              // <- rejection state, 0 - default, 1 - handled, 2 - unhandled
     this._n = false;          // <- notify
   };
-  Internal.prototype = __webpack_require__(268)($Promise.prototype, {
+  Internal.prototype = __webpack_require__(269)($Promise.prototype, {
     // 25.4.5.3 Promise.prototype.then(onFulfilled, onRejected)
     then: function then(onFulfilled, onRejected) {
       var reaction = newPromiseCapability(speciesConstructor(this, $Promise));
@@ -36493,7 +36622,7 @@ if (!USE_NATIVE) {
 
 $export($export.G + $export.W + $export.F * !USE_NATIVE, { Promise: $Promise });
 __webpack_require__(49)($Promise, PROMISE);
-__webpack_require__(269)(PROMISE);
+__webpack_require__(270)(PROMISE);
 Wrapper = __webpack_require__(5)[PROMISE];
 
 // statics
@@ -36512,7 +36641,7 @@ $export($export.S + $export.F * (LIBRARY || !USE_NATIVE), PROMISE, {
     return promiseResolve(LIBRARY && this === Wrapper ? $Promise : this, x);
   }
 });
-$export($export.S + $export.F * !(USE_NATIVE && __webpack_require__(270)(function (iter) {
+$export($export.S + $export.F * !(USE_NATIVE && __webpack_require__(271)(function (iter) {
   $Promise.all(iter)['catch'](empty);
 })), PROMISE, {
   // 25.4.4.1 Promise.all(iterable)
@@ -36559,7 +36688,7 @@ $export($export.S + $export.F * !(USE_NATIVE && __webpack_require__(270)(functio
 
 
 /***/ }),
-/* 261 */
+/* 262 */
 /***/ (function(module, exports) {
 
 module.exports = function (it, Constructor, name, forbiddenField) {
@@ -36570,12 +36699,12 @@ module.exports = function (it, Constructor, name, forbiddenField) {
 
 
 /***/ }),
-/* 262 */
+/* 263 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ctx = __webpack_require__(35);
-var call = __webpack_require__(263);
-var isArrayIter = __webpack_require__(264);
+var call = __webpack_require__(264);
+var isArrayIter = __webpack_require__(265);
 var anObject = __webpack_require__(16);
 var toLength = __webpack_require__(112);
 var getIterFn = __webpack_require__(122);
@@ -36601,7 +36730,7 @@ exports.RETURN = RETURN;
 
 
 /***/ }),
-/* 263 */
+/* 264 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // call something on iterator step with safe closing on error
@@ -36619,7 +36748,7 @@ module.exports = function (iterator, fn, value, entries) {
 
 
 /***/ }),
-/* 264 */
+/* 265 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // check on default Array iterator
@@ -36633,7 +36762,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 265 */
+/* 266 */
 /***/ (function(module, exports) {
 
 // fast apply, http://jsperf.lnkit.com/fast-apply/5
@@ -36655,7 +36784,7 @@ module.exports = function (fn, args, that) {
 
 
 /***/ }),
-/* 266 */
+/* 267 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(10);
@@ -36730,7 +36859,7 @@ module.exports = function () {
 
 
 /***/ }),
-/* 267 */
+/* 268 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(10);
@@ -36740,7 +36869,7 @@ module.exports = navigator && navigator.userAgent || '';
 
 
 /***/ }),
-/* 268 */
+/* 269 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var hide = __webpack_require__(24);
@@ -36753,7 +36882,7 @@ module.exports = function (target, src, safe) {
 
 
 /***/ }),
-/* 269 */
+/* 270 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36774,7 +36903,7 @@ module.exports = function (KEY) {
 
 
 /***/ }),
-/* 270 */
+/* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ITERATOR = __webpack_require__(11)('iterator');
@@ -36802,7 +36931,7 @@ module.exports = function (exec, skipClosing) {
 
 
 /***/ }),
-/* 271 */
+/* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36829,7 +36958,7 @@ $export($export.P + $export.R, 'Promise', { 'finally': function (onFinally) {
 
 
 /***/ }),
-/* 272 */
+/* 273 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36848,7 +36977,7 @@ $export($export.S, 'Promise', { 'try': function (callbackfn) {
 
 
 /***/ }),
-/* 273 */
+/* 274 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36881,7 +37010,7 @@ var raf = request;
 var caf = cancel;
 
 /***/ }),
-/* 274 */
+/* 275 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36933,7 +37062,7 @@ function defaultOverscanIndicesGetter(_ref) {
 
 
 /***/ }),
-/* 275 */
+/* 276 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36944,7 +37073,7 @@ function defaultOverscanIndicesGetter(_ref) {
 
 
 /***/ }),
-/* 276 */
+/* 277 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37140,7 +37269,7 @@ if (true) {
 
 
 /***/ }),
-/* 277 */
+/* 278 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37362,11 +37491,11 @@ function defaultKeyMapper(rowIndex, columnIndex) {
 
 
 /***/ }),
-/* 278 */
+/* 279 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Collection__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Collection__ = __webpack_require__(280);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__Collection__["a"]; });
 
 
@@ -37374,7 +37503,7 @@ function defaultKeyMapper(rowIndex, columnIndex) {
 
 
 /***/ }),
-/* 279 */
+/* 280 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37396,9 +37525,9 @@ function defaultKeyMapper(rowIndex, columnIndex) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__CollectionView__ = __webpack_require__(280);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__utils_calculateSizeAndPositionData__ = __webpack_require__(281);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__utils_getUpdatedOffsetForIndex__ = __webpack_require__(284);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__CollectionView__ = __webpack_require__(281);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__utils_calculateSizeAndPositionData__ = __webpack_require__(282);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__utils_getUpdatedOffsetForIndex__ = __webpack_require__(285);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__types__ = __webpack_require__(30);
 
 
@@ -37688,7 +37817,7 @@ function defaultCellGroupRenderer(_ref4) {
 
 
 /***/ }),
-/* 280 */
+/* 281 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -38334,12 +38463,12 @@ Object(__WEBPACK_IMPORTED_MODULE_9_react_lifecycles_compat__["a" /* polyfill */]
 /* harmony default export */ __webpack_exports__["a"] = (CollectionView);
 
 /***/ }),
-/* 281 */
+/* 282 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = calculateSizeAndPositionData;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SectionManager__ = __webpack_require__(282);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SectionManager__ = __webpack_require__(283);
 
 
 function calculateSizeAndPositionData(_ref) {
@@ -38378,7 +38507,7 @@ function calculateSizeAndPositionData(_ref) {
 }
 
 /***/ }),
-/* 282 */
+/* 283 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -38388,7 +38517,7 @@ function calculateSizeAndPositionData(_ref) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Section__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Section__ = __webpack_require__(284);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__types__ = __webpack_require__(30);
 
 
@@ -38539,7 +38668,7 @@ var SectionManager = function () {
 
 
 /***/ }),
-/* 283 */
+/* 284 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -38614,7 +38743,7 @@ var Section = function () {
 
 
 /***/ }),
-/* 284 */
+/* 285 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -38655,11 +38784,11 @@ function getUpdatedOffsetForIndex(_ref) {
 }
 
 /***/ }),
-/* 285 */
+/* 286 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ColumnSizer__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ColumnSizer__ = __webpack_require__(287);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__ColumnSizer__["a"]; });
 
 
@@ -38667,7 +38796,7 @@ function getUpdatedOffsetForIndex(_ref) {
 
 
 /***/ }),
-/* 286 */
+/* 287 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -38801,11 +38930,11 @@ ColumnSizer.propTypes =  true ? {
 } : {};
 
 /***/ }),
-/* 287 */
+/* 288 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__InfiniteLoader__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__InfiniteLoader__ = __webpack_require__(289);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__InfiniteLoader__["a"]; });
 
 
@@ -38813,7 +38942,7 @@ ColumnSizer.propTypes =  true ? {
 
 
 /***/ }),
-/* 288 */
+/* 289 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -39125,7 +39254,7 @@ function forceUpdateReactVirtualizedComponent(component) {
 }
 
 /***/ }),
-/* 289 */
+/* 290 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -39143,16 +39272,16 @@ function forceUpdateReactVirtualizedComponent(component) {
 
 
 /***/ }),
-/* 290 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(291), __esModule: true };
-
-/***/ }),
 /* 291 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(292);
+module.exports = { "default": __webpack_require__(292), __esModule: true };
+
+/***/ }),
+/* 292 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(293);
 var $Object = __webpack_require__(5).Object;
 module.exports = function getOwnPropertyDescriptor(it, key) {
   return $Object.getOwnPropertyDescriptor(it, key);
@@ -39160,7 +39289,7 @@ module.exports = function getOwnPropertyDescriptor(it, key) {
 
 
 /***/ }),
-/* 292 */
+/* 293 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
@@ -39175,11 +39304,11 @@ __webpack_require__(68)('getOwnPropertyDescriptor', function () {
 
 
 /***/ }),
-/* 293 */
+/* 294 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createCellPositioner__ = __webpack_require__(294);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createCellPositioner__ = __webpack_require__(295);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Masonry__ = __webpack_require__(83);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__createCellPositioner__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__Masonry__["a"]; });
@@ -39190,7 +39319,7 @@ __webpack_require__(68)('getOwnPropertyDescriptor', function () {
 
 
 /***/ }),
-/* 294 */
+/* 295 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -39254,7 +39383,7 @@ function createCellPositioner(_ref) {
 
 
 /***/ }),
-/* 295 */
+/* 296 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39284,17 +39413,17 @@ exports.default = function (obj, key, value) {
 };
 
 /***/ }),
-/* 296 */
+/* 297 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_slicedToArray__ = __webpack_require__(297);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_slicedToArray__ = __webpack_require__(298);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_slicedToArray___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_slicedToArray__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__vendor_intervalTree__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__vendor_intervalTree__ = __webpack_require__(305);
 
 
 
@@ -39398,7 +39527,7 @@ var PositionCache = function () {
 /* harmony default export */ __webpack_exports__["a"] = (PositionCache);
 
 /***/ }),
-/* 297 */
+/* 298 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39406,11 +39535,11 @@ var PositionCache = function () {
 
 exports.__esModule = true;
 
-var _isIterable2 = __webpack_require__(298);
+var _isIterable2 = __webpack_require__(299);
 
 var _isIterable3 = _interopRequireDefault(_isIterable2);
 
-var _getIterator2 = __webpack_require__(301);
+var _getIterator2 = __webpack_require__(302);
 
 var _getIterator3 = _interopRequireDefault(_getIterator2);
 
@@ -39455,22 +39584,22 @@ exports.default = function () {
 }();
 
 /***/ }),
-/* 298 */
+/* 299 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(299), __esModule: true };
+module.exports = { "default": __webpack_require__(300), __esModule: true };
 
 /***/ }),
-/* 299 */
+/* 300 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(50);
 __webpack_require__(48);
-module.exports = __webpack_require__(300);
+module.exports = __webpack_require__(301);
 
 
 /***/ }),
-/* 300 */
+/* 301 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var classof = __webpack_require__(81);
@@ -39486,22 +39615,22 @@ module.exports = __webpack_require__(5).isIterable = function (it) {
 
 
 /***/ }),
-/* 301 */
+/* 302 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(302), __esModule: true };
+module.exports = { "default": __webpack_require__(303), __esModule: true };
 
 /***/ }),
-/* 302 */
+/* 303 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(50);
 __webpack_require__(48);
-module.exports = __webpack_require__(303);
+module.exports = __webpack_require__(304);
 
 
 /***/ }),
-/* 303 */
+/* 304 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var anObject = __webpack_require__(16);
@@ -39514,12 +39643,12 @@ module.exports = __webpack_require__(5).getIterator = function (it) {
 
 
 /***/ }),
-/* 304 */
+/* 305 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = createWrapper;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__binarySearchBounds__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__binarySearchBounds__ = __webpack_require__(306);
 /**
  * Binary Search Bounds
  * https://github.com/mikolalysenko/interval-tree-1d
@@ -39906,7 +40035,7 @@ function createWrapper(intervals) {
 }
 
 /***/ }),
-/* 305 */
+/* 306 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -40111,11 +40240,11 @@ function dispatchBsearchEQ(a, y, c, l, h) {
 });
 
 /***/ }),
-/* 306 */
+/* 307 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MultiGrid__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MultiGrid__ = __webpack_require__(308);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__MultiGrid__["a"]; });
 
 
@@ -40123,7 +40252,7 @@ function dispatchBsearchEQ(a, y, c, l, h) {
 
 
 /***/ }),
-/* 307 */
+/* 308 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -40146,7 +40275,7 @@ function dispatchBsearchEQ(a, y, c, l, h) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_react_lifecycles_compat__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__CellMeasurerCacheDecorator__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__CellMeasurerCacheDecorator__ = __webpack_require__(309);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__Grid__ = __webpack_require__(12);
 
 
@@ -41003,7 +41132,7 @@ Object(__WEBPACK_IMPORTED_MODULE_9_react_lifecycles_compat__["a" /* polyfill */]
 /* harmony default export */ __webpack_exports__["a"] = (MultiGrid);
 
 /***/ }),
-/* 308 */
+/* 309 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -41119,11 +41248,11 @@ var CellMeasurerCacheDecorator = function () {
 /* harmony default export */ __webpack_exports__["a"] = (CellMeasurerCacheDecorator);
 
 /***/ }),
-/* 309 */
+/* 310 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ScrollSync__ = __webpack_require__(310);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ScrollSync__ = __webpack_require__(311);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__ScrollSync__["a"]; });
 
 
@@ -41131,7 +41260,7 @@ var CellMeasurerCacheDecorator = function () {
 
 
 /***/ }),
-/* 310 */
+/* 311 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -41240,11 +41369,11 @@ ScrollSync.propTypes =  true ? {
 } : {};
 
 /***/ }),
-/* 311 */
+/* 312 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createMultiSort__ = __webpack_require__(312);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createMultiSort__ = __webpack_require__(313);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__defaultCellDataGetter__ = __webpack_require__(133);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__defaultCellRenderer__ = __webpack_require__(134);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__defaultHeaderRowRenderer_js__ = __webpack_require__(135);
@@ -41253,7 +41382,7 @@ ScrollSync.propTypes =  true ? {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Column__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__SortDirection__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__SortIndicator__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__Table__ = __webpack_require__(313);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__Table__ = __webpack_require__(314);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_0__createMultiSort__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_1__defaultCellDataGetter__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_2__defaultCellRenderer__["a"]; });
@@ -41279,7 +41408,7 @@ ScrollSync.propTypes =  true ? {
 
 
 /***/ }),
-/* 312 */
+/* 313 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -41349,7 +41478,7 @@ function createMultiSort(sortCallback) {
 }
 
 /***/ }),
-/* 313 */
+/* 314 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -42162,7 +42291,7 @@ Table.propTypes =  true ? {
 
 
 /***/ }),
-/* 314 */
+/* 315 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -42175,7 +42304,7 @@ Table.propTypes =  true ? {
 
 
 /***/ }),
-/* 315 */
+/* 316 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -42260,7 +42389,7 @@ function unregisterScrollListener(component, element) {
 
 
 /***/ }),
-/* 316 */
+/* 317 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -42350,7 +42479,7 @@ function getScrollOffset(element) {
 }
 
 /***/ }),
-/* 317 */
+/* 318 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42369,7 +42498,7 @@ var _reactRedux = __webpack_require__(19);
 
 var _actions = __webpack_require__(27);
 
-var _Switch = __webpack_require__(318);
+var _Switch = __webpack_require__(319);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -42419,7 +42548,7 @@ var Settings = exports.Settings = (0, _reactRedux.connect)(function (state) {
 })(SettingsView);
 
 /***/ }),
-/* 318 */
+/* 319 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42466,7 +42595,7 @@ var Switch = exports.Switch = function Switch(_ref) {
 };
 
 /***/ }),
-/* 319 */
+/* 320 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42485,17 +42614,17 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(19);
 
-var _ClickOutside = __webpack_require__(320);
+var _ClickOutside = __webpack_require__(321);
 
 var _Algorithms = __webpack_require__(141);
 
 var _Algorithms2 = _interopRequireDefault(_Algorithms);
 
-var _section2Icd10En = __webpack_require__(325);
+var _section2Icd10En = __webpack_require__(326);
 
 var _section2Icd10En2 = _interopRequireDefault(_section2Icd10En);
 
-var _jsYaml = __webpack_require__(326);
+var _jsYaml = __webpack_require__(327);
 
 var _jsYaml2 = _interopRequireDefault(_jsYaml);
 
@@ -42719,7 +42848,7 @@ var Analysis = exports.Analysis = (0, _reactRedux.connect)(function (state) {
 })(AnalysisModal);
 
 /***/ }),
-/* 320 */
+/* 321 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42810,7 +42939,7 @@ ClickOutside.propTypes = {
 };
 
 /***/ }),
-/* 321 */
+/* 322 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42826,15 +42955,15 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Diagnosis = __webpack_require__(322);
+var _Diagnosis = __webpack_require__(323);
 
 var _Diagnosis2 = _interopRequireDefault(_Diagnosis);
 
-var _AlgorithmSegment = __webpack_require__(323);
+var _AlgorithmSegment = __webpack_require__(324);
 
 var _AlgorithmSegment2 = _interopRequireDefault(_AlgorithmSegment);
 
-var _Evaluator = __webpack_require__(324);
+var _Evaluator = __webpack_require__(325);
 
 var _Evaluator2 = _interopRequireDefault(_Evaluator);
 
@@ -42955,7 +43084,7 @@ var DataLoader = function () {
 exports.default = DataLoader;
 
 /***/ }),
-/* 322 */
+/* 323 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42997,7 +43126,7 @@ var Diagnosis = function () {
 exports.default = Diagnosis;
 
 /***/ }),
-/* 323 */
+/* 324 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43095,7 +43224,7 @@ var AlgorithmSegment = function () {
 exports.default = AlgorithmSegment;
 
 /***/ }),
-/* 324 */
+/* 325 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44031,24 +44160,10 @@ var Evaluator = function () {
 exports.default = Evaluator;
 
 /***/ }),
-/* 325 */
+/* 326 */
 /***/ (function(module, exports) {
 
 module.exports = {"F44":{"explanation":"Dissociative disorders any","algorithm":[{"AND":["$2.065 = 2"]}]},"F44.4":{"explanation":"Dissociative motor disorders","algorithm":[{"AND":["$2.065 = 2","$2.065a = 1","$2.065b = 1","$2.065c = 1","$2.065d = 1","$2.065e = 1"]}]},"F44.6":{"explanation":"Dissociative anaesthesia and sensory loss","algorithm":[{"AND":["$2.065 = 2","$2.065g = 1","$2.065h = 1","$2.065i = 1"]}]},"F44.9":{"explanation":"unspecificed","algorithm":[{"AND":["$2.065 = 2","$2.065j = 1","$2.065i = 1"]}]},"F45.0":{"explanation":"Somatization disorder","algorithm":[{"AND":["$!F45.0A","$!F45.0B","$!F45.0C","$!F45.0D","$!F45.0E"]}]},"F45.0a":{"explanation":"Somatization disorder withou excl. for other mentl conditions","algorithm":[{"AND":["$!F45.0A","$!F45.0B","$!F45.0C","$!F45.0D"]}]},"F45.0A":{"explanation":">= 6 somatoform symptoms without prominent autonomic symptoms and duration >= 2 years and variability of symptoms","algorithm":[{"AND":[{"AND":["$@F45.0A.counter >= 6"]},"$2.092 >= 24"]}]},"F45.0A.counter":{"explanation":"Number of any functional symptoms from SCAN ","algorithm":[{"SUM":["$2.011 = [1,2,3]","$2.012 = [1,2,3]","$2.013 = [1,2,3]","$2.014 = [1,2,3]","$2.015 = [1,2,3]","$2.016 = [1,2,3]","$2.017 = [1,2,3]","$2.019 = [1,2,3]","$2.020 = [1,2,3]","$2.021 = [1,2,3]","$2.022 = [1,2,3]","$2.023 = [1,2,3]","$2.024 = [1,2,3]","$2.025 = [1,2,3]","$2.026 = [1,2,3]","$2.032 = [1,2,3]","$2.033 = [1,2,3]","$2.034 = [1,2,3]","$2.035 = [1,2,3]","$2.036 = [1,2,3]","$2.037 = [1,2,3]","$2.038 = [1,2,3]","$2.039 = [1,2,3]","$2.040 = [1,2,3]","$2.041 = [1,2,3]","$2.046 = [1,2,3]","$2.047 = [1,2,3]","$2.048 = [1,2,3]","$2.049 = [1,2,3]","$2.050 = [1,2,3]","$2.051 = [1,2,3]","$2.052 = [1,2,3]","$2.053 = [1,2,3]","$2.054 = [1,2,3]","$2.055 = [1,2,3]","$2.057 = [1,2,3]","$2.058 = [1,2,3]","$2.059 = [1,2,3]","$2.060 = [1,2,3]","$2.061 = [1,2,3]","$2.062 = [1,2,3]","$2.063 = [1,2,3]","$2.064 = [1,2,3]","$2.067 = [1,2,3]","$2.068 = [1,2,3]","$2.069 = [1,2,3]","$2.070 = [1,2,3]","$2.073 = [1,2,3]","$2.074 = [1,2,3]","$2.075 = [1,2,3]","$2.076 = [1,2,3]","$2.077 = [1,2,3]","$2.078 = [1,2,3]","$2.079 = [1,2,3]","$2.081 = [1,2,3]","$2.082 = [1,2,3]","$2.083 = [1,2,3]","$2.084 = [1,2,3]","$2.085 = [1,2,3]","$2.086 = [1,2,3]","$2.087 = [1,2,3]","$2.089 = [1,2,3]","$2.090 = [1,2,3]"]}]},"F45.0B":{"explanation":"Preoccupation and distress repeated investigations","algorithm":[{"AND":["$2.101 = 2"]}]},"F45.0C":{"explanation":"Refusal of reassurance included","algorithm":[{"AND":["$2.109 = [2,3]"]}]},"F45.0D":{"explanation":"A total of >= 6 of the folllowing symp-toms from >=2 separate-groups","algorithm":[{"AND":["$@F45.0D.counter >= 6","$@F45.0DS >= 2"]}]},"F45.0D.counter":{"explanation":"Number of criteria D sympt excl.D11,D12,D4 ","algorithm":[{"SUM":["$!F45.0D1","$!F45.0D2","$!F45.0D3","$!F45.0D5","$!F45.0D6","$!F45.0D7","$!F45.0D8","$!F45.0D9","$!F45.0D10","$!F45.0D13","$!F45.0D14"]}]},"F45.0D1":{"explanation":"Abdominal pain","algorithm":[{"AND":["$2.037 = [1,2,3]"]}]},"F45.0D2":{"explanation":"Nausea","algorithm":[{"AND":["$2.036 = [1,2,3]"]}]},"F45.0D3":{"explanation":"Feeling bloated, full of gas, distended, heavy","algorithm":[{"AND":["$2.038 = [1,2,3]"]}]},"F45.0D5":{"explanation":"Vomiting, Regurgitation","algorithm":[{"OR":["$2.035 = [1,2,3]","$2.032 = [1,2,3]"]}]},"F45.0D6":{"explanation":"Alternating bowel movements ","algorithm":[{"OR":["$2.039 = [1,2,3]"]}]},"F45.0D7":{"explanation":"Breathlessness without exertion","algorithm":[{"AND":["$2.048 = [1,2,3]"]}]},"F45.0D8":{"explanation":"Precordial discomfort or chest pain","algorithm":[{"AND":["$2.047 = [1,2,3]"]}]},"F45.0D9":{"explanation":"Pains during urination or frequent urination","algorithm":[{"OR":["$2.067 = [1,2,3]","$2.69 = [1,2,3]"]}]},"F45.0D10":{"explanation":"Unpleasant sensations in or around the genitals ","algorithm":[{"AND":["$2.074 = [1,2,3]"]}]},"F45.0D13":{"explanation":"Pain in arms or legs or joints","algorithm":[{"OR":["$2.021 = [1,2,3]","$2.022 = [1,2,3]"]}]},"F45.0D14":{"explanation":"Unpleasant numbness or tingling sensations","algorithm":[{"AND":["$2.025 = [1,2,3]"]}]},"F45.0DS":{"explanation":"Symptoms from >= 2 organsystems","algorithm":[{"SUM":[{"OR":["$!F45.0D1","$!F45.0D2","$!F45.0D3","$!F45.0D5","$!F45.0D6"]},{"OR":["$!F45.0D7","$!F45.0D8"]},{"OR":["$!F45.0D9","$!F45.0D10"]},{"OR":["$!F45.0D13","$!F45.0D14"]}]}]},"F45.0E":{"explanation":"Preoccupation not primarily due to depression, anxiety or another psychiatric illness","algorithm":[{"AND":["$2.135 <> 3","$2.136 <> 3","$6.023 <> 1","$2.138 <> 3"]}]},"F45.1":{"explanation":"Undifferentiated somatoform disorder","algorithm":[{"AND":["$!F45.1A","$!F45.1B","$!F45.0C","$!F45.0E","$!F45.0 <> 1"]}]},"F45.1a":{"explanation":"Undifferentiated somatoform dis. without excl. for other mental disord.","algorithm":[{"AND":["$!F45.1A","$!F45.1B","$!F45.0C","$!F45.0E","$!F45.0a <> 1"]}]},"F45.1A":{"explanation":">= 6 somatoform symptoms for > 6 months","algorithm":[{"AND":["$@F45.0A.counter >= 6","$2.096 >= 6"]}]},"F45.1B":{"explanation":"Some distress or preoccupation included in A (2.101)","algorithm":[{"AND":["$2.101 = [1,2]"]}]},"F45.2":{"explanation":"Hypochondriacal disorder","algorithm":[{"AND":["$!F45.2ABC","$!F45.2D"]}]},"F45.2a":{"explanation":"Hypochondriacal disorder withou excl. for other mental disord.","algorithm":[{"AND":["$!F45.2ABC"]}]},"F45.2ABC":{"explanation":"(1) persistent belief for > 6months of 1 or 2 serious illnesses or (2) persistent preoccupation with presumed deformity","algorithm":[{"AND":[{"OR":["$2.101 = [1,2]","$16.011 = [2,3]","$2.116 = 1"]},"$2.101 = 1","$2.109 = [2,3]","$2.114 >= 6"]}]},"F45.2D":{"explanation":"Does not meet criteria for F2 disorders orF3 disorders","algorithm":[{"AND":["$2.135 <> 3","$2.136 <> 3","$6.023 <> 1","$2.137 <> 1","$2.138 <> 3"]}]},"F45.3":{"explanation":"Somatoform autonomic dysfunction","algorithm":[{"AND":["$!F45.3A","$!F45.3B","$!F45.3C","$!F45.3E"]}]},"F45.3a":{"explanation":"Somatoform autonomic dysfunction, without excl. for other mental disord","algorithm":[{"AND":["$!F45.3A","$!F45.3B","$!F45.3C"]}]},"F45.3A":{"explanation":"Autonomic hyperactivitet at least on oragnsystem","algorithm":[{"OR":["$@F45.3A1.counter >= 1","$@F45.3A2.counter >= 1","$@F45.3A3.counter >= 1","$@F45.3A4.counter >= 1","$@F45.3A5.counter >= 1"]}]},"F45.3A1.counter":{"explanation":"Hyperactivity CV syste ","algorithm":[{"SUM":["$2.046 = [1,2,3]","$2.047 = [1,2,3]","$2.050 = [1,2,3]","$2.053 = [1,2,3]"]}]},"F45.3A2.counter":{"explanation":"Upper GI aroual","algorithm":[{"SUM":["$2.032 = [1,2,3]","$2.033 = [1,2,3]","$2.034 = [1,2,3]","$2.035 = [1,2,3]"]}]},"F45.3A3.counter":{"explanation":"Lower GI symptoms)","algorithm":[{"SUM":["$2.036 = [1,2,3]","$2.037 = [1,2,3]","$2.038 = [1,2,3]","$2.039 = [1,2,3]","$2.040 = [1,2,3]","$2.041 = [1,2,3]"]}]},"F45.3A4.counter":{"explanation":"Hyperactivity pulmonal system ","algorithm":[{"SUM":["$2.048 = [1,2,3]","$2.049 = [1,2,3]","$2.052 = [1,2,3]"]}]},"F45.3A5.counter":{"explanation":"Counter,hyperactivitet urogenital system","algorithm":[{"SUM":["$2.067 = [1,2,3]","$2.069 = [1,2,3]","$2.070 = [1,2,3]","$2.076 = [1,2,3]"]}]},"F45.3B":{"explanation":">= 2 autonomic symptoms of 1-5","algorithm":[{"AND":["$@F45.3B.counter >= 2"]}]},"F45.3B.counter":{"explanation":"Autnome symptoms","algorithm":[{"SUM":["$2.046 = 1","$2.050 = 1","$2.052 = 1","$2.053 = 1","$2.054 = 1"]}]},"F45.3C.counter":{"explanation":"Other autnome symptoms","algorithm":[{"SUM":["$2.047 = 1","$2.048 = 1","$2.049 = 1","$2.012 = 1","$2.033 = 1","$2.041 = 1","$2.069 = 1","$2.038 = 1"]}]},"F45.3E":{"explanation":"Panic disorder not primar","algorithm":[{"AND":["$2.135 <> 3"]}]},"F45.4":{"explanation":"Persistent somatoform pain disorder","algorithm":[{"AND":["$!F45.4A","$!F45.4B"]}]},"F45.4a":{"explanation":"Persistent somatoform pain disorder, without exclud. for other mental dis.","algorithm":[{"AND":["$!F45.4A"]}]},"F45.4A":{"explanation":"Persistent severe, distressing pain for > 6 months ","algorithm":[{"AND":[{"OR":["$2.015 = [2,3]","$2.019 = [2,3]","$2.020 = [2,3]","$2.021 = [2,3]","$2.022 = [2,3]","$2.037 = [2,3]","$2.073 = [2,3]","$2.078 = [2,3]","$2.067 = [2,3]","$2.068 = [2,3]","$2.075 = [2,3]","$2.027 = [2,3]","$2.085 = [2,3]","$2.086 = [2,3]"]},"$2.093 = [2,3]","$2.096 >= 6"]}]},"F45.4B":{"explanation":"Not explained by other disorders","algorithm":[{"AND":["$2.135 <> 3","$2.136 <> 3","$2.137 <> 3","$6.023 <> 1","$2.138 <> 3","$!F45.0 <> 1","$!F45.1 <> 1"]}]},"F45.9":{"explanation":"Unspecified somatoform disorder (>= 4) somatoform symptoms but does not fulfil criteria for any specified category Some preoccupation, with duration >= 6 months Does not meet criteria forF45.0-.4 or F41 Does not meet criteria for F2 or F3 disorders","algorithm":[{"AND":["$@F45.0D.counter >= 4","$2.096 >= 6","$2.101 = [1,2,8]","$2.135 <> 3","$2.136 <> 3","$6.023 <> 1","$2.138 <> 3","$!F45.0 <> 1","$!F45.1 <> 1","$!F45.2 <> 1","$!F45.3 <> 1","$!F45.4 <> 1"]}]},"F45.9a":{"explanation":"Unspecified somatoform disorder withou exclus for other mental disord","algorithm":[{"AND":["$@F45.0D.counter >= 4","$2.096 >= 6","$2.101 = [1,2,8]","$2.135 <> 3","$2.136 <> 3","$6.023 <> 1","$2.138 <> 3","$!F45.0a <> 1","$!F45.1a <> 1","$!F45.2a <> 1","$!F45.3a <> 1","$!F45.4a <> 1"]}]},"F48.0":{"explanation":"Neurasthenia","algorithm":[{"AND":["$!F48.0AC","$!F48.0B","$!F48.0D","$!F48.0E"]}]},"F48.0a":{"explanation":"Neurasthenia, withou excl. for other mental disorder","algorithm":[{"AND":["$!F48.0AC","$!F48.0B","$!F48.0D"]}]},"F48.0AC":{"explanation":"(1) Excessive mental- or physical fatigue not recover on rest ","algorithm":[{"OR":["$2.012 = [2,3]"]}]},"F48.0B":{"explanation":">= 1 of following symptoms (1) muscular pains (2) dizziness (3) tension headaches (4) sleep disturbance ","algorithm":[{"OR":["$2.020 = [1,2,3]","$2.016 = [1,2,3]","$2.015 = [1,2,3]",{"OR":["$8.011 = [1,2]","$8.012 = [1,2]","$8.013 = [1,2]","$8.014 = [1,2]","$8.015 = [1,2]","$8.016 = [1,2]"]},"$3.003 = [2,3]","$3.009 = [2,3]"]}]},"F48.0D":{"explanation":"duration >= 3 months","algorithm":[{"AND":["$2.096 >= 3"]}]},"F48.0E":{"explanation":"not better explained by depression, panic disroder or anxietyciety","algorithm":[{"AND":["$2.135 <> 3","$2.136 <> 3","$6.023 <> 1"]}]},"Fatiq":{"explanation":"Counter fatiq ","algorithm":[{"SUM":["$3.007 = [1,2,3]","$7.006 = [1,2,3]","$2.012 = [1,2,3]"]}]},"nsomdg":{"explanation":"Any somatoform diagnose","algorithm":[{"SUM":["$!F44.4.7","$!F45.0i","$!F45.1i","$!F45.2i","$!F45.3i","$!F45.4i","$!F48.0"]}]},"DEP":{"explanation":"Any depression excl. dystymi","algorithm":[{"OR":["$!F31.30","$!F31.3","$!F31.31","$!F31.4","$!F31.5","$!F31.51","$!F31.50","$!F32.0","$!F32.00","$!F32.01","$!F32.10","$!F32.11","$!F32.2","$!F32.3","$!F32.30","$!F32.31","$!F32.9","$!F33","$!F33.0","$!F33.00","$!F33.01","$!F33.1","$!F33.10","$!F33.11","$!F33.2","$!F33.3","$!F33.30","$!F33.31","$!F33.9","$!F39"]}]},"DEPDYS":{"explanation":"Any depression or dystymi ","algorithm":[{"OR":["$!F31.30","$!F31.3","$!F31.31","$!F31.4","$!F31.5","$!F31.51","$!F31.50","$!F32.0","$!F32.00","$!F32.01","$!F32.1","$!F32.10","$!F32.11","$!F32.2","$!F32.3","$!F32.30","$!F32.31","$!F32.9","$!F33","$!F33.0","$!F33.00","$!F33.01","$!F33.1","$!F33.10","$!F33.11","$!F33.2","$!F33.3","$!F33.30","$!F33.31","$!F33.9","$!F34.0","$!F34.1","$!F34.9","$!F38.10","$!F39"]}]},"F0":{"explanation":"This is met when any of the F0 algorithms is met.","algorithm":[{"OR":["$!F00.03","$!F00","$!F00.0","$!F00.1","$!F00.2","$!F00.9","$!F01","$!F01.0","$!F01.1","$!F01.2","$!F01.3","$!F01.9","$!F02.0","$!F02.3","$!F02.4","$!F02.8","$!F03","$!F04","$!F05","$!F05.0","$!F05.1","$!F06","$!F06.0","$!F06.1","$!F06.2","$!F06.3","$!F06.4","$!F07","$!F07.0"]}]},"F00":{"explanation":"Dementia in Alzheimer's disease","algorithm":[{"AND":["$!F00A","$!F00B"]}]},"F00.0":{"explanation":"With early onset","algorithm":[{"AND":["$!F00.0.1","$!F00.0.2"]}]},"SCHIZII1":{"explanation":"delusions","algorithm":[{"AND":[{"OR":["$17.025 = [2,3]","$17.027 = [2,3]","$17.029 = [2,3]","$18.003 = [2,3]","$19.003 = [2,3]","$19.004 = [2,3]","$19.005 = [2,3]","$19.006 = [2,3]","$19.007 = [2,3]","$19.008 = [2,3]","$19.012 = [2,3]","$19.013 = [2,3]","$19.014 = [2,3]","$19.016 = [2,3]","$19.017 = [2,3]","$19.018 = [2,3]","$19.019 = [2,3]","$19.021 = [2,3]","$19.022 = [2,3]","$19.023 = [2,3]","$19.028 = [2,3]","$19.029 = [2,3]","$19.030 = [2,3]","$19.031 = [2,3]","$19.032 = [2,3]"]},"$19.045 = 0","$20.070 = [0,1]",{"OR":["$19.044 = [2,3]","$20.055 = [2,3]"]}]}]},"SCHIZII2":{"explanation":"hallucinations","algorithm":[{"AND":[{"OR":["$17.003 = [2,3]","$17.004 = [3,4]","$17.015 = [2,3]","$17.016 = [2,3]","$17.017 = [2,3]","$17.022 = [2,3]","$17.024 = [2,3]","$17.026 = [2,3]","$17.028 = [2,3]","$17.030 = [2,3]"]},"$17.034 = 0","$20.065 = [0,1]","$20.066 = [0,1]","$20.067 = [0,1]",{"OR":["$17.033 = [2,3]",{"OR":["$20.050 = [2,3]","$20.051 = [2,3]","$20.052 = [2,3]"]}]}]}]},"F06F320B.counter":{"explanation":"","algorithm":[{"SUM":["$!F32.0B1","$!F06F32B2","$!F06F32B3"]}]},"F06F320C.counter":{"explanation":"","algorithm":[{"SUM":["$!F32.0C1","$!F32.0C2","$!F32.0C3","$!F06F32C4","$!F06F32C5","$!F06F32C6","$!F32.0C7"]}]},"SOMSYND":{"explanation":"Somatic syndrome subtype criteria","algorithm":[{"AND":["$@SOMSYND.counter >= 4"]}]},"SOMSYND.counter":{"explanation":"","algorithm":[{"SUM":["$!SOMSYND1","$!SOMSYND2","$!SOMSYND3","$!SOMSYND4","$!SOMSYND5","$!SOMSYND6","$!SOMSYND7","$!SOMSYND8"]}]},"SOMSYND1":{"explanation":"loss of interest or pleasure","algorithm":[{"OR":["$6.004 = [2,3]","$7.004 = [2,3]"]}]},"SOMSYND2":{"explanation":"lack of emotional reactions","algorithm":[{"AND":["$6.008 = [2,3]"]}]},"SOMSYND3":{"explanation":"early awakening (> 2 hours)","algorithm":[{"AND":["$8.014 = 3"]}]},"SOMSYND4":{"explanation":"depression worse in morning","algorithm":[{"AND":["$6.009 = 1"]}]},"SOMSYND5":{"explanation":"objective retardation or agitation","algorithm":[{"OR":["$22.001 = [1,2]","$22.002 = [1,2]","$22.003 = [1,2]","$22.004 = [1,2]","$22.005 = [1,2]","$22.006 = [1,2]","$22.007 = [1,2]","$22.010 = [1,2]","$24.002 = [1,2]","$22.015 = [1,2]","$22.016 = [1,2]"]}]},"SOMSYND6":{"explanation":"loss of appetite","algorithm":[{"AND":["$8.005 = [2,3]"]}]},"SOMSYND7":{"explanation":"weight loss > 5% in 1 month","algorithm":[{"AND":["$8.006 = [2,3]"]}]},"SOMSYND8":{"explanation":"loss of libido","algorithm":[{"AND":["$8.024 = [2,3]","$8.025 = 1"]}]},"F20.4B.derived1":{"explanation":"Derived from F20.4B","algorithm":[{"SUM":["$!F20G1.2a","$!F20G1.2b","$!F20G1.2c","$!F20G1.2d"]}]},"DELONS":{"explanation":"Posttraumatic stress disorder - delayed onset","algorithm":[{"AND":["$!F43.1A","$!F43.1B","$!F43.1C","$!F43.1D","$13.094 = 3"]}]},"F48.1":{"explanation":"Depersonalisation - derealisation syndrome","algorithm":[{"AND":["$!F48.1A","$!F48.1B"]}]},"F48.1A":{"explanation":"(1) depersonalization or (2) derealization ","algorithm":[{"OR":[{"OR":["$3.012 = [2,3]","$16.008 = [2,3]","$16.009 = [2,3]","$16.010 = [2,3]"]},{"OR":["$16.006 = [2,3]","$16.007 = [2,3]"]}]}]},"F48.1B":{"explanation":"Insight present","algorithm":[{"AND":["$16.013 = 0",{"AND":["$!F05 = 0","$!F06 = 0","$!F1 = 0","$!F2 = 0","$!F3 = 0","$!F40.0 = 0","$!F40.1 = 0","$!F40.2 = 0","$!F40.9 = 0","$!F41.0 = 0","$!F41.1 = 0","$!F40.9 = 0"]}]}]}}
-
-/***/ }),
-/* 326 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-
-var yaml = __webpack_require__(327);
-
-
-module.exports = yaml;
-
 
 /***/ }),
 /* 327 */
@@ -44058,8 +44173,22 @@ module.exports = yaml;
 
 
 
-var loader = __webpack_require__(328);
-var dumper = __webpack_require__(351);
+var yaml = __webpack_require__(328);
+
+
+module.exports = yaml;
+
+
+/***/ }),
+/* 328 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+
+var loader = __webpack_require__(329);
+var dumper = __webpack_require__(352);
 
 
 function deprecated(name) {
@@ -44097,7 +44226,7 @@ module.exports.addConstructor = deprecated('addConstructor');
 
 
 /***/ }),
-/* 328 */
+/* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44107,7 +44236,7 @@ module.exports.addConstructor = deprecated('addConstructor');
 
 var common              = __webpack_require__(31);
 var YAMLException       = __webpack_require__(41);
-var Mark                = __webpack_require__(329);
+var Mark                = __webpack_require__(330);
 var DEFAULT_SAFE_SCHEMA = __webpack_require__(42);
 var DEFAULT_FULL_SCHEMA = __webpack_require__(54);
 
@@ -45702,7 +45831,7 @@ module.exports.safeLoad    = safeLoad;
 
 
 /***/ }),
-/* 329 */
+/* 330 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45785,7 +45914,7 @@ module.exports = Mark;
 
 
 /***/ }),
-/* 330 */
+/* 331 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45800,7 +45929,7 @@ module.exports = new Type('tag:yaml.org,2002:str', {
 
 
 /***/ }),
-/* 331 */
+/* 332 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45815,7 +45944,7 @@ module.exports = new Type('tag:yaml.org,2002:seq', {
 
 
 /***/ }),
-/* 332 */
+/* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45830,7 +45959,7 @@ module.exports = new Type('tag:yaml.org,2002:map', {
 
 
 /***/ }),
-/* 333 */
+/* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45871,7 +46000,7 @@ module.exports = new Type('tag:yaml.org,2002:null', {
 
 
 /***/ }),
-/* 334 */
+/* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45913,7 +46042,7 @@ module.exports = new Type('tag:yaml.org,2002:bool', {
 
 
 /***/ }),
-/* 335 */
+/* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46093,7 +46222,7 @@ module.exports = new Type('tag:yaml.org,2002:int', {
 
 
 /***/ }),
-/* 336 */
+/* 337 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46216,7 +46345,7 @@ module.exports = new Type('tag:yaml.org,2002:float', {
 
 
 /***/ }),
-/* 337 */
+/* 338 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46311,7 +46440,7 @@ module.exports = new Type('tag:yaml.org,2002:timestamp', {
 
 
 /***/ }),
-/* 338 */
+/* 339 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46330,7 +46459,7 @@ module.exports = new Type('tag:yaml.org,2002:merge', {
 
 
 /***/ }),
-/* 339 */
+/* 340 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46343,7 +46472,7 @@ var NodeBuffer;
 try {
   // A trick for browserified version, to not include `Buffer` shim
   var _require = require;
-  NodeBuffer = __webpack_require__(340).Buffer;
+  NodeBuffer = __webpack_require__(341).Buffer;
 } catch (__) {}
 
 var Type       = __webpack_require__(6);
@@ -46475,7 +46604,7 @@ module.exports = new Type('tag:yaml.org,2002:binary', {
 
 
 /***/ }),
-/* 340 */
+/* 341 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46489,9 +46618,9 @@ module.exports = new Type('tag:yaml.org,2002:binary', {
 
 
 
-var base64 = __webpack_require__(341)
-var ieee754 = __webpack_require__(342)
-var isArray = __webpack_require__(343)
+var base64 = __webpack_require__(342)
+var ieee754 = __webpack_require__(343)
+var isArray = __webpack_require__(344)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -48272,7 +48401,7 @@ function isnan (val) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(26)))
 
 /***/ }),
-/* 341 */
+/* 342 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48430,7 +48559,7 @@ function fromByteArray (uint8) {
 
 
 /***/ }),
-/* 342 */
+/* 343 */
 /***/ (function(module, exports) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -48520,7 +48649,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 
 /***/ }),
-/* 343 */
+/* 344 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -48531,7 +48660,7 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 344 */
+/* 345 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48582,7 +48711,7 @@ module.exports = new Type('tag:yaml.org,2002:omap', {
 
 
 /***/ }),
-/* 345 */
+/* 346 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48642,7 +48771,7 @@ module.exports = new Type('tag:yaml.org,2002:pairs', {
 
 
 /***/ }),
-/* 346 */
+/* 347 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48678,7 +48807,7 @@ module.exports = new Type('tag:yaml.org,2002:set', {
 
 
 /***/ }),
-/* 347 */
+/* 348 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48713,7 +48842,7 @@ module.exports = new Type('tag:yaml.org,2002:js/undefined', {
 
 
 /***/ }),
-/* 348 */
+/* 349 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48780,7 +48909,7 @@ module.exports = new Type('tag:yaml.org,2002:js/regexp', {
 
 
 /***/ }),
-/* 349 */
+/* 350 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48798,7 +48927,7 @@ var esprima;
 try {
   // workaround to exclude package from browserify list.
   var _require = require;
-  esprima = __webpack_require__(350);
+  esprima = __webpack_require__(351);
 } catch (_) {
   /*global window */
   if (typeof window !== 'undefined') esprima = window.esprima;
@@ -48879,7 +49008,7 @@ module.exports = new Type('tag:yaml.org,2002:js/function', {
 
 
 /***/ }),
-/* 350 */
+/* 351 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -55593,7 +55722,7 @@ return /******/ (function(modules) { // webpackBootstrap
 ;
 
 /***/ }),
-/* 351 */
+/* 352 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56425,7 +56554,7 @@ module.exports.safeDump = safeDump;
 
 
 /***/ }),
-/* 352 */
+/* 353 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56442,7 +56571,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _downshift = __webpack_require__(353);
+var _downshift = __webpack_require__(354);
 
 var _downshift2 = _interopRequireDefault(_downshift);
 
@@ -56552,7 +56681,7 @@ var SearchItems = exports.SearchItems = (0, _reactRedux.connect)(function (state
 })(Search);
 
 /***/ }),
-/* 353 */
+/* 354 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57934,19 +58063,19 @@ Downshift.resetIdCounter = resetIdCounter;
 
 
 /***/ }),
-/* 354 */
+/* 355 */
 /***/ (function(module, exports) {
 
 module.exports = {"items":[{"key":"2.section","title":"FUNKTIONELLE LIDELSER OG HELBREDSANGST","description":"Denne sektion afviger fra de følgende sektioner ved at anvende afvigende tidsperioder for present state / present\n          episode (2 eller 1 år). Der anvendes rating skala 1a eller specifikke ratings for hvert item.\n\n**Tidsperioden rates i item 2.076-2.079.**\n","glossary":"Clinically, the difference between normality and the pathological behaviour may be based on a clinical judgment on how impaired and distressed the patient is by the health problem.\nWe may need an introduction including the discussion about MUS, mental vs. bodily, and that these conditions do not necessarily represent mental disorders but are in between."},{"key":"2.001","title":"Fysisk helbred gennem den sidste måned","description":"*- Hvordan har dit fysiske helbred været gennem den sidste måned?*\n\n*- Har det været strålende, godt, mindre godt eller dårligt?*\n","input":"integer","options":{"1":"Strålende","2":"Godt","3":"Mindre godt","4":"Dårligt","8":"Usikkert","9":"Ukendt"},"validate":["1-4","8","9"],"glossary":"This item is concerned with the Respondent's own view of his or her physical health status; i.e. not only with the presence or absence of disease or disability but also with general physical well-being.  Respondents will use their own terms to describe their health status.  The rating should          reflect this personal assessment rather than the interviewer's interpretation of it.\n\nA rating of 1 must be based on a positive statement of physical well-being. Reasonably well (rated 2) corresponds to 'all right'; not positive, not negative.\n\nA rating of 3 ('fair') implies less than average wellness. Such a statement should be elucidated to inform subsequent questioning.  It may, for example, indicate physical disease, functional or dissociative or affective disorder, or a lifelong tendency (trait) to take a somewhat gloomy view of      things. These questions are raised later in the interview.\n\nAny statement implying a seriously poor state of health is rated 4.\n\nA feeling of positive wellness can be rated 1 in the presence of actual disease or disability if that is what R feels.\n\nThe scale is ordered in this way (1-4) to correspond with the general principle used elsewhere in the SCAN text, that greater disability or pathology has a higher score.\n\nThus 0 is not used, because, as the default rating for all items (except some in Section 21), it would automatically             indicate high positive wellness if left blank.\n"},{"key":"2.002","title":"Varighed af helbredsbesvær  (mdr.)","description":"*- Hvor længe har dit fysiske helbred været dårligt?*\n\n *- Hvornår var du sidst rask (fri for både somatisk sygdom og funktionel lidelse)?*\n\nRates i antal måneder siden patienten sidst har været rask.\n","input":"integer","options":{"0":"Intet helbredsbesvær","800":"800 mdr. eller mere","888":"Ukendt","999":"Ikke relevant","1-799":"Mellem 1 og 799 måneder"},"validate":["0-800","888","999"],"glossary":"If item **[2.001]** is rated 3 or 4, specify the length of time in years and months that the unwellness has been present.\n"},{"key":"2.003","title":"Fysisk sygdom eller svækkelse igennem det sidste år","description":"*- Har du inden for det sidste år haft fysiske sygdomme, skader, smerter\n eller symptomer, som har begrænset din udfoldelse på én eller anden måde?*\n\n*- Hvad drejer det sig om?*\n\n*- Hvad sagde lægen, at der var i vejen?*\n","input":"integer","options":{"0":"Ingen","1":"Beskriver legemlig lidelse eller symptomer uden klar diagnose","2":"Angiver somatisk diagnose","3":"Både somatisk diagnose og funktionelle symptomer/sygdom","8":"Usikkert","9":"Ukendt"},"validate":["0-3","8","9"],"glossary":"This item refers to medical problems of a physical nature including illnesses, injuries and disabilities.\n\nTake into account all the information available including the results of recent investigations and examinations. It will sometimes be possible to accept the diagnosis that R gives, when backed by a convincing description, but always use 8 if there is doubt.\n\nAny medically diagnosed condition should be coded in **[2.007]** according to ICD-10.  If no significant illness or disability is present leave **[2.007a-t] and [2.008]** blank or rate 0.\n\nAn entry should only be made if **[2.003]** is coded 2 or 3; not including any indefinite or medically unexplained disorder.\n\nFor instance stomach ache without good evidence of gastric disease, should not be entered simply because R states, for example, \"I think I have a gastric ulcer\". A rating of 1 does not mean that there is no physical disease, only that the information has not established one and further enquiry      is necessary.\n"},{"key":"2.004","title":"Generende somatisk symptom, ethvert","description":"*- Hvor meget generer eller forstyrrer det dit daglige liv?*\n","input":"integer","options":{"0":"Ingen","1":"Tilstede","9":"Ukendt"},"validate":["0","1","9"],"help":"Se også items [2.008] og [2.031].\n","glossary":"Patienten har et eller flere generende fysiske symptomer eller symptomer, der forårsager betydelig forstyrrelse i det daglige. Symptomerne eller sygdommen kan være af enhver ætiologi, dvs. af ukendt ætiologi eller fra cancer, diabetes etc.\n\n(Criteria for DSM-V)\n"},{"key":"2.005","title":"Smerter, dominerende","description":"*Kun hvis 2.003 er rated 2.*\n\n*- Er det helt overvejende smerter, der er problemet?*\n","input":"integer","options":{"0":"Nej","1":"Ja","8":"Usikkert","9":"Ukendt"},"validate":["0","1","8","9"],"help":"Rates positivt hvis smerter grundet somatisk sygdom er dominerende:\n\nSe også [2.030].\n\n(DSM-V specifier)\n","glossary":"This item is for responders whose physical symptoms predominantly involve pain. This is a clinical judgement, not the patient's opinion, but if necessary,  it may help you to ask the patient. It only includes well-defined medical conditions; primary or idopathic pain will be rated elsewhere (2.030). It is a DSM-5 SSD specifier.\n"},{"key":"2.006","title":"Optagethed af somatiske symptomer og bekymring over fysisk helbred","description":"*- Er du bange for at fejle noget alvorligt?*\n\n*- Har du været hos lægen pga. det? (indenfor det seneste år)*\n","input":"integer","options":{"0":"Ikke til stede","1":"Til stede","9":"Ukendt"},"validate":["0","1","9"],"help":"Bedømmes ud fra graden af optagethed, sygdomsfølelse eller gener, og hyppigheden af konsultatio¬ner og undersøgelser, graden af symptomer eller overdreven sygdomsbekymring.\n\nSe også [2.037].\n","glossary":"The item is identical with 2.037 except for the scoring and is a screening item for Health or Illness anxiety / Hypochondrias.\n\nA non-delusional preoccupation with fears of harbouring a severe physical disease and/or a disproportionate thoughts about the seriousness of one's symptoms and disease.\nSee also HA section\n\nCUT-OFF => ???? (helbredsangst) hvis 2.006 = 1 og der ikke er funktionelle eller dissociative symptomer ud fra de forhåndenværende oplysninger.\n\nFortsæt altid såfremt der ikke er en overbevisende medicinsk forklaring på symptomerne.\n\nHvis [2.003] = 0 gå til HA.\n\nHvis [2.003] = 2 gå til [2.007] og derefter [2.037].\n\nHvis [2.003] < > 0 eller 2 fortsæt.\n"},{"key":"2.episode1.section","title":"VELDEFINEREDE SOMATISKE LIDELSER","description":"Marker med et X hvis sygdommen er til stede og skriv så diagnosen med bogstaver (diagnosekode kan beholdes som forklaring).\n\nHuskekort eller spørgeskema kan anvendes.\n"},{"key":"2.007","title":"Veldefinerede og lægediagnosticerede somatiske sygdomme (lifetime)","description":"(Vis huskekort, hvis nødvendigt)\n\na.  Har du fået at vide af en læge, at du lider af én eller flere af disse sygdomme (a-r)?\n\nb.  Har du fået medicin for (a-r)?\n\nc.  Har du fået laboratorieundersøgelser for (a-r)\n\nd.  Er du blevet tilrådet at ændre din kost eller livsstil p.g.a. (a-r)?\n\ne.  Har du været indlagt eller blevet opereret for (a-r)?\n\nf.  Har du på noget tidspunkt stoppet eller indskrænket dine daglige aktiviteter i en uge eller mere (a-r)?\n","input":"integer","options":{"0":"Fraværende","1":"Til stede","8":"Usikkert","9":"Ukendt"},"validate":["0","1","8","9"],"glossary":"Record only well-defined and verified clear cut diagnoses made by physicians. Avoid ratings based solely on the patients belief.\nThe functional somatic syndromes and functional disorders are not rated here. Banal or transient acute illnesses are not rated. Patients highly suspected of having a given condition, but still under investigation rate 8.\nDisorders associated with mental retardation and/or autism e.g. Down’s Syndrome, foetal rubella etc. should be checked in CHS, ch. 27\n"},{"key":"2.007a","title":"Forhøjet blodtryk","description":"(ICD-10: I10-I15)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007b","title":"Astma/kronisk bronkitis","description":"(ICD-10: J30-J32, J35, J37, J40-J47)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007c","title":"Hjertelidelse","description":"(ICD-10: I05-I09 og I20-I25)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007d","title":"Sukkersyge (Diabetes)","description":"(ICD-10: E10-E14)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007e","title":"Stofskiftesygdomme (thyroidea-sygdomme)","description":"(ICD-10: E00-E07)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007f","title":"Nyresygdom","description":"(ICD-10: N03-07, N11-15, N18-19, N25-28)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007g","title":"Slid-/leddegigt (reumatisme)","description":"(ICD-10: M00-M19)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007h","title":"Discusprolaps","description":"(ICD-10: M40-M54)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007i","title":"Migræne/specificeret","description":"(ICD-10: G43, G44, R51)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007j","title":"Epilepsi","description":"(ICD-10: G40)\n","input":"integer","options":{"1":"Present"}},{"key":"2.007k","title":"Slagtilfælde","description":"(ICD-10: I60-I69)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007l","title":"Dissemineret sklerose","description":"(ICD-1010: G35)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007m","title":"Mavesår (gastritis ulcus)","description":"(ICD-10: K25-K27)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007n","title":"Leverbetændelse (Hepatitis)","description":"(ICD-10: B18, K73, K75,9)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007o","title":"Parasitiske sygdomme / malaria","description":"(ICD-10: B50-B83)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007p","title":"Tuberkulose","description":"(ICD-10: A15-A19, B90, J65)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007q","title":"HIV/AIDS","description":"(ICD-10: B20-B24)\n","input":"integer","validate":["1"],"options":{"1":"Present 2"}},{"key":"2.007r","title":"Svulst (Tumor/cancer)","description":"(ICD-10: C00-C97)\n","input":"integer","validate":["1"],"options":{"1":"Present"}},{"key":"2.007s","title":"Andre","input":"string","description":"Skriv hvilken_____________________________________________\n"},{"key":"2.007t","title":"Andre","input":"string","description":"Skriv hvilken_____________________________________________\n","help":"Tilstande der er forbundet med mental retardering og/eller autisme, fx. Down’s Syndrom, føtal rubella etc. bør checkes i CHS, afsnit 27. Den første kasse skal indeholde et bogstav, der angiver ICD-10 kapitlet, efterfulgt af op til 4 cifre. Hvis ingen, lad være blank.\n"},{"key":"2.008","title":"Påvirkning af aktiviteter og besvær igennem det sidste år pga. veldefineret somatisk sygdom","description":"**(Se også [2.031])**\n\n*- Hvor meget har de **(symptomerne eller lidelserne fra 2.007a-t)** påvirket dine aktiviteter eller dit velbefindende gennem det sidste år?*\n","input":"integer","options":{"0":"Ingen påvirkning eller ingen veldefineret somatisk sygdom","1":"Kun lille påvirkning","2":"Moderat eller intermitterende påvirkning","3":"Svær eller invaliderende påvirkning","8":"Usikkert","9":"Ukendt"},"validate":["0-3","8","9"],"glossary":"Impairment due to well-defined physical disease. Impairment due to functional or dissociative symptoms is rated in **[2.031]**.\nWhether the disease causes clinically significant distress or impairment in social, occupational or other important areas of functioning.\n\nFor rating of functioning, you may use the concept of WHO’s disability assessment with its 5 dimensions. But it is important that also emotional distress is       rated here, i.e. a person may go to work but is tormented by thoughts and emotions in connection with his/her symptoms.\n"},{"key":"2.009","title":"Psykiske faktorers påvirkning af veldefineret somatisk tilstand","description":"Rates normalt ud fra anamnetiske oplysninger og patientens tanker og bekymring om sin sygdom.\nHvis den oprindelige sygdom ikke længere er til stede, rates tilstanden i stedet som en funktionel tilstand cf. 27.069.\n","input":"integer","options":{"0":"Fraværende","1":"Til stede","8":"Usikkert","9":"Ukendt"},"validate":["0","1","8","9"],"glossary":"A well-defined medical symptom or condition is present (not including functional syndromes or disorders). The course, the treatment (i.e. adherence), health status or recovery of the medical condition is affected by psychological factors.\nIf the medical condition is not present anymore, the condition is rated as a functional condition instead.\nNormally rated based on medical history and the patient's thoughts and worries about the condition.\n\nCUT OFF => ????  (health anxiety) if there are no functional or dissociative symptoms based on the present information, i.e. 2003 = 0 or 2\n\nAlways continue beyond the cut-off point if there is any doubt as to whether physical health problems are caused by a well-defiend medical condtion.  Begin the further exploration with a general probe, then ask a set of questions concerning R's contacts with expert practitioners.  In countries where expert        opinion is difficult to obtain the following ratings must be particularly circumspect.  Case records and information from people who know R should be taken into account.\n"},{"key":"2.episode2.section","title":"FYSISKE SYMPTOMER & SYNDROMER","description":"**Brug Rating Skala 1a hvis andet ikke er angivet**\n\nRates ud fra alle foreliggende oplysninger, herunder journaloplysninger.\n\nFor at et symptom skal rates som værende forårsaget af kendt veldefineret fysisk sygdom (eller sandsynligvis af fysisk veldefineret sygdom), skal denne veldefinerede sygdom være diagnosticeret i **2.007** eller det skal dreje sig om akut tilstand som fx influenza. Hvis du mistænker, at patienten har en udiagnosticeret fysisk sygdom, rate 8.\n","help":"**Uddyb:**\n\nGennemgå de symptomer, som patienten har angivet, og tjek **2.010-2.028**.\n\nUddybende spørgsmål:\n\n*- Hvordan føltes det (symptom)?*\n*- Hvor udtalt var det?*\n*- Hvordan påvirkede det dig?*\n*- Søgte du lægehjælp?*\n*- Fik du foretaget særlige undersøgelser?*\n*- Har du fået behandling? Hvilken?*\n*- Hvad sagde lægen, at der var i vejen?*\n*- Hvad tror du selv?*\n\n**(Vis evt. huskekort)**\n","glossary":"Rate on the basis of present information, incl. medical history. Each symptom is rated if present, and do not attempt to judge if each individual symptom is \"medically explained\" or not. The diagnoses is based on the complete illness picture and not on individual symptoms!\nEmotional, social, stress etc. may not be present in patients presenting with functional disorders, which is why you cannot base you rating on such associated symptoms.\nIdeally you should rate whether a symptom is due to a functional condition (in a similar way to rating if a symptom is due to depression); but our current knowledge and most doctors' knowledge about functional disorders is presently insufficient for this to be done in a reliable way.\nFor a symptom to be rated as being attributed to a well-known physical disease (or likely well-known physical disease), this well-known physical disease must be diagnosable, i.e. be diagnosed in 2.007 or it could be an acute condition such as 'flu. If you suspect that the patient has an                undiagnosed physical disease, rate 8.  Functional somatic syndromes or functional disorders are not viewed as well-defined medical conditions for the purpose of this section.\n\nThe usual PSE rule 'if in doubt rate down' should not be applied to physical symptoms themselves.  Respondents should be encouraged to be forthcoming about their complaints.\n\nBecause each symptom can be described in terms that are highly culture-specific, the list is not exhaustive. There are sufficient items to cover contingencies. A clinical decision should be made on the basis of local expertise, according to which item represents the complaint the most.         For research purposes, it is important to record the terms used by respondents to describe their problems. Documentation of these terms will generate a database that can be used for further development of items with research and clinical applicability.\n\nResearch has shown that characteristic symptoms patterns of functional disorders can be identificed and by large they cluster into organ systems. This is also well known for functional somatic syndromes, such as IBS and fibromyalgia. To highlight this and make a rating simpler, the interview is organised around meaningful symptom groupings. You initially screen for symptoms from the organ system  by asking for symptoms of that particular organ system or symptom group, and it is only necessary to fill in specific symptoms if the screening question is positive. If the screening question is negative, you may skip the organ system. If you don't need keep record of the specific symptoms of an organ system but only need to know if the Respondent has 1 or more symptoms from the organ system, you do not need to fill in each symptom of the group to achieve a diagnosis. In this case, the algorithm will use the scooring of the screening item to establish the diagnosis.\n"},{"key":"2.episode3.section","title":"ALMENE/USPECIFIKKE SYMPTOMER/SYNDROMER, INKL. TRÆTHED"},{"key":"2.010","title":"Almene/uspecifikke symptomer/syndromer inkl. træthed","description":"*- I det seneste år, har du haft problemer med træthed, hovedpine, svimmelhed, hukommelses- eller koncentrationsbesvær eller lignende symptomer?*\n","input":"integer","options":{"0":"Nej ingen betydende gener","1":"1-2 symptom","2":">=3 symptomer"},"validate":["0-2"],"glossary":"These nonspecific symptoms are extremley common in a broad range of both medical and mental conditions and may be viewed as a common unspecific reaction to both bodily and mental stress. The symptoms are also the key symptoms of CFS/ME and neurasthenia.\n","help":"**Ved brug af spørgeskema:**\n\nN: Negativt spørgeskema (formulering fra Mini Scan)\n\nP: Positivt spørgeskema\n"},{"key":"2.010a","title":"Generel sløjhed, uoplagthed","scale":"1a"},{"key":"2.010b","title":"Udtalt og generende træthed","description":"*- Hvis du føler dig udmattet efter fysisk eller psykisk anstrengelse,hvor lang tid varer denne udmattelse?*\n\n*- Kan du komme dig ved at hvile dig eller slappe af?*\n","scale":"1a","glossary":"Unwarranted fatiguability after even minor physical exertion or mental activities.  The emphasis is on feelings of bodily or physical weakness and exhaustion after only minimal effort.  Respondents experience the tiredness as unpleasant and        distressing.\n\n**Differentiation from other symptoms:**\n\nTiredness at the end of a hard day of physical or mental work (rate 0), or due to the immediate after-effect of influenza, would not count.  The level of increase in fatiguability should be assessed against relevant previous experience, such as walking a familiar distance, climbing stairs,  reading a         book, doing calculations,etc.\nIs typically described as an unpleasant intrusion of distracting associations or recollections, difficulty in concentrating, focusing and sustaining attention, and generally inefficient thinking.  The condition is usually associated with decreased efficiency in coping with daily tasks.\nInability to restore mental and physical energy following even minor exercise.  Symptoms are persistent, lasting days or longer.  The sense of tiredness may be accompanied by feelings of muscular aches and pains, and the Respondent is unable voluntarily to overcome        it.  Differentiate from normal sleepiness.\nRate 1 if the R can recover 2 or 3 if R can not recover.\n\nSee also  **3.007**\n"},{"key":"2.010c","title":"Hukommelsesbesvær","scale":"1a","glossary":"R complains of impairment or loss of memory.  The loss does not include amnesia due to verifyed impaired organic brain functioning like operations or during convulsions or fainting, or following an acute traumatic head injury or brain contusion, drug or alcohol abuse or intoxication etc. This item is rated positive in cases of memory loss in connection with long-lasting post-concussion syndrome.\n    It is the subjective feeling of impairment that is rated, and there is often an discrepancy between the observed memory of the patient during the interview and the Respondent's own perception; objective memory tests may be negative.  See also ???\n\nDissociative (see also ??)  amnesia may also be rated positive in this item but should also be rated in ?? The main feature is a sudden loss of memory, usually of important recent events, not due to organic mental disorder, and too great to be explained by ordinary forgetfulness or fatigue.  There is no integration of present experiences with memories of the past.  The amnesia is       presumed to be of psychogenic origin and is usually partial and selective.  The main problem is not in the registration or retention of the memory, but in the recall of facts usually associated with insoluble or unacceptable interpersonal problems, or traumatic events such as accidents or           unexpected bereavements.\n\n**Dissociative: Differentiation from other symptoms:**\n\nThere should be no evidence of a physical condition that can explain the symptoms that characterize the disorder.  Amnesia induced by alcohol or drugs or by postictal amnesia in epilepsy should not be included here. Similarly,  subjective complaints of loss of memory (difficulty in                 recollection of important facts and events) experienced in depressive disorders should be excluded.  Likewise, it is differentiated from other causes of subjective memory loss by the severity, sudden onset, or only affecting a specific event, and thus it may not necessarily show a global          memory loss.\n"},{"key":"2.010d","title":"Koncentrationsbesvær","scale":"1a","help":"Se også (jf. 7.001-7.003)\n"},{"key":"2.010e","title":"Spændingshovedpine","scale":"1a"},{"key":"2.010f","title":"Svimmelhed","scale":"1a"},{"key":"2.010g","title":"Andre________________________________","input":"string"},{"key":"2.episode4.section","title":"MUSKULOSKELETALE SYMPTOMER/SYNDROMER INKL. UDBREDTE SMERTER, MUSKELSPÆNDINGER OG ANDRE"},{"key":"2.011","title":"Muskuloskeletale symptomer/syndromer inkl. udbredte smerter, muskelspænder etc.","description":"*- Har du haft smerter eller andre gener fra dine muskler eller led, haft føleforstyrrelser eller følt svaghed i fx. arme eller ben?*\n","input":"integer","options":{"0":"Nej ingen betydende gener","1":"1-2 symptomer","2":">=3 symptomer"},"validate":["0-2"]},{"key":"2.011a","title":"Rygsmerter","scale":"1a"},{"key":"2.011b","title":"Muskelsmerter eller -ømhed","scale":"1a"},{"key":"2.011c","title":"Smerter i armene eller benene","scale":"1a"},{"key":"2.011d","title":"Ledsmerter","scale":"1a"},{"key":"2.011e","title":"Smerter, som flytter sig fra sted til sted","scale":"1a","glossary":"Pain moving around to and from different locations in the body.\n"},{"key":"2.011f","title":"Følelse af lammelse eller lokaliseret kraftnedsættelse","description":"*- Har du været ude af stand til at bevæge en hånd, en arm eller et ben?*\n\n*- Har arme eller ben føltes tunge?*\n\n*- Har du haft svært ved at stå eller gå uden støtte?*\n","scale":"1a","glossary":"This group covers muscular weakness (either periodic or unremitting). Problems when lifting, inability to stand up or to walk or inability to move any part of the body. You may wonder why this symptoms is included under the heading musculoskeletal symptoms since, from a medical point of view, the symptom is viewed as neurological. But patients do not have this medical knowledge, and research has shown that patients view it as an extremity / musculoskeletal symptom.\n"},{"key":"2.011g","title":"Ubehagelig dødhedsfornemmelse eller paræstesier","description":"*- Har du oplevet tab af eller ændringer i berøringssansen?*\n\n*- Kan du føle varme og kulde som du plejer?*\n","scale":"1a","glossary":"Includes different sensations such as tingling (slight stinging sensation/pins and needles), crawling or creeping sensation as well as feelings of heaviness or lightness anywhere in the body.  There may be a reported sensory loss to the skin which is confined to areas that do not match any neurological lesion.  These may be associated with different sensations like tingling or other paraesthesias.  There may be differential loss between the sensory modalities (touch, pain, heat,          vibration, etc.) which cannot be due to a neurological problem. You may wonder why this symptoms is included under the heading musculoskeletal symptoms since, from a medical point of view, the symptom is viewed as neurological. But patients do not have this medical knowledge, and research has shown that patients view it as an extremity / musculoskeletal symptom.\n"},{"key":"2.011h","title":"Nakkesmerter","description":"Hvis ja:\n","scale":"1a"},{"key":"2.011i","title":"Nakkesmerter i forbindelse med piskesmælds-traume","description":"*- Har du været udsat for et piskesmælds-traume?*\n\n*- Startede dine nakkesmerter der? **(Se også 2.058)***\n","input":"integer","options":{"0":"No","1":"Worsened by trauma","2":"Yes","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"Only if 2.011h (neck pain) is positive. Have you been exposed to a whiplash trauma?\nDid your neck pain start at that time? (See also [2.061])\n"},{"key":"2.011j","title":"Udbredte smerter","description":"Have you suffered from pain throughout your body?\n","input":"integer","option":{"0":"Non","1":"Only regional pain","2":"Widespread","3":"Widespread pain in both sides of the body and both in upper and lower body","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"],"help":"Alle punkter defineret i glossary\n","glossary":"Does R have pain both above and below the waistline and in both sides of the body, ie. body parts of all 4 body quadrants\n"},{"key":"2.011k","title":"Andre___________________","input":"string"},{"key":"2.episode5.section","title":"GASTROINTESTINALE SYMPTOMER/SYNDROMER (gi AROUSLA) INKL. ØVRE DYSPEPSI","description":"*Har du haft problemer med maven såsom smerte, kvalme, følelse af oppustethed eller brændende fornemmelse i brystet eller sure opstød?*\n","glossary":"Do cp 9 if Eating disorders are suspected.\n\">=3 symptoms\" (upper or lower) GI arousal and fullfills criteria for FSD /BDS GI type. Furthermore various IBS definitons are covered.\n"},{"key":"2.012","title":"Øvre dyspepsi","input":"integer","options":{"0":"Nej ingen betydende gener","1":"1-2 symptom","2":">=3 symptomer"},"validate":["0-2"],"help":"Husk at udfylde **2.013**, nedre gastrointestinale symptomer.\n\n**Ved brug af spørgeskema:**\n\nN: Negativt spørgeskema (formulering fra Mini Scan)\n\nIfølge spørgeskemaet har du ikke igennem det sidste år haft problemer fra mave/tarm (såsom, læs evt. nogle symptomer op). Er det rigtigt forstået? (Hvis nej, udfyld symptomlisten)\n\nP: Positivt spørgeskema\n\n(dvs. mindst 1 symptom >lidt eller forstyrrelse af dagligdagsaktiviteter>2)\n"},{"key":"2.012a","title":"Sure opstød /regurgitation","description":"*- Har du problemer med sure opstød? Tilbageløb af mad eller syre?*\n","scale":"1a"},{"key":"2.012b","title":"Brændende fornemmelser i brystet eller epigastriet","description":"*- Har du svie eller brændende fornemmelse i brystet eller toppen af maven?*\n","scale":"1a"},{"key":"2.012c","title":"Heartburn (Halsbrand??)","scale":"1a"},{"key":"2.013","title":"Nedre gastrintestinale symptomer","input":"integer","options":{"0":"Nej ingen betydende gener","1":"1-2 symptom","2":">=3 symptomer"},"validate":["0-2"],"glossary":"\">=3 symptoms\". Fulfills criteria for FSD /BDS GI type (including upper GI symptoms as well).\n"},{"key":"2.013a","title":"Opkastninger","description":"*- Lider du af opkastninger?*\n","scale":"1a","glossary":"Vomiting, belching, regurgitation of food. Not, during pregnancy.\n"},{"key":"2.013b","title":"Kvalme","description":"*- Føler du nogle gange, du har lyst til at kaste op?*\n","scale":"1a","glossary":"- Feeling of disgust, revulsion, sensation that precedes vomiting.\n"},{"key":"2.013c","title":"Mavesmerter, inkl. mavekneb","description":"*- Har haft tilbagevendende mavesmerter  eller mavekneb?*\n","scale":"1a","glossary":"- Abdominal pain, cramps due to wind, bowel spasms, constipation. Loose bowels should be rated at 2.013g\n"},{"key":"2.013d","title":"Følelse af oppustethed og udspilethed, luft i maven eller tyngdefornemmelse i maven","description":"Do you suffer from feeling bloated or overfull?\n","scale":"1a","glossary":"This refers to constant or periodic unpleasant feelings in the stomach and upset stomach.  Foods that make the subject ill should be rated in 2.027a.\n"},{"key":"2.013e","title":"Vekslende afføring","description":"*- Lider du af forstoppelse, diarré eller begge? (Dvs. skiftende hård/normal eller skiftende hård/diaré eller skiftende normal/diaré)*\n","scale":"1a"},{"key":"2.013f","title":"Rumlen eller køren i maven","scale":"1a"},{"key":"2.013g","title":"Diaré eller løse afføringer","description":"Do you suffer from recurrent diarrhoea?\n","scale":"1a","glossary":"Complaints of  frequent or loose bowels or diarrhoea.\n"},{"key":"2.013h","title":"Lindring (smerter og andre symptomer) ved afføring","input":"integer","options":{"0":"Nej","1":"Ja","8":"Usikkert","9":"Ukendt"},"validate":["0","1","8","9"],"help":"Smerter i endetarmen rates i [2.017b].\n"},{"key":"2.013i","title":"Frembrud (smerter og andre symptomer) er forbundet med ændring i afførringshyppighed","description":"Is you tummy pain relieved by passing a motion?\n","input":"integer","options":{"0":"Nej","1":"Ja","8":"Usikkert","9":"Ukendt"},"validate":["0","1","8","9"]},{"key":"2.013j","title":"Frembrud er forbundet med ændring af afføringens form (udseende)","description":"*- Bliver dine smerter eller andre symptomer værre i forbindelse med ændring i afføringens form (udseende)?*\n","input":"integer","options":{"0":"Nej","1":"Ja","8":"Usikkert","9":"Ukendt"},"validate":["0","1","8","9"]},{"key":"2.episode6.section","title":"KARDIOVASKULÆRE SYMPTOMER"},{"key":"2.014","title":"Kardiovaskulære symptomer","description":"*- I det seneste år, har du haft symptomer fra dit hjerte eller fra brystet, såsom hjertebanken, smerte, svært ved at trække vejret, varm- eller koldsveden?*\n","input":"integer","options":{"0":"Nej ingen betydende gener","1":"1-2 symptom","2":">=3 symptomer"},"validate":["0-2"],"help":"Ved brug af spørgeskema:\n\n  N: Negativt spørgeskema (formulering fra Mini Scan)\n\n  P: Positivt spørgeskema\n","glossary":"\">=3 symptoms\". Fulfills criteria for FSD /BDS CP type\n"},{"key":"2.014a","title":"Hjertebanken/palpitationer","scale":"1a"},{"key":"2.014b","title":"Trykken i prækordiet (trykken for brystet)","scale":"1a","glossary":"Aches, pains, pressure, burning, stinging feelings in the chest or above the heart.\n"},{"key":"2.014c","title":"Forpustethed uden anstrengelse","scale":"1a","glossary":"Cannot breathe easily, smothering or choking feeling, difficulty breathing present when not making much effort.\n"},{"key":"2.014d","title":"Hyperventilation","description":"Have you had problems taking a deep enough breath, or breathing rapidly?\n","scale":"1a"},{"key":"2.014e","title":"Varm- eller koldsveden","scale":"1a"},{"key":"2.014f","title":"Rysten eller sitren","scale":"1a"},{"key":"2.014g","title":"Tør mund","scale":"1a"},{"key":"2.014h","title":"Rødmen eller blussen","scale":"1a"},{"key":"2.014i","title":"Køren i maven eller sommerfuglefornemmelse","scale":"1a"},{"key":"2.014j","title":"Andre kardiovaskulære klager","glossary":"This item covers symptoms not included in the preceding items.\n","scale":"1a"},{"key":"2.episode7.section","title":"NEUROLOGISKE SYMPTOMER INKL. DISSOCIATIVE","description":"Lammelse rates i **[2.011f]** og hudsensibilitetsforstyrrelser i **[2.011g]**.\n\nDissociative eller conversion symptomer rates også her, men se **[2.016]**.\n"},{"key":"2.015","title":"Neurologiske symptomer","description":"*- Har du haft spasmer, krampeanfald, besvimelse, tab af stemme eller syn i det seneste år?*\n","input":"integer","options":{"0":"Nej, ingen betydende gener","1":"1-2 symptom","2":">=3 neurological symptomer"},"validate":["0-2"]},{"key":"2.015a","title":"Besvimelsestendens","scale":"1a"},{"key":"2.015b","title":"Mistet stemmen, slørret tale, manglede stemmeklang","scale":"1a","glossary":"Loss of voice; loss of speech and other problems that relate to voice, pronunciation etc.\n"},{"key":"2.015c","title":"Forstyrrelse i syns, høre eller lugtesansen","description":"*- Har du oplevet tabe af eller forstyrrelse i syn, hørelse eller lugtesansen?*\n","scale":"1a","glossary":"This symptom group includes blindness in one or both eyes and other visual problems (excluding blurred vision due to lack of proper glasses or double vision). Hearing is not hard-of-hearing with our without the use of hearing aid etc. Tinnitus is rated in 2.020 . Olfaction must not be due to      a cold or similar well-defined cause.\n\n\nThis item also covers the partial or complete loss of vision, hearing or smell which is not attributed to a well defined physical condition\n"},{"key":"2.015d","title":"Krampeanfald eller -trækninger","description":"*- Har du haft anfald med trækninger i musklerne på det seneste?*\n\n*- Hvordan viste det sig?*\n\n*- Var du helt bevidstløs?*\n\n*- Kom du til skade ved at falde eller bide dig i tungen?*\n\n*- Kom du til at lade vandet eller få afføring i forbindelse med dette?*\n","glossary":"Non-epileptic attacks. Convulsions may mimic epileptic seizures in which whole or parts of the body shake.  However, non-epileptic seizures are usually longer in duration, with tongue biting, bruising due to falling, and incontinence of urine are rare (but can occur).  There is not a true loss of            consciousness but a state of trance or dissociative stupor.\n\nA positive rating should not be made without full neurological investigation rulling out other explanations. Non-epileptic seizures seizures may be present in individuals with epilepsy, complicating differentiation.\n"},{"key":"2.015e","title":"Følelse af nedsat koordination og balance","description":"*- Har dine bevægelser været usikre og klodsede?*\n","scale":"1a"},{"key":"2.015f","title":"Ufrivillige, unormale bevægelser (ud over kramper)","description":"**(rysten, dystoni, myokloni)**\n","glossary":"This item also includes speech.  These may mimic any neurological deficit such as astasia, abasia, akinesia, apraxia, aphonia, dysarthria, dyskinesia, paraparesis or paralysis.\n"},{"key":"2.015g","title":"Synkebesvær eller følelse af klump i halsen","scale":"1a","glossary":"Feeling a lump in the throat ('globus hystericus').\n"},{"key":"2.015h","title":"Andre neurologiske klager","scale":"1a","glossary":"This item covers symptoms not included in the preceding items.\n"},{"key":"2.episode8.section","title":"DISSOCIATIV- ELLER KONVERSIONSTILSTAND","description":"Symptomerne rates hovedsagligt i kap. 4 (??) men neurologiske symptomer, der er rated i kap. 2 kan også være dissociative.\n","scale":"1a","glossary":"Dissociative symptoms are all characterized by a partial or complete disconnection between memories of the past, awareness of identity and of immediate sensations, and control of bodily movements.  Conscious control over which memories and sensations can be selected for immediate attention, and     what movements can be carried out are impaired, although varying in degree from day to day and even from hour to hour.  The severity of impairment is often difficult to determine clinically.\n\nThe terms 'hysteria' and 'conversion' are avoided in ICD-10 (ICD11??) but not in DSM-V, and dissociative symptoms are presumed to be 'psychogenic' in origin, because they are closely associated with traumatic events, intolerable or insoluble problems, or disturbed relationships.  No particular theory of the mechanisms underlying      dissociation is assumed for purposes of this Glossary.\n\nPeople with dissociative symptoms often deny problems that are obvious to others.  An informant is therefore essential for a proper rating.\n\nSee also items **17.020**, dissociative hallucinations, and **20.026** - **20.029**, which constitute the Checklist for Induced Psychosis.\n\nFor a definite rating the following features must be present:\n\n1. The clinical characteristics specified at each item.\n2. Some evidence of psychological causation - e.g. convincing temporal association with stressful events, relationship or other problems or needs - often denied by the respondent.  This requires a clinical judgement, usually based also on information from another informant. Association with            stress is rated at **2.016**. Rating the neurological symptoms (i.e. 2.015) does not require that a psychological causation is likely, you only qualify for dissiciative diagnosis if 2.016 is rated positive.\n3. The presence of any relevant disorder of the central or peripheral nervous system should be specified at items **2.007a-t**.  If this fully explains the symptom, rate 9. Organic attribution should otherwise be rated as usual.\n4. Positive ratings should never be made if the appropriate physical investigations have not been carried out.  Rate 8 in this case.\n\n**Differentiation from other symptoms:**\n\nDepersonalization and derealization are not associated with loss of conscious control over access to sensations, memories or movements, and only limited aspects of personal identity are affected.  In depersonalization, there may be a loss of the sense of self, but the people affected know who       they are.\n"},{"key":"2.016","title":"Dissociative symptomer forbundet med traume eller stress","description":"*- Da du oplevede (symptom, fx anfald, lammelse, ikke kunne se eller høre), havde du da været udsat for en rystende oplevelse, eller var du under særlig stresspåvirkning?*\n\n*- Havde du personlige problemer på det tidspunkt? (Fx traumatiske oplevelser, bekymringer, uløselige problemer)*\n","input":"integer","options":{"0":"Ingen dissociative symptomer","1":"Ja, men ikke akut svære traume ved symptomdebut","2":"Akut svært psykologisk traume /begivenhed i forbindelse med at symptomet opstod","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":"All dissociative disorders are presumed to be of psychogenic origin.  Onset is convincingly associated in time with a traumatic life event with intolerable or insoluble problems, or with disturbed interpersonal relationships, which R may not acknowledge or be aware of.  Loss of consciousness       or any other bodily function may be a sign of emotional need or conflict.  A disinterested informant is usually necessary.\n"},{"key":"2.016a","title":"Med svaghed eller lammelse","input":"integer","validate":["1"],"options":{"1":"Til stede"},"glossary":"The loss of ability to move the whole or parts of the body or limbs.\n\nQuestions; Have you been unable to move a hand, an arm or a leg? Have you had difficulties standing or walking without support?\n"},{"key":"2.016b","title":"Med abnormal bevægelse (fx rysten, dystoni, myokloni, Huntingtons sygdom,dyskinesi)","input":"integer","validate":["1"],"options":{"1":"Til stede"}},{"key":"2.016c","title":"Gangforstyrrelse","input":"integer","validate":["1"],"options":{"1":"Til stede"}},{"key":"2.016d","title":"Med synkebesværssymptomer","input":"integer","validate":["1"],"options":{"1":"Til stede"}},{"key":"2.016e","title":"Med talesymptomer (fx dystoni, sløret tale)","input":"integer","validate":["1"],"options":{"1":"Til stede"}},{"key":"2.016f","title":"Med anfald (inkl. PNES)","input":"integer","validate":["1"],"options":{"1":"Til stede"}},{"key":"2.016g","title":"Med følelsesløshed","input":"integer","validate":["1"],"options":{"1":"Til stede"}},{"key":"2.016h","title":"Med synssymptomer","input":"integer","validate":["1"],"options":{"1":"Til stede"}},{"key":"2.016i","title":"Med særlige følesymptomer  (exkl. syn) (fx forstyrrelse af lugtesans eller hørelse)","input":"integer","validate":["1"],"options":{"1":"Til stede"}},{"key":"2.016j","title":"Med blandede symptomer","input":"integer","validate":["1"],"options":{"1":"Til stede"}},{"key":"2.016k","title":"Med kognitive symptomer","input":"integer","validate":["1"],"options":{"1":"Til stede"}},{"key":"2.016l","title":"Andre dissociative","input":"integer","validate":["1"],"options":{"1":"Til stede"}},{"key":"2.episode9.section","title":"UROLOGISKE SYMPTOMER"},{"key":"2.017","title":"Urologiske symptomer","description":"*- Har du haft smerter fra endetarm ved vandladningen eller andre problemer med vandladning?*\n","input":"integer","options":{"0":"Nej ingen betydende gener","1":"1-2 symptom","2":">=3 symptomer"},"validate":["0-2"]},{"key":"2.017a","title":"Vandladningssmerter","scale":"1a","glossary":"Pain or burning sensation during urination. Not due to infection or similar.\n"},{"key":"2.017b","title":"Smerter i endetarmen","scale":"1a"},{"key":"2.017c","title":"Hyppig vandladning","scale":"1a","glossary":"Frequency of passing water, sense of urgency, or any similar urinary complaint. Not due to infection or similar\n"},{"key":"2.017d","title":"Blæretømningsbesvær","scale":"1a","glossary":"Difficulty passing water, retention\n"},{"key":"2.017e","title":"Andre","scale":"1a"},{"key":"2.episode10.section","title":"GENITALE SYMPTOMER"},{"key":"2.018","title":"Genitale symptomer","description":"*- Har du haft problemer med menstruation /kun kvinder) sexliv, genitalier eller manglende sexlyst?*\n","input":"integer","options":{"0":"Nej ingen betydende gener","1":"1-2 symptom","2":">=3 symptomer"},"validate":["0-2"]},{"key":"2.018a","title":"Smerter i forbindelse med menstruation","scale":"1a"},{"key":"2.018b","title":"Ubehagelige fornemmelser i kønsorganerne","scale":"1a"},{"key":"2.018c","title":"Vulvodyni (hvis 2.018b er positiv)","scale":"1a"},{"key":"2.018d","title":"Uregelmæssig menstruation","scale":"1a"},{"key":"2.018e","title":"Manglende seksuallyst","scale":"1a"},{"key":"2.018f","title":"Smerter i forbindelse med samleje","scale":"1a"},{"key":"2.018g","title":"Andre genitale klager","scale":"1a","glossary":"This item covers symptoms not included in the preceding items.\n"},{"key":"2.episode11.section","title":"SYMPTOMER FRA ANDRE ORGANSYSTEMER"},{"key":"2.019","title":"Symptomer fra andre organsystemer","description":"*- Har du andre generende symptomer, som fx tinnitus (ringen for ørerne) eller symptomer, der påvirker dine ører, øjne, næse, hals eller kæber?*\n","input":"integer","options":{"0":"No significant discomfort","1":"Yes"},"validate":["0-1"]},{"key":"2.020","title":"Tinnitus","scale":"1a"},{"key":"2.021","title":"Øre, næse eller hals (andre end smerte)","scale":"1a"},{"key":"2.022","title":"Tænder, kæbe eller mundhule (andre end smerter)","scale":"1a"},{"key":"2.023","title":"Øjne inkl. synsforstyrrelser","scale":"1a"},{"key":"2.024","title":"Mandibular smerte","description":"*- Har du haft smerter i kæbe eller tyggemuskler?*\n","scale":"1a","glossary":"Pain in the jaw or the muscle of mastication.\n"},{"key":"2.025","title":"Smerter i kæbeled","description":"*- Har du haft smerter i kæbeleddet?*\n","scale":"1a"},{"key":"2.026","title":"Andre symptomer","scale":"1a"},{"key":"2.episode12.section","title":"INTOLERANS OVER FOR KEMIKALIER, LUGTE ELLER MAD"},{"key":"2.027","title":"Intolerans over for kemikalier, lugte eller mad","description":"*- Har du haft problemer med overfølsomhed over for kemikalier og lugte eller at du ikke tåler noget du har spist?*\n","input":"integer","options":{"0":"No significant discomfort","1":"Yes"},"glossary":"Only symptoms and complaints that are not due to #[type 1] allergy. Most people attribute chemical intolerances to \"allergy\", even though no type 1 hypersensitivity is involved. If no allergy has been found by medical tests or is unlikely based on the symptom description and the symptom is present, rate positive. However, only rated positive if the complaints grossly exceed what would be expected from the exposure in most people.\n","validate":["0-1"],"help":"**By use of questionnaire:**\n\nN: Negative questionnaire (use phrasing from mini SCAN)\n\nP: Positive questionnaire.\n"},{"key":"2.027a","title":"Intolerans over for flere fødevarer","scale":"1a"},{"key":"2.027b","title":"Duft- eller kemikalieintolerans","description":"*- Kan du reagere på en duft eller et kemisk stof uden at det fremkalder symptomer hos andre mennesker i dine omgivelser?*\n\n*- Skyldes det allergi? (hvis bekræftet rates 6)*\n\n**If yes**\n","scale":"1a"},{"key":"2.028","title":"Forsvinder symptomerne efter eksponering?","description":"*- Forsvinder symptomerne igen, når du ikke længere udsættes for disse dufte eller kemiske stoffer?*\n","scale":"1a"},{"key":"2.episode13.section","title":"MEST DOMINERENDE SYMPTOM"},{"key":"2.029","title":"Hovedklage eller mest dominerende symptom 2.010-2.027b","description":"Specificeres______________________\n\n(rate 888 hvis pt. ikke kan angive et enkelt hovedsymptom)\n\n*- Hvilket af disse symptomer har generet dig mest?*\n","input":"integer","options":{"888":"No single symptom is predominant"},"validate":["10-90","888"]},{"key":"2.030","title":"Smertetilstand/syndrom (idiopatiske/primære smerter)","description":"*Hvis det primære problem er smerter skal rater afgøre, om det kan karakteriseres som smertesyndrom/tilstand.*\n","input":"integer","options":{"0":"Ej smertesyndrom/tilstand","1":"Mild","2":"Moderat","3":"Svær","4":"Neuropatisk","5":"Forårsaget af veldefineret fysisk sygdom (inkl. tumor)","6":"Usikkert","8":"Ukendt"},"validate":["0-6","8"],"glossary":"Pain is just a symptom, and, as with many other symptoms, the differentiation between specific pain disorders and other functional somatic disorders is blurred and difficult to establish. The rating must be based on how prominent the pain is in the illness pattern. If the R is multisymptomatic, you should not rate it as a pain disorder. Rate as neuropathic if the pain is a direct consequence of a lesion or diseases affecting the somatosensory system.\n"},{"key":"2.031","title":"Påvirkning af aktiviteter og besvær  pga. kropslig stress /bodily distress eller fysiske symptomer","description":"*Du har nævnt **(opsumér symptomer)** igennem **(angiv tid)**. Hvor meget har de nævnte symptomer påvirket din daglige livskvalitet og aktiviteter?*\n","input":"integer","options":{"0":"Ingen bodily distress symptomer","1":"Kun lille påvirkning","2":"Moderat eller intermitterende påvirkning","3":"Svær eller invaliderende påvirkning","8":"Usikkert","9":"Ukendt"},"validate":["0-3","8","9"],"glossary":"Whether the symptoms cause clinically significant distress or impairment in social, occupational or other important areas of functioning.\n\nFor rating of functioning, you may use the concept of WHO’s disability assessment with its 5 dimensions. But it is important that emotional distress is also rated here, i.e. a person may go to work but is tormented by thoughts and emotions in connection with his/hers symptoms.\n"},{"key":"2.032","title":"Boom and bust perioder","description":"*I fortsættelse af item ovenfor*\n\n*- Hvis du en dag er aktiv og overskrider grænserne for din formåen, bliver du da udmattet eller må ligge i sengen i en dag eller mere?*\n\n*- Er det et velkendt mønster for dig, at hvis du skal noget, fx til en fest, på en rejse eller har en aftale med en læge, så bliver du udmattet i flere dage?*\n","input":"integer","options":{"0":"Nej","1":"Let/moderat. Jeg kender dette men ikke et større problem hvis jeg passer på","2":"Det påvirker mit liv i svær grad","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.033","title":"Varighed af lidelse eller ubehag på grund af symptomerne (mdr.)","description":"In months\n","input":"integer","options":{"0":"Ikke til sted","800":"800 mths or more","888":"NK","999":"NA","0-799":"mellem 1 og 799 mdr."},"validate":["0-800","888","999"],"glossary":"This item refers to any symptoms rated present at 2.007-2.027b). Rating is based on level of distress and persistence.  Enter the number of months that the symptoms have been present.\n"},{"key":"2.034","title":"Vekslen i funktionelle symptomer (”langsomme” variationer)","description":"(Over måneder eller år. Skift i sygdomsbillede der kan være relativt stabilt i en periode for derefter at skifte til et andet organsystem/sygdomsbillede.)\n\nOplysninger fra anden kilde bør også indgå i vurderingen, fx fra journaler, henvisende læge, familie)\n\n*- Har dine symptomer eller sygdom ændret sig?*\n\n*- Har du fejlet flere forskellige ting?*\n","input":"integer","options":{"0":"Stabilt med små ændringer, fokuseret på det samme relativt stabile symptom/sygdomsbillede","1":"Symptomer/sygdomsbillede har ændret sig fra et til et eller flere andre relativt stabile symptomer/sygdomsbillede","2":"Flere symptomer/sygdomsbilleder samtidigt","3":"Ingen afgrænsede symptomer/sygdomsbillede","8":"Usikkert","9":"Ukendt"},"validate":["0-3","8","9"],"glossary":"The intensity, type and severity of somatoform symptoms often vary over time. It may be a slow variation, i.e. in one time period (months or years) the patient may present a set of symptoms or an illness pattern that may be relatively stable, whereas in another time period a different illness       pattern may be dominant. In fast variation the symptoms vary from day-to-day or week-to-week. The illness may vary both fast and slow in the same patient.\n"},{"key":"2.035","title":"Vekslen af funktionelle symptomer (”hurtige” variationer)","description":"(Fra time til time, dag til dag eller uge for uge.\n\nOplysninger fra anden kilde bør også indgå i vurderingen, fx journaler, henvisende læge, familie)\n\n*- Kan der være forskelle i, hvordan du har det fra dag til dag eller uge for uge?*\n\n*- Kan du føle dig helt rask de dage, hvor du har det godt?*\n","input":"integer","options":{"0":"Ingen fluktuation","1":"Moderat fluktuation","2":"Udtalt fluktuation","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":"See under **2.034**.\n"},{"key":"2.036","title":"Forværring af sygdom og symptomer over tid","description":"*- Har du fået det gradvist dårligere over tid/over de senere år?*\n\n*- Hvordan?*\n","input":"integer","options":{"0":"Nej, eller konstant","1":"Mild til moderat forværring","2":"Svær forværring","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":"In most well-defined medical conditions, the prognosis is well-known and the conditions follow a course characteristic for them. In functional disorders, the patients often regress over time and get more and more affected (if untreated). In most cases of sprains, fractures etc., the condition         improves over time, whereas in patients developing, for example, WAD (whiplash associated disorder), the condition gradually become worse.\n"},{"key":"2.episode14.section","title":"SYGDOMSBEKYMRING OG OPTAGETHED (HELBREDSANGST)","glossary":"Background:\n\nIllness worries and preoccupation are also often presented in functional disorders and in other conditions and thus not restricted to health anxiety.  Therfore, this section should be used in any case of functional complaints and not only if health anxiety / hypochondriasis is suspected.\n\nDelineation from normality:\nBeing attentive about one's health and bodily functions is important for the survival of human beings as it is a precondition for taking care of ourselves and seeking help if necessary. Illness worrying or health anxiety is thus on a dimension from being too little aware of their body signals       and functioning to patients being severely disabled by unfounded health worries. The demarcation between a normal reaction and pathological health anxiety cannot be established rigorously as it is the case in many other disorders. However, patients with health anxiety are often aware that their worries are exaggerated, except if they are momentarily in a state of panic due to their worries (catastrophizing), and they feel they are more troubled by their thoughts about symptoms than the suffering the symptoms inflicts. In normal worrying, you can often distract yourself from worries and try to balance the worries against the reality, whereas patients with health anxiety are inclined to always fear the worst.\n\nDifferences between OCD, Anxiety and Health anxiety.\nDespite some apparent clinical similarities between OCD and health anxiety, there is little evidence for this. Although patients with OCD may have different compulsions or obsessions, they are the same compulsions, images and thoughts that keep returning again and again in a very     stereotypical form. Contrary to this, the worries and thoughts in health anxiety are not so stereotypical but vary much more with multiple thoughts and considerations about illnesses. A patient with health anxiety feels compelled to see a doctor to get reassured, but this is not because of a        compulsion to see a doctor, but because they fear a health problem. Patients with health anxiety do not usually have other compulsions or obsessions. In health anxiety, the rumination is usually triggered by an external or internal stimulus, such as hearing about illness, and the worrying usually relates to the trigger, whereas obsessive thoughts in OCD are usually and solely intrusive with no specific trigger, although they may be a reaction to a stressor.\n"},{"key":"2.037","title":"Overdreven bekymring over veldefineret fysisk sygdom","description":"Hvis pt. har en alvorlig fysisk sygdom (ellers gå til **2.038**):\n\n*- Synes du eller andre, at du er mere bekymret over din sygdom (navn på sygdom) end du burde være?*\n\n*- Hvad siger andre - vedr. om du bekymrer dig for meget?*\n","glossary":"Only if the patient suffers from a serious well-defined physical disease or health threat (i.e. rated in the WELL-DEFINED section) :\n\nSevere health worrying is a normal reaction when a severe disease such as cancer is suspected. The reaction has similar characteristics to other stress reactions to life events and is transient and disappears when the suspected disease is excluded or treated. The preoccupation is not excessive or     disproportionate in the light of the condition that is suspected, and usually patients do not panic but cope with their fear. In this case, is rated 0.\nHowever, such a real threat to health may trigger the onset of severe worries or  health anxiety. The patient is usually aware that the worries and preoccupations are unfounded or disproportionate if asked in a considerate way, despite being difficult for the patient to realise this during      an attack of overwhelming health anxiety.\n"},{"key":"2.038","title":"Overdreven optagethed af fysiske symptomer og bekymring over fysisk helbred","description":"*- Er du bange for at fejle noget alvorligt?*\n\n*- Har du været hos lægen pga. det? (indenfor det seneste år)*\n","input":"integer","options":{"0":"Ingen særlig optagethed eller tilstanden ikke til stede","1":"Let til moderat optagethed","2":"Svær optagethed med lægekonsultationer, undersøgelser, vedvarende selvmedicinering eller udtalt besvær i hverdagen","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"help":"Bedømmes ud fra graden af optagethed, sygdomsfølelse eller gener og hyppigheden af konsultatio¬ner og undersøgelser, graden af symptomer eller overdreven sygdomsbekymring.\n","glossary":"A non-delusional preoccupation with fears of harbouring a severe physical disease and/or a disproportionate thoughts about the seriousness of one's symptoms and disease.\nThe symptom has the characteristics of worrying (see **3.001**) but is also distinguished:\n\n(I) By an intense preoccupation with apparently normal sensations or physical signs or appearances.\nIf a medical condition is present the preoccupation is clearly excessive or disproportionate.\n\n**Differentiation from other symptoms:**\n\nModerate to severe social disablement often accompanies the symptom.\n\nIf there is true conviction of the presence of a nonexistent disease, rate at item **2.046** (repeated at **19.028** and, if in context of depressed mood, at **19.027**, and **19.028**).  Somatic hallucinations and delusional elaboration are rated at **17.028** and **17.029**.\n\nPhobias of contracting disease (**4.044**), or of medical situations (**4.043**), should be distinguished if they lack the two characteristics specified above.\n\nObsessional preoccupation with the possibility of harm from contamination or infection (**5.005**), must have the characteristic resistance against subjective compulsion.\n\nThe differentiation between phobias and obsessions can be difficult.  If criteria for more than one diagnosis are met, each should be rated on its own merits. One dignosis does not exclude the others.\n"},{"key":"2.039","title":"Obsessive ruminationer over sygdom","description":"*- Hvis du får tanker om, at du måske fejler noget, har du så svært ved at slå tanken ud af hovedet?*\n*- Går du og tænker på det næsten hele tiden, eller kan det gå op i en spids?*\n","input":"integer","options":{"0":"Ingen særlig optagethed eller tilstanden ikke til stede","1":"Let til moderat optagethed","2":"Svær optagethed, der indvirker betydeligt på hverdagens gøremål","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":"The patient has thoughts or ideas about suffering from a disease that they cannot, or only with great difficulty, stop. All thoughts are centred on a suspected disease, and the patient finds more and more \"evidence\" that he/she suffers from an often severe disease. The growing anxiety spiral       may ultimately make the patient seek medical attention. Rumination seems quite specific for health anxiety in the sense that other functional disorders that may present with illness worries do not display this symptom. But ruminations may also be present in (other) mental disorders like            anxiety disorders and depression.\n"},{"key":"2.040","title":"Tid forbrugt på sygdomsbekymring og symptomer","description":"*- Bruger du meget tid eller energi på dine symptomer eller sygdom eller på at bekymre dig over det eller over at være syg?*\n","input":"integer","options":{"0":"Ingen særlig optagethed eller tilstanden ikke til stede","1":"Bruger mindre end en time om dagen med at tænke på den forstyrrende tilstand/symptomer","2":"Bruger mere end en time om dagen med at tænke på den forstyrrende tilstand/symptomer","10":"Usikkert","11":"Ukendt"},"validate":["0-2","10","11"],"glossary":"How much time and energy the person devotes to focusing on bothersome symptoms and their consequences. Typically associated with frequent medical visits.\n\n(DSM-V crit B3  + ICD-11 hrs. spent)\n"},{"key":"2.041","title":"Kropslig optagethed","description":"*- Er du i almindelighed meget opmærksom på, hvordan din krop har det, og hvad der sker i den?*\n\n*- Hvad har du lagt mærke til?*\n\n*- Kan du nogle gange have den tanke, at de fornemmelser, du har i kroppen, er unaturlige eller farlige?*\n\n*- Kan et blåt mærke eller en hudirritation gøre dig bekymret for, at det er tegn på noget farligt?*\n\n*- Lytter du ofte til din egen puls?*\n","input":"integer","options":{"0":"Ingen særlig optagethed eller tilstanden ikke til stede","1":"1  Let optagethed eller påvirkelighed men ikke betydeligt indgribende i hverdagen","2":"2  Overdreven optagethed eller påvirkelighed der medfører betydeligt besvær i hverdagen eller talrige konsultationer eller selvmedicinering","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":"This item is a rating of the patient’s awareness of natural or benign physical sensations and physiological reactions in the body as well as a rating of how bothered the patient is by even minor problems which may be  misinterpreted and make the patient develop the idea that they have something unnatural or abnormal that may be a sign of a pathological condition. The patient may have autonomic hypersensitivity, hearing his/her own pulse or being aware of other natural physical phenomena of which others are rarely conscious.  For example, if getting bruises or irritated skin, he/she will be worried.\n"},{"key":"2.042","title":"Optagethed af sundhedslitteratur, sundhed og sygdom","description":"*- Er du i almindelighed meget optaget af sundhedsstof fx i medierne eller på nettet?*\n\n*- Går du meget op i det?*\n","input":"integer","options":{"0":"Ingen særlig optagethed eller tilstanden ikke til stede","1":"Let optagethed eller påvirkelighed men ikke betydeligt indgribende i hverdagen","2":"Overdreven optagethed medførende betydeligt besvær i hverdagen eller talrige konsultationer eller selvmedicinering","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":"The patient is highly susceptible to information about illness be it information from books, magazines, TV, internet, newspapers etc. If family members, friends or anyone else he/she meets become ill, the patient will worry about harbouring the same disease. If he/she thinks about a disease, he/she will be afraid of harbouring the disease him-/herself.\n"},{"key":"2.043","title":"Suggestibilitet og autosuggestibilitet","description":"Hvis du læser eller hører om sygdomme i medierne,\n\n*- Kan du blive bange for, at du selv har en sådan sygdom?*\n\n*- Kan familiemedlemmers sygdom gøre dig bange for, at du fejler det samme?*\n\n*- Undgår du at læse sundhedsstof for ikke at fremprovokere frygt for sygdom?*\n\n*- Hvis du kommer til at tænke på en sygdom, kan du så blive bange for selv at have den?*\n","input":"integer","options":{"0":"Ingen særlig optagethed eller tilstanden ikke til stede","1":"Let til moderat optagethed eller nogen påvirkelighed","2":"Let påvirkelighed og svær optagethed, som giver hyppigt inducerede symptomer eller betydelige ruminationer eller hyppige lægebesøg","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":"The patient responds with alarm to the slightest hint of illness. Hearing or reading about a disease, he/she is easily alarmed and inclined to fear having that disease. Likewise, if someone in the family, among friends, acquaintances or work colleagues falls ill, the patient may fear having         this disease.\n"},{"key":"2.044","title":"Frygt for smitte","description":"*- Er du ofte bange for at blive smittet eller pådrage dig en sygdom fra andre ved at være i kontakt med dem eller røre ved snavsede ting (eksempelvis toiletsæder)?*\n","input":"integer","options":{"0":"Ingen særlig optagethed eller tilstanden ikke til stede","1":"Let til moderat optagethed","2":"Svær optagethed, hyppigt inducerede symptomer med betydelige ruminationer eller hyppige lægebesøg","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":"The patient’s fear of being infected or contaminated if he/she has been with an ill person or if the patient touches dirty things or things that could be contaminated such as a toilet seat. The fear causes significant distress and / or makes the patient consult a doctor to make sure that nothing     is wrong.\nThis is usually different from phobias and obsessions where the patient seldom consults a doctor for the dreaded disease, but instead for the distressing thought of it.\n\nThe differentiation from phobias (**4.044** & **4.043**)) and obsessions (**5.005**) can be difficult.  If it is unclear whether the symptom are attributable to phobia, obesession or health anxiety, each should be rated on its own merits. One diagnosis does not exclude others. See also the introduction to the health anxiety section.\n"},{"key":"2.045","title":"Medicinfrygt og compliance","description":"*- Er du i almindelighed tryg ved at tage medicin, eller har du bekymringer over de eventuelle bivirkninger, det måtte have?*\n\n*- Tager du al den medicin, lægen ordinerer, eller må du somme tider opgive at tage medicinen eller springe doseringer over af frygt for medicinen?*\n","input":"integer","options":{"0":"Normal grad af tryghed/utryghed","1":"En vis grad af medicinfrygt eller en vis grad af uhensigtsmæssig administrering af medicin","2":"Høj grad af utryghed og/eller manglende compliance","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":"Patients with health anxiety are often afraid of taking medication contrary to patients with other functional disorders. It is the fear of medication that should be rated here and not the patients’ complaints about medication.\n"},{"key":"2.046","title":"Afvisning af lægens beroligelse","description":"*- Er du overbevist om, at du har en legemlig sygdom?*\n\n*- Føler du behov for yderligere undersøgelser?*\n\n*- Har lægers forsikringer (tidligere) overbevist dig om, at du ikke har en legemlig sygdom?*\n\n*- Har du nævnt for lægen, at du ikke var overbevist? Hvad sagde han til det?*\n\n*- Følte du dig beroliget, da lægen sagde, at der ikke var nogen grund til bekymring?*\n","input":"integer","options":{"0":"Accepterer beroligelsen","1":"Delvist, har ikke kunnet fastholde beroligelse ved én eller flere lejligheder","2":"Kan kun kortvarigt fastholde beroligelse","3":"Har kontinuerligt ikke kunnet acceptere lægens beroligelse eller forklaringer","4":"Vrangforestilling (delusional)","8":"Usikkert","9":"Ukendt"},"validate":["0-4","8","9"],"help":"Patienten giver udtryk for mere eller mindre udtalt grad af overbevisning om, at han/hun har en alvorlig sygdom eller generende deformitet til trods for lægens forsikringer om, at der ikke er noget i vejen.\n\nMå ikke forveksles med frygt for at pådrage sig sygdom <4.044>.\n\n- Dysmorfofobi rates også ved <16.011>.\n- Hypokondre vrangforestillinger (urokkelig overbevisning om at fejle noget alvorligt) rates også her men kan også rates ved <19.027> og <19.028>. Hvis disse er led i anden psykotisk tilstand rates dog i <19.027> og <19.028> i stedet.\n","glossary":"The patient may seek reassurance by consulting a doctor but have difficulties in believing the doctor when told that there is nothing to worry about, and when reassured, the worrying may return rapidly .\nWhen health anxiety or hypochondriacal preoccupation is most severe, it takes the form of refusal of medical reassurance, with a belief that disease is present even when no abnormality is found in repeated examinations.  Respondents may believe that a disease\n accounts for the symptoms and are        not satisfied with the way that medical experts have handled the case or with the conclusions and explanations offered. The patient  may contact one doctor (or other health care professionals) after another and accept many treatments,  but rejects assurance that there is no adequate physical         cause for the symptoms or presumed deformity. The pt. might accept reassurance for short periods following or during medical investigations or interventions.\n\n\n**Differentiation from other symptoms:**\n\nDifferentiation from phobias and obsessions should not be difficult. Hypochondriacal delusions are rated at **19.028** or at **19.027** if in context of depression. If it is difficult to be sure of the presence of delusional conviction, rate as item **2.046**.\n"},{"key":"2.047","title":"Katastrofetænkning","description":"Frygter du store konsekvenser (fx alvorlig funktionsnedsættelse, ikke at kunne vende tilbage til dit arbejde, ikke at kunne tage dig af dine børn, aldrig at blive den same igen) når du har symptomer?\n","scale":"1a","help":"**Se også kapitel 5.**\n","glossary":"The patient is inclined to always  expect or fear serious consequences of symptoms and ailment, i.e. serious disability, not being able to return to work, not being able to take care of children, never being the same again, and to choose the worst possible explanation and misinterpret trivial illness or symptoms as serious disease or a health threat such as cancer or resulting in severe disability.\n"},{"key":"2.048","title":"Helbredsangst by proxy","description":"Inden for det seneste år:\n\n*- Har du ofte været bekymret for, at dit barn, din samlever eller andre omkring dig er syge?*\n\n*- Har du været ved lægen med dit barn pga. det?*\n\n*- Har du presset din samlever til at gå til læge pga. det?*\n\n*- Tjekker du fx efter om dine børn har blå mærker eller lymfeknuder, der er vokset,”scanner” dine børns krop  for eventuelle forandringer når de fx er i bad?*\n","input":"integer","options":{"0":"Ingen særlig optagethed eller tilstanden ikke til stede","1":"Let til moderat optagethed","3":"Svær optagethed og tager barnet til lægen, til undersøgelser, medicinering af barnet eller udtalt bekymring i hverdagen","12":"Usikkert","13":"Ukendt"},"validate":["0-3","12","13"],"glossary":"The patient is typically worried about his/her child's health and is afraid that the child has a disease. It may also affect another close relative such as spouse.\n"},{"key":"2.049","title":"Behandlingssøgende adfærd i forbindelse med helbredsangst eller symptomer igennem de sidste 2 år","description":"*- Hvor mange læger har du set for din sygdom/dine symptomer igennem de sidste 2 år?*\n\n*- Hvorfor så mange forskellige?*\n\n*- Har du følt, det var nødvendigt at søge andre læger eller eksperter for en second opinion eller behandling (”blot for en sikkerheds skyld”)?*\n","input":"integer","options":{"0":"Patienten har ikke spontant opsøgt andre læger/sundhedspersoner pga. funktionel lidelse/helbredsangst","1":"Patienten har ikke spontant opsøgt andre læger/sundhedspersoner pga. funktionel lidelse/helbredsangst","2":"Patienten har 2-3 gange aktivt opsøgt anden læge/sundhedsperson pga. funktionel lidelse/helbredsangst","3":"Patienten har 4 eller flere gange aktivt opsøgt anden læge/sundhedsperson pga. funktionel lidelse/helbredsangst","8":"Usikkert","9":"Ukendt"},"validate":["0-3","8","9"],"glossary":"The number of different doctors the patient has seen on the patient’s own initiative for physical symptoms not attributed to a well defined medical condition or trivial bodily sensations,  during the past two years are rated. Change of doctor due to change of address, the doctor’s vacancy or referrals that are not requested by the patient are not            counted.\n"},{"key":"2.050","title":"Avoidance i forbindelse med helbredsangst eller symptomer","description":"*- Undgår du ting eller situationer, der kan gøre bekymreret for dit helbred, fx at læse eller høre om sygdom i TV,  på internettet eller andre steder?*\n\n*- Bliver du meget nervøs, hvis du skal til læge?*\n\n*- Undgår du at gå til lægen eller kan du udeblive fra aftaler eller indlæggelse, fordi det gør dig bange?*\n","input":"integer","options":{"0":"Ingen maladaptiv avoidance pga. helbredsangst","1":"Let/moderat maladaptiv advoidance pga. helbredsangst","2":"Svær maladaptiv advoidance pga. helbredsangst","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":"Patients may for instance avoid visiting family members or friends who are hospitalised or ill, avoid to read or watch TV programmes about medical issues because it is too anxiety-provoking and may trigger the rumination.\n"},{"key":"2.051","title":"Varighed af kropslig optagethed og sygdomsbekymring ([2.037]-[2.050])","description":"In months\n","input":"integer","options":{"0":"Ikke til stede","800":"800 mths or more","888":"NK","999":"NA","1-799":"Mellem 1 og 799 mdr."},"validate":["0-800","888","999"]},{"key":"2.052","title":"Påvirkning af aktiviteter og besvær pga. helbredsangst","description":"Du har nævnt **[opsumér symptomer]** igennem **[specificér perioden]**.\n\n*- Hvor meget har de nævnte symptomer påvirket dine aktiviteter i dagligdagen?*\n","input":"integer","options":{"0":"Ingen helbredsangst","1":"Kun lille påvirkning","2":"Moderat eller intermitterende påvirkning","4":"Svær eller invaliderende påvirkning","10":"Usikkert","11":"Ukendt"},"validate":["0-4","10","11"],"glossary":"Whether the worrying and anxiety cause clinically significant distress or impairment in social, occupational or other important areas of functioning. For rating of functioning, you may use the concept of WHO’s disability assessment with its 5 dimensions. But it is important that emotional      distress is also rated here, i.e. a person may go to work but is tormented by thoughts and emotions in connection with his/her symptoms.\n"},{"key":"2.053","title":"Dysmorfofobi","description":"*- Er du bange for, at der er en forandring eller deformitet af dit udseende?*\n","input":"integer","options":{"0":"Ingen dysmorfofobi","1":"Optagethed af formodet deformitet eller forandring af udseendet","8":"Usikkert","9":"Ukendt"},"validate":["0","1","8","9"],"help":"Jvf. dysmorfofobi 16.011.\n","glossary":"The patient is preoccupied with his/her appearance and deformity.\n"},{"key":"2.episode15.section","title":"SYNDROM- ELLER SYMPTOMBASEREDE DIAGNOSER IFØLGE PATIENTEN","description":"Rating baseret på svar på spørgsmålene fra **[2.010]-[2.027b]** eller andre dele af interviewet, eller hvis det ikke er tilstrækkeligt, kan patienten spørges direkte.\n\n*Tror patienten, eller er patienten blevet fortalt, at han eller hun lider af en syndrom- eller symptomdiagnose?*\n","glossary":"2.054--2.060:\n\nRate if the patient or doctor has ‘organised’ his/her symptoms into a “diagnostic” label or syndrome label. The label may not be named correctly from a medical point of view but includes labels such as heart disease, allergy etc. The importance is the rigidity, how pronounced the patient’s belief  is,        and whether there is any indication of doubt. The patient may have organised her/his symptoms in more than one diagnosis/condition simultaneously, but still qualifies for a rating of 1 or 2.\n"},{"key":"2.054","title":"Fibromyalgi","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.055","title":"CFS (kronisk træthedssyndrom)","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.056","title":"IBS (Irritabel tyktarm)","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.057","title":"Smertesyndrom (ud over fibromyalgi)","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.058","title":"Kronisk piskesmæld (WAD)","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.059","title":"Duft- og kemikalieoverfølsomhed (MCS)","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.060","title":"Andre","description":"Specificér:_________________________\n","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.episode16.section","title":"BEGIVENHEDER I FORBINDELSE MED SYMPTOM- ELLER SYGDOMSDEBUT","description":"(Hvis ikke fremkommet under den øvrige del af interviewet, spørges patienten direkte)\n- *Hvordan begyndte din sygdom (eller symptomerne)?*\n- *Skete der andre ting i dit liv samtidigt?*\n- *Var der noget der udløste din sygdom?*\n","input":"integer","options":{"0":"Nej, ingen særlige begivenheder","1":"Ja, men ikke 2","2":"Ja, klar sammenhæng /sammenfald","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.061","title":"Fysisk traume (fx whiplash, knoglebrud, slag mod hovedet)","input":"integer","options":{"0":"Nej, ingen særlige begivenheder","1":"Ja, men ikke 2","2":"Ja, klar sammenhæng /sammenfald","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.062","title":"Fysisk sygdom (fx infektionssygdom)","input":"integer","options":{"0":"Nej, ingen særlige begivenheder","1":"Ja, men ikke 2","2":"Ja, klar sammenhæng /sammenfald","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.063","title":"Emotionelt traume, konflikter eller belastning","input":"integer","options":{"0":"Nej, ingen særlige begivenheder","1":"Ja, men ikke 2","2":"Ja, klar sammenhæng /sammenfald","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.064","title":"Signifikant social hændelse (fx skilsmisse, fyring, dødsfald)","input":"integer","options":{"0":"Nej, ingen særlige begivenheder","1":"Ja, men ikke 2","2":"Ja, klar sammenhæng /sammenfald","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.065","title":"Signifikant arbejdsrelateret stress eller stress relateret til privatliv","description":"*Stressfyldt, travl hverdag men ikke **[2.064]***\n","input":"integer","options":{"0":"Nej, ingen særlige begivenheder","1":"Ja, men ikke 2","2":"Ja, klar sammenhæng /sammenfald","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":null},{"key":"2.066","title":"Udsættelse for kraftig lugt eller kemikalier","input":"integer","options":{"0":"Nej, ingen særlig udsættelse","1":"Ja, men ikke 2","2":"Ja, klar sammenhæng / sammenfald","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.episode17.section","title":"SYMPTOM OR ILLNESS ATTRIBUTION (evt. huskekort)"},{"key":"2.067","title":"Symptom- eller sygdomsattribution","description":"(Evt. huskekort)\n- *Hvad tror du årsagen til din sygdom er (eller symptomerne)?*.\n- *Tror du at stress, belastninger eller din livssituation kunne være årsagen?*\n- *Er du fast overbevist om det, eller er du i tvivl?*\n- *Hvorfor tror du det?*","input":"integer","options":{"0":"Usikker, har ikke teorier om årsagen, udelukker nødvendigvis ikke belastninger og stress","1":"Har tænkt over muligheden, udelukker nødvendigvis ikke belastninger og stress","2":"Er overbevist om 1 eller flere årsags sammenhænge (eksklusive psykosociale og stress)","3":"Har en udbygget teori og rigid opfattelse af årsagssammenhæng (eksklusive psykosociale og stress)?","4":"Psykotisk vrangforestilling","6":"Veldefineret fysisk sygdom","8":"Usikkert","9":"Ukendt"},"validate":["0-6","8","9"]},{"key":"2.068","title":"Identifikation af lindrende eller forværrende faktorer","description":"*- Har du bemærket, om der er noget, der hjælper dig på din sygdom eller noget, der gør den værre?*\n\n*- Kan du selv gøre noget for at få det bedre?*\n\n*- Kan patienten identificere faktorer, der hjælper på generne eller faktorer der forværrer symptomerne eller sygdommen, eller disse er talrige og diffuse?*\n","input":"integer","options":{"0":"Veldefinerede og få","1":"Lettere vanskeligheder ved at angive disse","2":"Store vanskeligheder eller talrige og diffuse","8":"Usikker","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":"Can the patient identify factors that relieve the inconveniences or factors that aggravate the symptoms or the illness, or are these multiple and diffuse?"},{"key":"2.069","title":"Begyndelsesalder for aktuelle funktionelle tilstand","description":"(hvis patienten siger ”altid”, og dette ikke kan kommes nærmere rates 1)\n","input":"integer","options":{"98":"98 år eller ældre","99":"N/A or NK","0-97":"Under 98 år"},"validate":["0-99"]},{"key":"2.070","title":"Begyndelsesalder for første funktionelle tilstand","description":"(hvis patienten siger ”altid”, og dette ikke kan kommes nærmere rates 1)\n","input":"integer","options":{"98":"98 år eller ældre","99":"N/A or NK","0-97":"Under 98 år"},"validate":["0-99"]},{"key":"2.episode19.section","title":"DIFFERENTIALDIAGNOSER"},{"key":"2.071","title":"Sammenhæng mellem funktionelle symptomer og veldefineret fysisk sygdom","input":"integer","options":{"0":"Ikke til stede eller kun symptomer af en type","1":"Funktionelle symptomer mest dominerende i det kliniske billede","2":"Funktionelle symptomer og fysisk sygdom er lige dominerende","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.072","title":"Funktionel tilstand eller panikanfald, primær","input":"integer","options":{"0":"Ikke til stede eller kun symptomer af en type","1":"Bodily distress mere udtalte eller startede først","2":"Bodily distress og panikanfald optræder sammen (komorbiditet)","3":"Panikanfaldssymptomer mere udtalte eller startede først","8":"Usikkert","9":"Ukendt"},"validate":["0-3","8","9"]},{"key":"2.073","title":"Funktionel tilstand eller depression, primær (Cf 6.023)","input":"integer","options":{"0":"Ikke til stede eller kun symptomer af en type","1":"Bodily distress mere udtalte eller startede først","2":"Bodily distress og depression optræder sammen (komorbiditet)","3":"Depressionssymptomer mere udtalte eller startede først","8":"Usikkert","9":"Ukendt"},"validate":["0-3","8","9"]},{"key":"2.074","title":"Sammenhæng mellem bodily distress og helbredsangst","input":"integer","options":{"0":"Ikke til stede eller kun symptomer af en type","1":"Ikke til stede eller kun symptomer af en type","2":"Bodily distress og helbredsangst optræder sammen (komorbiditet)","3":"Helbredsangstsymptomer mere udtalte eller startede først","10":"Usikkert","11":"Ukendt"},"validate":["0-3","10","11"]},{"key":"2.075","title":"Funktionel tilstand eller anden psykisk sygdom, primær","input":"integer","options":{"0":"Ikke til stede eller kun symptomer af en type","1":"Bodily distress mere udtalte eller startede først","2":"Bodily distress mere udtalte eller startede først","3":"Symptomer fra anden psykisk sygdom mere udtalte eller startede først","8":"Usikkert","9":"Ukendt"},"validate":["0-3","8","9"]},{"key":"2.076","title":"Begyndelsesdato for PS eller PE","input":"date"},{"key":"2.077","title":"Varighed af PS eller PE i dage","input":"integer","options":{"0-999":"Mellem 0 og 999 dage"},"validate":["0-999"],"periods":"false"},{"key":"2.078","title":"Begyndelsestidspunkt for RE eller LB","input":"date","date_granularity":"month_year"},{"key":"2.079","title":"Varighed af RE eller LB  i uger","input":"integer","options":{"0-999":"Mellem 0 og 999 dage"},"validate":["0-999"],"periods":"false"},{"key":"2.episode20.section","title":"OBSERVERET ADFÆRD"},{"key":"2.080","title":"Egodyston eller egosynton","description":"Egodyston: Patienten er helt eller delvis tilbøjelig til at betegne symptomer eller sygdomsbekymring som fremmed, uvelkommen, plagsom eller \"fremmed for min natur”.\nEgosynton: Patienten kan føle sine symptomer eller sygdomsbekymring som en integreret del af sig selv og ikke som en kognitiv tilbøjelighed, uanset om patienten er i tvivl om han har en sygdom eller ej.\n","input":"integer","options":{"0":"Ingen funktionel lidelse","1":"Den funktionelle lidelse føles overvejende egodyston","2":"Den funktionelle lidelse er en blanding af egodyston og egosynton","3":"Den funktionelle lidelse føles overvejende egosynton","8":"Usikkert","9":"Ukendt"},"validate":["0-3","8","9"]},{"key":"2.081","title":"Emotionel diskrepans  (”Belle indifférence”)","description":"Patientens fremstilling af sin tilstand viser inadækvat affekt i forhold til sværhedsgraden af symptomerne og sygdommen, som patienten plages af.  Eksempelvis kan patienten smile med en underfundig resignation trods svær grad af smerte eller funktionsindskrænkning, og patienten kan synes følelsesmæssigt upåvirket af sin tilstand.\n","input":"integer","options":{"0":"Ingen diskrepans","1":"Til stede i ubetydelig eller let grad","2":"Definitivt til stede og sammen med funktionelle symptomer","6":"Definitivt til stede, men forårsaget af organisk lidelse, fx dissemineret sklerose","8":"Usikkert","9":"Ukendt"},"validate":["0","1","2","6","8","9"]},{"key":"2.082","title":"Diskrepans mellem subjektive klager og objektiv adfærd","description":"Patientens fremstilling af sine symptomer står i kontrast til den adræthed og mimik, som observeres under interviewet. Eksempelvis kan patienten tvangsfrit flytte sig rundt i stolen trods klager over svære rygsmerter eller give en detaljeret anamnese trods klager over svær hukommelsesforstyrrelse.\n","input":"integer","options":{"0":"Ingen diskrepans","1":"Til stede i ubetydelig eller let grad","2":"Definitivt til stede og i betydelig grad","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.083","title":"Psykosocial kommunikationsform","description":"Patienten er mere optaget af at kommunikere den funktionsnedsættelse, graden af ubehag og indskrænkning i livsførelse som sygdommen eller symptomerne forårsager, end af hvilken betydning det har for helbredet.\n","input":"integer","options":{"0":"Ingen psykosocial kommunikationsform","1":"Til stede i let eller ubetydelig grad","2":"Betydelig grad af psykosocial kommunikationsform","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.084","title":"Mangel på kronologi i symptom- og sygehistorien","description":"Interviewet bærer præg af, at patienten har vanskeligheder med kronologien af symptomerne, sygdom, undersøgelser, indlæggelser m.m. Det kan fx være vanskeligt at finde ud af, om patienten taler om symptomer, der har været til stede på et tidligere tidspunkt, eller det er symptomer, som han/hun aktuelt er plaget af, eller om det er en undersøgelse, der er lavet for nyligt eller for længe siden. Må vurderes i forhold til om problemet ligger ud over, hvad der kan forventes hos enhver person, der har haft et langvarigt og kompliceret sygdomsforløb.\n","input":"integer","options":{"0":"Ikke til stede","1":"Til stede i let grad","2":"Udtalt","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.085","title":"Vag, diffus symptom-beskrivelse og anamnese","description":"Symptomklager bliver beskrevet i vage vendinger, er diffuse, måske atypiske/ukarakteristiske og skiftende igennem interviewet. Interviewet bærer præg af, at patienten har vanskeligheder ved at svare på uddybende spørgsmål og at specificere sine klager (lokalisering, intensitet, kvaliteten (fx om en smerte er brændende eller stikkende). Patienten kan i nogle tilfælde ligefrem blive irriteret på intervieweren, som holder fast i at få beskrevet symptomernes lokalisation, deres intensitet og periodicitet mv.\n","input":"integer","options":{"0":"Ikke til stede","1":"Til stede i let grad","2":"Udtalt","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.086","title":"Vag, diffus beskrivelse af tidligere behandlinger","description":"Patienten har vanskeligt ved at beskrive, hvilke behandlinger han/hun har gennemgået og effekten er vagt eller usikkert beskrevet. Kan sammenblande diagnostiske procedurer og behandling. Er kritisk overfor tidligere behandlinger og giver ofte udtryk for at behandlingerne har medført en forværring i tilstanden.\n","input":"integer","options":{"0":"Ikke til stede","1":"Til stede i let grad","2":"Udtalt","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.087","title":"Affektiv beskrivemåde","description":"Symptomklager, sygdom, indlæggelser, undersøgelser mv. bliver beskrevet i malende vendinger med tilbøjelighed til dramatisering og overdrivelser.\n","input":"integer","options":{"0":"Ikke til stede","1":"Til stede i let grad","2":"Udtalt","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.088","title":"Inkonsistens i oplysningerne","description":"Patienten giver forskellige og modstridende oplysninger igennem interviewet, eller der er diskrepans mellem oplysninger fra andre kilder (journaler, henvisende læge, socialforvaltningen, familien mv) og patientens egne oplysninger igennem interviewet.\n","input":"integer","options":{"0":"Ingen inkonsistens","1":"Nogen inkonsistens","2":"Udtalt inkonsistens","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.089","title":"Tidligere sygdomsforløb og behandlinger (ud fra journaloplysninger mv.)","description":"Rates ud fra en gennemgang af pt. journal og lægelige oplysninger mv.\n","input":"integer","options":{"0":"Ingen eller kun kontakter til egen læge og ikke 1","1":"Hyppige kontakter primært til egen læge uden sikker somatisk forklaring","2":"Gentagne kontakter til hospitaler og speciallæger uden sikker somatisk forklaring","3":"3  Mange og hyppige kontakter over en årrække til hospitaler og speciallæger mv. uden sikker somatisk forklaring","8":"Usikkert","9":"Ukendt"},"validate":["0-3","8","9"]},{"key":"2.090","title":"Inaktivitet","description":"Notmalt sidder man ikke helt stille men bevæger sigt rundt på stolen og skifter stilling for at undgå for meget pres på en enkelt muskel eller muskelgruppe. Det kan være ubehageligt eller give smerter at sidde i samme stilling i lang tid. Det er blevet observeret, at patienter med funktionelle lidelser/BDS bevæger sig mindre og ikke har disse kropslige tilpasninger som de fleste andre har.\n","input":"integer","options":{"0":"Moves normally","1":"May be present, seems slightly more inactive","2":"Present, more inactive","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.091","title":"Mistanke om simulering, factitious disorder eller  Münchhausen's syndrom (på basis af interview, journaloplysninger etc.)","description":"Factitious disorder rates i tjekliste (xx I kap. xx)\n","input":"integer","options":{"0":"Ingen mistanke","1":"Simulering","2":"Factitious disorder","3":"Münchhausen's syndrom","8":"Usikker","9":"Ukendt"},"validate":["0-3","8","9"],"glossary":"Intentional production or feigning of physical or psychological symptoms, sometimes self-inflicted injuries, medical disease or intoxication (e.g. insulin injection), or may mislead observers with signs of disease (e.g. temperature, blood in urine) without clear external motivation (as opposed to              malingering) and where the truth is hidden from doctors and others.\n\nIn Münchhausen's syndrome, apart from having factious disorder, the patient also has pseudologia fantastica meaning that the pt. tells often grandiose stories about who he/she is and has achieved (being wealthy, being a duke, a journalist, a speedway driver etc.). The pt. may dramatise - for instance get admitted to hospital under dramatic circumstances, e.g. become ill on a train, in a busy street, on the beach in the summer. They may also defraud in other aspects of life but not so much for financial gain but more like a role play. The patients are fully aware that they produce or provoke their symptoms or disease themselves despite not knowing what is driving them to do it. This is contrary to patients with functional disorders, who do not produce their symptoms themselves.\nCheck **[27.068]**.\nMental factitious illness is intentional production or feigning of mental illness injuries without clear external motivation (as in simulation) and where the truth is hidden from doctors. Check **27.068**."}]}
 
 /***/ }),
-/* 355 */
+/* 356 */
 /***/ (function(module, exports) {
 
 module.exports = {"1":{"options":{"0":"This is a positive rating of absence. It does not mean 'not known' or 'uncertain whether present or not'. It can only be used if sufficient information is available to establish its accuracy.","1":"This is a positive rating of presence, but presence of such a minor degree that it is not appropriate for use in classification. Like (0) it does not mean 'not known' or 'uncertain'. Ratings of (1) count in scores (but not for diagnostic purposes), which in turn influence the level allocated on the Index of Definition.","2":"This rating means that the item is present at a level sufficient to use in classification. For this purpose it is equivalent to 3, but it contributes less to scores. In general, it is used when symptoms are of moderate severity during most of the period being assessed.","3":"A rating of (3) is similar to (2) except that the symptom is present in severe form for most of the period under review.","5":"The presence of psychotic symptoms can make the rating of Part One items very difficult, bevause of problems in interpreting the meaning of what R says, or because the symptoms (for example, anxiety or a phobia about leaving one's house) may themselves be based in psychotic experiences. The rating should only be made when there is genuine doubt about the nature of the symptom or the balance is in favor of the symptom being psychotic.","8":"If, after an adequate examination, the interviewer is still not sure whether a symptom is present (rated 1-3) or absent (rated 0), the rating is (8). This is the only circumstance in which (8) is used. It should not be used to indicate a mild form of the symptom.","9":"This rating is only used if the information needed to rate an item is incomplete in some respect, for example because of language or cognitive disorder, or lack of cooperation, or because the interviewer forgot to probe sufficiently deeply. It is distinguished from (8) because the examination was not, for whatever reason, carried out adequately. In the SCAN text, an instruction to 'use Scale I' simply means that it is not necessary to point out any individual rating characteristics for that item. Any point on Scale I can be selected, according to clinical judgement."},"input":"integer"},"2":{"options":{"0":"Symptom did not occur during PERIOD.","1":"Symptom definitely occurred during the period but was probably uncommon or transitory.","2":"Symptom was definitely present, on multiple occasions or for part of the time, during the period.","3":"Symptom was present more or less continuously throughout the period.","5":"Language difficulty, rated as present in Section 15, makes replies difficult to interpret.","8":"Rater is unsure whether the phenomenon is present or absent, even after adequate examination","9":"Not appropriate to make a rating because examination incomplete, e.g. because of refusal, omission, etc."},"input":"integer"},"3":{"description":"NB: Consider behavioral items for cognitive impairment also.\n\nMost items in Sections 22-24 are rated on a 3-point scale (0-2) on the basis of severity and frequency during the past month. Information from records for the period should be used as well.\n\nThe examination should be supplemented by taking into account any other observations of relevance, e.g. is case records or information from professionals or relatives. Severe behavioral abnormalities may not be observed at examination because of the short time sample, but when they are present skilled direct observations are of great importance. The items listed are also worth rating because of their possible juxtaposition with other symptoms. The time period rated is the month before examination.\n\nMany behavioral items are also included in Item Groups and can be rated in the Checklist.\n","options":{"0":"Behavior not present during past month.","1":"Unequivocally present during past month, moderate severity only. Use all information available.","2":"Present in severe form during past month or at examination.","8":"Unsure whether present or not after adequate examination.","9":"Not appropriate to make a rating because examination or records are incomplete, or behavior is due to a physical factor."},"input":"integer"},"4":{"options":{"0":"Absent. Below IG threshold.","1":"Subject to clinical discretion, at least two items should definitely pass PSE threshold level, PLUS at least moderate disability (interference with everyday activities) and/or moderate or severe distress resulting from the symptoms.","2":"As 1, but with severe degree of distress and/or disability. Usually at least three items pass PSE threshold but this is at the interviewer's clinical discretion.","8":"Uncertain whether IG is present (usually because of insufficient information)."},"input":"integer"},"1a":{"options":{"0":"Symptoms absent after adequate Elaboration","1":"Symptom has been present in the period being assessed, but only mildly","2":"Symptom is definitely moderately present for most of the period or pronouncedly present for less than half of the period","3":"Symptom is pronouncedly present for more than half of the period","5":"Rating difficult due to psychotic disorder","6":"Symptom is consistent with a well-defined physical disease","8":"Symptom is present, but uncertain if it is functional","9":"Not known, cannot be rated"},"input":"integer"},"Att.":{"description":"Use the attributional rating scale to rate nature of influence on symptom presence or severity at the item level. The rating of 0 is the only ’negative’ rating, and can be used if there is clear evidence that treatment has resulted in a reduced rating. Ratings 1 - 8 represent attributions of etiologic effect, increasing the likelihood of an item being rated or its severity being increased. These attributions must only be made for symptoms/items that have positively rated, and should be entered into the dashed boxes below the standard episode rating boxes. The rating of 9 is reserved for indicating a trait characteristic. If no effect or trait is judged to be present leave the dashed box blank.\n","options":{"0":"Item rating reduced by effects of treatment","1":"Alcohol","2":"Other psychoactive substance","3":"Effects of somatic psychiatric treatments (electroconvulsive therapy, antidepressant medication, neuroleptics, etc)","4":"Known primary intracranial process (Alzheimer’s disease, Huntington’s disease, Parkinson’s disease, tumor, stroke, etc.)","5":"Non-psychiatric medication, toxins","6":"Other medication condition 1 (specify at Section 13 and/or Section 20)","7":"Other medication condition 2 (specify at Section 13 and/or Section 20)","8":"Other medication condition 3 (specify at Section 13 and/or Section 20)","9":"Trait. Essentially lifelong characteristic of R."},"input":"integer"}}
 
 /***/ }),
-/* 356 */
+/* 357 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57982,7 +58111,7 @@ var _reactRangeslider2 = _interopRequireDefault(_reactRangeslider);
 
 __webpack_require__(151);
 
-var _ResponseSlider = __webpack_require__(416);
+var _ResponseSlider = __webpack_require__(417);
 
 var _ResponseSlider2 = _interopRequireDefault(_ResponseSlider);
 
@@ -58146,6 +58275,7 @@ var Response = function (_React$Component) {
         });
         Options.sort(compareKey);
       }
+      console.log(Options);
 
       var ranges = [];
       Options.map(function (pair) {
@@ -58169,12 +58299,6 @@ var Response = function (_React$Component) {
       } else {
         this.state.currentPos = null;
       }
-
-      console.log('CurrentPos: ' + this.state.currentPos);
-      console.log('min: ' + this.state.min);
-      console.log('value: ' + this.state.value);
-      console.log('max: ' + this.state.max);
-      console.log('response: ' + response);
 
       /*  if (this.getIndex_0(response, Options) != -1) {
           this.state.currentPos = this.getIndex_0(response, Options);
@@ -58453,17 +58577,17 @@ var manualInputChange = function manualInputChange(value, valid) {
 };
 
 /***/ }),
-/* 357 */
+/* 358 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = __webpack_require__(358);
+module.exports = __webpack_require__(359);
 
 
 /***/ }),
-/* 358 */
+/* 359 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58474,10 +58598,10 @@ module.exports = __webpack_require__(358);
  */
 
 var assign       = __webpack_require__(13).assign;
-var Renderer     = __webpack_require__(359);
-var ParserCore   = __webpack_require__(361);
-var ParserBlock  = __webpack_require__(372);
-var ParserInline = __webpack_require__(387);
+var Renderer     = __webpack_require__(360);
+var ParserCore   = __webpack_require__(362);
+var ParserBlock  = __webpack_require__(373);
+var ParserInline = __webpack_require__(388);
 var Ruler        = __webpack_require__(55);
 
 /**
@@ -58485,9 +58609,9 @@ var Ruler        = __webpack_require__(55);
  */
 
 var config = {
-  'default':    __webpack_require__(406),
-  'full':       __webpack_require__(407),
-  'commonmark': __webpack_require__(408)
+  'default':    __webpack_require__(407),
+  'full':       __webpack_require__(408),
+  'commonmark': __webpack_require__(409)
 };
 
 /**
@@ -58665,7 +58789,7 @@ module.exports.utils = __webpack_require__(13);
 
 
 /***/ }),
-/* 359 */
+/* 360 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58676,7 +58800,7 @@ module.exports.utils = __webpack_require__(13);
  */
 
 var utils = __webpack_require__(13);
-var rules = __webpack_require__(360);
+var rules = __webpack_require__(361);
 
 /**
  * Expose `Renderer`
@@ -58747,7 +58871,7 @@ Renderer.prototype.render = function (tokens, options, env) {
 
 
 /***/ }),
-/* 360 */
+/* 361 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59183,7 +59307,7 @@ module.exports = rules;
 
 
 /***/ }),
-/* 361 */
+/* 362 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59200,15 +59324,15 @@ var Ruler = __webpack_require__(55);
  */
 
 var _rules = [
-  [ 'block',          __webpack_require__(362)          ],
-  [ 'abbr',           __webpack_require__(363)           ],
-  [ 'references',     __webpack_require__(364)     ],
-  [ 'inline',         __webpack_require__(365)         ],
-  [ 'footnote_tail',  __webpack_require__(366)  ],
-  [ 'abbr2',          __webpack_require__(367)          ],
-  [ 'replacements',   __webpack_require__(368)   ],
-  [ 'smartquotes',    __webpack_require__(369)    ],
-  [ 'linkify',        __webpack_require__(370)        ]
+  [ 'block',          __webpack_require__(363)          ],
+  [ 'abbr',           __webpack_require__(364)           ],
+  [ 'references',     __webpack_require__(365)     ],
+  [ 'inline',         __webpack_require__(366)         ],
+  [ 'footnote_tail',  __webpack_require__(367)  ],
+  [ 'abbr2',          __webpack_require__(368)          ],
+  [ 'replacements',   __webpack_require__(369)   ],
+  [ 'smartquotes',    __webpack_require__(370)    ],
+  [ 'linkify',        __webpack_require__(371)        ]
 ];
 
 /**
@@ -59248,7 +59372,7 @@ module.exports = Core;
 
 
 /***/ }),
-/* 362 */
+/* 363 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59272,7 +59396,7 @@ module.exports = function block(state) {
 
 
 /***/ }),
-/* 363 */
+/* 364 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59349,7 +59473,7 @@ module.exports = function abbr(state) {
 
 
 /***/ }),
-/* 364 */
+/* 365 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59454,7 +59578,7 @@ module.exports = function references(state) {
 
 
 /***/ }),
-/* 365 */
+/* 366 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59474,7 +59598,7 @@ module.exports = function inline(state) {
 
 
 /***/ }),
-/* 366 */
+/* 367 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59576,7 +59700,7 @@ module.exports = function footnote_block(state) {
 
 
 /***/ }),
-/* 367 */
+/* 368 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59671,7 +59795,7 @@ module.exports = function abbr2(state) {
 
 
 /***/ }),
-/* 368 */
+/* 369 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59742,7 +59866,7 @@ module.exports = function replace(state) {
 
 
 /***/ }),
-/* 369 */
+/* 370 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59862,7 +59986,7 @@ module.exports = function smartquotes(state) {
 
 
 /***/ }),
-/* 370 */
+/* 371 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59873,7 +59997,7 @@ module.exports = function smartquotes(state) {
 
 
 
-var Autolinker = __webpack_require__(371);
+var Autolinker = __webpack_require__(372);
 
 
 var LINK_SCAN_RE = /www|@|\:\/\//;
@@ -60030,7 +60154,7 @@ module.exports = function linkify(state) {
 
 
 /***/ }),
-/* 371 */
+/* 372 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
@@ -62360,7 +62484,7 @@ return Autolinker;
 
 
 /***/ }),
-/* 372 */
+/* 373 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62371,25 +62495,25 @@ return Autolinker;
  */
 
 var Ruler      = __webpack_require__(55);
-var StateBlock = __webpack_require__(373);
+var StateBlock = __webpack_require__(374);
 
 /**
  * Parser rules
  */
 
 var _rules = [
-  [ 'code',       __webpack_require__(374) ],
-  [ 'fences',     __webpack_require__(375),     [ 'paragraph', 'blockquote', 'list' ] ],
-  [ 'blockquote', __webpack_require__(376), [ 'paragraph', 'blockquote', 'list' ] ],
-  [ 'hr',         __webpack_require__(377),         [ 'paragraph', 'blockquote', 'list' ] ],
-  [ 'list',       __webpack_require__(378),       [ 'paragraph', 'blockquote' ] ],
-  [ 'footnote',   __webpack_require__(379),   [ 'paragraph' ] ],
-  [ 'heading',    __webpack_require__(380),    [ 'paragraph', 'blockquote' ] ],
-  [ 'lheading',   __webpack_require__(381) ],
-  [ 'htmlblock',  __webpack_require__(382),  [ 'paragraph', 'blockquote' ] ],
-  [ 'table',      __webpack_require__(384),      [ 'paragraph' ] ],
-  [ 'deflist',    __webpack_require__(385),    [ 'paragraph' ] ],
-  [ 'paragraph',  __webpack_require__(386) ]
+  [ 'code',       __webpack_require__(375) ],
+  [ 'fences',     __webpack_require__(376),     [ 'paragraph', 'blockquote', 'list' ] ],
+  [ 'blockquote', __webpack_require__(377), [ 'paragraph', 'blockquote', 'list' ] ],
+  [ 'hr',         __webpack_require__(378),         [ 'paragraph', 'blockquote', 'list' ] ],
+  [ 'list',       __webpack_require__(379),       [ 'paragraph', 'blockquote' ] ],
+  [ 'footnote',   __webpack_require__(380),   [ 'paragraph' ] ],
+  [ 'heading',    __webpack_require__(381),    [ 'paragraph', 'blockquote' ] ],
+  [ 'lheading',   __webpack_require__(382) ],
+  [ 'htmlblock',  __webpack_require__(383),  [ 'paragraph', 'blockquote' ] ],
+  [ 'table',      __webpack_require__(385),      [ 'paragraph' ] ],
+  [ 'deflist',    __webpack_require__(386),    [ 'paragraph' ] ],
+  [ 'paragraph',  __webpack_require__(387) ]
 ];
 
 /**
@@ -62522,7 +62646,7 @@ module.exports = ParserBlock;
 
 
 /***/ }),
-/* 373 */
+/* 374 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62687,7 +62811,7 @@ module.exports = StateBlock;
 
 
 /***/ }),
-/* 374 */
+/* 375 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62730,7 +62854,7 @@ module.exports = function code(state, startLine, endLine/*, silent*/) {
 
 
 /***/ }),
-/* 375 */
+/* 376 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62828,7 +62952,7 @@ module.exports = function fences(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 376 */
+/* 377 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62968,7 +63092,7 @@ module.exports = function blockquote(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 377 */
+/* 378 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63020,7 +63144,7 @@ module.exports = function hr(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 378 */
+/* 379 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63293,7 +63417,7 @@ module.exports = function list(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 379 */
+/* 380 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63367,7 +63491,7 @@ module.exports = function footnote(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 380 */
+/* 381 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63432,7 +63556,7 @@ module.exports = function heading(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 381 */
+/* 382 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63494,7 +63618,7 @@ module.exports = function lheading(state, startLine, endLine/*, silent*/) {
 
 
 /***/ }),
-/* 382 */
+/* 383 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63503,7 +63627,7 @@ module.exports = function lheading(state, startLine, endLine/*, silent*/) {
 
 
 
-var block_names = __webpack_require__(383);
+var block_names = __webpack_require__(384);
 
 
 var HTML_TAG_OPEN_RE = /^<([a-zA-Z]{1,15})[\s\/>]/;
@@ -63575,7 +63699,7 @@ module.exports = function htmlblock(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 383 */
+/* 384 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63644,7 +63768,7 @@ module.exports = html_blocks;
 
 
 /***/ }),
-/* 384 */
+/* 385 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63789,7 +63913,7 @@ module.exports = function table(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 385 */
+/* 386 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64003,7 +64127,7 @@ module.exports = function deflist(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 386 */
+/* 387 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64069,7 +64193,7 @@ module.exports = function paragraph(state, startLine/*, endLine*/) {
 
 
 /***/ }),
-/* 387 */
+/* 388 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64088,22 +64212,22 @@ var utils       = __webpack_require__(13);
  */
 
 var _rules = [
-  [ 'text',            __webpack_require__(388) ],
-  [ 'newline',         __webpack_require__(389) ],
-  [ 'escape',          __webpack_require__(390) ],
-  [ 'backticks',       __webpack_require__(391) ],
-  [ 'del',             __webpack_require__(392) ],
-  [ 'ins',             __webpack_require__(393) ],
-  [ 'mark',            __webpack_require__(394) ],
-  [ 'emphasis',        __webpack_require__(395) ],
-  [ 'sub',             __webpack_require__(396) ],
-  [ 'sup',             __webpack_require__(397) ],
-  [ 'links',           __webpack_require__(398) ],
-  [ 'footnote_inline', __webpack_require__(399) ],
-  [ 'footnote_ref',    __webpack_require__(400) ],
-  [ 'autolink',        __webpack_require__(401) ],
-  [ 'htmltag',         __webpack_require__(403) ],
-  [ 'entity',          __webpack_require__(405) ]
+  [ 'text',            __webpack_require__(389) ],
+  [ 'newline',         __webpack_require__(390) ],
+  [ 'escape',          __webpack_require__(391) ],
+  [ 'backticks',       __webpack_require__(392) ],
+  [ 'del',             __webpack_require__(393) ],
+  [ 'ins',             __webpack_require__(394) ],
+  [ 'mark',            __webpack_require__(395) ],
+  [ 'emphasis',        __webpack_require__(396) ],
+  [ 'sub',             __webpack_require__(397) ],
+  [ 'sup',             __webpack_require__(398) ],
+  [ 'links',           __webpack_require__(399) ],
+  [ 'footnote_inline', __webpack_require__(400) ],
+  [ 'footnote_ref',    __webpack_require__(401) ],
+  [ 'autolink',        __webpack_require__(402) ],
+  [ 'htmltag',         __webpack_require__(404) ],
+  [ 'entity',          __webpack_require__(406) ]
 ];
 
 /**
@@ -64237,7 +64361,7 @@ module.exports = ParserInline;
 
 
 /***/ }),
-/* 388 */
+/* 389 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64296,7 +64420,7 @@ module.exports = function text(state, silent) {
 
 
 /***/ }),
-/* 389 */
+/* 390 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64357,7 +64481,7 @@ module.exports = function newline(state, silent) {
 
 
 /***/ }),
-/* 390 */
+/* 391 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64413,7 +64537,7 @@ module.exports = function escape(state, silent) {
 
 
 /***/ }),
-/* 391 */
+/* 392 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64466,7 +64590,7 @@ module.exports = function backticks(state, silent) {
 
 
 /***/ }),
-/* 392 */
+/* 393 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64557,7 +64681,7 @@ module.exports = function del(state, silent) {
 
 
 /***/ }),
-/* 393 */
+/* 394 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64648,7 +64772,7 @@ module.exports = function ins(state, silent) {
 
 
 /***/ }),
-/* 394 */
+/* 395 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64739,7 +64863,7 @@ module.exports = function del(state, silent) {
 
 
 /***/ }),
-/* 395 */
+/* 396 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64895,7 +65019,7 @@ module.exports = function emphasis(state, silent) {
 
 
 /***/ }),
-/* 396 */
+/* 397 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64960,7 +65084,7 @@ module.exports = function sub(state, silent) {
 
 
 /***/ }),
-/* 397 */
+/* 398 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65025,7 +65149,7 @@ module.exports = function sup(state, silent) {
 
 
 /***/ }),
-/* 398 */
+/* 399 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65202,7 +65326,7 @@ module.exports = function links(state, silent) {
 
 
 /***/ }),
-/* 399 */
+/* 400 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65262,7 +65386,7 @@ module.exports = function footnote_inline(state, silent) {
 
 
 /***/ }),
-/* 400 */
+/* 401 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65331,7 +65455,7 @@ module.exports = function footnote_ref(state, silent) {
 
 
 /***/ }),
-/* 401 */
+/* 402 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65339,7 +65463,7 @@ module.exports = function footnote_ref(state, silent) {
 
 
 
-var url_schemas   = __webpack_require__(402);
+var url_schemas   = __webpack_require__(403);
 var normalizeLink = __webpack_require__(147);
 
 
@@ -65416,7 +65540,7 @@ module.exports = function autolink(state, silent) {
 
 
 /***/ }),
-/* 402 */
+/* 403 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65595,7 +65719,7 @@ module.exports = [
 
 
 /***/ }),
-/* 403 */
+/* 404 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65604,7 +65728,7 @@ module.exports = [
 
 
 
-var HTML_TAG_RE = __webpack_require__(404).HTML_TAG_RE;
+var HTML_TAG_RE = __webpack_require__(405).HTML_TAG_RE;
 
 
 function isLetter(ch) {
@@ -65651,7 +65775,7 @@ module.exports = function htmltag(state, silent) {
 
 
 /***/ }),
-/* 404 */
+/* 405 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65717,7 +65841,7 @@ module.exports.HTML_TAG_RE = HTML_TAG_RE;
 
 
 /***/ }),
-/* 405 */
+/* 406 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65772,7 +65896,7 @@ module.exports = function entity(state, silent) {
 
 
 /***/ }),
-/* 406 */
+/* 407 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65859,7 +65983,7 @@ module.exports = {
 
 
 /***/ }),
-/* 407 */
+/* 408 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65904,7 +66028,7 @@ module.exports = {
 
 
 /***/ }),
-/* 408 */
+/* 409 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65982,7 +66106,7 @@ module.exports = {
 
 
 /***/ }),
-/* 409 */
+/* 410 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66006,11 +66130,11 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _resizeObserverPolyfill = __webpack_require__(410);
+var _resizeObserverPolyfill = __webpack_require__(411);
 
 var _resizeObserverPolyfill2 = _interopRequireDefault(_resizeObserverPolyfill);
 
-var _utils = __webpack_require__(411);
+var _utils = __webpack_require__(412);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -66468,7 +66592,7 @@ Slider.defaultProps = {
 exports.default = Slider;
 
 /***/ }),
-/* 410 */
+/* 411 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67501,7 +67625,7 @@ var index = (function () {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(26)))
 
 /***/ }),
-/* 411 */
+/* 412 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67534,10 +67658,10 @@ function clamp(value, min, max) {
 }
 
 /***/ }),
-/* 412 */
+/* 413 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(413)(false);
+exports = module.exports = __webpack_require__(414)(false);
 // imports
 
 
@@ -67548,7 +67672,7 @@ exports.push([module.i, "/**\n* Rangeslider\n*/\n.rangeslider {\n  margin: 20px 
 
 
 /***/ }),
-/* 413 */
+/* 414 */
 /***/ (function(module, exports) {
 
 /*
@@ -67630,7 +67754,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 414 */
+/* 415 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -67676,7 +67800,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(415);
+var	fixUrls = __webpack_require__(416);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -67989,7 +68113,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 415 */
+/* 416 */
 /***/ (function(module, exports) {
 
 
@@ -68084,7 +68208,7 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 416 */
+/* 417 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -68217,7 +68341,13 @@ var ResponseSlider = function (_Component) {
 exports.default = (0, _reactRedux.connect)()(ResponseSlider);
 
 /***/ }),
-/* 417 */
+/* 418 */
+/***/ (function(module, exports) {
+
+module.exports = {"2.005":{"explanation":"2.005 is only active if 2.003 = 2","algorithm":[{"AND":["$2.003 != 2"]}]},"2.006.router":{"explanation":"If <2.003> = 0 skip to HA If <2.003> = 2 skip to <2.007> and then <2.100>. If <2.003> < > 0 or 2 continue.","algorithm":[{"AND":["$2.003 = 2"]}],"skip_items":["2.008","2.009","2.episode2.section","2.episode3.section","2.010","2.011","2.012","2.013","2.014","2.015","2.016","2.017","2.episode4.section","2.018","2.019","2.020","2.021","2.022","2.023","2.024","2.025","2.026","2.027","2.028","2.029","2.episode5.section","2.030","2.031","2.032","2.033","2.034","2.035","2.036","2.037","2.038","2.039","2.040","2.041","2.042","2.043","2.044","2.episode6.section","2.045","2.046","2.047","2.048","2.049","2.050","2.051","2.052","2.053","2.054","2.055","2.episode7.section","2.056","2.057","2.058","2.059","2.060","2.061","2.062","2.063","2.064","2.episode8.section","2.065","2.episode9.section","2.066","2.067","2.068","2.069","2.070","2.071","2.episode10.section","2.072","2.073","2.074","2.075","2.076","2.077","2.078","2.079","2.episode11.section","2.080","2.081","2.082","2.083","2.084","2.085","2.086","2.087","2.episode12.section","2.088","2.089","2.090","2.091","2.episode13.section","2.092","2.093","2.094","2.095","2.096","2.097","2.098","2.099"]},"2.027":{"explanation":"2.027 not active if 2.026 = 0","algorithm":[{"AND":["$2.026 = 0"]}]}}
+
+/***/ }),
+/* 419 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -68226,11 +68356,11 @@ exports.default = (0, _reactRedux.connect)()(ResponseSlider);
 if (false) {
   module.exports = require('./configureStore.prod');
 } else {
-  module.exports = __webpack_require__(418);
+  module.exports = __webpack_require__(420);
 }
 
 /***/ }),
-/* 418 */
+/* 420 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -68244,9 +68374,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _redux = __webpack_require__(62);
 
-var _middlewares = __webpack_require__(419);
+var _middlewares = __webpack_require__(421);
 
-var _reducers = __webpack_require__(420);
+var _reducers = __webpack_require__(422);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -68263,7 +68393,7 @@ exports.default = function (persistedState) {
 };
 
 /***/ }),
-/* 419 */
+/* 421 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -68282,7 +68412,7 @@ var loggerMiddleware = exports.loggerMiddleware = function loggerMiddleware(stor
 };
 
 /***/ }),
-/* 420 */
+/* 422 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -68294,7 +68424,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(62);
 
-var _interview = __webpack_require__(421);
+var _interview = __webpack_require__(152);
 
 var _interview2 = _interopRequireDefault(_interview);
 
@@ -68308,127 +68438,6 @@ exports.default = (0, _redux.combineReducers)({
   interview: _interview2.default,
   settings: _settings2.default
 });
-
-/***/ }),
-/* 421 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _data = __webpack_require__(63);
-
-var _items = __webpack_require__(43);
-
-var _section2Routing = __webpack_require__(422);
-
-var _section2Routing2 = _interopRequireDefault(_section2Routing);
-
-var _Algorithms = __webpack_require__(141);
-
-var _Algorithms2 = _interopRequireDefault(_Algorithms);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var initialState = {
-  id: window.scanInfo && window.scanInfo.record_id,
-  activeKey: _items.items[0].key,
-  responses: {},
-  disabledItems: [],
-  notes: {},
-  settings: {
-    showGlossary: true
-  }
-};
-
-if (_data.scanData.data) {
-  initialState = _data.scanData.data;
-}
-
-var nextItemIsDisabled = function nextItemIsDisabled(state, key) {
-  return state.disabledItems.includes(key);
-};
-
-var getNextValidKey = function getNextValidKey(state, key) {
-  var nextItem = (0, _items.getNextItemByKey)(key);
-
-  if (nextItemIsDisabled(state, key)) {
-    return getNextValidKey(state, nextItem.key);
-  } else {
-    return key;
-  }
-};
-
-var interview = function interview() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-  var action = arguments[1];
-  var responses = state.responses;
-
-
-  switch (action.type) {
-    case 'SET_ACTIVE_ITEM':
-      var key = action.payload.key;
-
-
-      var nextValidKey = getNextValidKey(state, key);
-
-      return _extends({}, state, {
-        activeKey: nextValidKey
-      });
-    case 'SET_RESPONSE':
-      var mergedResponses = void 0;
-      if (action.payload.period) {
-        var period = action.payload.period === 1 ? 'period_one' : 'period_two';
-
-        mergedResponses = _extends({}, responses, _defineProperty({}, action.payload.key, _extends({}, responses[action.payload.key], _defineProperty({}, period, action.payload.value))));
-      } else {
-        mergedResponses = _extends({}, responses, _defineProperty({}, action.payload.key, action.payload.value));
-      }
-
-      var _Algorithms$run = _Algorithms2.default.run(mergedResponses, _section2Routing2.default),
-          matched = _Algorithms$run.matched;
-
-      var disabledItems = [];
-      Object.keys(matched).forEach(function (key) {
-        var algorithm = matched[key];
-        if (algorithm.skip_items) {
-          disabledItems = [disabledItems].concat(_toConsumableArray(algorithm.skip_items));
-        }
-      });
-
-      var matchedKeys = Object.keys(matched);
-      console.log(responses);
-      console.log(mergedResponses);
-      return _extends({}, state, {
-        disabledItems: [].concat(_toConsumableArray(matchedKeys), _toConsumableArray(disabledItems)),
-        responses: mergedResponses
-      });
-    case 'SET_NOTE':
-      return _extends({}, state, {
-        notes: _extends({}, state.notes, _defineProperty({}, action.payload.key, action.payload.value))
-      });
-    default:
-      return state;
-  }
-};
-
-exports.default = interview;
-
-/***/ }),
-/* 422 */
-/***/ (function(module, exports) {
-
-module.exports = {"2.005":{"explanation":"2.005 is only active if 2.003 = 2","algorithm":[{"AND":["$2.003 != 2"]}]},"2.006.router":{"explanation":"If <2.003> = 0 skip to HA If <2.003> = 2 skip to <2.007> and then <2.100>. If <2.003> < > 0 or 2 continue.","algorithm":[{"AND":["$2.003 = 2"]}],"skip_items":["2.008","2.009","2.episode2.section","2.episode3.section","2.010","2.011","2.012","2.013","2.014","2.015","2.016","2.017","2.episode4.section","2.018","2.019","2.020","2.021","2.022","2.023","2.024","2.025","2.026","2.027","2.028","2.029","2.episode5.section","2.030","2.031","2.032","2.033","2.034","2.035","2.036","2.037","2.038","2.039","2.040","2.041","2.042","2.043","2.044","2.episode6.section","2.045","2.046","2.047","2.048","2.049","2.050","2.051","2.052","2.053","2.054","2.055","2.episode7.section","2.056","2.057","2.058","2.059","2.060","2.061","2.062","2.063","2.064","2.episode8.section","2.065","2.episode9.section","2.066","2.067","2.068","2.069","2.070","2.071","2.episode10.section","2.072","2.073","2.074","2.075","2.076","2.077","2.078","2.079","2.episode11.section","2.080","2.081","2.082","2.083","2.084","2.085","2.086","2.087","2.episode12.section","2.088","2.089","2.090","2.091","2.episode13.section","2.092","2.093","2.094","2.095","2.096","2.097","2.098","2.099"]},"2.027":{"explanation":"2.027 not active if 2.026 = 0","algorithm":[{"AND":["$2.026 = 0"]}]}}
 
 /***/ }),
 /* 423 */
@@ -68739,7 +68748,7 @@ module.exports = debounce;
 /* 426 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var root = __webpack_require__(152);
+var root = __webpack_require__(153);
 
 /**
  * Gets the timestamp of the number of milliseconds that have elapsed since
@@ -68886,7 +68895,7 @@ module.exports = isSymbol;
 /* 430 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(153),
+var Symbol = __webpack_require__(154),
     getRawTag = __webpack_require__(431),
     objectToString = __webpack_require__(432);
 
@@ -68920,7 +68929,7 @@ module.exports = baseGetTag;
 /* 431 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(153);
+var Symbol = __webpack_require__(154);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;

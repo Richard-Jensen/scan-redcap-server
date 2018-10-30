@@ -152,6 +152,7 @@ class Response extends React.Component {
       );
     Options.sort(compareKey);
   }
+  console.log(Options);
 
   const ranges = [];
   Options.map(pair => {
@@ -177,12 +178,6 @@ class Response extends React.Component {
   else {
     this.state.currentPos = null
   }
-
-  console.log('CurrentPos: ' + this.state.currentPos)
-  console.log('min: ' + this.state.min)
-  console.log('value: ' + this.state.value)
-  console.log('max: ' + this.state.max)
-  console.log('response: ' + response)
 
 /*  if (this.getIndex_0(response, Options) != -1) {
     this.state.currentPos = this.getIndex_0(response, Options);
