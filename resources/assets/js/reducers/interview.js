@@ -7,6 +7,7 @@ let initialState = {
   id: window.scanInfo && window.scanInfo.record_id,
   activeKey: items[0].key,
   responses: {},
+  sliderValues: {1:1},
   disabledItems: [],
   notes: {},
   settings: {
@@ -17,6 +18,8 @@ let initialState = {
 if (scanData.data) {
   initialState = scanData.data;
 }
+console.log('scanData:')
+console.log(scanData);
 
 export const nextItemIsDisabled = (state, key) => state.disabledItems.includes(getNextItemByKey(key).key);
 export const previousItemIsDisabled = (state, key) => state.disabledItems.includes(getPreviousItemByKey(key).key);
@@ -43,7 +46,9 @@ export const getPreviousValidKey = (state, key) => {
 
 const interview = (state = initialState, action) => {
   const { responses } = state;
-
+  const { sliderValues } = state;
+  console.log(sliderValues);
+  console.log(responses);
   switch (action.type) {
     case 'SET_ACTIVE_ITEM':
     const { key } = action.payload;
@@ -54,7 +59,8 @@ const interview = (state = initialState, action) => {
     };
     case 'SET_RESPONSE':
     let mergedResponses;
-    if (action.payload.period) {
+    let mergedSliderValues;
+    if (false) {
       let period = action.payload.period === 1 ? 'period_one' : 'period_two';
 
       mergedResponses = {
@@ -69,6 +75,7 @@ const interview = (state = initialState, action) => {
         ...responses,
         [action.payload.key]: action.payload.value
       };
+
     }
 
     const { matched } = Algorithms.run(mergedResponses, routing);
@@ -86,7 +93,8 @@ const interview = (state = initialState, action) => {
     return {
       ...state,
       disabledItems: [...matchedKeys, ...disabledItems],
-      responses: mergedResponses
+      responses: mergedResponses,
+      sliderValues: mergedSliderValues
     };
     case 'SET_NOTE':
     return {

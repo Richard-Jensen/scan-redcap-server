@@ -15,7 +15,7 @@ class Response extends React.Component {
     super(props);
     this.state = {
       item: getItemByKey(this.props.interview.activeKey),
-      value: 0,
+      value: -1,
       hasSlider: false,
       currentPos: null,
       // Making sure that if not initialized, min-max is the empty set
@@ -26,7 +26,17 @@ class Response extends React.Component {
     this.slider = React.createRef();
   }
 
-  write = function(array, pair) {
+  componentDidMount() {
+    if (this.state.hasSlider) {
+      if (this.state.value === -1) {
+        this.setState({
+          value: this.state.min
+        })
+      }
+    }
+  }
+
+  write = (array, pair) => {
     if (pair[0].includes("-")) {
       this.state.hasSlider = true;
       return ([
@@ -54,11 +64,10 @@ class Response extends React.Component {
       this.isActive(array,pair, pair[1])
       ]);
    }
-
  };
 
   // Function returning the index of a possible element in an array.
-  getIndex = function(value, arr) {
+  getIndex = (value, arr) => {
     for(var i = 0; i < arr.length; i++) {
       if(arr[i] === value) {
         return i;
@@ -68,7 +77,7 @@ class Response extends React.Component {
   }
 
   // Function returning the index of a possible element in an array, given that the array contains lists with at least 1 element..
-  getIndex_0 = function(value, arr) {
+  getIndex_0 = (value, arr) => {
     for(var i = 0; i < arr.length; i++) {
       if(arr[i][0] === value) {
         return i;
@@ -77,7 +86,7 @@ class Response extends React.Component {
     return -1; //to handle the case where the value doesn't exist
   }
 
-  isActive = function(array, pair, input) {
+  isActive = (array, pair, input) => {
     if (this.state.currentPos === this.getIndex(pair,array)) {
       return <b>{input}</b>;
     }
@@ -87,11 +96,10 @@ class Response extends React.Component {
   }
 
   render() {
+
     const dispatch = this.props.dispatch;
     const interview = this.props.interview;
     const settings = this.props.settings;
-
-    this.state.hasSlider = false;
 
     let item = getItemByKey(interview.activeKey);
     if (!item) {
@@ -143,6 +151,7 @@ class Response extends React.Component {
   }
 
   //Array containing the options, as pairs with 0th enntry the key, and second entry the description.
+  // TODO: This gives the error "Warning: Each child in an array or iterator should have a unique "key" prop.". I believe the solution is to somehow attach a key to each pushed entry, but I have not found out how to do this. So far it mostly looks like a aestethic error, but it needs to be fixed to be sure.
   const Options = [];
   if (item.options) {
     Object.keys(item.options).map(key =>
@@ -152,7 +161,6 @@ class Response extends React.Component {
       );
     Options.sort(compareKey);
   }
-  console.log(Options);
 
   const ranges = [];
   Options.map(pair => {
@@ -179,12 +187,14 @@ class Response extends React.Component {
     this.state.currentPos = null
   }
 
-/*  if (this.getIndex_0(response, Options) != -1) {
-    this.state.currentPos = this.getIndex_0(response, Options);
-  }
-  else if ((this.state.min <= parseInt(response)) && (parseInt(response) <= this.state.max)) {
-    this.state.currentPos = this.getIndex_0(this.state.min + '-' + this.state.max, Options)
-  }*/
+
+  // For debugging only
+/*  console.log('currentPos: ' + this.state.currentPos);
+  console.log('min: ' + this.state.min);
+  console.log('response: ' + response);
+  console.log('max: ' + this.state.max);
+  console.log('value: ' + this.state.value);
+  console.log('hasSlider: ' + this.state.hasSlider);*/
 
   // Returns the specific interview item.
   return (
@@ -201,18 +211,21 @@ class Response extends React.Component {
             currentPos: this.getIndex(pair, Options)
           })
           if (pair[0].includes("-")) {
-          //So far, the ResponseSlider class handles all this
+            dispatch(setResponse({
+             key: item.key,
+             value: this.state.value.toString(),
+           }))
+          }
+          else {
+            dispatch(setResponse({ key: item.key, value: pair[0], sliderValue: 2}))
+          }
+          this.inputBox.current.focus()
         }
-        else {
-          dispatch(setResponse({ key: item.key, value: pair[0] }))
-        }
-        this.inputBox.current.focus()
       }
-    }
-    >
-    {this.write(Options,pair)}
-    </div>
-    ))}
+      >
+      {this.write(Options,pair)}
+      </div>
+      ))}
       {item.scale && (
         <div>
         Scale: <strong>{item.scale}</strong>
@@ -233,10 +246,18 @@ class Response extends React.Component {
           // TODO: Refactor this. It's a huge mess.
           if(event.keyCode==38) {
             if (this.state.currentPos === null) {
-              dispatch(setResponse({
-                key: item.key,
-                value: Options[0][0]
-              }))
+              if (Options[0][0].includes('-')) {
+                dispatch(setResponse({
+                  key: item.key,
+                  value: this.state.value.toString()
+                }))
+              }
+              else {
+                dispatch(setResponse({
+                  key: item.key,
+                  value: Options[0][0]
+                }))
+              }
               this.setState({
                 currentPos: 0
               })
@@ -373,7 +394,7 @@ class Response extends React.Component {
               dispatch(
                 setResponse({
                   key: item.key,
-                  value: this.state.value
+                  value: this.state.value.toString()
                 })
                 );
               event.preventDefault();
