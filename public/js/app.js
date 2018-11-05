@@ -58313,12 +58313,18 @@ var Response = function (_React$Component) {
       if (response !== '') {
         if (this.getIndex_0(response, Options) != -1) {
           this.state.currentPos = this.getIndex_0(response, Options);
-        } else if (sliderValue !== '') {
-          this.state.value = parseInt(sliderValue);
-          this.state.currentPos = this.getIndex_0(this.state.min + '-' + this.state.max, Options);
         }
       } else {
         this.state.currentPos = null;
+      }
+
+      if (sliderValue !== '') {
+        this.state.value = parseInt(sliderValue);
+        if (this.getIndex_0(response, Options) != -1) {
+          this.state.currentPos = this.getIndex_0(response, Options);
+        } else {
+          this.state.currentPos = this.getIndex_0(this.state.min + '-' + this.state.max, Options);
+        }
       }
 
       // For debugging only

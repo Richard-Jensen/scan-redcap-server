@@ -134,7 +134,7 @@ class Response extends React.Component {
   }
 
   let response = (interview.responses && interview.responses[item.key]) || '';
-  const sliderValue = (interview.sliderValues && interview.sliderValues[item.key]) || '';
+  let sliderValue = (interview.sliderValues && interview.sliderValues[item.key]) || '';
 
   const note = (interview.notes && interview.notes[item.key]) || '';
   const hasInput = input || item.scale;
@@ -181,16 +181,20 @@ class Response extends React.Component {
     if (this.getIndex_0(response, Options) != -1) {
       this.state.currentPos = this.getIndex_0(response, Options);
     }
-    else if (sliderValue !== '') {
-      this.state.value = parseInt(sliderValue);
-      this.state.currentPos = this.getIndex_0(this.state.min + '-' + this.state.max, Options);
-    }
   }
   else {
-    this.state.currentPos = null
+    this.state.currentPos = null;
   }
 
-
+  if (sliderValue !== '') {
+    this.state.value = parseInt(sliderValue);
+    if (this.getIndex_0(response, Options) != -1) {
+      this.state.currentPos = this.getIndex_0(response, Options);
+    }
+    else {
+      this.state.currentPos = this.getIndex_0(this.state.min + '-' + this.state.max, Options)
+    }
+  }
 
   // For debugging only
   console.log('currentPos: ' + this.state.currentPos);
@@ -199,7 +203,7 @@ class Response extends React.Component {
   console.log('max: ' + this.state.max);
   console.log('value: ' + this.state.value);
   console.log('hasSlider: ' + this.state.hasSlider);
-  console.log('sliderValue: ' + sliderValue)
+  console.log('sliderValue: ' + sliderValue);
 
   // Returns the specific interview item.
   return (
@@ -218,7 +222,7 @@ class Response extends React.Component {
           if (pair[0].includes("-")) {
             dispatch(setResponse({
              key: item.key,
-             value: this.state.value.toString(),
+             value: this.state.value.toString()
            }))
           }
           else {
