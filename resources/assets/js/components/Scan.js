@@ -7,7 +7,7 @@ import { ItemList } from './ItemList';
 import { Settings } from './Settings';
 import { Analysis } from './Analysis';
 import { SearchItems } from './SearchItems';
-import Response from './Response';
+import Response, {update} from './Response';
 import { getNextValidKey, getPreviousValidKey } from '../reducers/interview';
 import { setActiveItem } from '../actions';
 import {
@@ -19,6 +19,10 @@ import {
 } from '../items';
 
 class Scan extends Component {
+  constructor(props) {
+    super(props);
+    this.child = React.createRef();
+  }
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeyDown);
   }
@@ -28,6 +32,9 @@ class Scan extends Component {
   }
 
   handleKeyDown = event => {
+     console.log('child');
+    console.log(this.child);
+    console.log('/child');
     if (!isTextareaInFocus()) {
       if (event.key === 'Enter' && !event.shiftKey) {
         this.goToNextItem();
@@ -42,6 +49,11 @@ class Scan extends Component {
     const nextValidKey = getNextValidKey(this.props.interview, activeKey);
 
     this.props.dispatch(setActiveItem({ key: nextValidKey}));
+    console.log('child');
+    console.log(this.child);
+    console.log('/child');
+    this.child.current.update();
+
   };
 
   goToPreviousItem = () => {
@@ -54,30 +66,31 @@ class Scan extends Component {
   render() {
     return (
       <Fragment>
-        <div className="scan-app-top-bar">
-          <SearchItems />
-          <Settings />
-          <Analysis />
-        </div>
-        <div className="scan-app-main">
-          <div className="interview-list">
-            <ItemList
-              items={items}
-              activeIndex={items.indexOf(
-                getItemByKey(this.props.interview.activeKey)
-              )}
-            />
-          </div>
-          <div className="interview-item">
-            <Response
-            dispatch={this.props.dispatch}
-            interview={this.props.interview}
-            settings={this.props.settings}
-            />
-          </div>
-        </div>
+      <div className="scan-app-top-bar">
+      <SearchItems />
+      <Settings />
+      <Analysis />
+      </div>
+      <div className="scan-app-main">
+      <div className="interview-list">
+      <ItemList
+      items={items}
+      activeIndex={items.indexOf(
+        getItemByKey(this.props.interview.activeKey)
+        )}
+      />
+      </div>
+      <div className="interview-item">
+      <Response
+      ref={this.child}
+      dispatch={this.props.dispatch}
+      interview={this.props.interview}
+      settings={this.props.settings}
+      />
+      </div>
+      </div>
       </Fragment>
-    );
+      );
   }
 }
 

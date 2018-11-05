@@ -34926,18 +34926,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Scan = function (_Component) {
   _inherits(Scan, _Component);
 
-  function Scan() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
+  function Scan(props) {
     _classCallCheck(this, Scan);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+    var _this = _possibleConstructorReturn(this, (Scan.__proto__ || Object.getPrototypeOf(Scan)).call(this, props));
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Scan.__proto__ || Object.getPrototypeOf(Scan)).call.apply(_ref, [this].concat(args))), _this), _this.handleKeyDown = function (event) {
+    _this.handleKeyDown = function (event) {
+      console.log('child');
+      console.log(_this.child);
+      console.log('/child');
       if (!(0, _helpers.isTextareaInFocus)()) {
         if (event.key === 'Enter' && !event.shiftKey) {
           _this.goToNextItem();
@@ -34945,17 +34942,28 @@ var Scan = function (_Component) {
           _this.goToPreviousItem();
         }
       }
-    }, _this.goToNextItem = function () {
+    };
+
+    _this.goToNextItem = function () {
       var activeKey = _this.props.interview.activeKey;
       var nextValidKey = (0, _interview.getNextValidKey)(_this.props.interview, activeKey);
 
       _this.props.dispatch((0, _actions.setActiveItem)({ key: nextValidKey }));
-    }, _this.goToPreviousItem = function () {
+      console.log('child');
+      console.log(_this.child);
+      console.log('/child');
+      _this.child.current.update();
+    };
+
+    _this.goToPreviousItem = function () {
       var activeKey = _this.props.interview.activeKey;
       var previousValidKey = (0, _interview.getPreviousValidKey)(_this.props.interview, activeKey);
 
       _this.props.dispatch((0, _actions.setActiveItem)({ key: previousValidKey }));
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    };
+
+    _this.child = _react2.default.createRef();
+    return _this;
   }
 
   _createClass(Scan, [{
@@ -34996,6 +35004,7 @@ var Scan = function (_Component) {
             'div',
             { className: 'interview-item' },
             _react2.default.createElement(_Response2.default, {
+              ref: this.child,
               dispatch: this.props.dispatch,
               interview: this.props.interview,
               settings: this.props.settings
@@ -58142,6 +58151,27 @@ var Response = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Response.__proto__ || Object.getPrototypeOf(Response)).call(this, props));
 
+    _this.update = function () {
+      console.log('update');
+      var item = (0, _items.getItemByKey)(_this.props.interview.activeKey);
+      var Options = [];
+      if (item.options) {
+        Object.keys(item.options).map(function (key) {
+          return Options.push([key, item.options[key]]);
+        });
+        Options.sort(compareKey);
+      }
+      var response = _this.props.interview.responses && _this.props.interview.responses[item.key] || '';
+      var sliderValue = _this.props.interview.sliderValues && _this.props.interview.sliderValues[item.key] || '';
+
+      _this.setState({
+        Options: Options,
+        response: response,
+        sliderValue: sliderValue,
+        value: sliderValue
+      });
+    };
+
     _this.write = function (array, pair) {
       if (pair[0].includes("-")) {
         _this.state.hasSlider = true;
@@ -58202,7 +58232,9 @@ var Response = function (_React$Component) {
       currentPos: null,
       // Making sure that if not initialized, min-max is the empty set
       min: 1,
-      max: 0
+      max: 0,
+      Options: null,
+      response: null
     };
     _this.inputBox = _react2.default.createRef();
     _this.slider = _react2.default.createRef();

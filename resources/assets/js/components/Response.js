@@ -20,7 +20,9 @@ class Response extends React.Component {
       currentPos: null,
       // Making sure that if not initialized, min-max is the empty set
       min: 1,
-      max: 0
+      max: 0,
+      Options: null,
+      response: null
     };
     this.inputBox = React.createRef();
     this.slider = React.createRef();
@@ -34,6 +36,29 @@ class Response extends React.Component {
         })
       }
     }
+  }
+
+  update = () => {
+    console.log('update');
+    const item = getItemByKey(this.props.interview.activeKey);
+    const Options = [];
+    if (item.options) {
+      Object.keys(item.options).map(key =>
+        Options.push(
+          [key, item.options[key]]
+          )
+        );
+      Options.sort(compareKey);
+    }
+    const response = (this.props.interview.responses && this.props.interview.responses[item.key]) || '';
+    const sliderValue = (this.props.interview.sliderValues && this.props.interview.sliderValues[item.key]) || '';
+
+    this.setState({
+      Options: Options,
+      response: response,
+      sliderValue: sliderValue,
+      value: sliderValue
+    })
   }
 
   write = (array, pair) => {
