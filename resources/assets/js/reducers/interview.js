@@ -45,6 +45,7 @@ export const getPreviousValidKey = (state, key) => {
 const interview = (state = initialState, action) => {
   const { responses } = state;
   const sliderValues = state.sliderValues;
+  console.log(sliderValues)
   switch (action.type) {
     case 'SET_ACTIVE_ITEM':
     const { key } = action.payload;
@@ -56,7 +57,7 @@ const interview = (state = initialState, action) => {
     case 'SET_RESPONSE':
     let mergedResponses;
     let mergedSliderValues;
-    if (false) {
+    if (action.payload.period) {
       let period = action.payload.period === 1 ? 'period_one' : 'period_two';
 
       mergedResponses = {
