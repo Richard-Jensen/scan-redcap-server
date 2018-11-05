@@ -15,15 +15,9 @@ let initialState = {
   }
 };
 
-console.log('initialState')
-console.log(initialState)
-
 if (scanData.data) {
   initialState = scanData.data;
 }
-
-console.log('initialState')
-console.log(initialState)
 
 export const nextItemIsDisabled = (state, key) => state.disabledItems.includes(getNextItemByKey(key).key);
 export const previousItemIsDisabled = (state, key) => state.disabledItems.includes(getPreviousItemByKey(key).key);
@@ -50,7 +44,7 @@ export const getPreviousValidKey = (state, key) => {
 
 const interview = (state = initialState, action) => {
   const { responses } = state;
-  const sliderValues = state;
+  const sliderValues = state.sliderValues;
   switch (action.type) {
     case 'SET_ACTIVE_ITEM':
     const { key } = action.payload;
@@ -77,6 +71,15 @@ const interview = (state = initialState, action) => {
         ...responses,
         [action.payload.key]: action.payload.value
       };
+      if (action.payload.sliderValue) {
+        mergedSliderValues = {
+          ...sliderValues,
+          [state.activeKey]: action.payload.sliderValue
+        };
+      }
+      else {
+        mergedSliderValues = sliderValues;
+      }
 
     }
 
@@ -95,7 +98,8 @@ const interview = (state = initialState, action) => {
     return {
       ...state,
       disabledItems: [...matchedKeys, ...disabledItems],
-      responses: mergedResponses
+      responses: mergedResponses,
+      sliderValues: mergedSliderValues
     };
     case 'SET_NOTE':
     return {

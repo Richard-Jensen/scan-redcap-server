@@ -219,7 +219,7 @@ class Response extends React.Component {
            }))
           }
           else {
-            dispatch(setResponse({ key: item.key, value: pair[0]}))
+            dispatch(setResponse({ key: item.key, value: pair[0], sliderValue: 2}))
           }
           this.inputBox.current.focus()
         }
