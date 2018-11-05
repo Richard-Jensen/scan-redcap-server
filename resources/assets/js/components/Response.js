@@ -95,6 +95,8 @@ class Response extends React.Component {
     }
   }
 
+
+
   render() {
 
     const dispatch = this.props.dispatch;
@@ -217,7 +219,7 @@ class Response extends React.Component {
            }))
           }
           else {
-            dispatch(setResponse({ key: item.key, value: pair[0], sliderValue: 2}))
+            dispatch(setResponse({ key: item.key, value: pair[0]}))
           }
           this.inputBox.current.focus()
         }

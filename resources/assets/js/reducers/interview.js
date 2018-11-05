@@ -7,7 +7,7 @@ let initialState = {
   id: window.scanInfo && window.scanInfo.record_id,
   activeKey: items[0].key,
   responses: {},
-  sliderValues: {1:1},
+  sliderValues: {},
   disabledItems: [],
   notes: {},
   settings: {
@@ -15,11 +15,15 @@ let initialState = {
   }
 };
 
+console.log('initialState')
+console.log(initialState)
+
 if (scanData.data) {
   initialState = scanData.data;
 }
-console.log('scanData:')
-console.log(scanData);
+
+console.log('initialState')
+console.log(initialState)
 
 export const nextItemIsDisabled = (state, key) => state.disabledItems.includes(getNextItemByKey(key).key);
 export const previousItemIsDisabled = (state, key) => state.disabledItems.includes(getPreviousItemByKey(key).key);
@@ -46,9 +50,7 @@ export const getPreviousValidKey = (state, key) => {
 
 const interview = (state = initialState, action) => {
   const { responses } = state;
-  const { sliderValues } = state;
-  console.log(sliderValues);
-  console.log(responses);
+  const sliderValues = state;
   switch (action.type) {
     case 'SET_ACTIVE_ITEM':
     const { key } = action.payload;
@@ -93,8 +95,7 @@ const interview = (state = initialState, action) => {
     return {
       ...state,
       disabledItems: [...matchedKeys, ...disabledItems],
-      responses: mergedResponses,
-      sliderValues: mergedSliderValues
+      responses: mergedResponses
     };
     case 'SET_NOTE':
     return {
