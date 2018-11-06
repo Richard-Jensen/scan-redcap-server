@@ -45,7 +45,6 @@ export const getPreviousValidKey = (state, key) => {
 const interview = (state = initialState, action) => {
   const { responses } = state;
   const sliderValues = state.sliderValues;
-  console.log(sliderValues)
   switch (action.type) {
     case 'SET_ACTIVE_ITEM':
     const { key } = action.payload;

@@ -12622,7 +12622,6 @@ var interview = function interview() {
   var responses = state.responses;
 
   var sliderValues = state.sliderValues;
-  console.log(sliderValues);
   switch (action.type) {
     case 'SET_ACTIVE_ITEM':
       var key = action.payload.key;
@@ -34932,9 +34931,6 @@ var Scan = function (_Component) {
     var _this = _possibleConstructorReturn(this, (Scan.__proto__ || Object.getPrototypeOf(Scan)).call(this, props));
 
     _this.handleKeyDown = function (event) {
-      console.log('child');
-      console.log(_this.child);
-      console.log('/child');
       if (!(0, _helpers.isTextareaInFocus)()) {
         if (event.key === 'Enter' && !event.shiftKey) {
           _this.goToNextItem();
@@ -34949,10 +34945,6 @@ var Scan = function (_Component) {
       var nextValidKey = (0, _interview.getNextValidKey)(_this.props.interview, activeKey);
 
       _this.props.dispatch((0, _actions.setActiveItem)({ key: nextValidKey }));
-      console.log('child');
-      console.log(_this.child);
-      console.log('/child');
-      _this.child.current.update();
     };
 
     _this.goToPreviousItem = function () {
@@ -34962,7 +34954,7 @@ var Scan = function (_Component) {
       _this.props.dispatch((0, _actions.setActiveItem)({ key: previousValidKey }));
     };
 
-    _this.child = _react2.default.createRef();
+    _this.responseContainer = _react2.default.createRef();
     return _this;
   }
 
@@ -35004,7 +34996,6 @@ var Scan = function (_Component) {
             'div',
             { className: 'interview-item' },
             _react2.default.createElement(_Response2.default, {
-              ref: this.child,
               dispatch: this.props.dispatch,
               interview: this.props.interview,
               settings: this.props.settings
@@ -58151,27 +58142,6 @@ var Response = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Response.__proto__ || Object.getPrototypeOf(Response)).call(this, props));
 
-    _this.update = function () {
-      console.log('update');
-      var item = (0, _items.getItemByKey)(_this.props.interview.activeKey);
-      var Options = [];
-      if (item.options) {
-        Object.keys(item.options).map(function (key) {
-          return Options.push([key, item.options[key]]);
-        });
-        Options.sort(compareKey);
-      }
-      var response = _this.props.interview.responses && _this.props.interview.responses[item.key] || '';
-      var sliderValue = _this.props.interview.sliderValues && _this.props.interview.sliderValues[item.key] || '';
-
-      _this.setState({
-        Options: Options,
-        response: response,
-        sliderValue: sliderValue,
-        value: sliderValue
-      });
-    };
-
     _this.write = function (array, pair) {
       if (pair[0].includes("-")) {
         _this.state.hasSlider = true;
@@ -58192,6 +58162,25 @@ var Response = function (_React$Component) {
           null,
           pair[0] + " "
         ), _this.isActive(array, pair, pair[1])];
+      }
+    };
+
+    _this.getIndexComb = function (value, array) {
+      for (var i = 0; i < array.length; i++) {
+        if (array[i][0] === value) {
+          return i;
+        } else if (array[i][0].toString().includes('-')) {
+          var ranges = array[i][0].toString().split('-').map(function (n) {
+            return parseInt(n, 10);
+          });
+          var min = ranges[0];
+          var max = ranges[1];
+          if (min <= value && value <= max) {
+            return i;
+          }
+        } else {
+          return null;
+        }
       }
     };
 
@@ -58225,6 +58214,12 @@ var Response = function (_React$Component) {
       }
     };
 
+    _this.compareKey = function (x, y) {
+      if (x < y) return -1;
+      if (x === y) return 0;
+      if (x > y) return 1;
+    };
+
     _this.state = {
       item: (0, _items.getItemByKey)(_this.props.interview.activeKey),
       value: -1,
@@ -58233,7 +58228,7 @@ var Response = function (_React$Component) {
       // Making sure that if not initialized, min-max is the empty set
       min: 1,
       max: 0,
-      Options: null,
+      Options: [],
       response: null
     };
     _this.inputBox = _react2.default.createRef();
@@ -58244,10 +58239,75 @@ var Response = function (_React$Component) {
   _createClass(Response, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      if (this.state.hasSlider) {
-        if (this.state.value === -1) {
+      var item = (0, _items.getItemByKey)(this.props.interview.activeKey);
+      var Options = [];
+      if (item.options) {
+        Object.keys(item.options).map(function (key) {
+          return Options.push([key, item.options[key]]);
+        });
+        Options.sort(this.compareKey);
+        this.setState({
+          Options: Options,
+          value: 1
+        });
+      }
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate(prevProps) {
+      if (this.props.interview.activeKey !== prevProps.interview.activeKey) {
+        console.log('update');
+        var _item = (0, _items.getItemByKey)(this.props.interview.activeKey);
+        var Options = [];
+        if (_item.options) {
+          Object.keys(_item.options).map(function (key) {
+            return Options.push([key, _item.options[key]]);
+          });
+        }
+        Options.sort(this.compareKey);
+        var ranges = [];
+        Options.map(function (pair) {
+          if (pair[0].includes('-')) {
+            ranges.push(pair[0].split('-').map(function (n) {
+              return parseInt(n, 10);
+            }));
+          }
+        });
+
+        var response = this.props.interview.responses && this.props.interview.responses[_item.key] || '';
+        var sliderValue = this.props.interview.sliderValues && this.props.interview.sliderValues[_item.key] || null;
+
+        if (ranges.length) {
+          var min = ranges[0][0];
+          var max = ranges[0][1];
+          if (sliderValue === null) {
+            sliderValue = min;
+          }
+          console.log('response and Options:');
+          console.log(response);
+          console.log(Options);
+          console.log('test:');
+          console.log(this.getIndexComb(4, Options));
+          var currentPos = this.getIndexComb(response, Options);
           this.setState({
-            value: this.state.min
+            Options: Options,
+            response: response,
+            sliderValue: sliderValue,
+            value: sliderValue,
+            currentPos: currentPos,
+            min: min,
+            max: max
+          });
+        } else {
+          var _currentPos = this.getIndex_0(response, Options);
+          this.setState({
+            Options: Options,
+            response: response,
+            sliderValue: sliderValue,
+            value: sliderValue,
+            currentPos: _currentPos,
+            min: null,
+            max: null
           });
         }
       }
@@ -58266,6 +58326,7 @@ var Response = function (_React$Component) {
       var dispatch = this.props.dispatch;
       var interview = this.props.interview;
       var settings = this.props.settings;
+      var Options = this.state.Options;
 
       var item = (0, _items.getItemByKey)(interview.activeKey);
       if (!item) {
@@ -58314,21 +58375,11 @@ var Response = function (_React$Component) {
 
       // Compare function, used to sort the upcomming Options array, so that for example 0-799 is smaller than 800
       // TODO: This only correctly sorts if x is an interval with values less than y. Currently a complete hack.
-      function compareKey(x, y) {
-        if (x < y) return -1;
-        if (x === y) return 0;
-        if (x > y) return 1;
-      }
+
 
       //Array containing the options, as pairs with 0th enntry the key, and second entry the description.
       // TODO: This gives the error "Warning: Each child in an array or iterator should have a unique "key" prop.". I believe the solution is to somehow attach a key to each pushed entry, but I have not found out how to do this. So far it mostly looks like a aestethic error, but it needs to be fixed to be sure.
-      var Options = [];
-      if (item.options) {
-        Object.keys(item.options).map(function (key) {
-          return Options.push([key, item.options[key]]);
-        });
-        Options.sort(compareKey);
-      }
+
 
       var ranges = [];
       Options.map(function (pair) {
@@ -58342,23 +58393,6 @@ var Response = function (_React$Component) {
         this.state.max = parseInt(ranges[0].split('-')[1]);
       }
 
-      if (response !== '') {
-        if (this.getIndex_0(response, Options) != -1) {
-          this.state.currentPos = this.getIndex_0(response, Options);
-        }
-      } else {
-        this.state.currentPos = null;
-      }
-
-      if (sliderValue !== '') {
-        this.state.value = parseInt(sliderValue);
-        if (this.getIndex_0(response, Options) != -1) {
-          this.state.currentPos = this.getIndex_0(response, Options);
-        } else {
-          this.state.currentPos = this.getIndex_0(this.state.min + '-' + this.state.max, Options);
-        }
-      }
-
       // For debugging only
       console.log('currentPos: ' + this.state.currentPos);
       console.log('min: ' + this.state.min);
@@ -58367,6 +58401,7 @@ var Response = function (_React$Component) {
       console.log('value: ' + this.state.value);
       console.log('hasSlider: ' + this.state.hasSlider);
       console.log('sliderValue: ' + sliderValue);
+      console.log('true sliderValue: ' + this.props.interview.sliderValues[item.key]);
 
       // Returns the specific interview item.
       return _react2.default.createElement(
@@ -58433,8 +58468,8 @@ var Response = function (_React$Component) {
                     if (Options[0][0].includes('-')) {
                       dispatch((0, _actions.setResponse)({
                         key: item.key,
-                        value: _this2.state.value.toString(),
-                        sliderValue: _this2.state.value.toString()
+                        value: _this2.state.min,
+                        sliderValue: _this2.state.min
                       }));
                     } else {
                       dispatch((0, _actions.setResponse)({
@@ -58583,23 +58618,24 @@ var Response = function (_React$Component) {
                 if ((0, _helpers.validateNumeric)(event.target.value, Object.keys(item.options))) {
                   dispatch((0, _actions.setResponse)({
                     key: item.key,
-                    value: event.target.value.toString(),
-                    sliderValue: event.target.value.toString()
+                    value: event.target.value.toString()
                   }));
-                  if (_this2.state.hasSlider) {
+                  if (event.target.value == "") {
+                    _this2.setState({
+                      currentPos: null
+                    });
+                  } else if (_this2.state.hasSlider) {
                     if (_this2.state.min <= event.target.value && event.target.value <= _this2.state.max) {
                       _this2.setState({
                         value: event.target.value,
-                        currentPos: _this2.getIndex_0(_this2.state.min + '-' + _this2.state.max, Options)
+                        currentPos: _this2.getIndexComb(event.target.value.toString(), Options),
+                        sliderValue: event.target.value
                       });
                     } else {
                       _this2.state.currentPos = _this2.getIndex_0(event.target.value, Options);
                     }
                   } else {
-                    // TODO: Decide whether deleting all input should set currentPos to 0 or let it be as it is
-                    if (event.target.value == "") {} else {
-                      _this2.state.currentPos = _this2.getIndex_0(event.target.value, Options);
-                    }
+                    _this2.state.currentPos = _this2.getIndex_0(event.target.value, Options);
                   }
                 }
               },

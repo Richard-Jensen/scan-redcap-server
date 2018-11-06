@@ -21,7 +21,7 @@ import {
 class Scan extends Component {
   constructor(props) {
     super(props);
-    this.child = React.createRef();
+    this.responseContainer = React.createRef();
   }
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeyDown);
@@ -32,9 +32,6 @@ class Scan extends Component {
   }
 
   handleKeyDown = event => {
-     console.log('child');
-    console.log(this.child);
-    console.log('/child');
     if (!isTextareaInFocus()) {
       if (event.key === 'Enter' && !event.shiftKey) {
         this.goToNextItem();
@@ -49,11 +46,6 @@ class Scan extends Component {
     const nextValidKey = getNextValidKey(this.props.interview, activeKey);
 
     this.props.dispatch(setActiveItem({ key: nextValidKey}));
-    console.log('child');
-    console.log(this.child);
-    console.log('/child');
-    this.child.current.update();
-
   };
 
   goToPreviousItem = () => {
@@ -67,7 +59,7 @@ class Scan extends Component {
     return (
       <Fragment>
       <div className="scan-app-top-bar">
-      <SearchItems />
+      <SearchItems/>
       <Settings />
       <Analysis />
       </div>
@@ -82,7 +74,6 @@ class Scan extends Component {
       </div>
       <div className="interview-item">
       <Response
-      ref={this.child}
       dispatch={this.props.dispatch}
       interview={this.props.interview}
       settings={this.props.settings}

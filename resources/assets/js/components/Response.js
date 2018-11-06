@@ -21,7 +21,7 @@ class Response extends React.Component {
       // Making sure that if not initialized, min-max is the empty set
       min: 1,
       max: 0,
-      Options: null,
+      Options: [],
       response: null
     };
     this.inputBox = React.createRef();
@@ -29,17 +29,6 @@ class Response extends React.Component {
   }
 
   componentDidMount() {
-    if (this.state.hasSlider) {
-      if (this.state.value === -1) {
-        this.setState({
-          value: this.state.min
-        })
-      }
-    }
-  }
-
-  update = () => {
-    console.log('update');
     const item = getItemByKey(this.props.interview.activeKey);
     const Options = [];
     if (item.options) {
@@ -48,18 +37,74 @@ class Response extends React.Component {
           [key, item.options[key]]
           )
         );
-      Options.sort(compareKey);
+      Options.sort(this.compareKey);
+      this.setState({
+        Options: Options,
+        value: 1
+      })
     }
-    const response = (this.props.interview.responses && this.props.interview.responses[item.key]) || '';
-    const sliderValue = (this.props.interview.sliderValues && this.props.interview.sliderValues[item.key]) || '';
-
-    this.setState({
-      Options: Options,
-      response: response,
-      sliderValue: sliderValue,
-      value: sliderValue
-    })
   }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.interview.activeKey !== prevProps.interview.activeKey) {
+      console.log('update')
+      const item = getItemByKey(this.props.interview.activeKey);
+      const Options = [];
+      if (item.options) {
+        Object.keys(item.options).map(key =>
+          Options.push(
+            [key, item.options[key]]
+            )
+          );
+      }
+      Options.sort(this.compareKey)
+      const ranges = [];
+      Options.map(pair => {
+        if (pair[0].includes('-')) {
+          ranges.push(pair[0].split('-').map(n => parseInt(n, 10)))
+        }
+      })
+
+      const response = (this.props.interview.responses && this.props.interview.responses[item.key]) || '';
+      let sliderValue = (this.props.interview.sliderValues && this.props.interview.sliderValues[item.key]) || null;
+
+      if (ranges.length) {
+        const min = ranges[0][0];
+        const max = ranges[0][1];
+        if (sliderValue === null) {
+          sliderValue = min
+        }
+        console.log('response and Options:')
+        console.log(response)
+        console.log(Options)
+        console.log('test:')
+        console.log(this.getIndexComb(4, Options))
+        const currentPos = this.getIndexComb(response, Options);
+        this.setState({
+          Options: Options,
+          response: response,
+          sliderValue: sliderValue,
+          value: sliderValue,
+          currentPos: currentPos,
+          min: min,
+          max: max
+        })
+      }
+      else {
+        const currentPos = this.getIndex_0(response, Options);
+        this.setState({
+          Options: Options,
+          response: response,
+          sliderValue: sliderValue,
+          value: sliderValue,
+          currentPos: currentPos,
+          min: null,
+          max: null
+        })
+      }
+    }
+  }
+
 
   write = (array, pair) => {
     if (pair[0].includes("-")) {
@@ -91,6 +136,25 @@ class Response extends React.Component {
    }
  };
 
+ getIndexComb = (value, array) => {
+  for(var i = 0; i < array.length; i++) {
+    if(array[i][0] === value) {
+      return i;
+    }
+    else if (array[i][0].toString().includes('-')) {
+      const ranges = array[i][0].toString().split('-').map(n => parseInt(n, 10));
+      const min = ranges[0];
+      const max = ranges[1];
+      if ((min <= value) && (value <= max)) {
+        return i
+      }
+    }
+    else {
+      return null
+    }
+  }
+}
+
   // Function returning the index of a possible element in an array.
   getIndex = (value, arr) => {
     for(var i = 0; i < arr.length; i++) {
@@ -120,6 +184,12 @@ class Response extends React.Component {
     }
   }
 
+  compareKey = (x,y) => {
+    if (x < y) return -1;
+    if (x === y) return 0;
+    if (x > y) return 1;
+  }
+
 
 
   render() {
@@ -127,6 +197,7 @@ class Response extends React.Component {
     const dispatch = this.props.dispatch;
     const interview = this.props.interview;
     const settings = this.props.settings;
+    const Options = this.state.Options;
 
     let item = getItemByKey(interview.activeKey);
     if (!item) {
@@ -172,23 +243,11 @@ class Response extends React.Component {
 
   // Compare function, used to sort the upcomming Options array, so that for example 0-799 is smaller than 800
   // TODO: This only correctly sorts if x is an interval with values less than y. Currently a complete hack.
-  function compareKey(x,y) {
-    if (x < y) return -1;
-    if (x === y) return 0;
-    if (x > y) return 1;
-  }
+
 
   //Array containing the options, as pairs with 0th enntry the key, and second entry the description.
   // TODO: This gives the error "Warning: Each child in an array or iterator should have a unique "key" prop.". I believe the solution is to somehow attach a key to each pushed entry, but I have not found out how to do this. So far it mostly looks like a aestethic error, but it needs to be fixed to be sure.
-  const Options = [];
-  if (item.options) {
-    Object.keys(item.options).map(key =>
-      Options.push(
-        [key, item.options[key]]
-        )
-      );
-    Options.sort(compareKey);
-  }
+
 
   const ranges = [];
   Options.map(pair => {
@@ -202,24 +261,8 @@ class Response extends React.Component {
     this.state.max = parseInt(ranges[0].split('-')[1])
   }
 
-  if (response !== '') {
-    if (this.getIndex_0(response, Options) != -1) {
-      this.state.currentPos = this.getIndex_0(response, Options);
-    }
-  }
-  else {
-    this.state.currentPos = null;
-  }
 
-  if (sliderValue !== '') {
-    this.state.value = parseInt(sliderValue);
-    if (this.getIndex_0(response, Options) != -1) {
-      this.state.currentPos = this.getIndex_0(response, Options);
-    }
-    else {
-      this.state.currentPos = this.getIndex_0(this.state.min + '-' + this.state.max, Options)
-    }
-  }
+
 
   // For debugging only
   console.log('currentPos: ' + this.state.currentPos);
@@ -229,6 +272,7 @@ class Response extends React.Component {
   console.log('value: ' + this.state.value);
   console.log('hasSlider: ' + this.state.hasSlider);
   console.log('sliderValue: ' + sliderValue);
+  console.log('true sliderValue: ' + this.props.interview.sliderValues[item.key])
 
   // Returns the specific interview item.
   return (
@@ -283,8 +327,8 @@ class Response extends React.Component {
               if (Options[0][0].includes('-')) {
                 dispatch(setResponse({
                   key: item.key,
-                  value: this.state.value.toString(),
-                  sliderValue: this.state.value.toString()
+                  value: this.state.min,
+                  sliderValue: this.state.min
                 }))
               }
               else {
@@ -460,15 +504,20 @@ class Response extends React.Component {
         dispatch(
           setResponse({
             key: item.key,
-            value: event.target.value.toString(),
-            sliderValue: event.target.value.toString()
+            value: event.target.value.toString()
           })
           );
-        if (this.state.hasSlider) {
+        if (event.target.value == "") {
+          this.setState({
+            currentPos: null
+          })
+        }
+        else if (this.state.hasSlider) {
           if ((this.state.min <= event.target.value) && (event.target.value <= this.state.max)) {
             this.setState({
               value: event.target.value,
-              currentPos: this.getIndex_0(this.state.min + '-' + this.state.max, Options)
+              currentPos: this.getIndexComb(event.target.value.toString(), Options),
+              sliderValue: event.target.value
             });
           }
           else {
@@ -476,32 +525,28 @@ class Response extends React.Component {
           }
         }
         else {
-          // TODO: Decide whether deleting all input should set currentPos to 0 or let it be as it is
-          if (event.target.value == "") {}
-            else {
-             this.state.currentPos = this.getIndex_0(event.target.value, Options);
-           }}
+         this.state.currentPos = this.getIndex_0(event.target.value, Options);
+       }
+     }
+   }}
+   placeholder={item.validate}
+   value={response}
+   autoFocus
+   />
 
-         }
-       }}
-       placeholder={item.validate}
-       value={response}
-       autoFocus
-       />
-
-       {settings.showItemNotes && (
-        <textarea
-        onChange={event =>
-          dispatch(
-            setNote({ key: item.key, value: event.target.value })
-            )
-        }
-        defaultValue={note}
-        placeholder="Note"
-        />
-        )}
-       </Fragment>
-       )}
+   {settings.showItemNotes && (
+    <textarea
+    onChange={event =>
+      dispatch(
+        setNote({ key: item.key, value: event.target.value })
+        )
+    }
+    defaultValue={note}
+    placeholder="Note"
+    />
+    )}
+   </Fragment>
+   )}
 </div>
 {showGlossary && (
   <div className="interview-item-glossary">
