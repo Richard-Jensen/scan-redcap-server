@@ -3670,9 +3670,10 @@ var scanInfo = exports.scanInfo = window.scanInfo;
 var scanData = exports.scanData = window.scanData;
 
 var saveInterview = exports.saveInterview = function saveInterview(id, data) {
-  window.axios.post("/scan/" + id + "/save", {
+  window.axios.post('/scan/' + id + '/save', {
     data: data
   }).then(function (response) {
+    console.log('test');
     console.log(response);
   });
 };
@@ -58096,6 +58097,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -58148,7 +58151,7 @@ var Response = function (_React$Component) {
         return [_this.isActive(array, pair, pair[1]), _react2.default.createElement(_ResponseSlider2.default, {
           id: 'Slider',
           array: array,
-          responseValue: _this.state.value,
+          responseValue: _this.state.sliderValue,
           min: parseInt(pair[0].split('-')[0]),
           max: parseInt(pair[0].split('-')[1]),
           ref: _this.slider,
@@ -58169,19 +58172,18 @@ var Response = function (_React$Component) {
       for (var i = 0; i < array.length; i++) {
         if (array[i][0] === value) {
           return i;
-        } else if (array[i][0].toString().includes('-')) {
-          var ranges = array[i][0].toString().split('-').map(function (n) {
+        } else if (array[i][0].includes('-')) {
+          var ranges = array[i][0].split('-').map(function (n) {
             return parseInt(n, 10);
           });
           var min = ranges[0];
           var max = ranges[1];
-          if (min <= value && value <= max) {
+          if (min <= parseInt(value, 10) && parseInt(value, 10) <= max) {
             return i;
           }
-        } else {
-          return null;
         }
       }
+      return null;
     };
 
     _this.getIndex = function (value, arr) {
@@ -58229,7 +58231,7 @@ var Response = function (_React$Component) {
       min: 1,
       max: 0,
       Options: [],
-      response: null
+      sliderValue: 0
     };
     _this.inputBox = _react2.default.createRef();
     _this.slider = _react2.default.createRef();
@@ -58239,16 +58241,22 @@ var Response = function (_React$Component) {
   _createClass(Response, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var item = (0, _items.getItemByKey)(this.props.interview.activeKey);
+      var activeKey = this.props.interview.activeKey;
+      var item = (0, _items.getItemByKey)(activeKey);
       var Options = [];
+      var response = this.props.interview.responses && this.props.interview.responses[item.key] || '';
+      var sliderValue = this.props.interview.sliderValues[activeKey];
       if (item.options) {
         Object.keys(item.options).map(function (key) {
           return Options.push([key, item.options[key]]);
         });
         Options.sort(this.compareKey);
+
+        var currentPos = this.getIndexComb(response, Options);
         this.setState({
           Options: Options,
-          value: 1
+          currentPos: currentPos,
+          sliderValue: sliderValue
         });
       }
     }
@@ -58256,7 +58264,6 @@ var Response = function (_React$Component) {
     key: 'componentDidUpdate',
     value: function componentDidUpdate(prevProps) {
       if (this.props.interview.activeKey !== prevProps.interview.activeKey) {
-        console.log('update');
         var _item = (0, _items.getItemByKey)(this.props.interview.activeKey);
         var Options = [];
         if (_item.options) {
@@ -58283,11 +58290,6 @@ var Response = function (_React$Component) {
           if (sliderValue === null) {
             sliderValue = min;
           }
-          console.log('response and Options:');
-          console.log(response);
-          console.log(Options);
-          console.log('test:');
-          console.log(this.getIndexComb(4, Options));
           var currentPos = this.getIndexComb(response, Options);
           this.setState({
             Options: Options,
@@ -58303,7 +58305,7 @@ var Response = function (_React$Component) {
           this.setState({
             Options: Options,
             response: response,
-            sliderValue: sliderValue,
+            sliderValue: null,
             value: sliderValue,
             currentPos: _currentPos,
             min: null,
@@ -58327,6 +58329,7 @@ var Response = function (_React$Component) {
       var interview = this.props.interview;
       var settings = this.props.settings;
       var Options = this.state.Options;
+      var sliderValue = this.state.sliderValue;
 
       var item = (0, _items.getItemByKey)(interview.activeKey);
       if (!item) {
@@ -58362,7 +58365,6 @@ var Response = function (_React$Component) {
       }
 
       var response = interview.responses && interview.responses[item.key] || '';
-      var sliderValue = interview.sliderValues && interview.sliderValues[item.key] || '';
 
       var note = interview.notes && interview.notes[item.key] || '';
       var hasInput = input || item.scale;
@@ -58396,12 +58398,10 @@ var Response = function (_React$Component) {
       // For debugging only
       console.log('currentPos: ' + this.state.currentPos);
       console.log('min: ' + this.state.min);
-      console.log('response: ' + response);
+      console.log('response: ' + 'type = ' + (typeof response === 'undefined' ? 'undefined' : _typeof(response)) + ', value = ' + response);
       console.log('max: ' + this.state.max);
-      console.log('value: ' + this.state.value);
       console.log('hasSlider: ' + this.state.hasSlider);
-      console.log('sliderValue: ' + sliderValue);
-      console.log('true sliderValue: ' + this.props.interview.sliderValues[item.key]);
+      console.log('sliderValue: ' + 'type = ' + (typeof sliderValue === 'undefined' ? 'undefined' : _typeof(sliderValue)) + ', value = ' + sliderValue);
 
       // Returns the specific interview item.
       return _react2.default.createElement(
@@ -58424,7 +58424,7 @@ var Response = function (_React$Component) {
                   if (pair[0].includes("-")) {
                     dispatch((0, _actions.setResponse)({
                       key: item.key,
-                      value: _this2.state.value.toString()
+                      value: _this2.state.sliderValue
                     }));
                   } else {
                     dispatch((0, _actions.setResponse)({ key: item.key, value: pair[0] }));
@@ -58466,24 +58466,38 @@ var Response = function (_React$Component) {
                 if (event.keyCode == 38) {
                   if (_this2.state.currentPos === null) {
                     if (Options[0][0].includes('-')) {
-                      dispatch((0, _actions.setResponse)({
-                        key: item.key,
-                        value: _this2.state.min,
-                        sliderValue: _this2.state.min
-                      }));
+                      if (sliderValue !== null) {
+                        dispatch((0, _actions.setResponse)({
+                          key: item.key,
+                          value: sliderValue.toString()
+                        }));
+                        _this2.setState({
+                          currentPos: 0
+                        });
+                      } else {
+                        dispatch((0, _actions.setResponse)({
+                          key: item.key,
+                          value: _this2.state.min.toString(),
+                          sliderValue: _this2.state.min
+                        }));
+                        _this2.setState({
+                          currentPos: 0,
+                          sliderValue: _this2.state.min
+                        });
+                      }
                     } else {
                       dispatch((0, _actions.setResponse)({
                         key: item.key,
                         value: Options[0][0]
                       }));
+                      _this2.setState({
+                        currentPos: 0
+                      });
                     }
-                    _this2.setState({
-                      currentPos: 0
-                    });
                     event.preventDefault();
                   } else {
                     if (Options[_this2.state.currentPos][0].includes('-') && !event.shiftKey) {
-                      if (_this2.state.value === _this2.state.max) {
+                      if (_this2.state.sliderValue === _this2.state.max) {
                         if (_this2.state.currentPos === Options.length - 1) {
                           return;
                         } else {
@@ -58499,20 +58513,20 @@ var Response = function (_React$Component) {
                       } else if (event.target.value == "") {
                         dispatch((0, _actions.setResponse)({
                           key: item.key,
-                          value: _this2.state.min
+                          value: _this2.state.min.toString()
                         }));
                         _this2.setState({
-                          value: parseInt(_this2.state.min)
+                          sliderValue: _this2.state.min
                         });
                         event.preventDefault();
                       } else {
                         _this2.setState({
-                          value: parseInt(_this2.state.value) + 1
+                          sliderValue: parseInt(_this2.state.sliderValue) + 1
                         });
                         dispatch((0, _actions.setResponse)({
                           key: item.key,
-                          value: (parseInt(_this2.state.value) + 1).toString(),
-                          sliderValue: (parseInt(_this2.state.value) + 1).toString()
+                          value: (parseInt(_this2.state.sliderValue) + 1).toString(),
+                          sliderValue: parseInt(_this2.state.sliderValue) + 1
                         }));
                         event.preventDefault();
                       }
@@ -58521,7 +58535,7 @@ var Response = function (_React$Component) {
                     } else if (Options[_this2.state.currentPos + 1][0].includes('-')) {
                       dispatch((0, _actions.setResponse)({
                         key: item.key,
-                        value: _this2.state.value.toString()
+                        value: _this2.state.sliderValue.toString()
                       }));
                       _this2.setState({
                         currentPos: _this2.state.currentPos + 1
@@ -58540,25 +58554,41 @@ var Response = function (_React$Component) {
                   }
                 } else if (event.keyCode == 40) {
                   if (_this2.state.currentPos === null) {
-                    dispatch((0, _actions.setResponse)({
-                      key: item.key,
-                      value: Options[0][0]
-                    }));
-                    _this2.setState({
-                      currentPos: 0
-                    });
+                    if (Options[0][0].includes('-')) {
+                      if (sliderValue !== null) {
+                        dispatch((0, _actions.setResponse)({
+                          key: item.key,
+                          value: sliderValue.toString()
+                        }));
+                        _this2.setState({
+                          currentPos: 0
+                        });
+                      } else {
+                        dispatch((0, _actions.setResponse)({
+                          key: item.key,
+                          value: _this2.state.min.toString(),
+                          sliderValue: _this2.state.min
+                        }));
+                        _this2.setState({
+                          currentPos: 0,
+                          sliderValue: _this2.state.min
+                        });
+                      }
+                    } else {
+                      dispatch((0, _actions.setResponse)({
+                        key: item.key,
+                        value: Options[0][0]
+                      }));
+                      _this2.setState({
+                        currentPos: 0
+                      });
+                    }
+                    event.preventDefault();
                   } else {
                     if (Options[_this2.state.currentPos][0].includes('-') && !event.shiftKey) {
-                      if (_this2.state.value === _this2.state.min) {
+                      if (_this2.state.sliderValue === _this2.state.min) {
                         if (_this2.state.currentPos === 0) {
-                          if (Options.length === 1) {
-                            dispatch((0, _actions.setResponse)({
-                              key: item.key,
-                              value: 1
-                            }));
-                          } else {
-                            return;
-                          }
+                          return;
                         } else {
                           dispatch((0, _actions.setResponse)({
                             key: item.key,
@@ -58575,29 +58605,27 @@ var Response = function (_React$Component) {
                           value: _this2.state.min
                         }));
                         _this2.setState({
-                          value: parseInt(_this2.state.min)
+                          sliderValue: parseInt(_this2.state.min)
                         });
                         event.preventDefault();
                       } else {
                         _this2.setState({
-                          value: parseInt(_this2.state.value) - 1
+                          sliderValue: parseInt(_this2.state.sliderValue) - 1
                         });
                         dispatch((0, _actions.setResponse)({
                           key: item.key,
-                          value: (parseInt(_this2.state.value) - 1).toString(),
-                          sliderValue: (parseInt(_this2.state.value) - 1).toString()
+                          value: (parseInt(_this2.state.sliderValue) - 1).toString(),
+                          sliderValue: parseInt(_this2.state.sliderValue) - 1
                         }));
                         event.preventDefault();
                       }
-                    } else if (_this2.state.currentPos === 0) {
-                      return;
                     } else if (Options[_this2.state.currentPos - 1][0].includes('-')) {
                       _this2.setState({
                         currentPos: _this2.state.currentPos - 1
                       });
                       dispatch((0, _actions.setResponse)({
                         key: item.key,
-                        value: _this2.state.value.toString()
+                        value: _this2.state.sliderValue.toString()
                       }));
                       event.preventDefault();
                     } else {
@@ -68398,7 +68426,7 @@ var ResponseSlider = function (_Component) {
       });
       _this.handlers.handleChange(value);
       _this.props.response.setState({
-        value: value,
+        sliderValue: value,
         currentPos: _this.props.response.getIndex_0(_this.props.min + '-' + _this.props.max, _this.props.array)
       });
     };
