@@ -58692,11 +58692,6 @@ var Response = function (_React$Component) {
                       currentPos: _this2.getIndex_0(event.target.value, Options)
                     });
                   }
-                } else {
-                  dispatch({
-                    key: item.key,
-                    value: event.target.value
-                  });
                 }
               },
               placeholder: item.validate,

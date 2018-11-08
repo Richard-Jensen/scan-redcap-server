@@ -589,12 +589,6 @@ class Response extends React.Component {
           })
         }
       }
-      else {
-        dispatch({
-          key: item.key,
-          value: event.target.value
-        })
-      }
 
     }}
     placeholder={item.validate}
