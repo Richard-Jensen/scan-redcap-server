@@ -167,7 +167,9 @@ items:
 
 - key: "1.008"
   title: "Antal dage i PS Sædvanligvis 28 dage."
-  input: string
+  input: integer
+  options:
+    0-100: "Antal dage i PS Sædvanligvis 28 dage."
   used_in_dsmiv: 1
   glossary: 1.007
 
@@ -4048,6 +4050,7 @@ items:
   validate: [0,1,8,9]
 
 - key: "6.032"
+  title: "6.032 TODO"
   input: integer
   options:
     0: "Ikke rated"
@@ -4056,6 +4059,7 @@ items:
   validate: [0-3,8,9]
 
 - key: "6.033"
+  title: "6.033 TODO"
   description: |
     affektive symptomer. Hele forløbet tages i betragtning.
   input: integer
@@ -4077,6 +4081,7 @@ items:
   validate: [0-2,8,9]
 
 - key: "6.035"
+  title: "6.035 TODO"
   description: |
     Hele forløbet tages i betragtning.
   input: integer
@@ -4087,7 +4092,8 @@ items:
   validate: [0-2,8,9]
 
 - key: "6.036"
-  description: |
+  title: "6.036"
+  description: ""
   input: integer
   options:
     0: "Ikke rated"
@@ -4095,6 +4101,7 @@ items:
   validate: [0-5,8,9]
 
 - key: "6.037"
+  title: "6.037"
   description: |
     Anvendes særligt ved registrering af seasonal affective disorder eller rapid cycling.
   input: integer
@@ -4102,21 +4109,27 @@ items:
   validate: [0-3,8,9]
 
 - key: "6.038"
+  title: "6.038"
   input: date_interval
 
 - key: "6.039"
+  title: "3.039"
   input: date_interval
 
 - key: "6.040"
+  title: "6.040"
   input: date_interval
 
 - key: "6.041"
+  title: "6.041"
   input: date_interval
 
 - key: "6.042"
+  title: "6.042"
   input: date_interval
 
 - key: "6.043"
+  title: "6.043"
   input: date_interval
 
 - key: "6.044"
@@ -4319,6 +4332,7 @@ items:
   validate: [0-99]
 
 - key: "6.064"
+  title: "6.064"
   input: integer
   options:
     0: "Nej"
@@ -4326,6 +4340,7 @@ items:
   validate: [0,1,8,9]
 
 - key: "6.065"
+  title: "6.065"
   input: integer
   options:
     0: "Nej"
@@ -4346,6 +4361,7 @@ items:
   validate: [0-99]
 
 - key: "6.068"
+  title: "6.068"
   input: integer
   options:
     0: "Nej"
@@ -4353,6 +4369,7 @@ items:
   validate: [0,1,8,9]
 
 - key: "6.069"
+  title: "6.069"
   input: integer
   options:
     0: "Nej"
@@ -4384,6 +4401,7 @@ items:
   validate: [0,1,8,9]
 
 - key: "6.073"
+  title: "6.073"
   input: integer
   options:
     0: "Nej"
@@ -4403,6 +4421,7 @@ items:
   validate: [0,1,8,9]
 
 - key: "6.075"
+  title: "6.075"
   input: integer
   options:
     0: "Ikke til stede"
@@ -4412,6 +4431,7 @@ items:
   validate: [0-3,8,9]
 
 - key: "6.076"
+  title: "6.076"
   input: integer
   options:
     0: "Fraværende"
