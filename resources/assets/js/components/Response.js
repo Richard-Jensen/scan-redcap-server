@@ -28,9 +28,9 @@ class Response extends React.Component {
     this.slider = React.createRef();
   }
 
-  componentDidMount() {
-    const activeKey = this.props.interview.activeKey;
-    let item = getItemByKey(activeKey);
+  update = () => {
+    let item = getItemByKey(this.props.interview.activeKey);
+    const Options = [];
     let hasScale = item.scale;
     if (hasScale && scales[item.scale]) {
       const scale = scales[item.scale];
@@ -41,88 +41,63 @@ class Response extends React.Component {
         input: scale.input
       };
     }
-    const Options = [];
-    const response = (this.props.interview.responses && this.props.interview.responses[item.key]) || '';
-    const sliderValue = this.props.interview.sliderValues[activeKey];
     if (item.options) {
       Object.keys(item.options).map(key =>
         Options.push(
           [key, item.options[key]]
           )
         );
-      Options.sort(this.compareKey);
+    }
+    Options.sort(this.compareKey)
+    const ranges = [];
+    Options.map(pair => {
+      if (pair[0].includes('-')) {
+        ranges.push(pair[0].split('-').map(n => parseInt(n, 10)))
+      }
+    })
 
+    const response = (this.props.interview.responses && this.props.interview.responses[item.key]) || '';
+    let sliderValue = (this.props.interview.sliderValues && this.props.interview.sliderValues[item.key]) || null;
+
+
+    if (ranges.length) {
+      const min = ranges[0][0];
+      const max = ranges[0][1];
+      if (sliderValue === null) {
+        sliderValue = min
+      }
       const currentPos = this.getIndexComb(response, Options);
       this.setState({
         Options: Options,
-        currentPos: this.getIndexComb(response, Options),
-        sliderValue: sliderValue
+        response: response,
+        sliderValue: sliderValue,
+        value: sliderValue,
+        currentPos: currentPos,
+        min: min,
+        max: max
+      })
+    }
+    else {
+      const currentPos = this.getIndexComb(response, Options);
+      this.setState({
+        Options: Options,
+        response: response,
+        sliderValue: null,
+        value: sliderValue,
+        currentPos: currentPos,
+        min: null,
+        max: null
       })
     }
   }
 
+  componentDidMount() {
+    this.update();
+  }
+
   componentDidUpdate(prevProps) {
     if (this.props.interview.activeKey !== prevProps.interview.activeKey) {
-      let item = getItemByKey(this.props.interview.activeKey);
-      const Options = [];
-      let hasScale = item.scale;
-      if (hasScale && scales[item.scale]) {
-        const scale = scales[item.scale];
-        item = {
-          ...item,
-          options: scale.options,
-          validate: scale.validate,
-          input: scale.input
-        };
-      }
-      if (item.options) {
-        Object.keys(item.options).map(key =>
-          Options.push(
-            [key, item.options[key]]
-            )
-          );
-      }
-      Options.sort(this.compareKey)
-      const ranges = [];
-      Options.map(pair => {
-        if (pair[0].includes('-')) {
-          ranges.push(pair[0].split('-').map(n => parseInt(n, 10)))
-        }
-      })
-
-      const response = (this.props.interview.responses && this.props.interview.responses[item.key]) || '';
-      let sliderValue = (this.props.interview.sliderValues && this.props.interview.sliderValues[item.key]) || null;
-
-
-      if (ranges.length) {
-        const min = ranges[0][0];
-        const max = ranges[0][1];
-        if (sliderValue === null) {
-          sliderValue = min
-        }
-        const currentPos = this.getIndexComb(response, Options);
-        this.setState({
-          Options: Options,
-          response: response,
-          sliderValue: sliderValue,
-          value: sliderValue,
-          currentPos: currentPos,
-          min: min,
-          max: max
-        })
-      }
-      else {
-        const currentPos = this.getIndexComb(response, Options);
-        this.setState({
-          Options: Options,
-          response: response,
-          sliderValue: null,
-          value: sliderValue,
-          currentPos: currentPos,
-          min: null,
-          max: null
-        })
-      }
+      this.update();
     }
   }
 
@@ -263,29 +238,6 @@ class Response extends React.Component {
     fontSize: 40,
   };
 
-  // Compare function, used to sort the upcomming Options array, so that for example 0-799 is smaller than 800
-  // TODO: This only correctly sorts if x is an interval with values less than y. Currently a complete hack.
-
-
-  //Array containing the options, as pairs with 0th enntry the key, and second entry the description.
-  // TODO: This gives the error "Warning: Each child in an array or iterator should have a unique "key" prop.". I believe the solution is to somehow attach a key to each pushed entry, but I have not found out how to do this. So far it mostly looks like a aestethic error, but it needs to be fixed to be sure.
-
-
-  const ranges = [];
-  Options.map(pair => {
-    if (pair[0].includes('-')) {
-      ranges.push(pair[0])
-    }
-  })
-
-  if (!(ranges.length === 0)) {
-    this.state.min = parseInt(ranges[0].split('-')[0])
-    this.state.max = parseInt(ranges[0].split('-')[1])
-  }
-
-
-
-
   // For debugging only
   console.log('currentPos: ' + currentPos);
   console.log('min: ' + this.state.min);
@@ -342,7 +294,7 @@ class Response extends React.Component {
         onKeyDown={event => {
           //Keycode 38 is arrow key up, 40 is down
           // TODO: Refactor this. It's a huge mess.
-          if(event.keyCode==38) {
+          if (event.keyCode==38) {
             if (currentPos === null) {
               if (Options[0][0].includes('-')) {
                 if (sliderValue !== null) {
@@ -539,7 +491,6 @@ class Response extends React.Component {
               return
             }
             else {
-              console.log('test')
               dispatch(
                 setResponse({
                   key: item.key,
@@ -557,7 +508,13 @@ class Response extends React.Component {
     }
 
     onChange={event => {
-      if (validateNumeric(event.target.value, Object.keys(item.options))) {
+      if (input === 'date' || input === 'date_interval') {
+        dispatch(setResponse({
+          key: item.key,
+          value: event.target.value
+        }))
+      }
+      else if (validateNumeric(event.target.value, Object.keys(item.options))) {
         dispatch(
           setResponse({
             key: item.key,
@@ -589,6 +546,7 @@ class Response extends React.Component {
           })
         }
       }
+
 
     }}
     placeholder={item.validate}

@@ -645,29 +645,33 @@ items:
   validate: [0-2,8]
   glossary: 1.045
 
+
 - key: "1.046"
   title: "Alder ved første prodromalsymptomer"
-  description: |
-    98 Uoplyst
-    99 Ikke anvendelig
+  options:
+    0-97: "Under 98 år"
+    98: "Uoplyst"
+    99: "Ikke anvendelig"
   input: integer
   validate: [0-99]
   glossary: 1.045
 
 - key: "1.047"
   title: "Alder ved første klare erkendelse af tilstanden"
-  description: |
-    98 Uoplyst
-    99 Ikke anvendelig
+  options:
+    0-97: "Under 98 år"
+    98: "Uoplyst"
+    99: "Ikke anvendelig"
   input: integer
   validate: [0-99]
   glossary: 1.045
 
 - key: "1.048"
   title: "Alder ved første behandlingskontakt"
-  description: |
-    98 Uoplyst
-    99 Ikke anvendelig
+  options:
+    0-97: "Under 98 år"
+    98: "Uoplyst"
+    99: "Ikke anvendelig"
   input: integer
   validate: [0-99]
   glossary: 1.045
@@ -696,18 +700,20 @@ items:
 
 - key: "1.051"
   title: "Totale antal hospitalsindlæggelser for psykisk lidelse"
-  description: |
-    98 Uoplyst
-    99 Ikke anvendelig
+  options:
+    0-97: "Under 98 år"
+    98: "Uoplyst"
+    99: "Ikke anvendelig"
   input: integer
   validate: [0-99]
   glossary: 1.045
 
 - key: "1.052"
   title: "Længste hospitalshopholds varighed i måneder"
-  description: |
-    998 Uoplyst
-    999 Ikke anvendelig
+  options:
+    0-100: "Antal måneder"
+    98: "Uoplyst"
+    99: "Ikke anvendelig"
   input: integer
   validate: [0-99,998,999]
   glossary: 1.045
@@ -715,8 +721,9 @@ items:
 - key: "1.053"
   title: "Antal tidligere episoder med klinisk betydende symptomer"
   options:
-    98: Uoplyst
-    99: Ikke anvendelig
+    0-100: "Antal måneder"
+    98: "Uoplyst"
+    99: "Ikke anvendelig"
   input: integer
   glossary: 1.045
 
@@ -864,7 +871,7 @@ items:
     9: Ukendt
   validate: [0,1,9]
   help: |
-    Bedømmes ud fra graden af optagethed, sygdomsfølelse eller gener, og hyppigheden af konsultatio¬ner og undersøgelser, graden af symptomer eller overdreven sygdomsbekymring.
+    Bedømmes ud fra graden af optagethed, sygdomsfølelse eller gener, og hyppigheden af konsultationer og undersøgelser, graden af symptomer eller overdreven sygdomsbekymring.
 
     Se også [2.037].
   glossary: |
@@ -1610,6 +1617,7 @@ items:
 
 - key: 2.015d
   title: Krampeanfald eller -trækninger
+  scale: 1a
   description: |
      *- Har du haft anfald med trækninger i musklerne på det seneste?*
 
@@ -1635,6 +1643,7 @@ items:
   title: Ufrivillige, unormale bevægelser (ud over kramper)
   description: |
     **(rysten, dystoni, myokloni)**
+  scale: 1a
   glossary: |
       This item also includes speech.  These may mimic any neurological deficit such as astasia, abasia, akinesia, apraxia, aphonia, dysarthria, dyskinesia, paraparesis or paralysis.
 
@@ -2932,7 +2941,7 @@ items:
 - key: 2.090
   title: Inaktivitet
   description: |
-   Notmalt sidder man ikke helt stille men bevæger sigt rundt på stolen og skifter stilling for at undgå for meget pres på en enkelt muskel eller muskelgruppe. Det kan være ubehageligt eller give smerter at sidde i samme stilling i lang tid. Det er blevet observeret, at patienter med funktionelle lidelser/BDS bevæger sig mindre og ikke har disse kropslige tilpasninger som de fleste andre har.
+   Normalt sidder man ikke helt stille men bevæger sigt rundt på stolen og skifter stilling for at undgå for meget pres på en enkelt muskel eller muskelgruppe. Det kan være ubehageligt eller give smerter at sidde i samme stilling i lang tid. Det er blevet observeret, at patienter med funktionelle lidelser/BDS bevæger sig mindre og ikke har disse kropslige tilpasninger som de fleste andre har.
   input: integer
   options:
     0: Moves normally
@@ -3528,6 +3537,7 @@ items:
   validate: [0-99]
 
 - key: "4.057"
+  title: "4.057"
   input: integer
   options:
     0: "Nej"
@@ -3535,6 +3545,7 @@ items:
   validate: [0,1,8,9]
 
 - key: "4.058"
+  title: "4.058"
   input: integer
   options:
     0: "Nej"
@@ -4034,7 +4045,7 @@ items:
 
 - key: "6.030"
   title: "ANAMNESTISKE OPLYSNINGER"
-  description: |
+  description: "description"
   input: integer
   options:
     0: "Ikke rated"
