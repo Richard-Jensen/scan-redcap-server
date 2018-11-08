@@ -1,4 +1,725 @@
 items:
+
+#Sektion 1
+
+- key: "1.001.section"
+  type: "divider"
+  title: "Sektion 1"
+  description: |
+    # Indledning til interview
+    Formålet med sektion 1 er at opnå et overblik over mulige symptomer, som
+    den undersøgte person (R) kan have.
+    Fra sektion 1 kan man fortsætte til de sektioner, som indeholder særligt
+    fremtrædende symptomer eller symptomer, som R ønsker at fortælle om først.
+    Også i tilfælde af, at interviewet ikke kan gennemføres fuldt ud, bør man
+    søge at få udspurgt om de væsentligste områder først. Intervieweren bør
+    forud for interviewet have sat sig grundigt ind i alle foreliggende
+    oplysninger, og bør være opmærksom på særlige omstændigheder, der kan få
+    betydning for gennemførelsen for interviewet.
+    ## Særlige omstændigheder
+      1. Svære sprog og forståelsesmæssige vanskeligheder, eller kognitiv
+         svækkelse
+         - Rate sektion 15 for sprogmæssige og forståelsesmæssige
+           vanskeligheder
+         - Rate sektion 21 for kognitiv svækkelse
+         - Rate sektion 22-25 for objektivt iagttagelige sproglige
+           forstyrrelser, adfærds- og følelsesmæssige abnormiteter
+         - Gennemgå CHS
+      2. Svært forstyrret adfærd, svigtende kooperation eller anden risiko for
+         at interviewet ikke kan gennemføres fuldt ud
+         Begynd med de sektioner, der forekommer at have størst betydning for
+         R. Forsøg at holde samtalen i gang under samtidig observation af den sproglige
+- key: "1.001"
+  title: "R's spontane svar på de indledende spørgsmål"
+  description: |
+    ## Indledende bemærkninger
+    Til at begynde med, vil jeg bede dig fortælle om, hvilke problemer eller
+    vanskeligheder der har været af fysisk eller psykisk art i den senere tid.
+    Har du følt dig sund og rask i fysisk og psykisk henseende, eller har der
+    været noget i vejen?
+    Giv R mulighed for at komme med en spontan beskrivelse, anvend evt. kun få
+    klargørende spørgsmål, såsom:
+      - Kan du forklare lidt nærmere, hvordan det var med.....?
+      - Kan du give et eksempel......?
+      - Har du stadig.......?
+      - Hvornår begyndte......?
+      - Har du fået nogen behandling for......?
+      - Hvilken?
+      - Tabletter, samtaler, eller anden behandling?
+    Hvis R ikke beskriver relevante symptomer, kan man spørge: Synes du
+    ligefrem, at du har haft et strålende fysisk eller psykisk helbred den
+    senere tid, uden problemer eller vanskeligheder af nogen art?
+  input: integer
+  options:
+    0: "R beskriver ingen psykotiske, affektive eller neurotiske symptomer den senere tid"
+    1: "R beskriver spontant sådanne symptomer"
+    2: "R utilbøjelig til at beskrive symptomer og kun efter nærmere udspørgen"
+    8: "R svarer uden at give brugbare oplysninger"
+  section_start: Section_1
+  validate: [0-2,8]
+  glossary: 1.001
+
+- key: "1.002.section"
+  title: Symptomgrupper
+  description: |
+    Benyt alle foreliggende oplysninger, og rate, om der nu eller nogensinde
+    har været symptomer til stede for grupperne 1.002-1.006.
+    Hvis patienten ikke spontant fremkommer med oplysninger kan man spørge:
+    Der findes særlige områder, hvor mange mennesker oplever problemer eller
+    vanskeligheder. Har du nogensinde har haft vanskeligheder m.h.t. (1.002-1.006)?
+    Hvor generende og besværligt har det været?
+    For hver gruppe af symptomer spørges:
+      - Kan du beskrive nærmere, hvordan det føltes?
+      - Hvornår begyndte det første gang, hvor gammel var du da?
+      - Har det været til stede siden, i perioder eller hele tiden?
+      - Hvor lang tid har du haft det nu?
+- key: "1.002"
+  title: "Angst eller panikfølelse, ofte i særlige situationer?"
+  description: |
+    - Kan du beskrive nærmere, hvordan det føltes?
+    - Hvornår begyndte det første gang, hvor gammel var du da?
+    - Har det været til stede siden, i perioder eller hele tiden?
+    - Hvor lang tid har du haft det nu?
+  input: integer
+  options:
+    0: "Ingen af disse symptomer til stede nogen sinde"
+    1: "Til stede, men kun i let grad"
+    2: "Til stede i moderat grad"
+    3: "Til stede i svær grad"
+  validate: [0-3,8,9]
+  glossary: 1.001
+
+- key: "1.003"
+  title: "Nedtrykthed"
+  description: |
+    - Kan du beskrive nærmere, hvordan det føltes?
+    - Hvornår begyndte det første gang, hvor gammel var du da?
+    - Har det været til stede siden, i perioder eller hele tiden?
+    - Hvor lang tid har du haft det nu?
+  input: integer
+  options:
+    0: "Ingen af disse symptomer til stede nogen sinde"
+    1: "Til stede, men kun i let grad"
+    2: "Til stede i moderat grad"
+    3: "Til stede i svær grad"
+  validate: [0-3,8,9]
+  glossary: 1.001
+
+- key: "1.004"
+  title: "Opstemthed - med følelse af at være højt oppe eller meget irritabel uden grund"
+  description: |
+    - Kan du beskrive nærmere, hvordan det føltes?
+    - Hvornår begyndte det første gang, hvor gammel var du da?
+    - Har det været til stede siden, i perioder eller hele tiden?
+    - Hvor lang tid har du haft det nu?
+  input: integer
+  options:
+    0: "Ingen af disse symptomer til stede nogen sinde"
+    1: "Til stede, men kun i let grad"
+    2: "Til stede i moderat grad"
+    3: "Til stede i svær grad"
+  validate: [0-3,8,9]
+  glossary: 1.001
+
+- key: "1.005"
+  title: "Oplevelser, som er vanskelige at forstå eller forklare, såsom at kunne høre stemmer eller se syner"
+  description: |
+    - Kan du beskrive nærmere, hvordan det føltes?
+    - Hvornår begyndte det første gang, hvor gammel var du da?
+    - Har det været til stede siden, i perioder eller hele tiden?
+    - Hvor lang tid har du haft det nu?
+  input: integer
+  options:
+    0: "Ingen af disse symptomer til stede nogen sinde"
+    1: "Til stede, men kun i let grad"
+    2: "Til stede i moderat grad"
+    3: "Til stede i svær grad"
+  validate: [0-3,8,9]
+  glossary: 1.001
+
+- key: "1.006"
+  title: "Problemer med alkohol, stoffer, og medikamenter Kan du beskrive nærmere, hvordan det føltes?"
+  description: |
+    - Kan du beskrive nærmere, hvordan det føltes?
+    - Hvornår begyndte det første gang, hvor gammel var du da?
+    - Har det været til stede siden, i perioder eller hele tiden?
+    - Hvor lang tid har du haft det nu?
+    CUT OFF => til 2.001, hvis 1.002-1.006 alle rates 0
+  input: integer
+  options:
+    0: "Ingen af disse symptomer til stede nogen sinde"
+    1: "Til stede, men kun i let grad"
+    2: "Til stede i moderat grad"
+    3: "Til stede i svær grad"
+  validate: [0-3,8,9]
+  glossary: 1.001
+
+- key: "1.007"
+  title: "Begyndelsestidspunktet for nuværende episode (PE)"
+  description: |
+     Afgør ud fra det oplyste, hvilken undersøgelsesperiode for de klinisk
+     mest betydende symptomer, der skal anvendes. Anfør tidsangivelser
+     nedenfor. I slutningen af hver sektion er der mulighed for at anføre
+     afvigende tidsangivelser for symptomer i den pågældende sektion.
+  input: date
+  fitb_size: DATE_NORMAL
+  glossary: 1.007
+
+- key: "1.008"
+  title: "Antal dage i PS Sædvanligvis 28 dage."
+  input: string
+  used_in_dsmiv: 1
+  glossary: 1.007
+
+- key: "1.009"
+  title: "Tidsperiode for RE (mdr., år)"
+  input: date_interval
+  fitb_size: DATE_NODAY
+  glossary: 1.007
+
+- key: "1.010"
+  title: "Antal uger i RE"
+  description: |
+     ## Tidsangivelse for livsperioden forud for PS
+     Livsperioden forud for PS anføres fra alderen ved første optræden af
+     symptomer. Disse kan herefter optræde kontinuerligt eller i episoder.
+     Anvend LB hvis PS og RE tilsammen ikke giver adækvat beskrivelse af de
+     klinisk mest betydende symptomer igennem forløbet.
+  input: string
+  glossary: 1.007
+
+- key: "1.011"
+  title: "Episode med neurotiske symptomer"
+  input: date_interval
+  fitb_size: DATE_NODAY
+  glossary: 1.007
+
+- key: "1.012"
+  title: "Episode med depressive symptomer"
+  input: date_interval
+  fitb_size: DATE_NODAY
+  glossary: 1.007
+
+- key: "1.013"
+  title: "Episode med maniske symptomer"
+  input: date_interval
+  fitb_size: DATE_NODAY
+  glossary: 1.007
+
+- key: "1.014"
+  title: "Episode med psykotiske symptomer"
+  input: date_interval
+  fitb_size: DATE_NODAY
+  glossary: 1.007
+
+- key: "1.015"
+  title: "Alder ved første optræden af neurotiske symptomer"
+  input: string
+  validate: [0-99]
+  glossary: 1.015
+
+- key: "1.016"
+  title: "Alder ved første optræden af depressive symptomer"
+  input: string
+  validate: [0-99]
+  glossary: 1.015
+
+- key: "1.017"
+  title: "Alder første optræden af maniske symptomer"
+  input: string
+  validate: [0-99]
+  glossary: 1.015
+
+- key: "1.018"
+  title: "Alder ved første optræden af psykotiske symptomer"
+  description: |
+    Tidsangivelser ved somatoforme og dissociative symptomer,
+    spiseforstyrrelser, forstyrrelser betinget af brug af alkohol eller
+    psykoaktive substanser og kognitiv svækkelse anføres i sektionerne
+    2, 9, 11, 12 og 21.
+  input: string
+  validate: [0-99]
+  glossary: 1.015
+
+- key: "1.019"
+  title: "Kvaliteten af remissionsperioder mellem episoderne"
+  description: |
+    Hvis der har været 2 eller flere episoder af samme eller forskellig
+    karakter rates for eventuelle klinisk betydende symptomer mellem episoderne:
+  input: integer
+  options:
+    0: "Ingen eller kun én episode uden efterfølgende betydende symptomer"
+    1: "Ingen eller kun få symptomer mellem episoderne"
+    2: "Nogle symptomer i nogle af intervallerne"
+    3: "En del symptomer i de fleste intervaller"
+    4: "Udtalte symptomer i alle intervallerne"
+    5: "Vedvarende symptomer, ingen remission"
+  validate: [0-5]
+  used_in_dsmiv: 1
+  glossary: 1.019
+
+- key: "1.020"
+  title: "Episode 1"
+  description: |
+    Til brug ved særlige undersøgelser kan yderligere rates for op til 6
+    specielle perioder (med hver sit kodeskema) Tidsangivelse for specielle
+    enkeltepisoder
+  input: date_interval
+  fitb_size: DATE_NODAY
+  glossary: 1.020
+
+- key: "1.021"
+  title: "Episode 2"
+  input: date_interval
+  fitb_size: DATE_NODAY
+  glossary: 1.020
+
+- key: "1.022"
+  title: "Episode 3"
+  input: date_interval
+  fitb_size: DATE_NODAY
+  glossary: 1.020
+
+- key: "1.023"
+  title: "Episode 4"
+  input: date_interval
+  fitb_size: DATE_NODAY
+  glossary: 1.020
+
+- key: "1.024"
+  title: "Episode 5"
+  input: date_interval
+  fitb_size: DATE_NODAY
+  glossary: 1.020
+
+- key: "1.025"
+  title: "Episode 6"
+  input: date_interval
+  fitb_size: DATE_NODAY
+  glossary: 1.020
+
+- key: "1.026.section"
+  title: "Medikamentel behandling ved behandling ved tidspunktet for undersøgelsen"
+  description: |
+    Du nævnte at du tog medicin/tabletter efter lægens ordination.
+    - Hvad drejer det sig om for medicin?
+    - Hvem ordinerede det?
+    - Hvilken virkning har det haft?
+    - Har det hjulpet på................[symptomerne]?
+    - Er der ubehagelige bivirkninger?
+    - Hvilke?
+- key: "1.026"
+  title: "Hypnotika"
+  description: |
+    - Hvad drejer det sig om for medicin?
+    - Hvem ordinerede det?
+    - Hvilken virkning har det haft?
+    - Har det hjulpet på................[symptomerne]?
+    - Er der ubehagelige bivirkninger?
+    - Hvilke?
+  input: integer
+  options:
+    0: "Ingen medikamenter anvendes"
+    1: "Medikamenter anvendes, skønnes ikke at have påvirket symptomerne"
+    2: "Medikamenter anvendes, kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne"
+    8: "Uoplyst"
+  validate: [0-2,8]
+  glossary: 1.026
+
+- key: "1.027"
+  title: "Anxiolytika"
+  description: |
+    - Hvad drejer det sig om for medicin?
+    - Hvem ordinerede det?
+    - Hvilken virkning har det haft?
+    - Har det hjulpet på................[symptomerne]?
+    - Er der ubehagelige bivirkninger?
+    - Hvilke?
+  input: integer
+  options:
+    0: "Ingen medikamenter anvendes"
+    1: "Medikamenter anvendes, skønnes ikke at have påvirket symptomerne"
+    2: "Medikamenter anvendes, kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne"
+    8: "Uoplyst"
+  validate: [0-2,8]
+  glossary: 1.026
+
+- key: "1.028"
+  title: "Antidepressiva"
+  description: |
+    - Hvad drejer det sig om for medicin?
+    - Hvem ordinerede det?
+    - Hvilken virkning har det haft?
+    - Har det hjulpet på................[symptomerne]?
+    - Er der ubehagelige bivirkninger?
+    - Hvilke?
+  input: integer
+  options:
+    0: "Ingen medikamenter anvendes"
+    1: "Medikamenter anvendes, skønnes ikke at have påvirket symptomerne"
+    2: "Medikamenter anvendes, kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne"
+    8: "Uoplyst"
+  validate: [0-2,8]
+  glossary: 1.026
+
+- key: "1.029"
+  title: "Antimanica"
+  description: |
+    - Hvad drejer det sig om for medicin?
+    - Hvem ordinerede det?
+    - Hvilken virkning har det haft?
+    - Har det hjulpet på................[symptomerne]?
+    - Er der ubehagelige bivirkninger?
+    - Hvilke?
+  input: integer
+  options:
+    0: "Ingen medikamenter anvendes"
+    1: "Medikamenter anvendes, skønnes ikke at have påvirket symptomerne"
+    2: "Medikamenter anvendes, kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne"
+    8: "Uoplyst"
+  validate: [0-2,8]
+  glossary: 1.026
+
+- key: "1.030"
+  title: "Antipsykotika"
+  description: |
+    - Hvad drejer det sig om for medicin?
+    - Hvem ordinerede det?
+    - Hvilken virkning har det haft?
+    - Har det hjulpet på................[symptomerne]?
+    - Er der ubehagelige bivirkninger?
+    - Hvilke?
+  input: integer
+  options:
+    0: "Ingen medikamenter anvendes"
+    1: "Medikamenter anvendes, skønnes ikke at have påvirket symptomerne"
+    2: "Medikamenter anvendes, kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne"
+    8: "Uoplyst"
+  validate: [0-2,8]
+  glossary: 1.026
+
+- key: "1.031"
+  title: "Anti-Parkinsonmidler"
+  description: |
+    - Hvad drejer det sig om for medicin?
+    - Hvem ordinerede det?
+    - Hvilken virkning har det haft?
+    - Har det hjulpet på................[symptomerne]?
+    - Er der ubehagelige bivirkninger?
+    - Hvilke?
+  input: integer
+  options:
+    0: "Ingen medikamenter anvendes"
+    1: "Medikamenter anvendes, skønnes ikke at have påvirket symptomerne"
+    2: "Medikamenter anvendes, kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne"
+    8: "Uoplyst"
+  validate: [0-2,8]
+  episodes: 0
+  used_in_icd10: 1
+  used_in_dsmiv: 1
+  glossary: 1.026
+
+- key: "1.032"
+  title: "Antabus"
+  description: |
+    - Hvad drejer det sig om for medicin?
+    - Hvem ordinerede det?
+    - Hvilken virkning har det haft?
+    - Har det hjulpet på................[symptomerne]?
+    - Er der ubehagelige bivirkninger?
+    - Hvilke?
+  input: integer
+  options:
+    0: "Ingen medikamenter anvendes"
+    1: "Medikamenter anvendes, skønnes ikke at have påvirket symptomerne"
+    2: "Medikamenter anvendes, kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne"
+    8: "Uoplyst"
+  validate: [0-2,8]
+  glossary: 1.026
+
+- key: "1.033"
+  title: "Analgetika"
+  description: |
+    - Hvad drejer det sig om for medicin?
+    - Hvem ordinerede det?
+    - Hvilken virkning har det haft?
+    - Har det hjulpet på................[symptomerne]?
+    - Er der ubehagelige bivirkninger?
+    - Hvilke?
+  input: integer
+  options:
+    0: "Ingen medikamenter anvendes"
+    1: "Medikamenter anvendes, skønnes ikke at have påvirket symptomerne"
+    2: "Medikamenter anvendes, kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne"
+    8: "Uoplyst"
+  validate: [0-2,8]
+  glossary: 1.026
+
+- key: "1.034"
+  title: "Anden medicin, specificeres..."
+  description: |
+    - Hvad drejer det sig om for medicin?
+    - Hvem ordinerede det?
+    - Hvilken virkning har det haft?
+    - Har det hjulpet på................[symptomerne]?
+    - Er der ubehagelige bivirkninger?
+    - Hvilke?
+  input: integer
+  options:
+    0: "Ingen medikamenter anvendes"
+    1: "Medikamenter anvendes, skønnes ikke at have påvirket symptomerne"
+    2: "Medikamenter anvendes, kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne"
+    8: "Uoplyst"
+  validate: [0-2,8]
+  glossary: 1.026
+
+- key: "1.035"
+  title: "Ikke identificeret medicin"
+  description: |
+    - Hvad drejer det sig om for medicin?
+    - Hvem ordinerede det?
+    - Hvilken virkning har det haft?
+    - Har det hjulpet på................[symptomerne]?
+    - Er der ubehagelige bivirkninger?
+    - Hvilke?
+  input: integer
+  options:
+    0: "Ingen medikamenter anvendes"
+    1: "Medikamenter anvendes, skønnes ikke at have påvirket symptomerne"
+    2: "Medikamenter anvendes, kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne"
+    8: "Uoplyst"
+  validate: [0-2,8]
+  glossary: 1.026
+
+- key: "1.036"
+  title: "Virkningen af medikamentel behandling ved undersøgelsestidspunktet"
+  input: integer
+  options:
+    0: "Tilsyneladende ingen virkning"
+    1: "Moderat bedring af symptomerne"
+    2: "Betydelig bedring af symptomerne"
+  validate: [0-2,8,9]
+  glossary: 1.026
+
+- key: "1.037"
+  title: "Bivirkninger af medikamentel behandling ved undersøgelsestidspunktet"
+  input: integer
+  options:
+    0: "Tilsyneladende ingen"
+    1: "Moderate bivirkninger"
+    2: "Svære bivirkninger"
+    3: "Svære bivirkninger, som påvirker vurderingen af symptomer"
+  validate: [0-3,8,9]
+  glossary: 1.026
+
+- key: "1.038"
+  title: "Psykosocial behandling ved undersøgelsestidspunktet"
+  description: |
+     Du nævnte at du var i samtalebehandling.
+     - Ved du hvilken form for samtalebehandling det drejer sig om?
+     - Hvilken virkning har det haft?
+     - Har det hjulpet på ........ symptomerne?
+     - Har behandlingen haft oprivende eller ubehagelige virkning?
+  input: integer
+  options:
+    0: "Ingen psykosocial behandling"
+    1: "Anvendt, men skønnes ikke at have påvirket symptomerne"
+    2: "Anvendt og kan have betydning for til stedeværelsen eller sværhedsgraden af symptomerne"
+    8: "Uoplyst"
+  validate: [0-2,8]
+  glossary: 1.038
+
+- key: "1.039"
+  title: "Formaliseret psykoterapi"
+  description: |
+    - Hvad drejer det sig om for psykoterapi?
+    - Hvem ordinerede det?
+    - Hvilken virkning har det haft?
+    - Har det hjulpet på................[symptomerne]?
+    - Har behandlingen haft oprivende eller ubehagelig virkning?
+    Hvilke?
+  input: integer
+  options:
+    0: "Ingen psykoterapi"
+    1: "Behandlingen skønnes ikke at have påvirket symptomerne"
+    2: "Behandlingen kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne"
+    8: "Uoplyst"
+  validate: [0-2,8]
+  glossary: 1.038
+
+- key: "1.040"
+  title: "Krisebehandling"
+  description: |
+    - Hvilken form for krisebehandling?
+    - Hvem ordinerede den?
+    - Hvilken virkning har det haft?
+    - Har det hjulpet på................[symptomerne]?
+    - Er der ubehagelige virkninger ved behandlingen?
+    - Hvilke?
+  input: integer
+  options:
+    0: "Ingen kriseterapi"
+    1: "Behandlingen skønnes ikke at have påvirket symptomerne"
+    2: "Behandlingen kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne"
+    8: "Uoplyst"
+  validate: [0-2,8]
+  glossary: 1.038
+
+- key: "1.041"
+  title: "Anden formaliseret samtalebehandling"
+  description: |
+    - Hvad drejer det sig om forbehandling?
+    - Hvem ordinerede det?
+    - Hvilken virkning har det haft?
+    - Har det hjulpet på................[symptomerne]?
+    - Er der ubehagelige virkninger af behandlingen?
+    - Hvilke?
+  input: integer
+  options:
+    0: "Ingen behandling"
+    1: "Behandlingen skønnes ikke at have påvirket symptomerne"
+    2: "Behandlingen kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne"
+    8: "Uoplyst"
+  validate: [0-2,8]
+  glossary: 1.038
+
+- key: "1.042"
+  title: "Støtte fra familie og venner"
+  description: |
+    - På hvilken måde støtter de dig?
+    - Hvem tog initiativ til det?
+    - Hvilken virkning har det haft?
+    - Har det hjulpet på................[symptomerne]?
+    - Er der ubehagelige virkninger ved det?
+    - Hvilke?
+  input: integer
+  options:
+    0: "Ingen støtte"
+    1: "Skønnes ikke at have påvirket symptomerne"
+    2: "Kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne"
+    8: "Uoplyst"
+  validate: [0-2,8]
+  glossary: 1.038
+
+- key: "1.043"
+  title: "Anden støtte eller hjælp, specificeres..."
+  description: |
+    - Hvilken støtte drejer det sig om?
+    - Hvem tog initiativ til det?
+    - Hvilken virkning har det haft?
+    - Har det hjulpet på................[symptomerne]?
+    - Er der ubehagelige bivirkninger?
+    - Hvilke?
+  input: integer
+  options:
+    0: "Ingen støtte eller hjælp"
+    1: "Skønnes ikke at have påvirket symptomerne"
+    2: "Kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne"
+    8: "Uoplyst"
+  validate: [0-2,8]
+  glossary: 1.038
+
+- key: "1.044"
+  title: "Global vurdering af virkningen af psykosocial behandling ved undersøgelsestidspunktet"
+  input: integer
+  options:
+    0: "Ingen virkning"
+    1: "Moderat virkning på symptomerne"
+    2: "Betydelig bedring"
+  validate: [0-2,8]
+  glossary: 1.038
+
+- key: "1.045.section"
+  title: "Andre anamnestiske oplysninger"
+
+- key: "1.045"
+  title: "Familiær disposition: forældre, søskende, børn"
+  input: integer
+  options:
+    0: "Ingen"
+    1: "Ja, lignende symptomer som hos R"
+    2: "Ja, andre symptomer end hos R"
+    8: "Uoplyst"
+  validate: [0-2,8]
+  glossary: 1.045
+
+- key: "1.046"
+  title: "Alder ved første prodromalsymptomer"
+  description: |
+    98 Uoplyst
+    99 Ikke anvendelig
+  input: integer
+  validate: [0-99]
+  glossary: 1.045
+
+- key: "1.047"
+  title: "Alder ved første klare erkendelse af tilstanden"
+  description: |
+    98 Uoplyst
+    99 Ikke anvendelig
+  input: integer
+  validate: [0-99]
+  glossary: 1.045
+
+- key: "1.048"
+  title: "Alder ved første behandlingskontakt"
+  description: |
+    98 Uoplyst
+    99 Ikke anvendelig
+  input: integer
+  validate: [0-99]
+  glossary: 1.045
+
+- key: "1.049"
+  title: "Begyndelsesmåde for første sygdomsepisode"
+  input: integer
+  options:
+    1: "Inden for 1 måned"
+    2: "I løbet af 1–3 måneder"
+    3: "I løbet af 3–12 måneder"
+    4: "Over mere end 1 år"
+    8: "Uoplyst"
+  validate: [1-4,8]
+  glossary: 1.045
+
+- key: "1.050"
+  title: "Social kompetence før erkendt sygdomsbegyndelse"
+  input: integer
+  options:
+    0: "Sædvanlige inden for pågældende kulturkreds"
+    1: "Moderat social funktionsnedsættelse"
+    2: "Udtalt social funktionsnedsættelse"
+  validate: [0-2,8]
+  glossary: 1.045
+
+- key: "1.051"
+  title: "Totale antal hospitalsindlæggelser for psykisk lidelse"
+  description: |
+    98 Uoplyst
+    99 Ikke anvendelig
+  input: integer
+  validate: [0-99]
+  glossary: 1.045
+
+- key: "1.052"
+  title: "Længste hospitalshopholds varighed i måneder"
+  description: |
+    998 Uoplyst
+    999 Ikke anvendelig
+  input: integer
+  validate: [0-99,998,999]
+  glossary: 1.045
+
+- key: "1.053"
+  title: "Antal tidligere episoder med klinisk betydende symptomer"
+  options:
+    98: Uoplyst
+    99: Ikke anvendelig
+  input: integer
+  glossary: 1.045
+
+  #Sektion 2
+
 - key: 2.section
   title: FUNKTIONELLE LIDELSER OG HELBREDSANGST
   description: |
@@ -2242,3 +2963,1886 @@ items:
     Check **[27.068]**.
 
     Mental factitious illness is intentional production or feigning of mental illness injuries without clear external motivation (as in simulation) and where the truth is hidden from doctors. Check **27.068**.
+
+# Section 4-8 for testing
+
+- key: "4.001.section"
+  title: "Angst og fobier"
+
+- key: "4.001"
+  title: "Screening for angst"
+  description: |
+    Har du haft angstfornemmelser eller angstanfald, med hjertebanken, rysten, sveden eller tørhedsfornemmelser i munden?
+  input: integer
+  options:
+    0: "Fraværende"
+    1: "Til stede"
+  section_start: Section_4
+  validate: [0,1,8,9]
+
+- key: "4.002"
+  title: "Screening for fobier"
+  description: |
+    Har du haft angstfornemmelser eller angstanfald i særlige situationer, som du derfor har prøvet at undgå, fx at komme i højden, køre i bus, stå i kø, køre med elevator?
+  input: integer
+  options:
+    0: "Fraværende"
+    1: "Til stede"
+  validate: [0,1,8,9]
+
+- key: "4.003.section"
+  title: "Angstsymptomer"
+  description: |
+    Jeg vil spørge dig om en række symptomer, som man kan have i forbindelse med angst eller panikanfald.
+    Gennemgå 4.003-4.019 (autonome items er markeret med +). Afgør først om de er til stede og brug herefter følgende ratings:
+      0. Ikke til stede
+      1. Symptomerne til stede men ikke samtidigt
+      2. Symptomerne til stede samtidigt (fx ved panikanfald)
+      3. Til stede både samtidigt og til forskellig tid
+
+- key: "4.003"
+  title: "Vejrtrækningsbesvær"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Symptomerne til stede men ikke samtidigt"
+    2: "Symptomerne til stede samtidigt (fx ved panikanfald)"
+    3: "Til stede både samtidigt og til forskellig tid"
+  validate: [0-3,8,9]
+
+- key: "4.004"
+  title: "+ Hjertebanken, ekstraslag, hurtig puls"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Symptomerne til stede men ikke samtidigt"
+    2: "Symptomerne til stede samtidigt (fx ved panikanfald)"
+    3: "Til stede både samtidigt og til forskellig tid"
+  validate: [0-3,8,9]
+
+- key: "4.005"
+  title: "Svimmelhed, ørhed i hovedet, besvimelsesfornemmelse"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Symptomerne til stede men ikke samtidigt"
+    2: "Symptomerne til stede samtidigt (fx ved panikanfald)"
+    3: "Til stede både samtidigt og til forskellig tid"
+  validate: [0-3,8,9]
+
+- key: "4.006"
+  title: "Prikken eller dødhedsfornemmelse i ansigt eller fingre"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Symptomerne til stede men ikke samtidigt"
+    2: "Symptomerne til stede samtidigt (fx ved panikanfald)"
+    3: "Til stede både samtidigt og til forskellig tid"
+  validate: [0-3,8,9]
+
+- key: "4.007"
+  title: "Trykken eller smerter i brystet"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Symptomerne til stede men ikke samtidigt"
+    2: "Symptomerne til stede samtidigt (fx ved panikanfald)"
+    3: "Til stede både samtidigt og til forskellig tid"
+  validate: [0-3,8,9]
+
+- key: "4.008"
+  title: "+ Mundtørhed som ikke skyldes medicin eller dehydrering"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Symptomerne til stede men ikke samtidigt"
+    2: "Symptomerne til stede samtidigt (fx ved panikanfald)"
+    3: "Til stede både samtidigt og til forskellig tid"
+  validate: [0-3,8,9]
+
+- key: "4.009"
+  title: "Synkebesvær, følelse af klump i halsen"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Symptomerne til stede men ikke samtidigt"
+    2: "Symptomerne til stede samtidigt (fx ved panikanfald)"
+    3: "Til stede både samtidigt og til forskellig tid"
+  validate: [0-3,8,9]
+
+- key: "4.010"
+  title: "+ Sveden, fx i hænderne"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Symptomerne til stede men ikke samtidigt"
+    2: "Symptomerne til stede samtidigt (fx ved panikanfald)"
+    3: "Til stede både samtidigt og til forskellig tid"
+  validate: [0-3,8,9]
+
+- key: "4.011"
+  title: "+ Rysten eller sitren, fx af hænder, arme eller ben"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Symptomerne til stede men ikke samtidigt"
+    2: "Symptomerne til stede samtidigt (fx ved panikanfald)"
+    3: "Til stede både samtidigt og til forskellig tid"
+  validate: [0-3,8,9]
+
+- key: "4.012"
+  title: "Varm- eller koldsveden, hedeture"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Symptomerne til stede men ikke samtidigt"
+    2: "Symptomerne til stede samtidigt (fx ved panikanfald)"
+    3: "Til stede både samtidigt og til forskellig tid"
+  validate: [0-3,8,9]
+
+- key: "4.013"
+  title: "Uvirkelighedsfølelse"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Symptomerne til stede men ikke samtidigt"
+    2: "Symptomerne til stede samtidigt (fx ved panikanfald)"
+    3: "Til stede både samtidigt og til forskellig tid"
+  validate: [0-3,8,9]
+
+- key: "4.014"
+  title: "Sommerfuglefornemmelse, køren i maven, kvalme"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Symptomerne til stede men ikke samtidigt"
+    2: "Symptomerne til stede samtidigt (fx ved panikanfald)"
+    3: "Til stede både samtidigt og til forskellig tid"
+  validate: [0-3,8,9]
+
+- key: "4.015"
+  title: "Angst for at dø"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Symptomerne til stede men ikke samtidigt"
+    2: "Symptomerne til stede samtidigt (fx ved panikanfald)"
+    3: "Til stede både samtidigt og til forskellig tid"
+  validate: [0-3,8,9]
+
+- key: "4.016"
+  title: "Kvælningsfornemmelse"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Symptomerne til stede men ikke samtidigt"
+    2: "Symptomerne til stede samtidigt (fx ved panikanfald)"
+    3: "Til stede både samtidigt og til forskellig tid"
+  validate: [0-3,8,9]
+
+- key: "4.017"
+  title: "Angst for at blive sindssyg eller miste besindelsen"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Symptomerne til stede men ikke samtidigt"
+    2: "Symptomerne til stede samtidigt (fx ved panikanfald)"
+    3: "Til stede både samtidigt og til forskellig tid"
+  validate: [0-3,8,9]
+
+- key: "4.018"
+  title: "Frygtsomhed eller sammenfaringstendens"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Symptomerne til stede men ikke samtidigt"
+    2: "Symptomerne til stede samtidigt (fx ved panikanfald)"
+    3: "Til stede både samtidigt og til forskellig tid"
+  validate: [0-3,8,9]
+
+- key: "4.019"
+  title: "Andre angstsymptomer, fx øget vandladningshyppighed"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Symptomerne til stede men ikke samtidigt"
+    2: "Symptomerne til stede samtidigt (fx ved panikanfald)"
+    3: "Til stede både samtidigt og til forskellig tid CUT OFF => til 5.001 hvis 4.001 - 4.019 alle rates 0. SKIP => til 4.027 hvis der ikke har været angstsymptomer i perioden på grund af undgåelsesadfærd."
+  validate: [0-3,8,9]
+
+- key: "4.020"
+  title: "Antal panikanfald i en 4 ugers periode"
+  description: |
+    Har du haft pludselige anfald med angst eller panik med de nævnte angstsymptomer, som i løbet af kort tid føltes uudholdelige?
+    ? Kan du beskrive et typisk anfald? ? Hvor ofte har du haft sådanne anfald inden for den sidste 4 ugers
+    periode (eller anden 4 ugers periode)?
+    ? Optrådte de kun i særlige situationer? ? Optrådte de uventet som lyn fra en klar himmel uden forbindelse med særlige
+    situationer?
+    00 Ingen anfald
+    40 40 anfald eller mere 55 Vanskelig at rate pga. psykotiske symptomer 88 Uvist 99 Ikke kendt SKIP => til 4.023 hvis der ikke optræder panikanfald med autonome symptomer.
+  input: string
+  validate: [0-40,55,88]
+
+- key: "4.021"
+  title: "Vedvarende frygt for nye panikanfald"
+  description: |
+    Har du følt dig bange for nye panikanfald? Brug Rating Skala I
+  input: string
+  validate: [0-3,5,8,9]
+  ratingscale: 1
+
+- key: "4.022"
+  title: "Handling for at forhindre eller standse panikanfald"
+  description: |
+    Har du været nødt til at gøre et eller andet for at undgå et anfald eller for at få anfaldet til at holde op, fx tilkalde hjælp, åbne et vindue, løbe ud af huset?
+  input: integer
+  options:
+    0: "Ingen"
+    1: "Handling for at forhindre et anfald"
+    2: "Handling for at standse et anfald"
+    3: "Handling for både at forhindre og standse et anfald"
+  validate: [0-3,5,8,9]
+
+- key: "4.023"
+  title: "Fritflydende autonom angst"
+  description: |
+    Har du haft mere eller mindre udtalt angst det meste af tiden, ikke kun i anfald, i løbet af perioden?
+    ? Er du ind i mellem helt fri for angstsymptomer? ? Hvor ofte optræder de? ? Hvor svære er de? Brug Rating Skala I
+  input: string
+  validate: [0-3,5,8,9]
+
+- key: "4.024"
+  title: "Ængstelig forudanelse med autonome symptomer"
+  description: |
+    Har du haft fornemmelse af, at noget frygteligt kunne ske, fx sygdom, ulykke eller dødsfald for dig selv eller dine nærmeste? Følte du angst med hjertebanken, sveden eller rysten i forbindelse hermed?
+    CF. 6.022. Brug Rating Skala I
+  input: string
+  validate: [0-3,5,8,9]
+
+- key: "4.025"
+  title: "Varighed af fritflydende angst (mdr.)"
+  description: |
+    81 Mere end 80 88 Uvist 99 Ikke kendt
+  input: string
+  validate: [0-81,88,99]
+
+- key: "4.026"
+  title: "Depersonalisation eller derealisation i forbindelse med angst"
+  description: |
+    Har du følt at omgivelserne eller du selv var uvirkelige, ligesom ikke rigtig til stede?
+    Cf. 3.012 og 16.006-16.009. Brug Rating Skala I
+  input: string
+  validate: [0-3,5,8,9]
+  ratingscale: 1
+
+- key: "4.027"
+  title: "FOBIER"
+  description: |
+    Checkliste for fobier 4.027-4.045.
+    Rates for situationer med generende angst eller undgåelsesadfærd, som patienten erkender er overdrevne eller urimelige. Angstsymptomerne kan i undersøgesesperioden være afløst af undgåelsesadfærd, men skal have forekommet tidligere, på et eller andet tidspunkt siden lidelsens begyndelse. AGORAFOBIER
+    4_027 Angst for offentlige steder, åbne pladser, tomme gader
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer"
+    2: "Til stede med autonome angstsymptomer (nu eller tidligere)"
+  validate: [0-2,5,8,9]
+
+- key: "4.028"
+  title: "Angst for menneskemængder, forretninger, stormagasiner, biografer,"
+  description: |
+    hvor man ikke let kan komme ud
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer"
+    2: "Til stede med autonome angstsymptomer (nu eller tidligere)"
+  validate: [0-2,5,8,9]
+
+- key: "4.029"
+  title: "Angst for at tage alene med bus, tog eller fly"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer"
+    2: "Til stede med autonome angstsymptomer (nu eller tidligere)"
+  validate: [0-2,5,8,9]
+
+- key: "4.030"
+  title: "Angst for at færdes borte fra hjemmet"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer"
+    2: "Til stede med autonome angstsymptomer (nu eller tidligere)"
+  validate: [0-2,5,8,9]
+
+- key: "4.031"
+  title: "Angst for at falde om eller bryde sammen, når man er alene og uden"
+  description: |
+    hjælp i nærheden
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer"
+    2: "Til stede med autonome angstsymptomer (nu eller tidligere)"
+  validate: [0-2,5,8,9]
+
+- key: "4.032"
+  title: "Angst for at være alene"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer"
+    2: "Til stede med autonome angstsymptomer (nu eller tidligere)"
+  validate: [0-2,5,8,9]
+
+- key: "4.033"
+  title: "SOCIALFOBIER"
+  description: |
+    4_033 Angst for at være genstand for opmærksomhed eller for at opføre sig pinligt i forbindelse med at spise, drikke eller skrive i andres påsyn, benytte offentlige toiletter
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer"
+    2: "Til stede med autonome angstsymptomer (nu eller tidligere)"
+  validate: [0-2,5,8,9]
+
+- key: "4.034"
+  title: "Angst for at være genstand for opmærksomhed eller for at opføre sig pinligt, i forbindelse med at tale til eller være sammen med en mindre gruppe mennesker, man kender"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer"
+    2: "Til stede med autonome angstsymptomer (nu eller tidligere)"
+  validate: [0-2,5,8,9]
+
+- key: "4.035"
+  title: "Angst for at være genstand for opmærksomhed eller for at opføre sig pinligt, i forbindelse med at tale til en større gruppe mennesker, i offentlige forsamlinger, til fremmede eller i telefon"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer"
+    2: "Til stede med autonome angstsymptomer (nu eller tidligere)"
+  validate: [0-2,5,8,9]
+
+- key: "4.036"
+  title: "Angst for at rødme eller ryste, for at komme til at kaste op, skulle lade"
+  description: |
+    vandet eller have afføring i forbindelse med de almindelige angstsymptomer i de frygtede situationer (4.033-4.035).
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer"
+    2: "Til stede med autonome angstsymptomer (nu eller tidligere)"
+  validate: [0-2,5,8,9]
+
+- key: "4.037"
+  title: "ENKELFOBIER - FOBISK ANGST I SÆRLIGE SITUATIONER"
+  description: |
+    4_037 Angst for uvejr, torden og lynild
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer"
+    2: "Til stede med autonome angstsymptomer (nu eller tidligere)"
+  validate: [0-2,5,8,9]
+
+- key: "4.038"
+  title: "Angst for vand - damme, søer, havet, kar- eller brusebad"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer"
+    2: "Til stede med autonome angstsymptomer (nu eller tidligere)"
+  validate: [0-2,5,8,9]
+
+- key: "4.039"
+  title: "Angst for dyr: insekter, slanger, fugle, rotter, mus"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer"
+    2: "Til stede med autonome angstsymptomer (nu eller tidligere)"
+  validate: [0-2,5,8,9]
+
+- key: "4.040"
+  title: "Angst for lukkede rum - elevatorer, tunneler, telefonbokse"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer"
+    2: "Til stede med autonome angstsymptomer (nu eller tidligere)"
+  validate: [0-2,5,8,9]
+
+- key: "4.041"
+  title: "Angst for at flyve"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer"
+    2: "Til stede med autonome angstsymptomer (nu eller tidligere)"
+  validate: [0-2,5,8,9]
+
+- key: "4.042"
+  title: "Angst for højder - broer, balkoner, vinduer i høje bygninger, trapper"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer"
+    2: "Til stede med autonome angstsymptomer (nu eller tidligere)"
+  validate: [0-2,5,8,9]
+
+- key: "4.043"
+  title: "Angst for situationer i forbindelse med sygdom og død: blod, indsprøjtninger,"
+  description: |
+    tandlægebehandling, hospitalsbesøg
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer"
+    2: "Til stede med autonome angstsymptomer (nu eller tidligere)"
+  validate: [0-2,5,8,9]
+
+- key: "4.044"
+  title: "Angst for at pådrage sig sygdomme, fx kønssygdomme, AIDS, cancer"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer"
+    2: "Til stede med autonome angstsymptomer (nu eller tidligere)"
+  validate: [0-2,5,8,9]
+
+- key: "4.045"
+  title: "Angst for andre specifikke situationer"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer"
+    2: "Til stede med autonome angstsymptomer (nu eller tidligere) SKIP => til 4.059 hvis der ikke er fundet tegn på fobisk angst."
+  validate: [0-2,5,8,9]
+
+- key: "4.046"
+  title: "Rating for sværeste agorafobi"
+  description: |
+    Hvilken var den sværeste af de nævnte situationer med (agorafobi)?
+    ? Hvor generende eller invaliderende var det? ? Hvor meget af tiden har det været til stede?
+    Brug Rating Skala I
+  input: string
+  validate: [0-3,5,8,9]
+  ratingscale: 1
+
+- key: "4.047"
+  title: "Undgåelsesadfærd i forbindelse med sværeste agorafobi"
+  description: |
+    Har du prøvet at undgå den omtalte (agorafobiske) situation?
+    Brug Rating Skala I
+  input: string
+  validate: [0-3,5,8,9]
+  ratingscale: 1
+
+- key: "4.048"
+  title: "Påvirkning af aktiviteter på grund af sværeste agorafobi"
+  description: |
+    Hvor meget har det påvirket dine dagligdagsaktiviteter?
+  input: integer
+  options:
+    0: "Ingen påvirkning"
+    1: "Kun let påvirkning"
+    2: "Moderat eller intermitterende påvirkning"
+    3: "Svær eller invaliderende påvirkning"
+  validate: [0-3,8,9]
+
+- key: "4.049"
+  title: "Sværeste socialfobi"
+  description: |
+    Brug Rating Skala I
+  input: string
+  validate: [0-3,5,8,9]
+  ratingscale: 1
+
+- key: "4.050"
+  title: "Undgåelsesadfærd i forbindelse med sværeste socialfobi"
+  description: |
+    Brug Rating Skala I
+  input: string
+  validate: [0-3,5,8,9]
+  ratingscale: 1
+
+- key: "4.051"
+  title: "Påvirkning af aktiviteter på grund af sværeste socialfobi"
+  input: integer
+  options:
+    0: "Ingen påvirkning"
+    1: "Kun let påvirkning"
+    2: "Moderat eller intermitterende påvirkning"
+    3: "Svær eller invaliderende påvirkning"
+  validate: [0-3,8,9]
+
+- key: "4.052"
+  title: "Sværeste enkelfobi"
+  description: |
+    Brug Rating Skala I
+  input: string
+  validate: [0-3,5,8,9]
+  ratingscale: 1
+
+- key: "4.053"
+  title: "Undgåelsesadfærd i forbindelse med sværeste enkelfobi"
+  description: |
+    Brug Rating Skala I
+  input: string
+  validate: [0-3,5,8,9]
+  ratingscale: 1
+
+- key: "4.054"
+  title: "Påvirkning af aktiviteter på grund af sværeste enkelfobi"
+  input: integer
+  options:
+    0: "Ingen påvirkning"
+    1: "Kun let påvirkning"
+    2: "Moderat eller intermitterende påvirkning"
+    3: "Svær eller invaliderende påvirkning"
+  validate: [0-3,8,9]
+
+- key: "4.055"
+  title: "Forhold mellem panikanfald og fobier"
+  description: |
+    Optrådte panikanfaldene altid kun i forbindelse med en af disse fobier, eller kunne de også optræde uventet og uden grund?
+  input: integer
+  options:
+    0: "Ingen fobier og ingen panikanfald"
+    1: "Kun fobier (uden panikanfald)"
+    2: "Panikanfald ved fobier (fobisk udløst)"
+    3: "Panikanfald uden fobier"
+    4: "Panikanfald både ved fobier og alene"
+  validate: [0-4,8,9]
+
+- key: "4.056"
+  title: "Begyndelsesalder ved panikanfald eller fobier"
+  description: |
+    Hvor gammel var du da panikanfaldene/fobierne først blev rigtig generende, eller begrænsede dine aktiviteter?
+  input: string
+  validate: [0-99]
+
+- key: "4.057"
+  input: integer
+  options:
+    0: "Nej"
+    1: "Ja"
+  validate: [0,1,8,9]
+
+- key: "4.058"
+  input: integer
+  options:
+    0: "Nej"
+    1: "Ja Cf. 6.022."
+  validate: [0,1,8,9]
+
+- key: "4.059A"
+  title: "Tidsangivelse for periode med sektion 4 symptomer"
+  description: |
+    Rates kun hvis forskellig fra tidsangivelsen i 1.007-1.014.
+    Begyndelsesdato for PS eller PE
+  input: date
+
+- key: "4.059B"
+  title: "Varighed af PS eller PE (dage)"
+  input: string
+  validate: [0-999]
+
+- key: "4.059C"
+  title: "Begyndelsestidspunkt for RE eller LB"
+  input: date
+
+- key: "4.059D"
+  title: "Varighed af RE eller LB (uger)"
+  input: string
+  validate: [0-299]
+
+- key: "4.060"
+  title: "Påvirkning af aktiviteter på grund af sektion 4 symptomer Hvor meget har de nævnte symptomer påvirket dine dagligdagsaktiviteter ?"
+  input: integer
+  options:
+    0: "Ingen sektion 4 symptomer"
+    1: "Kun let påvirkning"
+    2: "Moderat eller intermitterende påvirkning"
+    3: "Svær eller invaliderende påvirkning"
+  validate: [0-3,8,9]
+
+- key: "4.061"
+  title: "Organisk årsag til sektion 4 symptomer"
+  input: integer
+  options:
+    0: "Fraværende"
+    1: "Sandsynlig organisk årsag, ikke fuldt bekræftet"
+    2: "Definitiv organisk årsag bekræftet af specialundersøgelser"
+    8: "Usikkert om organisk betinget"
+  validate: [0-2,8,9]
+
+- key: "4.062"
+  title: "ICD-10 diagnosekode for organisk årsag"
+  input: string
+
+- key: "5.001"
+  title: "Tvangssymptomer"
+  description: |
+    Screening for tvangssymptomer
+
+    Nogle mennesker finder det nødvendigt at kontrollere flere gange hvad de har gjort, for at føle sig sikre på, at det er gjort rigtig, fx i forbindelse med dørlåse, elektriske afbrydere, vandhaner og lignende . Kender du det fra dig selv? Andre er nødt til hele tiden at holde alting i en særlig orden eller symmetri, gælder det for dig? Der er mennesker, der må vaske hænder eller tage bad mange gange dagligt af frygt for smuds eller smitte. Hvordan er det for dig? Nogle mennesker har besvær med ubehagelige ord eller tanker, der hele tiden bryder ind i deres bevidsthed. Kender du til noget sådant? Hvis der er tegn på eller mistanke om tvangssymptomer, kan yderligere spørges: ? Kan du beskrive det nærmere? ? Hvor kommer dine tanker eller tilskyndelser fra? ? Har du prøvet at modstå dem, fx at lade være med ...........? - Hvad sker der så? ? Føler du dig foruroliget eller generet? ? Hvor slemt har det været? ? Hvor længe har det stået på i løbet af perioden? 14 dage eller mere? Hver dag?
+
+    CUT OFF => til 6.001 hvis der ikke er tegn på sektion 5 symptomer Rate items 5.002-5.006 efter Rating Skala I, men undlad at anvende ''1'' som ikke er relevant for tvangssymptomer.
+  input: integer
+  options:
+    0: "Ingen tegn på tvangssymptomer"
+    1: "Tegn på tvangssymptomer"
+  section_start: Section_5
+  validate: [0,1,5,8,9]
+
+- key: "5.002"
+  title: "Kontrollerings- og gentagelses-tvang"
+  description: |
+    Brug Rating Skala I, men undlad at anvende ''1''
+  input: string
+  validate: [0,2,3,5,8,9]
+  ratingscale: 1
+
+- key: "5.003"
+  title: "Tvangshandlinger forbundet med orden og symmetri"
+  description: |
+    Brug Rating Skala I, men undlad at anvende ''1''
+  input: string
+  validate: [0,2,3,5,8,9]
+  ratingscale: 1
+
+- key: "5.004"
+  title: "Tvangstanker om at komme til skade eller gøre skade på sig selv eller andre"
+  description: |
+    Brug Rating Skala I, men undlad at anvende ''1''
+  input: string
+  validate: [0,2,3,5,8,9]
+  ratingscale: 1
+
+- key: "5.005"
+  title: "Tvangshandlinger forbundet med renlighed, smuds- og smitte-frygt"
+  description: |
+    Brug Rating Skala I, men undlad at anvende ''1''
+  input: string
+  validate: [0,2,3,5,8,9]
+  ratingscale: 1
+
+- key: "5.006"
+  title: "Tvangspræget tvivlen, grublen eller følelse af manglende fuldførelse (ikke at have gjort det færdigt, man har udført)"
+  description: |
+    Brug Rating Skala I, men undlad at anvende ''1''
+  input: string
+  validate: [0,2,3,5,8,9]
+
+- key: "5.007"
+  title: "Svækket bevidst modstand mod tvangssymptomer"
+  input: integer
+  options:
+    0: "Ingen svækkelse af modstanden (dvs. modstanden består)"
+    1: "Modstand mod et eller flere symptomer (men ikke alle)"
+    2: "Ophør af bevidst modstand"
+  validate: [0-2,8,9]
+
+- key: "5.008"
+  title: "Forholdet mellem angst- og tvangssymptomer"
+  input: integer
+  options:
+    0: "Ingen angstsymptomer, eller angst og tvangssymptomer lige fremtrædende"
+    1: "Angstsymptomer mest fremtrædende"
+    2: "Tvangssymptomerne mest fremtrædende"
+  validate: [0-2,8,9]
+
+- key: "5.009"
+  title: "Forholdet mellem depressive og obsessive-kompulsive symptomer"
+  input: integer
+  options:
+    0: "Den ene eller begge symptomtyper fraværende"
+    1: "Depressive symptomer mest udtalte eller begyndte først"
+    2: "Depressive og obsessive symptomer optræder samtidigt og er lige udtalte"
+    3: "Obsessive symptomer mest udtalte eller begyndte først"
+  validate: [0-3,8,9]
+
+- key: "5.010"
+  title: "Forholdet mellem obsessive og kompulsive symptomer"
+  input: integer
+  options:
+    0: "Kun en type symptomer til stede"
+    1: "Obsessive symptomer klinisk mest betydende"
+    2: "Kompulsive symptomer mest betydende"
+    8: "Begge type lige betydende, eller usikkert"
+  validate: [0-2,8,9]
+
+- key: "5.011"
+  title: "Indsigt i tvangssymptomernes urimelighed"
+  input: integer
+  options:
+    0: "Ingen tvangssymptomer"
+    1: "Patienten erkender altid tvangssymptomerne som urimelige eller overdrevne"
+    2: "Patienten erkender kun delvis eller ikke hele tiden, at angstsymptomerne er urimelige eller overdrevne"
+    3: "Patienten erkender det meste af tiden ikke, at tvangssymptomerne er urimelige eller overdrevne"
+  validate: [0-3,8,9]
+
+- key: "5.012"
+  title: "Tvangssymptomernes emne og indhold begrænset til anden psykisk lidelse"
+  input: integer
+  options:
+    0: "Ingen symptomer eller emnet ikke begrænset til anden lidelse"
+    1: "Emnet delvist begrænset til anden lidelse"
+    2: "Emnet udelukkende begrænset til anden lidelse, fx tvangspræget depressiv grublen"
+  validate: [0-2,8,9]
+
+- key: "5.013"
+  title: "Begyndelsesalder for tvangssymptomer"
+  input: string
+  validate: [0-99]
+
+- key: "5.014A"
+  title: "Tidsangivelse for periode med sektion 5 symptomer"
+  description: |
+    Rates kun hvis forskellig fra tidsangivelsen i 1.007-1.014
+    Begyndelsesdato for PS eller PE
+  input: date
+
+- key: "5.014B"
+  title: "Varighed af PS eller PE (dage)"
+  input: string
+  validate: [0-999]
+
+- key: "5.014C"
+  title: "Begyndelsestidspunkt for RE eller LB"
+  input: date
+
+- key: "5.014D"
+  title: "Varighed af RE eller LB (uger)"
+  input: string
+  validate: [0-299]
+
+- key: "5.015"
+  title: "Påvirkning af aktiviteter på grund af sektion 5 symptomer"
+  input: integer
+  options:
+    0: "Ingen sektion 5 symptomer"
+    1: "Kun let påvirkning (op til 1 time om dagen)"
+    2: "Moderat eller intermitterende påvirkning"
+    3: "Svær eller invaliderende påvirkning"
+  validate: [0-3,8,9]
+
+- key: "5.016"
+  title: "Organisk årsag til sektion 5 symptomer"
+  input: integer
+  options:
+    0: "Fraværende"
+    1: "Sandsynlig organisk årsag, ikke fuldt bekræftet"
+    2: "Definitiv organisk årsag bekræftet af specialundersøgelser"
+    8: "Usikkert om organisk betinget"
+  validate: [0-2,8,9]
+
+- key: "5.017"
+  title: "ICD-10 diagnosekode for organisk årsag"
+  input: string
+
+- key: "6.001"
+  title: "Depressivt stemningsleje og tankeindhold"
+  description: |
+    6_001 Nedtrykthed
+    Har du følt dig nedtrykt i perioden?
+    ? Var du trist, i dårligt humør, ked af det, tungsindig, langt nede eller dybt fortvivlet?
+    ? Hvor meget af tiden følte du dig nedtrykt? Var det dagligt hver dag i 14 dage eller mere? ? Hvor længe er det siden dit humør var normalt?
+    Rates efter subjektiv beskrivelse af humøret, da det var værst. Objektivt iagttagelig nedtrykthed rates i 23.001.
+  input: string
+  section_start: Section_6
+  validate: [0-3,5,8,9]
+  ratingscale: 1
+
+- key: "6.002"
+  title: "Maskeret depression"
+  description: |
+    Rates hvis 6.001 er rated 0 eller 1, hvis man har indtryk af forsænket stemningsleje, trods manglende evne til at give sprogligt udtryk for nedtrykthed (alexithymi), egnsbetinget tendens til underdrivelse, kulturbetinget tilbøjelighed til at opretholde normal eller smilende facade udadtil, fremtrædende irritabilitet, angst eller somatoforme symptomer, eller kognitiv svækkelse.
+  input: integer
+  options:
+    1: "Mistanke om nedtrykt stemningsleje"
+    2: "Nedtrykt stemningsleje skønnes til stede bag maskeringen"
+  validate: [0-2,8,9]
+  ratingscale: 1
+
+- key: "6.003"
+  title: "Lethed til tårer, grådtendens"
+  description: |
+    Kommer du let til at græde?
+    ? Har du grædeture? ? Hvor ofte, hvor længe, hvorfor? Brug Rating Skala I
+  input: string
+  validate: [0-3,5,8,9]
+  ratingscale: 1
+
+- key: "6.004"
+  title: "Anhedoni - manglende evne til at føle glæde"
+  description: |
+    Har du haft svært ved at glæde dig over noget? (Gåture, samvær med venner, beskæftigelse med hobby eller fritidsinteresser, at vinde i sport, eller modtage en kompliment)
+    Har du tabt lysten til det, du plejer at være glad for? - Til det hele?
+    ? Hvor meget af tiden i perioden har du haft det sådan? ? Hvornår har du sidst nydt eller kunnet glæde dig over noget? ? Kan man se det eller mærke det på dig?
+  input: string
+  validate: [0-3,5,8,9]
+  ratingscale: 1
+
+- key: "6.005"
+  title: "Varighed af nedtrykthed eller anhedoni (uger)"
+  description: |
+    Rates i antal uger op til 80 (da 88 = uvist hvor længe) Andre depresssive symptomer (6.006-6.017) (kan forekomme ved andre lidelser end depressionstilstand)
+  input: string
+  validate: [0-80,88]
+
+- key: "6.006"
+  title: "Håbløshedsfølelse"
+  description: |
+    Hvordan ser det ud for dig fremover?
+    ? Kan du se lyspunkter eller lys forude? Forekommer det hele håbløst? ? Hvor længe har du følt det sådan? ? Hvor længe er det siden, du så anderledes på det? Hvad tænkte du da?
+  input: string
+  validate: [0-3,5,8,9]
+  ratingscale: 1
+
+- key: "6.007"
+  title: "Fornemmelse af tab af følelser"
+  description: |
+    Somme tider opleves det som om man har tabt evnen til at føle noget som helst, man kan måske ikke engang føle sig ked af det eller græde. Har du haft det sådan?
+  input: string
+  validate: [0-3,5,8,9]
+  ratingscale: 1
+
+- key: "6.008"
+  title: "Tab af påvirkelighed (reaktivitet)"
+  description: |
+    Føler du dig mere eller mindre nedtrykt hele tiden? Svinger dit humør med forholdene, så du liver op eller ikke føler dig nedtrykt, fx hvis du får besøg eller bliver optaget af noget?
+  input: integer
+  options:
+    0: "Ingen nedtrykthed"
+    1: "Nedtryktheden varierer med omstændighederne"
+    2: "Nedtryktheden varierer, men ikke med omstændighederne"
+    3: "Nedtryktheden er mere eller mindre til stede hele tiden"
+  validate: [0-3,8,9]
+  ratingscale: 1
+
+- key: "6.009"
+  title: "Morgenforværring"
+  description: |
+    Hvornår i dagens løb føles nedtryktheden værst?
+    ? Er der noget tidspunkt, hvor den føles mindre udtalt?
+  input: integer
+  options:
+    0: "Ingen nedtrykthed eller nedtryktheden ikke værst om morgenen"
+    1: "Nedtrykthed værst om morgenen eller først på dagen"
+  validate: [0,1,8,9]
+
+- key: "6.010"
+  title: "Optagethed af tanker om død og ulykke"
+  description: |
+    Tænker du usædvanligt meget på døden? Spekulerer du meget på ulykker, sygdom eller ruinering, som kan ramme dig eller dine nærmeste?
+  input: string
+  validate: [0-3,5,8,9]
+  ratingscale: 1
+
+- key: "6.011"
+  title: "Selvmordstanker eller tanker om at skade sig selv"
+  description: |
+    Har du haft tanker om selv at gøre en ende på det hele? Har du planlagt hvordan eller prøvet at gøre det? Har du haft tanker om at skade dig selv på anden måde?
+    Rates uden hensyn til, om tankerne skyldes depressionstilstand eller ikke.
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Påtrængende tanker eller overvejelser (planer) om selvmord eller selvskadende handlinger, men intet forsøg"
+    2: "Selvmordsforsøg eller selvskadende handling, uden alvorlig skade"
+    3: "Selvmordsforsøg eller selvskadende handling, med udtalte følger eller skade"
+    4: "Alvorligt selvmordsforsøg med overbevisende selvmordshensigt"
+  validate: [0-4,8,9]
+
+- key: "6.012"
+  title: "Livslede - tedium vitae"
+  description: |
+    Har du følt, at livet ikke var værd at leve? At du ikke ville have noget imod det, hvis du ikke vågnede op næste morgen? Kunne du ligefrem ønske, at en alvorlig sygdom eller et ulykkestilfælde ville gøre
+    en ende på det hele?
+  input: string
+  validate: [0-3,5,8,9]
+  ratingscale: 1
+
+- key: "6.013"
+  title: "Patologisk skyldfølelse"
+  description: |
+    Har du været tilbøjelig til at bebrejde dig selv noget, du har gjort eller tænkt? Har du følt dig skyldig eller skamfuld?
+  input: string
+  validate: [0-3,5,8,9]
+  ratingscale: 1
+
+- key: "6.014"
+  title: "Skyldbetonede selvhenføringsidéer"
+  description: |
+    Har du følt, at andre bebrejdede dig eller anklagede dig for noget, du havde gjort eller undladt at gøre?
+  input: string
+  validate: [0-3,5,8,9]
+  ratingscale: 1
+
+- key: "6.015"
+  title: "Nedsat selvtillid over for andre"
+  description: |
+    Har din selvtillid været mindre end sædvanlig?
+  input: string
+  validate: [0-3,5,8,9]
+  ratingscale: 1
+
+- key: "6.016"
+  title: "Social tilbagetrækning"
+  description: |
+    Er du blevet mere indesluttet? - Tilbøjelig til at holde dig for dig selv? Tager du ikke telefonen, når den ringer?
+    Lukker du ikke op, når der kommer nogen?
+  input: string
+  validate: [0-3,6,8,9]
+  ratingscale: 1
+
+- key: "6.017"
+  title: "Nedsat selvfølelse Hvordan har du følt dig i forhold til andre?"
+  description: |
+    ? Har du følt dig mindre dygtig og kompetent end andre? - På hvilken måde? ? Har du følt dig mindre værd end andre? ? Har du følt dig helt uduelig eller værdiløs?
+  input: string
+  validate: [0-3,5,8,9]
+  ratingscale: 1
+
+- key: "6.018"
+  title: "PSYKOTISKE DEPRESSIONSSYMPTOMER"
+  description: |
+    6_018 Depressive vrangforestillinger om skyld eller uduelighed (cf. 19.025)
+    Rates efter Rating Skala II
+  input: string
+  validate: [0-3,8,9]
+  ratingscale: 2
+
+- key: "6.019"
+  title: "Depressive vrangforestillinger om mulig død eller ulykke (cf. 19.026)"
+  description: |
+    Rates efter Rating Skala II
+  input: string
+  validate: [0-3,8,9]
+  ratingscale: 2
+
+- key: "6.020"
+  title: "Depressive hypokondre eller nihilistiske vrangforestillinger (cf. 19.027)"
+  description: |
+    Rates efter Rating Skala II
+  input: string
+  validate: [0-3,8,9]
+  ratingscale: 2
+
+- key: "6.021"
+  title: "Stemningskongruens af hørelseshallucinationer (cf. 17.010)"
+  input: integer
+  options:
+    0: "Ingen hørelseshallucinationer"
+    1: "Fuld stemningskongruens"
+    2: "Overvejende stemningskongruens"
+    3: "Stemningskongruente og -inkongruente hørelseshallucinationer i lige grad"
+    4: "Overvejende stemningsinkongruens"
+    5: "Ingen stemningskongruens"
+  validate: [0-5,8,9]
+
+- key: "6.022"
+  title: "GENEREL DEPRESSIONSRATING"
+  description: |
+    6_022 Primær depressions- eller angsttilstand
+    Rates hvis der foreligger angstsymptomer og depressionssymptomer.
+  input: integer
+  options:
+    0: "Kun angst- eller kun depressionssymptomer, eller ingen af delene"
+    1: "Angsttilstanden primær"
+    2: "Angstsymptomer og depressionssymptomer begge til stede, uafhængigt af hinanden"
+    3: "Depressionstilstanden primær"
+    8: "Uvist, fx på grund af manglende oplysninger"
+  validate: [0-3,8,9]
+
+- key: "6.023"
+  title: "Forholdet mellem somatoforme og depressive symptomer"
+  input: integer
+  options:
+    0: "Kun somatoforme eller kun depressive symptomer eller ingen af delene"
+    1: "Depressive symptomer mest udtalte eller begyndte først"
+    2: "Depressive og somatoforme symptomer optræder samtidigt"
+    3: "Somatoforme symptomer mest udtalte eller begyndte først"
+    8: "Uvist"
+  validate: [0-3,8,9]
+
+- key: "6.024"
+  title: "Forholdet mellem tvangssymptomer og depressive symptomer"
+  input: integer
+  options:
+    0: "Kun tvangs- eller kun depressionssymptomer eller ingen af delene"
+    1: "Depressive symptomer mest udtalte eller begyndte først"
+    2: "Tvangs- og depressionssymptomer til stede samtidigt"
+    3: "Tvangssymptomer mest udtalte eller begyndte først"
+    8: "Uvist"
+  validate: [0-3,8,9]
+
+- key: "6.025"
+  title: "Begyndelsesalder for depressive symptomer"
+  input: string
+  validate: [0-99]
+
+- key: "6.026A"
+  title: "Tidsangivelse for perioden med sektion 6 depressive symptomer Rates kun hvis forskellig fra tidsangivelsen i 1.007-1.014."
+  description: |
+    Begyndelsesdato for PS eller PE
+  input: date
+
+- key: "6.026B"
+  title: "Varighed af PS eller PE (dage)"
+  input: string
+  validate: [0-999]
+
+- key: "6.026C"
+  title: "Begyndelsestidspunkt for RE eller LB"
+  input: date
+
+- key: "6.026D"
+  title: "Varighed af RE eller LB (uger)"
+  input: string
+  validate: [0-299]
+
+- key: "6.027"
+  title: "Påvirkning af aktiviteter på grund af sektion 6 depressive symptomer"
+  input: integer
+  options:
+    0: "Ingen depressive symptomer"
+    1: "Kun let påvirkning"
+    2: "Moderat eller intermitterende påvirkning"
+    3: "Svær eller invaliderende påvirkning"
+  validate: [0-3,8,9]
+
+- key: "6.028"
+  title: "Organisk årsag til sektion 6 depressive symptomer"
+  input: integer
+  options:
+    0: "Fraværende"
+    1: "Sandsynlig organisk årsag, ikke fuldt bekræftet"
+    2: "Definitiv organisk årsag bekræftet af specialundersøgelser"
+    8: "Usikkert om organisk betinget"
+  validate: [0-2,8,9]
+
+- key: "6.029"
+  title: "ICD-10 diagnosekode for organisk årsag"
+  input: string
+
+- key: "6.030"
+  title: "ANAMNESTISKE OPLYSNINGER"
+  description: |
+  input: integer
+  options:
+    0: "Ikke rated"
+    8: "Uvist"
+    9: "NA"
+  validate: [0-5,8,9]
+
+- key: "6.031"
+  title: "Habituel personlighedstruktur forud for første depressionstilstand"
+  input: integer
+  options:
+    0: "Inden for normal variationsbredde"
+  validate: [0,1,8,9]
+
+- key: "6.032"
+  input: integer
+  options:
+    0: "Ikke rated"
+    8: "Uvist"
+    9: "NA"
+  validate: [0-3,8,9]
+
+- key: "6.033"
+  description: |
+    affektive symptomer. Hele forløbet tages i betragtning.
+  input: integer
+  options:
+    0: "Ikke rated"
+    8: "Uvist"
+    9: "NA"
+  validate: [0-3,8,9]
+
+- key: "6.034"
+  title: "Effekt af adækvat antidepressiv behandling"
+  input: integer
+  options:
+    0: "Ikke rated"
+    1: "Effekten ikke tilfredsstillende"
+    2: "Effekten tilfredsstillende"
+    8: "Uvist"
+    9: "NA"
+  validate: [0-2,8,9]
+
+- key: "6.035"
+  description: |
+    Hele forløbet tages i betragtning.
+  input: integer
+  options:
+    0: "Ikke rated"
+    8: "Uvist"
+    9: "NA"
+  validate: [0-2,8,9]
+
+- key: "6.036"
+  description: |
+  input: integer
+  options:
+    0: "Ikke rated"
+    8: "Uvist"
+  validate: [0-5,8,9]
+
+- key: "6.037"
+  description: |
+    Anvendes særligt ved registrering af seasonal affective disorder eller rapid cycling.
+  input: integer
+  options:
+  validate: [0-3,8,9]
+
+- key: "6.038"
+  input: date_interval
+
+- key: "6.039"
+  input: date_interval
+
+- key: "6.040"
+  input: date_interval
+
+- key: "6.041"
+  input: date_interval
+
+- key: "6.042"
+  input: date_interval
+
+- key: "6.043"
+  input: date_interval
+
+- key: "6.044"
+  title: "CHECKLISTE FOR DYSTHYMI"
+  description: |
+    6.044 Nedtrykthed af mere end 2 års varighed
+    Det meste af tiden, højst med få uger varende remissioner.
+  input: integer
+  options:
+    0: "Nej"
+    1: "Ja"
+    8: "Uvist SKIP => til 6.072 hvis 6.044 = 0"
+  validate: [0,1,8,9]
+
+- key: "6.045"
+  title: "Nedsat energi og aktivitet"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede som isoleret symptom"
+    2: "Til stede sammen med andre dysthymi-items"
+    9: "Ukendt, kan ikke rates"
+  validate: [0-2,8,9]
+
+- key: "6.046"
+  title: "Søvnløshed"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede som isoleret symptom"
+    2: "Til stede sammen med andre dysthymi-items"
+    9: "Ukendt, kan ikke rates"
+  validate: [0-2,8,9]
+
+- key: "6.047"
+  title: "Øget søvntrang"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede som isoleret symptom"
+    2: "Til stede sammen med andre dysthymi-items"
+    9: "Ukendt, kan ikke rates"
+  validate: [0-2,8,9]
+
+- key: "6.048"
+  title: "Nedsat selvtillid, selvfølelse eller utilstrækkelighedsfølelse"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede som isoleret symptom"
+    2: "Til stede sammen med andre dysthymi-items"
+    9: "Ukendt, kan ikke rates"
+  validate: [0-2,8,9]
+
+- key: "6.049"
+  title: "Koncentrations- eller beslutningsbesvær"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede som isoleret symptom"
+    2: "Til stede sammen med andre dysthymi-items"
+    9: "Ukendt, kan ikke rates"
+  validate: [0-2,8,9]
+
+- key: "6.050"
+  title: "Letrørthed , grådtendens"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede som isoleret symptom"
+    2: "Til stede sammen med andre dysthymi-items"
+    9: "Ukendt, kan ikke rates"
+  validate: [0-2,8,9]
+
+- key: "6.051"
+  title: "Tab af lyst eller interesse"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede som isoleret symptom"
+    2: "Til stede sammen med andre dysthymi-items"
+    9: "Ukendt, kan ikke rates"
+  validate: [0-2,8,9]
+
+- key: "6.052"
+  title: "Nedsat seksuallyst"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede som isoleret symptom"
+    2: "Til stede sammen med andre dysthymi-items"
+    9: "Ukendt, kan ikke rates"
+  validate: [0-2,8,9]
+
+- key: "6.053"
+  title: "Håbløshedsfølelse"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede som isoleret symptom"
+    2: "Til stede sammen med andre dysthymi-items"
+    9: "Ukendt, kan ikke rates"
+  validate: [0-2,8,9]
+
+- key: "6.054"
+  title: "Nedsat produktivitet, effektivitet eller vanskelighed ved at klare"
+  description: |
+    dagligdagens rutinekrav
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede som isoleret symptom"
+    2: "Til stede sammen med andre dysthymi-items"
+    9: "Ukendt, kan ikke rates"
+  validate: [0-2,8,9]
+
+- key: "6.055"
+  title: "Pessimisme med hensyn til fremtiden, rugen over fortiden"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede som isoleret symptom"
+    2: "Til stede sammen med andre dysthymi-items"
+    9: "Ukendt, kan ikke rates"
+  validate: [0-2,8,9]
+
+- key: "6.056"
+  title: "Tilbøjelighed til at isolere sig"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede som isoleret symptom"
+    2: "Til stede sammen med andre dysthymi-items"
+    9: "Ukendt, kan ikke rates"
+  validate: [0-2,8,9]
+
+- key: "6.057"
+  title: "Fåmælthed"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede som isoleret symptom"
+    2: "Til stede sammen med andre dysthymi-items"
+    9: "Ukendt, kan ikke rates"
+  validate: [0-2,8,9]
+
+- key: "6.058"
+  title: "Nedsat appetit eller overdreven fødeindtagelse"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede som isoleret symptom"
+    2: "Til stede sammen med andre dysthymi-items"
+    9: "Ukendt, kan ikke rates"
+  validate: [0-2,8,9]
+
+- key: "6.059"
+  title: "Kronisk træthed eller øget trætbarhed"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede som isoleret symptom"
+    2: "Til stede sammen med andre dysthymi-items"
+    9: "Ukendt, kan ikke rates"
+  validate: [0-2,8,9]
+
+- key: "6.060"
+  title: "Skyldfølelse"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede som isoleret symptom"
+    2: "Til stede sammen med andre dysthymi-items"
+    9: "Ukendt, kan ikke rates"
+  validate: [0-2,8,9]
+
+- key: "6.061"
+  title: "Subjektiv følelse af irritabilitet eller overdreven vrede"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede som isoleret symptom"
+    2: "Til stede sammen med andre dysthymi-items"
+    9: "Ukendt, kan ikke rates"
+  validate: [0-2,8,9]
+
+- key: "6.062"
+  title: "Påvirkning af aktiviteter på grund af dysthymisymptomer"
+  input: integer
+  options:
+    0: "Ingen dysthymisymptomer"
+    1: "Let påvirkning"
+    2: "Moderat eller intermitterende påvirkning"
+    3: "Svær eller invaliderende påvirkning"
+  validate: [0-3,8,9]
+
+- key: "6.063"
+  title: "Begyndelsesalder for aktuelle dysthymiperiode"
+  input: string
+  validate: [0-99]
+
+- key: "6.064"
+  input: integer
+  options:
+    0: "Nej"
+    1: "Ja"
+  validate: [0,1,8,9]
+
+- key: "6.065"
+  input: integer
+  options:
+    0: "Nej"
+    1: "Ja"
+  validate: [0,1,8,9]
+
+- key: "6.066"
+  title: "Depressionstilstand under de første 2 år af nuværende dysthymiperiode"
+  input: integer
+  options:
+    0: "Nej"
+    1: "Ja"
+  validate: [0,1,8,9]
+
+- key: "6.067"
+  title: "Begyndelsesalder for første dysthymiperiode"
+  input: string
+  validate: [0-99]
+
+- key: "6.068"
+  input: integer
+  options:
+    0: "Nej"
+    1: "Ja"
+  validate: [0,1,8,9]
+
+- key: "6.069"
+  input: integer
+  options:
+    0: "Nej"
+    1: "Ja"
+  validate: [0,1,8,9]
+
+- key: "6.070"
+  title: "Organisk årsag til dysthymisymptomer"
+  input: integer
+  options:
+    0: "Fraværende"
+    1: "Sandsynlig organisk årsag, ikke fuldt bekræftet"
+    2: "Definitiv organisk årsag bekræftet af specialudersøgelser"
+    8: "Usikkert om organisk betinget"
+  validate: [0-2,8,9]
+
+- key: "6.071"
+  title: "ICD-10 diagnosekode for organisk årsag Cyklothymi rates ved 10.031-10.057."
+  input: string
+
+- key: "6.072"
+  title: "6.072 TODO"
+  description: "description TODO"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Til stede"
+    8: "Ukendt"
+  validate: [0,1,8,9]
+
+- key: "6.073"
+  input: integer
+  options:
+    0: "Nej"
+    1: "Ja"
+    8: "Ukendt"
+  validate: [0,1,8,9]
+
+- key: "6.074"
+  title: "Optræden uden for menstruationscyklus"
+  description: |
+    (ikke udelukkende i forbindelse med menstruationscyklus).
+  input: integer
+  options:
+    0: "Nej"
+    1: "Ja"
+    8: "Ukendt"
+  validate: [0,1,8,9]
+
+- key: "6.075"
+  input: integer
+  options:
+    0: "Ikke til stede"
+    1: "Kun let påvirkning"
+    2: "Moderat eller intermitterende påvirkning"
+    3: "Svær eller invaliderende påvirkning"
+  validate: [0-3,8,9]
+
+- key: "6.076"
+  input: integer
+  options:
+    0: "Fraværende"
+    1: "Sandsynlig organisk årsag, ikke fuldt bekræftet"
+    2: "Definitiv organisk årsag bekræftet ved specialundersøgelser"
+    8: "Usikkert om organisk betinget"
+  validate: [0-2,8,9]
+
+- key: "6.077"
+  title: "ICD-10 diagnosekode for organisk årsag"
+  input: string
+
+- key: "7.001"
+  title: "Tænkning, koncentration , energi, interesser"
+  description: |
+    7_001 Screening for tænkning, koncentration, energi og interesser
+    Har du været i stand til at tænke og koncentrere dig som du plejer? Har din energi eller dine interesser ændret sig?
+  input: integer
+  options:
+    1: "Kan tænke og koncentrere sig bedre end de fleste, god energi, mange interesser"
+    2: "Ingen eller kun ringe nedsættelse"
+    3: "Tydelig nedsættelse"
+    4: "Udtalt nedsættelse, næsten totalt tab"
+  section_start: Section_7
+  validate: [1-4,8,9]
+
+- key: "7.002"
+  title: "Nedsat koncentrationsevne"
+  description: |
+    Har din koncentration være lige så god som sædvanligt i perioden?
+    ? Har du fået svært ved at læse bøger eller blade, eller følge en TV udsendelse?
+    ? Har du fået svært ved at koncentrere dig om det, du skal gøre, fx dit arbejde, føre en samtale, lave mad? ? Hvor længe har det været sådan?
+    Brug Rating Skala I
+  input: string
+  validate: [0-3,5,8,9]
+  ratingscale: 1
+
+- key: "7.003"
+  title: "Subjekt beskrevet ineffektiv tankevirksomhed"
+  description: |
+    Har du været i stand til at tænke klart og sammenhængende? Har du fået svært ved at træffe beslutninger selv om enkle dagligdags forhold?
+    Brug Rating Skala I
+  input: string
+  validate: [0-3,5,8,9]
+
+- key: "7.004"
+  title: "Tab af interesser"
+  description: |
+    Har du mistet interessen for det, du plejer at interessere dig for, fx arbejde, familie, fritidsinteresser, tøj og udseende?
+    Brug Rating Skala I
+  input: string
+  validate: [0-3,5,8,9]
+
+- key: "7.005"
+  title: "Subjektiv følelse af motorisk hæmning"
+  description: |
+    Er du blevet langsommere i din tale eller i dine bevægelser? Har du følt dig tung i armene eller benene, blytung?
+    Brug Rating Skala I
+  input: string
+  validate: [0-3,5,8,9]
+
+- key: "7.006"
+  title: "Tab af energi (livskraft)"
+  description: |
+    Har du tabt energien og kræfterne, ikke følt dig i vigør?
+    Brug Rating Skala I
+  input: string
+  validate: [0-3,5,8,9]
+
+- key: "7.007"
+  title: "Uoverkommelighedsfølelse i dagligdagen"
+  description: |
+    Føler du det hele overvældende? - Tungt eller uoverkommeligt? Føler du dig overvældet af selv almindelige dagligdags opgaver?
+    Brug Rating Skala I
+  input: string
+  validate: [0-3,5,8,9]
+
+- key: "7.008A"
+  title: "Tidsangivelse for sektion 7 symptomer"
+  description: |
+    Rates kun hvis forskellig fra tidsangivelsen i 1.007-1.014.
+    Begyndelsesdato for PS eller PE
+  input: date
+
+- key: "7.008B"
+  title: "Varighed af PS (dage)"
+  input: string
+  validate: [0-999]
+
+- key: "7.008C"
+  title: "Begyndelsestidspunkt for RE eller LB"
+  input: date
+
+- key: "7.008D"
+  title: "Varighed af RE eller LB (uger)"
+  input: string
+  validate: [0-299]
+
+- key: "7.009"
+  title: "Påvirkning af aktiviteter på grund af sektion 7 symptomer"
+  input: integer
+  options:
+    0: "Ingen sektion 7 symptomer"
+    1: "Kun let påvirkning"
+    2: "Moderat eller intermitterende påvirkning"
+    3: "Svær eller invaliderende påvirkning"
+  validate: [0-3,8,9]
+
+- key: "7.010"
+  title: "Organisk årsag til sektion 7 symptomer"
+  input: integer
+  options:
+    0: "Fraværende"
+    1: "Sandsynlig organisk årsag, ikke fuldt bekræftet"
+    2: "Definitiv organisk årsag bekræftet af specialundersøgelser"
+    8: "Usikkert om organisk betinget"
+  validate: [0-2,8,9]
+
+- key: "7.011"
+  title: "ICD-10 diagnosekode for organisk årsag"
+  input: string
+
+- key: "8.001"
+  title: "Fysiologiske funktioner"
+  description: |
+    8_001 Vægt i kg
+  input: string
+  section_start: Section_8
+  validate: [20-200]
+
+- key: "8.002"
+  title: "Højde i cm"
+  input: string
+  validate: [50-250]
+
+- key: "8.003"
+  title: "Vægtøgning eller -tab siden adolescensen (kg)"
+  input: string
+  validate: [0-100]
+
+- key: "8.004"
+  title: "Vægten i 18-20 års alderen"
+  input: string
+  validate: [20-200]
+
+- key: "8.005"
+  title: "Appetitændring"
+  description: |
+    Hvordan har appetitten været?
+    ? Hvor længe har den været ændret ? ? Hvad skyldes det?
+  input: integer
+  options:
+    0: "Ingen ændring"
+    1: "Udtalt appetitnedsættelse i mindre end 2 uger"
+    2: "Udtalt appetitnedsættelse i 2-4 uger"
+    3: "Udtalt appetitnedsættelse i mere end 1 måned"
+    4: "Øget appetit i mindre end 2 uger"
+    5: "Øget appetit i mere end 2 uger"
+    6: "Altid dårlig appetit"
+    7: "Appetitten vekslende"
+  validate: [0-7,8,9]
+
+- key: "8.006"
+  title: "Vægttab"
+  description: |
+    Har du tabt i vægt i løbet af perioden?
+  input: integer
+  options:
+    0: "Intet tab"
+    1: "Moderat tab"
+    2: "Tab af mere end 5% af legemsvægten i løbet af en måned (3,5 kg svarer til 70 kg)"
+    3: "Vægttab til mere end 15% under normalvægten i løbet af et år"
+    4: "Manglende forventet vægtøgning på et år, svarende til mere end 15% af normalvægten (for børn og unge eller rekonvalescenter)"
+  validate: [0-4,8,9]
+
+- key: "8.007"
+  title: "Vægtøgning"
+  description: |
+    Har du taget på i vægt i løbet af perioden?
+  input: integer
+  options:
+    0: "Ingen øgning"
+    1: "Moderat vægtøgning"
+    2: "Vægtøgning på mere end 5% af legemsvægten i løbet af en måned"
+  validate: [0-2,8,9]
+
+- key: "8.008"
+  title: "Vægtproblemer"
+  description: |
+    Har du haft alvorlige problemer med vægten? - Hvilke?
+  input: integer
+  options:
+    0: "Nej"
+    1: "Ja"
+  validate: [0,1,8,9]
+
+- key: "8.009"
+  title: "SØVNBESVÆR Hvordan er dit sædvanlige søvnmønster? Hvornår plejer du at gå til ro? Hvornår plejer du at vågne op?"
+  description: |
+    8_009 Søvnbesvær i forbindelse med nedtrykthed
+  input: integer
+  options:
+    0: "Ingen forbindelse"
+    1: "Definitiv forbindelse med nedtrykthed"
+  validate: [0,1,8,9]
+
+- key: "8.010"
+  title: "Virkning af sovetabletter"
+  description: |
+    Tager du sovetabletter? Hvilke? Hvor mange? Hjælper de?
+  input: integer
+  options:
+    0: "Bruger ikke sovetabletter eller sedativa"
+    1: "God virkning"
+    2: "Dårlig virkning"
+  validate: [0-2,8,9]
+
+- key: "8.011"
+  title: "Indsovningsbesvær"
+  description: |
+    Har du besvær med at falde i søvn?
+    ? Hvor længe ligger du vågen før du falder i søvn? - En time eller mere? ? Hvor ofte sker det? 3 gange ugentligt eller mere? ? Hvor det længe har det været sådan?
+  input: integer
+  options:
+    0: "Intet indsovningsbesvær"
+    1: "Indsovningsbesvær (mindst en time) gennem mindre end 1 måned"
+    2: "Indsovningsbesvær (mindst 1 time > 3 gange ugentligt) gennem mindst 1 måned"
+  validate: [0-2,8,9]
+
+- key: "8.012"
+  title: "Søvnkvalitet"
+  description: |
+    Er søvnen naturlig og forfriskende? Er søvnen unaturlig? Føler du dig træt når du vågner?
+  input: integer
+  options:
+    0: "God nattesøvn"
+    1: "Søvnen ikke forfriskende, let til moderat grad"
+    2: "Søvnen ikke forfriskende, udtalt grad, 3 eller flere gange ugentligt gennem mindst 1 måned"
+  validate: [0-2,8,9]
+
+- key: "8.013"
+  title: "Afbrudt søvn"
+  description: |
+    Vågner du op i løbet af natten? Hvor ofte? Hvor længe? Gennem hvor lang tid?
+  input: integer
+  options:
+    0: "Søvnen ikke afbrudt"
+    1: "Afbrudt nattesøvn (mindst 1 time), let til moderat grad"
+    2: "Afbrudt nattesøvn, 1 time eller mere, 3 eller flere gange ugentligt gennem mindst 1 måned"
+  validate: [0-2,8,9]
+
+- key: "8.014"
+  title: "Tidlig opvågnen"
+  description: |
+    Vågner du op om morgenen tidligere end du plejer? Hvor længe før? Hvor ofte? Gennem hvor lang tid?
+    Er det optrådt samtidig med nedtrykthed?
+  input: integer
+  options:
+    0: "Ingen tidlig opvågnen"
+    1: "Tidlig opvågnen, mindst en time, men ikke (2)"
+    2: "Vågner mindst 2 timer før normalt, > 3 gange ugentligt gennem mindst 1 måned"
+  validate: [0-3,8,9]
+
+- key: "8.015"
+  title: "Forstyrret søvnmønster"
+  description: |
+    Har dit søvnmønster ændret sig, fx så du er vågen om natten og sover om dagen? Hvor ofte? Hvor længe?
+  input: integer
+  options:
+    0: "Ingen ændring"
+    1: "Ændret søvnmønster men ikke (2)"
+    2: "Ændret søvnmønster dagligt gennem mindst 1 måned"
+  validate: [0-2,8,9]
+
+- key: "8.016"
+  title: "Øget søvntrang - hypersomni"
+  description: |
+    Skal du sove mere end du plejer? Hvor meget mere? Føler du dig meget søvnig om dagen med tendens til at falde i søvn ind imellem, selvom du sover hele natten?
+  input: integer
+  options:
+    0: "Ingen hypersomni"
+    1: "Øget søvntrang men ikke (2)"
+    2: "Dagligt gennem mindst en måned"
+  validate: [0-2,8,9]
+
+- key: "8.017"
+  title: "Forstyrrende drømme eller mareridt"
+  description: |
+    Har du ubehagelige drømme eller mareridt, der har forstyrret søvnen?
+  input: integer
+  options:
+    0: "Ingen"
+    1: "Mareridt men ikke (2)"
+    2: "Hyppige mareridt med forstyrret nattesøvn"
+  validate: [0-2,8,9]
+
+- key: "8.018"
+  title: "Søvnrædsel"
+  description: |
+    Natlige anfald med pludselig opvågnen i en tilstand af panikagtig angst, ofte med ændret bevidsthedstilstand, desorientering og efterfølgende amnesi. Optræder oftest først på natten, og varer kun kort (mindre end 10 minutter).
+  input: integer
+  options:
+    0: "Ingen"
+    1: "Gentagne anfald med søvnrædsel i løbet af perioden"
+  validate: [0,1,8,9]
+
+- key: "8.019"
+  title: "Søvngængeri"
+  description: |
+    Anfald, hvor man i søvne bevæger sig omkring med tomt ansigtsudtryk uden at reagere på omgivelserne og er vanskelig at vække. Ved opvågningen kan der være kortvarig konfusion. Efterfølges af amnesi.
+  input: integer
+  options:
+    0: "Ingen"
+  validate: [0,1,8,9]
+
+- key: "8.020A"
+  title: "Tidsangivelse for søvnbesvær"
+  description: |
+    Rates kun hvis forskellig fra tidsangivelsen i 1.007-1.014.
+    Begyndelsesdato for PS eller PE
+  input: date
+
+- key: "8.020B"
+  title: "Varighed af PS eller PE (dage)"
+  input: string
+  validate: [0-999]
+
+- key: "8.020C"
+  title: "Begyndelsestidspunkt for RE eller LB"
+  input: date
+
+- key: "8.020D"
+  title: "Varighed af RE eller LB (uger)"
+  input: string
+  validate: [0-299]
+
+- key: "8.021"
+  title: "Påvirkning af aktivitet på grund af søvnbesvær"
+  input: integer
+  options:
+    0: "Ingen påvirkning"
+    1: "Kun let påvirkning"
+    2: "Moderat eller intermitterende påvirkning"
+    3: "Svær eller invaliderende påvirkning"
+  validate: [0-3,8,9]
+
+- key: "8.022"
+  title: "Organisk årsag til søvnbesvær"
+  input: integer
+  options:
+    0: "Fraværende"
+    1: "Sandsynlig organisk årsag, ikke fuld bekræftet"
+    2: "Definitiv organisk årsag bekræftet af specialundersøgelser"
+    8: "Usikkert om organisk betinget"
+  validate: [0-2,8,9]
+
+- key: "8.023"
+  title: "ICD-10 diagnosekode for organisk årsag"
+  input: string
+
+- key: "8.024"
+  title: "SEKSUEL DYSFUNKTION"
+  description: |
+    8_024 Nedsat seksuallyst - tab af libido
+    Har din lyst til seksuel udfoldelse været mindre end sædvanligt i løbet af perioden?
+  input: integer
+  options:
+    1: "Noget nedsat"
+    2: "Udtalt nedsættelse"
+    3: "Helt manglende"
+  validate: [0-3,8,9]
+
+- key: "8.025"
+  title: "Nedsat seksuallyst i forbindelse med depression"
+  input: integer
+  options:
+    0: "Ingen forbindelse"
+    1: "Tydeligt forbundet med nedtrykthed"
+  validate: [0,1,8,9]
+
+- key: "8.026"
+  title: "Andre seksuelle problemer"
+  description: |
+    Er der ubehag eller smerter i forbindelse med seksuel udfoldelse? Er der andre seksuelle problemer?
+  input: integer
+  options:
+    0: "Ingen andre seksuelle problemer"
+    1: "Andre seksuelle problemer (cf. 27.039 - 27.048)"
+  validate: [0,1,8,9]
+
+- key: "8.027A"
+  title: "Tidsangivelse for seksuel dysfunktion"
+  description: |
+    Rates kun hvis forskellig fra tidsangivelsen i 1.007-1.014.
+    Begyndelsesdato for PS eller PE
+  input: date
+
+- key: "8.027B"
+  title: "Varighed af PS eller PE (dage)"
+  input: string
+  validate: [0-999]
+
+- key: "8.027C"
+  title: "Begyndelsestidspunkt for RE eller LB"
+  input: date
+
+- key: "8.027D"
+  title: "Varighed af RE eller LB (uger)"
+  input: string
+  validate: [0-299]
+
+- key: "8.028"
+  title: "Påvirkning af aktiviteter på grund af seksuel dysfunktion"
+  input: integer
+  options:
+    0: "Ingen seksuel dysfunktion"
+    1: "Kun let påvirkning"
+    2: "Moderat eller intermitterende påvirkning"
+    3: "Svær eller invaliderende påvirkning"
+  validate: [0-3,8,9]
+
+- key: "8.029"
+  title: "Organisk årsag til seksuel dysfunktion"
+  input: integer
+  options:
+    0: "Fraværende"
+    1: "Sandsynlig organisk årsag, ikke fuldt bekræftet"
+    2: "Definitiv organisk årsag bekræftet af specialundersøgelser"
+    8: "Usikkert om organisk betinget"
+  validate: [0-2,8,9]
+
+- key: "8.030"
+  title: "ICD-10 diagnosekode for organisk årsag"
+  input: string

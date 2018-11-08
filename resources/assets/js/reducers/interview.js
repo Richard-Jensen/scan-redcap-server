@@ -80,7 +80,6 @@ const interview = (state = initialState, action) => {
       else {
         mergedSliderValues = sliderValues;
       }
-
     }
 
     const { matched } = Algorithms.run(mergedResponses, routing);

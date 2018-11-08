@@ -195,6 +195,7 @@ class Response extends React.Component {
   }
 
   isActive = (array, pair, input) => {
+
     if (this.state.currentPos === this.getIndex(pair,array)) {
       return <b>{input}</b>;
     }

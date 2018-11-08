@@ -5,7 +5,7 @@
  * on this object. This ensures that no counter or diagnosis are resolved more
  * than once.
  */
-export default class Evaluator {
+ export default class Evaluator {
   // a: 0;
 
   /**
@@ -72,7 +72,7 @@ export default class Evaluator {
    *
    * @see issue #15
    */
-  and(component, diagnosis) {
+   and(component, diagnosis) {
     // console.log('AND');
     // console.log(array);
 
@@ -100,7 +100,7 @@ export default class Evaluator {
    *
    * @see issue #15
    */
-  or(component, diagnosis) {
+   or(component, diagnosis) {
     // console.log('OR');
     // console.log(array);
 
@@ -119,7 +119,7 @@ export default class Evaluator {
    * If exactly one of the values in the input array evaluates to true, this
    * method returns true.
    */
-  xor(component, diagnosis) {
+   xor(component, diagnosis) {
     // console.log('XOR');
     // console.log(array);
 
@@ -189,7 +189,7 @@ export default class Evaluator {
    *                             We allow boolean values for now
    * @return boolean             The value of the leaf
    */
-  leaf(component, diagnosis) {
+   leaf(component, diagnosis) {
     // This is for easy testing.
     if (typeof component.expression === 'boolean') {
       return component.expression;
@@ -284,7 +284,7 @@ export default class Evaluator {
       } else {
         console.log(
           'Undefined operator: ' + arr[0] + ' Variable: ' + typeof variable
-        );
+          );
         return;
       }
     }
@@ -440,7 +440,7 @@ export default class Evaluator {
    * @param  string id The answer ID
    * @return mixed     The JSON-parsed value or false if not found.
    */
-  lookupAnswer(id) {
+   lookupAnswer(id) {
     // console.log(id);
     if (typeof this.answers[id] === 'undefined') {
       // console.log('The answer with ID: ' + id + ' is undefined');
@@ -515,7 +515,7 @@ export default class Evaluator {
           self.evaluated[component.id] = self.process(
             self.getAlgorithm(component),
             diagnosis
-          );
+            );
         } else {
           component.status = 'missing';
           // The diagnosis doesn't exist in the algorithm set. Give a warning.
@@ -535,14 +535,14 @@ export default class Evaluator {
    * @return object/boolean    The algorithm object if it exists,
    *                           false otherwise
    */
-  getAlgorithm(component, diagnosis) {
+   getAlgorithm(component, diagnosis) {
     if (typeof this.algorithms.get(component.id) !== 'object') {
       // console.log(component);
       console.warn(
         'The diagnosis with id: ' +
-          component.id +
-          ' does not exist in the diagnosis set'
-      );
+        component.id +
+        ' does not exist in the diagnosis set'
+        );
       // TODO The id doesn't have an entry in the algorithm set.
       // Give the appropriate warning/error
       return false;
@@ -551,9 +551,9 @@ export default class Evaluator {
     if (typeof this.algorithms.get(component.id).algorithm !== 'object') {
       console.warn(
         'The diagnosis with id: ' +
-          component.id +
-          ' does not have a well formed algorithm attached'
-      );
+        component.id +
+        ' does not have a well formed algorithm attached'
+        );
       // TODO The id doesn't have a well formed algorithm attached.
       // Give the appropriate warning/error
       return false;
