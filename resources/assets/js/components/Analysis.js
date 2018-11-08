@@ -21,6 +21,8 @@ class AnalysisModal extends Component {
   };
 
   getAlgorithmSets = () => {
+
+    console.log((window.axios.get('/algorithms.json')))
     window.axios
       .get('/algorithms.json')
       .then(response => {

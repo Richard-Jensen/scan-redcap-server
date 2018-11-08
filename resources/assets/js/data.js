@@ -7,7 +7,6 @@ export const saveInterview = (id, data) => {
       data
     })
     .then(response => {
-      console.log('test')
       console.log(response);
     });
 };

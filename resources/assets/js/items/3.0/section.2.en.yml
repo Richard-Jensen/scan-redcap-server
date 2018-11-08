@@ -1305,7 +1305,7 @@ items:
   input: integer
   options:
     0: Ikke til sted
-    0-799: mellem 1 og 799 mdr.
+    1-799: Mellem 1 og 799 mdr.
     800: 800 mths or more
     888: NK
     999: NA

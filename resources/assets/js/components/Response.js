@@ -30,7 +30,17 @@ class Response extends React.Component {
 
   componentDidMount() {
     const activeKey = this.props.interview.activeKey;
-    const item = getItemByKey(activeKey);
+    let item = getItemByKey(activeKey);
+    let hasScale = item.scale;
+    if (hasScale && scales[item.scale]) {
+      const scale = scales[item.scale];
+      item = {
+        ...item,
+        options: scale.options,
+        validate: scale.validate,
+        input: scale.input
+      };
+    }
     const Options = [];
     const response = (this.props.interview.responses && this.props.interview.responses[item.key]) || '';
     const sliderValue = this.props.interview.sliderValues[activeKey];
@@ -45,7 +55,7 @@ class Response extends React.Component {
       const currentPos = this.getIndexComb(response, Options);
       this.setState({
         Options: Options,
-        currentPos: currentPos,
+        currentPos: this.getIndexComb(response, Options),
         sliderValue: sliderValue
       })
     }
@@ -53,8 +63,18 @@ class Response extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.interview.activeKey !== prevProps.interview.activeKey) {
-      const item = getItemByKey(this.props.interview.activeKey);
+      let item = getItemByKey(this.props.interview.activeKey);
       const Options = [];
+      let hasScale = item.scale;
+      if (hasScale && scales[item.scale]) {
+        const scale = scales[item.scale];
+        item = {
+          ...item,
+          options: scale.options,
+          validate: scale.validate,
+          input: scale.input
+        };
+      }
       if (item.options) {
         Object.keys(item.options).map(key =>
           Options.push(
@@ -92,7 +112,7 @@ class Response extends React.Component {
         })
       }
       else {
-        const currentPos = this.getIndex_0(response, Options);
+        const currentPos = this.getIndexComb(response, Options);
         this.setState({
           Options: Options,
           response: response,
@@ -184,9 +204,9 @@ class Response extends React.Component {
   }
 
   compareKey = (x,y) => {
-    if (x < y) return -1;
-    if (x === y) return 0;
-    if (x > y) return 1;
+    if (parseInt(x[0], 10) < parseInt(y[0])) return -1;
+    if (parseInt(x[0], 10) === parseInt(y[0], 10)) return 0;
+    if (parseInt(x[0], 10) > parseInt(y[0],10)) return 1;
   }
 
 
@@ -198,6 +218,8 @@ class Response extends React.Component {
     const settings = this.props.settings;
     const Options = this.state.Options;
     const sliderValue = this.state.sliderValue;
+
+    const currentPos = this.state.currentPos;
 
     let item = getItemByKey(interview.activeKey);
     if (!item) {
@@ -264,7 +286,7 @@ class Response extends React.Component {
 
 
   // For debugging only
-  console.log('currentPos: ' + this.state.currentPos);
+  console.log('currentPos: ' + currentPos);
   console.log('min: ' + this.state.min);
   console.log('response: ' + 'type = ' + typeof(response) + ', value = ' + response);
   console.log('max: ' + this.state.max);
@@ -320,7 +342,7 @@ class Response extends React.Component {
           //Keycode 38 is arrow key up, 40 is down
           // TODO: Refactor this. It's a huge mess.
           if(event.keyCode==38) {
-            if (this.state.currentPos === null) {
+            if (currentPos === null) {
               if (Options[0][0].includes('-')) {
                 if (sliderValue !== null) {
                   dispatch(setResponse({
@@ -356,18 +378,18 @@ class Response extends React.Component {
             }
 
             else {
-              if (Options[this.state.currentPos][0].includes('-') && !event.shiftKey) {
+              if (Options[currentPos][0].includes('-') && !event.shiftKey) {
                 if (this.state.sliderValue === this.state.max) {
-                  if (this.state.currentPos === (Options.length - 1)) {
+                  if (currentPos === (Options.length - 1)) {
                     return
                   }
                   else {
                     dispatch(setResponse({
                       key: item.key,
-                      value: Options[this.state.currentPos + 1][0]
+                      value: Options[currentPos + 1][0]
                     }));
                     this.setState({
-                      currentPos: this.state.currentPos + 1
+                      currentPos: currentPos + 1
                     });
                     event.preventDefault();
                   }
@@ -395,10 +417,10 @@ class Response extends React.Component {
                   event.preventDefault();
                 }
               }
-              else if (this.state.currentPos === (Options.length - 1)) {
+              else if (currentPos === (Options.length - 1)) {
                 return
               }
-              else if (Options[this.state.currentPos + 1][0].includes('-')) {
+              else if (Options[currentPos + 1][0].includes('-')) {
                 dispatch(
                   setResponse({
                     key: item.key,
@@ -406,7 +428,7 @@ class Response extends React.Component {
                   })
                   );
                 this.setState({
-                  currentPos: this.state.currentPos + 1
+                  currentPos: currentPos + 1
                 });
                 event.preventDefault();
               }
@@ -414,18 +436,18 @@ class Response extends React.Component {
                 dispatch(
                   setResponse({
                     key: item.key,
-                    value: Options[this.state.currentPos + 1][0]
+                    value: Options[currentPos + 1][0]
                   })
                   );
                 event.preventDefault();
                 this.setState({
-                  currentPos: this.state.currentPos + 1
+                  currentPos: currentPos + 1
                 });
               }
             }
           }
           else if (event.keyCode==40) {
-            if (this.state.currentPos === null) {
+            if (currentPos === null) {
               if (Options[0][0].includes('-')) {
                 if (sliderValue !== null) {
                   dispatch(setResponse({
@@ -461,18 +483,18 @@ class Response extends React.Component {
             }
 
             else {
-              if (Options[this.state.currentPos][0].includes('-') && !event.shiftKey) {
+              if (Options[currentPos][0].includes('-') && !event.shiftKey) {
                 if (this.state.sliderValue === this.state.min) {
-                  if (this.state.currentPos === 0) {
+                  if (currentPos === 0) {
                    return
                  }
                  else {
                   dispatch(setResponse({
                     key: item.key,
-                    value: Options[this.state.currentPos - 1][0]
+                    value: Options[currentPos - 1][0]
                   }));
                   this.setState({
-                    currentPos: this.state.currentPos - 1
+                    currentPos: currentPos - 1
                   });
                   event.preventDefault();
                 }
@@ -500,9 +522,9 @@ class Response extends React.Component {
               }
             }
 
-            else if (Options[this.state.currentPos - 1][0].includes('-')) {
+            else if (Options[currentPos - 1][0].includes('-')) {
               this.setState({
-                currentPos: this.state.currentPos - 1
+                currentPos: currentPos - 1
               });
               dispatch(
                 setResponse({
@@ -512,16 +534,20 @@ class Response extends React.Component {
                 );
               event.preventDefault();
             }
+            else if (currentPos === 0) {
+              return
+            }
             else {
+              console.log('test')
               dispatch(
                 setResponse({
                   key: item.key,
-                  value: Options[this.state.currentPos - 1][0]
+                  value: Options[currentPos - 1][0]
                 })
                 );
               event.preventDefault();
               this.setState({
-                currentPos: this.state.currentPos - 1
+                currentPos: currentPos - 1
               });
             }
           }
@@ -551,32 +577,36 @@ class Response extends React.Component {
             });
           }
           else {
-            this.state.currentPos = this.getIndex_0(event.target.value, Options)
+            this.setState({
+              currentPos: this.getIndex_0(event.target.value, Options)
+            })
           }
         }
         else {
-         this.state.currentPos = this.getIndex_0(event.target.value, Options);
-       }
-     }
-   }}
-   placeholder={item.validate}
-   value={response}
-   autoFocus
-   />
-
-   {settings.showItemNotes && (
-    <textarea
-    onChange={event =>
-      dispatch(
-        setNote({ key: item.key, value: event.target.value })
-        )
-    }
-    defaultValue={note}
-    placeholder="Note"
+          this.setState({
+            currentPos: this.getIndex_0(event.target.value, Options)
+          })
+        }
+      }
+    }}
+    placeholder={item.validate}
+    value={response}
+    autoFocus
     />
+
+    {settings.showItemNotes && (
+      <textarea
+      onChange={event =>
+        dispatch(
+          setNote({ key: item.key, value: event.target.value })
+          )
+      }
+      defaultValue={note}
+      placeholder="Note"
+      />
+      )}
+    </Fragment>
     )}
-   </Fragment>
-   )}
 </div>
 {showGlossary && (
   <div className="interview-item-glossary">
