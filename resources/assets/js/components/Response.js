@@ -282,13 +282,13 @@ getIndexComb = (value, array) => {
   };
 
   // For debugging only
-  console.log('currentPos: ' + currentPos);
+  /*console.log('currentPos: ' + currentPos);
   console.log('min: ' + this.state.min);
   console.log('response: ' + 'type = ' + typeof(response) + ', value = ' + response);
   console.log('max: ' + this.state.max);
   console.log('hasSlider: ' + this.state.hasSlider);
   console.log('sliderValue: ' + 'type = ' + typeof(sliderValue) + ', value = ' + sliderValue);
-  console.log('showDescription: ' + this.state.showDescription)
+  console.log('showDescription: ' + this.state.showDescription)*/
 
   // Returns the specific interview item.
   return (
