@@ -222,9 +222,6 @@ getIndexComb = (value, array) => {
     const interview = this.props.interview;
     const settings = this.props.settings;
 
-    console.log(this.state.OptionsWithoutDescriptions)
-    console.log(this.state.OptionsWithDescriptions)
-
     let Options;
     if (this.state.showDescription === false) {
       Options = this.state.OptionsWithoutDescriptions;
@@ -232,7 +229,6 @@ getIndexComb = (value, array) => {
     else {
       Options = this.state.OptionsWithDescriptions;
     }
-    console.log(Options)
 
     const sliderValue = this.state.sliderValue;
 
@@ -282,13 +278,13 @@ getIndexComb = (value, array) => {
   };
 
   // For debugging only
-  /*console.log('currentPos: ' + currentPos);
+  console.log('currentPos: ' + currentPos);
   console.log('min: ' + this.state.min);
   console.log('response: ' + 'type = ' + typeof(response) + ', value = ' + response);
   console.log('max: ' + this.state.max);
   console.log('hasSlider: ' + this.state.hasSlider);
   console.log('sliderValue: ' + 'type = ' + typeof(sliderValue) + ', value = ' + sliderValue);
-  console.log('showDescription: ' + this.state.showDescription)*/
+  console.log('showDescription: ' + this.state.showDescription)
 
   // Returns the specific interview item.
   return (
@@ -529,7 +525,10 @@ getIndexComb = (value, array) => {
                 event.preventDefault();
               }
             }
-
+            else if (currentPos === 0) {
+              event.preventDefault();
+              return
+            }
             else if (Options[currentPos - 1][0].includes('-')) {
               this.setState({
                 currentPos: currentPos - 1
@@ -542,9 +541,7 @@ getIndexComb = (value, array) => {
                 );
               event.preventDefault();
             }
-            else if (currentPos === 0) {
-              return
-            }
+
             else {
               dispatch(
                 setResponse({

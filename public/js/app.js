@@ -58096,6 +58096,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -58365,16 +58367,12 @@ var Response = function (_React$Component) {
       var interview = this.props.interview;
       var settings = this.props.settings;
 
-      console.log(this.state.OptionsWithoutDescriptions);
-      console.log(this.state.OptionsWithDescriptions);
-
       var Options = void 0;
       if (this.state.showDescription === false) {
         Options = this.state.OptionsWithoutDescriptions;
       } else {
         Options = this.state.OptionsWithDescriptions;
       }
-      console.log(Options);
 
       var sliderValue = this.state.sliderValue;
 
@@ -58425,13 +58423,13 @@ var Response = function (_React$Component) {
       };
 
       // For debugging only
-      /*console.log('currentPos: ' + currentPos);
+      console.log('currentPos: ' + currentPos);
       console.log('min: ' + this.state.min);
-      console.log('response: ' + 'type = ' + typeof(response) + ', value = ' + response);
+      console.log('response: ' + 'type = ' + (typeof response === 'undefined' ? 'undefined' : _typeof(response)) + ', value = ' + response);
       console.log('max: ' + this.state.max);
       console.log('hasSlider: ' + this.state.hasSlider);
-      console.log('sliderValue: ' + 'type = ' + typeof(sliderValue) + ', value = ' + sliderValue);
-      console.log('showDescription: ' + this.state.showDescription)*/
+      console.log('sliderValue: ' + 'type = ' + (typeof sliderValue === 'undefined' ? 'undefined' : _typeof(sliderValue)) + ', value = ' + sliderValue);
+      console.log('showDescription: ' + this.state.showDescription);
 
       // Returns the specific interview item.
       return _react2.default.createElement(
@@ -58661,6 +58659,9 @@ var Response = function (_React$Component) {
                         }));
                         event.preventDefault();
                       }
+                    } else if (currentPos === 0) {
+                      event.preventDefault();
+                      return;
                     } else if (Options[currentPos - 1][0].includes('-')) {
                       _this2.setState({
                         currentPos: currentPos - 1
@@ -58670,8 +58671,6 @@ var Response = function (_React$Component) {
                         value: _this2.state.sliderValue.toString()
                       }));
                       event.preventDefault();
-                    } else if (currentPos === 0) {
-                      return;
                     } else {
                       dispatch((0, _actions.setResponse)({
                         key: item.key,
