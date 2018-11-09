@@ -21,8 +21,10 @@ class Response extends React.Component {
       // Making sure that if not initialized, min-max is the empty set
       min: 1,
       max: 0,
-      Options: [],
-      sliderValue: 0
+      OptionsWithoutDescriptions: [],
+      OptionsWithDescriptions: [],
+      sliderValue: 0,
+      showDescription: false
     };
     this.inputBox = React.createRef();
     this.slider = React.createRef();
@@ -30,7 +32,17 @@ class Response extends React.Component {
 
   update = () => {
     let item = getItemByKey(this.props.interview.activeKey);
-    const Options = [];
+    const OptionsWithoutDescriptions = [];
+    const OptionsWithDescriptions = [];
+    if (item.options) {
+      Object.keys(item.options).map(key => {
+        OptionsWithoutDescriptions.push(
+          [key, item.options[key]]
+          )
+      }
+      );
+    }
+    OptionsWithoutDescriptions.sort(this.compareKey)
     let hasScale = item.scale;
     if (hasScale && scales[item.scale]) {
       const scale = scales[item.scale];
@@ -40,17 +52,15 @@ class Response extends React.Component {
         validate: scale.validate,
         input: scale.input
       };
-    }
-    if (item.options) {
-      Object.keys(item.options).map(key =>
-        Options.push(
-          [key, item.options[key]]
+      Object.keys(scales['1ad'].options).map(key => {
+        OptionsWithDescriptions.push(
+          [key, scales['1ad'].options[key]['title'], scales['1ad'].options[key]['description']]
           )
-        );
+      })
     }
-    Options.sort(this.compareKey)
+
     const ranges = [];
-    Options.map(pair => {
+    OptionsWithoutDescriptions.map(pair => {
       if (pair[0].includes('-')) {
         ranges.push(pair[0].split('-').map(n => parseInt(n, 10)))
       }
@@ -66,27 +76,31 @@ class Response extends React.Component {
       if (sliderValue === null) {
         sliderValue = min
       }
-      const currentPos = this.getIndexComb(response, Options);
+      const currentPos = this.getIndexComb(response, OptionsWithoutDescriptions);
       this.setState({
-        Options: Options,
+        OptionsWithoutDescriptions: OptionsWithoutDescriptions,
+        OptionsWithDescriptions: OptionsWithDescriptions,
         response: response,
         sliderValue: sliderValue,
         value: sliderValue,
         currentPos: currentPos,
         min: min,
-        max: max
+        max: max,
+        showDescription: false
       })
     }
     else {
-      const currentPos = this.getIndexComb(response, Options);
+      const currentPos = this.getIndexComb(response, OptionsWithoutDescriptions);
       this.setState({
-        Options: Options,
+        OptionsWithoutDescriptions: OptionsWithoutDescriptions,
+        OptionsWithDescriptions: OptionsWithDescriptions,
         response: response,
         sliderValue: null,
         value: sliderValue,
         currentPos: currentPos,
         min: null,
-        max: null
+        max: null,
+        showDescription: false
       })
     }
   }
@@ -101,38 +115,55 @@ class Response extends React.Component {
     }
   }
 
-
   write = (array, pair) => {
-    if (pair[0].includes("-")) {
-      this.state.hasSlider = true;
-      return ([
-        this.isActive(array, pair, pair[1]),
-        <ResponseSlider
-        id='Slider'
-        array={array}
-        responseValue={this.state.sliderValue}
-        min={
-          parseInt(pair[0].split('-')[0])
-        }
-        max={
-          parseInt(pair[0].split('-')[1])
-        }
-        ref={this.slider}
-        response={this}
-        interview={this.props.interview}
-        inputBox={this.inputBox}
-        />
+    if (this.state.showDescription === false) {
+      if (pair[0].includes("-")) {
+        this.state.hasSlider = true;
+        return ([
+          this.isActive(array, pair, pair[1]),
+          <ResponseSlider
+          id='Slider'
+          array={array}
+          responseValue={this.state.sliderValue}
+          min={
+            parseInt(pair[0].split('-')[0])
+          }
+          max={
+            parseInt(pair[0].split('-')[1])
+          }
+          ref={this.slider}
+          response={this}
+          interview={this.props.interview}
+          inputBox={this.inputBox}
+          />
+          ]);
+      }
+      else {
+       return ([
+        <b>{pair[0] + ' '}</b>,
+        this.isActive(array, pair, pair[1])
         ]);
-    }
-    else {
-     return ([
-      <b>{pair[0] + " "}</b>,
-      this.isActive(array,pair, pair[1])
-      ]);
+     }
    }
- };
+   else {
+    return (
+      this.isActive(array, pair,
+        (<div>
+          <b>{pair[0] + ': '}</b>
+          <div>
+          <b>Title: </b>
+          {pair[1]}
+          </div>
+          <div>
+          <b>Description: </b>
+          {pair[2]}
+          </div>
+          </div>)
+        ))
+  }
+}
 
- getIndexComb = (value, array) => {
+getIndexComb = (value, array) => {
   for(var i = 0; i < array.length; i++) {
     if(array[i][0] === value) {
       return i;
@@ -170,7 +201,6 @@ class Response extends React.Component {
   }
 
   isActive = (array, pair, input) => {
-
     if (this.state.currentPos === this.getIndex(pair,array)) {
       return <b>{input}</b>;
     }
@@ -188,11 +218,22 @@ class Response extends React.Component {
 
 
   render() {
-
     const dispatch = this.props.dispatch;
     const interview = this.props.interview;
     const settings = this.props.settings;
-    const Options = this.state.Options;
+
+    console.log(this.state.OptionsWithoutDescriptions)
+    console.log(this.state.OptionsWithDescriptions)
+
+    let Options;
+    if (this.state.showDescription === false) {
+      Options = this.state.OptionsWithoutDescriptions;
+    }
+    else {
+      Options = this.state.OptionsWithDescriptions;
+    }
+    console.log(Options)
+
     const sliderValue = this.state.sliderValue;
 
     const currentPos = this.state.currentPos;
@@ -233,6 +274,8 @@ class Response extends React.Component {
   const hasInput = input || item.scale;
   const showGlossary = settings.showGlossary && item.glossary;
 
+
+
   //TODO: This is just a short hack for trying to fix the issue of text size changing. Do this propper with CSS!
   const divStyle = {
     fontSize: 40,
@@ -245,6 +288,7 @@ class Response extends React.Component {
   console.log('max: ' + this.state.max);
   console.log('hasSlider: ' + this.state.hasSlider);
   console.log('sliderValue: ' + 'type = ' + typeof(sliderValue) + ', value = ' + sliderValue);
+  console.log('showDescription: ' + this.state.showDescription)
 
   // Returns the specific interview item.
   return (
@@ -273,14 +317,25 @@ class Response extends React.Component {
         }
       }
       >
-      {this.write(Options,pair)}
+      {this.write(Options, pair)}
       </div>
       ))}
       {item.scale && (
         <div>
         Scale: <strong>{item.scale}</strong>
-        </div>
-        )}
+        <button
+        onClick={() => {
+          this.setState({
+            showDescription: !this.state.showDescription
+          })
+          this.inputBox.current.focus();
+        }
+      }
+      >
+      Show descriptions
+      </button>
+      </div>
+      )}
       {hasInput && (
         <Fragment>
         <label htmlFor="response">Response</label>
