@@ -1972,7 +1972,8 @@ items:
     (rate 888 hvis pt. ikke kan angive et enkelt hovedsymptom)
 
     *- Hvilket af disse symptomer har generet dig mest?*
-  input: integer
+  input: string
+  dropdownOptions: 2.010-2.027b
   options:
     888: No single symptom is predominant
   validate: [10-90,888]

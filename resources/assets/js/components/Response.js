@@ -2,12 +2,13 @@ import React, { Fragment, Component } from 'react';
 import { connect } from 'react-redux';
 import { setActiveItem, setResponse, setNote, getResponse } from '../actions';
 import { ItemCard } from './ItemCard';
-import { validateNumeric, isValueWithinWholeRangeOfRules } from '../lib/helpers';
+import { validateNumeric, isValueWithinWholeRangeOfRules, monthsToYears } from '../lib/helpers';
 import { Markdown } from './Markdown';
-import { items, scales, getItemByKey } from '../items';
+import { items, scales, getItemByKey, getNextItemByKey } from '../items';
 import Slider from 'react-rangeslider';
 import 'react-rangeslider/lib/index.css';
 import ResponseSlider from './ResponseSlider';
+import Dropdown from './Dropdown';
 
 class Response extends React.Component {
 
@@ -135,7 +136,10 @@ class Response extends React.Component {
           response={this}
           interview={this.props.interview}
           inputBox={this.inputBox}
-          />
+          />,
+          <center>
+          {this.isActive(array, pair, monthsToYears(this.state.sliderValue))}
+          </center>
           ]);
       }
       else {
@@ -215,12 +219,42 @@ getIndexComb = (value, array) => {
     if (parseInt(x[0], 10) > parseInt(y[0],10)) return 1;
   }
 
+  // Method that takes two keys from the item list, and returns an array containing pairs of the form [key, title]. For example, running generateOptions(2.002, 2.003) would generate the array
+  // [[2.002, Varighed af helbredsbesvær (mdr.)], [2.003, Fysisk sygdom eller svækkelse igennem det sidste år]]
+  generateOptions = (first, last) => {
+    let arr = [];
+    let counter = first.toString();
+    while (counter !== last.toString()) {
+      arr.push(
+      {
+        value: counter,
+        label: (getItemByKey(counter).key + ': ' + getItemByKey(counter).title)
+      }
+      )
+      counter = getNextItemByKey(counter).key
+    }
+    arr.push(
+    {
+      value: counter,
+      label: (getItemByKey(counter).key + ': ' + getItemByKey(counter).title)
+    }
+    )
+    return arr;
+  }
 
+  // Method to handle up and down arrow and enter key functionlity to a Dropdown component
+  keyDownDropdown = (event) => {
+
+  }
 
   render() {
+    // Declaring constants to avoid writing this.props.... all the time
     const dispatch = this.props.dispatch;
     const interview = this.props.interview;
     const settings = this.props.settings;
+    const sliderValue = this.state.sliderValue;
+    const currentPos = this.state.currentPos;
+
 
     let Options;
     if (this.state.showDescription === false) {
@@ -229,10 +263,6 @@ getIndexComb = (value, array) => {
     else {
       Options = this.state.OptionsWithDescriptions;
     }
-
-    const sliderValue = this.state.sliderValue;
-
-    const currentPos = this.state.currentPos;
 
     let item = getItemByKey(interview.activeKey);
     if (!item) {
@@ -265,12 +295,9 @@ getIndexComb = (value, array) => {
   }
 
   const response = (interview.responses && interview.responses[item.key]) || '';
-
   const note = (interview.notes && interview.notes[item.key]) || '';
   const hasInput = input || item.scale;
   const showGlossary = settings.showGlossary && item.glossary;
-
-
 
   //TODO: This is just a short hack for trying to fix the issue of text size changing. Do this propper with CSS!
   const divStyle = {
@@ -291,6 +318,13 @@ getIndexComb = (value, array) => {
     <div key={item.key} className="interview-item-container">
     <div style={{ flex: 1 }}>
     <ItemCard item={item} />
+    {item.dropdownOptions &&
+      <Dropdown
+      activeKey={interview.activeKey}
+      options={this.generateOptions(item.dropdownOptions.split('-')[0], item.dropdownOptions.split('-')[1])}
+      >
+      </Dropdown>
+    }
     {item.options &&
       Options.map(pair => (
         <div
@@ -593,32 +627,32 @@ getIndexComb = (value, array) => {
           }
         }
         else {
-          this.setState({
-            currentPos: this.getIndex_0(event.target.value, Options)
-          })
-        }
-      }
+         this.setState({
+          currentPos: this.getIndex_0(event.target.value, Options)
+        })
+       }
+     }
 
 
-    }}
-    placeholder={item.validate}
-    value={response}
-    autoFocus
+   }}
+   placeholder={item.validate}
+   value={response}
+   autoFocus
+   />
+
+   {settings.showItemNotes && (
+    <textarea
+    onChange={event =>
+      dispatch(
+        setNote({ key: item.key, value: event.target.value })
+        )
+    }
+    defaultValue={note}
+    placeholder="Note"
     />
-
-    {settings.showItemNotes && (
-      <textarea
-      onChange={event =>
-        dispatch(
-          setNote({ key: item.key, value: event.target.value })
-          )
-      }
-      defaultValue={note}
-      placeholder="Note"
-      />
-      )}
-    </Fragment>
     )}
+   </Fragment>
+   )}
 </div>
 {showGlossary && (
   <div className="interview-item-glossary">
