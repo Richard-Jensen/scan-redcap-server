@@ -29,21 +29,11 @@ class Response extends React.Component {
     };
     this.inputBox = React.createRef();
     this.slider = React.createRef();
+    this.dropdownMenu = React.createRef();
   }
 
   update = () => {
     let item = getItemByKey(this.props.interview.activeKey);
-    const OptionsWithoutDescriptions = [];
-    const OptionsWithDescriptions = [];
-    if (item.options) {
-      Object.keys(item.options).map(key => {
-        OptionsWithoutDescriptions.push(
-          [key, item.options[key]]
-          )
-      }
-      );
-    }
-    OptionsWithoutDescriptions.sort(this.compareKey)
     let hasScale = item.scale;
     if (hasScale && scales[item.scale]) {
       const scale = scales[item.scale];
@@ -53,19 +43,37 @@ class Response extends React.Component {
         validate: scale.validate,
         input: scale.input
       };
-      Object.keys(scales['1ad'].options).map(key => {
-        OptionsWithDescriptions.push(
-          [key, scales['1ad'].options[key]['title'], scales['1ad'].options[key]['description']]
-          )
-      })
     }
+
+    const OptionsWithoutDescriptions = [];
+    const OptionsWithDescriptions = [];
+
+    if (item.dropdownOptions) {
+      OptionsWithoutDescriptions.push(this.dropdownMenu)
+    }
+    if (item.options) {
+      Object.keys(item.options).map(key => {
+        OptionsWithoutDescriptions.push(
+          [key, item.options[key]]
+          )
+      }
+      );
+    }
+    OptionsWithoutDescriptions.sort(this.compareKey)
+
+    Object.keys(scales['1ad'].options).map(key => {
+      OptionsWithDescriptions.push(
+        [key, scales['1ad'].options[key]['title'], scales['1ad'].options[key]['description']]
+        )
+    })
 
     const ranges = [];
     OptionsWithoutDescriptions.map(pair => {
-      if (pair[0].includes('-')) {
-        ranges.push(pair[0].split('-').map(n => parseInt(n, 10)))
-      }
-    })
+      if (Array.isArray(pair)) {
+        if (pair[0].includes('-')) {
+          ranges.push(pair[0].split('-').map(n => parseInt(n, 10)))
+        }}
+      })
 
     const response = (this.props.interview.responses && this.props.interview.responses[item.key]) || '';
     let sliderValue = (this.props.interview.sliderValues && this.props.interview.sliderValues[item.key]) || null;
@@ -77,7 +85,7 @@ class Response extends React.Component {
       if (sliderValue === null) {
         sliderValue = min
       }
-      const currentPos = this.getIndexComb(response, OptionsWithoutDescriptions);
+      const currentPos = currentPos;
       this.setState({
         OptionsWithoutDescriptions: OptionsWithoutDescriptions,
         OptionsWithDescriptions: OptionsWithDescriptions,
@@ -91,7 +99,7 @@ class Response extends React.Component {
       })
     }
     else {
-      const currentPos = this.getIndexComb(response, OptionsWithoutDescriptions);
+      const currentPos = currentPos;
       this.setState({
         OptionsWithoutDescriptions: OptionsWithoutDescriptions,
         OptionsWithDescriptions: OptionsWithDescriptions,
@@ -214,6 +222,8 @@ getIndexComb = (value, array) => {
   }
 
   compareKey = (x,y) => {
+    if (!Array.isArray(x)) return -1;
+    if (!Array.isArray(y)) return 1;
     if (parseInt(x[0], 10) < parseInt(y[0])) return -1;
     if (parseInt(x[0], 10) === parseInt(y[0], 10)) return 0;
     if (parseInt(x[0], 10) > parseInt(y[0],10)) return 1;
@@ -242,13 +252,8 @@ getIndexComb = (value, array) => {
     return arr;
   }
 
-  // Method to handle up and down arrow and enter key functionlity to a Dropdown component
-  keyDownDropdown = (event) => {
-
-  }
-
   render() {
-    // Declaring constants to avoid writing this.props.... all the time
+    // Declaring constants to avoid writing this.props... all the time
     const dispatch = this.props.dispatch;
     const interview = this.props.interview;
     const settings = this.props.settings;
@@ -312,44 +317,53 @@ getIndexComb = (value, array) => {
   console.log('hasSlider: ' + this.state.hasSlider);
   console.log('sliderValue: ' + 'type = ' + typeof(sliderValue) + ', value = ' + sliderValue);
   console.log('showDescription: ' + this.state.showDescription)
+  console.log(Options)
 
   // Returns the specific interview item.
   return (
     <div key={item.key} className="interview-item-container">
     <div style={{ flex: 1 }}>
     <ItemCard item={item} />
-    {item.dropdownOptions &&
-      <Dropdown
-      activeKey={interview.activeKey}
-      options={this.generateOptions(item.dropdownOptions.split('-')[0], item.dropdownOptions.split('-')[1])}
-      >
-      </Dropdown>
-    }
     {item.options &&
-      Options.map(pair => (
-        <div
-        key={pair[0]}
-        className="interview-response-list"
-        onClick={() => {
-          this.setState({
-            currentPos: this.getIndex(pair, Options)
-          })
-          if (pair[0].includes("-")) {
-            dispatch(setResponse({
-             key: item.key,
-             value: this.state.sliderValue
-           }))
-          }
-          else {
-            dispatch(setResponse({ key: item.key, value: pair[0]}))
-          }
-          this.inputBox.current.focus()
+      Options.map(pair => {
+        if (!Array.isArray(pair) && item.dropdownOptions) {
+          return (
+            <Dropdown
+            activeKey={interview.activeKey}
+            options={this.generateOptions(item.dropdownOptions.split('-')[0], item.dropdownOptions.split('-')[1])}
+            ref={this.dropdownMenu}
+            >
+            </Dropdown>
+            )
         }
-      }
-      >
-      {this.write(Options, pair)}
-      </div>
-      ))}
+        // I'm not happy about this check, but it is the only way I've found to avoid getting an error when calling pair[0], when pair is a reference (and anything besides an array)
+        else if (Array.isArray(pair)) {
+          return (
+            <div
+            key={pair[0]}
+            className="interview-response-list"
+            onClick={() => {
+              this.setState({
+                currentPos: this.getIndex(pair, Options)
+              })
+              if (pair[0].includes("-")) {
+                dispatch(setResponse({
+                 key: item.key,
+                 value: this.state.sliderValue
+               }))
+              }
+              else {
+                dispatch(setResponse({ key: item.key, value: pair[0]}))
+              }
+              this.inputBox.current.focus()
+            }
+          }
+          >
+          {this.write(Options, pair)}
+          </div>
+          )
+        }
+      })}
       {item.scale && (
         <div>
         Scale: <strong>{item.scale}</strong>
