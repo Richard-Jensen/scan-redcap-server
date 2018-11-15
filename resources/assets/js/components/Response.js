@@ -25,7 +25,8 @@ class Response extends React.Component {
       OptionsWithoutDescriptions: [],
       OptionsWithDescriptions: [],
       sliderValue: 0,
-      showDescription: false
+      showDescription: false,
+      isChecked: null
     };
     this.inputBox = React.createRef();
     this.slider = React.createRef();
@@ -129,7 +130,7 @@ class Response extends React.Component {
       if (pair[0].includes("-")) {
         this.state.hasSlider = true;
         return ([
-          this.isActive(array, pair, pair[1]),
+          pair[1],
           <ResponseSlider
           id='Slider'
           array={array}
@@ -146,32 +147,31 @@ class Response extends React.Component {
           inputBox={this.inputBox}
           />,
           <center>
-          {this.isActive(array, pair, monthsToYears(this.state.sliderValue))}
+          {monthsToYears(this.state.sliderValue)}
           </center>
           ]);
       }
       else {
        return ([
         <b>{pair[0] + ' '}</b>,
-        this.isActive(array, pair, pair[1])
+        pair[1]
         ]);
      }
    }
    else {
     return (
-      this.isActive(array, pair,
-        (<div>
-          <b>{pair[0] + ': '}</b>
-          <div>
-          <b>Title: </b>
-          {pair[1]}
-          </div>
-          <div>
-          <b>Description: </b>
-          {pair[2]}
-          </div>
-          </div>)
-        ))
+      <div>
+      <b>{pair[0] + ': '}</b>
+      <div>
+      <b>Title: </b>
+      {pair[1]}
+      </div>
+      <div>
+      <b>Description: </b>
+      {pair[2]}
+      </div>
+      </div>
+      )
   }
 }
 
@@ -317,80 +317,96 @@ getIndexComb = (value, array) => {
   console.log('hasSlider: ' + this.state.hasSlider);
   console.log('sliderValue: ' + 'type = ' + typeof(sliderValue) + ', value = ' + sliderValue);
   console.log('showDescription: ' + this.state.showDescription)
-  console.log(Options)
+  console.log('isChecked: ' + this.state.isChecked)
 
   // Returns the specific interview item.
   return (
     <div key={item.key} className="interview-item-container">
     <div style={{ flex: 1 }}>
     <ItemCard item={item} />
+    <form>
     {item.options &&
       Options.map(pair => {
         if (!Array.isArray(pair) && item.dropdownOptions) {
           return (
-            <Dropdown
-            activeKey={interview.activeKey}
-            options={this.generateOptions(item.dropdownOptions.split('-')[0], item.dropdownOptions.split('-')[1])}
-            ref={this.dropdownMenu}
-            >
-            </Dropdown>
-            )
+            <div className='radio' key='dropdown'>
+            <label>
+            <input type='radio' value='ok' onClick={() => {console.log('test')}} />
+            {<Dropdown
+              activeKey={interview.activeKey}
+              options={this.generateOptions(item.dropdownOptions.split('-')[0], item.dropdownOptions.split('-')[1])}
+              ref={this.dropdownMenu}
+              >
+              </Dropdown>}
+              </label>
+              </div>
+              )
         }
         // I'm not happy about this check, but it is the only way I've found to avoid getting an error when calling pair[0], when pair is a reference (and anything besides an array)
         else if (Array.isArray(pair)) {
           return (
             <div
             key={pair[0]}
-            className="interview-response-list"
-            onClick={() => {
-              this.setState({
-                currentPos: this.getIndex(pair, Options)
-              })
-              if (pair[0].includes("-")) {
-                dispatch(setResponse({
-                 key: item.key,
-                 value: this.state.sliderValue
-               }))
+            className="interview-response-list">
+            <label>
+            <input
+            type='radio'
+            value='ok'
+            checked={
+              this.state.currentPos && (pair[0] === Options[currentPos][0])}
+              onClick={() => {
+                this.setState({
+                  currentPos: this.getIndex(pair, Options),
+                  isChecked: pair[0]
+                })
+                if (pair[0].includes("-")) {
+                  dispatch(setResponse({
+                   key: item.key,
+                   value: this.state.sliderValue
+                 }))
+                }
+                else {
+                  dispatch(setResponse({ key: item.key, value: pair[0]}))
+                }
+                this.inputBox.current.focus()
               }
-              else {
-                dispatch(setResponse({ key: item.key, value: pair[0]}))
-              }
-              this.inputBox.current.focus()
             }
-          }
-          >
-          {this.write(Options, pair)}
-          </div>
-          )
+            />
+            {this.write(Options, pair)}
+            </label>
+            </div>
+            )
         }
-      })}
-      {item.scale && (
-        <div>
-        Scale: <strong>{item.scale}</strong>
-        <button
-        onClick={() => {
-          this.setState({
-            showDescription: !this.state.showDescription
-          })
-          this.inputBox.current.focus();
-        }
+      })
+    }
+    </form>
+    {item.scale && (
+      <div>
+      Scale: <strong>{item.scale}</strong>
+      <button
+      onClick={() => {
+        this.setState({
+          showDescription: !this.state.showDescription
+        })
+        this.inputBox.current.focus();
       }
-      >
-      Show descriptions
-      </button>
-      </div>
-      )}
-      {hasInput && (
-        <Fragment>
-        <label htmlFor="response">Response</label>
-        <input
-        type={input}
-        style={divStyle}
-        className={`interview-input interview-input-${input}`}
-        id="ResponseInput"
-        name="response"
-        ref={this.inputBox}
-        onKeyDown={event => {
+    }
+    >
+    Show descriptions
+    </button>
+    </div>
+    )}
+    {hasInput && (
+      <Fragment>
+      <label htmlFor="response">Response</label>
+      <input
+      type={input}
+      style={divStyle}
+      className={`interview-input interview-input-${input}`}
+      id="ResponseInput"
+      name="response"
+      ref={this.inputBox}
+      onKeyDown={event => {
           //Keycode 38 is arrow key up, 40 is down
           // TODO: Refactor this. It's a huge mess.
           if (event.keyCode==38) {

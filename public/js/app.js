@@ -59104,7 +59104,7 @@ var Response = function (_React$Component) {
       if (_this.state.showDescription === false) {
         if (pair[0].includes("-")) {
           _this.state.hasSlider = true;
-          return [_this.isActive(array, pair, pair[1]), _react2.default.createElement(_ResponseSlider2.default, {
+          return [pair[1], _react2.default.createElement(_ResponseSlider2.default, {
             id: 'Slider',
             array: array,
             responseValue: _this.state.sliderValue,
@@ -59117,17 +59117,17 @@ var Response = function (_React$Component) {
           }), _react2.default.createElement(
             'center',
             null,
-            _this.isActive(array, pair, (0, _helpers.monthsToYears)(_this.state.sliderValue))
+            (0, _helpers.monthsToYears)(_this.state.sliderValue)
           )];
         } else {
           return [_react2.default.createElement(
             'b',
             null,
             pair[0] + ' '
-          ), _this.isActive(array, pair, pair[1])];
+          ), pair[1]];
         }
       } else {
-        return _this.isActive(array, pair, _react2.default.createElement(
+        return _react2.default.createElement(
           'div',
           null,
           _react2.default.createElement(
@@ -59155,7 +59155,7 @@ var Response = function (_React$Component) {
             ),
             pair[2]
           )
-        ));
+        );
       }
     };
 
@@ -59243,7 +59243,8 @@ var Response = function (_React$Component) {
       OptionsWithoutDescriptions: [],
       OptionsWithDescriptions: [],
       sliderValue: 0,
-      showDescription: false
+      showDescription: false,
+      isChecked: null
     };
     _this.inputBox = _react2.default.createRef();
     _this.slider = _react2.default.createRef();
@@ -59343,7 +59344,7 @@ var Response = function (_React$Component) {
       console.log('hasSlider: ' + this.state.hasSlider);
       console.log('sliderValue: ' + 'type = ' + (typeof sliderValue === 'undefined' ? 'undefined' : _typeof(sliderValue)) + ', value = ' + sliderValue);
       console.log('showDescription: ' + this.state.showDescription);
-      console.log(Options);
+      console.log('isChecked: ' + this.state.isChecked);
 
       // Returns the specific interview item.
       return _react2.default.createElement(
@@ -59353,40 +59354,64 @@ var Response = function (_React$Component) {
           'div',
           { style: { flex: 1 } },
           _react2.default.createElement(_ItemCard.ItemCard, { item: item }),
-          item.options && Options.map(function (pair) {
-            if (!Array.isArray(pair) && item.dropdownOptions) {
-              return _react2.default.createElement(_Dropdown2.default, {
-                activeKey: interview.activeKey,
-                options: _this2.generateOptions(item.dropdownOptions.split('-')[0], item.dropdownOptions.split('-')[1]),
-                ref: _this2.dropdownMenu
-              });
-            }
-            // I'm not happy about this check, but it is the only way I've found to avoid getting an error when calling pair[0], when pair is a reference (and anything besides an array)
-            else if (Array.isArray(pair)) {
+          _react2.default.createElement(
+            'form',
+            null,
+            item.options && Options.map(function (pair) {
+              if (!Array.isArray(pair) && item.dropdownOptions) {
                 return _react2.default.createElement(
                   'div',
-                  {
-                    key: pair[0],
-                    className: 'interview-response-list',
-                    onClick: function onClick() {
-                      _this2.setState({
-                        currentPos: _this2.getIndex(pair, Options)
-                      });
-                      if (pair[0].includes("-")) {
-                        dispatch((0, _actions.setResponse)({
-                          key: item.key,
-                          value: _this2.state.sliderValue
-                        }));
-                      } else {
-                        dispatch((0, _actions.setResponse)({ key: item.key, value: pair[0] }));
-                      }
-                      _this2.inputBox.current.focus();
-                    }
-                  },
-                  _this2.write(Options, pair)
+                  { className: 'radio', key: 'dropdown' },
+                  _react2.default.createElement(
+                    'label',
+                    null,
+                    _react2.default.createElement('input', { type: 'radio', value: 'ok', onClick: function onClick() {
+                        console.log('test');
+                      } }),
+                    _react2.default.createElement(_Dropdown2.default, {
+                      activeKey: interview.activeKey,
+                      options: _this2.generateOptions(item.dropdownOptions.split('-')[0], item.dropdownOptions.split('-')[1]),
+                      ref: _this2.dropdownMenu
+                    })
+                  )
                 );
               }
-          }),
+              // I'm not happy about this check, but it is the only way I've found to avoid getting an error when calling pair[0], when pair is a reference (and anything besides an array)
+              else if (Array.isArray(pair)) {
+                  return _react2.default.createElement(
+                    'div',
+                    {
+                      key: pair[0],
+                      className: 'interview-response-list' },
+                    _react2.default.createElement(
+                      'label',
+                      null,
+                      _react2.default.createElement('input', {
+                        type: 'radio',
+                        value: 'ok',
+                        checked: _this2.state.currentPos && pair[0] === Options[currentPos][0],
+                        onClick: function onClick() {
+                          _this2.setState({
+                            currentPos: _this2.getIndex(pair, Options),
+                            isChecked: pair[0]
+                          });
+                          if (pair[0].includes("-")) {
+                            dispatch((0, _actions.setResponse)({
+                              key: item.key,
+                              value: _this2.state.sliderValue
+                            }));
+                          } else {
+                            dispatch((0, _actions.setResponse)({ key: item.key, value: pair[0] }));
+                          }
+                          _this2.inputBox.current.focus();
+                        }
+                      }),
+                      _this2.write(Options, pair)
+                    )
+                  );
+                }
+            })
+          ),
           item.scale && _react2.default.createElement(
             'div',
             null,
