@@ -59047,19 +59047,22 @@ var Response = function (_React$Component) {
 
       var OptionsWithoutDescriptions = [];
       var OptionsWithDescriptions = [];
-      var OptionsAsObjects = [];
-
-      if (item.dropdownOptions) {
-        OptionsWithoutDescriptions.push(_this.dropdownMenu);
-      }
+      /*
+          if (item.dropdownOptions) {
+            OptionsWithoutDescriptions.push(this.dropdownMenu)
+          }*/
       if (item.options) {
+        /*
+        Object.keys(item.options).map(key => {
+        OptionsWithoutDescriptions.push(
+        [key, item.options[key]]
+        )
+        }
+        );*/
         Object.keys(item.options).map(function (key) {
-          OptionsWithoutDescriptions.push([key, item.options[key]]);
-        });
-        Object.keys(item.options).map(function (key) {
-          OptionsAsObjects.push({
+          OptionsWithoutDescriptions.push({
             key: key,
-            value: item.options[key],
+            text: item.options[key],
             responseType: _this.getResponseType(key)
           });
         });
@@ -59067,25 +59070,27 @@ var Response = function (_React$Component) {
       OptionsWithoutDescriptions.sort(_this.compareKey);
 
       Object.keys(_items.scales['1ad'].options).map(function (key) {
-        OptionsWithDescriptions.push([key, _items.scales['1ad'].options[key]['title'], _items.scales['1ad'].options[key]['description']]);
+        OptionsWithDescriptions.push({
+          key: key,
+          text: _items.scales['1ad'].options[key]['description'],
+          responseType: _this.getResponseType(key),
+          title: _items.scales['1ad'].options[key]['title']
+
+        }[(key, _items.scales['1ad'].options[key]['title'], _items.scales['1ad'].options[key]['description'])]);
       });
 
       var ranges = [];
-      OptionsWithoutDescriptions.map(function (pair) {
-        if (Array.isArray(pair)) {
-          if (pair[0].includes('-')) {
-            ranges.push(pair[0].split('-').map(function (n) {
-              return parseInt(n, 10);
-            }));
+      /*  OptionsWithoutDescriptions.map(option => {
+          if (option.responseType = 'slider') {
+            ranges.push(option.key.split('-').map(n => parseInt(n, 10)))
           }
-        }
-      });
-
+        })
+      */
       var response = _this.props.interview.responses && _this.props.interview.responses[item.key] || '';
       var sliderValue = _this.props.interview.sliderValues && _this.props.interview.sliderValues[item.key] || null;
       var currentPos = void 0;
       if (!item.dropdownOptions) {
-        currentPos = _this.getIndexComb(response, OptionsWithoutDescriptions);
+        currentPos = _this.getIndexByKey(item.key, OptionsWithoutDescriptions);
       } else {
         currentPos = 0;
       }
@@ -59099,7 +59104,6 @@ var Response = function (_React$Component) {
         _this.setState({
           OptionsWithoutDescriptions: OptionsWithoutDescriptions,
           OptionsWithDescriptions: OptionsWithDescriptions,
-          OptionsAsObjects: OptionsAsObjects,
           response: response,
           sliderValue: sliderValue,
           value: sliderValue,
@@ -59112,8 +59116,6 @@ var Response = function (_React$Component) {
         _this.setState({
           OptionsWithoutDescriptions: OptionsWithoutDescriptions,
           OptionsWithDescriptions: OptionsWithDescriptions,
-          OptionsAsObjects: OptionsAsObjects,
-          response: response,
           sliderValue: null,
           value: sliderValue,
           currentPos: currentPos,
@@ -59121,6 +59123,64 @@ var Response = function (_React$Component) {
           max: null,
           showDescription: false
         });
+      }
+    };
+
+    _this.generateOption = function (option) {
+      if (_this.state.showDescription === false) {
+        if (option.key.includes("-")) {
+          _this.state.hasSlider = true;
+          return [option.text, _react2.default.createElement(_ResponseSlider2.default, {
+            id: 'Slider',
+            responseValue: _this.state.sliderValue,
+            min: parseInt(option.key.split('-')[0]),
+            max: parseInt(option.key.split('-')[1]),
+            ref: _this.slider,
+            response: _this,
+            interview: _this.props.interview,
+            inputBox: _this.inputBox
+          }), _react2.default.createElement(
+            'center',
+            null,
+            (0, _helpers.monthsToYears)(_this.state.sliderValue)
+          )];
+        } else {
+          return [_react2.default.createElement(
+            'b',
+            null,
+            option.key + ' '
+          ), option.text];
+        }
+      } else {
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'b',
+            null,
+            option.key + ': '
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'b',
+              null,
+              'Title: '
+            ),
+            option.text
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'b',
+              null,
+              'Description: '
+            ),
+            option.description
+          )
+        );
       }
     };
 
@@ -59183,6 +59243,15 @@ var Response = function (_React$Component) {
       }
     };
 
+    _this.getIndexByKey = function (key, array) {
+      for (var i = 0; i < array.length; i++) {
+        if (array[i].key === key.toString()) {
+          return i;
+        }
+      }
+      return null;
+    };
+
     _this.getIndexComb = function (value, array) {
       for (var i = 0; i < array.length; i++) {
         if (array[i][0] === value) {
@@ -59232,15 +59301,12 @@ var Response = function (_React$Component) {
       var counter = first.toString();
       while (counter !== last.toString()) {
         arr.push({
+          key: first,
           value: counter,
           label: (0, _items.getItemByKey)(counter).key + ': ' + (0, _items.getItemByKey)(counter).title
         });
         counter = (0, _items.getNextItemByKey)(counter).key;
       }
-      arr.push({
-        value: counter,
-        label: (0, _items.getItemByKey)(counter).key + ': ' + (0, _items.getItemByKey)(counter).title
-      });
       return arr;
     };
 
@@ -59357,11 +59423,8 @@ var Response = function (_React$Component) {
       console.log('hasSlider: ' + this.state.hasSlider);
       console.log('sliderValue: ' + 'type = ' + (typeof sliderValue === 'undefined' ? 'undefined' : _typeof(sliderValue)) + ', value = ' + sliderValue);
       console.log('showDescription: ' + this.state.showDescription);
-      console.log('OptionsAsObjects: ');
-      console.log(this.state.OptionsAsObjects);
-      if (this.state.OptionsAsObjects.length) {
-        console.log(this.state.OptionsAsObjects[0].value);
-      }
+      console.log('Options:');
+      console.log(Options);
 
       // Returns the specific interview item.
       return _react2.default.createElement(
@@ -59374,17 +59437,18 @@ var Response = function (_React$Component) {
           _react2.default.createElement(
             'form',
             null,
-            item.options && Options.map(function (pair) {
-              if (!Array.isArray(pair) && item.dropdownOptions) {
+            item.options && Options.map(function (option) {
+              if (item.dropdownOptions) {
+                // TODO: This is not working
                 return _react2.default.createElement(
                   'div',
                   { className: 'radio', key: 'dropdown' },
                   _react2.default.createElement('input', {
                     type: 'radio',
-                    checked: Options[currentPos] && _this2.getIndex(pair, Options) === currentPos,
+                    checked: Options[currentPos] && _this2.getIndexByKey(option.key, Options) === currentPos,
                     onClick: function onClick() {
                       _this2.setState({
-                        currentPos: _this2.getIndex(pair, Options)
+                        currentPos: _this2.getIndexByKey(option.key, Options)
                       });
                     }
                   }),
@@ -59397,40 +59461,38 @@ var Response = function (_React$Component) {
                     responseContainer: _this2
                   })
                 );
-              }
-              // I'm not happy about this check, but it is the only way I've found to avoid getting an error when calling pair[0], when pair is a reference (and anything besides an array)
-              else if (Array.isArray(pair)) {
-                  return _react2.default.createElement(
-                    'div',
-                    {
-                      key: pair[0],
-                      className: 'interview-response-list' },
-                    _react2.default.createElement(
-                      'label',
-                      { style: { fontWeight: 'normal' } },
-                      _react2.default.createElement('input', {
-                        type: 'radio',
-                        value: 'ok',
-                        checked: Options[currentPos] && pair[0] === Options[currentPos][0],
-                        onClick: function onClick() {
-                          _this2.setState({
-                            currentPos: _this2.getIndex(pair, Options)
-                          });
-                          if (pair[0].includes("-")) {
-                            dispatch((0, _actions.setResponse)({
-                              key: item.key,
-                              value: _this2.state.sliderValue
-                            }));
-                          } else {
-                            dispatch((0, _actions.setResponse)({ key: item.key, value: pair[0] }));
-                          }
-                          _this2.inputBox.current.focus();
+              } else {
+                return _react2.default.createElement(
+                  'div',
+                  {
+                    key: option.key,
+                    className: 'interview-response-list' },
+                  _react2.default.createElement(
+                    'label',
+                    { style: { fontWeight: 'normal' } },
+                    _react2.default.createElement('input', {
+                      type: 'radio',
+                      value: 'ok',
+                      checked: Options[currentPos] && option.key === Options[currentPos].key,
+                      onClick: function onClick() {
+                        _this2.setState({
+                          currentPos: _this2.getIndexByKey(option.key, Options)
+                        });
+                        if (option.key.includes("-")) {
+                          dispatch((0, _actions.setResponse)({
+                            key: item.key,
+                            value: _this2.state.sliderValue
+                          }));
+                        } else {
+                          dispatch((0, _actions.setResponse)({ key: item.key, value: option.key.toString() }));
                         }
-                      }),
-                      _this2.write(Options, pair)
-                    )
-                  );
-                }
+                        _this2.inputBox.current.focus();
+                      }
+                    }),
+                    _this2.generateOption(option)
+                  )
+                );
+              }
             })
           ),
           item.scale && _react2.default.createElement(

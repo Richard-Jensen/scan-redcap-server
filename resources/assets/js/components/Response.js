@@ -59,23 +59,22 @@ class Response extends React.Component {
 
     const OptionsWithoutDescriptions = [];
     const OptionsWithDescriptions = [];
-    const OptionsAsObjects = [];
-
+/*
     if (item.dropdownOptions) {
       OptionsWithoutDescriptions.push(this.dropdownMenu)
-    }
-    if (item.options) {
+    }*/
+    if (item.options) {/*
       Object.keys(item.options).map(key => {
         OptionsWithoutDescriptions.push(
           [key, item.options[key]]
           )
       }
-      );
+      );*/
       Object.keys(item.options).map(key => {
-        OptionsAsObjects.push(
+        OptionsWithoutDescriptions.push(
         {
           key: key,
-          value: item.options[key],
+          text: item.options[key],
           responseType: this.getResponseType(key)
         }
         )
@@ -86,23 +85,29 @@ class Response extends React.Component {
 
     Object.keys(scales['1ad'].options).map(key => {
       OptionsWithDescriptions.push(
-        [key, scales['1ad'].options[key]['title'], scales['1ad'].options[key]['description']]
-        )
+      {
+        key: key,
+        text: scales['1ad'].options[key]['description'],
+        responseType: this.getResponseType(key),
+        title: scales['1ad'].options[key]['title']
+
+      }
+      [key, scales['1ad'].options[key]['title'], scales['1ad'].options[key]['description']]
+      )
     })
 
     const ranges = [];
-    OptionsWithoutDescriptions.map(pair => {
-      if (Array.isArray(pair)) {
-        if (pair[0].includes('-')) {
-          ranges.push(pair[0].split('-').map(n => parseInt(n, 10)))
-        }}
-      })
-
+  /*  OptionsWithoutDescriptions.map(option => {
+      if (option.responseType = 'slider') {
+        ranges.push(option.key.split('-').map(n => parseInt(n, 10)))
+      }
+    })
+*/
     const response = (this.props.interview.responses && this.props.interview.responses[item.key]) || '';
     let sliderValue = (this.props.interview.sliderValues && this.props.interview.sliderValues[item.key]) || null;
     let currentPos;
     if (!item.dropdownOptions) {
-      currentPos = this.getIndexComb(response, OptionsWithoutDescriptions)
+      currentPos = this.getIndexByKey(item.key, OptionsWithoutDescriptions)
     }
     else {
       currentPos = 0
@@ -117,7 +122,6 @@ class Response extends React.Component {
       this.setState({
         OptionsWithoutDescriptions: OptionsWithoutDescriptions,
         OptionsWithDescriptions: OptionsWithDescriptions,
-        OptionsAsObjects: OptionsAsObjects,
         response: response,
         sliderValue: sliderValue,
         value: sliderValue,
@@ -131,8 +135,6 @@ class Response extends React.Component {
       this.setState({
         OptionsWithoutDescriptions: OptionsWithoutDescriptions,
         OptionsWithDescriptions: OptionsWithDescriptions,
-        OptionsAsObjects: OptionsAsObjects,
-        response: response,
         sliderValue: null,
         value: sliderValue,
         currentPos: currentPos,
@@ -153,21 +155,20 @@ class Response extends React.Component {
     }
   }
 
-  write = (array, pair) => {
+  generateOption = (option) => {
     if (this.state.showDescription === false) {
-      if (pair[0].includes("-")) {
+      if (option.key.includes("-")) {
         this.state.hasSlider = true;
         return ([
-          pair[1],
+          option.text,
           <ResponseSlider
           id='Slider'
-          array={array}
           responseValue={this.state.sliderValue}
           min={
-            parseInt(pair[0].split('-')[0])
+            parseInt(option.key.split('-')[0])
           }
           max={
-            parseInt(pair[0].split('-')[1])
+            parseInt(option.key.split('-')[1])
           }
           ref={this.slider}
           response={this}
@@ -181,26 +182,85 @@ class Response extends React.Component {
       }
       else {
        return ([
-        <b>{pair[0] + ' '}</b>,
-        pair[1]
+        <b>{option.key + ' '}</b>,
+        option.text
         ]);
      }
    }
    else {
     return (
       <div>
-      <b>{pair[0] + ': '}</b>
+      <b>{option.key + ': '}</b>
       <div>
       <b>Title: </b>
-      {pair[1]}
+      {option.text}
       </div>
       <div>
       <b>Description: </b>
-      {pair[2]}
+      {option.description}
       </div>
       </div>
       )
   }
+}
+
+write = (array, pair) => {
+  if (this.state.showDescription === false) {
+    if (pair[0].includes("-")) {
+      this.state.hasSlider = true;
+      return ([
+        pair[1],
+        <ResponseSlider
+        id='Slider'
+        array={array}
+        responseValue={this.state.sliderValue}
+        min={
+          parseInt(pair[0].split('-')[0])
+        }
+        max={
+          parseInt(pair[0].split('-')[1])
+        }
+        ref={this.slider}
+        response={this}
+        interview={this.props.interview}
+        inputBox={this.inputBox}
+        />,
+        <center>
+        {monthsToYears(this.state.sliderValue)}
+        </center>
+        ]);
+    }
+    else {
+     return ([
+      <b>{pair[0] + ' '}</b>,
+      pair[1]
+      ]);
+   }
+ }
+ else {
+  return (
+    <div>
+    <b>{pair[0] + ': '}</b>
+    <div>
+    <b>Title: </b>
+    {pair[1]}
+    </div>
+    <div>
+    <b>Description: </b>
+    {pair[2]}
+    </div>
+    </div>
+    )
+}
+}
+
+getIndexByKey = (key, array) => {
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].key === key.toString()) {
+      return i
+    }
+  }
+  return null
 }
 
 getIndexComb = (value, array) => {
@@ -256,18 +316,13 @@ getIndexComb = (value, array) => {
     while (counter !== last.toString()) {
       arr.push(
       {
+        key: first,
         value: counter,
         label: (getItemByKey(counter).key + ': ' + getItemByKey(counter).title)
       }
       )
       counter = getNextItemByKey(counter).key
     }
-    arr.push(
-    {
-      value: counter,
-      label: (getItemByKey(counter).key + ': ' + getItemByKey(counter).title)
-    }
-    )
     return arr;
   }
 
@@ -336,11 +391,8 @@ getIndexComb = (value, array) => {
   console.log('hasSlider: ' + this.state.hasSlider);
   console.log('sliderValue: ' + 'type = ' + typeof(sliderValue) + ', value = ' + sliderValue);
   console.log('showDescription: ' + this.state.showDescription)
-  console.log('OptionsAsObjects: ')
-  console.log(this.state.OptionsAsObjects)
-  if (this.state.OptionsAsObjects.length) {
-    console.log(this.state.OptionsAsObjects[0].value)
-  }
+  console.log('Options:')
+  console.log(Options)
 
   // Returns the specific interview item.
   return (
@@ -349,18 +401,19 @@ getIndexComb = (value, array) => {
     <ItemCard item={item} />
     <form>
     {item.options &&
-      Options.map(pair => {
-        if (!Array.isArray(pair) && item.dropdownOptions) {
+      Options.map(option => {
+        if (item.dropdownOptions) {
+          // TODO: This is not working
           return (
             <div className='radio' key='dropdown'>
             <input
             type='radio'
             checked={
-              Options[currentPos] && (this.getIndex(pair,Options) === currentPos)
+              Options[currentPos] && (this.getIndexByKey(option.key,Options) === currentPos)
             }
             onClick={() => {
               this.setState({
-                currentPos: this.getIndex(pair, Options)
+                currentPos: this.getIndexByKey(option.key, Options)
               })
             }}
             />,
@@ -375,37 +428,36 @@ getIndexComb = (value, array) => {
             </div>
             )
         }
-        // I'm not happy about this check, but it is the only way I've found to avoid getting an error when calling pair[0], when pair is a reference (and anything besides an array)
-        else if (Array.isArray(pair)) {
+        else {
           return (
             <div
-            key={pair[0]}
+            key={option.key}
             className="interview-response-list">
             <label style={{ fontWeight: 'normal' }}>
             <input
             type='radio'
             value='ok'
             checked={
-              Options[currentPos] && (pair[0] === Options[currentPos][0])
+              Options[currentPos] && (option.key === Options[currentPos].key)
             }
             onClick={() => {
               this.setState({
-                currentPos: this.getIndex(pair, Options)
+                currentPos: this.getIndexByKey(option.key, Options)
               })
-              if (pair[0].includes("-")) {
+              if (option.key.includes("-")) {
                 dispatch(setResponse({
                  key: item.key,
                  value: this.state.sliderValue
                }))
               }
               else {
-                dispatch(setResponse({ key: item.key, value: pair[0]}))
+                dispatch(setResponse({ key: item.key, value: option.key.toString()}))
               }
               this.inputBox.current.focus()
             }
           }
           />
-          {this.write(Options, pair)}
+          {this.generateOption(option)}
           </label>
           </div>
           )
