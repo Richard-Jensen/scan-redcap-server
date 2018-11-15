@@ -9,6 +9,7 @@ import Slider from 'react-rangeslider';
 import 'react-rangeslider/lib/index.css';
 import ResponseSlider from './ResponseSlider';
 import Dropdown from './Dropdown';
+import { simpleUp } from '../lib/arrowFunctionalities';
 
 class Response extends React.Component {
 
@@ -24,13 +25,23 @@ class Response extends React.Component {
       max: 0,
       OptionsWithoutDescriptions: [],
       OptionsWithDescriptions: [],
+      OptionsAsObjects: [],
       sliderValue: 0,
       showDescription: false,
-      isChecked: null
+      responseType: null
     };
     this.inputBox = React.createRef();
     this.slider = React.createRef();
     this.dropdownMenu = React.createRef();
+  }
+
+  getResponseType = (key) => {
+    if (key.includes('-')) {
+      return 'slider'
+    }
+    else {
+      return 'simple'
+    }
   }
 
   update = () => {
@@ -48,6 +59,7 @@ class Response extends React.Component {
 
     const OptionsWithoutDescriptions = [];
     const OptionsWithDescriptions = [];
+    const OptionsAsObjects = [];
 
     if (item.dropdownOptions) {
       OptionsWithoutDescriptions.push(this.dropdownMenu)
@@ -57,6 +69,16 @@ class Response extends React.Component {
         OptionsWithoutDescriptions.push(
           [key, item.options[key]]
           )
+      }
+      );
+      Object.keys(item.options).map(key => {
+        OptionsAsObjects.push(
+        {
+          key: key,
+          value: item.options[key],
+          responseType: this.getResponseType(key)
+        }
+        )
       }
       );
     }
@@ -78,7 +100,13 @@ class Response extends React.Component {
 
     const response = (this.props.interview.responses && this.props.interview.responses[item.key]) || '';
     let sliderValue = (this.props.interview.sliderValues && this.props.interview.sliderValues[item.key]) || null;
-
+    let currentPos;
+    if (!item.dropdownOptions) {
+      currentPos = this.getIndexComb(response, OptionsWithoutDescriptions)
+    }
+    else {
+      currentPos = 0
+    }
 
     if (ranges.length) {
       const min = ranges[0][0];
@@ -86,10 +114,10 @@ class Response extends React.Component {
       if (sliderValue === null) {
         sliderValue = min
       }
-      const currentPos = currentPos;
       this.setState({
         OptionsWithoutDescriptions: OptionsWithoutDescriptions,
         OptionsWithDescriptions: OptionsWithDescriptions,
+        OptionsAsObjects: OptionsAsObjects,
         response: response,
         sliderValue: sliderValue,
         value: sliderValue,
@@ -100,10 +128,10 @@ class Response extends React.Component {
       })
     }
     else {
-      const currentPos = currentPos;
       this.setState({
         OptionsWithoutDescriptions: OptionsWithoutDescriptions,
         OptionsWithDescriptions: OptionsWithDescriptions,
+        OptionsAsObjects: OptionsAsObjects,
         response: response,
         sliderValue: null,
         value: sliderValue,
@@ -212,15 +240,6 @@ getIndexComb = (value, array) => {
     return -1; //to handle the case where the value doesn't exist
   }
 
-  isActive = (array, pair, input) => {
-    if (this.state.currentPos === this.getIndex(pair,array)) {
-      return <b>{input}</b>;
-    }
-    else {
-      return input;
-    }
-  }
-
   compareKey = (x,y) => {
     if (!Array.isArray(x)) return -1;
     if (!Array.isArray(y)) return 1;
@@ -317,7 +336,11 @@ getIndexComb = (value, array) => {
   console.log('hasSlider: ' + this.state.hasSlider);
   console.log('sliderValue: ' + 'type = ' + typeof(sliderValue) + ', value = ' + sliderValue);
   console.log('showDescription: ' + this.state.showDescription)
-  console.log('isChecked: ' + this.state.isChecked)
+  console.log('OptionsAsObjects: ')
+  console.log(this.state.OptionsAsObjects)
+  if (this.state.OptionsAsObjects.length) {
+    console.log(this.state.OptionsAsObjects[0].value)
+  }
 
   // Returns the specific interview item.
   return (
@@ -330,17 +353,27 @@ getIndexComb = (value, array) => {
         if (!Array.isArray(pair) && item.dropdownOptions) {
           return (
             <div className='radio' key='dropdown'>
-            <label>
-            <input type='radio' value='ok' onClick={() => {console.log('test')}} />
-            {<Dropdown
-              activeKey={interview.activeKey}
-              options={this.generateOptions(item.dropdownOptions.split('-')[0], item.dropdownOptions.split('-')[1])}
-              ref={this.dropdownMenu}
-              >
-              </Dropdown>}
-              </label>
-              </div>
-              )
+            <input
+            type='radio'
+            checked={
+              Options[currentPos] && (this.getIndex(pair,Options) === currentPos)
+            }
+            onClick={() => {
+              this.setState({
+                currentPos: this.getIndex(pair, Options)
+              })
+            }}
+            />,
+            <Dropdown
+            activeKey={interview.activeKey}
+            options={this.generateOptions(item.dropdownOptions.split('-')[0], item.dropdownOptions.split('-')[1])}
+            inputBox={this.inputBox}
+            ref={this.dropdownMenu}
+            responseContainer={this}
+            >
+            </Dropdown>
+            </div>
+            )
         }
         // I'm not happy about this check, but it is the only way I've found to avoid getting an error when calling pair[0], when pair is a reference (and anything besides an array)
         else if (Array.isArray(pair)) {
@@ -348,34 +381,34 @@ getIndexComb = (value, array) => {
             <div
             key={pair[0]}
             className="interview-response-list">
-            <label>
+            <label style={{ fontWeight: 'normal' }}>
             <input
             type='radio'
             value='ok'
             checked={
-              this.state.currentPos && (pair[0] === Options[currentPos][0])}
-              onClick={() => {
-                this.setState({
-                  currentPos: this.getIndex(pair, Options),
-                  isChecked: pair[0]
-                })
-                if (pair[0].includes("-")) {
-                  dispatch(setResponse({
-                   key: item.key,
-                   value: this.state.sliderValue
-                 }))
-                }
-                else {
-                  dispatch(setResponse({ key: item.key, value: pair[0]}))
-                }
-                this.inputBox.current.focus()
-              }
+              Options[currentPos] && (pair[0] === Options[currentPos][0])
             }
-            />
-            {this.write(Options, pair)}
-            </label>
-            </div>
-            )
+            onClick={() => {
+              this.setState({
+                currentPos: this.getIndex(pair, Options)
+              })
+              if (pair[0].includes("-")) {
+                dispatch(setResponse({
+                 key: item.key,
+                 value: this.state.sliderValue
+               }))
+              }
+              else {
+                dispatch(setResponse({ key: item.key, value: pair[0]}))
+              }
+              this.inputBox.current.focus()
+            }
+          }
+          />
+          {this.write(Options, pair)}
+          </label>
+          </div>
+          )
         }
       })
     }

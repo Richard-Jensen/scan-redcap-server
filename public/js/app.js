@@ -59007,6 +59007,8 @@ var _Dropdown = __webpack_require__(421);
 
 var _Dropdown2 = _interopRequireDefault(_Dropdown);
 
+var _arrowFunctionalities = __webpack_require__(460);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -59023,6 +59025,14 @@ var Response = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Response.__proto__ || Object.getPrototypeOf(Response)).call(this, props));
 
+    _this.getResponseType = function (key) {
+      if (key.includes('-')) {
+        return 'slider';
+      } else {
+        return 'simple';
+      }
+    };
+
     _this.update = function () {
       var item = (0, _items.getItemByKey)(_this.props.interview.activeKey);
       var hasScale = item.scale;
@@ -59037,6 +59047,7 @@ var Response = function (_React$Component) {
 
       var OptionsWithoutDescriptions = [];
       var OptionsWithDescriptions = [];
+      var OptionsAsObjects = [];
 
       if (item.dropdownOptions) {
         OptionsWithoutDescriptions.push(_this.dropdownMenu);
@@ -59044,6 +59055,13 @@ var Response = function (_React$Component) {
       if (item.options) {
         Object.keys(item.options).map(function (key) {
           OptionsWithoutDescriptions.push([key, item.options[key]]);
+        });
+        Object.keys(item.options).map(function (key) {
+          OptionsAsObjects.push({
+            key: key,
+            value: item.options[key],
+            responseType: _this.getResponseType(key)
+          });
         });
       }
       OptionsWithoutDescriptions.sort(_this.compareKey);
@@ -59065,6 +59083,12 @@ var Response = function (_React$Component) {
 
       var response = _this.props.interview.responses && _this.props.interview.responses[item.key] || '';
       var sliderValue = _this.props.interview.sliderValues && _this.props.interview.sliderValues[item.key] || null;
+      var currentPos = void 0;
+      if (!item.dropdownOptions) {
+        currentPos = _this.getIndexComb(response, OptionsWithoutDescriptions);
+      } else {
+        currentPos = 0;
+      }
 
       if (ranges.length) {
         var min = ranges[0][0];
@@ -59072,10 +59096,10 @@ var Response = function (_React$Component) {
         if (sliderValue === null) {
           sliderValue = min;
         }
-        var currentPos = currentPos;
         _this.setState({
           OptionsWithoutDescriptions: OptionsWithoutDescriptions,
           OptionsWithDescriptions: OptionsWithDescriptions,
+          OptionsAsObjects: OptionsAsObjects,
           response: response,
           sliderValue: sliderValue,
           value: sliderValue,
@@ -59085,14 +59109,14 @@ var Response = function (_React$Component) {
           showDescription: false
         });
       } else {
-        var _currentPos = _currentPos;
         _this.setState({
           OptionsWithoutDescriptions: OptionsWithoutDescriptions,
           OptionsWithDescriptions: OptionsWithDescriptions,
+          OptionsAsObjects: OptionsAsObjects,
           response: response,
           sliderValue: null,
           value: sliderValue,
-          currentPos: _currentPos,
+          currentPos: currentPos,
           min: null,
           max: null,
           showDescription: false
@@ -59195,18 +59219,6 @@ var Response = function (_React$Component) {
       return -1; //to handle the case where the value doesn't exist
     };
 
-    _this.isActive = function (array, pair, input) {
-      if (_this.state.currentPos === _this.getIndex(pair, array)) {
-        return _react2.default.createElement(
-          'b',
-          null,
-          input
-        );
-      } else {
-        return input;
-      }
-    };
-
     _this.compareKey = function (x, y) {
       if (!Array.isArray(x)) return -1;
       if (!Array.isArray(y)) return 1;
@@ -59242,9 +59254,10 @@ var Response = function (_React$Component) {
       max: 0,
       OptionsWithoutDescriptions: [],
       OptionsWithDescriptions: [],
+      OptionsAsObjects: [],
       sliderValue: 0,
       showDescription: false,
-      isChecked: null
+      responseType: null
     };
     _this.inputBox = _react2.default.createRef();
     _this.slider = _react2.default.createRef();
@@ -59344,7 +59357,11 @@ var Response = function (_React$Component) {
       console.log('hasSlider: ' + this.state.hasSlider);
       console.log('sliderValue: ' + 'type = ' + (typeof sliderValue === 'undefined' ? 'undefined' : _typeof(sliderValue)) + ', value = ' + sliderValue);
       console.log('showDescription: ' + this.state.showDescription);
-      console.log('isChecked: ' + this.state.isChecked);
+      console.log('OptionsAsObjects: ');
+      console.log(this.state.OptionsAsObjects);
+      if (this.state.OptionsAsObjects.length) {
+        console.log(this.state.OptionsAsObjects[0].value);
+      }
 
       // Returns the specific interview item.
       return _react2.default.createElement(
@@ -59362,18 +59379,23 @@ var Response = function (_React$Component) {
                 return _react2.default.createElement(
                   'div',
                   { className: 'radio', key: 'dropdown' },
-                  _react2.default.createElement(
-                    'label',
-                    null,
-                    _react2.default.createElement('input', { type: 'radio', value: 'ok', onClick: function onClick() {
-                        console.log('test');
-                      } }),
-                    _react2.default.createElement(_Dropdown2.default, {
-                      activeKey: interview.activeKey,
-                      options: _this2.generateOptions(item.dropdownOptions.split('-')[0], item.dropdownOptions.split('-')[1]),
-                      ref: _this2.dropdownMenu
-                    })
-                  )
+                  _react2.default.createElement('input', {
+                    type: 'radio',
+                    checked: Options[currentPos] && _this2.getIndex(pair, Options) === currentPos,
+                    onClick: function onClick() {
+                      _this2.setState({
+                        currentPos: _this2.getIndex(pair, Options)
+                      });
+                    }
+                  }),
+                  ',',
+                  _react2.default.createElement(_Dropdown2.default, {
+                    activeKey: interview.activeKey,
+                    options: _this2.generateOptions(item.dropdownOptions.split('-')[0], item.dropdownOptions.split('-')[1]),
+                    inputBox: _this2.inputBox,
+                    ref: _this2.dropdownMenu,
+                    responseContainer: _this2
+                  })
                 );
               }
               // I'm not happy about this check, but it is the only way I've found to avoid getting an error when calling pair[0], when pair is a reference (and anything besides an array)
@@ -59385,15 +59407,14 @@ var Response = function (_React$Component) {
                       className: 'interview-response-list' },
                     _react2.default.createElement(
                       'label',
-                      null,
+                      { style: { fontWeight: 'normal' } },
                       _react2.default.createElement('input', {
                         type: 'radio',
                         value: 'ok',
-                        checked: _this2.state.currentPos && pair[0] === Options[currentPos][0],
+                        checked: Options[currentPos] && pair[0] === Options[currentPos][0],
                         onClick: function onClick() {
                           _this2.setState({
-                            currentPos: _this2.getIndex(pair, Options),
-                            isChecked: pair[0]
+                            currentPos: _this2.getIndex(pair, Options)
                           });
                           if (pair[0].includes("-")) {
                             dispatch((0, _actions.setResponse)({
@@ -69524,12 +69545,18 @@ var Dropdown = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Dropdown.__proto__ || Object.getPrototypeOf(Dropdown)).call(this, props));
 
     _this.handleChange = function (selectedOption) {
-      _this.setState({ selectedOption: selectedOption });
+      _this.setState({
+        selectedOption: selectedOption
+      });
+      _this.props.responseContainer.setState({
+        currentPos: 0
+      });
       _this.props.dispatch((0, _actions.setResponse)({
         key: _this.props.activeKey,
         value: selectedOption.value
       }));
       console.log('Option selected:', selectedOption);
+      _this.props.inputBox.current.focus();
     };
 
     _this.state = {
@@ -77579,6 +77606,50 @@ module.exports = isObjectLike;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 459 */,
+/* 460 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ddUp = exports.simpleUp = undefined;
+
+var _actions = __webpack_require__(25);
+
+// Handles up arrow when a simple object is selected
+var simpleUp = exports.simpleUp = function simpleUp(dispatch, activeKey, currentPos, array, responseContainer) {
+  return function (event) {
+    dispatch((0, _actions.setResponse)({
+      key: activeKey,
+      value: array[currentPos + 1][0]
+    }));
+    responseContainer.setState({
+      key: activeKey,
+      currentPos: currentPos + 1
+    });
+    event.preventDefault();
+  };
+};
+
+// Handles up arrow for a dropdown menu
+var ddUp = exports.ddUp = function ddUp(dispatch, activeKey) {
+  return function (event) {
+    if (event.keyCode == 38 && event.shiftKey) {
+      dispatch((0, _actions.setResponse)({
+        key: activeKey,
+        currentPos: 0
+      }));
+
+      event.preventDefault();
+    }
+  };
+};
 
 /***/ })
 /******/ ]);
