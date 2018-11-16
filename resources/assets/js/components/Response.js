@@ -57,19 +57,13 @@ class Response extends React.Component {
       };
     }
 
-    const OptionsWithoutDescriptions = [];
-    const OptionsWithDescriptions = [];
+    const OptionsWithoutDescriptions = [{key: '1', text: 'asdf', responseType: 'simple'}];
+    const OptionsWithDescriptions = [{key: '2', text: 'asdf', responseType: 'simple'}];
 /*
     if (item.dropdownOptions) {
       OptionsWithoutDescriptions.push(this.dropdownMenu)
     }*/
-    if (item.options) {/*
-      Object.keys(item.options).map(key => {
-        OptionsWithoutDescriptions.push(
-          [key, item.options[key]]
-          )
-      }
-      );*/
+    /*if (item.options) {
       Object.keys(item.options).map(key => {
         OptionsWithoutDescriptions.push(
         {
@@ -94,7 +88,7 @@ class Response extends React.Component {
       }
       [key, scales['1ad'].options[key]['title'], scales['1ad'].options[key]['description']]
       )
-    })
+    })*/
 
     const ranges = [];
   /*  OptionsWithoutDescriptions.map(option => {
@@ -163,6 +157,7 @@ class Response extends React.Component {
           option.text,
           <ResponseSlider
           id='Slider'
+          key={option.key}
           responseValue={this.state.sliderValue}
           min={
             parseInt(option.key.split('-')[0])
@@ -269,7 +264,7 @@ getIndexComb = (value, array) => {
       return i;
     }
     else if (array[i][0].includes('-')) {
-      const ranges = array[i][0].split('-').map(n => (parseInt(n, 10)))
+      const ranges = array[i][0].split('-')/*.map(n => (parseInt(n, 10)))*/
       const min = ranges[0];
       const max = ranges[1];
       if ((min <= parseInt(value, 10)) && (parseInt(value, 10) <= max)) {
@@ -399,7 +394,7 @@ getIndexComb = (value, array) => {
     <div key={item.key} className="interview-item-container">
     <div style={{ flex: 1 }}>
     <ItemCard item={item} />
-    <form>
+    <form >
     {item.options &&
       Options.map(option => {
         if (item.dropdownOptions) {
@@ -408,6 +403,7 @@ getIndexComb = (value, array) => {
             <div className='radio' key='dropdown'>
             <input
             type='radio'
+            key='dropdown'
             checked={
               Options[currentPos] && (this.getIndexByKey(option.key,Options) === currentPos)
             }
@@ -418,6 +414,7 @@ getIndexComb = (value, array) => {
             }}
             />,
             <Dropdown
+            key='dropdown'
             activeKey={interview.activeKey}
             options={this.generateOptions(item.dropdownOptions.split('-')[0], item.dropdownOptions.split('-')[1])}
             inputBox={this.inputBox}
@@ -433,8 +430,9 @@ getIndexComb = (value, array) => {
             <div
             key={option.key}
             className="interview-response-list">
-            <label style={{ fontWeight: 'normal' }}>
+            <label style={{ fontWeight: 'normal' }} key={option.key}>
             <input
+            key={option.key}
             type='radio'
             value='ok'
             checked={
@@ -466,9 +464,10 @@ getIndexComb = (value, array) => {
     }
     </form>
     {item.scale && (
-      <div>
+      <div key={'testKey'}>
       Scale: <strong>{item.scale}</strong>
       <button
+      key={'testKey'}
       onClick={() => {
         this.setState({
           showDescription: !this.state.showDescription
