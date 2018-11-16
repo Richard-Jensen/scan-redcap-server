@@ -59085,7 +59085,6 @@ var Response = function (_React$Component) {
 
       var response = _this.props.interview.responses && _this.props.interview.responses[item.key] || '';
       var sliderValue = _this.props.interview.sliderValues && _this.props.interview.sliderValues[item.key] || null;
-      console.log('103: ' + sliderValue);
       var currentPos = void 0;
       if (!item.dropdownOptions) {
         currentPos = _this.getIndexByKey(item.key, OptionsWithoutDescriptions);
@@ -59098,7 +59097,6 @@ var Response = function (_React$Component) {
         var max = ranges[0][1];
         if (sliderValue === null) {
           sliderValue = min;
-          console.log('116: ' + sliderValue);
         }
         _this.setState({
           OptionsWithoutDescriptions: OptionsWithoutDescriptions,
@@ -59226,12 +59224,32 @@ var Response = function (_React$Component) {
       return -1; //to handle the case where the value doesn't exist
     };
 
-    _this.compareKey = function (x, y) {
-      if (!Array.isArray(x)) return -1;
-      if (!Array.isArray(y)) return 1;
-      if (parseInt(x[0], 10) < parseInt(y[0])) return -1;
-      if (parseInt(x[0], 10) === parseInt(y[0], 10)) return 0;
-      if (parseInt(x[0], 10) > parseInt(y[0], 10)) return 1;
+    _this.compareKey = function (key1, key2) {
+      var avr1 = void 0;
+      var avr2 = void 0;
+      if (key1.key.includes('-')) {
+        var ranges = key1.key.split('-').map(function (n) {
+          return parseInt(n, 10);
+        });
+        avr1 = (ranges[0] + ranges[1]) / 2;
+      } else {
+        avr1 = parseInt(key1.key, 10);
+      }
+      if (key2.key.includes('-')) {
+        var _ranges = key2.key.split('-').map(function (n) {
+          return parseInt(n, 10);
+        });
+        avr2 = (_ranges[0] + _ranges[1]) / 2;
+      } else {
+        avr2 = parseInt(key2.key, 10);
+      }
+      if (avr1 < avr2) {
+        return -1;
+      } else if (avr1 === avr2) {
+        return 0;
+      } else if (avr1 > avr2) {
+        return 1;
+      }
     };
 
     _this.handleRadioButtonChange = function (option, Options, item) {
@@ -69459,7 +69477,6 @@ var ResponseSlider = function (_Component) {
       _this.setState({
         value: value
       });
-      console.log(_this.props.interview.activeKey);
       _this.handlers.handleChange(value);
       _this.props.response.setState({
         sliderValue: value,
@@ -69487,7 +69504,6 @@ var ResponseSlider = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      console.log(this.state.value);
       var value = this.state.value.value;
 
       return _react2.default.createElement(

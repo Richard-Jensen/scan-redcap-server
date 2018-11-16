@@ -100,7 +100,6 @@ class Response extends React.Component {
 
     const response = (this.props.interview.responses && this.props.interview.responses[item.key]) || '';
     let sliderValue = (this.props.interview.sliderValues && this.props.interview.sliderValues[item.key]) || null;
-    console.log('103: ' + sliderValue)
     let currentPos;
     if (!item.dropdownOptions) {
       currentPos = this.getIndexByKey(item.key, OptionsWithoutDescriptions)
@@ -114,7 +113,6 @@ class Response extends React.Component {
       const max = ranges[0][1];
       if (sliderValue === null) {
         sliderValue = min
-        console.log('116: ' + sliderValue)
       }
       this.setState({
         OptionsWithoutDescriptions: OptionsWithoutDescriptions,
@@ -247,12 +245,32 @@ getIndexComb = (value, array) => {
     return -1; //to handle the case where the value doesn't exist
   }
 
-  compareKey = (x,y) => {
-    if (!Array.isArray(x)) return -1;
-    if (!Array.isArray(y)) return 1;
-    if (parseInt(x[0], 10) < parseInt(y[0])) return -1;
-    if (parseInt(x[0], 10) === parseInt(y[0], 10)) return 0;
-    if (parseInt(x[0], 10) > parseInt(y[0],10)) return 1;
+  compareKey = (key1, key2) => {
+    let avr1;
+    let avr2;
+    if (key1.key.includes('-')) {
+      const ranges = key1.key.split('-').map(n => (parseInt(n, 10)))
+      avr1 = (ranges[0] + ranges[1])/2
+    }
+    else {
+      avr1 = parseInt(key1.key, 10)
+    }
+    if (key2.key.includes('-')) {
+      const ranges = key2.key.split('-').map(n => (parseInt(n, 10)))
+      avr2 = (ranges[0] + ranges[1])/2
+    }
+    else {
+      avr2 = parseInt(key2.key, 10)
+    }
+    if (avr1 < avr2) {
+      return -1
+    }
+    else if (avr1 === avr2) {
+      return 0
+    }
+    else if (avr1 > avr2) {
+      return 1
+    }
   }
 
   handleRadioButtonChange = (option, Options, item) => (event) => {
