@@ -7,7 +7,7 @@ import { ItemList } from './ItemList';
 import { Settings } from './Settings';
 import { Analysis } from './Analysis';
 import { SearchItems } from './SearchItems';
-import Response, {update} from './Response';
+import Response from './Response';
 import { getNextValidKey, getPreviousValidKey } from '../reducers/interview';
 import { setActiveItem } from '../actions';
 import {

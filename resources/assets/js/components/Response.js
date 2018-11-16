@@ -150,7 +150,7 @@ class Response extends React.Component {
     }
   }
 
-  generateOption = (option) => {
+  generateOption = (option, array) => {
     if (this.state.showDescription === false) {
       if (option.key.includes("-")) {
         this.state.hasSlider = true;
@@ -166,6 +166,7 @@ class Response extends React.Component {
             parseInt(option.key.split('-')[1])
           }
           ref={this.slider}
+          array={array}
           response={this}
           interview={this.props.interview}
           inputBox={this.inputBox}
@@ -200,24 +201,15 @@ class Response extends React.Component {
 }
 
 getIndexByKey = (key, array) => {
-  for (var i = 0; i < array.length; i++) {
-    if (array[i].key === key.toString()) {
-      return i
-    }
-  }
-  return null
-}
-
-getIndexComb = (value, array) => {
   for(var i = 0; i < array.length; i++) {
-    if(array[i][0] === value) {
+    if(array[i].key === key) {
       return i;
     }
-    else if (array[i][0].includes('-')) {
-      const ranges = array[i][0].split('-')/*.map(n => (parseInt(n, 10)))*/
+    else if (array[i].key.includes('-')) {
+      const ranges = array[i].key.split('-').map(n => (parseInt(n, 10)))
       const min = ranges[0];
       const max = ranges[1];
-      if ((min <= parseInt(value, 10)) && (parseInt(value, 10) <= max)) {
+      if ((min <= parseInt(key, 10)) && (parseInt(key, 10) <= max)) {
         return i
       }
     }
@@ -430,7 +422,7 @@ getIndexComb = (value, array) => {
             onChange={this.handleRadioButtonChange(option, Options, item)}
 
             />
-            {this.generateOption(option)}
+            {this.generateOption(option, Options)}
             </label>
             </div>
             )
@@ -678,6 +670,7 @@ getIndexComb = (value, array) => {
             }
           }
         }
+        event.preventDefault()
       }
     }
 

@@ -59123,7 +59123,7 @@ var Response = function (_React$Component) {
       }
     };
 
-    _this.generateOption = function (option) {
+    _this.generateOption = function (option, array) {
       if (_this.state.showDescription === false) {
         if (option.key.includes("-")) {
           _this.state.hasSlider = true;
@@ -59133,6 +59133,7 @@ var Response = function (_React$Component) {
             min: parseInt(option.key.split('-')[0]),
             max: parseInt(option.key.split('-')[1]),
             ref: _this.slider,
+            array: array,
             response: _this,
             interview: _this.props.interview,
             inputBox: _this.inputBox
@@ -59183,22 +59184,15 @@ var Response = function (_React$Component) {
 
     _this.getIndexByKey = function (key, array) {
       for (var i = 0; i < array.length; i++) {
-        if (array[i].key === key.toString()) {
+        if (array[i].key === key) {
           return i;
-        }
-      }
-      return null;
-    };
-
-    _this.getIndexComb = function (value, array) {
-      for (var i = 0; i < array.length; i++) {
-        if (array[i][0] === value) {
-          return i;
-        } else if (array[i][0].includes('-')) {
-          var ranges = array[i][0].split('-'); /*.map(n => (parseInt(n, 10)))*/
+        } else if (array[i].key.includes('-')) {
+          var ranges = array[i].key.split('-').map(function (n) {
+            return parseInt(n, 10);
+          });
           var min = ranges[0];
           var max = ranges[1];
-          if (min <= parseInt(value, 10) && parseInt(value, 10) <= max) {
+          if (min <= parseInt(key, 10) && parseInt(key, 10) <= max) {
             return i;
           }
         }
@@ -59458,7 +59452,7 @@ var Response = function (_React$Component) {
                     onChange: _this2.handleRadioButtonChange(option, Options, item)
 
                   }),
-                  _this2.generateOption(option)
+                  _this2.generateOption(option, Options)
                 )
               );
             }
@@ -59684,6 +59678,7 @@ var Response = function (_React$Component) {
                     }
                   }
                 }
+                event.preventDefault();
               },
 
               onChange: function onChange(event) {
@@ -69480,7 +69475,7 @@ var ResponseSlider = function (_Component) {
       _this.handlers.handleChange(value);
       _this.props.response.setState({
         sliderValue: value,
-        currentPos: _this.props.response.getIndex_0(_this.props.min + '-' + _this.props.max, _this.props.array)
+        currentPos: _this.props.response.getIndexByKey(value.toString(), _this.props.array)
       });
     };
 
@@ -76945,12 +76940,14 @@ exports.ddUp = exports.simpleUp = undefined;
 
 var _actions = __webpack_require__(22);
 
+var _reactRedux = __webpack_require__(18);
+
 // Handles up arrow when a simple object is selected
-var simpleUp = exports.simpleUp = function simpleUp(dispatch, activeKey, currentPos, array, responseContainer) {
+var simpleUp = exports.simpleUp = function simpleUp(activeKey, currentPos, array, responseContainer) {
   return function (event) {
     dispatch((0, _actions.setResponse)({
       key: activeKey,
-      value: array[currentPos + 1][0]
+      value: array[currentPos + 1].key
     }));
     responseContainer.setState({
       key: activeKey,
@@ -76973,6 +76970,8 @@ var ddUp = exports.ddUp = function ddUp(dispatch, activeKey) {
     }
   };
 };
+
+exports.default = (0, _reactRedux.connect)()(simpleUp, ddUp);
 
 /***/ }),
 /* 443 */
