@@ -8,6 +8,7 @@ import { items, scales, getItemByKey, getNextItemByKey } from '../items';
 import Slider from 'react-rangeslider';
 import 'react-rangeslider/lib/index.css';
 import ResponseSlider from './ResponseSlider';
+// TODO: Seems not to be compatible with firefox...
 import Dropdown from './Dropdown';
 import { simpleUp } from '../lib/arrowFunctionalities';
 
@@ -57,13 +58,13 @@ class Response extends React.Component {
       };
     }
 
-    const OptionsWithoutDescriptions = [{key: '1', text: 'asdf', responseType: 'simple'}];
-    const OptionsWithDescriptions = [{key: '2', text: 'asdf', responseType: 'simple'}];
+    const OptionsWithoutDescriptions = [];
+    const OptionsWithDescriptions = [];
 /*
     if (item.dropdownOptions) {
       OptionsWithoutDescriptions.push(this.dropdownMenu)
     }*/
-    /*if (item.options) {
+    if (item.options) {
       Object.keys(item.options).map(key => {
         OptionsWithoutDescriptions.push(
         {
@@ -88,17 +89,18 @@ class Response extends React.Component {
       }
       [key, scales['1ad'].options[key]['title'], scales['1ad'].options[key]['description']]
       )
-    })*/
+    })
 
     const ranges = [];
-  /*  OptionsWithoutDescriptions.map(option => {
+    OptionsWithoutDescriptions.map(option => {
       if (option.responseType = 'slider') {
         ranges.push(option.key.split('-').map(n => parseInt(n, 10)))
       }
     })
-*/
+
     const response = (this.props.interview.responses && this.props.interview.responses[item.key]) || '';
     let sliderValue = (this.props.interview.sliderValues && this.props.interview.sliderValues[item.key]) || null;
+    console.log('103: ' + sliderValue)
     let currentPos;
     if (!item.dropdownOptions) {
       currentPos = this.getIndexByKey(item.key, OptionsWithoutDescriptions)
@@ -112,6 +114,7 @@ class Response extends React.Component {
       const max = ranges[0][1];
       if (sliderValue === null) {
         sliderValue = min
+        console.log('116: ' + sliderValue)
       }
       this.setState({
         OptionsWithoutDescriptions: OptionsWithoutDescriptions,
@@ -157,8 +160,7 @@ class Response extends React.Component {
           option.text,
           <ResponseSlider
           id='Slider'
-          key={option.key}
-          responseValue={this.state.sliderValue}
+          key={'slider'}
           min={
             parseInt(option.key.split('-')[0])
           }
@@ -170,83 +172,33 @@ class Response extends React.Component {
           interview={this.props.interview}
           inputBox={this.inputBox}
           />,
-          <center>
+          <center key='center'>
           {monthsToYears(this.state.sliderValue)}
           </center>
           ]);
       }
       else {
        return ([
-        <b>{option.key + ' '}</b>,
+        <b key='teatKey'>{option.key + ' '}</b>,
         option.text
         ]);
      }
    }
    else {
     return (
-      <div>
-      <b>{option.key + ': '}</b>
-      <div>
-      <b>Title: </b>
+      <div key='testKey'>
+      <b key='testKey'>{option.key + ': '}</b>
+      <div key='testKey2'>
+      <b key='testKey2'>Title: </b>
       {option.text}
       </div>
       <div>
-      <b>Description: </b>
+      <b key='testKey3'>Description: </b>
       {option.description}
       </div>
       </div>
       )
   }
-}
-
-write = (array, pair) => {
-  if (this.state.showDescription === false) {
-    if (pair[0].includes("-")) {
-      this.state.hasSlider = true;
-      return ([
-        pair[1],
-        <ResponseSlider
-        id='Slider'
-        array={array}
-        responseValue={this.state.sliderValue}
-        min={
-          parseInt(pair[0].split('-')[0])
-        }
-        max={
-          parseInt(pair[0].split('-')[1])
-        }
-        ref={this.slider}
-        response={this}
-        interview={this.props.interview}
-        inputBox={this.inputBox}
-        />,
-        <center>
-        {monthsToYears(this.state.sliderValue)}
-        </center>
-        ]);
-    }
-    else {
-     return ([
-      <b>{pair[0] + ' '}</b>,
-      pair[1]
-      ]);
-   }
- }
- else {
-  return (
-    <div>
-    <b>{pair[0] + ': '}</b>
-    <div>
-    <b>Title: </b>
-    {pair[1]}
-    </div>
-    <div>
-    <b>Description: </b>
-    {pair[2]}
-    </div>
-    </div>
-    )
-}
 }
 
 getIndexByKey = (key, array) => {
@@ -301,6 +253,29 @@ getIndexComb = (value, array) => {
     if (parseInt(x[0], 10) < parseInt(y[0])) return -1;
     if (parseInt(x[0], 10) === parseInt(y[0], 10)) return 0;
     if (parseInt(x[0], 10) > parseInt(y[0],10)) return 1;
+  }
+
+  handleRadioButtonChange = (option, Options, item) => (event) => {
+    if (option.key.includes("-")) {
+      this.props.dispatch(setResponse({
+       key: item.key,
+       value: this.state.sliderValue
+     }))
+    }
+    else {
+      this.props.dispatch(setResponse({
+       key: item.key,
+       value: option.key.toString()
+     }))
+    }
+    this.inputBox.current.focus()
+    this.setState({
+      currentPos: this.getIndexByKey(option.key, Options)
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
   }
 
   // Method that takes two keys from the item list, and returns an array containing pairs of the form [key, title]. For example, running generateOptions(2.002, 2.003) would generate the array
@@ -394,27 +369,26 @@ getIndexComb = (value, array) => {
     <div key={item.key} className="interview-item-container">
     <div style={{ flex: 1 }}>
     <ItemCard item={item} />
-    <form >
     {item.options &&
       Options.map(option => {
         if (item.dropdownOptions) {
           // TODO: This is not working
           return (
-            <div className='radio' key='dropdown'>
+            <div className='radio' key={'dropdown'}>
             <input
             type='radio'
-            key='dropdown'
-            checked={
-              Options[currentPos] && (this.getIndexByKey(option.key,Options) === currentPos)
-            }
-            onClick={() => {
+            value='dropdown'
+            key='radioDropdown'
+            checked={options === Options[currentPos]}
+            onChange={() => {
+
               this.setState({
                 currentPos: this.getIndexByKey(option.key, Options)
               })
             }}
             />,
             <Dropdown
-            key='dropdown'
+            key='dropdownMenu'
             activeKey={interview.activeKey}
             options={this.generateOptions(item.dropdownOptions.split('-')[0], item.dropdownOptions.split('-')[1])}
             inputBox={this.inputBox}
@@ -430,39 +404,22 @@ getIndexComb = (value, array) => {
             <div
             key={option.key}
             className="interview-response-list">
-            <label style={{ fontWeight: 'normal' }} key={option.key}>
+            <label style={{ fontWeight: 'normal' }} key={option.key + ' label'}>
             <input
-            key={option.key}
+            key={option.key + ' input'}
             type='radio'
-            value='ok'
-            checked={
-              Options[currentPos] && (option.key === Options[currentPos].key)
-            }
-            onClick={() => {
-              this.setState({
-                currentPos: this.getIndexByKey(option.key, Options)
-              })
-              if (option.key.includes("-")) {
-                dispatch(setResponse({
-                 key: item.key,
-                 value: this.state.sliderValue
-               }))
-              }
-              else {
-                dispatch(setResponse({ key: item.key, value: option.key.toString()}))
-              }
-              this.inputBox.current.focus()
-            }
-          }
-          />
-          {this.generateOption(option)}
-          </label>
-          </div>
-          )
+            checked={option === Options[currentPos]}
+            onChange={this.handleRadioButtonChange(option, Options, item)}
+
+            />
+            {this.generateOption(option)}
+            </label>
+            </div>
+            )
+
         }
       })
     }
-    </form>
     {item.scale && (
       <div key={'testKey'}>
       Scale: <strong>{item.scale}</strong>
@@ -473,13 +430,12 @@ getIndexComb = (value, array) => {
           showDescription: !this.state.showDescription
         })
         this.inputBox.current.focus();
-      }
-    }
-    >
-    Show descriptions
-    </button>
-    </div>
-    )}
+      }}
+      >
+      Show descriptions
+      </button>
+      </div>
+      )}
     {hasInput && (
       <Fragment>
       <label htmlFor="response">Response</label>
@@ -499,7 +455,7 @@ getIndexComb = (value, array) => {
                 if (sliderValue !== null) {
                   dispatch(setResponse({
                     key: item.key,
-                    value: sliderValue.toString(),
+                    sliderValue: sliderValue,
                   }))
                   this.setState({
                     currentPos: 0

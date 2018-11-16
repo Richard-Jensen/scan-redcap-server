@@ -59016,6 +59016,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// TODO: Seems not to be compatible with firefox...
+
 
 var Response = function (_React$Component) {
   _inherits(Response, _React$Component);
@@ -59045,46 +59047,45 @@ var Response = function (_React$Component) {
         });
       }
 
-      var OptionsWithoutDescriptions = [{ key: '1', text: 'asdf', responseType: 'simple' }];
-      var OptionsWithDescriptions = [{ key: '2', text: 'asdf', responseType: 'simple' }];
+      var OptionsWithoutDescriptions = [];
+      var OptionsWithDescriptions = [];
       /*
           if (item.dropdownOptions) {
             OptionsWithoutDescriptions.push(this.dropdownMenu)
           }*/
-      /*if (item.options) {
-        Object.keys(item.options).map(key => {
-          OptionsWithoutDescriptions.push(
-          {
+      if (item.options) {
+        Object.keys(item.options).map(function (key) {
+          OptionsWithoutDescriptions.push({
             key: key,
             text: item.options[key],
-            responseType: this.getResponseType(key)
-          }
-          )
-        }
-        );
+            responseType: _this.getResponseType(key)
+          });
+        });
       }
-      OptionsWithoutDescriptions.sort(this.compareKey)
-       Object.keys(scales['1ad'].options).map(key => {
-        OptionsWithDescriptions.push(
-        {
+      OptionsWithoutDescriptions.sort(_this.compareKey);
+
+      Object.keys(_items.scales['1ad'].options).map(function (key) {
+        OptionsWithDescriptions.push({
           key: key,
-          text: scales['1ad'].options[key]['description'],
-          responseType: this.getResponseType(key),
-          title: scales['1ad'].options[key]['title']
-         }
-        [key, scales['1ad'].options[key]['title'], scales['1ad'].options[key]['description']]
-        )
-      })*/
+          text: _items.scales['1ad'].options[key]['description'],
+          responseType: _this.getResponseType(key),
+          title: _items.scales['1ad'].options[key]['title']
+
+        }[(key, _items.scales['1ad'].options[key]['title'], _items.scales['1ad'].options[key]['description'])]);
+      });
 
       var ranges = [];
-      /*  OptionsWithoutDescriptions.map(option => {
-          if (option.responseType = 'slider') {
-            ranges.push(option.key.split('-').map(n => parseInt(n, 10)))
-          }
-        })
-      */
+      OptionsWithoutDescriptions.map(function (option) {
+        if (option.responseType = 'slider') {
+          ranges.push(option.key.split('-').map(function (n) {
+            return parseInt(n, 10);
+          }));
+        }
+      });
+
       var response = _this.props.interview.responses && _this.props.interview.responses[item.key] || '';
       var sliderValue = _this.props.interview.sliderValues && _this.props.interview.sliderValues[item.key] || null;
+      console.log('103: ' + sliderValue);
       var currentPos = void 0;
       if (!item.dropdownOptions) {
         currentPos = _this.getIndexByKey(item.key, OptionsWithoutDescriptions);
@@ -59097,6 +59098,7 @@ var Response = function (_React$Component) {
         var max = ranges[0][1];
         if (sliderValue === null) {
           sliderValue = min;
+          console.log('116: ' + sliderValue);
         }
         _this.setState({
           OptionsWithoutDescriptions: OptionsWithoutDescriptions,
@@ -59129,8 +59131,7 @@ var Response = function (_React$Component) {
           _this.state.hasSlider = true;
           return [option.text, _react2.default.createElement(_ResponseSlider2.default, {
             id: 'Slider',
-            key: option.key,
-            responseValue: _this.state.sliderValue,
+            key: 'slider',
             min: parseInt(option.key.split('-')[0]),
             max: parseInt(option.key.split('-')[1]),
             ref: _this.slider,
@@ -59139,31 +59140,31 @@ var Response = function (_React$Component) {
             inputBox: _this.inputBox
           }), _react2.default.createElement(
             'center',
-            null,
+            { key: 'center' },
             (0, _helpers.monthsToYears)(_this.state.sliderValue)
           )];
         } else {
           return [_react2.default.createElement(
             'b',
-            null,
+            { key: 'teatKey' },
             option.key + ' '
           ), option.text];
         }
       } else {
         return _react2.default.createElement(
           'div',
-          null,
+          { key: 'testKey' },
           _react2.default.createElement(
             'b',
-            null,
+            { key: 'testKey' },
             option.key + ': '
           ),
           _react2.default.createElement(
             'div',
-            null,
+            { key: 'testKey2' },
             _react2.default.createElement(
               'b',
-              null,
+              { key: 'testKey2' },
               'Title: '
             ),
             option.text
@@ -59173,69 +59174,10 @@ var Response = function (_React$Component) {
             null,
             _react2.default.createElement(
               'b',
-              null,
+              { key: 'testKey3' },
               'Description: '
             ),
             option.description
-          )
-        );
-      }
-    };
-
-    _this.write = function (array, pair) {
-      if (_this.state.showDescription === false) {
-        if (pair[0].includes("-")) {
-          _this.state.hasSlider = true;
-          return [pair[1], _react2.default.createElement(_ResponseSlider2.default, {
-            id: 'Slider',
-            array: array,
-            responseValue: _this.state.sliderValue,
-            min: parseInt(pair[0].split('-')[0]),
-            max: parseInt(pair[0].split('-')[1]),
-            ref: _this.slider,
-            response: _this,
-            interview: _this.props.interview,
-            inputBox: _this.inputBox
-          }), _react2.default.createElement(
-            'center',
-            null,
-            (0, _helpers.monthsToYears)(_this.state.sliderValue)
-          )];
-        } else {
-          return [_react2.default.createElement(
-            'b',
-            null,
-            pair[0] + ' '
-          ), pair[1]];
-        }
-      } else {
-        return _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(
-            'b',
-            null,
-            pair[0] + ': '
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(
-              'b',
-              null,
-              'Title: '
-            ),
-            pair[1]
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(
-              'b',
-              null,
-              'Description: '
-            ),
-            pair[2]
           )
         );
       }
@@ -59290,6 +59232,30 @@ var Response = function (_React$Component) {
       if (parseInt(x[0], 10) < parseInt(y[0])) return -1;
       if (parseInt(x[0], 10) === parseInt(y[0], 10)) return 0;
       if (parseInt(x[0], 10) > parseInt(y[0], 10)) return 1;
+    };
+
+    _this.handleRadioButtonChange = function (option, Options, item) {
+      return function (event) {
+        if (option.key.includes("-")) {
+          _this.props.dispatch((0, _actions.setResponse)({
+            key: item.key,
+            value: _this.state.sliderValue
+          }));
+        } else {
+          _this.props.dispatch((0, _actions.setResponse)({
+            key: item.key,
+            value: option.key.toString()
+          }));
+        }
+        _this.inputBox.current.focus();
+        _this.setState({
+          currentPos: _this.getIndexByKey(option.key, Options)
+        });
+      };
+    };
+
+    _this.handleSubmit = function (event) {
+      event.preventDefault();
     };
 
     _this.generateOptions = function (first, last) {
@@ -59430,70 +59396,55 @@ var Response = function (_React$Component) {
           'div',
           { style: { flex: 1 } },
           _react2.default.createElement(_ItemCard.ItemCard, { item: item }),
-          _react2.default.createElement(
-            'form',
-            null,
-            item.options && Options.map(function (option) {
-              if (item.dropdownOptions) {
-                // TODO: This is not working
-                return _react2.default.createElement(
-                  'div',
-                  { className: 'radio', key: 'dropdown' },
+          item.options && Options.map(function (option) {
+            if (item.dropdownOptions) {
+              // TODO: This is not working
+              return _react2.default.createElement(
+                'div',
+                { className: 'radio', key: 'dropdown' },
+                _react2.default.createElement('input', {
+                  type: 'radio',
+                  value: 'dropdown',
+                  key: 'radioDropdown',
+                  checked: options === Options[currentPos],
+                  onChange: function onChange() {
+
+                    _this2.setState({
+                      currentPos: _this2.getIndexByKey(option.key, Options)
+                    });
+                  }
+                }),
+                ',',
+                _react2.default.createElement(_Dropdown2.default, {
+                  key: 'dropdownMenu',
+                  activeKey: interview.activeKey,
+                  options: _this2.generateOptions(item.dropdownOptions.split('-')[0], item.dropdownOptions.split('-')[1]),
+                  inputBox: _this2.inputBox,
+                  ref: _this2.dropdownMenu,
+                  responseContainer: _this2
+                })
+              );
+            } else {
+              return _react2.default.createElement(
+                'div',
+                {
+                  key: option.key,
+                  className: 'interview-response-list' },
+                _react2.default.createElement(
+                  'label',
+                  { style: { fontWeight: 'normal' }, key: option.key + ' label' },
                   _react2.default.createElement('input', {
+                    key: option.key + ' input',
                     type: 'radio',
-                    key: 'dropdown',
-                    checked: Options[currentPos] && _this2.getIndexByKey(option.key, Options) === currentPos,
-                    onClick: function onClick() {
-                      _this2.setState({
-                        currentPos: _this2.getIndexByKey(option.key, Options)
-                      });
-                    }
+                    checked: option === Options[currentPos],
+                    onChange: _this2.handleRadioButtonChange(option, Options, item)
+
                   }),
-                  ',',
-                  _react2.default.createElement(_Dropdown2.default, {
-                    key: 'dropdown',
-                    activeKey: interview.activeKey,
-                    options: _this2.generateOptions(item.dropdownOptions.split('-')[0], item.dropdownOptions.split('-')[1]),
-                    inputBox: _this2.inputBox,
-                    ref: _this2.dropdownMenu,
-                    responseContainer: _this2
-                  })
-                );
-              } else {
-                return _react2.default.createElement(
-                  'div',
-                  {
-                    key: option.key,
-                    className: 'interview-response-list' },
-                  _react2.default.createElement(
-                    'label',
-                    { style: { fontWeight: 'normal' }, key: option.key },
-                    _react2.default.createElement('input', {
-                      key: option.key,
-                      type: 'radio',
-                      value: 'ok',
-                      checked: Options[currentPos] && option.key === Options[currentPos].key,
-                      onClick: function onClick() {
-                        _this2.setState({
-                          currentPos: _this2.getIndexByKey(option.key, Options)
-                        });
-                        if (option.key.includes("-")) {
-                          dispatch((0, _actions.setResponse)({
-                            key: item.key,
-                            value: _this2.state.sliderValue
-                          }));
-                        } else {
-                          dispatch((0, _actions.setResponse)({ key: item.key, value: option.key.toString() }));
-                        }
-                        _this2.inputBox.current.focus();
-                      }
-                    }),
-                    _this2.generateOption(option)
-                  )
-                );
-              }
-            })
-          ),
+                  _this2.generateOption(option)
+                )
+              );
+            }
+          }),
           item.scale && _react2.default.createElement(
             'div',
             { key: 'testKey' },
@@ -59541,7 +59492,7 @@ var Response = function (_React$Component) {
                       if (sliderValue !== null) {
                         dispatch((0, _actions.setResponse)({
                           key: item.key,
-                          value: sliderValue.toString()
+                          sliderValue: sliderValue
                         }));
                         _this2.setState({
                           currentPos: 0
@@ -69536,7 +69487,8 @@ var ResponseSlider = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var value = this.props.responseValue.value;
+      console.log(this.state.value);
+      var value = this.state.value.value;
 
       return _react2.default.createElement(
         'div',
@@ -69544,7 +69496,7 @@ var ResponseSlider = function (_Component) {
         _react2.default.createElement(_reactRangeslider2.default, {
           min: this.props.min,
           max: this.props.max,
-          value: parseInt(this.props.responseValue),
+          value: this.state.value,
           onChangeStart: this.handleChangeStart,
           onChange: this.handleChange,
           onChangeComplete: this.handleComplete
