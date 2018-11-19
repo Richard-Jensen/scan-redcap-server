@@ -10,7 +10,7 @@ import 'react-rangeslider/lib/index.css';
 import ResponseSlider from './ResponseSlider';
 // TODO: Seems not to be compatible with firefox...
 import Dropdown from './Dropdown';
-import { simpleUp } from '../lib/arrowFunctionalities';
+import { nullUp, up, nullDown, down, handleKeyDown, test } from '../lib/arrowFunctionalities';
 
 class Response extends React.Component {
 
@@ -29,7 +29,6 @@ class Response extends React.Component {
       OptionsAsObjects: [],
       sliderValue: 0,
       showDescription: false,
-      responseType: null
     };
     this.inputBox = React.createRef();
     this.slider = React.createRef();
@@ -60,17 +59,19 @@ class Response extends React.Component {
 
     const OptionsWithoutDescriptions = [];
     const OptionsWithDescriptions = [];
-/*
+    /*
     if (item.dropdownOptions) {
       OptionsWithoutDescriptions.push(this.dropdownMenu)
     }*/
     if (item.options) {
       Object.keys(item.options).map(key => {
+        const text = item.options[key];
+        const responseType = this.getResponseType(key);
         OptionsWithoutDescriptions.push(
         {
           key: key,
-          text: item.options[key],
-          responseType: this.getResponseType(key)
+          text: text,
+          responseType: this.getResponseType(key),
         }
         )
       }
@@ -93,7 +94,7 @@ class Response extends React.Component {
 
     const ranges = [];
     OptionsWithoutDescriptions.map(option => {
-      if (option.responseType = 'slider') {
+      if (option.responseType === 'slider') {
         ranges.push(option.key.split('-').map(n => parseInt(n, 10)))
       }
     })
@@ -457,292 +458,78 @@ getIndexByKey = (key, array) => {
       name="response"
       ref={this.inputBox}
       onKeyDown={event => {
-          //Keycode 38 is arrow key up, 40 is down
-          // TODO: Refactor this. It's a huge mess.
-          if (event.keyCode==38) {
-            if (currentPos === null) {
-              if (Options[0][0].includes('-')) {
-                if (sliderValue !== null) {
-                  dispatch(setResponse({
-                    key: item.key,
-                    sliderValue: sliderValue,
-                  }))
-                  this.setState({
-                    currentPos: 0
-                  })
-                }
-                else {
-                  dispatch(setResponse({
-                    key: item.key,
-                    value: this.state.min.toString(),
-                    sliderValue: this.state.min
-                  }))
-                  this.setState({
-                    currentPos: 0,
-                    sliderValue: this.state.min
-                  })
-                }
-              }
-              else {
-                dispatch(setResponse({
-                  key: item.key,
-                  value: Options[0][0]
-                }))
-                this.setState({
-                  currentPos: 0
-                })
-              }
-              event.preventDefault()
-            }
-
-            else {
-              if (Options[currentPos][0].includes('-') && !event.shiftKey) {
-                if (this.state.sliderValue === this.state.max) {
-                  if (currentPos === (Options.length - 1)) {
-                    return
-                  }
-                  else {
-                    dispatch(setResponse({
-                      key: item.key,
-                      value: Options[currentPos + 1][0]
-                    }));
-                    this.setState({
-                      currentPos: currentPos + 1
-                    });
-                    event.preventDefault();
-                  }
-                }
-
-                else if (event.target.value == "") {
-                  dispatch(setResponse({
-                    key: item.key,
-                    value: this.state.min.toString()
-                  }));
-                  this.setState({
-                    sliderValue: this.state.min
-                  })
-                  event.preventDefault();
-                }
-                else {
-                  this.setState({
-                    sliderValue: parseInt(this.state.sliderValue) + 1
-                  })
-                  dispatch(setResponse({
-                    key: item.key,
-                    value: (parseInt(this.state.sliderValue) + 1).toString(),
-                    sliderValue: (parseInt(this.state.sliderValue) + 1)
-                  }));
-                  event.preventDefault();
-                }
-              }
-              else if (currentPos === (Options.length - 1)) {
-                return
-              }
-              else if (Options[currentPos + 1][0].includes('-')) {
-                dispatch(
-                  setResponse({
-                    key: item.key,
-                    value: this.state.sliderValue.toString()
-                  })
-                  );
-                this.setState({
-                  currentPos: currentPos + 1
-                });
-                event.preventDefault();
-              }
-              else {
-                dispatch(
-                  setResponse({
-                    key: item.key,
-                    value: Options[currentPos + 1][0]
-                  })
-                  );
-                event.preventDefault();
-                this.setState({
-                  currentPos: currentPos + 1
-                });
-              }
-            }
-          }
-          else if (event.keyCode==40) {
-            if (currentPos === null) {
-              if (Options[0][0].includes('-')) {
-                if (sliderValue !== null) {
-                  dispatch(setResponse({
-                    key: item.key,
-                    value: sliderValue.toString(),
-                  }))
-                  this.setState({
-                    currentPos: 0
-                  })
-                }
-                else {
-                  dispatch(setResponse({
-                    key: item.key,
-                    value: this.state.min.toString(),
-                    sliderValue: this.state.min
-                  }))
-                  this.setState({
-                    currentPos: 0,
-                    sliderValue: this.state.min
-                  })
-                }
-              }
-              else {
-                dispatch(setResponse({
-                  key: item.key,
-                  value: Options[0][0]
-                }))
-                this.setState({
-                  currentPos: 0
-                })
-              }
-              event.preventDefault()
-            }
-
-            else {
-              if (Options[currentPos][0].includes('-') && !event.shiftKey) {
-                if (this.state.sliderValue === this.state.min) {
-                  if (currentPos === 0) {
-                   return
-                 }
-                 else {
-                  dispatch(setResponse({
-                    key: item.key,
-                    value: Options[currentPos - 1][0]
-                  }));
-                  this.setState({
-                    currentPos: currentPos - 1
-                  });
-                  event.preventDefault();
-                }
-              }
-              else if (event.target.value == "") {
-                dispatch(setResponse({
-                  key: item.key,
-                  value: this.state.min
-                }));
-                this.setState({
-                  sliderValue: parseInt(this.state.min)
-                })
-                event.preventDefault();
-              }
-              else {
-                this.setState({
-                  sliderValue: parseInt(this.state.sliderValue) - 1
-                })
-                dispatch(setResponse({
-                  key: item.key,
-                  value: (parseInt(this.state.sliderValue) - 1).toString(),
-                  sliderValue: (parseInt(this.state.sliderValue) - 1)
-                }));
-                event.preventDefault();
-              }
-            }
-            else if (currentPos === 0) {
-              event.preventDefault();
-              return
-            }
-            else if (Options[currentPos - 1][0].includes('-')) {
-              this.setState({
-                currentPos: currentPos - 1
-              });
-              dispatch(
-                setResponse({
-                  key: item.key,
-                  value: this.state.sliderValue.toString()
-                })
-                );
-              event.preventDefault();
-            }
-
-            else {
-              dispatch(
-                setResponse({
-                  key: item.key,
-                  value: Options[currentPos - 1][0]
-                })
-                );
-              event.preventDefault();
-              this.setState({
-                currentPos: currentPos - 1
-              });
-            }
-          }
-        }
-        event.preventDefault()
+        const direction = event.keyCode;
+        handleKeyDown(interview.activeKey, currentPos, Options, this, dispatch, event, direction)
       }
     }
 
     onChange={event => {
-      if (input === 'date' || input === 'date_interval') {
-        dispatch(setResponse({
-          key: item.key,
-          value: event.target.value
-        }))
-      }
-      else if (validateNumeric(event.target.value, Object.keys(item.options))) {
-        dispatch(
-          setResponse({
+        if (input === 'date' || input === 'date_interval') {
+          dispatch(setResponse({
             key: item.key,
-            value: event.target.value.toString()
-          })
-          );
-        if (event.target.value == "") {
-          this.setState({
-            currentPos: null
-          })
+            value: event.target.value
+          }))
         }
-        else if (this.state.hasSlider) {
-          if ((this.state.min <= event.target.value) && (event.target.value <= this.state.max)) {
+        else if (validateNumeric(event.target.value, Object.keys(item.options))) {
+          dispatch(
+            setResponse({
+              key: item.key,
+              value: event.target.value.toString()
+            })
+            );
+          if (event.target.value == "") {
             this.setState({
-              value: event.target.value,
-              currentPos: this.getIndexComb(event.target.value.toString(), Options),
-              sliderValue: event.target.value
-            });
-          }
-          else {
-            this.setState({
-              currentPos: this.getIndex_0(event.target.value, Options)
+              currentPos: null
             })
           }
-        }
-        else {
-         this.setState({
-          currentPos: this.getIndex_0(event.target.value, Options)
-        })
-       }
+          else if (this.state.hasSlider) {
+            if ((this.state.min <= event.target.value) && (event.target.value <= this.state.max)) {
+              this.setState({
+                value: event.target.value,
+                currentPos: this.getIndexByKey(event.target.value.toString(), Options),
+                sliderValue: event.target.value
+              });
+            }
+            else {
+              this.setState({
+                currentPos: this.getIndex_0(event.target.value, Options)
+              })
+            }
+          }
+          else {
+           this.setState({
+            currentPos: this.getIndex_0(event.target.value, Options)
+          })
+         }
+       }}
      }
+     placeholder={item.validate}
+     value={response}
+     autoFocus
+     />
 
-
-   }}
-   placeholder={item.validate}
-   value={response}
-   autoFocus
-   />
-
-   {settings.showItemNotes && (
-    <textarea
-    onChange={event =>
-      dispatch(
-        setNote({ key: item.key, value: event.target.value })
-        )
-    }
-    defaultValue={note}
-    placeholder="Note"
-    />
-    )}
-   </Fragment>
-   )}
-</div>
-{showGlossary && (
-  <div className="interview-item-glossary">
-  <strong>Glossary</strong>
-  <Markdown source={item.glossary} style={{ height: '100%' }} />
-  </div>
-  )}
-</div>
-);
+     {settings.showItemNotes && (
+      <textarea
+      onChange={event =>
+        dispatch(
+          setNote({ key: item.key, value: event.target.value })
+          )
+      }
+      defaultValue={note}
+      placeholder="Note"
+      />
+      )}
+     </Fragment>
+     )}
+    </div>
+    {showGlossary && (
+      <div className="interview-item-glossary">
+      <strong>Glossary</strong>
+      <Markdown source={item.glossary} style={{ height: '100%' }} />
+      </div>
+      )}
+    </div>
+    );
 }
 }
 
