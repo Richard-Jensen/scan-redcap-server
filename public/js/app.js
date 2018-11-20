@@ -59089,7 +59089,7 @@ var Response = function (_React$Component) {
       var sliderValue = _this.props.interview.sliderValues && _this.props.interview.sliderValues[item.key] || null;
       var currentPos = void 0;
       if (!item.dropdownOptions) {
-        currentPos = _this.getIndexByKey(item.key, OptionsWithoutDescriptions);
+        currentPos = _this.getIndexByKey(response, OptionsWithoutDescriptions);
       } else {
         currentPos = 0;
       }
@@ -59496,6 +59496,7 @@ var Response = function (_React$Component) {
               id: 'ResponseInput',
               name: 'response',
               ref: this.inputBox,
+
               onKeyDown: function onKeyDown(event) {
                 var direction = event.keyCode;
                 (0, _arrowFunctionalities.handleKeyDown)(interview.activeKey, currentPos, Options, _this2, dispatch, event, direction);
@@ -69312,11 +69313,6 @@ var ResponseSlider = function (_Component) {
   }
 
   _createClass(ResponseSlider, [{
-    key: 'getSliderValue',
-    value: function getSliderValue() {
-      return this.state.value;
-    }
-  }, {
     key: 'render',
     value: function render() {
       var value = this.state.value.value;
@@ -76766,14 +76762,18 @@ var _reactRedux = __webpack_require__(15);
 var handleKeyDown = exports.handleKeyDown = function handleKeyDown(activeKey, currentPos, array, responseContainer, dispatch, event, direction) {
   if (currentPos === null) {
     if (direction === 38) {
+      event.preventDefault();
       nullUp(activeKey, currentPos, array, responseContainer, dispatch, event);
     } else if (direction === 40) {
+      event.preventDefault();
       nullDown(activeKey, currentPos, array, responseContainer, dispatch, event);
     }
   } else {
     if (direction === 38) {
+      event.preventDefault();
       up(activeKey, currentPos, array, responseContainer, dispatch, event);
     } else if (direction == 40) {
+      event.preventDefault();
       down(activeKey, currentPos, array, responseContainer, dispatch, event);
     }
   }
@@ -76785,7 +76785,6 @@ var nullUp = function nullUp(activeKey, currentPos, array, responseContainer, di
   var sliderValue = responseContainer.state.sliderValue;
 
   if (currentPos === null) {
-    console.log('null');
     if (array[0].key.includes('-')) {
       if (sliderValue !== null) {
         dispatch((0, _actions.setResponse)({
@@ -76808,7 +76807,6 @@ var nullUp = function nullUp(activeKey, currentPos, array, responseContainer, di
         });
       }
     } else {
-      console.log('non-slider null');
       dispatch((0, _actions.setResponse)({
         key: activeKey,
         value: array[0].key
@@ -76844,7 +76842,6 @@ var up = function up(activeKey, currentPos, array, responseContainer, dispatch, 
         responseContainer.setState({
           currentPos: currentPos + 1
         });
-        event.preventDefault();
       }
     } else if (event.target.value == "") {
       dispatch((0, _actions.setResponse)({
@@ -76854,7 +76851,6 @@ var up = function up(activeKey, currentPos, array, responseContainer, dispatch, 
       responseContainer.setState({
         sliderValue: responseContainer.state.min
       });
-      event.preventDefault();
     } else {
       responseContainer.setState({
         sliderValue: parseInt(responseContainer.state.sliderValue) + 1
@@ -76864,7 +76860,6 @@ var up = function up(activeKey, currentPos, array, responseContainer, dispatch, 
         value: (parseInt(responseContainer.state.sliderValue) + 1).toString(),
         sliderValue: parseInt(responseContainer.state.sliderValue) + 1
       }));
-      event.preventDefault();
     }
   } else if (currentPos === array.length - 1) {
     return;
@@ -76876,13 +76871,12 @@ var up = function up(activeKey, currentPos, array, responseContainer, dispatch, 
     responseContainer.setState({
       currentPos: currentPos + 1
     });
-    event.preventDefault();
   } else {
     dispatch((0, _actions.setResponse)({
       key: activeKey,
       value: array[currentPos + 1].key
     }));
-    event.preventDefault();
+
     responseContainer.setState({
       currentPos: currentPos + 1
     });
@@ -76923,7 +76917,6 @@ var nullDown = function nullDown(activeKey, currentPos, array, responseContainer
       currentPos: 0
     });
   }
-  event.preventDefault();
 };
 
 // Handling down arrow if currentPos is not null
@@ -76943,7 +76936,6 @@ var down = function down(activeKey, currentPos, array, responseContainer, dispat
         responseContainer.setState({
           currentPos: currentPos - 1
         });
-        event.preventDefault();
       }
     } else if (event.target.value == "") {
       dispatch((0, _actions.setResponse)({
@@ -76953,7 +76945,6 @@ var down = function down(activeKey, currentPos, array, responseContainer, dispat
       responseContainer.setState({
         sliderValue: parseInt(responseContainer.state.min)
       });
-      event.preventDefault();
     } else {
       responseContainer.setState({
         sliderValue: parseInt(responseContainer.state.sliderValue) - 1
@@ -76963,10 +76954,9 @@ var down = function down(activeKey, currentPos, array, responseContainer, dispat
         value: (parseInt(responseContainer.state.sliderValue) - 1).toString(),
         sliderValue: parseInt(responseContainer.state.sliderValue) - 1
       }));
-      event.preventDefault();
     }
   } else if (currentPos === 0) {
-    event.preventDefault();
+
     return;
   } else if (array[currentPos - 1].key.includes('-')) {
     responseContainer.setState({
@@ -76976,19 +76966,16 @@ var down = function down(activeKey, currentPos, array, responseContainer, dispat
       key: activeKey,
       value: responseContainer.state.sliderValue.toString()
     }));
-    event.preventDefault();
   } else {
     dispatch((0, _actions.setResponse)({
       key: activeKey,
       value: array[currentPos - 1].key
     }));
-    event.preventDefault();
+
     responseContainer.setState({
       currentPos: currentPos - 1
     });
   }
-
-  event.preventDefault();
 };
 
 /***/ }),

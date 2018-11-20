@@ -103,7 +103,7 @@ class Response extends React.Component {
     let sliderValue = (this.props.interview.sliderValues && this.props.interview.sliderValues[item.key]) || null;
     let currentPos;
     if (!item.dropdownOptions) {
-      currentPos = this.getIndexByKey(item.key, OptionsWithoutDescriptions)
+      currentPos = this.getIndexByKey(response, OptionsWithoutDescriptions)
     }
     else {
       currentPos = 0
@@ -431,6 +431,7 @@ getIndexByKey = (key, array) => {
         }
       })
     }
+
     {item.scale && (
       <div key={'testKey'}>
       Scale: <strong>{item.scale}</strong>
@@ -457,13 +458,13 @@ getIndexByKey = (key, array) => {
       id="ResponseInput"
       name="response"
       ref={this.inputBox}
+
       onKeyDown={event => {
         const direction = event.keyCode;
         handleKeyDown(interview.activeKey, currentPos, Options, this, dispatch, event, direction)
-      }
-    }
+      }}
 
-    onChange={event => {
+      onChange={event => {
         if (input === 'date' || input === 'date_interval') {
           dispatch(setResponse({
             key: item.key,
