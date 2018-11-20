@@ -8,6 +8,7 @@ let initialState = {
   activeKey: items[0].key,
   responses: {},
   sliderValues: {},
+  dropdownValues: {},
   disabledItems: [],
   notes: {},
   settings: {
@@ -45,6 +46,7 @@ export const getPreviousValidKey = (state, key) => {
 const interview = (state = initialState, action) => {
   const { responses } = state;
   const sliderValues = state.sliderValues;
+  const dropdownValues = state.dropdownValues;
   switch (action.type) {
     case 'SET_ACTIVE_ITEM':
     const { key } = action.payload;
@@ -56,6 +58,7 @@ const interview = (state = initialState, action) => {
     case 'SET_RESPONSE':
     let mergedResponses;
     let mergedSliderValues;
+    let mergedDropdownValues;
     if (action.payload.period) {
       let period = action.payload.period === 1 ? 'period_one' : 'period_two';
 
@@ -80,6 +83,15 @@ const interview = (state = initialState, action) => {
       else {
         mergedSliderValues = sliderValues;
       }
+      if (action.payload.dropdownValue) {
+        mergedDropdownValues = {
+          ...dropdownValues,
+          [state.activeKey]: action.payload.dropdownValue
+        };
+      }
+      else {
+        mergedDropdownValues = dropdownValues;
+      }
     }
 
     const { matched } = Algorithms.run(mergedResponses, routing);
@@ -90,15 +102,19 @@ const interview = (state = initialState, action) => {
         disabledItems = [disabledItems, ...algorithm.skip_items];
       }
     });
+    // For debugging only
+/*    console.log('Slider values:')
+    console.log(mergedSliderValues)
+    console.log('Dropdown values:')
+    console.log(mergedDropdownValues)*/
 
     const matchedKeys = Object.keys(matched);
-    console.log(responses);
-    console.log(mergedResponses);
     return {
       ...state,
       disabledItems: [...matchedKeys, ...disabledItems],
       responses: mergedResponses,
-      sliderValues: mergedSliderValues
+      sliderValues: mergedSliderValues,
+      dropdownValues: mergedDropdownValues,
     };
     case 'SET_NOTE':
     return {

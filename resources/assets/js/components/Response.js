@@ -8,9 +8,10 @@ import { items, scales, getItemByKey, getNextItemByKey } from '../items';
 import Slider from 'react-rangeslider';
 import 'react-rangeslider/lib/index.css';
 import ResponseSlider from './ResponseSlider';
-// TODO: Seems not to be compatible with firefox...
-import Dropdown from './Dropdown';
+import SelectResponse from './SelectResponse';
 import { nullUp, up, nullDown, down, handleKeyDown, test } from '../lib/arrowFunctionalities';
+
+
 
 class Response extends React.Component {
 
@@ -29,6 +30,10 @@ class Response extends React.Component {
       OptionsAsObjects: [],
       sliderValue: 0,
       showDescription: false,
+      dropdownValue: null,
+      dropdownMin: null,
+      dropdownMax: null,
+
     };
     this.inputBox = React.createRef();
     this.slider = React.createRef();
@@ -37,7 +42,12 @@ class Response extends React.Component {
 
   getResponseType = (key) => {
     if (key.includes('-')) {
-      return 'slider'
+      if (key.split('-')[0].includes('.') && key.split('-')[0].includes('.')) {
+        return 'dropdown'
+      }
+      else {
+        return 'slider'
+      }
     }
     else {
       return 'simple'
@@ -45,6 +55,7 @@ class Response extends React.Component {
   }
 
   update = () => {
+    console.log('UPDATE')
     let item = getItemByKey(this.props.interview.activeKey);
     let hasScale = item.scale;
     if (hasScale && scales[item.scale]) {
@@ -65,12 +76,10 @@ class Response extends React.Component {
     }*/
     if (item.options) {
       Object.keys(item.options).map(key => {
-        const text = item.options[key];
-        const responseType = this.getResponseType(key);
         OptionsWithoutDescriptions.push(
         {
           key: key,
-          text: text,
+          text: item.options[key],
           responseType: this.getResponseType(key),
         }
         )
@@ -88,30 +97,35 @@ class Response extends React.Component {
         title: scales['1ad'].options[key]['title']
 
       }
-      [key, scales['1ad'].options[key]['title'], scales['1ad'].options[key]['description']]
       )
     })
 
-    const ranges = [];
+    const sliderRanges = [];
+    const dropdownRanges = [];
     OptionsWithoutDescriptions.map(option => {
       if (option.responseType === 'slider') {
-        ranges.push(option.key.split('-').map(n => parseInt(n, 10)))
+        sliderRanges.push(option.key.split('-').map(n => parseInt(n, 10)))
+      }
+      else if (option.responseType === 'dropdown') {
+        dropdownRanges.push(option.key.split('-'));
       }
     })
 
     const response = (this.props.interview.responses && this.props.interview.responses[item.key]) || '';
     let sliderValue = (this.props.interview.sliderValues && this.props.interview.sliderValues[item.key]) || null;
+    let dropdownValue = (this.props.interview.dropdownValues && this.props.interview.dropdownValues[item.key]) || null;
     let currentPos;
     if (!item.dropdownOptions) {
       currentPos = this.getIndexByKey(response, OptionsWithoutDescriptions)
     }
     else {
+      // TODO: This is just to avoid crashing
       currentPos = 0
     }
 
-    if (ranges.length) {
-      const min = ranges[0][0];
-      const max = ranges[0][1];
+    if (sliderRanges.length) {
+      const min = sliderRanges[0][0];
+      const max = sliderRanges[0][1];
       if (sliderValue === null) {
         sliderValue = min
       }
@@ -124,19 +138,45 @@ class Response extends React.Component {
         currentPos: currentPos,
         min: min,
         max: max,
-        showDescription: false
+        showDescription: false,
+        dropdownValue: null,
+        dropdownMin: null,
+        dropdownMax: null,
+      });
+    }
+    else if (dropdownRanges.length) {
+      const min = dropdownRanges[0][0];
+      const max = dropdownRanges[0][1];
+      this.setState({
+        OptionsWithoutDescriptions: OptionsWithoutDescriptions,
+        OptionsWithDescriptions: OptionsWithDescriptions,
+        response: response,
+        sliderValue: sliderValue,
+        value: sliderValue,
+        currentPos: currentPos,
+        min: null,
+        max: null,
+        showDescription: false,
+        dropdownValue: dropdownValue,
+        dropdownMin: min,
+        dropdownMax: max,
       })
     }
     else {
       this.setState({
         OptionsWithoutDescriptions: OptionsWithoutDescriptions,
         OptionsWithDescriptions: OptionsWithDescriptions,
+        response: response,
         sliderValue: null,
         value: sliderValue,
         currentPos: currentPos,
         min: null,
         max: null,
-        showDescription: false
+        showDescription: false,
+        showDescription: false,
+        dropdownValue: null,
+        dropdownMin: null,
+        dropdownMax: null,
       })
     }
   }
@@ -154,29 +194,56 @@ class Response extends React.Component {
   generateOption = (option, array) => {
     if (this.state.showDescription === false) {
       if (option.key.includes("-")) {
-        this.state.hasSlider = true;
-        return ([
-          option.text,
-          <ResponseSlider
-          id='Slider'
-          key={'slider'}
-          min={
-            parseInt(option.key.split('-')[0])
-          }
-          max={
-            parseInt(option.key.split('-')[1])
-          }
-          ref={this.slider}
-          array={array}
-          response={this}
-          interview={this.props.interview}
-          inputBox={this.inputBox}
-          />,
-          <center key='center'>
-          {monthsToYears(this.state.sliderValue)}
-          </center>
-          ]);
+        if (option.key.split('-')[0].includes('.') && option.key.split('-')[1].includes('.')) {
+          return (
+            <SelectResponse
+            key={option.key}
+            activeKey={this.props.interview.activeKey}
+            options={this.generateOptions(option.key.split('-')[0], option.key.split('-')[1])}
+            inputBox={this.inputBox}
+            ref={this.dropdownMenu}
+            responseContainer={this}
+            >
+            </SelectResponse>
+/*            <Dropdown
+            key='dropdownMenu'
+            activeKey={this.props.interview.activeKey}
+            options={this.generateOptions(option.key.split('-')[0], option.key.split('-')[1])}
+            inputBox={this.inputBox}
+            ref={this.dropdownMenu}
+            responseContainer={this}
+            >
+            </Dropdown>*/
+            )
+        }
+
+        else {
+          this.state.hasSlider = true;
+          return ([
+            option.text,
+            <ResponseSlider
+            id='Slider'
+            key={'slider'}
+            value={this.state.sliderValue || 1}
+            min={
+              parseInt(option.key.split('-')[0])
+            }
+            max={
+              parseInt(option.key.split('-')[1])
+            }
+            ref={this.slider}
+            array={array}
+            response={this}
+            interview={this.props.interview}
+            inputBox={this.inputBox}
+            />,
+            <center key='center'>
+            {monthsToYears(this.state.sliderValue)}
+            </center>
+            ]);
+        }
       }
+
       else {
        return ([
         <b key='teatKey'>{option.key + ' '}</b>,
@@ -297,7 +364,7 @@ getIndexByKey = (key, array) => {
     while (counter !== last.toString()) {
       arr.push(
       {
-        key: first,
+        key: counter,
         value: counter,
         label: (getItemByKey(counter).key + ': ' + getItemByKey(counter).title)
       }
@@ -374,64 +441,14 @@ getIndexByKey = (key, array) => {
   console.log('showDescription: ' + this.state.showDescription)
   console.log('Options:')
   console.log(Options)
+  console.log('Dropdown value')
+  console.log(this.state.dropdownValue || 'no dropdownvalue')
 
   // Returns the specific interview item.
   return (
     <div key={item.key} className="interview-item-container">
     <div style={{ flex: 1 }}>
     <ItemCard item={item} />
-    {item.options &&
-      Options.map(option => {
-        if (item.dropdownOptions) {
-          // TODO: This is not working
-          return (
-            <div className='radio' key={'dropdown'}>
-            <input
-            type='radio'
-            value='dropdown'
-            key='radioDropdown'
-            checked={options === Options[currentPos]}
-            onChange={() => {
-
-              this.setState({
-                currentPos: this.getIndexByKey(option.key, Options)
-              })
-            }}
-            />,
-            <Dropdown
-            key='dropdownMenu'
-            activeKey={interview.activeKey}
-            options={this.generateOptions(item.dropdownOptions.split('-')[0], item.dropdownOptions.split('-')[1])}
-            inputBox={this.inputBox}
-            ref={this.dropdownMenu}
-            responseContainer={this}
-            >
-            </Dropdown>
-            </div>
-            )
-        }
-        else {
-          return (
-            <div
-            key={option.key}
-            className="interview-response-list">
-            <label style={{ fontWeight: 'normal' }} key={option.key + ' label'}>
-            <input
-            key={option.key + ' input'}
-            type='radio'
-            checked={option === Options[currentPos]}
-            onChange={this.handleRadioButtonChange(option, Options, item)}
-
-            />
-            {this.generateOption(option, Options)}
-            </label>
-            </div>
-            )
-
-        }
-      })
-    }
-
     {item.scale && (
       <div key={'testKey'}>
       Scale: <strong>{item.scale}</strong>
@@ -444,10 +461,37 @@ getIndexByKey = (key, array) => {
         this.inputBox.current.focus();
       }}
       >
-      Show descriptions
+      {this.state.showDescription ?
+        'Hide Description'
+        :
+        'Show Description'
+      }
       </button>
       </div>
       )}
+
+    {item.options &&
+      Options.map(option => {
+       return (
+        <div
+        key={option.key}
+        className="interview-response-list">
+        <label style={{ fontWeight: 'normal' }} key={option.key + ' label'}>
+        <input
+        key={option.key + ' input'}
+        type='radio'
+        checked={option === Options[currentPos]}
+        onChange={this.handleRadioButtonChange(option, Options, item)}
+
+        />
+        {this.generateOption(option, Options)}
+        </label>
+        </div>
+        )
+
+     })
+    }
+
     {hasInput && (
       <Fragment>
       <label htmlFor="response">Response</label>
@@ -493,13 +537,13 @@ getIndexByKey = (key, array) => {
             }
             else {
               this.setState({
-                currentPos: this.getIndex_0(event.target.value, Options)
+                currentPos: this.getIndexByKey(event.target.value.toString(), Options)
               })
             }
           }
           else {
            this.setState({
-            currentPos: this.getIndex_0(event.target.value, Options)
+            currentPos: this.getIndexByKey(event.target.value.toString(), Options)
           })
          }
        }}
