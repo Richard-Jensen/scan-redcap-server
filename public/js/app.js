@@ -1309,6 +1309,10 @@ var flipSetting = exports.flipSetting = function flipSetting(_ref4) {
   };
 };
 
+var resetInterview = exports.resetInterview = function resetInterview() {
+  return { type: 'RESET_INTERVIEW' };
+};
+
 /***/ }),
 /* 23 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -12830,6 +12834,20 @@ var interview = function interview() {
   var sliderValues = state.sliderValues;
   var dropdownValues = state.dropdownValues;
   switch (action.type) {
+    case 'RESET_INTERVIEW':
+      return {
+        id: window.scanInfo && window.scanInfo.record_id,
+        activeKey: state.activeKey,
+        responses: {},
+        sliderValues: {},
+        dropdownValues: {},
+        disabledItems: [],
+        notes: {},
+        settings: {
+          showGlossary: true
+        }
+      };
+
     case 'SET_ACTIVE_ITEM':
       var key = action.payload.key;
 
@@ -12876,6 +12894,7 @@ var interview = function interview() {
           console.log(mergedDropdownValues)*/
 
       var matchedKeys = Object.keys(matched);
+
       return _extends({}, state, {
         disabledItems: [].concat(_toConsumableArray(matchedKeys), _toConsumableArray(disabledItems)),
         responses: mergedResponses,
@@ -34941,6 +34960,10 @@ var _actions = __webpack_require__(22);
 
 var _items = __webpack_require__(35);
 
+var _ResetInterview = __webpack_require__(463);
+
+var _ResetInterview2 = _interopRequireDefault(_ResetInterview);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -35006,7 +35029,8 @@ var Scan = function (_Component) {
           { className: 'scan-app-top-bar' },
           _react2.default.createElement(_SearchItems.SearchItems, null),
           _react2.default.createElement(_Settings.Settings, null),
-          _react2.default.createElement(_Analysis.Analysis, null)
+          _react2.default.createElement(_Analysis.Analysis, null),
+          _react2.default.createElement(_ResetInterview2.default, null)
         ),
         _react2.default.createElement(
           'div',
@@ -58255,8 +58279,8 @@ var Response = function (_React$Component) {
       }
 
       if (sliderRanges.length) {
-        var min = sliderRanges[0][0];
-        var max = sliderRanges[0][1];
+        var sliderMin = sliderRanges[0][0];
+        var sliderMax = sliderRanges[0][1];
         if (sliderValue === null) {
           sliderValue = min;
         }
@@ -58267,8 +58291,8 @@ var Response = function (_React$Component) {
           sliderValue: sliderValue,
           value: sliderValue,
           currentPos: currentPos,
-          min: min,
-          max: max,
+          sliderMin: sliderMin,
+          sliderMax: sliderMax,
           showDescription: false,
           dropdownValue: null,
           dropdownMin: null,
@@ -58276,7 +58300,7 @@ var Response = function (_React$Component) {
         });
       } else if (dropdownRanges.length) {
         var _min = dropdownRanges[0][0];
-        var _max = dropdownRanges[0][1];
+        var _sliderMax = dropdownRanges[0][1];
         _this.setState({
           OptionsWithoutDescriptions: OptionsWithoutDescriptions,
           OptionsWithDescriptions: OptionsWithDescriptions,
@@ -58284,12 +58308,12 @@ var Response = function (_React$Component) {
           sliderValue: sliderValue,
           value: sliderValue,
           currentPos: currentPos,
-          min: null,
-          max: null,
+          sliderMin: null,
+          sliderMax: null,
           showDescription: false,
           dropdownValue: dropdownValue,
           dropdownMin: _min,
-          dropdownMax: _max
+          dropdownMax: _sliderMax
         });
       } else {
         var _this$setState;
@@ -58301,8 +58325,8 @@ var Response = function (_React$Component) {
           sliderValue: null,
           value: sliderValue,
           currentPos: currentPos,
-          min: null,
-          max: null,
+          sliderMin: null,
+          sliderMax: null,
           showDescription: false
         }, _defineProperty(_this$setState, 'showDescription', false), _defineProperty(_this$setState, 'dropdownValue', null), _defineProperty(_this$setState, 'dropdownMin', null), _defineProperty(_this$setState, 'dropdownMax', null), _this$setState));
       }
@@ -58352,7 +58376,7 @@ var Response = function (_React$Component) {
         } else {
           return [_react2.default.createElement(
             'b',
-            { key: 'teatKey' },
+            { key: 'testKey' },
             option.key + ' '
           ), option.text];
         }
@@ -58397,9 +58421,9 @@ var Response = function (_React$Component) {
           var ranges = array[i].key.split('-').map(function (n) {
             return parseInt(n, 10);
           });
-          var min = ranges[0];
+          var _min2 = ranges[0];
           var max = ranges[1];
-          if (min <= parseInt(key, 10) && parseInt(key, 10) <= max) {
+          if (_min2 <= parseInt(key, 10) && parseInt(key, 10) <= max) {
             return i;
           }
         }
@@ -58481,11 +58505,14 @@ var Response = function (_React$Component) {
       var arr = [];
       var counter = first.toString();
       while (counter !== last.toString()) {
-        arr.push({
-          key: counter,
-          value: counter,
-          label: (0, _items.getItemByKey)(counter).key + ': ' + (0, _items.getItemByKey)(counter).title
-        });
+        var _item = (0, _items.getItemByKey)(counter);
+        if (typeof (_item.scale || _item.input) !== 'undefined') {
+          arr.push({
+            key: counter,
+            value: counter,
+            label: (0, _items.getItemByKey)(counter).key + ': ' + (0, _items.getItemByKey)(counter).title
+          });
+        }
         counter = (0, _items.getNextItemByKey)(counter).key;
       }
       return arr;
@@ -58497,8 +58524,8 @@ var Response = function (_React$Component) {
       hasSlider: false,
       currentPos: null,
       // Making sure that if not initialized, min-max is the empty set
-      min: 1,
-      max: 0,
+      sliderMin: 1,
+      sliderMax: 0,
       OptionsWithoutDescriptions: [],
       OptionsWithDescriptions: [],
       OptionsAsObjects: [],
@@ -58601,16 +58628,16 @@ var Response = function (_React$Component) {
 
       // For debugging only
       console.log('currentPos: ' + currentPos);
-      console.log('min: ' + this.state.min);
+      console.log('sliderMin: ' + this.state.min);
       console.log('response: ' + 'type = ' + (typeof response === 'undefined' ? 'undefined' : _typeof(response)) + ', value = ' + response);
-      console.log('max: ' + this.state.max);
+      console.log('sliderMax: ' + this.state.sliderMax);
       console.log('hasSlider: ' + this.state.hasSlider);
       console.log('sliderValue: ' + 'type = ' + (typeof sliderValue === 'undefined' ? 'undefined' : _typeof(sliderValue)) + ', value = ' + sliderValue);
       console.log('showDescription: ' + this.state.showDescription);
       console.log('Options:');
-      console.log(Options);
+      console.log(Options || 'No Options');
       console.log('Dropdown value');
-      console.log(this.state.dropdownValue || 'no dropdownvalue');
+      console.log(this.state.dropdownValue || 'No dropdownvalue');
 
       // Returns the specific interview item.
       return _react2.default.createElement(
@@ -58681,7 +58708,10 @@ var Response = function (_React$Component) {
 
               onKeyDown: function onKeyDown(event) {
                 var direction = event.keyCode;
-                (0, _arrowFunctionalities.handleKeyDown)(interview.activeKey, currentPos, Options, _this2, dispatch, event, direction);
+                if (direction === 38 || direction === 40) {
+                  event.preventDefault();
+                  (0, _arrowFunctionalities.handleArrowKey)(interview.activeKey, currentPos, Options, _this2, dispatch, direction, event);
+                }
               },
 
               onChange: function onChange(event) {
@@ -58700,7 +58730,7 @@ var Response = function (_React$Component) {
                       currentPos: null
                     });
                   } else if (_this2.state.hasSlider) {
-                    if (_this2.state.min <= event.target.value && event.target.value <= _this2.state.max) {
+                    if (_this2.state.min <= event.target.value && event.target.value <= _this2.state.sliderMax) {
                       _this2.setState({
                         value: event.target.value,
                         currentPos: _this2.getIndexByKey(event.target.value.toString(), Options),
@@ -68548,7 +68578,7 @@ exports.default = (0, _reactRedux.connect)()(ResponseSlider);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.handleKeyDown = undefined;
+exports.handleArrowKey = undefined;
 
 var _actions = __webpack_require__(22);
 
@@ -68556,248 +68586,411 @@ var _reactRedux = __webpack_require__(15);
 
 var _items = __webpack_require__(35);
 
-// Handles down and up arrow keystrokes
-var handleKeyDown = exports.handleKeyDown = function handleKeyDown(activeKey, currentPos, array, responseContainer, dispatch, event, direction) {
-  if (responseContainer.state.dropdownValue) {
-    console.log('test');
-    selectArrowPress(activeKey, currentPos, array, responseContainer, dispatch, event, direction);
-    console.log(responseContainer.state);
+// Handles down and up arrow for the Response class
+var handleArrowKey = exports.handleArrowKey = function handleArrowKey(activeKey, currentPos, array, responseContainer, dispatch, direction, event) {
+
+  if (currentPos === null) {
+    handleNull(activeKey, currentPos, array, responseContainer, dispatch, direction);
+  }
+  if (event.shiftKey || array[currentPos].responseType === 'simple') {
+    handleSimple(activeKey, currentPos, array, responseContainer, dispatch, direction, event);
+  } else if (array[currentPos].responseType === 'slider') {
+    handleSlider(activeKey, currentPos, array, responseContainer, dispatch, direction, event);
+  } else if (array[currentPos].responseType === 'dropdown') {
+    handleDropdown(activeKey, currentPos, array, responseContainer, dispatch, direction, event);
+  }
+};
+
+// Selecting a simple option
+var selectSimple = function selectSimple(activeKey, pos, array, responseContainer, dispatch) {
+  responseContainer.setState({
+    key: activeKey,
+    currentPos: pos
+  });
+  dispatch((0, _actions.setResponse)({
+    key: activeKey,
+    value: array[pos].key
+  }));
+};
+
+// Selecting a slider option
+var selectSlider = function selectSlider(activeKey, pos, responseContainer, dispatch) {
+  responseContainer.setState({
+    currentPos: pos
+  });
+  dispatch((0, _actions.setResponse)({
+    key: activeKey,
+    value: responseContainer.state.sliderValue.toString()
+  }));
+};
+
+// Selecting a dropdown option
+var selectDropdown = function selectDropdown(activeKey, pos, responseContainer, dispatch) {
+  responseContainer.setState({
+    currentPos: pos
+  });
+  dispatch((0, _actions.setResponse)({
+    key: activeKey,
+    value: responseContainer.state.dropdownValue
+  }));
+};
+
+var handleSimple = function handleSimple(activeKey, currentPos, array, responseContainer, dispatch, direction, event) {
+  if (currentPos === array.length - 1 && direction === 38 || currentPos === 0 && direction === 40) {
+    return;
   } else {
-    if (currentPos === null) {
-      if (direction === 38) {
-        event.preventDefault();
-        nullUp(activeKey, currentPos, array, responseContainer, dispatch, event);
-      } else if (direction === 40) {
-        event.preventDefault();
-        nullDown(activeKey, currentPos, array, responseContainer, dispatch, event);
-      }
-    } else {
-      if (direction === 38) {
-        event.preventDefault();
-        up(activeKey, currentPos, array, responseContainer, dispatch, event);
-      } else if (direction == 40) {
-        event.preventDefault();
-        down(activeKey, currentPos, array, responseContainer, dispatch, event);
-      }
+    var dir = 0;
+    if (direction === 38) {
+      dir = 1;
+    } else if (direction === 40) {
+      dir = -1;
+    }
+    var updatePos = currentPos + dir;
+
+    if (array[updatePos].responseType === 'simple') {
+      selectSimple(activeKey, updatePos, array, responseContainer, dispatch);
+    } else if (array[updatePos].responseType === 'slider') {
+      selectSlider(activeKey, updatePos, responseContainer, dispatch);
+    } else if (array[updatePos].responseType === 'dropdown') {
+      selectDropdown(activeKey, updatePos, responseContainer, dispatch);
     }
   }
 };
 
-// Handling up arrow if currentPos is null
-var nullUp = function nullUp(activeKey, currentPos, array, responseContainer, dispatch, event) {
+var handleSlider = function handleSlider(activeKey, currentPos, array, responseContainer, dispatch, direction, event) {
+  if (responseContainer.state.sliderValue === responseContainer.state.sliderMax && direction === 38 || responseContainer.state.sliderValue === responseContainer.state.sliderMin && direction === 40) {
+    handleSimple(activeKey, currentPos, array, responseContainer, dispatch, direction, event);
+  } else {
+    var dir = 0;
+    if (direction === 38) {
+      dir = 1;
+    } else if (direction === 40) {
+      dir = -1;
+    }
+    responseContainer.setState({
+      sliderValue: parseInt(responseContainer.state.sliderValue, 10) + parseInt(dir, 10)
+    });
+    dispatch((0, _actions.setResponse)({
+      key: activeKey,
+      value: parseInt(responseContainer.state.sliderValue, 10) + parseInt(dir, 10),
+      sliderValue: parseInt(responseContainer.state.sliderValue, 10) + parseInt(dir, 10)
+    }));
+  }
+};
 
-  var sliderValue = responseContainer.state.sliderValue;
+var handleDropdown = function handleDropdown(activeKey, currentPos, array, responseContainer, dispatch, direction, event) {
+  if (responseContainer.state.dropdownValue === responseContainer.state.dropdownMax && direction === 38 || responseContainer.state.dropdownValue === responseContainer.state.dropdownMin && direction === 40) {
+    handleSimple(activeKey, currentPos, array, responseContainer, dispatch, direction, event);
+  } else {
+    var dir = function dir(arg) {};
+    if (direction === 38) {
+
+      dir = _items.getNextItemByKey;
+    } else if (direction === 40) {
+
+      dir = _items.getPreviousItemByKey;
+    }
+    responseContainer.setState({
+      dropdownValue: dir(responseContainer.state.dropdownValue).key
+    });
+    dispatch((0, _actions.setResponse)({
+      key: activeKey,
+      value: dir(responseContainer.state.dropdownValue).key
+    }));
+  }
+};
+
+var handleNull = function handleNull(activeKey, currentPos, array, responseContainer, dispatch, direction) {
+  if (direction === 38 || direction === 40) {
+    switch (array[0].responseType) {
+      case 'simple':
+        selectSimple(activeKey, 0, array, responseContainer, dispatch);
+
+      case 'slider':
+        selectSlider(activeKey, 0, responseContainer, dispatch);
+
+      case 'dropdown':
+        selectDropdown(activeKey, 0, responseContainer, dispatch);
+    }
+  }
+};
+
+// Old handlers
+
+/*// Handles down and up arrow keystrokes
+export const handleKeyDownBad = (activeKey, currentPos, array, responseContainer, dispatch, event, direction) => {
+  if (responseContainer.state.dropdownValue) {
+    selectArrowPress(activeKey, currentPos, array, responseContainer, dispatch, event, direction);
+  }
+  else
+    {if (currentPos === null) {
+      if (direction === 38) {
+        event.preventDefault();
+        nullUp(activeKey, currentPos, array, responseContainer, dispatch, event);
+      }
+      else if (direction === 40) {
+        event.preventDefault();
+        nullDown(activeKey, currentPos, array, responseContainer, dispatch, event);
+      }
+    }
+
+    else {
+      if (direction === 38) {
+        event.preventDefault();
+        up(activeKey, currentPos, array, responseContainer, dispatch, event);
+      }
+      else if (direction == 40) {
+        event.preventDefault();
+        down(activeKey, currentPos, array, responseContainer, dispatch, event);
+      }
+    }}
+  }
+
+// Handling up arrow if currentPos is null
+const nullUp = (activeKey, currentPos, array, responseContainer, dispatch, event) => {
+
+  const sliderValue = responseContainer.state.sliderValue;
 
   if (currentPos === null) {
     if (array[0].key.includes('-')) {
       if (sliderValue !== null) {
-        dispatch((0, _actions.setResponse)({
+        dispatch(setResponse({
           key: activeKey,
           value: sliderValue,
-          sliderValue: sliderValue
+          sliderValue: sliderValue,
         }));
         responseContainer.setState({
           currentPos: 0
         });
-      } else {
-        dispatch((0, _actions.setResponse)({
+      }
+      else {
+        dispatch(setResponse({
           key: activeKey,
           value: responseContainer.state.min.toString(),
           sliderValue: responseContainer.state.min
-        }));
+        }))
         responseContainer.setState({
           currentPos: 0,
           sliderValue: responseContainer.state.min
-        });
+        })
       }
-    } else {
-      dispatch((0, _actions.setResponse)({
+    }
+    else {
+      dispatch(setResponse({
         key: activeKey,
         value: array[0].key
-      }));
+      }))
       responseContainer.setState({
         currentPos: 0
-      });
+      })
     }
   }
-  dispatch((0, _actions.setResponse)({
-    key: activeKey,
-    value: array[currentPos + 1].key
-  }));
-  responseContainer.setState({
-    currentPos: currentPos + 1
-  });
-};
+}
 
 // Handling up arrow if currentPos is not null
-var up = function up(activeKey, currentPos, array, responseContainer, dispatch, event) {
+const up = (activeKey, currentPos, array, responseContainer, dispatch, event) => {
 
-  var sliderValue = responseContainer.state.sliderValue;
+  const sliderValue = responseContainer.state.sliderValue;
 
   if (array[currentPos].key.includes('-') && !event.shiftKey) {
     if (responseContainer.state.sliderValue === responseContainer.state.max) {
-      if (currentPos === array.length - 1) {
-        return;
-      } else {
-        dispatch((0, _actions.setResponse)({
+      if (currentPos === (array.length - 1)) {
+        return
+      }
+      else {
+        dispatch(setResponse({
           key: activeKey,
           value: array[currentPos + 1].key
         }));
         responseContainer.setState({
           currentPos: currentPos + 1
         });
+
       }
-    } else if (event.target.value == "") {
-      dispatch((0, _actions.setResponse)({
+    }
+
+    else if (event.target.value == "") {
+      dispatch(setResponse({
         key: activeKey,
         value: responseContainer.state.min.toString()
       }));
       responseContainer.setState({
         sliderValue: responseContainer.state.min
-      });
-    } else {
+      })
+
+    }
+    else {
       responseContainer.setState({
         sliderValue: parseInt(responseContainer.state.sliderValue) + 1
-      });
-      dispatch((0, _actions.setResponse)({
+      })
+      dispatch(setResponse({
         key: activeKey,
         value: (parseInt(responseContainer.state.sliderValue) + 1).toString(),
-        sliderValue: parseInt(responseContainer.state.sliderValue) + 1
+        sliderValue: (parseInt(responseContainer.state.sliderValue) + 1)
       }));
+
     }
-  } else if (currentPos === array.length - 1) {
-    return;
-  } else if (array[currentPos + 1].key.includes('-')) {
-    dispatch((0, _actions.setResponse)({
-      key: activeKey,
-      value: responseContainer.state.sliderValue
-    }));
+  }
+  else if (currentPos === (array.length - 1)) {
+    return
+  }
+  else if (array[currentPos + 1].key.includes('-')) {
+    dispatch(
+      setResponse({
+        key: activeKey,
+        value: responseContainer.state.sliderValue
+      })
+      );
     responseContainer.setState({
       currentPos: currentPos + 1
     });
-  } else {
-    dispatch((0, _actions.setResponse)({
-      key: activeKey,
-      value: array[currentPos + 1].key
-    }));
+
+  }
+  else {
+    dispatch(
+      setResponse({
+        key: activeKey,
+        value: array[currentPos + 1].key
+      })
+      );
 
     responseContainer.setState({
       currentPos: currentPos + 1
     });
   }
-};
+}
 
 // Handling down arrow if currentPos is null
-var nullDown = function nullDown(activeKey, currentPos, array, responseContainer, dispatch, event) {
+const nullDown = (activeKey, currentPos, array, responseContainer, dispatch, event) => {
 
-  var sliderValue = responseContainer.state.sliderValue;
+  const sliderValue = responseContainer.state.sliderValue;
 
   if (array[0].key.includes('-')) {
     if (sliderValue !== null) {
-      dispatch((0, _actions.setResponse)({
+      dispatch(setResponse({
         key: activeKey,
-        value: sliderValue
-      }));
+        value: sliderValue,
+      }))
       responseContainer.setState({
         currentPos: 0
-      });
-    } else {
-      dispatch((0, _actions.setResponse)({
+      })
+    }
+    else {
+      dispatch(setResponse({
         key: activeKey,
         value: responseContainer.state.min.toString(),
         sliderValue: responseContainer.state.min
-      }));
+      }))
       responseContainer.setState({
         currentPos: 0,
         sliderValue: responseContainer.state.min
-      });
+      })
     }
-  } else {
-    dispatch((0, _actions.setResponse)({
+  }
+  else {
+    dispatch(setResponse({
       key: activeKey,
       value: array[0].key
-    }));
+    }))
     responseContainer.setState({
       currentPos: 0
-    });
+    })
   }
-};
+
+}
 
 // Handling down arrow if currentPos is not null
-var down = function down(activeKey, currentPos, array, responseContainer, dispatch, event) {
+const down = (activeKey, currentPos, array, responseContainer, dispatch, event) => {
 
-  var sliderValue = responseContainer.state.sliderValue;
+  const sliderValue = responseContainer.state.sliderValue;
 
   if (array[currentPos].key.includes('-') && !event.shiftKey) {
     if (responseContainer.state.sliderValue === responseContainer.state.min) {
       if (currentPos === 0) {
-        return;
-      } else {
-        dispatch((0, _actions.setResponse)({
+        return
+      }
+      else {
+        dispatch(setResponse({
           key: activeKey,
           value: array[currentPos - 1].key
         }));
         responseContainer.setState({
           currentPos: currentPos - 1
         });
+
       }
-    } else if (event.target.value == "") {
-      dispatch((0, _actions.setResponse)({
+    }
+    else if (event.target.value == "") {
+      dispatch(setResponse({
         key: activeKey,
         value: responseContainer.state.min
       }));
       responseContainer.setState({
         sliderValue: parseInt(responseContainer.state.min)
-      });
-    } else {
+      })
+
+    }
+    else {
       responseContainer.setState({
         sliderValue: parseInt(responseContainer.state.sliderValue) - 1
-      });
-      dispatch((0, _actions.setResponse)({
+      })
+      dispatch(setResponse({
         key: activeKey,
         value: (parseInt(responseContainer.state.sliderValue) - 1).toString(),
-        sliderValue: parseInt(responseContainer.state.sliderValue) - 1
+        sliderValue: (parseInt(responseContainer.state.sliderValue) - 1)
       }));
-    }
-  } else if (currentPos === 0) {
 
-    return;
-  } else if (array[currentPos - 1].key.includes('-')) {
+    }
+  }
+  else if (currentPos === 0) {
+
+    return
+  }
+  else if (array[currentPos - 1].key.includes('-')) {
     responseContainer.setState({
       currentPos: currentPos - 1
     });
-    dispatch((0, _actions.setResponse)({
-      key: activeKey,
-      value: responseContainer.state.sliderValue
-    }));
-  } else {
-    dispatch((0, _actions.setResponse)({
-      key: activeKey,
-      value: array[currentPos - 1].key
-    }));
+    dispatch(
+      setResponse({
+        key: activeKey,
+        value: responseContainer.state.sliderValue
+      })
+      );
+
+  }
+
+  else {
+    dispatch(
+      setResponse({
+        key: activeKey,
+        value: array[currentPos - 1].key
+      })
+      );
 
     responseContainer.setState({
       currentPos: currentPos - 1
     });
   }
-};
+}
 
 // Handling up and down arrow for a dropdown menu (created specifically by SelectResponse in ./SelectResponse.js)
-var selectArrowPress = function selectArrowPress(activeKey, currentPos, array, responseContainer, dispatch, event, direction) {
-  if (direction === 38) {
-    if (responseContainer.state.dropdownValue === responseContainer.state.dropdownMax) {
-      return;
-    } else {
-      responseContainer.setState({
-        dropdownValue: (0, _items.getNextItemByKey)(responseContainer.state.dropdownValue).key
-      });
-      dispatch((0, _actions.setResponse)({
-        key: activeKey,
-        value: (0, _items.getNextItemByKey)(responseContainer.state.dropdownValue).key
-      }));
-    }
+const selectArrowPress = (activeKey, currentPos, array, responseContainer, dispatch, event, direction) => {
+ if (direction === 38) {
+  if (responseContainer.state.dropdownValue === responseContainer.state.dropdownMax) {
+    return;
   }
-};
+  else {
+    responseContainer.setState({
+      dropdownValue: getNextItemByKey(responseContainer.state.dropdownValue).key,
+    })
+    dispatch(setResponse({
+      key: activeKey,
+      value: getNextItemByKey(responseContainer.state.dropdownValue).key
+    }));
+  }
+}
+}
+*/
 
 /***/ }),
 /* 443 */
@@ -69598,6 +69791,82 @@ var SelectResponse = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = (0, _reactRedux.connect)()(SelectResponse);
+
+/***/ }),
+/* 463 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(15);
+
+var _actions = __webpack_require__(22);
+
+var _ClickOutside = __webpack_require__(324);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ResetInterview = function (_React$Component) {
+  _inherits(ResetInterview, _React$Component);
+
+  function ResetInterview() {
+    _classCallCheck(this, ResetInterview);
+
+    return _possibleConstructorReturn(this, (ResetInterview.__proto__ || Object.getPrototypeOf(ResetInterview)).apply(this, arguments));
+  }
+
+  _createClass(ResetInterview, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        'div',
+        { style: { marginLeft: 32, cursor: 'default' } },
+        _react2.default.createElement(
+          'div',
+          { onClick: function onClick() {
+              if (window.confirm('Are you sure you wish to reset the interview? All selected options will be lost')) {
+                _this2.props.dispatch((0, _actions.resetInterview)());
+              }
+            } },
+          'Reset Interview'
+        ),
+        _react2.default.createElement('div', {
+          style: {
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            zIndex: 1000,
+            justifyContent: 'center'
+          }
+        })
+      );
+    }
+  }]);
+
+  return ResetInterview;
+}(_react2.default.Component);
+
+exports.default = (0, _reactRedux.connect)()(ResetInterview);
 
 /***/ })
 /******/ ]);

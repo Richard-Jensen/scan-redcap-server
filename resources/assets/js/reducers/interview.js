@@ -48,6 +48,21 @@ const interview = (state = initialState, action) => {
   const sliderValues = state.sliderValues;
   const dropdownValues = state.dropdownValues;
   switch (action.type) {
+    case 'RESET_INTERVIEW':
+    return ({
+      id: window.scanInfo && window.scanInfo.record_id,
+      activeKey: state.activeKey,
+      responses: {},
+      sliderValues: {},
+      dropdownValues: {},
+      disabledItems: [],
+      notes: {},
+      settings: {
+        showGlossary: true
+      }
+    }
+    )
+
     case 'SET_ACTIVE_ITEM':
     const { key } = action.payload;
 
@@ -109,6 +124,7 @@ const interview = (state = initialState, action) => {
     console.log(mergedDropdownValues)*/
 
     const matchedKeys = Object.keys(matched);
+
     return {
       ...state,
       disabledItems: [...matchedKeys, ...disabledItems],

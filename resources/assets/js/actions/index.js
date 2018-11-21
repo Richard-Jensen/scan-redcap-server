@@ -30,3 +30,5 @@ export const flipSetting = ({ setting }) => ({
     setting
   }
 });
+
+export const resetInterview = () => ({type: 'RESET_INTERVIEW'});

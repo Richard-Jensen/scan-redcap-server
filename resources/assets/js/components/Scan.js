@@ -17,6 +17,7 @@ import {
   getNextItemByKey,
   getPreviousItemByKey
 } from '../items';
+import ResetInterview from './ResetInterview'
 
 class Scan extends Component {
   constructor(props) {
@@ -62,6 +63,7 @@ class Scan extends Component {
       <SearchItems/>
       <Settings />
       <Analysis />
+      <ResetInterview />
       </div>
       <div className="scan-app-main">
       <div className="interview-list">

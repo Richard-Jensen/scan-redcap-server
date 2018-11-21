@@ -9,7 +9,7 @@ import Slider from 'react-rangeslider';
 import 'react-rangeslider/lib/index.css';
 import ResponseSlider from './ResponseSlider';
 import SelectResponse from './SelectResponse';
-import { nullUp, up, nullDown, down, handleKeyDown, test } from '../lib/arrowFunctionalities';
+import { nullUp, up, nullDown, down, handleKeyDownBad, handleArrowKey } from '../lib/arrowFunctionalities';
 
 
 
@@ -23,8 +23,8 @@ class Response extends React.Component {
       hasSlider: false,
       currentPos: null,
       // Making sure that if not initialized, min-max is the empty set
-      min: 1,
-      max: 0,
+      sliderMin: 1,
+      sliderMax: 0,
       OptionsWithoutDescriptions: [],
       OptionsWithDescriptions: [],
       OptionsAsObjects: [],
@@ -124,8 +124,8 @@ class Response extends React.Component {
     }
 
     if (sliderRanges.length) {
-      const min = sliderRanges[0][0];
-      const max = sliderRanges[0][1];
+      const sliderMin = sliderRanges[0][0];
+      const sliderMax = sliderRanges[0][1];
       if (sliderValue === null) {
         sliderValue = min
       }
@@ -136,8 +136,8 @@ class Response extends React.Component {
         sliderValue: sliderValue,
         value: sliderValue,
         currentPos: currentPos,
-        min: min,
-        max: max,
+        sliderMin: sliderMin,
+        sliderMax: sliderMax,
         showDescription: false,
         dropdownValue: null,
         dropdownMin: null,
@@ -146,7 +146,7 @@ class Response extends React.Component {
     }
     else if (dropdownRanges.length) {
       const min = dropdownRanges[0][0];
-      const max = dropdownRanges[0][1];
+      const sliderMax = dropdownRanges[0][1];
       this.setState({
         OptionsWithoutDescriptions: OptionsWithoutDescriptions,
         OptionsWithDescriptions: OptionsWithDescriptions,
@@ -154,12 +154,12 @@ class Response extends React.Component {
         sliderValue: sliderValue,
         value: sliderValue,
         currentPos: currentPos,
-        min: null,
-        max: null,
+        sliderMin: null,
+        sliderMax: null,
         showDescription: false,
         dropdownValue: dropdownValue,
         dropdownMin: min,
-        dropdownMax: max,
+        dropdownMax: sliderMax,
       })
     }
     else {
@@ -170,8 +170,8 @@ class Response extends React.Component {
         sliderValue: null,
         value: sliderValue,
         currentPos: currentPos,
-        min: null,
-        max: null,
+        sliderMin: null,
+        sliderMax: null,
         showDescription: false,
         showDescription: false,
         dropdownValue: null,
@@ -246,7 +246,7 @@ class Response extends React.Component {
 
       else {
        return ([
-        <b key='teatKey'>{option.key + ' '}</b>,
+        <b key='testKey'>{option.key + ' '}</b>,
         option.text
         ]);
      }
@@ -362,14 +362,17 @@ getIndexByKey = (key, array) => {
     let arr = [];
     let counter = first.toString();
     while (counter !== last.toString()) {
-      arr.push(
-      {
-        key: counter,
-        value: counter,
-        label: (getItemByKey(counter).key + ': ' + getItemByKey(counter).title)
+      const item = getItemByKey(counter)
+      if (typeof (item.scale || item.input) !== 'undefined') {
+        arr.push(
+        {
+          key: counter,
+          value: counter,
+          label: (getItemByKey(counter).key + ': ' + getItemByKey(counter).title)
+        }
+        )
       }
-      )
-      counter = getNextItemByKey(counter).key
+      counter = getNextItemByKey(counter).key;
     }
     return arr;
   }
@@ -433,16 +436,16 @@ getIndexByKey = (key, array) => {
 
   // For debugging only
   console.log('currentPos: ' + currentPos);
-  console.log('min: ' + this.state.min);
+  console.log('sliderMin: ' + this.state.min);
   console.log('response: ' + 'type = ' + typeof(response) + ', value = ' + response);
-  console.log('max: ' + this.state.max);
+  console.log('sliderMax: ' + this.state.sliderMax);
   console.log('hasSlider: ' + this.state.hasSlider);
   console.log('sliderValue: ' + 'type = ' + typeof(sliderValue) + ', value = ' + sliderValue);
   console.log('showDescription: ' + this.state.showDescription)
   console.log('Options:')
-  console.log(Options)
+  console.log(Options || 'No Options')
   console.log('Dropdown value')
-  console.log(this.state.dropdownValue || 'no dropdownvalue')
+  console.log(this.state.dropdownValue || 'No dropdownvalue')
 
   // Returns the specific interview item.
   return (
@@ -505,7 +508,10 @@ getIndexByKey = (key, array) => {
 
       onKeyDown={event => {
         const direction = event.keyCode;
-        handleKeyDown(interview.activeKey, currentPos, Options, this, dispatch, event, direction)
+        if ( (direction === 38) || (direction === 40) ) {
+          event.preventDefault();
+          handleArrowKey(interview.activeKey, currentPos, Options, this, dispatch, direction, event)
+        }
       }}
 
       onChange={event => {
@@ -528,7 +534,7 @@ getIndexByKey = (key, array) => {
             })
           }
           else if (this.state.hasSlider) {
-            if ((this.state.min <= event.target.value) && (event.target.value <= this.state.max)) {
+            if ((this.state.min <= event.target.value) && (event.target.value <= this.state.sliderMax)) {
               this.setState({
                 value: event.target.value,
                 currentPos: this.getIndexByKey(event.target.value.toString(), Options),
