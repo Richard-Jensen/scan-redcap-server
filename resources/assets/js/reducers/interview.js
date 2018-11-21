@@ -118,10 +118,10 @@ const interview = (state = initialState, action) => {
       }
     });
     // For debugging only
-/*    console.log('Slider values:')
+    console.log('Slider values:')
     console.log(mergedSliderValues)
     console.log('Dropdown values:')
-    console.log(mergedDropdownValues)*/
+    console.log(mergedDropdownValues)
 
     const matchedKeys = Object.keys(matched);
 

@@ -120,14 +120,14 @@ class Response extends React.Component {
     }
     else {
       // TODO: This is just to avoid crashing
-      currentPos = 0
+      currentPos = 0;
     }
 
     if (sliderRanges.length) {
       const sliderMin = sliderRanges[0][0];
       const sliderMax = sliderRanges[0][1];
       if (sliderValue === null) {
-        sliderValue = min
+        sliderValue = sliderMin
       }
       this.setState({
         OptionsWithoutDescriptions: OptionsWithoutDescriptions,
@@ -145,8 +145,8 @@ class Response extends React.Component {
       });
     }
     else if (dropdownRanges.length) {
-      const min = dropdownRanges[0][0];
-      const sliderMax = dropdownRanges[0][1];
+      const dropdownMin = dropdownRanges[0][0];
+      const dropdownMax = dropdownRanges[0][1];
       this.setState({
         OptionsWithoutDescriptions: OptionsWithoutDescriptions,
         OptionsWithDescriptions: OptionsWithDescriptions,
@@ -158,8 +158,8 @@ class Response extends React.Component {
         sliderMax: null,
         showDescription: false,
         dropdownValue: dropdownValue,
-        dropdownMin: min,
-        dropdownMax: sliderMax,
+        dropdownMin: dropdownMin,
+        dropdownMax: dropdownMax,
       })
     }
     else {
@@ -374,6 +374,13 @@ getIndexByKey = (key, array) => {
       }
       counter = getNextItemByKey(counter).key;
     }
+    arr.push(
+    {
+      key: last.toString(),
+      value: last.toString(),
+      label: (getItemByKey(last.toString()).key + ': ' + getItemByKey(last.toString()).title)
+    }
+    )
     return arr;
   }
 

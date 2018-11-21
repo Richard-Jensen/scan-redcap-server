@@ -12888,10 +12888,10 @@ var interview = function interview() {
         }
       });
       // For debugging only
-      /*    console.log('Slider values:')
-          console.log(mergedSliderValues)
-          console.log('Dropdown values:')
-          console.log(mergedDropdownValues)*/
+      console.log('Slider values:');
+      console.log(mergedSliderValues);
+      console.log('Dropdown values:');
+      console.log(mergedDropdownValues);
 
       var matchedKeys = Object.keys(matched);
 
@@ -58282,7 +58282,7 @@ var Response = function (_React$Component) {
         var sliderMin = sliderRanges[0][0];
         var sliderMax = sliderRanges[0][1];
         if (sliderValue === null) {
-          sliderValue = min;
+          sliderValue = sliderMin;
         }
         _this.setState({
           OptionsWithoutDescriptions: OptionsWithoutDescriptions,
@@ -58299,8 +58299,8 @@ var Response = function (_React$Component) {
           dropdownMax: null
         });
       } else if (dropdownRanges.length) {
-        var _min = dropdownRanges[0][0];
-        var _sliderMax = dropdownRanges[0][1];
+        var dropdownMin = dropdownRanges[0][0];
+        var dropdownMax = dropdownRanges[0][1];
         _this.setState({
           OptionsWithoutDescriptions: OptionsWithoutDescriptions,
           OptionsWithDescriptions: OptionsWithDescriptions,
@@ -58312,8 +58312,8 @@ var Response = function (_React$Component) {
           sliderMax: null,
           showDescription: false,
           dropdownValue: dropdownValue,
-          dropdownMin: _min,
-          dropdownMax: _sliderMax
+          dropdownMin: dropdownMin,
+          dropdownMax: dropdownMax
         });
       } else {
         var _this$setState;
@@ -58421,9 +58421,9 @@ var Response = function (_React$Component) {
           var ranges = array[i].key.split('-').map(function (n) {
             return parseInt(n, 10);
           });
-          var _min2 = ranges[0];
+          var min = ranges[0];
           var max = ranges[1];
-          if (_min2 <= parseInt(key, 10) && parseInt(key, 10) <= max) {
+          if (min <= parseInt(key, 10) && parseInt(key, 10) <= max) {
             return i;
           }
         }
@@ -58515,6 +58515,11 @@ var Response = function (_React$Component) {
         }
         counter = (0, _items.getNextItemByKey)(counter).key;
       }
+      arr.push({
+        key: last.toString(),
+        value: last.toString(),
+        label: (0, _items.getItemByKey)(last.toString()).key + ': ' + (0, _items.getItemByKey)(last.toString()).title
+      });
       return arr;
     };
 
@@ -68590,9 +68595,9 @@ var _items = __webpack_require__(35);
 var handleArrowKey = exports.handleArrowKey = function handleArrowKey(activeKey, currentPos, array, responseContainer, dispatch, direction, event) {
 
   if (currentPos === null) {
-    handleNull(activeKey, currentPos, array, responseContainer, dispatch, direction);
-  }
-  if (event.shiftKey || array[currentPos].responseType === 'simple') {
+    console.log('NULL');
+    handleNull(activeKey, array, responseContainer, dispatch, direction);
+  } else if (event.shiftKey || array[currentPos].responseType === 'simple') {
     handleSimple(activeKey, currentPos, array, responseContainer, dispatch, direction, event);
   } else if (array[currentPos].responseType === 'slider') {
     handleSlider(activeKey, currentPos, array, responseContainer, dispatch, direction, event);
@@ -68687,30 +68692,36 @@ var handleDropdown = function handleDropdown(activeKey, currentPos, array, respo
 
       dir = _items.getNextItemByKey;
     } else if (direction === 40) {
-
       dir = _items.getPreviousItemByKey;
     }
+
+    var dropdownOption = dir(responseContainer.state.dropdownValue);
+    while (typeof (dropdownOption.scale || dropdownOption.input) === 'undefined') {
+      dropdownOption = dir(dropdownOption.key);
+    }
     responseContainer.setState({
-      dropdownValue: dir(responseContainer.state.dropdownValue).key
+      dropdownValue: dropdownOption.key
     });
     dispatch((0, _actions.setResponse)({
       key: activeKey,
-      value: dir(responseContainer.state.dropdownValue).key
+      value: dropdownOption.key,
+      dropdownValue: dropdownOption.key
     }));
   }
 };
 
-var handleNull = function handleNull(activeKey, currentPos, array, responseContainer, dispatch, direction) {
+var handleNull = function handleNull(activeKey, array, responseContainer, dispatch, direction) {
   if (direction === 38 || direction === 40) {
-    switch (array[0].responseType) {
-      case 'simple':
-        selectSimple(activeKey, 0, array, responseContainer, dispatch);
 
-      case 'slider':
-        selectSlider(activeKey, 0, responseContainer, dispatch);
-
-      case 'dropdown':
-        selectDropdown(activeKey, 0, responseContainer, dispatch);
+    if (array[0].responseType === 'simple') {
+      console.log('simple');
+      selectSimple(activeKey, 0, array, responseContainer, dispatch);
+    } else if (array[0].responseType === 'slider') {
+      console.log('slider');
+      selectSlider(activeKey, 0, responseContainer, dispatch);
+    } else if (array[0].responseType === 'dropdown') {
+      console.log('dropdown');
+      selectDropdown(activeKey, 0, responseContainer, dispatch);
     }
   }
 };
