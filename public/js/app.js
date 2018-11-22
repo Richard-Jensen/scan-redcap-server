@@ -12732,9 +12732,9 @@ var interview = function interview() {
   var action = arguments[1];
   var responses = state.responses;
 
-  var sliderValues = state.sliderValues || {};
-  var dropdownValues = state.dropdownValues || {};
-  var invalidResponseItems = state.invalidResponseItems || [];
+  var sliderValues = state.sliderValues;
+  var dropdownValues = state.dropdownValues;
+  var invalidResponseItems = state.invalidResponseItems;
   switch (action.type) {
     case 'RESET_INTERVIEW':
       return {
@@ -12760,26 +12760,36 @@ var interview = function interview() {
       });
     case 'SET_RESPONSE':
       var mergedResponses = void 0;
+      var _sliderValues = void 0;
+      var _dropdownValues = void 0;
+      var _invalidResponseItems = _invalidResponseItems || [];
+      var index = _invalidResponseItems.indexOf(action.key);
 
       if (action.payload.period) {
         var period = action.payload.period === 1 ? 'period_one' : 'period_two';
 
         mergedResponses = _extends({}, responses, _defineProperty({}, action.payload.key, _extends({}, responses[action.payload.key], _defineProperty({}, period, action.payload.value))));
-      } else if (action.payload.invalidResponse) {
-        if (!invalidResponseItems.includes(state.key)) {
-          invalidResponseItems = [].concat(_toConsumableArray(invalidResponseItems), [state.activeKey]);
-        }
-      } else {
-        var index = invalidResponseItems.indexOf(action.key);
-        invalidResponseItems.splice(index, 1);
+      } else if (action.payload.key) {
         mergedResponses = _extends({}, responses, _defineProperty({}, action.payload.key, action.payload.value));
 
+        if (action.payload.invalidResponseItem) {
+          if (!InvalidResponseItems.includes(state.key)) {
+            _invalidResponseItems = [].concat(_toConsumableArray(_invalidResponseItems), [state.activeKey]);
+          }
+        }
+
         if (action.payload.sliderValue) {
-          sliderValues = _extends({}, sliderValues, _defineProperty({}, state.activeKey, action.payload.sliderValue));
+          _sliderValues = _extends({}, _sliderValues, _defineProperty({}, state.activeKey, action.payload.sliderValue));
+        } else {
+          _sliderValues = _sliderValues;
         }
 
         if (action.payload.dropdownValue) {
-          dropdownValues = _extends({}, dropdownValues, _defineProperty({}, state.activeKey, action.payload.dropdownValue));
+          _dropdownValues = _extends({}, _dropdownValues, _defineProperty({}, state.activeKey, action.payload.dropdownValue));
+
+          _invalidResponseItems.splice();
+        } else {
+          _dropdownValues = _dropdownValues;
         }
       }
 
@@ -12795,20 +12805,17 @@ var interview = function interview() {
       });
       // For debugging only
       console.log('Slider values:');
-      console.log(sliderValues);
+      console.log(_sliderValues);
       console.log('Dropdown values:');
-      console.log(dropdownValues);
-      console.log('Invalid Response values');
-      console.log(invalidResponseItems);
+      console.log(_dropdownValues);
 
       var matchedKeys = Object.keys(matched);
 
       return _extends({}, state, {
         disabledItems: [].concat(_toConsumableArray(matchedKeys), _toConsumableArray(disabledItems)),
         responses: mergedResponses,
-        sliderValues: sliderValues,
-        dropdownValues: dropdownValues,
-        invalidResponseItems: invalidResponseItems
+        sliderValues: _sliderValues,
+        dropdownValues: _dropdownValues
       });
     case 'SET_NOTE':
       return _extends({}, state, {
@@ -58803,9 +58810,6 @@ var Response = function (_React$Component) {
                     _this2.setState({
                       inputBoxBackgroundColor: 'red'
                     });
-                    dispatch((0, _actions.setResponse)({
-                      invalidResponse: true
-                    }));
                   }
                 }
               },

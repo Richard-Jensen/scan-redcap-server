@@ -594,9 +594,6 @@ getIndexByKey = (key, array) => {
         this.setState({
           inputBoxBackgroundColor: 'red',
         })
-        dispatch(setResponse({
-          invalidResponse: true,
-        }))
       }
     }
   }}

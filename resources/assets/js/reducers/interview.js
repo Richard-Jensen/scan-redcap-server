@@ -46,9 +46,9 @@ export const getPreviousValidKey = (state, key) => {
 
 const interview = (state = initialState, action) => {
   const { responses } = state;
-  let sliderValues = state.sliderValues || {};
-  let dropdownValues = state.dropdownValues || {};
-  let invalidResponseItems = state.invalidResponseItems || [];
+  const sliderValues = state.sliderValues;
+  const dropdownValues = state.dropdownValues;
+  let invalidResponseItems = state.invalidResponseItems;
   switch (action.type) {
     case 'RESET_INTERVIEW':
     return ({
@@ -74,12 +74,15 @@ const interview = (state = initialState, action) => {
     };
     case 'SET_RESPONSE':
     let mergedResponses;
+    let sliderValues;
+    let dropdownValues;
+    let invalidResponseItems = invalidResponseItems || [];
+    const index = invalidResponseItems.indexOf(action.key);
 
     if (action.payload.period) {
       let period = action.payload.period === 1 ? 'period_one' : 'period_two';
 
-      mergedResponses =
-      {
+      mergedResponses = {
         ...responses,
         [action.payload.key]: {
           ...responses[action.payload.key],
@@ -87,21 +90,18 @@ const interview = (state = initialState, action) => {
         }
       };
     }
-
-    else if (action.payload.invalidResponse) {
-      if (!invalidResponseItems.includes(state.key)) {
-        invalidResponseItems = [...invalidResponseItems, state.activeKey];
-      }
-    }
-
-
-    else {
-      const index = invalidResponseItems.indexOf(action.key);
-      invalidResponseItems.splice(index, 1);
+    else if (action.payload.key) {
       mergedResponses = {
         ...responses,
         [action.payload.key]: action.payload.value
       };
+
+    if (action.payload.invalidResponseItem) {
+      if (!InvalidResponseItems.includes(state.key)) {
+        invalidResponseItems = [...invalidResponseItems, state.activeKey];
+      }
+    }
+
 
 
       if (action.payload.sliderValue) {
@@ -111,15 +111,25 @@ const interview = (state = initialState, action) => {
         };
 
       }
+      else {
+        sliderValues = sliderValues;
+      }
 
       if (action.payload.dropdownValue) {
         dropdownValues = {
           ...dropdownValues,
           [state.activeKey]: action.payload.dropdownValue
         };
-      }
-    }
 
+        invalidResponseItems.splice()
+      }
+      else {
+        dropdownValues = dropdownValues;
+      }
+
+
+
+    }
 
     const { matched } = Algorithms.run(mergedResponses, routing);
     let disabledItems = [];
@@ -134,8 +144,6 @@ const interview = (state = initialState, action) => {
     console.log(sliderValues)
     console.log('Dropdown values:')
     console.log(dropdownValues)
-    console.log('Invalid Response values')
-    console.log(invalidResponseItems)
 
     const matchedKeys = Object.keys(matched);
 
@@ -145,7 +153,6 @@ const interview = (state = initialState, action) => {
       responses: mergedResponses,
       sliderValues: sliderValues,
       dropdownValues: dropdownValues,
-      invalidResponseItems: invalidResponseItems,
     };
     case 'SET_NOTE':
     return {
