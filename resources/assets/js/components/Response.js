@@ -33,6 +33,7 @@ class Response extends React.Component {
       dropdownValue: null,
       dropdownMin: null,
       dropdownMax: null,
+      inputBoxBackgroundColor: 'white',
 
     };
     this.inputBox = React.createRef();
@@ -114,14 +115,7 @@ class Response extends React.Component {
     const response = (this.props.interview.responses && this.props.interview.responses[item.key]) || '';
     let sliderValue = (this.props.interview.sliderValues && this.props.interview.sliderValues[item.key]) || null;
     let dropdownValue = (this.props.interview.dropdownValues && this.props.interview.dropdownValues[item.key]) || null;
-    let currentPos;
-    if (!item.dropdownOptions) {
-      currentPos = this.getIndexByKey(response, OptionsWithoutDescriptions)
-    }
-    else {
-      // TODO: This is just to avoid crashing
-      currentPos = 0;
-    }
+    const currentPos = this.getIndexByKey(response, OptionsWithoutDescriptions)
 
     if (sliderRanges.length) {
       const sliderMin = sliderRanges[0][0];
@@ -253,16 +247,14 @@ class Response extends React.Component {
    }
    else {
     return (
-      <div key='testKey'>
-      <b key='testKey'>{option.key + ': '}</b>
+      <b key='testKey'>{option.key + ': '}</b>,
       <div key='testKey2'>
       <b key='testKey2'>Title: </b>
       {option.text}
-      </div>
+      </div>,
       <div>
       <b key='testKey3'>Description: </b>
       {option.description}
-      </div>
       </div>
       )
   }
@@ -436,11 +428,6 @@ getIndexByKey = (key, array) => {
   const hasInput = input || item.scale;
   const showGlossary = settings.showGlossary && item.glossary;
 
-  //TODO: This is just a short hack for trying to fix the issue of text size changing. Do this propper with CSS!
-  const divStyle = {
-    fontSize: 40,
-  };
-
   // For debugging only
   console.log('currentPos: ' + currentPos);
   console.log('sliderMin: ' + this.state.min);
@@ -448,11 +435,20 @@ getIndexByKey = (key, array) => {
   console.log('sliderMax: ' + this.state.sliderMax);
   console.log('hasSlider: ' + this.state.hasSlider);
   console.log('sliderValue: ' + 'type = ' + typeof(sliderValue) + ', value = ' + sliderValue);
-  console.log('showDescription: ' + this.state.showDescription)
-  console.log('Options:')
-  console.log(Options || 'No Options')
-  console.log('Dropdown value')
-  console.log(this.state.dropdownValue || 'No dropdownvalue')
+  console.log('showDescription: ' + this.state.showDescription);
+  console.log('Options:');
+  console.log(Options || 'No Options');
+  console.log('Dropdown value');
+  console.log(this.state.dropdownValue || 'No dropdownvalue');
+  /*let arr = [];
+  for (var i = 0; i < 5; i++) {
+    arr = [...arr, i]
+  }
+  console.log(arr)
+  console.log(arr.indexOf(4))
+  arr.splice(2,1);
+  console.log(arr)
+  console.log(arr.indexOf(4))*/
 
   // Returns the specific interview item.
   return (
@@ -507,7 +503,7 @@ getIndexByKey = (key, array) => {
       <label htmlFor="response">Response</label>
       <input
       type={input}
-      style={divStyle}
+      style={ {fontSize: 40, backgroundColor: this.state.inputBoxBackgroundColor} }
       className={`interview-input interview-input-${input}`}
       id="ResponseInput"
       name="response"
@@ -522,63 +518,107 @@ getIndexByKey = (key, array) => {
       }}
 
       onChange={event => {
-        if (input === 'date' || input === 'date_interval') {
-          dispatch(setResponse({
-            key: item.key,
-            value: event.target.value
-          }))
-        }
-        else if (validateNumeric(event.target.value, Object.keys(item.options))) {
-          dispatch(
-            setResponse({
-              key: item.key,
-              value: event.target.value.toString()
-            })
-            );
-          if (event.target.value == "") {
-            this.setState({
-              currentPos: null
-            })
-          }
-          else if (this.state.hasSlider) {
-            if ((this.state.min <= event.target.value) && (event.target.value <= this.state.sliderMax)) {
-              this.setState({
-                value: event.target.value,
-                currentPos: this.getIndexByKey(event.target.value.toString(), Options),
-                sliderValue: event.target.value
-              });
-            }
-            else {
-              this.setState({
-                currentPos: this.getIndexByKey(event.target.value.toString(), Options)
-              })
-            }
-          }
-          else {
-           this.setState({
-            currentPos: this.getIndexByKey(event.target.value.toString(), Options)
-          })
-         }
-       }}
-     }
-     placeholder={item.validate}
-     value={response}
-     autoFocus
-     />
-
-     {settings.showItemNotes && (
-      <textarea
-      onChange={event =>
-        dispatch(
-          setNote({ key: item.key, value: event.target.value })
-          )
+       if (event.target.value === '') {
+        dispatch(setResponse({
+          key: item.key,
+          value: '',
+        }))
+        this.setState({
+          currentPos: null,
+        });
       }
-      defaultValue={note}
-      placeholder="Note"
-      />
-      )}
-     </Fragment>
-     )}
+      else {
+       let match = false;
+       let matched = false;
+       while (match === false) {
+        for(var i = 0; i < Options.length; i++) {
+          switch(Options[i].responseType) {
+            case 'simple':
+            console.log('simple')
+            if (Options[i].key === event.target.value) {
+              dispatch(setResponse({
+                key: item.key,
+                value: event.target.value,
+              }));
+              this.setState({
+                currentPos: i,
+                inputBoxBackgroundColor: 'white',
+              });
+              match = true;
+              matched = true;
+            }
+
+            case 'slider':
+            if ( (this.state.sliderMin <= parseInt(event.target.value, 10)) && (parseInt(event.target.value, 10) <= this.state.sliderMax) ) {
+              dispatch(setResponse({
+                key: item.key,
+                value: event.target.value,
+                sliderValue: parseInt(event.target.value, 10),
+              }));
+              this.setState({
+                currentPos: i,
+                sliderValue: parseInt(event.target.value, 10),
+                inputBoxBackgroundColor: 'white',
+              });
+              match = true;
+              matched = true;
+            }
+
+            case 'dropdown':
+            if ( (this.state.dropdownMin <= event.target.value) && (event.target.value <= this.state.dropdownMax) ) {
+              dispatch(setResponse({
+                key: item.key,
+                value: event.target.value,
+                dropdownValue: event.target.value,
+              }));
+              this.setState({
+                currentPos: i,
+                dropdownValue: event.target.value,
+                inputBoxBackgroundColor: 'white',
+              });
+              match = true;
+              matched = true;
+            }
+          }
+        }
+        dispatch(setResponse({
+          key: item.key,
+          value: event.target.value,
+        }));
+        this.setState({
+          currentPos: null,
+        });
+        match = true;
+      }
+      if (matched === false) {
+        this.setState({
+          inputBoxBackgroundColor: 'red',
+        })
+        dispatch(setResponse({
+          invalidResponse: true,
+        }))
+      }
+    }
+  }}
+
+  placeholder={item.validate}
+  value={response}
+  autoFocus
+  />
+
+  {settings.showItemNotes && (
+    <textarea
+    onChange={event =>
+      dispatch(
+        setNote({ key: item.key, value: event.target.value })
+        )
+    }
+    defaultValue={note}
+    placeholder="Note"
+    />
+    )}
+  </Fragment>
+  )}
     </div>
     {showGlossary && (
       <div className="interview-item-glossary">

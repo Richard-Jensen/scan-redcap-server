@@ -5,13 +5,14 @@ export const setActiveItem = ({ key }) => ({
   }
 });
 
-export const setResponse = ({ key, value, sliderValue, dropdownValue, period,  }) => ({
+export const setResponse = ({ key, value, sliderValue, dropdownValue, invalidResponse, period,  }) => ({
   type: 'SET_RESPONSE',
   payload: {
     key,
     value,
     sliderValue,
     dropdownValue,
+    invalidResponse,
     period,
   }
 });

@@ -8,6 +8,11 @@ const ItemButton = ({ item, dispatch, interview, style, key }) => {
   let isDisabled = false;
   let hasResponse = interview.responses[item.key] ? true : false;
 
+  let color = 'white';
+  if (item.key === '1.005') {
+    color = 'red';
+  }
+
   if (interview.disabledItems) {
     const disabledItems = interview.disabledItems;
     isDisabled = disabledItems.includes(item.key);
@@ -15,24 +20,24 @@ const ItemButton = ({ item, dispatch, interview, style, key }) => {
 
   return (
     <div
-      style={style}
-      key={key}
-      onClick={() => dispatch(setActiveItem({ key: item.key }))}
+    style={ {...style, backgroundColor: color} }
+    key={key}
+    onClick={() => dispatch(setActiveItem({ key: item.key }))}
     >
-      <div
-        className={classNames('list-item', {
-          'list-item-active': isActive,
-          'list-item-is-disabled': isDisabled,
-          'list-item-has-response': hasResponse
-        })}
-      >
-        {(item.input || item.scale) && (
-          <div className="list-item-key">{item.key}</div>
-        )}
-        <div className="list-item-title">{item.title}</div>
-      </div>
+    <div
+    className={classNames('list-item', {
+      'list-item-active': isActive,
+      'list-item-is-disabled': isDisabled,
+      'list-item-has-response': hasResponse
+    })}
+    >
+    {(item.input || item.scale) && (
+      <div className="list-item-key">{item.key}</div>
+      )}
+    <div className="list-item-title">{item.title}</div>
     </div>
-  );
+    </div>
+    );
 };
 
 export const ItemListButton = connect(state => state)(ItemButton);
