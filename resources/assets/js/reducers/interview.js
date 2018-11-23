@@ -75,13 +75,7 @@ const interview = (state = initialState, action) => {
     let dropdownValues = state.dropdownValues;
     let invalidResponseItems = state.invalidResponseItems;
 
-    if (action.payload.invalidResponse && action.payload.key) {
-      if (!invalidResponseItems.includes(action.payload.key)) {
-        invalidResponseItems = [...invalidResponseItems, action.payload.key];
-        invalidResponseItems.sort();
-      }
-    }
-    if (action.payload.period) {
+    if (action.payload.period && action.payload.value) {
       let period = action.payload.period === 1 ? 'period_one' : 'period_two';
 
       mergedResponses = {
@@ -92,18 +86,15 @@ const interview = (state = initialState, action) => {
         }
       };
     }
-    else if (action.payload.key) {
+    else if (action.payload.key && (action.payload.value || action.payload.value === '')) {
       mergedResponses = {
         ...responses,
         [action.payload.key]: action.payload.value
       };
     }
-
     else {
       mergedResponses = responses;
     }
-
-
 
     if (action.payload.sliderValue && action.payload.key) {
       sliderValues = {
@@ -111,11 +102,24 @@ const interview = (state = initialState, action) => {
         [action.payload.key]: action.payload.sliderValue
       };
     }
-    else if (action.payload.dropdownValue && action.payload.key) {
+    if (action.payload.dropdownValue && action.payload.key) {
       dropdownValues = {
         ...dropdownValues,
         [action.payload.key]: action.payload.dropdownValue
       };
+    }
+
+    if (action.payload.invalidResponse && action.payload.key) {
+      if (!invalidResponseItems.includes(action.payload.key)) {
+        invalidResponseItems = [...invalidResponseItems, action.payload.key];
+        invalidResponseItems.sort();
+      }
+    }
+    else if (action.payload.key) {
+      const index = invalidResponseItems.indexOf(action.payload.key);
+      if (index !== -1) {
+        invalidResponseItems.splice(index, 1);
+      }
     }
 
     const { matched } = Algorithms.run(mergedResponses, routing);

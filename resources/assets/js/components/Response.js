@@ -96,7 +96,6 @@ class Response extends React.Component {
         text: scales['1ad'].options[key]['description'],
         responseType: this.getResponseType(key),
         title: scales['1ad'].options[key]['title']
-
       }
       )
     })
@@ -376,6 +375,17 @@ getIndexByKey = (key, array) => {
     return arr;
   }
 
+  inputFieldColor = () => {
+    const invalidResponseItems = this.props.interview.invalidResponseItems;
+    const activeKey = this.props.interview.activeKey;
+    if (invalidResponseItems.includes(activeKey)) {
+      return 'red';
+    }
+    else {
+      return 'white';
+    }
+  }
+
   render() {
     // Declaring constants to avoid writing this.props... all the time
     const dispatch = this.props.dispatch;
@@ -503,7 +513,7 @@ console.log('sliderValue: ' + 'type = ' + typeof(sliderValue) + ', value = ' + s
       <label htmlFor="response">Response</label>
       <input
       type={input}
-      style={ {fontSize: 40, backgroundColor: this.state.inputBoxBackgroundColor} }
+      style={ {fontSize: 40, backgroundColor: this.inputFieldColor()} }
       className={`interview-input interview-input-${input}`}
       id="ResponseInput"
       name="response"
@@ -518,103 +528,107 @@ console.log('sliderValue: ' + 'type = ' + typeof(sliderValue) + ', value = ' + s
       }}
 
       onChange={event => {
-       if (event.target.value === '') {
-        dispatch(setResponse({
-          key: item.key,
-          value: '',
-        }))
-        this.setState({
-          currentPos: null,
-        });
-      }
-      else {
-       let match = false;
-       let matched = false;
-       while (match === false) {
-        for(var i = 0; i < Options.length; i++) {
-          if (Options[i].responseType === 'simple') {
-            if (Options[i].key === event.target.value) {
-              dispatch(setResponse({
-                key: item.key,
-                value: event.target.value,
-              }));
-              this.setState({
-                currentPos: i,
-                inputBoxBackgroundColor: 'white',
-              });
-              match = true;
-              matched = true;
-            }
-          }
-          else if (Options[i].responseType === 'slider') {
-            if ( (this.state.sliderMin <= parseInt(event.target.value, 10)) && (parseInt(event.target.value, 10) <= this.state.sliderMax) ) {
-              dispatch(setResponse({
-                key: item.key,
-                value: event.target.value,
-                sliderValue: parseInt(event.target.value, 10),
-              }));
-              this.setState({
-                currentPos: i,
-                sliderValue: parseInt(event.target.value, 10),
-                inputBoxBackgroundColor: 'white',
-              });
-              match = true;
-              matched = true;
-            }
-          }
-
-          else if(Options[i].responseType === 'dropdown') {
-            console.log('DROPDOWN')
-            if ( (this.state.dropdownMin <= event.target.value) && (event.target.value <= this.state.dropdownMax) ) {
-              dispatch(setResponse({
-                key: item.key,
-                value: event.target.value,
-                dropdownValue: event.target.value,
-              }));
-              this.setState({
-                currentPos: i,
-                dropdownValue: event.target.value,
-                inputBoxBackgroundColor: 'white',
-              });
-              match = true;
-              matched = true;
-            }
-          }
+        if (input === 'date') {
+          dispatch(setResponse({
+            key: item.key,
+            value: event.target.value
+          }));
         }
-        match = true;
-      }
-      if (matched === false) {
-        this.setState({
-          currentPos: null,
-          inputBoxBackgroundColor: 'red',
-        });
-        dispatch(setResponse({
-          key: item.key,
-          value: event.target.value,
-          invalidResponse: true,
-        }));
-      }
-    }
-  }}
+        else if (event.target.value === '') {
+          dispatch(setResponse({
+            key: item.key,
+            value: '',
+          }));
+          this.setState({
+            currentPos: null,
+          });
+        }
 
-  placeholder={item.validate}
-  value={response}
-  autoFocus
-  />
+        else {
+         let match = false;
+         let matched = false;
+         while (match === false) {
+          for(var i = 0; i < Options.length; i++) {
+            if (Options[i].responseType === 'simple') {
+              if (Options[i].key === event.target.value) {
+                dispatch(setResponse({
+                  key: item.key,
+                  value: event.target.value,
+                }));
+                this.setState({
+                  currentPos: i,
+                });
+                match = true;
+                matched = true;
+              }
+            }
+            else if (Options[i].responseType === 'slider') {
+              if ( (this.state.sliderMin <= parseInt(event.target.value, 10)) && (parseInt(event.target.value, 10) <= this.state.sliderMax) ) {
+                dispatch(setResponse({
+                  key: item.key,
+                  value: event.target.value,
+                  sliderValue: parseInt(event.target.value, 10),
+                }));
+                this.setState({
+                  currentPos: i,
+                  sliderValue: parseInt(event.target.value, 10),
+                });
+                match = true;
+                matched = true;
+              }
+            }
 
-  {settings.showItemNotes && (
-    <textarea
-    onChange={event =>
-      dispatch(
-        setNote({ key: item.key, value: event.target.value })
-        )
-    }
-    defaultValue={note}
-    placeholder="Note"
+            else if(Options[i].responseType === 'dropdown') {
+              console.log('DROPDOWN')
+              if ( (this.state.dropdownMin <= event.target.value) && (event.target.value <= this.state.dropdownMax) ) {
+                dispatch(setResponse({
+                  key: item.key,
+                  value: event.target.value,
+                  dropdownValue: event.target.value,
+                }));
+                this.setState({
+                  currentPos: i,
+                  dropdownValue: event.target.value,
+                });
+                match = true;
+                matched = true;
+              }
+            }
+          }
+          match = true;
+        }
+        if (matched === false) {
+          this.setState({
+            currentPos: null,
+            inputBoxBackgroundColor: 'red',
+          });
+          dispatch(setResponse({
+            key: item.key,
+            value: event.target.value,
+            invalidResponse: true,
+          }));
+        }
+      }
+    }}
+
+    placeholder={item.validate}
+    value={response}
+    autoFocus
     />
+
+    {settings.showItemNotes && (
+      <textarea
+      onChange={event =>
+        dispatch(
+          setNote({ key: item.key, value: event.target.value })
+          )
+      }
+      defaultValue={note}
+      placeholder="Note"
+      />
+      )}
+    </Fragment>
     )}
-  </Fragment>
-  )}
     </div>
     {showGlossary && (
       <div className="interview-item-glossary">

@@ -6,11 +6,11 @@ import classNames from 'classnames';
 const ItemButton = ({ item, dispatch, interview, style, key }) => {
   const isActive = item.key === interview.activeKey;
   let isDisabled = false;
-  const responses = interview.responses ? interview.responses[item.key] : false
+  const responses = interview.responses ? interview.responses[item.key] : false;
   let hasResponse = responses ? true : false;
-
+  const invalidResponseItems = interview.invalidResponseItems || {};
   let color = 'white';
-  if (item.key === '1.005') {
+  if (invalidResponseItems.includes(item.key)) {
     color = 'red';
   }
 

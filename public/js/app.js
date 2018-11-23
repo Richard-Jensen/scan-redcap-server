@@ -12678,9 +12678,9 @@ var _Algorithms2 = _interopRequireDefault(_Algorithms);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var initialState = {
   id: window.scanInfo && window.scanInfo.record_id,
@@ -12761,17 +12761,11 @@ var interview = function interview() {
       var dropdownValues = state.dropdownValues;
       var invalidResponseItems = state.invalidResponseItems;
 
-      if (action.payload.invalidResponse && action.payload.key) {
-        if (!invalidResponseItems.includes(action.payload.key)) {
-          invalidResponseItems = [].concat(_toConsumableArray(invalidResponseItems), [action.payload.key]);
-          invalidResponseItems.sort();
-        }
-      }
-      if (action.payload.period) {
+      if (action.payload.period && action.payload.value) {
         var period = action.payload.period === 1 ? 'period_one' : 'period_two';
 
         mergedResponses = _extends({}, responses, _defineProperty({}, action.payload.key, _extends({}, responses[action.payload.key], _defineProperty({}, period, action.payload.value))));
-      } else if (action.payload.key) {
+      } else if (action.payload.key && (action.payload.value || action.payload.value === '')) {
         mergedResponses = _extends({}, responses, _defineProperty({}, action.payload.key, action.payload.value));
       } else {
         mergedResponses = responses;
@@ -12779,8 +12773,21 @@ var interview = function interview() {
 
       if (action.payload.sliderValue && action.payload.key) {
         sliderValues = _extends({}, sliderValues, _defineProperty({}, action.payload.key, action.payload.sliderValue));
-      } else if (action.payload.dropdownValue && action.payload.key) {
+      }
+      if (action.payload.dropdownValue && action.payload.key) {
         dropdownValues = _extends({}, dropdownValues, _defineProperty({}, action.payload.key, action.payload.dropdownValue));
+      }
+
+      if (action.payload.invalidResponse && action.payload.key) {
+        if (!invalidResponseItems.includes(action.payload.key)) {
+          invalidResponseItems = [].concat(_toConsumableArray(invalidResponseItems), [action.payload.key]);
+          invalidResponseItems.sort();
+        }
+      } else if (action.payload.key) {
+        var index = invalidResponseItems.indexOf(action.payload.key);
+        if (index !== -1) {
+          invalidResponseItems.splice(index, 1);
+        }
       }
 
       var _Algorithms$run = _Algorithms2.default.run(mergedResponses, _section2Routing2.default),
@@ -35260,9 +35267,9 @@ var ItemButton = function ItemButton(_ref) {
   var isDisabled = false;
   var responses = interview.responses ? interview.responses[item.key] : false;
   var hasResponse = responses ? true : false;
-
+  var invalidResponseItems = interview.invalidResponseItems || {};
   var color = 'white';
-  if (item.key === '1.005') {
+  if (invalidResponseItems.includes(item.key)) {
     color = 'red';
   }
 
@@ -58267,7 +58274,6 @@ var Response = function (_React$Component) {
           text: _items.scales['1ad'].options[key]['description'],
           responseType: _this.getResponseType(key),
           title: _items.scales['1ad'].options[key]['title']
-
         });
       });
 
@@ -58527,6 +58533,16 @@ var Response = function (_React$Component) {
       return arr;
     };
 
+    _this.inputFieldColor = function () {
+      var invalidResponseItems = _this.props.interview.invalidResponseItems;
+      var activeKey = _this.props.interview.activeKey;
+      if (invalidResponseItems.includes(activeKey)) {
+        return 'red';
+      } else {
+        return 'white';
+      }
+    };
+
     _this.state = {
       item: (0, _items.getItemByKey)(_this.props.interview.activeKey),
       value: -1,
@@ -58714,7 +58730,7 @@ var Response = function (_React$Component) {
             ),
             _react2.default.createElement('input', {
               type: input,
-              style: { fontSize: 40, backgroundColor: this.state.inputBoxBackgroundColor },
+              style: { fontSize: 40, backgroundColor: this.inputFieldColor() },
               className: 'interview-input interview-input-' + input,
               id: 'ResponseInput',
               name: 'response',
@@ -58729,7 +58745,12 @@ var Response = function (_React$Component) {
               },
 
               onChange: function onChange(event) {
-                if (event.target.value === '') {
+                if (input === 'date') {
+                  dispatch((0, _actions.setResponse)({
+                    key: item.key,
+                    value: event.target.value
+                  }));
+                } else if (event.target.value === '') {
                   dispatch((0, _actions.setResponse)({
                     key: item.key,
                     value: ''
@@ -58749,8 +58770,7 @@ var Response = function (_React$Component) {
                             value: event.target.value
                           }));
                           _this2.setState({
-                            currentPos: i,
-                            inputBoxBackgroundColor: 'white'
+                            currentPos: i
                           });
                           match = true;
                           matched = true;
@@ -58764,8 +58784,7 @@ var Response = function (_React$Component) {
                           }));
                           _this2.setState({
                             currentPos: i,
-                            sliderValue: parseInt(event.target.value, 10),
-                            inputBoxBackgroundColor: 'white'
+                            sliderValue: parseInt(event.target.value, 10)
                           });
                           match = true;
                           matched = true;
@@ -58780,8 +58799,7 @@ var Response = function (_React$Component) {
                           }));
                           _this2.setState({
                             currentPos: i,
-                            dropdownValue: event.target.value,
-                            inputBoxBackgroundColor: 'white'
+                            dropdownValue: event.target.value
                           });
                           match = true;
                           matched = true;
@@ -68529,7 +68547,7 @@ var createHandlers = function createHandlers(dispatch, interview) {
     dispatch((0, _actions.setResponse)({
       key: interview.activeKey,
       value: value.toString(),
-      sliderValue: value.toString()
+      sliderValue: value
     }));
   };
   var handleChangeStart = function handleChangeStart() {};
