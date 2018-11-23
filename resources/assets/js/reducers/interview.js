@@ -46,9 +46,6 @@ export const getPreviousValidKey = (state, key) => {
 
 const interview = (state = initialState, action) => {
   const { responses } = state;
-  const sliderValues = state.sliderValues;
-  const dropdownValues = state.dropdownValues;
-  let invalidResponseItems = state.invalidResponseItems;
   switch (action.type) {
     case 'RESET_INTERVIEW':
     return ({
@@ -73,12 +70,17 @@ const interview = (state = initialState, action) => {
       activeKey: key
     };
     case 'SET_RESPONSE':
-    let mergedResponses;
-    let sliderValues;
-    let dropdownValues;
-    let invalidResponseItems = state.invalidResponseItems || [];
-    const index = invalidResponseItems.indexOf(action.key);
+    let mergedResponses = responses;
+    let sliderValues = state.sliderValues;
+    let dropdownValues = state.dropdownValues;
+    let invalidResponseItems = state.invalidResponseItems;
 
+    if (action.payload.invalidResponse && action.payload.key) {
+      if (!invalidResponseItems.includes(action.payload.key)) {
+        invalidResponseItems = [...invalidResponseItems, action.payload.key];
+        invalidResponseItems.sort();
+      }
+    }
     if (action.payload.period) {
       let period = action.payload.period === 1 ? 'period_one' : 'period_two';
 
@@ -101,31 +103,19 @@ const interview = (state = initialState, action) => {
       mergedResponses = responses;
     }
 
-    if (action.payload.invalidResponse) {
-      if (!invalidResponseItems.includes(state.activeKey)) {
-        invalidResponseItems = [...invalidResponseItems, state.activeKey];
-      }
-    }
 
-    if (action.payload.sliderValue) {
+
+    if (action.payload.sliderValue && action.payload.key) {
       sliderValues = {
         ...sliderValues,
-        [state.activeKey]: action.payload.sliderValue
+        [action.payload.key]: action.payload.sliderValue
       };
     }
-    else {
-      sliderValues = sliderValues;
-    }
-
-    if (action.payload.dropdownValue) {
+    else if (action.payload.dropdownValue && action.payload.key) {
       dropdownValues = {
         ...dropdownValues,
-        [state.activeKey]: action.payload.dropdownValue
+        [action.payload.key]: action.payload.dropdownValue
       };
-    }
-
-    else {
-      dropdownValues = dropdownValues;
     }
 
     const { matched } = Algorithms.run(mergedResponses, routing);

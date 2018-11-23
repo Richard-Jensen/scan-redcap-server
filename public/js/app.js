@@ -12678,9 +12678,9 @@ var _Algorithms2 = _interopRequireDefault(_Algorithms);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 var initialState = {
   id: window.scanInfo && window.scanInfo.record_id,
@@ -12732,9 +12732,6 @@ var interview = function interview() {
   var action = arguments[1];
   var responses = state.responses;
 
-  var sliderValues = state.sliderValues;
-  var dropdownValues = state.dropdownValues;
-  var invalidResponseItems = state.invalidResponseItems;
   switch (action.type) {
     case 'RESET_INTERVIEW':
       return {
@@ -12759,12 +12756,17 @@ var interview = function interview() {
         activeKey: key
       });
     case 'SET_RESPONSE':
-      var mergedResponses = void 0;
-      var _sliderValues = void 0;
-      var _dropdownValues = void 0;
-      var _invalidResponseItems = state.invalidResponseItems || [];
-      var index = _invalidResponseItems.indexOf(action.key);
+      var mergedResponses = responses;
+      var sliderValues = state.sliderValues;
+      var dropdownValues = state.dropdownValues;
+      var invalidResponseItems = state.invalidResponseItems;
 
+      if (action.payload.invalidResponse && action.payload.key) {
+        if (!invalidResponseItems.includes(action.payload.key)) {
+          invalidResponseItems = [].concat(_toConsumableArray(invalidResponseItems), [action.payload.key]);
+          invalidResponseItems.sort();
+        }
+      }
       if (action.payload.period) {
         var period = action.payload.period === 1 ? 'period_one' : 'period_two';
 
@@ -12775,22 +12777,10 @@ var interview = function interview() {
         mergedResponses = responses;
       }
 
-      if (action.payload.invalidResponse) {
-        if (!_invalidResponseItems.includes(state.activeKey)) {
-          _invalidResponseItems = [].concat(_toConsumableArray(_invalidResponseItems), [state.activeKey]);
-        }
-      }
-
-      if (action.payload.sliderValue) {
-        _sliderValues = _extends({}, _sliderValues, _defineProperty({}, state.activeKey, action.payload.sliderValue));
-      } else {
-        _sliderValues = _sliderValues;
-      }
-
-      if (action.payload.dropdownValue) {
-        _dropdownValues = _extends({}, _dropdownValues, _defineProperty({}, state.activeKey, action.payload.dropdownValue));
-      } else {
-        _dropdownValues = _dropdownValues;
+      if (action.payload.sliderValue && action.payload.key) {
+        sliderValues = _extends({}, sliderValues, _defineProperty({}, action.payload.key, action.payload.sliderValue));
+      } else if (action.payload.dropdownValue && action.payload.key) {
+        dropdownValues = _extends({}, dropdownValues, _defineProperty({}, action.payload.key, action.payload.dropdownValue));
       }
 
       var _Algorithms$run = _Algorithms2.default.run(mergedResponses, _section2Routing2.default),
@@ -12805,20 +12795,20 @@ var interview = function interview() {
       });
       // For debugging only
       console.log('Slider values:');
-      console.log(_sliderValues);
+      console.log(sliderValues);
       console.log('Dropdown values:');
-      console.log(_dropdownValues);
+      console.log(dropdownValues);
       console.log('Invalid response items');
-      console.log(_invalidResponseItems);
+      console.log(invalidResponseItems);
 
       var matchedKeys = Object.keys(matched);
 
       return _extends({}, state, {
         disabledItems: [].concat(_toConsumableArray(matchedKeys), _toConsumableArray(disabledItems)),
         responses: mergedResponses,
-        sliderValues: _sliderValues,
-        dropdownValues: _dropdownValues,
-        invalidResponseItems: _invalidResponseItems
+        sliderValues: sliderValues,
+        dropdownValues: dropdownValues,
+        invalidResponseItems: invalidResponseItems
       });
     case 'SET_NOTE':
       return _extends({}, state, {
