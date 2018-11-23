@@ -10041,6 +10041,7 @@ var Algorithms = function () {
         });
         return obj;
       };
+
       evaluator.answers = removeEmpty(evaluator.answers);
 
       // Process all diagnoses
@@ -12801,6 +12802,8 @@ var interview = function interview() {
         }
       });
       // For debugging only
+      console.log('Responses:');
+      console.log(mergedResponses);
       console.log('Slider values:');
       console.log(sliderValues);
       console.log('Dropdown values:');
@@ -42930,7 +42933,17 @@ var AnalysisModal = function (_Component) {
                 'button',
                 {
                   onClick: function onClick() {
-                    var algorithms = _Algorithms2.default.run(_this2.props.interview.responses, _this2.state.selectedAlgorithmSet.algorithms);
+                    var invalidResponseItems = _this2.props.interview.invalidResponseItems;
+                    var responses = _this2.props.interview.responses;
+                    var validResponses = responses;
+                    // Discard the invalid responses
+                    invalidResponseItems.map(function (key) {
+                      if (responses[key]) {
+                        delete validResponses[key];
+                      }
+                    });
+
+                    var algorithms = _Algorithms2.default.run(validResponses, _this2.state.selectedAlgorithmSet.algorithms);
 
                     _this2.setState({
                       evaluated: algorithms.evaluated,

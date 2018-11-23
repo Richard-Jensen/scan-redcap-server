@@ -27,6 +27,7 @@ export default class Algorithms {
       });
       return obj;
     };
+
     evaluator.answers = removeEmpty(evaluator.answers);
 
     // Process all diagnoses
