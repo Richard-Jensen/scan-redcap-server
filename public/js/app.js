@@ -12762,7 +12762,7 @@ var interview = function interview() {
       var mergedResponses = void 0;
       var _sliderValues = void 0;
       var _dropdownValues = void 0;
-      var _invalidResponseItems = _invalidResponseItems || [];
+      var _invalidResponseItems = state.invalidResponseItems || [];
       var index = _invalidResponseItems.indexOf(action.key);
 
       if (action.payload.period) {
@@ -12771,26 +12771,26 @@ var interview = function interview() {
         mergedResponses = _extends({}, responses, _defineProperty({}, action.payload.key, _extends({}, responses[action.payload.key], _defineProperty({}, period, action.payload.value))));
       } else if (action.payload.key) {
         mergedResponses = _extends({}, responses, _defineProperty({}, action.payload.key, action.payload.value));
+      } else {
+        mergedResponses = responses;
+      }
 
-        if (action.payload.invalidResponseItem) {
-          if (!InvalidResponseItems.includes(state.key)) {
-            _invalidResponseItems = [].concat(_toConsumableArray(_invalidResponseItems), [state.activeKey]);
-          }
+      if (action.payload.invalidResponse) {
+        if (!_invalidResponseItems.includes(state.activeKey)) {
+          _invalidResponseItems = [].concat(_toConsumableArray(_invalidResponseItems), [state.activeKey]);
         }
+      }
 
-        if (action.payload.sliderValue) {
-          _sliderValues = _extends({}, _sliderValues, _defineProperty({}, state.activeKey, action.payload.sliderValue));
-        } else {
-          _sliderValues = _sliderValues;
-        }
+      if (action.payload.sliderValue) {
+        _sliderValues = _extends({}, _sliderValues, _defineProperty({}, state.activeKey, action.payload.sliderValue));
+      } else {
+        _sliderValues = _sliderValues;
+      }
 
-        if (action.payload.dropdownValue) {
-          _dropdownValues = _extends({}, _dropdownValues, _defineProperty({}, state.activeKey, action.payload.dropdownValue));
-
-          _invalidResponseItems.splice();
-        } else {
-          _dropdownValues = _dropdownValues;
-        }
+      if (action.payload.dropdownValue) {
+        _dropdownValues = _extends({}, _dropdownValues, _defineProperty({}, state.activeKey, action.payload.dropdownValue));
+      } else {
+        _dropdownValues = _dropdownValues;
       }
 
       var _Algorithms$run = _Algorithms2.default.run(mergedResponses, _section2Routing2.default),
@@ -12808,6 +12808,8 @@ var interview = function interview() {
       console.log(_sliderValues);
       console.log('Dropdown values:');
       console.log(_dropdownValues);
+      console.log('Invalid response items');
+      console.log(_invalidResponseItems);
 
       var matchedKeys = Object.keys(matched);
 
@@ -12815,7 +12817,8 @@ var interview = function interview() {
         disabledItems: [].concat(_toConsumableArray(matchedKeys), _toConsumableArray(disabledItems)),
         responses: mergedResponses,
         sliderValues: _sliderValues,
-        dropdownValues: _dropdownValues
+        dropdownValues: _dropdownValues,
+        invalidResponseItems: _invalidResponseItems
       });
     case 'SET_NOTE':
       return _extends({}, state, {
@@ -35265,7 +35268,8 @@ var ItemButton = function ItemButton(_ref) {
 
   var isActive = item.key === interview.activeKey;
   var isDisabled = false;
-  var hasResponse = interview.responses[item.key] ? true : false;
+  var responses = interview.responses ? interview.responses[item.key] : false;
+  var hasResponse = responses ? true : false;
 
   var color = 'white';
   if (item.key === '1.005') {
@@ -58639,16 +58643,16 @@ var Response = function (_React$Component) {
 
       // For debugging only
       console.log('currentPos: ' + currentPos);
-      console.log('sliderMin: ' + this.state.min);
+      /*console.log('sliderMin: ' + this.state.min);
+      console.log('sliderMax: ' + this.state.sliderMax);*/
       console.log('response: ' + 'type = ' + (typeof response === 'undefined' ? 'undefined' : _typeof(response)) + ', value = ' + response);
-      console.log('sliderMax: ' + this.state.sliderMax);
-      console.log('hasSlider: ' + this.state.hasSlider);
-      console.log('sliderValue: ' + 'type = ' + (typeof sliderValue === 'undefined' ? 'undefined' : _typeof(sliderValue)) + ', value = ' + sliderValue);
-      console.log('showDescription: ' + this.state.showDescription);
-      console.log('Options:');
-      console.log(Options || 'No Options');
-      console.log('Dropdown value');
-      console.log(this.state.dropdownValue || 'No dropdownvalue');
+      /*  console.log('hasSlider: ' + this.state.hasSlider);
+      console.log('sliderValue: ' + 'type = ' + typeof(sliderValue) + ', value = ' + sliderValue);*/
+      /*  console.log('showDescription: ' + this.state.showDescription);
+        console.log('Options:');
+        console.log(Options || 'No Options');
+        console.log('Dropdown value');
+        console.log(this.state.dropdownValue || 'No dropdownvalue');*/
       /*let arr = [];
       for (var i = 0; i < 5; i++) {
         arr = [...arr, i]
@@ -58748,68 +58752,64 @@ var Response = function (_React$Component) {
                   var matched = false;
                   while (match === false) {
                     for (var i = 0; i < Options.length; i++) {
-                      switch (Options[i].responseType) {
-                        case 'simple':
-                          console.log('simple');
-                          if (Options[i].key === event.target.value) {
-                            dispatch((0, _actions.setResponse)({
-                              key: item.key,
-                              value: event.target.value
-                            }));
-                            _this2.setState({
-                              currentPos: i,
-                              inputBoxBackgroundColor: 'white'
-                            });
-                            match = true;
-                            matched = true;
-                          }
-
-                        case 'slider':
-                          if (_this2.state.sliderMin <= parseInt(event.target.value, 10) && parseInt(event.target.value, 10) <= _this2.state.sliderMax) {
-                            dispatch((0, _actions.setResponse)({
-                              key: item.key,
-                              value: event.target.value,
-                              sliderValue: parseInt(event.target.value, 10)
-                            }));
-                            _this2.setState({
-                              currentPos: i,
-                              sliderValue: parseInt(event.target.value, 10),
-                              inputBoxBackgroundColor: 'white'
-                            });
-                            match = true;
-                            matched = true;
-                          }
-
-                        case 'dropdown':
-                          if (_this2.state.dropdownMin <= event.target.value && event.target.value <= _this2.state.dropdownMax) {
-                            dispatch((0, _actions.setResponse)({
-                              key: item.key,
-                              value: event.target.value,
-                              dropdownValue: event.target.value
-                            }));
-                            _this2.setState({
-                              currentPos: i,
-                              dropdownValue: event.target.value,
-                              inputBoxBackgroundColor: 'white'
-                            });
-                            match = true;
-                            matched = true;
-                          }
+                      if (Options[i].responseType === 'simple') {
+                        if (Options[i].key === event.target.value) {
+                          dispatch((0, _actions.setResponse)({
+                            key: item.key,
+                            value: event.target.value
+                          }));
+                          _this2.setState({
+                            currentPos: i,
+                            inputBoxBackgroundColor: 'white'
+                          });
+                          match = true;
+                          matched = true;
+                        }
+                      } else if (Options[i].responseType === 'slider') {
+                        if (_this2.state.sliderMin <= parseInt(event.target.value, 10) && parseInt(event.target.value, 10) <= _this2.state.sliderMax) {
+                          dispatch((0, _actions.setResponse)({
+                            key: item.key,
+                            value: event.target.value,
+                            sliderValue: parseInt(event.target.value, 10)
+                          }));
+                          _this2.setState({
+                            currentPos: i,
+                            sliderValue: parseInt(event.target.value, 10),
+                            inputBoxBackgroundColor: 'white'
+                          });
+                          match = true;
+                          matched = true;
+                        }
+                      } else if (Options[i].responseType === 'dropdown') {
+                        console.log('DROPDOWN');
+                        if (_this2.state.dropdownMin <= event.target.value && event.target.value <= _this2.state.dropdownMax) {
+                          dispatch((0, _actions.setResponse)({
+                            key: item.key,
+                            value: event.target.value,
+                            dropdownValue: event.target.value
+                          }));
+                          _this2.setState({
+                            currentPos: i,
+                            dropdownValue: event.target.value,
+                            inputBoxBackgroundColor: 'white'
+                          });
+                          match = true;
+                          matched = true;
+                        }
                       }
                     }
-                    dispatch((0, _actions.setResponse)({
-                      key: item.key,
-                      value: event.target.value
-                    }));
-                    _this2.setState({
-                      currentPos: null
-                    });
                     match = true;
                   }
                   if (matched === false) {
                     _this2.setState({
+                      currentPos: null,
                       inputBoxBackgroundColor: 'red'
                     });
+                    dispatch((0, _actions.setResponse)({
+                      key: item.key,
+                      value: event.target.value,
+                      invalidResponse: true
+                    }));
                   }
                 }
               },

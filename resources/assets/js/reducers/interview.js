@@ -76,7 +76,7 @@ const interview = (state = initialState, action) => {
     let mergedResponses;
     let sliderValues;
     let dropdownValues;
-    let invalidResponseItems = invalidResponseItems || [];
+    let invalidResponseItems = state.invalidResponseItems || [];
     const index = invalidResponseItems.indexOf(action.key);
 
     if (action.payload.period) {
@@ -95,40 +95,37 @@ const interview = (state = initialState, action) => {
         ...responses,
         [action.payload.key]: action.payload.value
       };
+    }
 
-    if (action.payload.invalidResponseItem) {
-      if (!InvalidResponseItems.includes(state.key)) {
+    else {
+      mergedResponses = responses;
+    }
+
+    if (action.payload.invalidResponse) {
+      if (!invalidResponseItems.includes(state.activeKey)) {
         invalidResponseItems = [...invalidResponseItems, state.activeKey];
       }
     }
 
+    if (action.payload.sliderValue) {
+      sliderValues = {
+        ...sliderValues,
+        [state.activeKey]: action.payload.sliderValue
+      };
+    }
+    else {
+      sliderValues = sliderValues;
+    }
 
+    if (action.payload.dropdownValue) {
+      dropdownValues = {
+        ...dropdownValues,
+        [state.activeKey]: action.payload.dropdownValue
+      };
+    }
 
-      if (action.payload.sliderValue) {
-        sliderValues = {
-          ...sliderValues,
-          [state.activeKey]: action.payload.sliderValue
-        };
-
-      }
-      else {
-        sliderValues = sliderValues;
-      }
-
-      if (action.payload.dropdownValue) {
-        dropdownValues = {
-          ...dropdownValues,
-          [state.activeKey]: action.payload.dropdownValue
-        };
-
-        invalidResponseItems.splice()
-      }
-      else {
-        dropdownValues = dropdownValues;
-      }
-
-
-
+    else {
+      dropdownValues = dropdownValues;
     }
 
     const { matched } = Algorithms.run(mergedResponses, routing);
@@ -144,6 +141,8 @@ const interview = (state = initialState, action) => {
     console.log(sliderValues)
     console.log('Dropdown values:')
     console.log(dropdownValues)
+    console.log('Invalid response items')
+    console.log(invalidResponseItems)
 
     const matchedKeys = Object.keys(matched);
 
@@ -153,6 +152,7 @@ const interview = (state = initialState, action) => {
       responses: mergedResponses,
       sliderValues: sliderValues,
       dropdownValues: dropdownValues,
+      invalidResponseItems: invalidResponseItems,
     };
     case 'SET_NOTE':
     return {

@@ -6,7 +6,8 @@ import classNames from 'classnames';
 const ItemButton = ({ item, dispatch, interview, style, key }) => {
   const isActive = item.key === interview.activeKey;
   let isDisabled = false;
-  let hasResponse = interview.responses[item.key] ? true : false;
+  const responses = interview.responses ? interview.responses[item.key] : false
+  let hasResponse = responses ? true : false;
 
   let color = 'white';
   if (item.key === '1.005') {

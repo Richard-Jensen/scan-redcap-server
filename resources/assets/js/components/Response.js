@@ -430,16 +430,16 @@ getIndexByKey = (key, array) => {
 
   // For debugging only
   console.log('currentPos: ' + currentPos);
-  console.log('sliderMin: ' + this.state.min);
+  /*console.log('sliderMin: ' + this.state.min);
+  console.log('sliderMax: ' + this.state.sliderMax);*/
   console.log('response: ' + 'type = ' + typeof(response) + ', value = ' + response);
-  console.log('sliderMax: ' + this.state.sliderMax);
-  console.log('hasSlider: ' + this.state.hasSlider);
-  console.log('sliderValue: ' + 'type = ' + typeof(sliderValue) + ', value = ' + sliderValue);
-  console.log('showDescription: ' + this.state.showDescription);
+/*  console.log('hasSlider: ' + this.state.hasSlider);
+console.log('sliderValue: ' + 'type = ' + typeof(sliderValue) + ', value = ' + sliderValue);*/
+/*  console.log('showDescription: ' + this.state.showDescription);
   console.log('Options:');
   console.log(Options || 'No Options');
   console.log('Dropdown value');
-  console.log(this.state.dropdownValue || 'No dropdownvalue');
+  console.log(this.state.dropdownValue || 'No dropdownvalue');*/
   /*let arr = [];
   for (var i = 0; i < 5; i++) {
     arr = [...arr, i]
@@ -532,9 +532,7 @@ getIndexByKey = (key, array) => {
        let matched = false;
        while (match === false) {
         for(var i = 0; i < Options.length; i++) {
-          switch(Options[i].responseType) {
-            case 'simple':
-            console.log('simple')
+          if (Options[i].responseType === 'simple') {
             if (Options[i].key === event.target.value) {
               dispatch(setResponse({
                 key: item.key,
@@ -547,8 +545,8 @@ getIndexByKey = (key, array) => {
               match = true;
               matched = true;
             }
-
-            case 'slider':
+          }
+          else if (Options[i].responseType === 'slider') {
             if ( (this.state.sliderMin <= parseInt(event.target.value, 10)) && (parseInt(event.target.value, 10) <= this.state.sliderMax) ) {
               dispatch(setResponse({
                 key: item.key,
@@ -563,8 +561,10 @@ getIndexByKey = (key, array) => {
               match = true;
               matched = true;
             }
+          }
 
-            case 'dropdown':
+          else if(Options[i].responseType === 'dropdown') {
+            console.log('DROPDOWN')
             if ( (this.state.dropdownMin <= event.target.value) && (event.target.value <= this.state.dropdownMax) ) {
               dispatch(setResponse({
                 key: item.key,
@@ -581,19 +581,18 @@ getIndexByKey = (key, array) => {
             }
           }
         }
-        dispatch(setResponse({
-          key: item.key,
-          value: event.target.value,
-        }));
-        this.setState({
-          currentPos: null,
-        });
         match = true;
       }
       if (matched === false) {
         this.setState({
+          currentPos: null,
           inputBoxBackgroundColor: 'red',
-        })
+        });
+        dispatch(setResponse({
+          key: item.key,
+          value: event.target.value,
+          invalidResponse: true,
+        }));
       }
     }
   }}
