@@ -10042,8 +10042,6 @@ var Algorithms = function () {
         return obj;
       };
 
-      evaluator.answers = removeEmpty(evaluator.answers);
-
       // Process all diagnoses
       var _iteratorNormalCompletion = true;
       var _didIteratorError = false;
@@ -42936,14 +42934,23 @@ var AnalysisModal = function (_Component) {
                     var invalidResponseItems = _this2.props.interview.invalidResponseItems;
                     var responses = _this2.props.interview.responses;
                     var validResponses = responses;
+                    var invalidResponsesInResponses = [];
                     // Discard the invalid responses
                     invalidResponseItems.map(function (key) {
                       if (responses[key]) {
+                        invalidResponsesInResponses.push(key);
                         delete validResponses[key];
                       }
                     });
+                    if (invalidResponsesInResponses.length) {
+                      var keys = '';
+                      invalidResponsesInResponses.map(function (key) {
+                        return keys = keys + ' ' + key;
+                      });
+                      window.alert('The following items has invalid answers, and will not be included in the diagnoses: ' + keys);
+                    }
 
-                    var algorithms = _Algorithms2.default.run(validResponses, _this2.state.selectedAlgorithmSet.algorithms);
+                    var algorithms = _Algorithms2.default.run(responses, _this2.state.selectedAlgorithmSet.algorithms);
 
                     _this2.setState({
                       evaluated: algorithms.evaluated,

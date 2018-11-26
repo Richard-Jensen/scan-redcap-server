@@ -28,8 +28,6 @@ export default class Algorithms {
       return obj;
     };
 
-    evaluator.answers = removeEmpty(evaluator.answers);
-
     // Process all diagnoses
     for (let [key, diagnosis] of evaluator.algorithms) {
       // Calculate the diagnosis value only if we haven't done it before.

@@ -98,15 +98,23 @@ class AnalysisModal extends Component {
         const invalidResponseItems = this.props.interview.invalidResponseItems;
         const responses = this.props.interview.responses;
         let validResponses = responses;
+        let invalidResponsesInResponses = [];
         // Discard the invalid responses
         invalidResponseItems.map(key => {
           if (responses[key]) {
-            delete validResponses[key]
+            invalidResponsesInResponses.push(key);
+            delete validResponses[key];
           }
         })
+        if (invalidResponsesInResponses.length) {
+          let keys = '';
+          invalidResponsesInResponses.map(key =>(
+            keys = keys + ' ' + key))
+          window.alert('The following items has invalid answers, and will not be included in the diagnoses: ' + keys)
+        }
 
         const algorithms = Algorithms.run(
-          validResponses,
+          responses,
           this.state.selectedAlgorithmSet.algorithms
           );
 
