@@ -58261,7 +58261,6 @@ var Response = function (_React$Component) {
     };
 
     _this.update = function () {
-      console.log('UPDATE');
       var item = (0, _items.getItemByKey)(_this.props.interview.activeKey);
       var hasScale = item.scale;
       if (hasScale && _items.scales[item.scale]) {
@@ -58681,15 +58680,6 @@ var Response = function (_React$Component) {
         console.log(Options || 'No Options');
         console.log('Dropdown value');
         console.log(this.state.dropdownValue || 'No dropdownvalue');*/
-      /*let arr = [];
-      for (var i = 0; i < 5; i++) {
-        arr = [...arr, i]
-      }
-      console.log(arr)
-      console.log(arr.indexOf(4))
-      arr.splice(2,1);
-      console.log(arr)
-      console.log(arr.indexOf(4))*/
 
       // Returns the specific interview item.
       return _react2.default.createElement(

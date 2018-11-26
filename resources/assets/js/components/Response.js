@@ -11,8 +11,6 @@ import ResponseSlider from './ResponseSlider';
 import SelectResponse from './SelectResponse';
 import { nullUp, up, nullDown, down, handleKeyDownBad, handleArrowKey } from '../lib/arrowFunctionalities';
 
-
-
 class Response extends React.Component {
 
   constructor(props) {
@@ -56,7 +54,6 @@ class Response extends React.Component {
   }
 
   update = () => {
-    console.log('UPDATE')
     let item = getItemByKey(this.props.interview.activeKey);
     let hasScale = item.scale;
     if (hasScale && scales[item.scale]) {
@@ -450,15 +447,6 @@ console.log('sliderValue: ' + 'type = ' + typeof(sliderValue) + ', value = ' + s
   console.log(Options || 'No Options');
   console.log('Dropdown value');
   console.log(this.state.dropdownValue || 'No dropdownvalue');*/
-  /*let arr = [];
-  for (var i = 0; i < 5; i++) {
-    arr = [...arr, i]
-  }
-  console.log(arr)
-  console.log(arr.indexOf(4))
-  arr.splice(2,1);
-  console.log(arr)
-  console.log(arr.indexOf(4))*/
 
   // Returns the specific interview item.
   return (
