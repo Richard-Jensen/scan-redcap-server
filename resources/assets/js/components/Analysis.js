@@ -97,7 +97,7 @@ class AnalysisModal extends Component {
       onClick={() => {
         const invalidResponseItems = this.props.interview.invalidResponseItems;
         const responses = this.props.interview.responses;
-        let validResponses = responses;
+        let validResponses = Object.assign({}, responses);
         let invalidResponsesInResponses = [];
         // Discard the invalid responses
         invalidResponseItems.map(key => {
@@ -113,8 +113,10 @@ class AnalysisModal extends Component {
           window.alert('The following items has invalid answers, and will not be included in the diagnoses: ' + keys)
         }
 
+        console.log('Valid Responses:')
+        console.log(validResponses)
         const algorithms = Algorithms.run(
-          responses,
+          validResponses,
           this.state.selectedAlgorithmSet.algorithms
           );
 

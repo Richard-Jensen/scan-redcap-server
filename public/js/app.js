@@ -42933,7 +42933,7 @@ var AnalysisModal = function (_Component) {
                   onClick: function onClick() {
                     var invalidResponseItems = _this2.props.interview.invalidResponseItems;
                     var responses = _this2.props.interview.responses;
-                    var validResponses = responses;
+                    var validResponses = Object.assign({}, responses);
                     var invalidResponsesInResponses = [];
                     // Discard the invalid responses
                     invalidResponseItems.map(function (key) {
@@ -42950,7 +42950,9 @@ var AnalysisModal = function (_Component) {
                       window.alert('The following items has invalid answers, and will not be included in the diagnoses: ' + keys);
                     }
 
-                    var algorithms = _Algorithms2.default.run(responses, _this2.state.selectedAlgorithmSet.algorithms);
+                    console.log('Valid Responses:');
+                    console.log(validResponses);
+                    var algorithms = _Algorithms2.default.run(validResponses, _this2.state.selectedAlgorithmSet.algorithms);
 
                     _this2.setState({
                       evaluated: algorithms.evaluated,
