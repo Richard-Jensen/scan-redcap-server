@@ -12,7 +12,7 @@ export default class Algorithms {
         [item]: responses[item]
       }),
       {}
-    );
+      );
 
     // Remove empty answers.
     const removeEmpty = obj => {
@@ -37,7 +37,7 @@ export default class Algorithms {
           evaluator.evaluated[key] = evaluator.process(
             diagnosis.algorithm,
             diagnosis
-          );
+            );
         } catch (e) {
           if (diagnosis.debug) {
             console.log(diagnosis);
@@ -55,10 +55,30 @@ export default class Algorithms {
         // console.log(diagnosis);
       }
 
+      const prio = evaluator.algorithms.get(key).priority;
       if (evaluator.evaluated[key] === true) {
+        if (prio === '1') {
+          evaluator.matchedPrio1[key] = diagnosis;
+        }
+        else if (prio === '2') {
+          evaluator.matchedPrio2[key] = diagnosis;
+        }
+        else if (prio === '3') {
+          evaluator.matchedPrio3[key] = diagnosis;
+        }
         evaluator.matched[key] = diagnosis;
-        // console.log(yaml.safeDump(diagnosis, {flowLevel: 1}));
-      } else {
+      }
+      // console.log(yaml.safeDump(diagnosis, {flowLevel: 1}));
+      else {
+        if (prio === '1') {
+          evaluator.notMatchedPrio1[key] = diagnosis;
+        }
+        else if (prio === '2') {
+          evaluator.notMatchedPrio2[key] = diagnosis;
+        }
+        else if (prio === '3') {
+          evaluator.notMatchedPrio3[key] = diagnosis;
+        }
         evaluator.notMatched[key] = diagnosis;
       }
     }
@@ -67,7 +87,9 @@ export default class Algorithms {
     evaluator.resultSet = this.filterMatchedItems(
       { options: false },
       evaluator
-    );
+      );
+
+
 
     return evaluator;
   }
@@ -98,7 +120,7 @@ export default class Algorithms {
         return result;
       },
       {}
-    );
+      );
 
     return diagnosisVariableItems;
   }

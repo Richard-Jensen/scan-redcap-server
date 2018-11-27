@@ -10078,12 +10078,28 @@ var Algorithms = function () {
             // console.log(diagnosis);
           }
 
+          var prio = evaluator.algorithms.get(key).priority;
           if (evaluator.evaluated[key] === true) {
+            if (prio === '1') {
+              evaluator.matchedPrio1[key] = diagnosis;
+            } else if (prio === '2') {
+              evaluator.matchedPrio2[key] = diagnosis;
+            } else if (prio === '3') {
+              evaluator.matchedPrio3[key] = diagnosis;
+            }
             evaluator.matched[key] = diagnosis;
-            // console.log(yaml.safeDump(diagnosis, {flowLevel: 1}));
-          } else {
-            evaluator.notMatched[key] = diagnosis;
           }
+          // console.log(yaml.safeDump(diagnosis, {flowLevel: 1}));
+          else {
+              if (prio === '1') {
+                evaluator.notMatchedPrio1[key] = diagnosis;
+              } else if (prio === '2') {
+                evaluator.notMatchedPrio2[key] = diagnosis;
+              } else if (prio === '3') {
+                evaluator.notMatchedPrio3[key] = diagnosis;
+              }
+              evaluator.notMatched[key] = diagnosis;
+            }
         }
 
         // Calculate the result set from the filter options in state
@@ -42824,8 +42840,12 @@ var AnalysisModal = function (_Component) {
     _this.state = {
       showAnalysis: false,
       evaluated: [],
-      matched: [],
-      notMatched: [],
+      matchedPrio1: [],
+      matchedPrio2: [],
+      matchedPrio3: [],
+      notMatchedPrio1: [],
+      notMatchedPrio2: [],
+      notMatchedPrio3: [],
       algorithmSets: [],
       selectedAlgorithmSet: {}
     };
@@ -42951,11 +42971,14 @@ var AnalysisModal = function (_Component) {
                     }
 
                     var algorithms = _Algorithms2.default.run(validResponses, _this2.state.selectedAlgorithmSet.algorithms);
-
                     _this2.setState({
                       evaluated: algorithms.evaluated,
-                      matched: algorithms.matched,
-                      notMatched: algorithms.notMatched
+                      matchedPrio1: algorithms.matchedPrio1,
+                      matchedPrio2: algorithms.matchedPrio2,
+                      matchedPrio3: algorithms.matchedPrio3,
+                      notMatchedPrio1: algorithms.notMatchedPrio1,
+                      notMatchedPrio2: algorithms.notMatchedPrio2,
+                      notMatchedPrio3: algorithms.notMatchedPrio3
                     });
                   },
                   className: 'button'
@@ -42983,14 +43006,14 @@ var AnalysisModal = function (_Component) {
                 _react2.default.createElement(
                   'h4',
                   null,
-                  'Matched Algorithms'
+                  'Matched Algorithms (first priority)'
                 ),
-                Object.keys(this.state.matched).map(function (key) {
+                Object.keys(this.state.matchedPrio1).map(function (key) {
                   return _react2.default.createElement(
                     'div',
                     {
                       key: key,
-                      className: 'interview-algorithms-evaluator-list-matched'
+                      className: 'interview-algorithms-evaluator-list-matched-prio1'
                     },
                     _react2.default.createElement(
                       'b',
@@ -43000,21 +43023,21 @@ var AnalysisModal = function (_Component) {
                     _react2.default.createElement(
                       'div',
                       null,
-                      _this2.state.matched[key].explanation
+                      _this2.state.matchedPrio1[key].explanation
                     )
                   );
                 }),
                 _react2.default.createElement(
                   'h4',
                   null,
-                  'Not Matched Algorithms'
+                  'Matched Algorithms (second priority)'
                 ),
-                Object.keys(this.state.notMatched).map(function (key) {
+                Object.keys(this.state.matchedPrio2).map(function (key) {
                   return _react2.default.createElement(
                     'div',
                     {
                       key: key,
-                      className: 'interview-algorithms-evaluator-list-not-matched'
+                      className: 'interview-algorithms-evaluator-list-matched-prio2'
                     },
                     _react2.default.createElement(
                       'b',
@@ -43024,7 +43047,103 @@ var AnalysisModal = function (_Component) {
                     _react2.default.createElement(
                       'div',
                       null,
-                      _this2.state.notMatched[key].explanation
+                      _this2.state.matchedPrio2[key].explanation
+                    )
+                  );
+                }),
+                _react2.default.createElement(
+                  'h4',
+                  null,
+                  'Matched Algorithms (third priority)'
+                ),
+                Object.keys(this.state.matchedPrio3).map(function (key) {
+                  return _react2.default.createElement(
+                    'div',
+                    {
+                      key: key,
+                      className: 'interview-algorithms-evaluator-list-matched-prio3'
+                    },
+                    _react2.default.createElement(
+                      'b',
+                      null,
+                      key
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      null,
+                      _this2.state.matchedPrio3[key].explanation
+                    )
+                  );
+                }),
+                _react2.default.createElement(
+                  'h4',
+                  null,
+                  'Not Matched Algorithms (first priority)'
+                ),
+                Object.keys(this.state.notMatchedPrio1).map(function (key) {
+                  return _react2.default.createElement(
+                    'div',
+                    {
+                      key: key,
+                      className: 'interview-algorithms-evaluator-list-not-matched-prio1'
+                    },
+                    _react2.default.createElement(
+                      'b',
+                      null,
+                      key
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      null,
+                      _this2.state.notMatchedPrio1[key].explanation
+                    )
+                  );
+                }),
+                _react2.default.createElement(
+                  'h4',
+                  null,
+                  'Not Matched Algorithms (second priority)'
+                ),
+                Object.keys(this.state.notMatchedPrio2).map(function (key) {
+                  return _react2.default.createElement(
+                    'div',
+                    {
+                      key: key,
+                      className: 'interview-algorithms-evaluator-list-not-matched-prio2'
+                    },
+                    _react2.default.createElement(
+                      'b',
+                      null,
+                      key
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      null,
+                      _this2.state.notMatchedPrio2[key].explanation
+                    )
+                  );
+                }),
+                _react2.default.createElement(
+                  'h4',
+                  null,
+                  'Not Matched Algorithms (third priority)'
+                ),
+                Object.keys(this.state.notMatchedPrio3).map(function (key) {
+                  return _react2.default.createElement(
+                    'div',
+                    {
+                      key: key,
+                      className: 'interview-algorithms-evaluator-list-not-matched-prio3'
+                    },
+                    _react2.default.createElement(
+                      'b',
+                      null,
+                      key
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      null,
+                      _this2.state.notMatchedPrio3[key].explanation
                     )
                   );
                 })
@@ -43375,7 +43494,13 @@ var Evaluator = function () {
     this.evaluated = {};
     this.missing = {};
     this.matched = {};
+    this.matchedPrio1 = {};
+    this.matchedPrio2 = {};
+    this.matchedPrio3 = {};
     this.notMatched = {};
+    this.notMatchedPrio1 = {};
+    this.notMatchedPrio2 = {};
+    this.notMatchedPrio3 = {};
   }
 
   /**
@@ -44261,13 +44386,6 @@ var Evaluator = function () {
 
       // Return the algorithm object
       return this.algorithms.get(component.id).algorithm; //[0]
-    }
-  }, {
-    key: 'getAlgorithmWithErrors',
-    value: function getAlgorithmWithErrors(component, diagnosis) {
-      var errors = {};
-      getAlgorithm(component, diagnosis, errors);
-      return errors;
     }
   }]);
 

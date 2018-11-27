@@ -26,7 +26,13 @@
     this.evaluated = {};
     this.missing = {};
     this.matched = {};
+    this.matchedPrio1 = {};
+    this.matchedPrio2 = {};
+    this.matchedPrio3 = {};
     this.notMatched = {};
+    this.notMatchedPrio1 = {};
+    this.notMatchedPrio2 = {};
+    this.notMatchedPrio3 = {};
   }
 
   /**
@@ -566,12 +572,5 @@
 
     // Return the algorithm object
     return this.algorithms.get(component.id).algorithm; //[0]
-  }
-
-  getAlgorithmWithErrors(component, diagnosis) {
-    let errors = {};
-    getAlgorithm(component, diagnosis, errors);
-    return errors;
-
   }
 }

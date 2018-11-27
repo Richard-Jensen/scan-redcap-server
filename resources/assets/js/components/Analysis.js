@@ -14,8 +14,12 @@ class AnalysisModal extends Component {
   state = {
     showAnalysis: false,
     evaluated: [],
-    matched: [],
-    notMatched: [],
+    matchedPrio1: [],
+    matchedPrio2: [],
+    matchedPrio3: [],
+    notMatchedPrio1: [],
+    notMatchedPrio2: [],
+    notMatchedPrio3: [],
     algorithmSets: [],
     selectedAlgorithmSet: {}
   };
@@ -117,11 +121,14 @@ class AnalysisModal extends Component {
           validResponses,
           this.state.selectedAlgorithmSet.algorithms
           );
-
         this.setState({
           evaluated: algorithms.evaluated,
-          matched: algorithms.matched,
-          notMatched: algorithms.notMatched
+          matchedPrio1: algorithms.matchedPrio1,
+          matchedPrio2: algorithms.matchedPrio2,
+          matchedPrio3: algorithms.matchedPrio3,
+          notMatchedPrio1: algorithms.notMatchedPrio1,
+          notMatchedPrio2: algorithms.notMatchedPrio2,
+          notMatchedPrio3: algorithms.notMatchedPrio3,
         });
       }}
       className="button"
@@ -140,27 +147,75 @@ class AnalysisModal extends Component {
         ))}
       </select>
       <div className="interview-algorithms-evaluator-list">
-      <h4>Matched Algorithms</h4>
-      {Object.keys(this.state.matched).map(key => {
+      <h4>Matched Algorithms (first priority)</h4>
+      {Object.keys(this.state.matchedPrio1).map(key => {
         return (
           <div
           key={key}
-          className="interview-algorithms-evaluator-list-matched"
+          className="interview-algorithms-evaluator-list-matched-prio1"
           >
           <b>{key}</b>
-          <div>{this.state.matched[key].explanation}</div>
+          <div>{this.state.matchedPrio1[key].explanation}</div>
           </div>
           );
       })}
-      <h4>Not Matched Algorithms</h4>
-      {Object.keys(this.state.notMatched).map(key => {
+      <h4>Matched Algorithms (second priority)</h4>
+      {Object.keys(this.state.matchedPrio2).map(key => {
         return (
           <div
           key={key}
-          className="interview-algorithms-evaluator-list-not-matched"
+          className="interview-algorithms-evaluator-list-matched-prio2"
           >
           <b>{key}</b>
-          <div>{this.state.notMatched[key].explanation}</div>
+          <div>{this.state.matchedPrio2[key].explanation}</div>
+          </div>
+          );
+      })}
+      <h4>Matched Algorithms (third priority)</h4>
+      {Object.keys(this.state.matchedPrio3).map(key => {
+        return (
+          <div
+          key={key}
+          className="interview-algorithms-evaluator-list-matched-prio3"
+          >
+          <b>{key}</b>
+          <div>{this.state.matchedPrio3[key].explanation}</div>
+          </div>
+          );
+      })}
+      <h4>Not Matched Algorithms (first priority)</h4>
+      {Object.keys(this.state.notMatchedPrio1).map(key => {
+        return (
+          <div
+          key={key}
+          className="interview-algorithms-evaluator-list-not-matched-prio1"
+          >
+          <b>{key}</b>
+          <div>{this.state.notMatchedPrio1[key].explanation}</div>
+          </div>
+          );
+      })}
+      <h4>Not Matched Algorithms (second priority)</h4>
+      {Object.keys(this.state.notMatchedPrio2).map(key => {
+        return (
+          <div
+          key={key}
+          className="interview-algorithms-evaluator-list-not-matched-prio2"
+          >
+          <b>{key}</b>
+          <div>{this.state.notMatchedPrio2[key].explanation}</div>
+          </div>
+          );
+      })}
+      <h4>Not Matched Algorithms (third priority)</h4>
+      {Object.keys(this.state.notMatchedPrio3).map(key => {
+        return (
+          <div
+          key={key}
+          className="interview-algorithms-evaluator-list-not-matched-prio3"
+          >
+          <b>{key}</b>
+          <div>{this.state.notMatchedPrio3[key].explanation}</div>
           </div>
           );
       })}
