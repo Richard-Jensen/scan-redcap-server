@@ -711,7 +711,7 @@ items:
 - key: "1.052"
   title: "Længste hospitalshopholds varighed i måneder"
   options:
-    0-100: "Antal måneder"
+    0-97: "Antal måneder"
     98: "Uoplyst"
     99: "Ikke anvendelig"
   input: integer
@@ -721,7 +721,7 @@ items:
 - key: "1.053"
   title: "Antal tidligere episoder med klinisk betydende symptomer"
   options:
-    0-100: "Antal måneder"
+    0-97: "Antal måneder"
     98: "Uoplyst"
     99: "Ikke anvendelig"
   input: integer

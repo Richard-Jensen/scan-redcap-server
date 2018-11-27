@@ -519,7 +519,7 @@
         } else {
           component.status = 'missing';
           // The diagnosis doesn't exist in the algorithm set. Give a warning.
-          // console.log('The diagnosis: ' + id + ' isn\'t defined')
+          /*console.log('The diagnosis: ' + component.id + ' isn\'t defined')*/
           return false;
         }
       }

@@ -17,6 +17,8 @@ export default class DataLoader {
     let algorithms = new Map();
 
     const workCopy = JSON.parse(JSON.stringify([...diagnoses]));
+    console.log('JSON.parse(JSON.stringify([...diagnoses])):')
+    console.log(workCopy)
 
     for (let [key, item] of workCopy) {
       // Change the object type to Diagnosis

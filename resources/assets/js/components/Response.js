@@ -90,7 +90,7 @@ class Response extends React.Component {
       OptionsWithDescriptions.push(
       {
         key: key,
-        text: scales['1ad'].options[key]['description'],
+        description: scales['1ad'].options[key]['description'],
         responseType: this.getResponseType(key),
         title: scales['1ad'].options[key]['title']
       }
@@ -214,7 +214,7 @@ class Response extends React.Component {
             <ResponseSlider
             id='Slider'
             key={'slider'}
-            value={this.state.sliderValue || 1}
+            value={this.state.sliderValue}
             min={
               parseInt(option.key.split('-')[0])
             }
@@ -242,13 +242,14 @@ class Response extends React.Component {
      }
    }
    else {
-    return (
-      <b key='testKey'>{option.key + ': '}</b>,
+      return (
       <div key='testKey2'>
+      <b>Option number: </b>
+      {option.key}
+      <br/>
       <b key='testKey2'>Title: </b>
-      {option.text}
-      </div>,
-      <div>
+      {option.title}
+      <br/>
       <b key='testKey3'>Description: </b>
       {option.description}
       </div>
@@ -437,16 +438,16 @@ getIndexByKey = (key, array) => {
 
   // For debugging only
   console.log('currentPos: ' + currentPos);
-  /*console.log('sliderMin: ' + this.state.min);
-  console.log('sliderMax: ' + this.state.sliderMax);*/
+  console.log('sliderMin: ' + this.state.sliderMin);
+  console.log('sliderMax: ' + this.state.sliderMax);
   console.log('response: ' + 'type = ' + typeof(response) + ', value = ' + response);
-/*  console.log('hasSlider: ' + this.state.hasSlider);
-console.log('sliderValue: ' + 'type = ' + typeof(sliderValue) + ', value = ' + sliderValue);*/
-/*  console.log('showDescription: ' + this.state.showDescription);
+  console.log('hasSlider: ' + this.state.hasSlider);
+  console.log('sliderValue: ' + 'type = ' + typeof(sliderValue) + ', value = ' + sliderValue);
+  console.log('showDescription: ' + this.state.showDescription);
   console.log('Options:');
   console.log(Options || 'No Options');
   console.log('Dropdown value');
-  console.log(this.state.dropdownValue || 'No dropdownvalue');*/
+  console.log(this.state.dropdownValue || 'No dropdownvalue');
 
   // Returns the specific interview item.
   return (
@@ -516,7 +517,7 @@ console.log('sliderValue: ' + 'type = ' + typeof(sliderValue) + ', value = ' + s
       }}
 
       onChange={event => {
-        if (input === 'date') {
+        if (input === 'date' || input === 'text') {
           dispatch(setResponse({
             key: item.key,
             value: event.target.value
@@ -567,7 +568,6 @@ console.log('sliderValue: ' + 'type = ' + typeof(sliderValue) + ', value = ' + s
             }
 
             else if(Options[i].responseType === 'dropdown') {
-              console.log('DROPDOWN')
               if ( (this.state.dropdownMin <= event.target.value) && (event.target.value <= this.state.dropdownMax) ) {
                 dispatch(setResponse({
                   key: item.key,
