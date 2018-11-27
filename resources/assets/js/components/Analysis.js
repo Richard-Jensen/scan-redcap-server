@@ -113,8 +113,6 @@ class AnalysisModal extends Component {
           window.alert('The following items has invalid answers, and will not be included in the diagnoses: ' + keys)
         }
 
-        console.log('Valid Responses:')
-        console.log(validResponses)
         const algorithms = Algorithms.run(
           validResponses,
           this.state.selectedAlgorithmSet.algorithms

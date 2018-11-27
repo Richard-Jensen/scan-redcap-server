@@ -42950,8 +42950,6 @@ var AnalysisModal = function (_Component) {
                       window.alert('The following items has invalid answers, and will not be included in the diagnoses: ' + keys);
                     }
 
-                    console.log('Valid Responses:');
-                    console.log(validResponses);
                     var algorithms = _Algorithms2.default.run(validResponses, _this2.state.selectedAlgorithmSet.algorithms);
 
                     _this2.setState({
@@ -43103,8 +43101,6 @@ var DataLoader = function () {
       var algorithms = new Map();
 
       var workCopy = JSON.parse(JSON.stringify([].concat(_toConsumableArray(diagnoses))));
-      console.log('JSON.parse(JSON.stringify([...diagnoses])):');
-      console.log(workCopy);
 
       var _iteratorNormalCompletion = true;
       var _didIteratorError = false;
@@ -44190,7 +44186,7 @@ var Evaluator = function () {
       if (component.type === 'answer') {
         if (typeof self.answers[component.id] === 'undefined') {
           component.status = 'missing';
-          // console.log('The answer with ID: ' + id + ' is undefined');
+          /*console.log('The answer with ID: ' + component.id + ' is undefined');*/
           return false;
           // If we throw exceptions here we'll not get the diagnosis id as a
           // property on the diagnosis object.
@@ -44200,7 +44196,7 @@ var Evaluator = function () {
         try {
           return JSON.parse(self.answers[component.id]);
         } catch (e) {
-          // console.log('JSON error. Diagnosis: ' + diagnosis + ' Component: ' + component + ' Message: ' + e.message);
+          /*console.log('JSON error. Diagnosis: ' + diagnosis + ' Component: ' + component + ' Message: ' + e.message);*/
           console.log(diagnosis);
           console.log(component);
           console.log(e);
@@ -44241,7 +44237,12 @@ var Evaluator = function () {
     value: function getAlgorithm(component, diagnosis) {
       if (_typeof(this.algorithms.get(component.id)) !== 'object') {
         // console.log(component);
-        console.warn('The diagnosis with id: ' + component.id + ' does not exist in the diagnosis set');
+        // TODO: Per needs to add more diagnoses. To bug test, unignore the followinf console log:
+        /*console.warn(
+          'The diagnosis with id: ' +
+          component.id +
+          ' does not exist in the diagnosis set'
+          );*/
         // TODO The id doesn't have an entry in the algorithm set.
         // Give the appropriate warning/error
         return false;
@@ -44260,6 +44261,13 @@ var Evaluator = function () {
 
       // Return the algorithm object
       return this.algorithms.get(component.id).algorithm; //[0]
+    }
+  }, {
+    key: 'getAlgorithmWithErrors',
+    value: function getAlgorithmWithErrors(component, diagnosis) {
+      var errors = {};
+      getAlgorithm(component, diagnosis, errors);
+      return errors;
     }
   }]);
 

@@ -487,7 +487,7 @@
     if (component.type === 'answer') {
       if (typeof self.answers[component.id] === 'undefined') {
         component.status = 'missing';
-        // console.log('The answer with ID: ' + id + ' is undefined');
+        /*console.log('The answer with ID: ' + component.id + ' is undefined');*/
         return false;
         // If we throw exceptions here we'll not get the diagnosis id as a
         // property on the diagnosis object.
@@ -497,7 +497,7 @@
       try {
         return JSON.parse(self.answers[component.id]);
       } catch (e) {
-        // console.log('JSON error. Diagnosis: ' + diagnosis + ' Component: ' + component + ' Message: ' + e.message);
+        /*console.log('JSON error. Diagnosis: ' + diagnosis + ' Component: ' + component + ' Message: ' + e.message);*/
         console.log(diagnosis);
         console.log(component);
         console.log(e);
@@ -538,11 +538,12 @@
    getAlgorithm(component, diagnosis) {
     if (typeof this.algorithms.get(component.id) !== 'object') {
       // console.log(component);
-      console.warn(
+      // TODO: Per needs to add more diagnoses. To bug test, unignore the followinf console log:
+      /*console.warn(
         'The diagnosis with id: ' +
         component.id +
         ' does not exist in the diagnosis set'
-        );
+        );*/
       // TODO The id doesn't have an entry in the algorithm set.
       // Give the appropriate warning/error
       return false;
@@ -565,5 +566,12 @@
 
     // Return the algorithm object
     return this.algorithms.get(component.id).algorithm; //[0]
+  }
+
+  getAlgorithmWithErrors(component, diagnosis) {
+    let errors = {};
+    getAlgorithm(component, diagnosis, errors);
+    return errors;
+
   }
 }

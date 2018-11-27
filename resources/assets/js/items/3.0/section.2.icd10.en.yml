@@ -1,5 +1,6 @@
 F44:
   explanation: "Dissociative disorders any"
+  priority: '1'
   algorithm: [
       AND: [
         '$2.010f = 2',
@@ -7,6 +8,7 @@ F44:
     ]
 F44.4:
   explanation: "Dissociative motor disorders"
+  priority: '1'
   algorithm: [
       AND: [
         '$2.010f = 2',
@@ -20,6 +22,7 @@ F44.4:
 
 F44.6:
   explanation: "Dissociative anaesthesia and sensory loss"
+  priority: '1'
   algorithm: [
       AND: [
         '$2.010f = 2',
@@ -31,6 +34,7 @@ F44.6:
 
 F44.9:
   explanation: "unspecificed"
+  priority: '1'
   algorithm: [
       AND: [
         '$2.010f = 2',
@@ -42,6 +46,7 @@ F44.9:
 
 F45.0:
   explanation: "Somatization disorder"
+  priority: '1'
   algorithm: [
       AND: [
         '$!F45.0A',
@@ -54,6 +59,7 @@ F45.0:
 
 F45.0a:
   explanation: "Somatization disorder withou excl. for other mentl conditions"
+  priority: '2'
   algorithm: [
       AND: [
         '$!F45.0A',
@@ -63,19 +69,22 @@ F45.0a:
       ],
     ]
 
+#Hotfix, spørg Per: 2.033 >=24 i stedet for 2.012b >= 24.
 F45.0A:
   explanation: ">= 6 somatoform symptoms without prominent autonomic symptoms and duration >= 2 years and variability of symptoms"
+  priority: '3'
   algorithm: [
       AND: [
         AND: [
           '$@F45.0A.counter >= 6',
         ],
-        '$2.012b >= 24',
+        '$2.033 >= 24',
       ],
     ]
 
 F45.0A.counter:
   explanation: "Number of any functional symptoms from SCAN "
+  priority: '3'
   algorithm: [
       SUM: [
         '$2.010a = [1,2,3]',
@@ -148,6 +157,7 @@ F45.0A.counter:
 
 F45.0B:
   explanation: "Preoccupation and distress repeated investigations"
+  priority: '3'
   algorithm: [
       AND: [
         '$2.038 = 2',
@@ -156,6 +166,7 @@ F45.0B:
 
 F45.0C:
   explanation: "Refusal of reassurance included"
+  priority: '3'
   algorithm: [
       AND: [
         '$2.046 = [2,3]',
@@ -164,6 +175,7 @@ F45.0C:
 
 F45.0D:
   explanation: "A total of >= 6 of the folllowing symp-toms from >= 2 separate-groups"
+  priority: '3'
   algorithm: [
       AND: [
         '$@F45.0D.counter >= 6',
@@ -173,6 +185,7 @@ F45.0D:
 
 F45.0D.counter:
   explanation: "Number of criteria D sympt excl.D11,D12,D4 "
+  priority: '3'
   algorithm: [
       SUM: [
         '$!F45.0D1',
@@ -191,6 +204,7 @@ F45.0D.counter:
 
 F45.0D1:
   explanation: "Abdominal pain"
+  priority: '3'
   algorithm: [
       AND: [
         '$2.013c = [1,2,3]',
@@ -199,6 +213,7 @@ F45.0D1:
 
 F45.0D2:
   explanation: "Nausea"
+  priority: '3'
   algorithm: [
       AND: [
         '$2.013b = [1,2,3]',
@@ -207,6 +222,7 @@ F45.0D2:
 
 F45.0D3:
   explanation: "Feeling bloated, full of gas, distended, heavy"
+  priority: '3'
   algorithm: [
       AND: [
         '$2.013d = [1,2,3]',
@@ -215,6 +231,7 @@ F45.0D3:
 
 F45.0D5:
   explanation: "Vomiting, Regurgitation"
+  priority: '3'
   algorithm: [
       OR: [
         '$2.013a = [1,2,3]',
@@ -224,6 +241,7 @@ F45.0D5:
 
 F45.0D6:
   explanation: "Alternating bowel movements "
+  priority: '3'
   algorithm: [
       OR: [
         '$2.013e = [1,2,3]',
@@ -232,6 +250,7 @@ F45.0D6:
 
 F45.0D7:
   explanation: "Breathlessness without exertion"
+  priority: '3'
   algorithm: [
       AND: [
         '$2.014c = [1,2,3]',
@@ -240,6 +259,7 @@ F45.0D7:
 
 F45.0D8:
   explanation: "Precordial discomfort or chest pain"
+  priority: '3'
   algorithm: [
       AND: [
         '$2.014b = [1,2,3]',
@@ -248,6 +268,7 @@ F45.0D8:
 
 F45.0D9:
   explanation: "Pains during urination or frequent urination"
+  priority: '3'
   algorithm: [
       OR: [
         '$2.017a = [1,2,3]',
@@ -257,6 +278,7 @@ F45.0D9:
 
 F45.0D10:
   explanation: "Unpleasant sensations in or around the genitals "
+  priority: '3'
   algorithm: [
       AND: [
         '$2.018b = [1,2,3]',
@@ -265,6 +287,7 @@ F45.0D10:
 
 F45.0D13:
   explanation: "Pain in arms or legs or joints"
+  priority: '3'
   algorithm: [
       OR: [
         '$2.011c = [1,2,3]',
@@ -274,6 +297,7 @@ F45.0D13:
 
 F45.0D14:
   explanation: "Unpleasant numbness or tingling sensations"
+  priority: '3'
   algorithm: [
       AND: [
         '$2.011g = [1,2,3]',
@@ -282,6 +306,7 @@ F45.0D14:
 
 F45.0DS:
   explanation: "Symptoms from >= 2 organsystems"
+  priority: '3'
   algorithm: [
       SUM: [
         OR: [
@@ -308,6 +333,7 @@ F45.0DS:
 
 F45.0E:
   explanation: "Preoccupation not primarily due to depression, anxiety or another psychiatric illness"
+  priority: '3'
   algorithm: [
       AND: [
         '$2.072 <> 3',
@@ -319,6 +345,7 @@ F45.0E:
 
 F45.1:
   explanation: "Undifferentiated somatoform disorder"
+  priority: '1'
   algorithm: [
       AND: [
         '$!F45.1A',
@@ -332,6 +359,7 @@ F45.1:
 
 F45.1a:
   explanation: "Undifferentiated somatoform dis. without excl. for other mental disord."
+  priority: '3'
   algorithm: [
       AND: [
         '$!F45.1A',
@@ -344,6 +372,7 @@ F45.1a:
 
 F45.1A:
   explanation: ">= 6 somatoform symptoms for > 6 months"
+  priority: '3'
   algorithm: [
       AND: [
         '$@F45.0A.counter >= 6',
@@ -353,6 +382,7 @@ F45.1A:
 
 F45.1B:
   explanation: "Some distress or preoccupation included in A (2.038)"
+  priority: '3'
   algorithm: [
       AND: [
         '$2.038 = [1,2]',
@@ -361,6 +391,7 @@ F45.1B:
 
 F45.2:
   explanation: "Hypochondriacal disorder"
+  priority: '1'
   algorithm: [
       AND: [
         '$!F45.2ABC',
@@ -370,6 +401,7 @@ F45.2:
 
 F45.2a:
   explanation: "Hypochondriacal disorder withou excl. for other mental disord."
+  priority: '2'
   algorithm: [
       AND: [
         '$!F45.2ABC',
@@ -378,6 +410,7 @@ F45.2a:
 
 F45.2ABC:
   explanation: "(1) persistent belief for > 6months of 1 or 2 serious illnesses or (2) persistent preoccupation with presumed deformity"
+  priority: '3'
   algorithm: [
       AND: [
           OR: [
@@ -393,6 +426,7 @@ F45.2ABC:
 
 F45.2D:
   explanation: "Does not meet criteria for F2 disorders orF3 disorders"
+  priority: '3'
   algorithm: [
       AND: [
         '$2.072 <> 3',
@@ -405,6 +439,7 @@ F45.2D:
 
 F45.3:
   explanation: "Somatoform autonomic dysfunction"
+  priority: '1'
   algorithm: [
       AND: [
         '$!F45.3A',
@@ -416,6 +451,7 @@ F45.3:
 
 F45.3a:
   explanation: "Somatoform autonomic dysfunction, without excl. for other mental disord"
+  priority: '2'
   algorithm: [
       AND: [
         '$!F45.3A',
@@ -426,6 +462,7 @@ F45.3a:
 
 F45.3A:
   explanation: "Autonomic hyperactivitet at least on oragnsystem"
+  priority: '3'
   algorithm: [
       OR: [
         '$@F45.3A1.counter >= 1',
@@ -438,6 +475,7 @@ F45.3A:
 
 F45.3A1.counter:
   explanation: "Hyperactivity CV syste "
+  priority: '3'
   algorithm: [
       SUM: [
         '$2.014a = [1,2,3]',
@@ -449,6 +487,7 @@ F45.3A1.counter:
 
 F45.3A2.counter:
   explanation: "Upper GI aroual"
+  priority: '3'
   algorithm: [
       SUM: [
         '$2.012a = [1,2,3]',
@@ -460,6 +499,7 @@ F45.3A2.counter:
 
 F45.3A3.counter:
   explanation: "Lower GI symptoms)"
+  priority: '3'
   algorithm: [
       SUM: [
         '$2.013b = [1,2,3]',
@@ -472,6 +512,7 @@ F45.3A3.counter:
     ]
 F45.3A4.counter:
   explanation: "Hyperactivity pulmonal system "
+  priority: '3'
   algorithm: [
       SUM: [
         '$2.014c = [1,2,3]',
@@ -483,6 +524,7 @@ F45.3A4.counter:
 
 F45.3A5.counter:
   explanation: "Counter,hyperactivitet urogenital system"
+  priority: '3'
   algorithm: [
       SUM: [
         '$2.017a = [1,2,3]',
@@ -495,6 +537,7 @@ F45.3A5.counter:
 
 F45.3B:
   explanation: ">= 2 autonomic symptoms of 1-5"
+  priority: '3'
   algorithm: [
       AND: [
         '$@F45.3B.counter >= 2',
@@ -503,6 +546,7 @@ F45.3B:
 
 F45.3B.counter:
   explanation: "Autnome symptoms"
+  priority: '3'
   algorithm: [
       SUM: [
         '$2.014a = 1',
@@ -515,6 +559,7 @@ F45.3B.counter:
 
 F45.3C.counter:
   explanation: "Other autnome symptoms"
+  priority: '3'
   algorithm: [
       SUM: [
         '$2.014b = 1',
@@ -530,6 +575,7 @@ F45.3C.counter:
 
 F45.3E:
   explanation: "Panic disorder not primar"
+  priority: '3'
   algorithm: [
       AND: [
         '$2.072 <> 3',
@@ -538,6 +584,7 @@ F45.3E:
 
 F45.4:
   explanation: "Persistent somatoform pain disorder"
+  priority: '1'
   algorithm: [
       AND: [
         '$!F45.4A',
@@ -545,8 +592,10 @@ F45.4:
       ],
     ]
 
+#Per: Skal denne ikke markeres med priority 2?
 F45.4a:
   explanation: "Persistent somatoform pain disorder, without exclud. for other mental dis."
+  priority: '3'
   algorithm: [
       AND: [
         '$!F45.4A',
@@ -555,6 +604,7 @@ F45.4a:
 
 F45.4A:
   explanation: "Persistent severe, distressing pain for > 6 months "
+  priority: '3'
   algorithm: [
       AND: [
         OR: [
@@ -580,6 +630,7 @@ F45.4A:
 
 F45.4B:
   explanation: "Not explained by other disorders"
+  priority: '3'
   algorithm: [
       AND: [
         '$2.072 <> 3',
@@ -594,6 +645,7 @@ F45.4B:
 
 F45.9:
   explanation: "Unspecified somatoform disorder (>= 4) somatoform symptoms but does not fulfil criteria for any specified category Some preoccupation, with duration >= 6 months Does not meet criteria forF45.0-.4 or F41 Does not meet criteria for F2 or F3 disorders"
+  priority: '1'
   algorithm: [
       AND: [
         '$@F45.0D.counter >= 4',
@@ -613,6 +665,7 @@ F45.9:
 
 F45.9a:
   explanation: "Unspecified somatoform disorder withou exclus for other mental disord"
+  priority: '3'
   algorithm: [
       AND: [
         '$@F45.0D.counter >= 4',
@@ -632,6 +685,7 @@ F45.9a:
 
 F48.0:
   explanation: "Neurasthenia"
+  priority: '1'
   algorithm: [
       AND: [
         '$!F48.0AC',
@@ -643,6 +697,7 @@ F48.0:
 
 F48.0a:
   explanation: "Neurasthenia, withou excl. for other mental disorder"
+  priority: '2'
   algorithm: [
       AND: [
         '$!F48.0AC',
@@ -653,6 +708,7 @@ F48.0a:
 
 F48.0AC:
   explanation: "(1) Excessive mental- or physical fatigue not recover on rest "
+  priority: '3'
   algorithm: [
       OR: [
         '$2.010b = [2,3]',
@@ -661,6 +717,7 @@ F48.0AC:
 
 F48.0B:
   explanation: ">= 1 of following symptoms (1) muscular pains (2) dizziness (3) tension headaches (4) sleep disturbance "
+  priority: '3'
   algorithm: [
       OR: [
         '$2.011b = [1,2,3]',
@@ -681,6 +738,7 @@ F48.0B:
 
 F48.0D:
   explanation: "duration >= 3 months"
+  priority: '3'
   algorithm: [
       AND: [
         '$2.033 >= 3',
@@ -689,6 +747,7 @@ F48.0D:
 
 F48.0E:
   explanation: "not better explained by depression, panic disroder or anxietyciety"
+  priority: '3'
   algorithm: [
       AND: [
         '$2.072 <> 3',
@@ -699,6 +758,7 @@ F48.0E:
 
 Fatiq:
   explanation: "Counter fatiq "
+  priority: '3'
   algorithm: [
       SUM: [
         '$3.007 = [1,2,3]',
@@ -709,6 +769,7 @@ Fatiq:
 
 nsomdg:
   explanation: "Any somatoform diagnose"
+  priority: '3'
   algorithm: [
       SUM: [
         '$!F44.4.7',
@@ -725,6 +786,7 @@ nsomdg:
 
 DEP:
   explanation: "Any depression excl. dystymi"
+  priority: '3'
   algorithm: [
       OR: [
         '$!F31.30',
@@ -762,6 +824,7 @@ DEP:
 
 DEPDYS:
   explanation: "Any depression or dystymi "
+  priority: '3'
   algorithm: [
       OR: [
         '$!F31.30',
@@ -803,7 +866,9 @@ DEPDYS:
     ]
 
 F0:
-  explanation: "This is met when any of the F0 algorithms is met."
+  explanation: "This is met when any of the F0 priority: '3'
+  algorithms is met."
+  priority: '3'
   algorithm: [
       OR: [
         '$!F00.03',
@@ -840,6 +905,7 @@ F0:
 
 F00:
   explanation: "Dementia in Alzheimer's disease"
+  priority: '1'
   algorithm: [
       AND: [
         '$!F00A',
@@ -849,6 +915,7 @@ F00:
 
 F00.0:
   explanation: "With early onset"
+  priority: '1'
   algorithm: [
       AND: [
         '$!F00.0.1',
@@ -858,6 +925,7 @@ F00.0:
 
 SCHIZII1:
   explanation: "delusions"
+  priority: '1'
   algorithm: [
       AND: [
         OR: [
@@ -898,6 +966,7 @@ SCHIZII1:
 
 SCHIZII2:
   explanation: "hallucinations"
+  priority: '1'
   algorithm: [
       AND: [
         OR: [
@@ -928,6 +997,7 @@ SCHIZII2:
     ]
 F06F320B.counter:
   explanation: ""
+  priority: '3'
   algorithm: [
       SUM: [
         '$!F32.0B1',
@@ -938,6 +1008,7 @@ F06F320B.counter:
 
 F06F320C.counter:
   explanation: ""
+  priority: '3'
   algorithm: [
       SUM: [
         '$!F32.0C1',
@@ -952,6 +1023,7 @@ F06F320C.counter:
 
 SOMSYND:
   explanation: "Somatic syndrome subtype criteria"
+  priority: '3'
   algorithm: [
       AND: [
         '$@SOMSYND.counter >= 4',
@@ -960,6 +1032,7 @@ SOMSYND:
 
 SOMSYND.counter:
   explanation: ""
+  priority: '3'
   algorithm: [
       SUM: [
         '$!SOMSYND1',
@@ -975,6 +1048,7 @@ SOMSYND.counter:
 
 SOMSYND1:
   explanation: "loss of interest or pleasure"
+  priority: '3'
   algorithm: [
       OR: [
         '$6.004 = [2,3]',
@@ -984,6 +1058,7 @@ SOMSYND1:
 
 SOMSYND2:
   explanation: "lack of emotional reactions"
+  priority: '3'
   algorithm: [
       AND: [
         '$6.008 = [2,3]',
@@ -992,6 +1067,7 @@ SOMSYND2:
 
 SOMSYND3:
   explanation: "early awakening (> 2 hours)"
+  priority: '3'
   algorithm: [
       AND: [
         '$8.014 = 3',
@@ -1000,6 +1076,7 @@ SOMSYND3:
 
 SOMSYND4:
   explanation: "depression worse in morning"
+  priority: '3'
   algorithm: [
       AND: [
         '$6.009 = 1',
@@ -1008,6 +1085,7 @@ SOMSYND4:
 
 SOMSYND5:
   explanation: "objective retardation or agitation"
+  priority: '3'
   algorithm: [
       OR: [
         '$22.001 = [1,2]',
@@ -1026,6 +1104,7 @@ SOMSYND5:
 
 SOMSYND6:
   explanation: "loss of appetite"
+  priority: '3'
   algorithm: [
       AND: [
         '$8.005 = [2,3]',
@@ -1034,6 +1113,7 @@ SOMSYND6:
 
 SOMSYND7:
   explanation: "weight loss > 5% in 1 month"
+  priority: '3'
   algorithm: [
       AND: [
         '$8.006 = [2,3]',
@@ -1042,6 +1122,7 @@ SOMSYND7:
 
 SOMSYND8:
   explanation: "loss of libido"
+  priority: '3'
   algorithm: [
       AND: [
         '$8.024 = [2,3]',
@@ -1051,6 +1132,7 @@ SOMSYND8:
 
 F20.4B.derived1:
   explanation: "Derived from F20.4B"
+  priority: '3'
   algorithm: [
       SUM: [
         '$!F20G1.2a',
@@ -1062,6 +1144,7 @@ F20.4B.derived1:
 
 DELONS:
   explanation: "Posttraumatic stress disorder - delayed onset"
+  priority: '1'
   algorithm: [
       AND: [
         '$!F43.1A',
@@ -1074,6 +1157,7 @@ DELONS:
 
 F48.1:
   explanation: "Depersonalisation - derealisation syndrome"
+  priority: '1'
   algorithm: [
       AND: [
         '$!F48.1A',
@@ -1083,6 +1167,7 @@ F48.1:
 
 F48.1A:
   explanation: "(1) depersonalization or (2) derealization "
+  priority: '3'
   algorithm: [
       OR: [
         OR: [
@@ -1100,6 +1185,7 @@ F48.1A:
 
 F48.1B:
   explanation: "Insight present"
+  priority: '3'
   algorithm: [
       AND: [
         '$16.013 = 0',
