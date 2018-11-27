@@ -58582,8 +58582,7 @@ var Response = function (_React$Component) {
       showDescription: false,
       dropdownValue: null,
       dropdownMin: null,
-      dropdownMax: null,
-      inputBoxBackgroundColor: 'white'
+      dropdownMax: null
 
     };
     _this.inputBox = _react2.default.createRef();
@@ -58824,8 +58823,7 @@ var Response = function (_React$Component) {
                   }
                   if (matched === false) {
                     _this2.setState({
-                      currentPos: null,
-                      inputBoxBackgroundColor: 'red'
+                      currentPos: null
                     });
                     dispatch((0, _actions.setResponse)({
                       key: item.key,

@@ -31,7 +31,6 @@ class Response extends React.Component {
       dropdownValue: null,
       dropdownMin: null,
       dropdownMax: null,
-      inputBoxBackgroundColor: 'white',
 
     };
     this.inputBox = React.createRef();
@@ -588,7 +587,6 @@ getIndexByKey = (key, array) => {
         if (matched === false) {
           this.setState({
             currentPos: null,
-            inputBoxBackgroundColor: 'red',
           });
           dispatch(setResponse({
             key: item.key,
