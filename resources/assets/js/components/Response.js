@@ -1,15 +1,16 @@
 import React, { Fragment, Component } from 'react';
 import { connect } from 'react-redux';
-import { setActiveItem, setResponse, setNote, getResponse } from '../actions';
+import { setResponse, setNote } from '../actions';
 import { ItemCard } from './ItemCard';
-import { validateNumeric, isValueWithinWholeRangeOfRules, monthsToYears } from '../lib/helpers';
+import { monthsToYears } from '../lib/helpers';
 import { Markdown } from './Markdown';
-import { items, scales, getItemByKey, getNextItemByKey } from '../items';
-import Slider from 'react-rangeslider';
+import { scales, getItemByKey, getNextItemByKey } from '../items';
 import 'react-rangeslider/lib/index.css';
 import ResponseSlider from './ResponseSlider';
 import SelectResponse from './SelectResponse';
-import { nullUp, up, nullDown, down, handleKeyDownBad, handleArrowKey } from '../lib/arrowFunctionalities';
+import { handleArrowKey } from '../lib/arrowFunctionalities';
+import { Analysis } from './Analysis';
+import { AnalysisSidebar } from './AnalysisSidebar';
 
 class Response extends React.Component {
 
@@ -74,11 +75,11 @@ class Response extends React.Component {
     if (item.options) {
       Object.keys(item.options).map(key => {
         OptionsWithoutDescriptions.push(
-        {
-          key: key,
-          text: item.options[key],
-          responseType: this.getResponseType(key),
-        }
+          {
+            key: key,
+            text: item.options[key],
+            responseType: this.getResponseType(key),
+          }
         )
       }
       );
@@ -87,12 +88,12 @@ class Response extends React.Component {
 
     Object.keys(scales['1ad'].options).map(key => {
       OptionsWithDescriptions.push(
-      {
-        key: key,
-        description: scales['1ad'].options[key]['description'],
-        responseType: this.getResponseType(key),
-        title: scales['1ad'].options[key]['title']
-      }
+        {
+          key: key,
+          description: scales['1ad'].options[key]['description'],
+          responseType: this.getResponseType(key),
+          title: scales['1ad'].options[key]['title']
+        }
       )
     })
 
@@ -186,24 +187,24 @@ class Response extends React.Component {
         if (option.key.split('-')[0].includes('.') && option.key.split('-')[1].includes('.')) {
           return (
             <SelectResponse
-            key={option.key}
-            activeKey={this.props.interview.activeKey}
-            options={this.generateOptions(option.key.split('-')[0], option.key.split('-')[1])}
-            inputBox={this.inputBox}
-            ref={this.dropdownMenu}
-            responseContainer={this}
+              key={option.key}
+              activeKey={this.props.interview.activeKey}
+              options={this.generateOptions(option.key.split('-')[0], option.key.split('-')[1])}
+              inputBox={this.inputBox}
+              ref={this.dropdownMenu}
+              responseContainer={this}
             >
             </SelectResponse>
-/*            <Dropdown
-            key='dropdownMenu'
-            activeKey={this.props.interview.activeKey}
-            options={this.generateOptions(option.key.split('-')[0], option.key.split('-')[1])}
-            inputBox={this.inputBox}
-            ref={this.dropdownMenu}
-            responseContainer={this}
-            >
-            </Dropdown>*/
-            )
+            /*            <Dropdown
+                        key='dropdownMenu'
+                        activeKey={this.props.interview.activeKey}
+                        options={this.generateOptions(option.key.split('-')[0], option.key.split('-')[1])}
+                        inputBox={this.inputBox}
+                        ref={this.dropdownMenu}
+                        responseContainer={this}
+                        >
+                        </Dropdown>*/
+          )
         }
 
         else {
@@ -211,72 +212,72 @@ class Response extends React.Component {
           return ([
             option.text,
             <ResponseSlider
-            id='Slider'
-            key={'slider'}
-            value={this.state.sliderValue}
-            min={
-              parseInt(option.key.split('-')[0])
-            }
-            max={
-              parseInt(option.key.split('-')[1])
-            }
-            ref={this.slider}
-            array={array}
-            response={this}
-            interview={this.props.interview}
-            inputBox={this.inputBox}
+              id='Slider'
+              key={'slider'}
+              value={this.state.sliderValue}
+              min={
+                parseInt(option.key.split('-')[0])
+              }
+              max={
+                parseInt(option.key.split('-')[1])
+              }
+              ref={this.slider}
+              array={array}
+              response={this}
+              interview={this.props.interview}
+              inputBox={this.inputBox}
             />,
             <center key='center'>
-            {monthsToYears(this.state.sliderValue)}
+              {monthsToYears(this.state.sliderValue)}
             </center>
-            ]);
+          ]);
         }
       }
 
       else {
-       return ([
-        <b key='testKey'>{option.key + ' '}</b>,
-        option.text
+        return ([
+          <b key='testKey'>{option.key + ' '}</b>,
+          option.text
         ]);
-     }
-   }
-   else {
-      return (
-      <div key='testKey2'>
-      <b>Option number: </b>
-      {option.key}
-      <br/>
-      <b key='testKey2'>Title: </b>
-      {option.title}
-      <br/>
-      <b key='testKey3'>Description: </b>
-      {option.description}
-      </div>
-      )
-  }
-}
-
-getIndexByKey = (key, array) => {
-  for(var i = 0; i < array.length; i++) {
-    if(array[i].key === key) {
-      return i;
-    }
-    else if (array[i].key.includes('-')) {
-      const ranges = array[i].key.split('-').map(n => (parseInt(n, 10)))
-      const min = ranges[0];
-      const max = ranges[1];
-      if ((min <= parseInt(key, 10)) && (parseInt(key, 10) <= max)) {
-        return i
       }
     }
+    else {
+      return (
+        <div key='testKey2'>
+          <b>Option number: </b>
+          {option.key}
+          <br />
+          <b key='testKey2'>Title: </b>
+          {option.title}
+          <br />
+          <b key='testKey3'>Description: </b>
+          {option.description}
+        </div>
+      )
+    }
   }
-  return null;
-}
+
+  getIndexByKey = (key, array) => {
+    for (var i = 0; i < array.length; i++) {
+      if (array[i].key === key) {
+        return i;
+      }
+      else if (array[i].key.includes('-')) {
+        const ranges = array[i].key.split('-').map(n => (parseInt(n, 10)))
+        const min = ranges[0];
+        const max = ranges[1];
+        if ((min <= parseInt(key, 10)) && (parseInt(key, 10) <= max)) {
+          return i
+        }
+      }
+    }
+    return null;
+  }
 
   // Function returning the index of a possible element in an array.
   getIndex = (value, arr) => {
-    for(var i = 0; i < arr.length; i++) {
-      if(arr[i] === value) {
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] === value) {
         return i;
       }
     }
@@ -285,8 +286,8 @@ getIndexByKey = (key, array) => {
 
   // Function returning the index of a possible element in an array, given that the array contains lists with at least 1 element..
   getIndex_0 = (value, arr) => {
-    for(var i = 0; i < arr.length; i++) {
-      if(arr[i][0] === value) {
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i][0] === value) {
         return i;
       }
     }
@@ -298,14 +299,14 @@ getIndexByKey = (key, array) => {
     let avr2;
     if (key1.key.includes('-')) {
       const ranges = key1.key.split('-').map(n => (parseInt(n, 10)))
-      avr1 = (ranges[0] + ranges[1])/2
+      avr1 = (ranges[0] + ranges[1]) / 2
     }
     else {
       avr1 = parseInt(key1.key, 10)
     }
     if (key2.key.includes('-')) {
       const ranges = key2.key.split('-').map(n => (parseInt(n, 10)))
-      avr2 = (ranges[0] + ranges[1])/2
+      avr2 = (ranges[0] + ranges[1]) / 2
     }
     else {
       avr2 = parseInt(key2.key, 10)
@@ -324,15 +325,15 @@ getIndexByKey = (key, array) => {
   handleRadioButtonChange = (option, Options, item) => (event) => {
     if (option.key.includes("-")) {
       this.props.dispatch(setResponse({
-       key: item.key,
-       value: this.state.sliderValue
-     }))
+        key: item.key,
+        value: this.state.sliderValue
+      }))
     }
     else {
       this.props.dispatch(setResponse({
-       key: item.key,
-       value: option.key.toString()
-     }))
+        key: item.key,
+        value: option.key.toString()
+      }))
     }
     this.inputBox.current.focus()
     this.setState({
@@ -353,21 +354,21 @@ getIndexByKey = (key, array) => {
       const item = getItemByKey(counter)
       if (typeof (item.scale || item.input) !== 'undefined') {
         arr.push(
-        {
-          key: counter,
-          value: counter,
-          label: (getItemByKey(counter).key + ': ' + getItemByKey(counter).title)
-        }
+          {
+            key: counter,
+            value: counter,
+            label: (getItemByKey(counter).key + ': ' + getItemByKey(counter).title)
+          }
         )
       }
       counter = getNextItemByKey(counter).key;
     }
     arr.push(
-    {
-      key: last.toString(),
-      value: last.toString(),
-      label: (getItemByKey(last.toString()).key + ': ' + getItemByKey(last.toString()).title)
-    }
+      {
+        key: last.toString(),
+        value: last.toString(),
+        label: (getItemByKey(last.toString()).key + ': ' + getItemByKey(last.toString()).title)
+      }
     )
     return arr;
   }
@@ -417,214 +418,223 @@ getIndexByKey = (key, array) => {
       };
     }
 
-  let hasPeriods = true; // default periods to true
-  if (item.periods === 'false') hasPeriods = false;
-  if (input === 'date' || input === 'date_interval') {
-    hasPeriods = false;
-  }
-
-  if (input === 'integer') {
-    input = 'number';
-  }
-  if (input === 'string') {
-    input = 'text';
-  }
-
-  const response = (interview.responses && interview.responses[item.key]) || '';
-  const note = (interview.notes && interview.notes[item.key]) || '';
-  const hasInput = input || item.scale;
-  const showGlossary = settings.showGlossary && item.glossary;
-
-  // For debugging only
-  console.log('currentPos: ' + currentPos);
-  console.log('sliderMin: ' + this.state.sliderMin);
-  console.log('sliderMax: ' + this.state.sliderMax);
-  console.log('response: ' + 'type = ' + typeof(response) + ', value = ' + response);
-  console.log('hasSlider: ' + this.state.hasSlider);
-  console.log('sliderValue: ' + 'type = ' + typeof(sliderValue) + ', value = ' + sliderValue);
-  console.log('showDescription: ' + this.state.showDescription);
-  console.log('Options:');
-  console.log(Options || 'No Options');
-  console.log('Dropdown value');
-  console.log(this.state.dropdownValue || 'No dropdownvalue');
-
-  // Returns the specific interview item.
-  return (
-    <div key={item.key} className="interview-item-container">
-    <div style={{ flex: 1 }}>
-    <ItemCard item={item} />
-    {item.scale && (
-      <div key={'testKey'}>
-      Scale: <strong>{item.scale}</strong>
-      <button
-      key={'testKey'}
-      onClick={() => {
-        this.setState({
-          showDescription: !this.state.showDescription
-        })
-        this.inputBox.current.focus();
-      }}
-      >
-      {this.state.showDescription ?
-        'Hide Description'
-        :
-        'Show Description'
-      }
-      </button>
-      </div>
-      )}
-
-    {item.options &&
-      Options.map(option => {
-       return (
-        <div
-        key={option.key}
-        className="interview-response-list">
-        <label style={{ fontWeight: 'normal' }} key={option.key + ' label'}>
-        <input
-        key={option.key + ' input'}
-        type='radio'
-        checked={option === Options[currentPos]}
-        onChange={this.handleRadioButtonChange(option, Options, item)}
-
-        />
-        {this.generateOption(option, Options)}
-        </label>
-        </div>
-        )
-
-     })
+    let hasPeriods = true; // default periods to true
+    if (item.periods === 'false') hasPeriods = false;
+    if (input === 'date' || input === 'date_interval') {
+      hasPeriods = false;
     }
 
-    {hasInput && (
-      <Fragment>
-      <label htmlFor="response">Response</label>
-      <input
-      type={input}
-      style={ {fontSize: 40, backgroundColor: this.inputFieldColor()} }
-      className={`interview-input interview-input-${input}`}
-      id="ResponseInput"
-      name="response"
-      ref={this.inputBox}
+    if (input === 'integer') {
+      input = 'number';
+    }
+    if (input === 'string') {
+      input = 'text';
+    }
 
-      onKeyDown={event => {
-        const direction = event.keyCode;
-        if ( (direction === 38) || (direction === 40) ) {
-          event.preventDefault();
-          handleArrowKey(interview.activeKey, currentPos, Options, this, dispatch, direction, event)
-        }
-      }}
+    const response = (interview.responses && interview.responses[item.key]) || '';
+    const note = (interview.notes && interview.notes[item.key]) || '';
+    const hasInput = input || item.scale;
+    const showGlossary = settings.showGlossary && item.glossary;
+    const showAnalysis = settings.showAnalysis;
 
-      onChange={event => {
-        if (input === 'date' || input === 'text') {
-          dispatch(setResponse({
-            key: item.key,
-            value: event.target.value
-          }));
-        }
-        else if (event.target.value === '') {
-          dispatch(setResponse({
-            key: item.key,
-            value: '',
-          }));
-          this.setState({
-            currentPos: null,
-          });
-        }
+    // For debugging only
+    console.log('currentPos: ' + currentPos);
+    console.log('sliderMin: ' + this.state.sliderMin);
+    console.log('sliderMax: ' + this.state.sliderMax);
+    console.log('response: ' + 'type = ' + typeof (response) + ', value = ' + response);
+    console.log('hasSlider: ' + this.state.hasSlider);
+    console.log('sliderValue: ' + 'type = ' + typeof (sliderValue) + ', value = ' + sliderValue);
+    console.log('showDescription: ' + this.state.showDescription);
+    console.log('Options:');
+    console.log(Options || 'No Options');
+    console.log('Dropdown value');
+    console.log(this.state.dropdownValue || 'No dropdownvalue');
 
-        else {
-         let match = false;
-         let matched = false;
-         while (match === false) {
-          for(var i = 0; i < Options.length; i++) {
-            if (Options[i].responseType === 'simple') {
-              if (Options[i].key === event.target.value) {
-                dispatch(setResponse({
-                  key: item.key,
-                  value: event.target.value,
-                }));
-                this.setState({
-                  currentPos: i,
-                });
-                match = true;
-                matched = true;
-              }
-            }
-            else if (Options[i].responseType === 'slider') {
-              if ( (this.state.sliderMin <= parseInt(event.target.value, 10)) && (parseInt(event.target.value, 10) <= this.state.sliderMax) ) {
-                dispatch(setResponse({
-                  key: item.key,
-                  value: event.target.value,
-                  sliderValue: parseInt(event.target.value, 10),
-                }));
-                this.setState({
-                  currentPos: i,
-                  sliderValue: parseInt(event.target.value, 10),
-                });
-                match = true;
-                matched = true;
-              }
-            }
+    // Returns the specific interview item.
+    return (
+      <div key={item.key} className="interview-item-container">
+        <div style={{ flex: 1 }}>
+          <ItemCard item={item} />
+          {item.scale && (
+            <div key={'testKey'}>
+              Scale: <strong>{item.scale}</strong>
+              <button
+                key={'testKey'}
+                onClick={() => {
+                  this.setState({
+                    showDescription: !this.state.showDescription
+                  })
+                  this.inputBox.current.focus();
+                }}
+              >
+                {this.state.showDescription ?
+                  'Hide Description'
+                  :
+                  'Show Description'
+                }
+              </button>
+            </div>
+          )}
 
-            else if(Options[i].responseType === 'dropdown') {
-              if ( (this.state.dropdownMin <= event.target.value) && (event.target.value <= this.state.dropdownMax) ) {
-                dispatch(setResponse({
-                  key: item.key,
-                  value: event.target.value,
-                  dropdownValue: event.target.value,
-                }));
-                this.setState({
-                  currentPos: i,
-                  dropdownValue: event.target.value,
-                });
-                match = true;
-                matched = true;
-              }
-            }
+          {item.options &&
+            Options.map(option => {
+              return (
+                <div
+                  key={option.key}
+                  className="interview-response-list">
+                  <label style={{ fontWeight: 'normal' }} key={option.key + ' label'}>
+                    <input
+                      key={option.key + ' input'}
+                      type='radio'
+                      checked={option === Options[currentPos]}
+                      onChange={this.handleRadioButtonChange(option, Options, item)}
+
+                    />
+                    {this.generateOption(option, Options)}
+                  </label>
+                </div>
+              )
+
+            })
           }
-          match = true;
-        }
-        if (matched === false) {
-          this.setState({
-            currentPos: null,
-          });
-          dispatch(setResponse({
-            key: item.key,
-            value: event.target.value,
-            invalidResponse: true,
-          }));
-        }
-      }
-    }}
 
-    placeholder={item.validate}
-    value={response}
-    autoFocus
-    />
+          {hasInput && (
+            <Fragment>
+              <label htmlFor="response">Response</label>
+              <input
+                type={input}
+                style={{ fontSize: 40, backgroundColor: this.inputFieldColor() }}
+                className={`interview-input interview-input-${input}`}
+                id="ResponseInput"
+                name="response"
+                ref={this.inputBox}
 
-    {settings.showItemNotes && (
-      <textarea
-      onChange={event =>
-        dispatch(
-          setNote({ key: item.key, value: event.target.value })
-          )
-      }
-      defaultValue={note}
-      placeholder="Note"
-      />
-      )}
-    </Fragment>
-    )}
-    </div>
-    {showGlossary && (
-      <div className="interview-item-glossary">
-      <strong>Glossary</strong>
-      <Markdown source={item.glossary} style={{ height: '100%' }} />
+                onKeyDown={event => {
+                  const direction = event.keyCode;
+                  if ((direction === 38) || (direction === 40)) {
+                    event.preventDefault();
+                    handleArrowKey(interview.activeKey, currentPos, Options, this, dispatch, direction, event)
+                  }
+                }}
+
+                onChange={event => {
+                  if (input === 'date' || input === 'text') {
+                    dispatch(setResponse({
+                      key: item.key,
+                      value: event.target.value
+                    }));
+                  }
+                  else if (event.target.value === '') {
+                    dispatch(setResponse({
+                      key: item.key,
+                      value: '',
+                    }));
+                    this.setState({
+                      currentPos: null,
+                    });
+                  }
+
+                  else {
+                    let match = false;
+                    let matched = false;
+                    while (match === false) {
+                      for (var i = 0; i < Options.length; i++) {
+                        if (Options[i].responseType === 'simple') {
+                          if (Options[i].key === event.target.value) {
+                            dispatch(setResponse({
+                              key: item.key,
+                              value: event.target.value,
+                            }));
+                            this.setState({
+                              currentPos: i,
+                            });
+                            match = true;
+                            matched = true;
+                          }
+                        }
+                        else if (Options[i].responseType === 'slider') {
+                          if ((this.state.sliderMin <= parseInt(event.target.value, 10)) && (parseInt(event.target.value, 10) <= this.state.sliderMax)) {
+                            dispatch(setResponse({
+                              key: item.key,
+                              value: event.target.value,
+                              sliderValue: parseInt(event.target.value, 10),
+                            }));
+                            this.setState({
+                              currentPos: i,
+                              sliderValue: parseInt(event.target.value, 10),
+                            });
+                            match = true;
+                            matched = true;
+                          }
+                        }
+
+                        else if (Options[i].responseType === 'dropdown') {
+                          if ((this.state.dropdownMin <= event.target.value) && (event.target.value <= this.state.dropdownMax)) {
+                            dispatch(setResponse({
+                              key: item.key,
+                              value: event.target.value,
+                              dropdownValue: event.target.value,
+                            }));
+                            this.setState({
+                              currentPos: i,
+                              dropdownValue: event.target.value,
+                            });
+                            match = true;
+                            matched = true;
+                          }
+                        }
+                      }
+                      match = true;
+                    }
+                    if (matched === false) {
+                      this.setState({
+                        currentPos: null,
+                      });
+                      dispatch(setResponse({
+                        key: item.key,
+                        value: event.target.value,
+                        invalidResponse: true,
+                      }));
+                    }
+                  }
+                }}
+
+                placeholder={item.validate}
+                value={response}
+                autoFocus
+              />
+
+              {settings.showItemNotes && (
+                <textarea
+                  onChange={event =>
+                    dispatch(
+                      setNote({ key: item.key, value: event.target.value })
+                    )
+                  }
+                  defaultValue={note}
+                  placeholder="Note"
+                />
+              )}
+            </Fragment>
+          )}
+        </div>
+        {(showGlossary || showAnalysis) && (
+          <div style={{ width: showAnalysis ? 500 : 300 }}>
+            {showAnalysis &&
+              <AnalysisSidebar />
+            }
+            {showGlossary && (
+              <div className="interview-item-glossary">
+                <strong>Glossary</strong>
+                <Markdown source={item.glossary} style={{ height: '100%' }} />
+              </div>
+            )}
+          </div>
+        )
+        }
       </div>
-      )}
-    </div>
     );
-}
+  }
 }
 
 export default connect()(Response);

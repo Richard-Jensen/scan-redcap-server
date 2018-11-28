@@ -41,5 +41,12 @@
     "react-select": "^2.1.1",
     "redux": "^4.0.0",
     "remarkable": "^1.7.1"
-  }
+  },
+  "name": "vsCodeProject",
+  "version": "1.0.0",
+  "description": "Scan in vsCode",
+  "main": "index.js",
+  "repository": "git@github.com:FunkLid/scan-redcap.git",
+  "author": "Richard Jensen <kaffeergaat@gmail.com>",
+  "license": "MIT"
 }

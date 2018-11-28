@@ -131,14 +131,14 @@ const interview = (state = initialState, action) => {
       }
     });
     // For debugging only
-    console.log('Responses:')
-    console.log(mergedResponses)
-    console.log('Slider values:')
-    console.log(sliderValues)
-    console.log('Dropdown values:')
-    console.log(dropdownValues)
-    console.log('Invalid response items')
-    console.log(invalidResponseItems)
+    // console.log('Responses:')
+    // console.log(mergedResponses)
+    // console.log('Slider values:')
+    // console.log(sliderValues)
+    // console.log('Dropdown values:')
+    // console.log(dropdownValues)
+    // console.log('Invalid response items')
+    // console.log(invalidResponseItems)
 
     const matchedKeys = Object.keys(matched);
 

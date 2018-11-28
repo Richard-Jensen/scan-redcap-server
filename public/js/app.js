@@ -622,7 +622,7 @@ function fromCodePoint(c) {
 
 var NAMED_ENTITY_RE   = /&([a-z#][a-z0-9]{1,31});/gi;
 var DIGITAL_ENTITY_TEST_RE = /^#((?:x[a-f0-9]{1,8}|[0-9]{1,8}))/i;
-var entities = __webpack_require__(146);
+var entities = __webpack_require__(147);
 
 function replaceEntityPattern(match, name) {
   var code = 0;
@@ -1336,9 +1336,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 // import { items as en } from './items/2.1/scan.2.1.items.en.json';
 
 
-var _section2En = __webpack_require__(355);
+var _section2En = __webpack_require__(354);
 
-var _ratingscalesEn = __webpack_require__(356);
+var _ratingscalesEn = __webpack_require__(355);
 
 var _ratingscalesEn2 = _interopRequireDefault(_ratingscalesEn);
 
@@ -2122,17 +2122,17 @@ var Schema = __webpack_require__(33);
 
 module.exports = new Schema({
   include: [
-    __webpack_require__(143)
+    __webpack_require__(144)
   ],
   implicit: [
-    __webpack_require__(338),
-    __webpack_require__(339)
+    __webpack_require__(337),
+    __webpack_require__(338)
   ],
   explicit: [
-    __webpack_require__(340),
+    __webpack_require__(339),
+    __webpack_require__(344),
     __webpack_require__(345),
-    __webpack_require__(346),
-    __webpack_require__(347)
+    __webpack_require__(346)
   ]
 });
 
@@ -2339,9 +2339,9 @@ module.exports = Schema.DEFAULT = new Schema({
     __webpack_require__(43)
   ],
   explicit: [
+    __webpack_require__(347),
     __webpack_require__(348),
-    __webpack_require__(349),
-    __webpack_require__(350)
+    __webpack_require__(349)
   ]
 });
 
@@ -4849,9 +4849,9 @@ var Schema = __webpack_require__(33);
 
 module.exports = new Schema({
   explicit: [
+    __webpack_require__(330),
     __webpack_require__(331),
-    __webpack_require__(332),
-    __webpack_require__(333)
+    __webpack_require__(332)
   ]
 });
 
@@ -4872,7 +4872,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _remarkable = __webpack_require__(358);
+var _remarkable = __webpack_require__(357);
 
 var _remarkable2 = _interopRequireDefault(_remarkable);
 
@@ -9895,6 +9895,381 @@ WindowScroller.propTypes =  false ? null : {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.Analysis = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(15);
+
+var _ClickOutside = __webpack_require__(142);
+
+var _Algorithms = __webpack_require__(143);
+
+var _Algorithms2 = _interopRequireDefault(_Algorithms);
+
+var _section2Icd10En = __webpack_require__(325);
+
+var _section2Icd10En2 = _interopRequireDefault(_section2Icd10En);
+
+var _jsYaml = __webpack_require__(326);
+
+var _jsYaml2 = _interopRequireDefault(_jsYaml);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var AnalysisModal = function (_Component) {
+  _inherits(AnalysisModal, _Component);
+
+  function AnalysisModal(props) {
+    _classCallCheck(this, AnalysisModal);
+
+    var _this = _possibleConstructorReturn(this, (AnalysisModal.__proto__ || Object.getPrototypeOf(AnalysisModal)).call(this, props));
+
+    _this.state = {
+      showAnalysis: false,
+      evaluated: [],
+      matchedPrio1: [],
+      matchedPrio2: [],
+      matchedPrio3: [],
+      notMatchedPrio1: [],
+      notMatchedPrio2: [],
+      notMatchedPrio3: [],
+      algorithmSets: [],
+      selectedAlgorithmSet: {}
+    };
+
+    _this.getAlgorithmSets = function () {
+      window.axios.get('/algorithms.json').then(function (response) {
+        _this.setState({
+          algorithmSets: response.data
+        });
+        _this.parseAlgorithms(response.data[0].id);
+      }).catch(function (error) {
+        return console.error(error);
+      });
+    };
+
+    _this.handleSelectChange = function (event) {
+      var id = parseInt(event.target.value, 10);
+      _this.parseAlgorithms(id);
+    };
+
+    _this.parseAlgorithms = function (id) {
+      var selectedAlgorithmSet = _this.state.algorithmSets.find(function (set) {
+        return set.id === id;
+      });
+      try {
+        var parsed = _jsYaml2.default.load(selectedAlgorithmSet.algorithms);
+        _this.setState({
+          selectedAlgorithmSet: {
+            title: selectedAlgorithmSet.title,
+            algorithms: parsed
+          }
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    _this.getAlgorithmSets();
+    return _this;
+  }
+
+  _createClass(AnalysisModal, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        'div',
+        { style: { marginLeft: 32, cursor: 'default' } },
+        _react2.default.createElement(
+          'div',
+          { onClick: function onClick() {
+              return _this2.setState({ showAnalysis: true });
+            } },
+          'Analysis'
+        ),
+        _react2.default.createElement(
+          'div',
+          {
+            style: {
+              display: this.state.showAnalysis ? 'flex' : 'none',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              zIndex: 1000,
+              justifyContent: 'center'
+            }
+          },
+          _react2.default.createElement(
+            _ClickOutside.ClickOutside,
+            {
+              onClickOutside: function onClickOutside() {
+                return _this2.setState({ showAnalysis: false });
+              },
+              style: {
+                marginTop: 100,
+                width: 800,
+                backgroundColor: '#fff',
+                color: '#000',
+                height: '50%',
+                padding: 32,
+                boxShadow: '0 0 44px 0 rgba(0, 0, 0, 0.2)',
+                borderRadius: 3,
+                position: 'relative'
+              }
+            },
+            _react2.default.createElement(
+              'button',
+              {
+                style: { position: 'absolute', top: 10, right: 10 },
+                onClick: function onClick() {
+                  return _this2.setState({ showAnalysis: false });
+                }
+              },
+              '\u2715'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'interview-algorithms' },
+              _react2.default.createElement(
+                'button',
+                {
+                  onClick: function onClick() {
+                    var invalidResponseItems = _this2.props.interview.invalidResponseItems;
+                    var responses = _this2.props.interview.responses;
+                    var validResponses = Object.assign({}, responses);
+                    var invalidResponsesInResponses = [];
+                    // Discard the invalid responses
+                    invalidResponseItems.map(function (key) {
+                      if (responses[key]) {
+                        invalidResponsesInResponses.push(key);
+                        delete validResponses[key];
+                      }
+                    });
+                    if (invalidResponsesInResponses.length) {
+                      var keys = '';
+                      invalidResponsesInResponses.map(function (key) {
+                        return keys = keys + ' ' + key;
+                      });
+                      window.alert('The following items has invalid answers, and will not be included in the diagnoses: ' + keys);
+                    }
+
+                    var algorithms = _Algorithms2.default.run(validResponses, _this2.state.selectedAlgorithmSet.algorithms);
+                    _this2.setState({
+                      evaluated: algorithms.evaluated,
+                      matchedPrio1: algorithms.matchedPrio1,
+                      matchedPrio2: algorithms.matchedPrio2,
+                      matchedPrio3: algorithms.matchedPrio3,
+                      notMatchedPrio1: algorithms.notMatchedPrio1,
+                      notMatchedPrio2: algorithms.notMatchedPrio2,
+                      notMatchedPrio3: algorithms.notMatchedPrio3
+                    });
+                  },
+                  className: 'button'
+                },
+                'Run Algorithms'
+              ),
+              _react2.default.createElement(
+                'select',
+                {
+                  value: this.state.value,
+                  onChange: this.handleSelectChange,
+                  style: { backgroundColor: 'white' }
+                },
+                this.state.algorithmSets.map(function (algorithmSet) {
+                  return _react2.default.createElement(
+                    'option',
+                    { key: algorithmSet.id, value: algorithmSet.id },
+                    algorithmSet.title
+                  );
+                })
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'interview-algorithms-evaluator-list' },
+                _react2.default.createElement(
+                  'h4',
+                  null,
+                  'Matched Algorithms (first priority)'
+                ),
+                Object.keys(this.state.matchedPrio1).map(function (key) {
+                  return _react2.default.createElement(
+                    'div',
+                    {
+                      key: key,
+                      className: 'interview-algorithms-evaluator-list-matched-prio1'
+                    },
+                    _react2.default.createElement(
+                      'b',
+                      null,
+                      key
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      null,
+                      _this2.state.matchedPrio1[key].explanation
+                    )
+                  );
+                }),
+                _react2.default.createElement(
+                  'h4',
+                  null,
+                  'Matched Algorithms (second priority)'
+                ),
+                Object.keys(this.state.matchedPrio2).map(function (key) {
+                  return _react2.default.createElement(
+                    'div',
+                    {
+                      key: key,
+                      className: 'interview-algorithms-evaluator-list-matched-prio2'
+                    },
+                    _react2.default.createElement(
+                      'b',
+                      null,
+                      key
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      null,
+                      _this2.state.matchedPrio2[key].explanation
+                    )
+                  );
+                }),
+                _react2.default.createElement(
+                  'h4',
+                  null,
+                  'Matched Algorithms (third priority)'
+                ),
+                Object.keys(this.state.matchedPrio3).map(function (key) {
+                  return _react2.default.createElement(
+                    'div',
+                    {
+                      key: key,
+                      className: 'interview-algorithms-evaluator-list-matched-prio3'
+                    },
+                    _react2.default.createElement(
+                      'b',
+                      null,
+                      key
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      null,
+                      _this2.state.matchedPrio3[key].explanation
+                    )
+                  );
+                }),
+                _react2.default.createElement(
+                  'h4',
+                  null,
+                  'Not Matched Algorithms (first priority)'
+                ),
+                Object.keys(this.state.notMatchedPrio1).map(function (key) {
+                  return _react2.default.createElement(
+                    'div',
+                    {
+                      key: key,
+                      className: 'interview-algorithms-evaluator-list-not-matched-prio1'
+                    },
+                    _react2.default.createElement(
+                      'b',
+                      null,
+                      key
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      null,
+                      _this2.state.notMatchedPrio1[key].explanation
+                    )
+                  );
+                }),
+                _react2.default.createElement(
+                  'h4',
+                  null,
+                  'Not Matched Algorithms (second priority)'
+                ),
+                Object.keys(this.state.notMatchedPrio2).map(function (key) {
+                  return _react2.default.createElement(
+                    'div',
+                    {
+                      key: key,
+                      className: 'interview-algorithms-evaluator-list-not-matched-prio2'
+                    },
+                    _react2.default.createElement(
+                      'b',
+                      null,
+                      key
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      null,
+                      _this2.state.notMatchedPrio2[key].explanation
+                    )
+                  );
+                }),
+                _react2.default.createElement(
+                  'h4',
+                  null,
+                  'Not Matched Algorithms (third priority)'
+                ),
+                Object.keys(this.state.notMatchedPrio3).map(function (key) {
+                  return _react2.default.createElement(
+                    'div',
+                    {
+                      key: key,
+                      className: 'interview-algorithms-evaluator-list-not-matched-prio3'
+                    },
+                    _react2.default.createElement(
+                      'b',
+                      null,
+                      key
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      null,
+                      _this2.state.notMatchedPrio3[key].explanation
+                    )
+                  );
+                })
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return AnalysisModal;
+}(_react.Component);
+
+var Analysis = exports.Analysis = (0, _reactRedux.connect)(function (state) {
+  return state;
+})(AnalysisModal);
+
+/***/ }),
+/* 142 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.ClickOutside = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -9977,7 +10352,7 @@ ClickOutside.propTypes = {
 };
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9995,7 +10370,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _DataLoader = __webpack_require__(322);
+var _DataLoader = __webpack_require__(321);
 
 var _DataLoader2 = _interopRequireDefault(_DataLoader);
 
@@ -10153,7 +10528,7 @@ var Algorithms = function () {
 exports.default = Algorithms;
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10172,13 +10547,13 @@ var Schema = __webpack_require__(33);
 
 module.exports = new Schema({
   include: [
-    __webpack_require__(144)
+    __webpack_require__(145)
   ]
 });
 
 
 /***/ }),
-/* 144 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10201,16 +10576,16 @@ module.exports = new Schema({
     __webpack_require__(84)
   ],
   implicit: [
+    __webpack_require__(333),
     __webpack_require__(334),
     __webpack_require__(335),
-    __webpack_require__(336),
-    __webpack_require__(337)
+    __webpack_require__(336)
   ]
 });
 
 
 /***/ }),
-/* 145 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10297,7 +10672,7 @@ var ItemCard = exports.ItemCard = function ItemCard(_ref2) {
 };
 
 /***/ }),
-/* 146 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12438,14 +12813,14 @@ module.exports = {
 
 
 /***/ }),
-/* 147 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 
-var normalizeLink = __webpack_require__(148);
+var normalizeLink = __webpack_require__(149);
 var unescapeMd    = __webpack_require__(13).unescapeMd;
 
 /**
@@ -12528,7 +12903,7 @@ module.exports = function parseLinkDestination(state, pos) {
 
 
 /***/ }),
-/* 148 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12548,7 +12923,7 @@ module.exports = function normalizeLink(url) {
 
 
 /***/ }),
-/* 149 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12601,7 +12976,7 @@ module.exports = function parseLinkTitle(state, pos) {
 
 
 /***/ }),
-/* 150 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12616,32 +12991,13 @@ module.exports = function normalizeReference(str) {
 
 
 /***/ }),
-/* 151 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _Rangeslider = __webpack_require__(410);
-
-var _Rangeslider2 = _interopRequireDefault(_Rangeslider);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _Rangeslider2.default;
-
-/***/ }),
 /* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(413);
+var content = __webpack_require__(409);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -12649,7 +13005,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(415)(content, options);
+var update = __webpack_require__(411)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -12683,11 +13039,11 @@ var _data = __webpack_require__(63);
 
 var _items = __webpack_require__(27);
 
-var _section2Routing = __webpack_require__(420);
+var _section2Routing = __webpack_require__(421);
 
 var _section2Routing2 = _interopRequireDefault(_section2Routing);
 
-var _Algorithms = __webpack_require__(142);
+var _Algorithms = __webpack_require__(143);
 
 var _Algorithms2 = _interopRequireDefault(_Algorithms);
 
@@ -12816,14 +13172,14 @@ var interview = function interview() {
         }
       });
       // For debugging only
-      console.log('Responses:');
-      console.log(mergedResponses);
-      console.log('Slider values:');
-      console.log(sliderValues);
-      console.log('Dropdown values:');
-      console.log(dropdownValues);
-      console.log('Invalid response items');
-      console.log(invalidResponseItems);
+      // console.log('Responses:')
+      // console.log(mergedResponses)
+      // console.log('Slider values:')
+      // console.log(sliderValues)
+      // console.log('Dropdown values:')
+      // console.log(dropdownValues)
+      // console.log('Invalid response items')
+      // console.log(invalidResponseItems)
 
       var matchedKeys = Object.keys(matched);
 
@@ -12849,7 +13205,7 @@ exports.default = interview;
 /* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var freeGlobal = __webpack_require__(430);
+var freeGlobal = __webpack_require__(431);
 
 /** Detect free variable `self`. */
 var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
@@ -12877,7 +13233,7 @@ module.exports = Symbol;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(157);
-module.exports = __webpack_require__(437);
+module.exports = __webpack_require__(438);
 
 
 /***/ }),
@@ -14022,11 +14378,11 @@ var _Scan = __webpack_require__(216);
 
 var _Scan2 = _interopRequireDefault(_Scan);
 
-var _configureStore = __webpack_require__(422);
+var _configureStore = __webpack_require__(423);
 
 var _configureStore2 = _interopRequireDefault(_configureStore);
 
-var _throttle = __webpack_require__(427);
+var _throttle = __webpack_require__(428);
 
 var _throttle2 = _interopRequireDefault(_throttle);
 
@@ -35069,11 +35425,11 @@ var _ItemList = __webpack_require__(217);
 
 var _Settings = __webpack_require__(319);
 
-var _Analysis = __webpack_require__(321);
+var _Analysis = __webpack_require__(141);
 
-var _SearchItems = __webpack_require__(353);
+var _SearchItems = __webpack_require__(352);
 
-var _Response = __webpack_require__(357);
+var _Response = __webpack_require__(356);
 
 var _Response2 = _interopRequireDefault(_Response);
 
@@ -35083,7 +35439,7 @@ var _actions = __webpack_require__(19);
 
 var _items = __webpack_require__(27);
 
-var _ResetInterview = __webpack_require__(421);
+var _ResetInterview = __webpack_require__(422);
 
 var _ResetInterview2 = _interopRequireDefault(_ResetInterview);
 
@@ -35152,7 +35508,6 @@ var Scan = function (_Component) {
           { className: 'scan-app-top-bar' },
           _react2.default.createElement(_SearchItems.SearchItems, null),
           _react2.default.createElement(_Settings.Settings, null),
-          _react2.default.createElement(_Analysis.Analysis, null),
           _react2.default.createElement(_ResetInterview2.default, null)
         ),
         _react2.default.createElement(
@@ -42695,43 +43050,70 @@ var _Switch = __webpack_require__(320);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// Old component using dropdown
+// const SettingsViewOld = ({ dispatch, settings }) => {
+//   return (
+//     <div className="scan-app-settings">
+//       <div className="scan-app-settings-label">Settings</div>
+//       <div className="scan-app-settings-dropdown">
+//         <div className="scan-app-settings-item">
+//           <Switch
+//             labelOn="Show Glossary"
+//             onChange={() => dispatch(flipSetting({ setting: 'showGlossary' }))}
+//             checked={settings.showGlossary}
+//           />
+//         </div>
+//         <div className="scan-app-settings-item">
+//           <Switch
+//             labelOn="Show Item Notes"
+//             onChange={() => dispatch(flipSetting({ setting: 'showItemNotes' }))}
+//             checked={settings.showItemNotes}
+//           />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
 var SettingsView = function SettingsView(_ref) {
   var dispatch = _ref.dispatch,
       settings = _ref.settings;
 
   return _react2.default.createElement(
     'div',
-    { className: 'scan-app-settings' },
+    { className: 'scan-app-switches' },
     _react2.default.createElement(
       'div',
-      { className: 'scan-app-settings-label' },
-      'Settings'
+      { className: 'scan-app-settings-item' },
+      _react2.default.createElement(_Switch.Switch, {
+        labelOn: 'Show Glossary',
+        onChange: function onChange() {
+          return dispatch((0, _actions.flipSetting)({ setting: 'showGlossary' }));
+        },
+        checked: settings.showGlossary
+      })
     ),
     _react2.default.createElement(
       'div',
-      { className: 'scan-app-settings-dropdown' },
-      _react2.default.createElement(
-        'div',
-        { className: 'scan-app-settings-item' },
-        _react2.default.createElement(_Switch.Switch, {
-          labelOn: 'Show Glossary',
-          onChange: function onChange() {
-            return dispatch((0, _actions.flipSetting)({ setting: 'showGlossary' }));
-          },
-          checked: settings.showGlossary
-        })
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'scan-app-settings-item' },
-        _react2.default.createElement(_Switch.Switch, {
-          labelOn: 'Show Item Notes',
-          onChange: function onChange() {
-            return dispatch((0, _actions.flipSetting)({ setting: 'showItemNotes' }));
-          },
-          checked: settings.showItemNotes
-        })
-      )
+      { className: 'scan-app-settings-item' },
+      _react2.default.createElement(_Switch.Switch, {
+        labelOn: 'Show Item Notes',
+        onChange: function onChange() {
+          return dispatch((0, _actions.flipSetting)({ setting: 'showItemNotes' }));
+        },
+        checked: settings.showItemNotes
+      })
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: 'scan-app-settings-item' },
+      _react2.default.createElement(_Switch.Switch, {
+        labelOn: 'Show Analysis',
+        onChange: function onChange() {
+          return dispatch((0, _actions.flipSetting)({ setting: 'showAnalysis' }));
+        },
+        checked: settings.showAnalysis
+      })
     )
   );
 };
@@ -42797,381 +43179,6 @@ var Switch = exports.Switch = function Switch(_ref) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Analysis = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(15);
-
-var _ClickOutside = __webpack_require__(141);
-
-var _Algorithms = __webpack_require__(142);
-
-var _Algorithms2 = _interopRequireDefault(_Algorithms);
-
-var _section2Icd10En = __webpack_require__(326);
-
-var _section2Icd10En2 = _interopRequireDefault(_section2Icd10En);
-
-var _jsYaml = __webpack_require__(327);
-
-var _jsYaml2 = _interopRequireDefault(_jsYaml);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var AnalysisModal = function (_Component) {
-  _inherits(AnalysisModal, _Component);
-
-  function AnalysisModal(props) {
-    _classCallCheck(this, AnalysisModal);
-
-    var _this = _possibleConstructorReturn(this, (AnalysisModal.__proto__ || Object.getPrototypeOf(AnalysisModal)).call(this, props));
-
-    _this.state = {
-      showAnalysis: false,
-      evaluated: [],
-      matchedPrio1: [],
-      matchedPrio2: [],
-      matchedPrio3: [],
-      notMatchedPrio1: [],
-      notMatchedPrio2: [],
-      notMatchedPrio3: [],
-      algorithmSets: [],
-      selectedAlgorithmSet: {}
-    };
-
-    _this.getAlgorithmSets = function () {
-      window.axios.get('/algorithms.json').then(function (response) {
-        _this.setState({
-          algorithmSets: response.data
-        });
-        _this.parseAlgorithms(response.data[0].id);
-      }).catch(function (error) {
-        return console.error(error);
-      });
-    };
-
-    _this.handleSelectChange = function (event) {
-      var id = parseInt(event.target.value, 10);
-      _this.parseAlgorithms(id);
-    };
-
-    _this.parseAlgorithms = function (id) {
-      var selectedAlgorithmSet = _this.state.algorithmSets.find(function (set) {
-        return set.id === id;
-      });
-      try {
-        var parsed = _jsYaml2.default.load(selectedAlgorithmSet.algorithms);
-        _this.setState({
-          selectedAlgorithmSet: {
-            title: selectedAlgorithmSet.title,
-            algorithms: parsed
-          }
-        });
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    _this.getAlgorithmSets();
-    return _this;
-  }
-
-  _createClass(AnalysisModal, [{
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
-
-      return _react2.default.createElement(
-        'div',
-        { style: { marginLeft: 32, cursor: 'default' } },
-        _react2.default.createElement(
-          'div',
-          { onClick: function onClick() {
-              return _this2.setState({ showAnalysis: true });
-            } },
-          'Analysis'
-        ),
-        _react2.default.createElement(
-          'div',
-          {
-            style: {
-              display: this.state.showAnalysis ? 'flex' : 'none',
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              zIndex: 1000,
-              justifyContent: 'center'
-            }
-          },
-          _react2.default.createElement(
-            _ClickOutside.ClickOutside,
-            {
-              onClickOutside: function onClickOutside() {
-                return _this2.setState({ showAnalysis: false });
-              },
-              style: {
-                marginTop: 100,
-                width: 800,
-                backgroundColor: '#fff',
-                color: '#000',
-                height: '50%',
-                padding: 32,
-                boxShadow: '0 0 44px 0 rgba(0, 0, 0, 0.2)',
-                borderRadius: 3,
-                position: 'relative'
-              }
-            },
-            _react2.default.createElement(
-              'button',
-              {
-                style: { position: 'absolute', top: 10, right: 10 },
-                onClick: function onClick() {
-                  return _this2.setState({ showAnalysis: false });
-                }
-              },
-              '\u2715'
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'interview-algorithms' },
-              _react2.default.createElement(
-                'button',
-                {
-                  onClick: function onClick() {
-                    var invalidResponseItems = _this2.props.interview.invalidResponseItems;
-                    var responses = _this2.props.interview.responses;
-                    var validResponses = Object.assign({}, responses);
-                    var invalidResponsesInResponses = [];
-                    // Discard the invalid responses
-                    invalidResponseItems.map(function (key) {
-                      if (responses[key]) {
-                        invalidResponsesInResponses.push(key);
-                        delete validResponses[key];
-                      }
-                    });
-                    if (invalidResponsesInResponses.length) {
-                      var keys = '';
-                      invalidResponsesInResponses.map(function (key) {
-                        return keys = keys + ' ' + key;
-                      });
-                      window.alert('The following items has invalid answers, and will not be included in the diagnoses: ' + keys);
-                    }
-
-                    var algorithms = _Algorithms2.default.run(validResponses, _this2.state.selectedAlgorithmSet.algorithms);
-                    _this2.setState({
-                      evaluated: algorithms.evaluated,
-                      matchedPrio1: algorithms.matchedPrio1,
-                      matchedPrio2: algorithms.matchedPrio2,
-                      matchedPrio3: algorithms.matchedPrio3,
-                      notMatchedPrio1: algorithms.notMatchedPrio1,
-                      notMatchedPrio2: algorithms.notMatchedPrio2,
-                      notMatchedPrio3: algorithms.notMatchedPrio3
-                    });
-                  },
-                  className: 'button'
-                },
-                'Run Algorithms'
-              ),
-              _react2.default.createElement(
-                'select',
-                {
-                  value: this.state.value,
-                  onChange: this.handleSelectChange,
-                  style: { backgroundColor: 'white' }
-                },
-                this.state.algorithmSets.map(function (algorithmSet) {
-                  return _react2.default.createElement(
-                    'option',
-                    { key: algorithmSet.id, value: algorithmSet.id },
-                    algorithmSet.title
-                  );
-                })
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'interview-algorithms-evaluator-list' },
-                _react2.default.createElement(
-                  'h4',
-                  null,
-                  'Matched Algorithms (first priority)'
-                ),
-                Object.keys(this.state.matchedPrio1).map(function (key) {
-                  return _react2.default.createElement(
-                    'div',
-                    {
-                      key: key,
-                      className: 'interview-algorithms-evaluator-list-matched-prio1'
-                    },
-                    _react2.default.createElement(
-                      'b',
-                      null,
-                      key
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      null,
-                      _this2.state.matchedPrio1[key].explanation
-                    )
-                  );
-                }),
-                _react2.default.createElement(
-                  'h4',
-                  null,
-                  'Matched Algorithms (second priority)'
-                ),
-                Object.keys(this.state.matchedPrio2).map(function (key) {
-                  return _react2.default.createElement(
-                    'div',
-                    {
-                      key: key,
-                      className: 'interview-algorithms-evaluator-list-matched-prio2'
-                    },
-                    _react2.default.createElement(
-                      'b',
-                      null,
-                      key
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      null,
-                      _this2.state.matchedPrio2[key].explanation
-                    )
-                  );
-                }),
-                _react2.default.createElement(
-                  'h4',
-                  null,
-                  'Matched Algorithms (third priority)'
-                ),
-                Object.keys(this.state.matchedPrio3).map(function (key) {
-                  return _react2.default.createElement(
-                    'div',
-                    {
-                      key: key,
-                      className: 'interview-algorithms-evaluator-list-matched-prio3'
-                    },
-                    _react2.default.createElement(
-                      'b',
-                      null,
-                      key
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      null,
-                      _this2.state.matchedPrio3[key].explanation
-                    )
-                  );
-                }),
-                _react2.default.createElement(
-                  'h4',
-                  null,
-                  'Not Matched Algorithms (first priority)'
-                ),
-                Object.keys(this.state.notMatchedPrio1).map(function (key) {
-                  return _react2.default.createElement(
-                    'div',
-                    {
-                      key: key,
-                      className: 'interview-algorithms-evaluator-list-not-matched-prio1'
-                    },
-                    _react2.default.createElement(
-                      'b',
-                      null,
-                      key
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      null,
-                      _this2.state.notMatchedPrio1[key].explanation
-                    )
-                  );
-                }),
-                _react2.default.createElement(
-                  'h4',
-                  null,
-                  'Not Matched Algorithms (second priority)'
-                ),
-                Object.keys(this.state.notMatchedPrio2).map(function (key) {
-                  return _react2.default.createElement(
-                    'div',
-                    {
-                      key: key,
-                      className: 'interview-algorithms-evaluator-list-not-matched-prio2'
-                    },
-                    _react2.default.createElement(
-                      'b',
-                      null,
-                      key
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      null,
-                      _this2.state.notMatchedPrio2[key].explanation
-                    )
-                  );
-                }),
-                _react2.default.createElement(
-                  'h4',
-                  null,
-                  'Not Matched Algorithms (third priority)'
-                ),
-                Object.keys(this.state.notMatchedPrio3).map(function (key) {
-                  return _react2.default.createElement(
-                    'div',
-                    {
-                      key: key,
-                      className: 'interview-algorithms-evaluator-list-not-matched-prio3'
-                    },
-                    _react2.default.createElement(
-                      'b',
-                      null,
-                      key
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      null,
-                      _this2.state.notMatchedPrio3[key].explanation
-                    )
-                  );
-                })
-              )
-            )
-          )
-        )
-      );
-    }
-  }]);
-
-  return AnalysisModal;
-}(_react.Component);
-
-var Analysis = exports.Analysis = (0, _reactRedux.connect)(function (state) {
-  return state;
-})(AnalysisModal);
-
-/***/ }),
-/* 322 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
@@ -43179,15 +43186,15 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Diagnosis = __webpack_require__(323);
+var _Diagnosis = __webpack_require__(322);
 
 var _Diagnosis2 = _interopRequireDefault(_Diagnosis);
 
-var _AlgorithmSegment = __webpack_require__(324);
+var _AlgorithmSegment = __webpack_require__(323);
 
 var _AlgorithmSegment2 = _interopRequireDefault(_AlgorithmSegment);
 
-var _Evaluator = __webpack_require__(325);
+var _Evaluator = __webpack_require__(324);
 
 var _Evaluator2 = _interopRequireDefault(_Evaluator);
 
@@ -43308,7 +43315,7 @@ var DataLoader = function () {
 exports.default = DataLoader;
 
 /***/ }),
-/* 323 */
+/* 322 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43350,7 +43357,7 @@ var Diagnosis = function () {
 exports.default = Diagnosis;
 
 /***/ }),
-/* 324 */
+/* 323 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43448,7 +43455,7 @@ var AlgorithmSegment = function () {
 exports.default = AlgorithmSegment;
 
 /***/ }),
-/* 325 */
+/* 324 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44395,10 +44402,24 @@ var Evaluator = function () {
 exports.default = Evaluator;
 
 /***/ }),
-/* 326 */
+/* 325 */
 /***/ (function(module, exports) {
 
 module.exports = {"F44":{"explanation":"Dissociative disorders any","algorithm":[{"AND":["$2.010f = 2"]}]},"F44.4":{"explanation":"Dissociative motor disorders","algorithm":[{"AND":["$2.010f = 2","$2.010fa = 1","$2.010fb = 1","$2.010fc = 1","$2.010fd = 1","$2.010fe = 1"]}]},"F44.6":{"explanation":"Dissociative anaesthesia and sensory loss","algorithm":[{"AND":["$2.010f = 2","$2.010fg = 1","$2.010fh = 1","$2.010fi = 1"]}]},"F44.9":{"explanation":"unspecificed","algorithm":[{"AND":["$2.010f = 2","$2.010fj = 1","$2.010fi = 1"]}]},"F45.0":{"explanation":"Somatization disorder","algorithm":[{"AND":["$!F45.0A","$!F45.0B","$!F45.0C","$!F45.0D","$!F45.0E"]}]},"F45.0a":{"explanation":"Somatization disorder withou excl. for other mentl conditions","algorithm":[{"AND":["$!F45.0A","$!F45.0B","$!F45.0C","$!F45.0D"]}]},"F45.0A":{"explanation":">= 6 somatoform symptoms without prominent autonomic symptoms and duration >= 2 years and variability of symptoms","algorithm":[{"AND":[{"AND":["$@F45.0A.counter >= 6"]},"$2.012b >= 24"]}]},"F45.0A.counter":{"explanation":"Number of any functional symptoms from SCAN ","algorithm":[{"SUM":["$2.010a = [1,2,3]","$2.010b = [1,2,3]","$2.010c = [1,2,3]","$2.010d = [1,2,3]","$2.010e = [1,2,3]","$2.010f = [1,2,3]","$2.010g = [1,2,3]","$2.011a = [1,2,3]","$2.011b = [1,2,3]","$2.011c = [1,2,3]","$2.011d = [1,2,3]","$2.011e = [1,2,3]","$2.011f = [1,2,3]","$2.011g = [1,2,3]","$2.011h = [1,2,3]","$2.012a = [1,2,3]","$2.012b = [1,2,3]","$2.012c = [1,2,3]","$2.013a = [1,2,3]","$2.013b = [1,2,3]","$2.013c = [1,2,3]","$2.013d = [1,2,3]","$2.013e = [1,2,3]","$2.013f = [1,2,3]","$2.013g = [1,2,3]","$2.014a = [1,2,3]","$2.014b = [1,2,3]","$2.014c = [1,2,3]","$2.014d = [1,2,3]","$2.014e = [1,2,3]","$2.014f = [1,2,3]","$2.014g = [1,2,3]","$2.014h = [1,2,3]","$2.014i = [1,2,3]","$2.014j = [1,2,3]","$2.015a = [1,2,3]","$2.015b = [1,2,3]","$2.015c = [1,2,3]","$2.015d = [1,2,3]","$2.015e = [1,2,3]","$2.015f = [1,2,3]","$2.015g = [1,2,3]","$2.015h = [1,2,3]","$2.017a = [1,2,3]","$2.017b = [1,2,3]","$2.017c = [1,2,3]","$2.017d = [1,2,3]","$2.017e = [1,2,3]","$2.018a = [1,2,3]","$2.018b = [1,2,3]","$2.018c = [1,2,3]","$2.018d = [1,2,3]","$2.018e = [1,2,3]","$2.018f = [1,2,3]","$2.018g = [1,2,3]","$2.019 = [1,2,3]","$2.020 = [1,2,3]","$2.021 = [1,2,3]","$2.022 = [1,2,3]","$2.023 = [1,2,3]","$2.024 = [1,2,3]","$2.025 = [1,2,3]","$2.026 = [1,2,3]","$2.027a = [1,2,3]","$2.027b = [1,2,3]"]}]},"F45.0B":{"explanation":"Preoccupation and distress repeated investigations","algorithm":[{"AND":["$2.038 = 2"]}]},"F45.0C":{"explanation":"Refusal of reassurance included","algorithm":[{"AND":["$2.046 = [2,3]"]}]},"F45.0D":{"explanation":"A total of >= 6 of the folllowing symp-toms from >= 2 separate-groups","algorithm":[{"AND":["$@F45.0D.counter >= 6","$@F45.0DS >= 2"]}]},"F45.0D.counter":{"explanation":"Number of criteria D sympt excl.D11,D12,D4 ","algorithm":[{"SUM":["$!F45.0D1","$!F45.0D2","$!F45.0D3","$!F45.0D5","$!F45.0D6","$!F45.0D7","$!F45.0D8","$!F45.0D9","$!F45.0D10","$!F45.0D13","$!F45.0D14"]}]},"F45.0D1":{"explanation":"Abdominal pain","algorithm":[{"AND":["$2.013c = [1,2,3]"]}]},"F45.0D2":{"explanation":"Nausea","algorithm":[{"AND":["$2.013b = [1,2,3]"]}]},"F45.0D3":{"explanation":"Feeling bloated, full of gas, distended, heavy","algorithm":[{"AND":["$2.013d = [1,2,3]"]}]},"F45.0D5":{"explanation":"Vomiting, Regurgitation","algorithm":[{"OR":["$2.013a = [1,2,3]","$2.012a = [1,2,3]"]}]},"F45.0D6":{"explanation":"Alternating bowel movements ","algorithm":[{"OR":["$2.013e = [1,2,3]"]}]},"F45.0D7":{"explanation":"Breathlessness without exertion","algorithm":[{"AND":["$2.014c = [1,2,3]"]}]},"F45.0D8":{"explanation":"Precordial discomfort or chest pain","algorithm":[{"AND":["$2.014b = [1,2,3]"]}]},"F45.0D9":{"explanation":"Pains during urination or frequent urination","algorithm":[{"OR":["$2.017a = [1,2,3]","$2.017c = [1,2,3]"]}]},"F45.0D10":{"explanation":"Unpleasant sensations in or around the genitals ","algorithm":[{"AND":["$2.018b = [1,2,3]"]}]},"F45.0D13":{"explanation":"Pain in arms or legs or joints","algorithm":[{"OR":["$2.011c = [1,2,3]","$2.011d = [1,2,3]"]}]},"F45.0D14":{"explanation":"Unpleasant numbness or tingling sensations","algorithm":[{"AND":["$2.011g = [1,2,3]"]}]},"F45.0DS":{"explanation":"Symptoms from >= 2 organsystems","algorithm":[{"SUM":[{"OR":["$!F45.0D1","$!F45.0D2","$!F45.0D3","$!F45.0D5","$!F45.0D6"]},{"OR":["$!F45.0D7","$!F45.0D8"]},{"OR":["$!F45.0D9","$!F45.0D10"]},{"OR":["$!F45.0D13","$!F45.0D14"]}]}]},"F45.0E":{"explanation":"Preoccupation not primarily due to depression, anxiety or another psychiatric illness","algorithm":[{"AND":["$2.072 <> 3","$2.073 <> 3","$6.023 <> 1","$2.075 <> 3"]}]},"F45.1":{"explanation":"Undifferentiated somatoform disorder","algorithm":[{"AND":["$!F45.1A","$!F45.1B","$!F45.0C","$!F45.0E","$!F45.0 <> 1"]}]},"F45.1a":{"explanation":"Undifferentiated somatoform dis. without excl. for other mental disord.","algorithm":[{"AND":["$!F45.1A","$!F45.1B","$!F45.0C","$!F45.0E","$!F45.0a <> 1"]}]},"F45.1A":{"explanation":">= 6 somatoform symptoms for > 6 months","algorithm":[{"AND":["$@F45.0A.counter >= 6","$2.033 >= 6"]}]},"F45.1B":{"explanation":"Some distress or preoccupation included in A (2.038)","algorithm":[{"AND":["$2.038 = [1,2]"]}]},"F45.2":{"explanation":"Hypochondriacal disorder","algorithm":[{"AND":["$!F45.2ABC","$!F45.2D"]}]},"F45.2a":{"explanation":"Hypochondriacal disorder withou excl. for other mental disord.","algorithm":[{"AND":["$!F45.2ABC"]}]},"F45.2ABC":{"explanation":"(1) persistent belief for > 6months of 1 or 2 serious illnesses or (2) persistent preoccupation with presumed deformity","algorithm":[{"AND":[{"OR":["$2.038 = [1,2]","$16.011 = [2,3]","$2.053 = 1"]},"$2.038 = 1","$2.046 = [2,3]","$2.051 >= 6"]}]},"F45.2D":{"explanation":"Does not meet criteria for F2 disorders orF3 disorders","algorithm":[{"AND":["$2.072 <> 3","$2.073 <> 3","$6.023 <> 1","$2.074 <> 1","$2.075 <> 3"]}]},"F45.3":{"explanation":"Somatoform autonomic dysfunction","algorithm":[{"AND":["$!F45.3A","$!F45.3B","$!F45.3C","$!F45.3E"]}]},"F45.3a":{"explanation":"Somatoform autonomic dysfunction, without excl. for other mental disord","algorithm":[{"AND":["$!F45.3A","$!F45.3B","$!F45.3C"]}]},"F45.3A":{"explanation":"Autonomic hyperactivitet at least on oragnsystem","algorithm":[{"OR":["$@F45.3A1.counter >= 1","$@F45.3A2.counter >= 1","$@F45.3A3.counter >= 1","$@F45.3A4.counter >= 1","$@F45.3A5.counter >= 1"]}]},"F45.3A1.counter":{"explanation":"Hyperactivity CV syste ","algorithm":[{"SUM":["$2.014a = [1,2,3]","$2.014b = [1,2,3]","$2.014e = [1,2,3]","$2.014h = [1,2,3]"]}]},"F45.3A2.counter":{"explanation":"Upper GI aroual","algorithm":[{"SUM":["$2.012a = [1,2,3]","$2.012b = [1,2,3]","$2.012c = [1,2,3]","$2.013a = [1,2,3]"]}]},"F45.3A3.counter":{"explanation":"Lower GI symptoms)","algorithm":[{"SUM":["$2.013b = [1,2,3]","$2.013c = [1,2,3]","$2.013d = [1,2,3]","$2.013e = [1,2,3]","$2.013f = [1,2,3]","$2.013g = [1,2,3]"]}]},"F45.3A4.counter":{"explanation":"Hyperactivity pulmonal system ","algorithm":[{"SUM":["$2.014c = [1,2,3]","$2.014d = [1,2,3]","$2.014g = [1,2,3]"]}]},"F45.3A5.counter":{"explanation":"Counter,hyperactivitet urogenital system","algorithm":[{"SUM":["$2.017a = [1,2,3]","$2.017c = [1,2,3]","$2.017d = [1,2,3]","$2.018d = [1,2,3]"]}]},"F45.3B":{"explanation":">= 2 autonomic symptoms of 1-5","algorithm":[{"AND":["$@F45.3B.counter >= 2"]}]},"F45.3B.counter":{"explanation":"Autnome symptoms","algorithm":[{"SUM":["$2.014a = 1","$2.014e = 1","$2.014g = 1","$2.014h = 1","$2.014i = 1"]}]},"F45.3C.counter":{"explanation":"Other autnome symptoms","algorithm":[{"SUM":["$2.014b = 1","$2.014c = 1","$2.014d = 1","$2.010b = 1","$2.012b = 1","$2.013g = 1","$2.017c = 1","$2.013d = 1"]}]},"F45.3E":{"explanation":"Panic disorder not primar","algorithm":[{"AND":["$2.072 <> 3"]}]},"F45.4":{"explanation":"Persistent somatoform pain disorder","algorithm":[{"AND":["$!F45.4A","$!F45.4B"]}]},"F45.4a":{"explanation":"Persistent somatoform pain disorder, without exclud. for other mental dis.","algorithm":[{"AND":["$!F45.4A"]}]},"F45.4A":{"explanation":"Persistent severe, distressing pain for > 6 months ","algorithm":[{"AND":[{"OR":["$2.010e = [2,3]","$2.011a = [2,3]","$2.011b = [2,3]","$2.011c = [2,3]","$2.011d = [2,3]","$2.013c = [2,3]","$2.018a = [2,3]","$2.018f = [2,3]","$2.017a = [2,3]","$2.017b = [2,3]","$2.018c = [2,3]","$2.011i = [2,3]","$2.024 = [2,3]","$2.025 = [2,3]"]},"$2.030 = [2,3]","$2.033 >= 6"]}]},"F45.4B":{"explanation":"Not explained by other disorders","algorithm":[{"AND":["$2.072 <> 3","$2.073 <> 3","$2.074 <> 3","$6.023 <> 1","$2.075 <> 3","$!F45.0 <> 1","$!F45.1 <> 1"]}]},"F45.9":{"explanation":"Unspecified somatoform disorder (>= 4) somatoform symptoms but does not fulfil criteria for any specified category Some preoccupation, with duration >= 6 months Does not meet criteria forF45.0-.4 or F41 Does not meet criteria for F2 or F3 disorders","algorithm":[{"AND":["$@F45.0D.counter >= 4","$2.033 >= 6","$2.038 = [1,2,8]","$2.072 <> 3","$2.073 <> 3","$6.023 <> 1","$2.075 <> 3","$!F45.0 <> 1","$!F45.1 <> 1","$!F45.2 <> 1","$!F45.3 <> 1","$!F45.4 <> 1"]}]},"F45.9a":{"explanation":"Unspecified somatoform disorder withou exclus for other mental disord","algorithm":[{"AND":["$@F45.0D.counter >= 4","$2.033 >= 6","$2.038 = [1,2,8]","$2.072 <> 3","$2.073 <> 3","$6.023 <> 1","$2.075 <> 3","$!F45.0a <> 1","$!F45.1a <> 1","$!F45.2a <> 1","$!F45.3a <> 1","$!F45.4a <> 1"]}]},"F48.0":{"explanation":"Neurasthenia","algorithm":[{"AND":["$!F48.0AC","$!F48.0B","$!F48.0D","$!F48.0E"]}]},"F48.0a":{"explanation":"Neurasthenia, withou excl. for other mental disorder","algorithm":[{"AND":["$!F48.0AC","$!F48.0B","$!F48.0D"]}]},"F48.0AC":{"explanation":"(1) Excessive mental- or physical fatigue not recover on rest ","algorithm":[{"OR":["$2.010b = [2,3]"]}]},"F48.0B":{"explanation":">= 1 of following symptoms (1) muscular pains (2) dizziness (3) tension headaches (4) sleep disturbance ","algorithm":[{"OR":["$2.011b = [1,2,3]","$2.010f = [1,2,3]","$2.010e = [1,2,3]",{"OR":["$8.011 = [1,2]","$8.012 = [1,2]","$8.013 = [1,2]","$8.014 = [1,2]","$8.015 = [1,2]","$8.016 = [1,2]"]},"$3.003 = [2,3]","$3.009 = [2,3]"]}]},"F48.0D":{"explanation":"duration >= 3 months","algorithm":[{"AND":["$2.033 >= 3"]}]},"F48.0E":{"explanation":"not better explained by depression, panic disroder or anxietyciety","algorithm":[{"AND":["$2.072 <> 3","$2.073 <> 3","$6.023 <> 1"]}]},"Fatiq":{"explanation":"Counter fatiq ","algorithm":[{"SUM":["$3.007 = [1,2,3]","$7.006 = [1,2,3]","$2.010b = [1,2,3]"]}]},"nsomdg":{"explanation":"Any somatoform diagnose","algorithm":[{"SUM":["$!F44.4.7","$!F45.0i","$!F45.1i","$!F45.2i","$!F45.3i","$!F45.4i","$!F48.0"]}]},"DEP":{"explanation":"Any depression excl. dystymi","algorithm":[{"OR":["$!F31.30","$!F31.3","$!F31.31","$!F31.4","$!F31.5","$!F31.51","$!F31.50","$!F32.0","$!F32.00","$!F32.01","$!F32.10","$!F32.11","$!F32.2","$!F32.3","$!F32.30","$!F32.31","$!F32.9","$!F33","$!F33.0","$!F33.00","$!F33.01","$!F33.1","$!F33.10","$!F33.11","$!F33.2","$!F33.3","$!F33.30","$!F33.31","$!F33.9","$!F39"]}]},"DEPDYS":{"explanation":"Any depression or dystymi ","algorithm":[{"OR":["$!F31.30","$!F31.3","$!F31.31","$!F31.4","$!F31.5","$!F31.51","$!F31.50","$!F32.0","$!F32.00","$!F32.01","$!F32.1","$!F32.10","$!F32.11","$!F32.2","$!F32.3","$!F32.30","$!F32.31","$!F32.9","$!F33","$!F33.0","$!F33.00","$!F33.01","$!F33.1","$!F33.10","$!F33.11","$!F33.2","$!F33.3","$!F33.30","$!F33.31","$!F33.9","$!F34.0","$!F34.1","$!F34.9","$!F38.10","$!F39"]}]},"F0":{"explanation":"This is met when any of the F0 algorithms is met.","algorithm":[{"OR":["$!F00.03","$!F00","$!F00.0","$!F00.1","$!F00.2","$!F00.9","$!F01","$!F01.0","$!F01.1","$!F01.2","$!F01.3","$!F01.9","$!F02.0","$!F02.3","$!F02.4","$!F02.8","$!F03","$!F04","$!F05","$!F05.0","$!F05.1","$!F06","$!F06.0","$!F06.1","$!F06.2","$!F06.3","$!F06.4","$!F07","$!F07.0"]}]},"F00":{"explanation":"Dementia in Alzheimer's disease","algorithm":[{"AND":["$!F00A","$!F00B"]}]},"F00.0":{"explanation":"With early onset","algorithm":[{"AND":["$!F00.0.1","$!F00.0.2"]}]},"SCHIZII1":{"explanation":"delusions","algorithm":[{"AND":[{"OR":["$17.025 = [2,3]","$17.027 = [2,3]","$17.029 = [2,3]","$18.003 = [2,3]","$19.003 = [2,3]","$19.004 = [2,3]","$19.005 = [2,3]","$19.006 = [2,3]","$19.007 = [2,3]","$19.008 = [2,3]","$19.012 = [2,3]","$19.013 = [2,3]","$19.014 = [2,3]","$19.016 = [2,3]","$19.017 = [2,3]","$19.018 = [2,3]","$19.019 = [2,3]","$19.021 = [2,3]","$19.022 = [2,3]","$19.023 = [2,3]","$19.028 = [2,3]","$19.029 = [2,3]","$19.030 = [2,3]","$19.031 = [2,3]","$19.032 = [2,3]"]},"$19.045 = 0","$20.070 = [0,1]",{"OR":["$19.044 = [2,3]","$20.055 = [2,3]"]}]}]},"SCHIZII2":{"explanation":"hallucinations","algorithm":[{"AND":[{"OR":["$17.003 = [2,3]","$17.004 = [3,4]","$17.015 = [2,3]","$17.016 = [2,3]","$17.017 = [2,3]","$17.022 = [2,3]","$17.024 = [2,3]","$17.026 = [2,3]","$17.028 = [2,3]","$17.030 = [2,3]"]},"$17.034 = 0","$20.065 = [0,1]","$20.066 = [0,1]","$20.067 = [0,1]",{"OR":["$17.033 = [2,3]",{"OR":["$20.050 = [2,3]","$20.051 = [2,3]","$20.052 = [2,3]"]}]}]}]},"F06F320B.counter":{"explanation":"","algorithm":[{"SUM":["$!F32.0B1","$!F06F32B2","$!F06F32B3"]}]},"F06F320C.counter":{"explanation":"","algorithm":[{"SUM":["$!F32.0C1","$!F32.0C2","$!F32.0C3","$!F06F32C4","$!F06F32C5","$!F06F32C6","$!F32.0C7"]}]},"SOMSYND":{"explanation":"Somatic syndrome subtype criteria","algorithm":[{"AND":["$@SOMSYND.counter >= 4"]}]},"SOMSYND.counter":{"explanation":"","algorithm":[{"SUM":["$!SOMSYND1","$!SOMSYND2","$!SOMSYND3","$!SOMSYND4","$!SOMSYND5","$!SOMSYND6","$!SOMSYND7","$!SOMSYND8"]}]},"SOMSYND1":{"explanation":"loss of interest or pleasure","algorithm":[{"OR":["$6.004 = [2,3]","$7.004 = [2,3]"]}]},"SOMSYND2":{"explanation":"lack of emotional reactions","algorithm":[{"AND":["$6.008 = [2,3]"]}]},"SOMSYND3":{"explanation":"early awakening (> 2 hours)","algorithm":[{"AND":["$8.014 = 3"]}]},"SOMSYND4":{"explanation":"depression worse in morning","algorithm":[{"AND":["$6.009 = 1"]}]},"SOMSYND5":{"explanation":"objective retardation or agitation","algorithm":[{"OR":["$22.001 = [1,2]","$22.002 = [1,2]","$22.003 = [1,2]","$22.004 = [1,2]","$22.005 = [1,2]","$22.006 = [1,2]","$22.007 = [1,2]","$22.010 = [1,2]","$24.002 = [1,2]","$22.010e = [1,2]","$22.010f = [1,2]"]}]},"SOMSYND6":{"explanation":"loss of appetite","algorithm":[{"AND":["$8.005 = [2,3]"]}]},"SOMSYND7":{"explanation":"weight loss > 5% in 1 month","algorithm":[{"AND":["$8.006 = [2,3]"]}]},"SOMSYND8":{"explanation":"loss of libido","algorithm":[{"AND":["$8.024 = [2,3]","$8.025 = 1"]}]},"F20.4B.derived1":{"explanation":"Derived from F20.4B","algorithm":[{"SUM":["$!F20G1.2a","$!F20G1.2b","$!F20G1.2c","$!F20G1.2d"]}]},"DELONS":{"explanation":"Posttraumatic stress disorder - delayed onset","algorithm":[{"AND":["$!F43.1A","$!F43.1B","$!F43.1C","$!F43.1D","$13.094 = 3"]}]},"F48.1":{"explanation":"Depersonalisation - derealisation syndrome","algorithm":[{"AND":["$!F48.1A","$!F48.1B"]}]},"F48.1A":{"explanation":"(1) depersonalization or (2) derealization ","algorithm":[{"OR":[{"OR":["$3.012 = [2,3]","$16.008 = [2,3]","$16.009 = [2,3]","$16.010 = [2,3]"]},{"OR":["$16.006 = [2,3]","$16.007 = [2,3]"]}]}]},"F48.1B":{"explanation":"Insight present","algorithm":[{"AND":["$16.013 = 0",{"AND":["$!F05 = 0","$!F06 = 0","$!F1 = 0","$!F2 = 0","$!F3 = 0","$!F40.0 = 0","$!F40.1 = 0","$!F40.2 = 0","$!F40.9 = 0","$!F41.0 = 0","$!F41.1 = 0","$!F40.9 = 0"]}]}]}}
+
+/***/ }),
+/* 326 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+
+var yaml = __webpack_require__(327);
+
+
+module.exports = yaml;
+
 
 /***/ }),
 /* 327 */
@@ -44408,22 +44429,8 @@ module.exports = {"F44":{"explanation":"Dissociative disorders any","algorithm":
 
 
 
-var yaml = __webpack_require__(328);
-
-
-module.exports = yaml;
-
-
-/***/ }),
-/* 328 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-
-var loader = __webpack_require__(329);
-var dumper = __webpack_require__(352);
+var loader = __webpack_require__(328);
+var dumper = __webpack_require__(351);
 
 
 function deprecated(name) {
@@ -44436,8 +44443,8 @@ function deprecated(name) {
 module.exports.Type                = __webpack_require__(6);
 module.exports.Schema              = __webpack_require__(33);
 module.exports.FAILSAFE_SCHEMA     = __webpack_require__(84);
-module.exports.JSON_SCHEMA         = __webpack_require__(144);
-module.exports.CORE_SCHEMA         = __webpack_require__(143);
+module.exports.JSON_SCHEMA         = __webpack_require__(145);
+module.exports.CORE_SCHEMA         = __webpack_require__(144);
 module.exports.DEFAULT_SAFE_SCHEMA = __webpack_require__(43);
 module.exports.DEFAULT_FULL_SCHEMA = __webpack_require__(54);
 module.exports.load                = loader.load;
@@ -44461,7 +44468,7 @@ module.exports.addConstructor = deprecated('addConstructor');
 
 
 /***/ }),
-/* 329 */
+/* 328 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44471,7 +44478,7 @@ module.exports.addConstructor = deprecated('addConstructor');
 
 var common              = __webpack_require__(32);
 var YAMLException       = __webpack_require__(42);
-var Mark                = __webpack_require__(330);
+var Mark                = __webpack_require__(329);
 var DEFAULT_SAFE_SCHEMA = __webpack_require__(43);
 var DEFAULT_FULL_SCHEMA = __webpack_require__(54);
 
@@ -46066,7 +46073,7 @@ module.exports.safeLoad    = safeLoad;
 
 
 /***/ }),
-/* 330 */
+/* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46149,7 +46156,7 @@ module.exports = Mark;
 
 
 /***/ }),
-/* 331 */
+/* 330 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46164,7 +46171,7 @@ module.exports = new Type('tag:yaml.org,2002:str', {
 
 
 /***/ }),
-/* 332 */
+/* 331 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46179,7 +46186,7 @@ module.exports = new Type('tag:yaml.org,2002:seq', {
 
 
 /***/ }),
-/* 333 */
+/* 332 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46194,7 +46201,7 @@ module.exports = new Type('tag:yaml.org,2002:map', {
 
 
 /***/ }),
-/* 334 */
+/* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46235,7 +46242,7 @@ module.exports = new Type('tag:yaml.org,2002:null', {
 
 
 /***/ }),
-/* 335 */
+/* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46277,7 +46284,7 @@ module.exports = new Type('tag:yaml.org,2002:bool', {
 
 
 /***/ }),
-/* 336 */
+/* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46457,7 +46464,7 @@ module.exports = new Type('tag:yaml.org,2002:int', {
 
 
 /***/ }),
-/* 337 */
+/* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46580,7 +46587,7 @@ module.exports = new Type('tag:yaml.org,2002:float', {
 
 
 /***/ }),
-/* 338 */
+/* 337 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46675,7 +46682,7 @@ module.exports = new Type('tag:yaml.org,2002:timestamp', {
 
 
 /***/ }),
-/* 339 */
+/* 338 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46694,7 +46701,7 @@ module.exports = new Type('tag:yaml.org,2002:merge', {
 
 
 /***/ }),
-/* 340 */
+/* 339 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46707,7 +46714,7 @@ var NodeBuffer;
 try {
   // A trick for browserified version, to not include `Buffer` shim
   var _require = require;
-  NodeBuffer = __webpack_require__(341).Buffer;
+  NodeBuffer = __webpack_require__(340).Buffer;
 } catch (__) {}
 
 var Type       = __webpack_require__(6);
@@ -46839,7 +46846,7 @@ module.exports = new Type('tag:yaml.org,2002:binary', {
 
 
 /***/ }),
-/* 341 */
+/* 340 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46853,9 +46860,9 @@ module.exports = new Type('tag:yaml.org,2002:binary', {
 
 
 
-var base64 = __webpack_require__(342)
-var ieee754 = __webpack_require__(343)
-var isArray = __webpack_require__(344)
+var base64 = __webpack_require__(341)
+var ieee754 = __webpack_require__(342)
+var isArray = __webpack_require__(343)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -48636,7 +48643,7 @@ function isnan (val) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(28)))
 
 /***/ }),
-/* 342 */
+/* 341 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48794,7 +48801,7 @@ function fromByteArray (uint8) {
 
 
 /***/ }),
-/* 343 */
+/* 342 */
 /***/ (function(module, exports) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -48884,7 +48891,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 
 /***/ }),
-/* 344 */
+/* 343 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -48895,7 +48902,7 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 345 */
+/* 344 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48946,7 +48953,7 @@ module.exports = new Type('tag:yaml.org,2002:omap', {
 
 
 /***/ }),
-/* 346 */
+/* 345 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49006,7 +49013,7 @@ module.exports = new Type('tag:yaml.org,2002:pairs', {
 
 
 /***/ }),
-/* 347 */
+/* 346 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49042,7 +49049,7 @@ module.exports = new Type('tag:yaml.org,2002:set', {
 
 
 /***/ }),
-/* 348 */
+/* 347 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49077,7 +49084,7 @@ module.exports = new Type('tag:yaml.org,2002:js/undefined', {
 
 
 /***/ }),
-/* 349 */
+/* 348 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49144,7 +49151,7 @@ module.exports = new Type('tag:yaml.org,2002:js/regexp', {
 
 
 /***/ }),
-/* 350 */
+/* 349 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49162,7 +49169,7 @@ var esprima;
 try {
   // workaround to exclude package from browserify list.
   var _require = require;
-  esprima = __webpack_require__(351);
+  esprima = __webpack_require__(350);
 } catch (_) {
   /*global window */
   if (typeof window !== 'undefined') esprima = window.esprima;
@@ -49243,7 +49250,7 @@ module.exports = new Type('tag:yaml.org,2002:js/function', {
 
 
 /***/ }),
-/* 351 */
+/* 350 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -55957,7 +55964,7 @@ return /******/ (function(modules) { // webpackBootstrap
 ;
 
 /***/ }),
-/* 352 */
+/* 351 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56789,7 +56796,7 @@ module.exports.safeDump = safeDump;
 
 
 /***/ }),
-/* 353 */
+/* 352 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56806,7 +56813,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _downshift = __webpack_require__(354);
+var _downshift = __webpack_require__(353);
 
 var _downshift2 = _interopRequireDefault(_downshift);
 
@@ -56916,7 +56923,7 @@ var SearchItems = exports.SearchItems = (0, _reactRedux.connect)(function (state
 })(Search);
 
 /***/ }),
-/* 354 */
+/* 353 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -58298,19 +58305,19 @@ Downshift.resetIdCounter = resetIdCounter;
 
 
 /***/ }),
-/* 355 */
+/* 354 */
 /***/ (function(module, exports) {
 
 module.exports = {"items":[{"key":"1.001.section","type":"divider","title":"Sektion 1","description":"# Indledning til interview\nFormålet med sektion 1 er at opnå et overblik over mulige symptomer, som\nden undersøgte person (R) kan have.\nFra sektion 1 kan man fortsætte til de sektioner, som indeholder særligt\nfremtrædende symptomer eller symptomer, som R ønsker at fortælle om først.\nOgså i tilfælde af, at interviewet ikke kan gennemføres fuldt ud, bør man\nsøge at få udspurgt om de væsentligste områder først. Intervieweren bør\nforud for interviewet have sat sig grundigt ind i alle foreliggende\noplysninger, og bør være opmærksom på særlige omstændigheder, der kan få\nbetydning for gennemførelsen for interviewet.\n## Særlige omstændigheder\n  1. Svære sprog og forståelsesmæssige vanskeligheder, eller kognitiv\n     svækkelse\n     - Rate sektion 15 for sprogmæssige og forståelsesmæssige\n       vanskeligheder\n     - Rate sektion 21 for kognitiv svækkelse\n     - Rate sektion 22-25 for objektivt iagttagelige sproglige\n       forstyrrelser, adfærds- og følelsesmæssige abnormiteter\n     - Gennemgå CHS\n  2. Svært forstyrret adfærd, svigtende kooperation eller anden risiko for\n     at interviewet ikke kan gennemføres fuldt ud\n     Begynd med de sektioner, der forekommer at have størst betydning for\n     R. Forsøg at holde samtalen i gang under samtidig observation af den sproglige\n"},{"key":"1.001","title":"R's spontane svar på de indledende spørgsmål","description":"## Indledende bemærkninger\nTil at begynde med, vil jeg bede dig fortælle om, hvilke problemer eller\nvanskeligheder der har været af fysisk eller psykisk art i den senere tid.\nHar du følt dig sund og rask i fysisk og psykisk henseende, eller har der\nværet noget i vejen?\nGiv R mulighed for at komme med en spontan beskrivelse, anvend evt. kun få\nklargørende spørgsmål, såsom:\n  - Kan du forklare lidt nærmere, hvordan det var med.....?\n  - Kan du give et eksempel......?\n  - Har du stadig.......?\n  - Hvornår begyndte......?\n  - Har du fået nogen behandling for......?\n  - Hvilken?\n  - Tabletter, samtaler, eller anden behandling?\nHvis R ikke beskriver relevante symptomer, kan man spørge: Synes du\nligefrem, at du har haft et strålende fysisk eller psykisk helbred den\nsenere tid, uden problemer eller vanskeligheder af nogen art?\n","input":"integer","options":{"0":"R beskriver ingen psykotiske, affektive eller neurotiske symptomer den senere tid","1":"R beskriver spontant sådanne symptomer","2":"R utilbøjelig til at beskrive symptomer og kun efter nærmere udspørgen","8":"R svarer uden at give brugbare oplysninger"},"section_start":"Section_1","validate":["0-2","8"],"glossary":"1.001"},{"key":"1.002.section","title":"Symptomgrupper","description":"Benyt alle foreliggende oplysninger, og rate, om der nu eller nogensinde\nhar været symptomer til stede for grupperne 1.002-1.006.\nHvis patienten ikke spontant fremkommer med oplysninger kan man spørge:\nDer findes særlige områder, hvor mange mennesker oplever problemer eller\nvanskeligheder. Har du nogensinde har haft vanskeligheder m.h.t. (1.002-1.006)?\nHvor generende og besværligt har det været?\nFor hver gruppe af symptomer spørges:\n  - Kan du beskrive nærmere, hvordan det føltes?\n  - Hvornår begyndte det første gang, hvor gammel var du da?\n  - Har det været til stede siden, i perioder eller hele tiden?\n  - Hvor lang tid har du haft det nu?\n"},{"key":"1.002","title":"Angst eller panikfølelse, ofte i særlige situationer?","description":"- Kan du beskrive nærmere, hvordan det føltes?\n- Hvornår begyndte det første gang, hvor gammel var du da?\n- Har det været til stede siden, i perioder eller hele tiden?\n- Hvor lang tid har du haft det nu?\n","input":"integer","options":{"0":"Ingen af disse symptomer til stede nogen sinde","1":"Til stede, men kun i let grad","2":"Til stede i moderat grad","3":"Til stede i svær grad"},"validate":["0-3","8","9"],"glossary":"1.001"},{"key":"1.003","title":"Nedtrykthed","description":"- Kan du beskrive nærmere, hvordan det føltes?\n- Hvornår begyndte det første gang, hvor gammel var du da?\n- Har det været til stede siden, i perioder eller hele tiden?\n- Hvor lang tid har du haft det nu?\n","input":"integer","options":{"0":"Ingen af disse symptomer til stede nogen sinde","1":"Til stede, men kun i let grad","2":"Til stede i moderat grad","3":"Til stede i svær grad"},"validate":["0-3","8","9"],"glossary":"1.001"},{"key":"1.004","title":"Opstemthed - med følelse af at være højt oppe eller meget irritabel uden grund","description":"- Kan du beskrive nærmere, hvordan det føltes?\n- Hvornår begyndte det første gang, hvor gammel var du da?\n- Har det været til stede siden, i perioder eller hele tiden?\n- Hvor lang tid har du haft det nu?\n","input":"integer","options":{"0":"Ingen af disse symptomer til stede nogen sinde","1":"Til stede, men kun i let grad","2":"Til stede i moderat grad","3":"Til stede i svær grad"},"validate":["0-3","8","9"],"glossary":"1.001"},{"key":"1.005","title":"Oplevelser, som er vanskelige at forstå eller forklare, såsom at kunne høre stemmer eller se syner","description":"- Kan du beskrive nærmere, hvordan det føltes?\n- Hvornår begyndte det første gang, hvor gammel var du da?\n- Har det været til stede siden, i perioder eller hele tiden?\n- Hvor lang tid har du haft det nu?\n","input":"integer","options":{"0":"Ingen af disse symptomer til stede nogen sinde","1":"Til stede, men kun i let grad","2":"Til stede i moderat grad","3":"Til stede i svær grad"},"validate":["0-3","8","9"],"glossary":"1.001"},{"key":"1.006","title":"Problemer med alkohol, stoffer, og medikamenter Kan du beskrive nærmere, hvordan det føltes?","description":"- Kan du beskrive nærmere, hvordan det føltes?\n- Hvornår begyndte det første gang, hvor gammel var du da?\n- Har det været til stede siden, i perioder eller hele tiden?\n- Hvor lang tid har du haft det nu?\nCUT OFF => til 2.001, hvis 1.002-1.006 alle rates 0\n","input":"integer","options":{"0":"Ingen af disse symptomer til stede nogen sinde","1":"Til stede, men kun i let grad","2":"Til stede i moderat grad","3":"Til stede i svær grad"},"validate":["0-3","8","9"],"glossary":"1.001"},{"key":"1.007","title":"Begyndelsestidspunktet for nuværende episode (PE)","description":"Afgør ud fra det oplyste, hvilken undersøgelsesperiode for de klinisk\nmest betydende symptomer, der skal anvendes. Anfør tidsangivelser\nnedenfor. I slutningen af hver sektion er der mulighed for at anføre\nafvigende tidsangivelser for symptomer i den pågældende sektion.\n","input":"date","fitb_size":"DATE_NORMAL","glossary":"1.007"},{"key":"1.008","title":"Antal dage i PS Sædvanligvis 28 dage.","input":"integer","options":{"0-100":"Antal dage i PS Sædvanligvis 28 dage."},"used_in_dsmiv":"1","glossary":"1.007"},{"key":"1.009","title":"Tidsperiode for RE (mdr., år)","input":"date_interval","fitb_size":"DATE_NODAY","glossary":"1.007"},{"key":"1.010","title":"Antal uger i RE","description":"## Tidsangivelse for livsperioden forud for PS\nLivsperioden forud for PS anføres fra alderen ved første optræden af\nsymptomer. Disse kan herefter optræde kontinuerligt eller i episoder.\nAnvend LB hvis PS og RE tilsammen ikke giver adækvat beskrivelse af de\nklinisk mest betydende symptomer igennem forløbet.\n","input":"string","glossary":"1.007"},{"key":"1.011","title":"Episode med neurotiske symptomer","input":"date_interval","fitb_size":"DATE_NODAY","glossary":"1.007"},{"key":"1.012","title":"Episode med depressive symptomer","input":"date_interval","fitb_size":"DATE_NODAY","glossary":"1.007"},{"key":"1.013","title":"Episode med maniske symptomer","input":"date_interval","fitb_size":"DATE_NODAY","glossary":"1.007"},{"key":"1.014","title":"Episode med psykotiske symptomer","input":"date_interval","fitb_size":"DATE_NODAY","glossary":"1.007"},{"key":"1.015","title":"Alder ved første optræden af neurotiske symptomer","input":"string","validate":["0-99"],"glossary":"1.015"},{"key":"1.016","title":"Alder ved første optræden af depressive symptomer","input":"string","validate":["0-99"],"glossary":"1.015"},{"key":"1.017","title":"Alder første optræden af maniske symptomer","input":"string","validate":["0-99"],"glossary":"1.015"},{"key":"1.018","title":"Alder ved første optræden af psykotiske symptomer","description":"Tidsangivelser ved somatoforme og dissociative symptomer,\nspiseforstyrrelser, forstyrrelser betinget af brug af alkohol eller\npsykoaktive substanser og kognitiv svækkelse anføres i sektionerne\n2, 9, 11, 12 og 21.\n","input":"string","validate":["0-99"],"glossary":"1.015"},{"key":"1.019","title":"Kvaliteten af remissionsperioder mellem episoderne","description":"Hvis der har været 2 eller flere episoder af samme eller forskellig\nkarakter rates for eventuelle klinisk betydende symptomer mellem episoderne:\n","input":"integer","options":{"0":"Ingen eller kun én episode uden efterfølgende betydende symptomer","1":"Ingen eller kun få symptomer mellem episoderne","2":"Nogle symptomer i nogle af intervallerne","3":"En del symptomer i de fleste intervaller","4":"Udtalte symptomer i alle intervallerne","5":"Vedvarende symptomer, ingen remission"},"validate":["0-5"],"used_in_dsmiv":"1","glossary":"1.019"},{"key":"1.020","title":"Episode 1","description":"Til brug ved særlige undersøgelser kan yderligere rates for op til 6\nspecielle perioder (med hver sit kodeskema) Tidsangivelse for specielle\nenkeltepisoder\n","input":"date_interval","fitb_size":"DATE_NODAY","glossary":"1.020"},{"key":"1.021","title":"Episode 2","input":"date_interval","fitb_size":"DATE_NODAY","glossary":"1.020"},{"key":"1.022","title":"Episode 3","input":"date_interval","fitb_size":"DATE_NODAY","glossary":"1.020"},{"key":"1.023","title":"Episode 4","input":"date_interval","fitb_size":"DATE_NODAY","glossary":"1.020"},{"key":"1.024","title":"Episode 5","input":"date_interval","fitb_size":"DATE_NODAY","glossary":"1.020"},{"key":"1.025","title":"Episode 6","input":"date_interval","fitb_size":"DATE_NODAY","glossary":"1.020"},{"key":"1.026.section","title":"Medikamentel behandling ved behandling ved tidspunktet for undersøgelsen","description":"Du nævnte at du tog medicin/tabletter efter lægens ordination.\n- Hvad drejer det sig om for medicin?\n- Hvem ordinerede det?\n- Hvilken virkning har det haft?\n- Har det hjulpet på................[symptomerne]?\n- Er der ubehagelige bivirkninger?\n- Hvilke?\n"},{"key":"1.026","title":"Hypnotika","description":"- Hvad drejer det sig om for medicin?\n- Hvem ordinerede det?\n- Hvilken virkning har det haft?\n- Har det hjulpet på................[symptomerne]?\n- Er der ubehagelige bivirkninger?\n- Hvilke?\n","input":"integer","options":{"0":"Ingen medikamenter anvendes","1":"Medikamenter anvendes, skønnes ikke at have påvirket symptomerne","2":"Medikamenter anvendes, kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne","8":"Uoplyst"},"validate":["0-2","8"],"glossary":"1.026"},{"key":"1.027","title":"Anxiolytika","description":"- Hvad drejer det sig om for medicin?\n- Hvem ordinerede det?\n- Hvilken virkning har det haft?\n- Har det hjulpet på................[symptomerne]?\n- Er der ubehagelige bivirkninger?\n- Hvilke?\n","input":"integer","options":{"0":"Ingen medikamenter anvendes","1":"Medikamenter anvendes, skønnes ikke at have påvirket symptomerne","2":"Medikamenter anvendes, kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne","8":"Uoplyst"},"validate":["0-2","8"],"glossary":"1.026"},{"key":"1.028","title":"Antidepressiva","description":"- Hvad drejer det sig om for medicin?\n- Hvem ordinerede det?\n- Hvilken virkning har det haft?\n- Har det hjulpet på................[symptomerne]?\n- Er der ubehagelige bivirkninger?\n- Hvilke?\n","input":"integer","options":{"0":"Ingen medikamenter anvendes","1":"Medikamenter anvendes, skønnes ikke at have påvirket symptomerne","2":"Medikamenter anvendes, kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne","8":"Uoplyst"},"validate":["0-2","8"],"glossary":"1.026"},{"key":"1.029","title":"Antimanica","description":"- Hvad drejer det sig om for medicin?\n- Hvem ordinerede det?\n- Hvilken virkning har det haft?\n- Har det hjulpet på................[symptomerne]?\n- Er der ubehagelige bivirkninger?\n- Hvilke?\n","input":"integer","options":{"0":"Ingen medikamenter anvendes","1":"Medikamenter anvendes, skønnes ikke at have påvirket symptomerne","2":"Medikamenter anvendes, kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne","8":"Uoplyst"},"validate":["0-2","8"],"glossary":"1.026"},{"key":"1.030","title":"Antipsykotika","description":"- Hvad drejer det sig om for medicin?\n- Hvem ordinerede det?\n- Hvilken virkning har det haft?\n- Har det hjulpet på................[symptomerne]?\n- Er der ubehagelige bivirkninger?\n- Hvilke?\n","input":"integer","options":{"0":"Ingen medikamenter anvendes","1":"Medikamenter anvendes, skønnes ikke at have påvirket symptomerne","2":"Medikamenter anvendes, kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne","8":"Uoplyst"},"validate":["0-2","8"],"glossary":"1.026"},{"key":"1.031","title":"Anti-Parkinsonmidler","description":"- Hvad drejer det sig om for medicin?\n- Hvem ordinerede det?\n- Hvilken virkning har det haft?\n- Har det hjulpet på................[symptomerne]?\n- Er der ubehagelige bivirkninger?\n- Hvilke?\n","input":"integer","options":{"0":"Ingen medikamenter anvendes","1":"Medikamenter anvendes, skønnes ikke at have påvirket symptomerne","2":"Medikamenter anvendes, kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne","8":"Uoplyst"},"validate":["0-2","8"],"episodes":"0","used_in_icd10":"1","used_in_dsmiv":"1","glossary":"1.026"},{"key":"1.032","title":"Antabus","description":"- Hvad drejer det sig om for medicin?\n- Hvem ordinerede det?\n- Hvilken virkning har det haft?\n- Har det hjulpet på................[symptomerne]?\n- Er der ubehagelige bivirkninger?\n- Hvilke?\n","input":"integer","options":{"0":"Ingen medikamenter anvendes","1":"Medikamenter anvendes, skønnes ikke at have påvirket symptomerne","2":"Medikamenter anvendes, kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne","8":"Uoplyst"},"validate":["0-2","8"],"glossary":"1.026"},{"key":"1.033","title":"Analgetika","description":"- Hvad drejer det sig om for medicin?\n- Hvem ordinerede det?\n- Hvilken virkning har det haft?\n- Har det hjulpet på................[symptomerne]?\n- Er der ubehagelige bivirkninger?\n- Hvilke?\n","input":"integer","options":{"0":"Ingen medikamenter anvendes","1":"Medikamenter anvendes, skønnes ikke at have påvirket symptomerne","2":"Medikamenter anvendes, kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne","8":"Uoplyst"},"validate":["0-2","8"],"glossary":"1.026"},{"key":"1.034","title":"Anden medicin, specificeres...","description":"- Hvad drejer det sig om for medicin?\n- Hvem ordinerede det?\n- Hvilken virkning har det haft?\n- Har det hjulpet på................[symptomerne]?\n- Er der ubehagelige bivirkninger?\n- Hvilke?\n","input":"integer","options":{"0":"Ingen medikamenter anvendes","1":"Medikamenter anvendes, skønnes ikke at have påvirket symptomerne","2":"Medikamenter anvendes, kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne","8":"Uoplyst"},"validate":["0-2","8"],"glossary":"1.026"},{"key":"1.035","title":"Ikke identificeret medicin","description":"- Hvad drejer det sig om for medicin?\n- Hvem ordinerede det?\n- Hvilken virkning har det haft?\n- Har det hjulpet på................[symptomerne]?\n- Er der ubehagelige bivirkninger?\n- Hvilke?\n","input":"integer","options":{"0":"Ingen medikamenter anvendes","1":"Medikamenter anvendes, skønnes ikke at have påvirket symptomerne","2":"Medikamenter anvendes, kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne","8":"Uoplyst"},"validate":["0-2","8"],"glossary":"1.026"},{"key":"1.036","title":"Virkningen af medikamentel behandling ved undersøgelsestidspunktet","input":"integer","options":{"0":"Tilsyneladende ingen virkning","1":"Moderat bedring af symptomerne","2":"Betydelig bedring af symptomerne"},"validate":["0-2","8","9"],"glossary":"1.026"},{"key":"1.037","title":"Bivirkninger af medikamentel behandling ved undersøgelsestidspunktet","input":"integer","options":{"0":"Tilsyneladende ingen","1":"Moderate bivirkninger","2":"Svære bivirkninger","3":"Svære bivirkninger, som påvirker vurderingen af symptomer"},"validate":["0-3","8","9"],"glossary":"1.026"},{"key":"1.038","title":"Psykosocial behandling ved undersøgelsestidspunktet","description":"Du nævnte at du var i samtalebehandling.\n- Ved du hvilken form for samtalebehandling det drejer sig om?\n- Hvilken virkning har det haft?\n- Har det hjulpet på ........ symptomerne?\n- Har behandlingen haft oprivende eller ubehagelige virkning?\n","input":"integer","options":{"0":"Ingen psykosocial behandling","1":"Anvendt, men skønnes ikke at have påvirket symptomerne","2":"Anvendt og kan have betydning for til stedeværelsen eller sværhedsgraden af symptomerne","8":"Uoplyst"},"validate":["0-2","8"],"glossary":"1.038"},{"key":"1.039","title":"Formaliseret psykoterapi","description":"- Hvad drejer det sig om for psykoterapi?\n- Hvem ordinerede det?\n- Hvilken virkning har det haft?\n- Har det hjulpet på................[symptomerne]?\n- Har behandlingen haft oprivende eller ubehagelig virkning?\nHvilke?\n","input":"integer","options":{"0":"Ingen psykoterapi","1":"Behandlingen skønnes ikke at have påvirket symptomerne","2":"Behandlingen kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne","8":"Uoplyst"},"validate":["0-2","8"],"glossary":"1.038"},{"key":"1.040","title":"Krisebehandling","description":"- Hvilken form for krisebehandling?\n- Hvem ordinerede den?\n- Hvilken virkning har det haft?\n- Har det hjulpet på................[symptomerne]?\n- Er der ubehagelige virkninger ved behandlingen?\n- Hvilke?\n","input":"integer","options":{"0":"Ingen kriseterapi","1":"Behandlingen skønnes ikke at have påvirket symptomerne","2":"Behandlingen kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne","8":"Uoplyst"},"validate":["0-2","8"],"glossary":"1.038"},{"key":"1.041","title":"Anden formaliseret samtalebehandling","description":"- Hvad drejer det sig om forbehandling?\n- Hvem ordinerede det?\n- Hvilken virkning har det haft?\n- Har det hjulpet på................[symptomerne]?\n- Er der ubehagelige virkninger af behandlingen?\n- Hvilke?\n","input":"integer","options":{"0":"Ingen behandling","1":"Behandlingen skønnes ikke at have påvirket symptomerne","2":"Behandlingen kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne","8":"Uoplyst"},"validate":["0-2","8"],"glossary":"1.038"},{"key":"1.042","title":"Støtte fra familie og venner","description":"- På hvilken måde støtter de dig?\n- Hvem tog initiativ til det?\n- Hvilken virkning har det haft?\n- Har det hjulpet på................[symptomerne]?\n- Er der ubehagelige virkninger ved det?\n- Hvilke?\n","input":"integer","options":{"0":"Ingen støtte","1":"Skønnes ikke at have påvirket symptomerne","2":"Kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne","8":"Uoplyst"},"validate":["0-2","8"],"glossary":"1.038"},{"key":"1.043","title":"Anden støtte eller hjælp, specificeres...","description":"- Hvilken støtte drejer det sig om?\n- Hvem tog initiativ til det?\n- Hvilken virkning har det haft?\n- Har det hjulpet på................[symptomerne]?\n- Er der ubehagelige bivirkninger?\n- Hvilke?\n","input":"integer","options":{"0":"Ingen støtte eller hjælp","1":"Skønnes ikke at have påvirket symptomerne","2":"Kan have påvirket til stedeværelsen eller sværhedsgraden af symptomerne","8":"Uoplyst"},"validate":["0-2","8"],"glossary":"1.038"},{"key":"1.044","title":"Global vurdering af virkningen af psykosocial behandling ved undersøgelsestidspunktet","input":"integer","options":{"0":"Ingen virkning","1":"Moderat virkning på symptomerne","2":"Betydelig bedring"},"validate":["0-2","8"],"glossary":"1.038"},{"key":"1.045.section","title":"Andre anamnestiske oplysninger"},{"key":"1.045","title":"Familiær disposition: forældre, søskende, børn","input":"integer","options":{"0":"Ingen","1":"Ja, lignende symptomer som hos R","2":"Ja, andre symptomer end hos R","8":"Uoplyst"},"validate":["0-2","8"],"glossary":"1.045"},{"key":"1.046","title":"Alder ved første prodromalsymptomer","options":{"98":"Uoplyst","99":"Ikke anvendelig","0-97":"Under 98 år"},"input":"integer","validate":["0-99"],"glossary":"1.045"},{"key":"1.047","title":"Alder ved første klare erkendelse af tilstanden","options":{"98":"Uoplyst","99":"Ikke anvendelig","0-97":"Under 98 år"},"input":"integer","validate":["0-99"],"glossary":"1.045"},{"key":"1.048","title":"Alder ved første behandlingskontakt","options":{"98":"Uoplyst","99":"Ikke anvendelig","0-97":"Under 98 år"},"input":"integer","validate":["0-99"],"glossary":"1.045"},{"key":"1.049","title":"Begyndelsesmåde for første sygdomsepisode","input":"integer","options":{"1":"Inden for 1 måned","2":"I løbet af 1–3 måneder","3":"I løbet af 3–12 måneder","4":"Over mere end 1 år","8":"Uoplyst"},"validate":["1-4","8"],"glossary":"1.045"},{"key":"1.050","title":"Social kompetence før erkendt sygdomsbegyndelse","input":"integer","options":{"0":"Sædvanlige inden for pågældende kulturkreds","1":"Moderat social funktionsnedsættelse","2":"Udtalt social funktionsnedsættelse"},"validate":["0-2","8"],"glossary":"1.045"},{"key":"1.051","title":"Totale antal hospitalsindlæggelser for psykisk lidelse","options":{"98":"Uoplyst","99":"Ikke anvendelig","0-97":"Under 98 år"},"input":"integer","validate":["0-99"],"glossary":"1.045"},{"key":"1.052","title":"Længste hospitalshopholds varighed i måneder","options":{"98":"Uoplyst","99":"Ikke anvendelig","0-97":"Antal måneder"},"input":"integer","validate":["0-99","998","999"],"glossary":"1.045"},{"key":"1.053","title":"Antal tidligere episoder med klinisk betydende symptomer","options":{"98":"Uoplyst","99":"Ikke anvendelig","0-97":"Antal måneder"},"input":"integer","glossary":"1.045"},{"key":"2.section","title":"FUNKTIONELLE LIDELSER OG HELBREDSANGST","description":"Denne sektion afviger fra de følgende sektioner ved at anvende afvigende tidsperioder for present state / present\n          episode (2 eller 1 år). Der anvendes rating skala 1a eller specifikke ratings for hvert item.\n\n**Tidsperioden rates i item 2.076-2.079.**\n","glossary":"Clinically, the difference between normality and the pathological behaviour may be based on a clinical judgment on how impaired and distressed the patient is by the health problem.\nWe may need an introduction including the discussion about MUS, mental vs. bodily, and that these conditions do not necessarily represent mental disorders but are in between."},{"key":"2.001","title":"Fysisk helbred gennem den sidste måned","description":"*- Hvordan har dit fysiske helbred været gennem den sidste måned?*\n\n*- Har det været strålende, godt, mindre godt eller dårligt?*\n","input":"integer","options":{"1":"Strålende","2":"Godt","3":"Mindre godt","4":"Dårligt","8":"Usikkert","9":"Ukendt"},"validate":["1-4","8","9"],"glossary":"This item is concerned with the Respondent's own view of his or her physical health status; i.e. not only with the presence or absence of disease or disability but also with general physical well-being.  Respondents will use their own terms to describe their health status.  The rating should          reflect this personal assessment rather than the interviewer's interpretation of it.\n\nA rating of 1 must be based on a positive statement of physical well-being. Reasonably well (rated 2) corresponds to 'all right'; not positive, not negative.\n\nA rating of 3 ('fair') implies less than average wellness. Such a statement should be elucidated to inform subsequent questioning.  It may, for example, indicate physical disease, functional or dissociative or affective disorder, or a lifelong tendency (trait) to take a somewhat gloomy view of      things. These questions are raised later in the interview.\n\nAny statement implying a seriously poor state of health is rated 4.\n\nA feeling of positive wellness can be rated 1 in the presence of actual disease or disability if that is what R feels.\n\nThe scale is ordered in this way (1-4) to correspond with the general principle used elsewhere in the SCAN text, that greater disability or pathology has a higher score.\n\nThus 0 is not used, because, as the default rating for all items (except some in Section 21), it would automatically             indicate high positive wellness if left blank.\n"},{"key":"2.002","title":"Varighed af helbredsbesvær  (mdr.)","description":"*- Hvor længe har dit fysiske helbred været dårligt?*\n\n *- Hvornår var du sidst rask (fri for både somatisk sygdom og funktionel lidelse)?*\n\nRates i antal måneder siden patienten sidst har været rask.\n","input":"integer","options":{"0":"Intet helbredsbesvær","800":"800 mdr. eller mere","888":"Ukendt","999":"Ikke relevant","1-799":"Mellem 1 og 799 måneder"},"validate":["0-800","888","999"],"glossary":"If item **[2.001]** is rated 3 or 4, specify the length of time in years and months that the unwellness has been present.\n"},{"key":"2.003","title":"Fysisk sygdom eller svækkelse igennem det sidste år","description":"*- Har du inden for det sidste år haft fysiske sygdomme, skader, smerter\n eller symptomer, som har begrænset din udfoldelse på én eller anden måde?*\n\n*- Hvad drejer det sig om?*\n\n*- Hvad sagde lægen, at der var i vejen?*\n","input":"integer","options":{"0":"Ingen","1":"Beskriver legemlig lidelse eller symptomer uden klar diagnose","2":"Angiver somatisk diagnose","3":"Både somatisk diagnose og funktionelle symptomer/sygdom","8":"Usikkert","9":"Ukendt"},"validate":["0-3","8","9"],"glossary":"This item refers to medical problems of a physical nature including illnesses, injuries and disabilities.\n\nTake into account all the information available including the results of recent investigations and examinations. It will sometimes be possible to accept the diagnosis that R gives, when backed by a convincing description, but always use 8 if there is doubt.\n\nAny medically diagnosed condition should be coded in **[2.007]** according to ICD-10.  If no significant illness or disability is present leave **[2.007a-t] and [2.008]** blank or rate 0.\n\nAn entry should only be made if **[2.003]** is coded 2 or 3; not including any indefinite or medically unexplained disorder.\n\nFor instance stomach ache without good evidence of gastric disease, should not be entered simply because R states, for example, \"I think I have a gastric ulcer\". A rating of 1 does not mean that there is no physical disease, only that the information has not established one and further enquiry      is necessary.\n"},{"key":"2.004","title":"Generende somatisk symptom, ethvert","description":"*- Hvor meget generer eller forstyrrer det dit daglige liv?*\n","input":"integer","options":{"0":"Ingen","1":"Tilstede","9":"Ukendt"},"validate":["0","1","9"],"help":"Se også items [2.008] og [2.031].\n","glossary":"Patienten har et eller flere generende fysiske symptomer eller symptomer, der forårsager betydelig forstyrrelse i det daglige. Symptomerne eller sygdommen kan være af enhver ætiologi, dvs. af ukendt ætiologi eller fra cancer, diabetes etc.\n\n(Criteria for DSM-V)\n"},{"key":"2.005","title":"Smerter, dominerende","description":"*Kun hvis 2.003 er rated 2.*\n\n*- Er det helt overvejende smerter, der er problemet?*\n","input":"integer","options":{"0":"Nej","1":"Ja","8":"Usikkert","9":"Ukendt"},"validate":["0","1","8","9"],"help":"Rates positivt hvis smerter grundet somatisk sygdom er dominerende:\n\nSe også [2.030].\n\n(DSM-V specifier)\n","glossary":"This item is for responders whose physical symptoms predominantly involve pain. This is a clinical judgement, not the patient's opinion, but if necessary,  it may help you to ask the patient. It only includes well-defined medical conditions; primary or idopathic pain will be rated elsewhere (2.030). It is a DSM-5 SSD specifier.\n"},{"key":"2.006","title":"Optagethed af somatiske symptomer og bekymring over fysisk helbred","description":"*- Er du bange for at fejle noget alvorligt?*\n\n*- Har du været hos lægen pga. det? (indenfor det seneste år)*\n","input":"integer","options":{"0":"Ikke til stede","1":"Til stede","9":"Ukendt"},"validate":["0","1","9"],"help":"Bedømmes ud fra graden af optagethed, sygdomsfølelse eller gener, og hyppigheden af konsultationer og undersøgelser, graden af symptomer eller overdreven sygdomsbekymring.\n\nSe også [2.037].\n","glossary":"The item is identical with 2.037 except for the scoring and is a screening item for Health or Illness anxiety / Hypochondrias.\n\nA non-delusional preoccupation with fears of harbouring a severe physical disease and/or a disproportionate thoughts about the seriousness of one's symptoms and disease.\nSee also HA section\n\nCUT-OFF => ???? (helbredsangst) hvis 2.006 = 1 og der ikke er funktionelle eller dissociative symptomer ud fra de forhåndenværende oplysninger.\n\nFortsæt altid såfremt der ikke er en overbevisende medicinsk forklaring på symptomerne.\n\nHvis [2.003] = 0 gå til HA.\n\nHvis [2.003] = 2 gå til [2.007] og derefter [2.037].\n\nHvis [2.003] < > 0 eller 2 fortsæt.\n"},{"key":"2.episode1.section","title":"VELDEFINEREDE SOMATISKE LIDELSER","description":"Marker med et X hvis sygdommen er til stede og skriv så diagnosen med bogstaver (diagnosekode kan beholdes som forklaring).\n\nHuskekort eller spørgeskema kan anvendes.\n"},{"key":"2.007","title":"Veldefinerede og lægediagnosticerede somatiske sygdomme (lifetime)","description":"(Vis huskekort, hvis nødvendigt)\n\na.  Har du fået at vide af en læge, at du lider af én eller flere af disse sygdomme (a-r)?\n\nb.  Har du fået medicin for (a-r)?\n\nc.  Har du fået laboratorieundersøgelser for (a-r)\n\nd.  Er du blevet tilrådet at ændre din kost eller livsstil p.g.a. (a-r)?\n\ne.  Har du været indlagt eller blevet opereret for (a-r)?\n\nf.  Har du på noget tidspunkt stoppet eller indskrænket dine daglige aktiviteter i en uge eller mere (a-r)?\n","input":"integer","options":{"0":"Fraværende","1":"Til stede","8":"Usikkert","9":"Ukendt"},"validate":["0","1","8","9"],"glossary":"Record only well-defined and verified clear cut diagnoses made by physicians. Avoid ratings based solely on the patients belief.\nThe functional somatic syndromes and functional disorders are not rated here. Banal or transient acute illnesses are not rated. Patients highly suspected of having a given condition, but still under investigation rate 8.\nDisorders associated with mental retardation and/or autism e.g. Down’s Syndrome, foetal rubella etc. should be checked in CHS, ch. 27\n"},{"key":"2.007a","title":"Forhøjet blodtryk","description":"(ICD-10: I10-I15)\n","input":"integer","validate":["1"],"options":{"0":"Absent","1":"Present"}},{"key":"2.007b","title":"Astma/kronisk bronkitis","description":"(ICD-10: J30-J32, J35, J37, J40-J47)\n","input":"integer","validate":["1"],"options":{"0":"Absent","1":"Present"}},{"key":"2.007c","title":"Hjertelidelse","description":"(ICD-10: I05-I09 og I20-I25)\n","input":"integer","validate":["1"],"options":{"0":"Absent","1":"Present"}},{"key":"2.007d","title":"Sukkersyge (Diabetes)","description":"(ICD-10: E10-E14)\n","input":"integer","validate":["1"],"options":{"0":"Absent","1":"Present"}},{"key":"2.007e","title":"Stofskiftesygdomme (thyroidea-sygdomme)","description":"(ICD-10: E00-E07)\n","input":"integer","validate":["1"],"options":{"0":"Absent","1":"Present"}},{"key":"2.007f","title":"Nyresygdom","description":"(ICD-10: N03-07, N11-15, N18-19, N25-28)\n","input":"integer","validate":["1"],"options":{"0":"Absent","1":"Present"}},{"key":"2.007g","title":"Slid-/leddegigt (reumatisme)","description":"(ICD-10: M00-M19)\n","input":"integer","validate":["1"],"options":{"0":"Absent","1":"Present"}},{"key":"2.007h","title":"Discusprolaps","description":"(ICD-10: M40-M54)\n","input":"integer","validate":["1"],"options":{"0":"Absent","1":"Present"}},{"key":"2.007i","title":"Migræne/specificeret","description":"(ICD-10: G43, G44, R51)\n","input":"integer","validate":["1"],"options":{"0":"Absent","1":"Present"}},{"key":"2.007j","title":"Epilepsi","description":"(ICD-10: G40)\n","input":"integer","options":{"0":"Absent","1":"Present"}},{"key":"2.007k","title":"Slagtilfælde","description":"(ICD-10: I60-I69)\n","input":"integer","validate":["1"],"options":{"0":"Absent","1":"Present"}},{"key":"2.007l","title":"Dissemineret sklerose","description":"(ICD-1010: G35)\n","input":"integer","validate":["1"],"options":{"0":"Absent","1":"Present"}},{"key":"2.007m","title":"Mavesår (gastritis ulcus)","description":"(ICD-10: K25-K27)\n","input":"integer","validate":["1"],"options":{"0":"Absent","1":"Present"}},{"key":"2.007n","title":"Leverbetændelse (Hepatitis)","description":"(ICD-10: B18, K73, K75,9)\n","input":"integer","validate":["1"],"options":{"0":"Absent","1":"Present"}},{"key":"2.007o","title":"Parasitiske sygdomme / malaria","description":"(ICD-10: B50-B83)\n","input":"integer","validate":["1"],"options":{"0":"Absent","1":"Present"}},{"key":"2.007p","title":"Tuberkulose","description":"(ICD-10: A15-A19, B90, J65)\n","input":"integer","validate":["1"],"options":{"0":"Absent","1":"Present"}},{"key":"2.007q","title":"HIV/AIDS","description":"(ICD-10: B20-B24)\n","input":"integer","validate":["1"],"options":{"0":"Absent","1":"Present 2"}},{"key":"2.007r","title":"Svulst (Tumor/cancer)","description":"(ICD-10: C00-C97)\n","input":"integer","validate":["1"],"options":{"0":"Absent","1":"Present"}},{"key":"2.007s","title":"Andre","input":"string","description":"Skriv hvilken_____________________________________________\n"},{"key":"2.007t","title":"Andre","input":"string","description":"Skriv hvilken_____________________________________________\n","help":"Tilstande der er forbundet med mental retardering og/eller autisme, fx. Down’s Syndrom, føtal rubella etc. bør checkes i CHS, afsnit 27. Den første kasse skal indeholde et bogstav, der angiver ICD-10 kapitlet, efterfulgt af op til 4 cifre. Hvis ingen, lad være blank.\n"},{"key":"2.008","title":"Påvirkning af aktiviteter og besvær igennem det sidste år pga. veldefineret somatisk sygdom","description":"**(Se også [2.031])**\n\n*- Hvor meget har de **(symptomerne eller lidelserne fra 2.007a-t)** påvirket dine aktiviteter eller dit velbefindende gennem det sidste år?*\n","input":"integer","options":{"0":"Ingen påvirkning eller ingen veldefineret somatisk sygdom","1":"Kun lille påvirkning","2":"Moderat eller intermitterende påvirkning","3":"Svær eller invaliderende påvirkning","8":"Usikkert","9":"Ukendt"},"validate":["0-3","8","9"],"glossary":"Impairment due to well-defined physical disease. Impairment due to functional or dissociative symptoms is rated in **[2.031]**.\nWhether the disease causes clinically significant distress or impairment in social, occupational or other important areas of functioning.\n\nFor rating of functioning, you may use the concept of WHO’s disability assessment with its 5 dimensions. But it is important that also emotional distress is       rated here, i.e. a person may go to work but is tormented by thoughts and emotions in connection with his/her symptoms.\n"},{"key":"2.009","title":"Psykiske faktorers påvirkning af veldefineret somatisk tilstand","description":"Rates normalt ud fra anamnetiske oplysninger og patientens tanker og bekymring om sin sygdom.\nHvis den oprindelige sygdom ikke længere er til stede, rates tilstanden i stedet som en funktionel tilstand cf. 27.069.\n","input":"integer","options":{"0":"Fraværende","1":"Til stede","8":"Usikkert","9":"Ukendt"},"validate":["0","1","8","9"],"glossary":"A well-defined medical symptom or condition is present (not including functional syndromes or disorders). The course, the treatment (i.e. adherence), health status or recovery of the medical condition is affected by psychological factors.\nIf the medical condition is not present anymore, the condition is rated as a functional condition instead.\nNormally rated based on medical history and the patient's thoughts and worries about the condition.\n\nCUT OFF => ????  (health anxiety) if there are no functional or dissociative symptoms based on the present information, i.e. 2003 = 0 or 2\n\nAlways continue beyond the cut-off point if there is any doubt as to whether physical health problems are caused by a well-defiend medical condtion.  Begin the further exploration with a general probe, then ask a set of questions concerning R's contacts with expert practitioners.  In countries where expert        opinion is difficult to obtain the following ratings must be particularly circumspect.  Case records and information from people who know R should be taken into account.\n"},{"key":"2.episode2.section","title":"FYSISKE SYMPTOMER & SYNDROMER","description":"**Brug Rating Skala 1a hvis andet ikke er angivet**\n\nRates ud fra alle foreliggende oplysninger, herunder journaloplysninger.\n\nFor at et symptom skal rates som værende forårsaget af kendt veldefineret fysisk sygdom (eller sandsynligvis af fysisk veldefineret sygdom), skal denne veldefinerede sygdom være diagnosticeret i **2.007** eller det skal dreje sig om akut tilstand som fx influenza. Hvis du mistænker, at patienten har en udiagnosticeret fysisk sygdom, rate 8.\n","help":"**Uddyb:**\n\nGennemgå de symptomer, som patienten har angivet, og tjek **2.010-2.028**.\n\nUddybende spørgsmål:\n\n*- Hvordan føltes det (symptom)?*\n*- Hvor udtalt var det?*\n*- Hvordan påvirkede det dig?*\n*- Søgte du lægehjælp?*\n*- Fik du foretaget særlige undersøgelser?*\n*- Har du fået behandling? Hvilken?*\n*- Hvad sagde lægen, at der var i vejen?*\n*- Hvad tror du selv?*\n\n**(Vis evt. huskekort)**\n","glossary":"Rate on the basis of present information, incl. medical history. Each symptom is rated if present, and do not attempt to judge if each individual symptom is \"medically explained\" or not. The diagnoses is based on the complete illness picture and not on individual symptoms!\nEmotional, social, stress etc. may not be present in patients presenting with functional disorders, which is why you cannot base you rating on such associated symptoms.\nIdeally you should rate whether a symptom is due to a functional condition (in a similar way to rating if a symptom is due to depression); but our current knowledge and most doctors' knowledge about functional disorders is presently insufficient for this to be done in a reliable way.\nFor a symptom to be rated as being attributed to a well-known physical disease (or likely well-known physical disease), this well-known physical disease must be diagnosable, i.e. be diagnosed in 2.007 or it could be an acute condition such as 'flu. If you suspect that the patient has an                undiagnosed physical disease, rate 8.  Functional somatic syndromes or functional disorders are not viewed as well-defined medical conditions for the purpose of this section.\n\nThe usual PSE rule 'if in doubt rate down' should not be applied to physical symptoms themselves.  Respondents should be encouraged to be forthcoming about their complaints.\n\nBecause each symptom can be described in terms that are highly culture-specific, the list is not exhaustive. There are sufficient items to cover contingencies. A clinical decision should be made on the basis of local expertise, according to which item represents the complaint the most.         For research purposes, it is important to record the terms used by respondents to describe their problems. Documentation of these terms will generate a database that can be used for further development of items with research and clinical applicability.\n\nResearch has shown that characteristic symptoms patterns of functional disorders can be identificed and by large they cluster into organ systems. This is also well known for functional somatic syndromes, such as IBS and fibromyalgia. To highlight this and make a rating simpler, the interview is organised around meaningful symptom groupings. You initially screen for symptoms from the organ system  by asking for symptoms of that particular organ system or symptom group, and it is only necessary to fill in specific symptoms if the screening question is positive. If the screening question is negative, you may skip the organ system. If you don't need keep record of the specific symptoms of an organ system but only need to know if the Respondent has 1 or more symptoms from the organ system, you do not need to fill in each symptom of the group to achieve a diagnosis. In this case, the algorithm will use the scooring of the screening item to establish the diagnosis.\n"},{"key":"2.episode3.section","title":"ALMENE/USPECIFIKKE SYMPTOMER/SYNDROMER, INKL. TRÆTHED"},{"key":"2.010","title":"Almene/uspecifikke symptomer/syndromer inkl. træthed","description":"*- I det seneste år, har du haft problemer med træthed, hovedpine, svimmelhed, hukommelses- eller koncentrationsbesvær eller lignende symptomer?*\n","input":"integer","options":{"0":"Nej ingen betydende gener","1":"1-2 symptom","2":">=3 symptomer"},"validate":["0-2"],"glossary":"These nonspecific symptoms are extremley common in a broad range of both medical and mental conditions and may be viewed as a common unspecific reaction to both bodily and mental stress. The symptoms are also the key symptoms of CFS/ME and neurasthenia.\n","help":"**Ved brug af spørgeskema:**\n\nN: Negativt spørgeskema (formulering fra Mini Scan)\n\nP: Positivt spørgeskema\n"},{"key":"2.010a","title":"Generel sløjhed, uoplagthed","scale":"1a"},{"key":"2.010b","title":"Udtalt og generende træthed","description":"*- Hvis du føler dig udmattet efter fysisk eller psykisk anstrengelse,hvor lang tid varer denne udmattelse?*\n\n*- Kan du komme dig ved at hvile dig eller slappe af?*\n","scale":"1a","glossary":"Unwarranted fatiguability after even minor physical exertion or mental activities.  The emphasis is on feelings of bodily or physical weakness and exhaustion after only minimal effort.  Respondents experience the tiredness as unpleasant and        distressing.\n\n**Differentiation from other symptoms:**\n\nTiredness at the end of a hard day of physical or mental work (rate 0), or due to the immediate after-effect of influenza, would not count.  The level of increase in fatiguability should be assessed against relevant previous experience, such as walking a familiar distance, climbing stairs,  reading a         book, doing calculations,etc.\nIs typically described as an unpleasant intrusion of distracting associations or recollections, difficulty in concentrating, focusing and sustaining attention, and generally inefficient thinking.  The condition is usually associated with decreased efficiency in coping with daily tasks.\nInability to restore mental and physical energy following even minor exercise.  Symptoms are persistent, lasting days or longer.  The sense of tiredness may be accompanied by feelings of muscular aches and pains, and the Respondent is unable voluntarily to overcome        it.  Differentiate from normal sleepiness.\nRate 1 if the R can recover 2 or 3 if R can not recover.\n\nSee also  **3.007**\n"},{"key":"2.010c","title":"Hukommelsesbesvær","scale":"1a","glossary":"R complains of impairment or loss of memory.  The loss does not include amnesia due to verifyed impaired organic brain functioning like operations or during convulsions or fainting, or following an acute traumatic head injury or brain contusion, drug or alcohol abuse or intoxication etc. This item is rated positive in cases of memory loss in connection with long-lasting post-concussion syndrome.\n    It is the subjective feeling of impairment that is rated, and there is often an discrepancy between the observed memory of the patient during the interview and the Respondent's own perception; objective memory tests may be negative.  See also ???\n\nDissociative (see also ??)  amnesia may also be rated positive in this item but should also be rated in ?? The main feature is a sudden loss of memory, usually of important recent events, not due to organic mental disorder, and too great to be explained by ordinary forgetfulness or fatigue.  There is no integration of present experiences with memories of the past.  The amnesia is       presumed to be of psychogenic origin and is usually partial and selective.  The main problem is not in the registration or retention of the memory, but in the recall of facts usually associated with insoluble or unacceptable interpersonal problems, or traumatic events such as accidents or           unexpected bereavements.\n\n**Dissociative: Differentiation from other symptoms:**\n\nThere should be no evidence of a physical condition that can explain the symptoms that characterize the disorder.  Amnesia induced by alcohol or drugs or by postictal amnesia in epilepsy should not be included here. Similarly,  subjective complaints of loss of memory (difficulty in                 recollection of important facts and events) experienced in depressive disorders should be excluded.  Likewise, it is differentiated from other causes of subjective memory loss by the severity, sudden onset, or only affecting a specific event, and thus it may not necessarily show a global          memory loss.\n"},{"key":"2.010d","title":"Koncentrationsbesvær","scale":"1a","help":"Se også (jf. 7.001-7.003)\n"},{"key":"2.010e","title":"Spændingshovedpine","scale":"1a"},{"key":"2.010f","title":"Svimmelhed","scale":"1a"},{"key":"2.010g","title":"Andre________________________________","input":"string"},{"key":"2.episode4.section","title":"MUSKULOSKELETALE SYMPTOMER/SYNDROMER INKL. UDBREDTE SMERTER, MUSKELSPÆNDINGER OG ANDRE"},{"key":"2.011","title":"Muskuloskeletale symptomer/syndromer inkl. udbredte smerter, muskelspænder etc.","description":"*- Har du haft smerter eller andre gener fra dine muskler eller led, haft føleforstyrrelser eller følt svaghed i fx. arme eller ben?*\n","input":"integer","options":{"0":"Nej ingen betydende gener","1":"1-2 symptomer","2":">=3 symptomer"},"validate":["0-2"]},{"key":"2.011a","title":"Rygsmerter","scale":"1a"},{"key":"2.011b","title":"Muskelsmerter eller -ømhed","scale":"1a"},{"key":"2.011c","title":"Smerter i armene eller benene","scale":"1a"},{"key":"2.011d","title":"Ledsmerter","scale":"1a"},{"key":"2.011e","title":"Smerter, som flytter sig fra sted til sted","scale":"1a","glossary":"Pain moving around to and from different locations in the body.\n"},{"key":"2.011f","title":"Følelse af lammelse eller lokaliseret kraftnedsættelse","description":"*- Har du været ude af stand til at bevæge en hånd, en arm eller et ben?*\n\n*- Har arme eller ben føltes tunge?*\n\n*- Har du haft svært ved at stå eller gå uden støtte?*\n","scale":"1a","glossary":"This group covers muscular weakness (either periodic or unremitting). Problems when lifting, inability to stand up or to walk or inability to move any part of the body. You may wonder why this symptoms is included under the heading musculoskeletal symptoms since, from a medical point of view, the symptom is viewed as neurological. But patients do not have this medical knowledge, and research has shown that patients view it as an extremity / musculoskeletal symptom.\n"},{"key":"2.011g","title":"Ubehagelig dødhedsfornemmelse eller paræstesier","description":"*- Har du oplevet tab af eller ændringer i berøringssansen?*\n\n*- Kan du føle varme og kulde som du plejer?*\n","scale":"1a","glossary":"Includes different sensations such as tingling (slight stinging sensation/pins and needles), crawling or creeping sensation as well as feelings of heaviness or lightness anywhere in the body.  There may be a reported sensory loss to the skin which is confined to areas that do not match any neurological lesion.  These may be associated with different sensations like tingling or other paraesthesias.  There may be differential loss between the sensory modalities (touch, pain, heat,          vibration, etc.) which cannot be due to a neurological problem. You may wonder why this symptoms is included under the heading musculoskeletal symptoms since, from a medical point of view, the symptom is viewed as neurological. But patients do not have this medical knowledge, and research has shown that patients view it as an extremity / musculoskeletal symptom.\n"},{"key":"2.011h","title":"Nakkesmerter","description":"Hvis ja:\n","scale":"1a"},{"key":"2.011i","title":"Nakkesmerter i forbindelse med piskesmælds-traume","description":"*- Har du været udsat for et piskesmælds-traume?*\n\n*- Startede dine nakkesmerter der? **(Se også 2.058)***\n","input":"integer","options":{"0":"No","1":"Worsened by trauma","2":"Yes","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"],"glossary":"Only if 2.011h (neck pain) is positive. Have you been exposed to a whiplash trauma?\nDid your neck pain start at that time? (See also [2.061])\n"},{"key":"2.011j","title":"Udbredte smerter","description":"Have you suffered from pain throughout your body?\n","input":"integer","options":{"0":"Non","1":"Only regional pain","2":"Widespread","3":"Widespread pain in both sides of the body and both in upper and lower body","8":"Uncertain","9":"NK"},"validate":["0-3","8","9"],"help":"Alle punkter defineret i glossary\n","glossary":"Does R have pain both above and below the waistline and in both sides of the body, ie. body parts of all 4 body quadrants\n"},{"key":"2.011k","title":"Andre___________________","input":"string"},{"key":"2.episode5.section","title":"GASTROINTESTINALE SYMPTOMER/SYNDROMER (gi AROUSLA) INKL. ØVRE DYSPEPSI","description":"*Har du haft problemer med maven såsom smerte, kvalme, følelse af oppustethed eller brændende fornemmelse i brystet eller sure opstød?*\n","glossary":"Do cp 9 if Eating disorders are suspected.\n\">=3 symptoms\" (upper or lower) GI arousal and fullfills criteria for FSD /BDS GI type. Furthermore various IBS definitons are covered.\n"},{"key":"2.012","title":"Øvre dyspepsi","input":"integer","options":{"0":"Nej ingen betydende gener","1":"1-2 symptom","2":">=3 symptomer"},"validate":["0-2"],"help":"Husk at udfylde **2.013**, nedre gastrointestinale symptomer.\n\n**Ved brug af spørgeskema:**\n\nN: Negativt spørgeskema (formulering fra Mini Scan)\n\nIfølge spørgeskemaet har du ikke igennem det sidste år haft problemer fra mave/tarm (såsom, læs evt. nogle symptomer op). Er det rigtigt forstået? (Hvis nej, udfyld symptomlisten)\n\nP: Positivt spørgeskema\n\n(dvs. mindst 1 symptom >lidt eller forstyrrelse af dagligdagsaktiviteter>2)\n"},{"key":"2.012a","title":"Sure opstød /regurgitation","description":"*- Har du problemer med sure opstød? Tilbageløb af mad eller syre?*\n","scale":"1a"},{"key":"2.012b","title":"Brændende fornemmelser i brystet eller epigastriet","description":"*- Har du svie eller brændende fornemmelse i brystet eller toppen af maven?*\n","scale":"1a"},{"key":"2.012c","title":"Heartburn (Halsbrand??)","scale":"1a"},{"key":"2.013","title":"Nedre gastrintestinale symptomer","input":"integer","options":{"0":"Nej ingen betydende gener","1":"1-2 symptom","2":">=3 symptomer"},"validate":["0-2"],"glossary":"\">=3 symptoms\". Fulfills criteria for FSD /BDS GI type (including upper GI symptoms as well).\n"},{"key":"2.013a","title":"Opkastninger","description":"*- Lider du af opkastninger?*\n","scale":"1a","glossary":"Vomiting, belching, regurgitation of food. Not, during pregnancy.\n"},{"key":"2.013b","title":"Kvalme","description":"*- Føler du nogle gange, du har lyst til at kaste op?*\n","scale":"1a","glossary":"- Feeling of disgust, revulsion, sensation that precedes vomiting.\n"},{"key":"2.013c","title":"Mavesmerter, inkl. mavekneb","description":"*- Har haft tilbagevendende mavesmerter  eller mavekneb?*\n","scale":"1a","glossary":"- Abdominal pain, cramps due to wind, bowel spasms, constipation. Loose bowels should be rated at 2.013g\n"},{"key":"2.013d","title":"Følelse af oppustethed og udspilethed, luft i maven eller tyngdefornemmelse i maven","description":"Do you suffer from feeling bloated or overfull?\n","scale":"1a","glossary":"This refers to constant or periodic unpleasant feelings in the stomach and upset stomach.  Foods that make the subject ill should be rated in 2.027a.\n"},{"key":"2.013e","title":"Vekslende afføring","description":"*- Lider du af forstoppelse, diarré eller begge? (Dvs. skiftende hård/normal eller skiftende hård/diaré eller skiftende normal/diaré)*\n","scale":"1a"},{"key":"2.013f","title":"Rumlen eller køren i maven","scale":"1a"},{"key":"2.013g","title":"Diaré eller løse afføringer","description":"Do you suffer from recurrent diarrhoea?\n","scale":"1a","glossary":"Complaints of  frequent or loose bowels or diarrhoea.\n"},{"key":"2.013h","title":"Lindring (smerter og andre symptomer) ved afføring","input":"integer","options":{"0":"Nej","1":"Ja","8":"Usikkert","9":"Ukendt"},"validate":["0","1","8","9"],"help":"Smerter i endetarmen rates i [2.017b].\n"},{"key":"2.013i","title":"Frembrud (smerter og andre symptomer) er forbundet med ændring i afførringshyppighed","description":"Is you tummy pain relieved by passing a motion?\n","input":"integer","options":{"0":"Nej","1":"Ja","8":"Usikkert","9":"Ukendt"},"validate":["0","1","8","9"]},{"key":"2.013j","title":"Frembrud er forbundet med ændring af afføringens form (udseende)","description":"*- Bliver dine smerter eller andre symptomer værre i forbindelse med ændring i afføringens form (udseende)?*\n","input":"integer","options":{"0":"Nej","1":"Ja","8":"Usikkert","9":"Ukendt"},"validate":["0","1","8","9"]},{"key":"2.episode6.section","title":"KARDIOVASKULÆRE SYMPTOMER"},{"key":"2.014","title":"Kardiovaskulære symptomer","description":"*- I det seneste år, har du haft symptomer fra dit hjerte eller fra brystet, såsom hjertebanken, smerte, svært ved at trække vejret, varm- eller koldsveden?*\n","input":"integer","options":{"0":"Nej ingen betydende gener","1":"1-2 symptom","2":">=3 symptomer"},"validate":["0-2"],"help":"Ved brug af spørgeskema:\n\n  N: Negativt spørgeskema (formulering fra Mini Scan)\n\n  P: Positivt spørgeskema\n","glossary":"\">=3 symptoms\". Fulfills criteria for FSD /BDS CP type\n"},{"key":"2.014a","title":"Hjertebanken/palpitationer","scale":"1a"},{"key":"2.014b","title":"Trykken i prækordiet (trykken for brystet)","scale":"1a","glossary":"Aches, pains, pressure, burning, stinging feelings in the chest or above the heart.\n"},{"key":"2.014c","title":"Forpustethed uden anstrengelse","scale":"1a","glossary":"Cannot breathe easily, smothering or choking feeling, difficulty breathing present when not making much effort.\n"},{"key":"2.014d","title":"Hyperventilation","description":"Have you had problems taking a deep enough breath, or breathing rapidly?\n","scale":"1a"},{"key":"2.014e","title":"Varm- eller koldsveden","scale":"1a"},{"key":"2.014f","title":"Rysten eller sitren","scale":"1a"},{"key":"2.014g","title":"Tør mund","scale":"1a"},{"key":"2.014h","title":"Rødmen eller blussen","scale":"1a"},{"key":"2.014i","title":"Køren i maven eller sommerfuglefornemmelse","scale":"1a"},{"key":"2.014j","title":"Andre kardiovaskulære klager","glossary":"This item covers symptoms not included in the preceding items.\n","scale":"1a"},{"key":"2.episode7.section","title":"NEUROLOGISKE SYMPTOMER INKL. DISSOCIATIVE","description":"Lammelse rates i **[2.011f]** og hudsensibilitetsforstyrrelser i **[2.011g]**.\n\nDissociative eller conversion symptomer rates også her, men se **[2.016]**.\n"},{"key":"2.015","title":"Neurologiske symptomer","description":"*- Har du haft spasmer, krampeanfald, besvimelse, tab af stemme eller syn i det seneste år?*\n","input":"integer","options":{"0":"Nej, ingen betydende gener","1":"1-2 symptom","2":">=3 neurological symptomer"},"validate":["0-2"]},{"key":"2.015a","title":"Besvimelsestendens","scale":"1a"},{"key":"2.015b","title":"Mistet stemmen, slørret tale, manglede stemmeklang","scale":"1a","glossary":"Loss of voice; loss of speech and other problems that relate to voice, pronunciation etc.\n"},{"key":"2.015c","title":"Forstyrrelse i syns, høre eller lugtesansen","description":"*- Har du oplevet tabe af eller forstyrrelse i syn, hørelse eller lugtesansen?*\n","scale":"1a","glossary":"This symptom group includes blindness in one or both eyes and other visual problems (excluding blurred vision due to lack of proper glasses or double vision). Hearing is not hard-of-hearing with our without the use of hearing aid etc. Tinnitus is rated in 2.020 . Olfaction must not be due to      a cold or similar well-defined cause.\n\n\nThis item also covers the partial or complete loss of vision, hearing or smell which is not attributed to a well defined physical condition\n"},{"key":"2.015d","title":"Krampeanfald eller -trækninger","scale":"1a","description":"*- Har du haft anfald med trækninger i musklerne på det seneste?*\n\n*- Hvordan viste det sig?*\n\n*- Var du helt bevidstløs?*\n\n*- Kom du til skade ved at falde eller bide dig i tungen?*\n\n*- Kom du til at lade vandet eller få afføring i forbindelse med dette?*\n","glossary":"Non-epileptic attacks. Convulsions may mimic epileptic seizures in which whole or parts of the body shake.  However, non-epileptic seizures are usually longer in duration, with tongue biting, bruising due to falling, and incontinence of urine are rare (but can occur).  There is not a true loss of            consciousness but a state of trance or dissociative stupor.\n\nA positive rating should not be made without full neurological investigation rulling out other explanations. Non-epileptic seizures seizures may be present in individuals with epilepsy, complicating differentiation.\n"},{"key":"2.015e","title":"Følelse af nedsat koordination og balance","description":"*- Har dine bevægelser været usikre og klodsede?*\n","scale":"1a"},{"key":"2.015f","title":"Ufrivillige, unormale bevægelser (ud over kramper)","description":"**(rysten, dystoni, myokloni)**\n","scale":"1a","glossary":"This item also includes speech.  These may mimic any neurological deficit such as astasia, abasia, akinesia, apraxia, aphonia, dysarthria, dyskinesia, paraparesis or paralysis.\n"},{"key":"2.015g","title":"Synkebesvær eller følelse af klump i halsen","scale":"1a","glossary":"Feeling a lump in the throat ('globus hystericus').\n"},{"key":"2.015h","title":"Andre neurologiske klager","scale":"1a","glossary":"This item covers symptoms not included in the preceding items.\n"},{"key":"2.episode8.section","title":"DISSOCIATIV- ELLER KONVERSIONSTILSTAND","description":"Symptomerne rates hovedsagligt i kap. 4 (??) men neurologiske symptomer, der er rated i kap. 2 kan også være dissociative.\n","scale":"1a","glossary":"Dissociative symptoms are all characterized by a partial or complete disconnection between memories of the past, awareness of identity and of immediate sensations, and control of bodily movements.  Conscious control over which memories and sensations can be selected for immediate attention, and     what movements can be carried out are impaired, although varying in degree from day to day and even from hour to hour.  The severity of impairment is often difficult to determine clinically.\n\nThe terms 'hysteria' and 'conversion' are avoided in ICD-10 (ICD11??) but not in DSM-V, and dissociative symptoms are presumed to be 'psychogenic' in origin, because they are closely associated with traumatic events, intolerable or insoluble problems, or disturbed relationships.  No particular theory of the mechanisms underlying      dissociation is assumed for purposes of this Glossary.\n\nPeople with dissociative symptoms often deny problems that are obvious to others.  An informant is therefore essential for a proper rating.\n\nSee also items **17.020**, dissociative hallucinations, and **20.026** - **20.029**, which constitute the Checklist for Induced Psychosis.\n\nFor a definite rating the following features must be present:\n\n1. The clinical characteristics specified at each item.\n2. Some evidence of psychological causation - e.g. convincing temporal association with stressful events, relationship or other problems or needs - often denied by the respondent.  This requires a clinical judgement, usually based also on information from another informant. Association with            stress is rated at **2.016**. Rating the neurological symptoms (i.e. 2.015) does not require that a psychological causation is likely, you only qualify for dissiciative diagnosis if 2.016 is rated positive.\n3. The presence of any relevant disorder of the central or peripheral nervous system should be specified at items **2.007a-t**.  If this fully explains the symptom, rate 9. Organic attribution should otherwise be rated as usual.\n4. Positive ratings should never be made if the appropriate physical investigations have not been carried out.  Rate 8 in this case.\n\n**Differentiation from other symptoms:**\n\nDepersonalization and derealization are not associated with loss of conscious control over access to sensations, memories or movements, and only limited aspects of personal identity are affected.  In depersonalization, there may be a loss of the sense of self, but the people affected know who       they are.\n"},{"key":"2.016","title":"Dissociative symptomer forbundet med traume eller stress","description":"*- Da du oplevede (symptom, fx anfald, lammelse, ikke kunne se eller høre), havde du da været udsat for en rystende oplevelse, eller var du under særlig stresspåvirkning?*\n\n*- Havde du personlige problemer på det tidspunkt? (Fx traumatiske oplevelser, bekymringer, uløselige problemer)*\n","input":"integer","options":{"0":"Ingen dissociative symptomer","1":"Ja, men ikke akut svære traume ved symptomdebut","2":"Akut svært psykologisk traume /begivenhed i forbindelse med at symptomet opstod","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":"All dissociative disorders are presumed to be of psychogenic origin.  Onset is convincingly associated in time with a traumatic life event with intolerable or insoluble problems, or with disturbed interpersonal relationships, which R may not acknowledge or be aware of.  Loss of consciousness       or any other bodily function may be a sign of emotional need or conflict.  A disinterested informant is usually necessary.\n"},{"key":"2.016a","title":"Med svaghed eller lammelse","input":"integer","validate":["1"],"options":{"1":"Til stede"},"glossary":"The loss of ability to move the whole or parts of the body or limbs.\n\nQuestions; Have you been unable to move a hand, an arm or a leg? Have you had difficulties standing or walking without support?\n"},{"key":"2.016b","title":"Med abnormal bevægelse (fx rysten, dystoni, myokloni, Huntingtons sygdom,dyskinesi)","input":"integer","validate":["1"],"options":{"1":"Til stede"}},{"key":"2.016c","title":"Gangforstyrrelse","input":"integer","validate":["1"],"options":{"1":"Til stede"}},{"key":"2.016d","title":"Med synkebesværssymptomer","input":"integer","validate":["1"],"options":{"1":"Til stede"}},{"key":"2.016e","title":"Med talesymptomer (fx dystoni, sløret tale)","input":"integer","validate":["1"],"options":{"1":"Til stede"}},{"key":"2.016f","title":"Med anfald (inkl. PNES)","input":"integer","validate":["1"],"options":{"1":"Til stede"}},{"key":"2.016g","title":"Med følelsesløshed","input":"integer","validate":["1"],"options":{"1":"Til stede"}},{"key":"2.016h","title":"Med synssymptomer","input":"integer","validate":["1"],"options":{"1":"Til stede"}},{"key":"2.016i","title":"Med særlige følesymptomer  (exkl. syn) (fx forstyrrelse af lugtesans eller hørelse)","input":"integer","validate":["1"],"options":{"1":"Til stede"}},{"key":"2.016j","title":"Med blandede symptomer","input":"integer","validate":["1"],"options":{"1":"Til stede"}},{"key":"2.016k","title":"Med kognitive symptomer","input":"integer","validate":["1"],"options":{"1":"Til stede"}},{"key":"2.016l","title":"Andre dissociative","input":"integer","validate":["1"],"options":{"1":"Til stede"}},{"key":"2.episode9.section","title":"UROLOGISKE SYMPTOMER"},{"key":"2.017","title":"Urologiske symptomer","description":"*- Har du haft smerter fra endetarm ved vandladningen eller andre problemer med vandladning?*\n","input":"integer","options":{"0":"Nej ingen betydende gener","1":"1-2 symptom","2":">=3 symptomer"},"validate":["0-2"]},{"key":"2.017a","title":"Vandladningssmerter","scale":"1a","glossary":"Pain or burning sensation during urination. Not due to infection or similar.\n"},{"key":"2.017b","title":"Smerter i endetarmen","scale":"1a"},{"key":"2.017c","title":"Hyppig vandladning","scale":"1a","glossary":"Frequency of passing water, sense of urgency, or any similar urinary complaint. Not due to infection or similar\n"},{"key":"2.017d","title":"Blæretømningsbesvær","scale":"1a","glossary":"Difficulty passing water, retention\n"},{"key":"2.017e","title":"Andre","scale":"1a"},{"key":"2.episode10.section","title":"GENITALE SYMPTOMER"},{"key":"2.018","title":"Genitale symptomer","description":"*- Har du haft problemer med menstruation /kun kvinder) sexliv, genitalier eller manglende sexlyst?*\n","input":"integer","options":{"0":"Nej ingen betydende gener","1":"1-2 symptom","2":">=3 symptomer"},"validate":["0-2"]},{"key":"2.018a","title":"Smerter i forbindelse med menstruation","scale":"1a"},{"key":"2.018b","title":"Ubehagelige fornemmelser i kønsorganerne","scale":"1a"},{"key":"2.018c","title":"Vulvodyni (hvis 2.018b er positiv)","scale":"1a"},{"key":"2.018d","title":"Uregelmæssig menstruation","scale":"1a"},{"key":"2.018e","title":"Manglende seksuallyst","scale":"1a"},{"key":"2.018f","title":"Smerter i forbindelse med samleje","scale":"1a"},{"key":"2.018g","title":"Andre genitale klager","scale":"1a","glossary":"This item covers symptoms not included in the preceding items.\n"},{"key":"2.episode11.section","title":"SYMPTOMER FRA ANDRE ORGANSYSTEMER"},{"key":"2.019","title":"Symptomer fra andre organsystemer","description":"*- Har du andre generende symptomer, som fx tinnitus (ringen for ørerne) eller symptomer, der påvirker dine ører, øjne, næse, hals eller kæber?*\n","input":"integer","options":{"0":"No significant discomfort","1":"Yes"},"validate":["0-1"]},{"key":"2.020","title":"Tinnitus","scale":"1a"},{"key":"2.021","title":"Øre, næse eller hals (andre end smerte)","scale":"1a"},{"key":"2.022","title":"Tænder, kæbe eller mundhule (andre end smerter)","scale":"1a"},{"key":"2.023","title":"Øjne inkl. synsforstyrrelser","scale":"1a"},{"key":"2.024","title":"Mandibular smerte","description":"*- Har du haft smerter i kæbe eller tyggemuskler?*\n","scale":"1a","glossary":"Pain in the jaw or the muscle of mastication.\n"},{"key":"2.025","title":"Smerter i kæbeled","description":"*- Har du haft smerter i kæbeleddet?*\n","scale":"1a"},{"key":"2.026","title":"Andre symptomer","scale":"1a"},{"key":"2.episode12.section","title":"INTOLERANS OVER FOR KEMIKALIER, LUGTE ELLER MAD"},{"key":"2.027","title":"Intolerans over for kemikalier, lugte eller mad","description":"*- Har du haft problemer med overfølsomhed over for kemikalier og lugte eller at du ikke tåler noget du har spist?*\n","input":"integer","options":{"0":"No significant discomfort","1":"Yes"},"glossary":"Only symptoms and complaints that are not due to #[type 1] allergy. Most people attribute chemical intolerances to \"allergy\", even though no type 1 hypersensitivity is involved. If no allergy has been found by medical tests or is unlikely based on the symptom description and the symptom is present, rate positive. However, only rated positive if the complaints grossly exceed what would be expected from the exposure in most people.\n","validate":["0-1"],"help":"**By use of questionnaire:**\n\nN: Negative questionnaire (use phrasing from mini SCAN)\n\nP: Positive questionnaire.\n"},{"key":"2.027a","title":"Intolerans over for flere fødevarer","scale":"1a"},{"key":"2.027b","title":"Duft- eller kemikalieintolerans","description":"*- Kan du reagere på en duft eller et kemisk stof uden at det fremkalder symptomer hos andre mennesker i dine omgivelser?*\n\n*- Skyldes det allergi? (hvis bekræftet rates 6)*\n\n**If yes**\n","scale":"1a"},{"key":"2.028","title":"Forsvinder symptomerne efter eksponering?","description":"*- Forsvinder symptomerne igen, når du ikke længere udsættes for disse dufte eller kemiske stoffer?*\n","scale":"1a"},{"key":"2.episode13.section","title":"MEST DOMINERENDE SYMPTOM"},{"key":"2.029","title":"Hovedklage eller mest dominerende symptom 2.010-2.027b","description":"Specificeres______________________\n\n(rate 888 hvis pt. ikke kan angive et enkelt hovedsymptom)\n\n*- Hvilket af disse symptomer har generet dig mest?*\n","input":"string","dropdownOptions":"2.010-2.027b","options":{"888":"No single symptom is predominant","2.010-2.027b":"Dropdown"},"validate":["10-90","888"]},{"key":"2.030","title":"Smertetilstand/syndrom (idiopatiske/primære smerter)","description":"*Hvis det primære problem er smerter skal rater afgøre, om det kan karakteriseres som smertesyndrom/tilstand.*\n","input":"integer","options":{"0":"Ej smertesyndrom/tilstand","1":"Mild","2":"Moderat","3":"Svær","4":"Neuropatisk","5":"Forårsaget af veldefineret fysisk sygdom (inkl. tumor)","6":"Usikkert","8":"Ukendt"},"validate":["0-6","8"],"glossary":"Pain is just a symptom, and, as with many other symptoms, the differentiation between specific pain disorders and other functional somatic disorders is blurred and difficult to establish. The rating must be based on how prominent the pain is in the illness pattern. If the R is multisymptomatic, you should not rate it as a pain disorder. Rate as neuropathic if the pain is a direct consequence of a lesion or diseases affecting the somatosensory system.\n"},{"key":"2.031","title":"Påvirkning af aktiviteter og besvær  pga. kropslig stress /bodily distress eller fysiske symptomer","description":"*Du har nævnt **(opsumér symptomer)** igennem **(angiv tid)**. Hvor meget har de nævnte symptomer påvirket din daglige livskvalitet og aktiviteter?*\n","input":"integer","options":{"0":"Ingen bodily distress symptomer","1":"Kun lille påvirkning","2":"Moderat eller intermitterende påvirkning","3":"Svær eller invaliderende påvirkning","8":"Usikkert","9":"Ukendt"},"validate":["0-3","8","9"],"glossary":"Whether the symptoms cause clinically significant distress or impairment in social, occupational or other important areas of functioning.\n\nFor rating of functioning, you may use the concept of WHO’s disability assessment with its 5 dimensions. But it is important that emotional distress is also rated here, i.e. a person may go to work but is tormented by thoughts and emotions in connection with his/hers symptoms.\n"},{"key":"2.032","title":"Boom and bust perioder","description":"*I fortsættelse af item ovenfor*\n\n*- Hvis du en dag er aktiv og overskrider grænserne for din formåen, bliver du da udmattet eller må ligge i sengen i en dag eller mere?*\n\n*- Er det et velkendt mønster for dig, at hvis du skal noget, fx til en fest, på en rejse eller har en aftale med en læge, så bliver du udmattet i flere dage?*\n","input":"integer","options":{"0":"Nej","1":"Let/moderat. Jeg kender dette men ikke et større problem hvis jeg passer på","2":"Det påvirker mit liv i svær grad","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.033","title":"Varighed af lidelse eller ubehag på grund af symptomerne (mdr.)","description":"In months\n","input":"integer","options":{"0":"Ikke til sted","800":"800 mths or more","888":"NK","999":"NA","1-799":"Mellem 1 og 799 mdr."},"validate":["0-800","888","999"],"glossary":"This item refers to any symptoms rated present at 2.007-2.027b). Rating is based on level of distress and persistence.  Enter the number of months that the symptoms have been present.\n"},{"key":"2.034","title":"Vekslen i funktionelle symptomer (”langsomme” variationer)","description":"(Over måneder eller år. Skift i sygdomsbillede der kan være relativt stabilt i en periode for derefter at skifte til et andet organsystem/sygdomsbillede.)\n\nOplysninger fra anden kilde bør også indgå i vurderingen, fx fra journaler, henvisende læge, familie)\n\n*- Har dine symptomer eller sygdom ændret sig?*\n\n*- Har du fejlet flere forskellige ting?*\n","input":"integer","options":{"0":"Stabilt med små ændringer, fokuseret på det samme relativt stabile symptom/sygdomsbillede","1":"Symptomer/sygdomsbillede har ændret sig fra et til et eller flere andre relativt stabile symptomer/sygdomsbillede","2":"Flere symptomer/sygdomsbilleder samtidigt","3":"Ingen afgrænsede symptomer/sygdomsbillede","8":"Usikkert","9":"Ukendt"},"validate":["0-3","8","9"],"glossary":"The intensity, type and severity of somatoform symptoms often vary over time. It may be a slow variation, i.e. in one time period (months or years) the patient may present a set of symptoms or an illness pattern that may be relatively stable, whereas in another time period a different illness       pattern may be dominant. In fast variation the symptoms vary from day-to-day or week-to-week. The illness may vary both fast and slow in the same patient.\n"},{"key":"2.035","title":"Vekslen af funktionelle symptomer (”hurtige” variationer)","description":"(Fra time til time, dag til dag eller uge for uge.\n\nOplysninger fra anden kilde bør også indgå i vurderingen, fx journaler, henvisende læge, familie)\n\n*- Kan der være forskelle i, hvordan du har det fra dag til dag eller uge for uge?*\n\n*- Kan du føle dig helt rask de dage, hvor du har det godt?*\n","input":"integer","options":{"0":"Ingen fluktuation","1":"Moderat fluktuation","2":"Udtalt fluktuation","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":"See under **2.034**.\n"},{"key":"2.036","title":"Forværring af sygdom og symptomer over tid","description":"*- Har du fået det gradvist dårligere over tid/over de senere år?*\n\n*- Hvordan?*\n","input":"integer","options":{"0":"Nej, eller konstant","1":"Mild til moderat forværring","2":"Svær forværring","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":"In most well-defined medical conditions, the prognosis is well-known and the conditions follow a course characteristic for them. In functional disorders, the patients often regress over time and get more and more affected (if untreated). In most cases of sprains, fractures etc., the condition         improves over time, whereas in patients developing, for example, WAD (whiplash associated disorder), the condition gradually become worse.\n"},{"key":"2.episode14.section","title":"SYGDOMSBEKYMRING OG OPTAGETHED (HELBREDSANGST)","glossary":"Background:\n\nIllness worries and preoccupation are also often presented in functional disorders and in other conditions and thus not restricted to health anxiety.  Therfore, this section should be used in any case of functional complaints and not only if health anxiety / hypochondriasis is suspected.\n\nDelineation from normality:\nBeing attentive about one's health and bodily functions is important for the survival of human beings as it is a precondition for taking care of ourselves and seeking help if necessary. Illness worrying or health anxiety is thus on a dimension from being too little aware of their body signals       and functioning to patients being severely disabled by unfounded health worries. The demarcation between a normal reaction and pathological health anxiety cannot be established rigorously as it is the case in many other disorders. However, patients with health anxiety are often aware that their worries are exaggerated, except if they are momentarily in a state of panic due to their worries (catastrophizing), and they feel they are more troubled by their thoughts about symptoms than the suffering the symptoms inflicts. In normal worrying, you can often distract yourself from worries and try to balance the worries against the reality, whereas patients with health anxiety are inclined to always fear the worst.\n\nDifferences between OCD, Anxiety and Health anxiety.\nDespite some apparent clinical similarities between OCD and health anxiety, there is little evidence for this. Although patients with OCD may have different compulsions or obsessions, they are the same compulsions, images and thoughts that keep returning again and again in a very     stereotypical form. Contrary to this, the worries and thoughts in health anxiety are not so stereotypical but vary much more with multiple thoughts and considerations about illnesses. A patient with health anxiety feels compelled to see a doctor to get reassured, but this is not because of a        compulsion to see a doctor, but because they fear a health problem. Patients with health anxiety do not usually have other compulsions or obsessions. In health anxiety, the rumination is usually triggered by an external or internal stimulus, such as hearing about illness, and the worrying usually relates to the trigger, whereas obsessive thoughts in OCD are usually and solely intrusive with no specific trigger, although they may be a reaction to a stressor.\n"},{"key":"2.037","title":"Overdreven bekymring over veldefineret fysisk sygdom","description":"Hvis pt. har en alvorlig fysisk sygdom (ellers gå til **2.038**):\n\n*- Synes du eller andre, at du er mere bekymret over din sygdom (navn på sygdom) end du burde være?*\n\n*- Hvad siger andre - vedr. om du bekymrer dig for meget?*\n","glossary":"Only if the patient suffers from a serious well-defined physical disease or health threat (i.e. rated in the WELL-DEFINED section) :\n\nSevere health worrying is a normal reaction when a severe disease such as cancer is suspected. The reaction has similar characteristics to other stress reactions to life events and is transient and disappears when the suspected disease is excluded or treated. The preoccupation is not excessive or     disproportionate in the light of the condition that is suspected, and usually patients do not panic but cope with their fear. In this case, is rated 0.\nHowever, such a real threat to health may trigger the onset of severe worries or  health anxiety. The patient is usually aware that the worries and preoccupations are unfounded or disproportionate if asked in a considerate way, despite being difficult for the patient to realise this during      an attack of overwhelming health anxiety.\n"},{"key":"2.038","title":"Overdreven optagethed af fysiske symptomer og bekymring over fysisk helbred","description":"*- Er du bange for at fejle noget alvorligt?*\n\n*- Har du været hos lægen pga. det? (indenfor det seneste år)*\n","input":"integer","options":{"0":"Ingen særlig optagethed eller tilstanden ikke til stede","1":"Let til moderat optagethed","2":"Svær optagethed med lægekonsultationer, undersøgelser, vedvarende selvmedicinering eller udtalt besvær i hverdagen","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"help":"Bedømmes ud fra graden af optagethed, sygdomsfølelse eller gener og hyppigheden af konsultatio¬ner og undersøgelser, graden af symptomer eller overdreven sygdomsbekymring.\n","glossary":"A non-delusional preoccupation with fears of harbouring a severe physical disease and/or a disproportionate thoughts about the seriousness of one's symptoms and disease.\nThe symptom has the characteristics of worrying (see **3.001**) but is also distinguished:\n\n(I) By an intense preoccupation with apparently normal sensations or physical signs or appearances.\nIf a medical condition is present the preoccupation is clearly excessive or disproportionate.\n\n**Differentiation from other symptoms:**\n\nModerate to severe social disablement often accompanies the symptom.\n\nIf there is true conviction of the presence of a nonexistent disease, rate at item **2.046** (repeated at **19.028** and, if in context of depressed mood, at **19.027**, and **19.028**).  Somatic hallucinations and delusional elaboration are rated at **17.028** and **17.029**.\n\nPhobias of contracting disease (**4.044**), or of medical situations (**4.043**), should be distinguished if they lack the two characteristics specified above.\n\nObsessional preoccupation with the possibility of harm from contamination or infection (**5.005**), must have the characteristic resistance against subjective compulsion.\n\nThe differentiation between phobias and obsessions can be difficult.  If criteria for more than one diagnosis are met, each should be rated on its own merits. One dignosis does not exclude the others.\n"},{"key":"2.039","title":"Obsessive ruminationer over sygdom","description":"*- Hvis du får tanker om, at du måske fejler noget, har du så svært ved at slå tanken ud af hovedet?*\n*- Går du og tænker på det næsten hele tiden, eller kan det gå op i en spids?*\n","input":"integer","options":{"0":"Ingen særlig optagethed eller tilstanden ikke til stede","1":"Let til moderat optagethed","2":"Svær optagethed, der indvirker betydeligt på hverdagens gøremål","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":"The patient has thoughts or ideas about suffering from a disease that they cannot, or only with great difficulty, stop. All thoughts are centred on a suspected disease, and the patient finds more and more \"evidence\" that he/she suffers from an often severe disease. The growing anxiety spiral       may ultimately make the patient seek medical attention. Rumination seems quite specific for health anxiety in the sense that other functional disorders that may present with illness worries do not display this symptom. But ruminations may also be present in (other) mental disorders like            anxiety disorders and depression.\n"},{"key":"2.040","title":"Tid forbrugt på sygdomsbekymring og symptomer","description":"*- Bruger du meget tid eller energi på dine symptomer eller sygdom eller på at bekymre dig over det eller over at være syg?*\n","input":"integer","options":{"0":"Ingen særlig optagethed eller tilstanden ikke til stede","1":"Bruger mindre end en time om dagen med at tænke på den forstyrrende tilstand/symptomer","2":"Bruger mere end en time om dagen med at tænke på den forstyrrende tilstand/symptomer","10":"Usikkert","11":"Ukendt"},"validate":["0-2","10","11"],"glossary":"How much time and energy the person devotes to focusing on bothersome symptoms and their consequences. Typically associated with frequent medical visits.\n\n(DSM-V crit B3  + ICD-11 hrs. spent)\n"},{"key":"2.041","title":"Kropslig optagethed","description":"*- Er du i almindelighed meget opmærksom på, hvordan din krop har det, og hvad der sker i den?*\n\n*- Hvad har du lagt mærke til?*\n\n*- Kan du nogle gange have den tanke, at de fornemmelser, du har i kroppen, er unaturlige eller farlige?*\n\n*- Kan et blåt mærke eller en hudirritation gøre dig bekymret for, at det er tegn på noget farligt?*\n\n*- Lytter du ofte til din egen puls?*\n","input":"integer","options":{"0":"Ingen særlig optagethed eller tilstanden ikke til stede","1":"1  Let optagethed eller påvirkelighed men ikke betydeligt indgribende i hverdagen","2":"2  Overdreven optagethed eller påvirkelighed der medfører betydeligt besvær i hverdagen eller talrige konsultationer eller selvmedicinering","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":"This item is a rating of the patient’s awareness of natural or benign physical sensations and physiological reactions in the body as well as a rating of how bothered the patient is by even minor problems which may be  misinterpreted and make the patient develop the idea that they have something unnatural or abnormal that may be a sign of a pathological condition. The patient may have autonomic hypersensitivity, hearing his/her own pulse or being aware of other natural physical phenomena of which others are rarely conscious.  For example, if getting bruises or irritated skin, he/she will be worried.\n"},{"key":"2.042","title":"Optagethed af sundhedslitteratur, sundhed og sygdom","description":"*- Er du i almindelighed meget optaget af sundhedsstof fx i medierne eller på nettet?*\n\n*- Går du meget op i det?*\n","input":"integer","options":{"0":"Ingen særlig optagethed eller tilstanden ikke til stede","1":"Let optagethed eller påvirkelighed men ikke betydeligt indgribende i hverdagen","2":"Overdreven optagethed medførende betydeligt besvær i hverdagen eller talrige konsultationer eller selvmedicinering","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":"The patient is highly susceptible to information about illness be it information from books, magazines, TV, internet, newspapers etc. If family members, friends or anyone else he/she meets become ill, the patient will worry about harbouring the same disease. If he/she thinks about a disease, he/she will be afraid of harbouring the disease him-/herself.\n"},{"key":"2.043","title":"Suggestibilitet og autosuggestibilitet","description":"Hvis du læser eller hører om sygdomme i medierne,\n\n*- Kan du blive bange for, at du selv har en sådan sygdom?*\n\n*- Kan familiemedlemmers sygdom gøre dig bange for, at du fejler det samme?*\n\n*- Undgår du at læse sundhedsstof for ikke at fremprovokere frygt for sygdom?*\n\n*- Hvis du kommer til at tænke på en sygdom, kan du så blive bange for selv at have den?*\n","input":"integer","options":{"0":"Ingen særlig optagethed eller tilstanden ikke til stede","1":"Let til moderat optagethed eller nogen påvirkelighed","2":"Let påvirkelighed og svær optagethed, som giver hyppigt inducerede symptomer eller betydelige ruminationer eller hyppige lægebesøg","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":"The patient responds with alarm to the slightest hint of illness. Hearing or reading about a disease, he/she is easily alarmed and inclined to fear having that disease. Likewise, if someone in the family, among friends, acquaintances or work colleagues falls ill, the patient may fear having         this disease.\n"},{"key":"2.044","title":"Frygt for smitte","description":"*- Er du ofte bange for at blive smittet eller pådrage dig en sygdom fra andre ved at være i kontakt med dem eller røre ved snavsede ting (eksempelvis toiletsæder)?*\n","input":"integer","options":{"0":"Ingen særlig optagethed eller tilstanden ikke til stede","1":"Let til moderat optagethed","2":"Svær optagethed, hyppigt inducerede symptomer med betydelige ruminationer eller hyppige lægebesøg","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":"The patient’s fear of being infected or contaminated if he/she has been with an ill person or if the patient touches dirty things or things that could be contaminated such as a toilet seat. The fear causes significant distress and / or makes the patient consult a doctor to make sure that nothing     is wrong.\nThis is usually different from phobias and obsessions where the patient seldom consults a doctor for the dreaded disease, but instead for the distressing thought of it.\n\nThe differentiation from phobias (**4.044** & **4.043**)) and obsessions (**5.005**) can be difficult.  If it is unclear whether the symptom are attributable to phobia, obesession or health anxiety, each should be rated on its own merits. One diagnosis does not exclude others. See also the introduction to the health anxiety section.\n"},{"key":"2.045","title":"Medicinfrygt og compliance","description":"*- Er du i almindelighed tryg ved at tage medicin, eller har du bekymringer over de eventuelle bivirkninger, det måtte have?*\n\n*- Tager du al den medicin, lægen ordinerer, eller må du somme tider opgive at tage medicinen eller springe doseringer over af frygt for medicinen?*\n","input":"integer","options":{"0":"Normal grad af tryghed/utryghed","1":"En vis grad af medicinfrygt eller en vis grad af uhensigtsmæssig administrering af medicin","2":"Høj grad af utryghed og/eller manglende compliance","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":"Patients with health anxiety are often afraid of taking medication contrary to patients with other functional disorders. It is the fear of medication that should be rated here and not the patients’ complaints about medication.\n"},{"key":"2.046","title":"Afvisning af lægens beroligelse","description":"*- Er du overbevist om, at du har en legemlig sygdom?*\n\n*- Føler du behov for yderligere undersøgelser?*\n\n*- Har lægers forsikringer (tidligere) overbevist dig om, at du ikke har en legemlig sygdom?*\n\n*- Har du nævnt for lægen, at du ikke var overbevist? Hvad sagde han til det?*\n\n*- Følte du dig beroliget, da lægen sagde, at der ikke var nogen grund til bekymring?*\n","input":"integer","options":{"0":"Accepterer beroligelsen","1":"Delvist, har ikke kunnet fastholde beroligelse ved én eller flere lejligheder","2":"Kan kun kortvarigt fastholde beroligelse","3":"Har kontinuerligt ikke kunnet acceptere lægens beroligelse eller forklaringer","4":"Vrangforestilling (delusional)","8":"Usikkert","9":"Ukendt"},"validate":["0-4","8","9"],"help":"Patienten giver udtryk for mere eller mindre udtalt grad af overbevisning om, at han/hun har en alvorlig sygdom eller generende deformitet til trods for lægens forsikringer om, at der ikke er noget i vejen.\n\nMå ikke forveksles med frygt for at pådrage sig sygdom <4.044>.\n\n- Dysmorfofobi rates også ved <16.011>.\n- Hypokondre vrangforestillinger (urokkelig overbevisning om at fejle noget alvorligt) rates også her men kan også rates ved <19.027> og <19.028>. Hvis disse er led i anden psykotisk tilstand rates dog i <19.027> og <19.028> i stedet.\n","glossary":"The patient may seek reassurance by consulting a doctor but have difficulties in believing the doctor when told that there is nothing to worry about, and when reassured, the worrying may return rapidly .\nWhen health anxiety or hypochondriacal preoccupation is most severe, it takes the form of refusal of medical reassurance, with a belief that disease is present even when no abnormality is found in repeated examinations.  Respondents may believe that a disease\n accounts for the symptoms and are        not satisfied with the way that medical experts have handled the case or with the conclusions and explanations offered. The patient  may contact one doctor (or other health care professionals) after another and accept many treatments,  but rejects assurance that there is no adequate physical         cause for the symptoms or presumed deformity. The pt. might accept reassurance for short periods following or during medical investigations or interventions.\n\n\n**Differentiation from other symptoms:**\n\nDifferentiation from phobias and obsessions should not be difficult. Hypochondriacal delusions are rated at **19.028** or at **19.027** if in context of depression. If it is difficult to be sure of the presence of delusional conviction, rate as item **2.046**.\n"},{"key":"2.047","title":"Katastrofetænkning","description":"Frygter du store konsekvenser (fx alvorlig funktionsnedsættelse, ikke at kunne vende tilbage til dit arbejde, ikke at kunne tage dig af dine børn, aldrig at blive den same igen) når du har symptomer?\n","scale":"1a","help":"**Se også kapitel 5.**\n","glossary":"The patient is inclined to always  expect or fear serious consequences of symptoms and ailment, i.e. serious disability, not being able to return to work, not being able to take care of children, never being the same again, and to choose the worst possible explanation and misinterpret trivial illness or symptoms as serious disease or a health threat such as cancer or resulting in severe disability.\n"},{"key":"2.048","title":"Helbredsangst by proxy","description":"Inden for det seneste år:\n\n*- Har du ofte været bekymret for, at dit barn, din samlever eller andre omkring dig er syge?*\n\n*- Har du været ved lægen med dit barn pga. det?*\n\n*- Har du presset din samlever til at gå til læge pga. det?*\n\n*- Tjekker du fx efter om dine børn har blå mærker eller lymfeknuder, der er vokset,”scanner” dine børns krop  for eventuelle forandringer når de fx er i bad?*\n","input":"integer","options":{"0":"Ingen særlig optagethed eller tilstanden ikke til stede","1":"Let til moderat optagethed","3":"Svær optagethed og tager barnet til lægen, til undersøgelser, medicinering af barnet eller udtalt bekymring i hverdagen","12":"Usikkert","13":"Ukendt"},"validate":["0-3","12","13"],"glossary":"The patient is typically worried about his/her child's health and is afraid that the child has a disease. It may also affect another close relative such as spouse.\n"},{"key":"2.049","title":"Behandlingssøgende adfærd i forbindelse med helbredsangst eller symptomer igennem de sidste 2 år","description":"*- Hvor mange læger har du set for din sygdom/dine symptomer igennem de sidste 2 år?*\n\n*- Hvorfor så mange forskellige?*\n\n*- Har du følt, det var nødvendigt at søge andre læger eller eksperter for en second opinion eller behandling (”blot for en sikkerheds skyld”)?*\n","input":"integer","options":{"0":"Patienten har ikke spontant opsøgt andre læger/sundhedspersoner pga. funktionel lidelse/helbredsangst","1":"Patienten har ikke spontant opsøgt andre læger/sundhedspersoner pga. funktionel lidelse/helbredsangst","2":"Patienten har 2-3 gange aktivt opsøgt anden læge/sundhedsperson pga. funktionel lidelse/helbredsangst","3":"Patienten har 4 eller flere gange aktivt opsøgt anden læge/sundhedsperson pga. funktionel lidelse/helbredsangst","8":"Usikkert","9":"Ukendt"},"validate":["0-3","8","9"],"glossary":"The number of different doctors the patient has seen on the patient’s own initiative for physical symptoms not attributed to a well defined medical condition or trivial bodily sensations,  during the past two years are rated. Change of doctor due to change of address, the doctor’s vacancy or referrals that are not requested by the patient are not            counted.\n"},{"key":"2.050","title":"Avoidance i forbindelse med helbredsangst eller symptomer","description":"*- Undgår du ting eller situationer, der kan gøre bekymreret for dit helbred, fx at læse eller høre om sygdom i TV,  på internettet eller andre steder?*\n\n*- Bliver du meget nervøs, hvis du skal til læge?*\n\n*- Undgår du at gå til lægen eller kan du udeblive fra aftaler eller indlæggelse, fordi det gør dig bange?*\n","input":"integer","options":{"0":"Ingen maladaptiv avoidance pga. helbredsangst","1":"Let/moderat maladaptiv advoidance pga. helbredsangst","2":"Svær maladaptiv advoidance pga. helbredsangst","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":"Patients may for instance avoid visiting family members or friends who are hospitalised or ill, avoid to read or watch TV programmes about medical issues because it is too anxiety-provoking and may trigger the rumination.\n"},{"key":"2.051","title":"Varighed af kropslig optagethed og sygdomsbekymring ([2.037]-[2.050])","description":"In months\n","input":"integer","options":{"0":"Ikke til stede","800":"800 mths or more","888":"NK","999":"NA","1-799":"Mellem 1 og 799 mdr."},"validate":["0-800","888","999"]},{"key":"2.052","title":"Påvirkning af aktiviteter og besvær pga. helbredsangst","description":"Du har nævnt **[opsumér symptomer]** igennem **[specificér perioden]**.\n\n*- Hvor meget har de nævnte symptomer påvirket dine aktiviteter i dagligdagen?*\n","input":"integer","options":{"0":"Ingen helbredsangst","1":"Kun lille påvirkning","2":"Moderat eller intermitterende påvirkning","4":"Svær eller invaliderende påvirkning","10":"Usikkert","11":"Ukendt"},"validate":["0-4","10","11"],"glossary":"Whether the worrying and anxiety cause clinically significant distress or impairment in social, occupational or other important areas of functioning. For rating of functioning, you may use the concept of WHO’s disability assessment with its 5 dimensions. But it is important that emotional      distress is also rated here, i.e. a person may go to work but is tormented by thoughts and emotions in connection with his/her symptoms.\n"},{"key":"2.053","title":"Dysmorfofobi","description":"*- Er du bange for, at der er en forandring eller deformitet af dit udseende?*\n","input":"integer","options":{"0":"Ingen dysmorfofobi","1":"Optagethed af formodet deformitet eller forandring af udseendet","8":"Usikkert","9":"Ukendt"},"validate":["0","1","8","9"],"help":"Jvf. dysmorfofobi 16.011.\n","glossary":"The patient is preoccupied with his/her appearance and deformity.\n"},{"key":"2.episode15.section","title":"SYNDROM- ELLER SYMPTOMBASEREDE DIAGNOSER IFØLGE PATIENTEN","description":"Rating baseret på svar på spørgsmålene fra **[2.010]-[2.027b]** eller andre dele af interviewet, eller hvis det ikke er tilstrækkeligt, kan patienten spørges direkte.\n\n*Tror patienten, eller er patienten blevet fortalt, at han eller hun lider af en syndrom- eller symptomdiagnose?*\n","glossary":"2.054--2.060:\n\nRate if the patient or doctor has ‘organised’ his/her symptoms into a “diagnostic” label or syndrome label. The label may not be named correctly from a medical point of view but includes labels such as heart disease, allergy etc. The importance is the rigidity, how pronounced the patient’s belief  is,        and whether there is any indication of doubt. The patient may have organised her/his symptoms in more than one diagnosis/condition simultaneously, but still qualifies for a rating of 1 or 2.\n"},{"key":"2.054","title":"Fibromyalgi","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.055","title":"CFS (kronisk træthedssyndrom)","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.056","title":"IBS (Irritabel tyktarm)","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.057","title":"Smertesyndrom (ud over fibromyalgi)","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.058","title":"Kronisk piskesmæld (WAD)","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.059","title":"Duft- og kemikalieoverfølsomhed (MCS)","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.060","title":"Andre","description":"Specificér:_________________________\n","glossary":"The patient’s own belief or a diagnosis he/she has received.\n","input":"integer","options":{"0":"Absent","1":"Yes, but not 2","2":"Fixed and persistent belief","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.episode16.section","title":"BEGIVENHEDER I FORBINDELSE MED SYMPTOM- ELLER SYGDOMSDEBUT","description":"(Hvis ikke fremkommet under den øvrige del af interviewet, spørges patienten direkte)\n- *Hvordan begyndte din sygdom (eller symptomerne)?*\n- *Skete der andre ting i dit liv samtidigt?*\n- *Var der noget der udløste din sygdom?*\n","input":"integer","options":{"0":"Nej, ingen særlige begivenheder","1":"Ja, men ikke 2","2":"Ja, klar sammenhæng /sammenfald","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.061","title":"Fysisk traume (fx whiplash, knoglebrud, slag mod hovedet)","input":"integer","options":{"0":"Nej, ingen særlige begivenheder","1":"Ja, men ikke 2","2":"Ja, klar sammenhæng /sammenfald","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.062","title":"Fysisk sygdom (fx infektionssygdom)","input":"integer","options":{"0":"Nej, ingen særlige begivenheder","1":"Ja, men ikke 2","2":"Ja, klar sammenhæng /sammenfald","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.063","title":"Emotionelt traume, konflikter eller belastning","input":"integer","options":{"0":"Nej, ingen særlige begivenheder","1":"Ja, men ikke 2","2":"Ja, klar sammenhæng /sammenfald","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.064","title":"Signifikant social hændelse (fx skilsmisse, fyring, dødsfald)","input":"integer","options":{"0":"Nej, ingen særlige begivenheder","1":"Ja, men ikke 2","2":"Ja, klar sammenhæng /sammenfald","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.065","title":"Signifikant arbejdsrelateret stress eller stress relateret til privatliv","description":"*Stressfyldt, travl hverdag men ikke **[2.064]***\n","input":"integer","options":{"0":"Nej, ingen særlige begivenheder","1":"Ja, men ikke 2","2":"Ja, klar sammenhæng /sammenfald","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":null},{"key":"2.066","title":"Udsættelse for kraftig lugt eller kemikalier","input":"integer","options":{"0":"Nej, ingen særlig udsættelse","1":"Ja, men ikke 2","2":"Ja, klar sammenhæng / sammenfald","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.episode17.section","title":"SYMPTOM OR ILLNESS ATTRIBUTION (evt. huskekort)"},{"key":"2.067","title":"Symptom- eller sygdomsattribution","description":"(Evt. huskekort)\n- *Hvad tror du årsagen til din sygdom er (eller symptomerne)?*.\n- *Tror du at stress, belastninger eller din livssituation kunne være årsagen?*\n- *Er du fast overbevist om det, eller er du i tvivl?*\n- *Hvorfor tror du det?*","input":"integer","options":{"0":"Usikker, har ikke teorier om årsagen, udelukker nødvendigvis ikke belastninger og stress","1":"Har tænkt over muligheden, udelukker nødvendigvis ikke belastninger og stress","2":"Er overbevist om 1 eller flere årsags sammenhænge (eksklusive psykosociale og stress)","3":"Har en udbygget teori og rigid opfattelse af årsagssammenhæng (eksklusive psykosociale og stress)?","4":"Psykotisk vrangforestilling","6":"Veldefineret fysisk sygdom","8":"Usikkert","9":"Ukendt"},"validate":["0-6","8","9"]},{"key":"2.068","title":"Identifikation af lindrende eller forværrende faktorer","description":"*- Har du bemærket, om der er noget, der hjælper dig på din sygdom eller noget, der gør den værre?*\n\n*- Kan du selv gøre noget for at få det bedre?*\n\n*- Kan patienten identificere faktorer, der hjælper på generne eller faktorer der forværrer symptomerne eller sygdommen, eller disse er talrige og diffuse?*\n","input":"integer","options":{"0":"Veldefinerede og få","1":"Lettere vanskeligheder ved at angive disse","2":"Store vanskeligheder eller talrige og diffuse","8":"Usikker","9":"Ukendt"},"validate":["0-2","8","9"],"glossary":"Can the patient identify factors that relieve the inconveniences or factors that aggravate the symptoms or the illness, or are these multiple and diffuse?"},{"key":"2.069","title":"Begyndelsesalder for aktuelle funktionelle tilstand","description":"(hvis patienten siger ”altid”, og dette ikke kan kommes nærmere rates 1)\n","input":"integer","options":{"98":"98 år eller ældre","99":"N/A or NK","0-97":"Under 98 år"},"validate":["0-99"]},{"key":"2.070","title":"Begyndelsesalder for første funktionelle tilstand","description":"(hvis patienten siger ”altid”, og dette ikke kan kommes nærmere rates 1)\n","input":"integer","options":{"98":"98 år eller ældre","99":"N/A or NK","0-97":"Under 98 år"},"validate":["0-99"]},{"key":"2.episode19.section","title":"DIFFERENTIALDIAGNOSER"},{"key":"2.071","title":"Sammenhæng mellem funktionelle symptomer og veldefineret fysisk sygdom","input":"integer","options":{"0":"Ikke til stede eller kun symptomer af en type","1":"Funktionelle symptomer mest dominerende i det kliniske billede","2":"Funktionelle symptomer og fysisk sygdom er lige dominerende","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.072","title":"Funktionel tilstand eller panikanfald, primær","input":"integer","options":{"0":"Ikke til stede eller kun symptomer af en type","1":"Bodily distress mere udtalte eller startede først","2":"Bodily distress og panikanfald optræder sammen (komorbiditet)","3":"Panikanfaldssymptomer mere udtalte eller startede først","8":"Usikkert","9":"Ukendt"},"validate":["0-3","8","9"]},{"key":"2.073","title":"Funktionel tilstand eller depression, primær (Cf 6.023)","input":"integer","options":{"0":"Ikke til stede eller kun symptomer af en type","1":"Bodily distress mere udtalte eller startede først","2":"Bodily distress og depression optræder sammen (komorbiditet)","3":"Depressionssymptomer mere udtalte eller startede først","8":"Usikkert","9":"Ukendt"},"validate":["0-3","8","9"]},{"key":"2.074","title":"Sammenhæng mellem bodily distress og helbredsangst","input":"integer","options":{"0":"Ikke til stede eller kun symptomer af en type","1":"Ikke til stede eller kun symptomer af en type","2":"Bodily distress og helbredsangst optræder sammen (komorbiditet)","3":"Helbredsangstsymptomer mere udtalte eller startede først","10":"Usikkert","11":"Ukendt"},"validate":["0-3","10","11"]},{"key":"2.075","title":"Funktionel tilstand eller anden psykisk sygdom, primær","input":"integer","options":{"0":"Ikke til stede eller kun symptomer af en type","1":"Bodily distress mere udtalte eller startede først","2":"Bodily distress mere udtalte eller startede først","3":"Symptomer fra anden psykisk sygdom mere udtalte eller startede først","8":"Usikkert","9":"Ukendt"},"validate":["0-3","8","9"]},{"key":"2.076","title":"Begyndelsesdato for PS eller PE","input":"date"},{"key":"2.077","title":"Varighed af PS eller PE i dage","input":"integer","options":{"0-999":"Mellem 0 og 999 dage"},"validate":["0-999"],"periods":"false"},{"key":"2.078","title":"Begyndelsestidspunkt for RE eller LB","input":"date","date_granularity":"month_year"},{"key":"2.079","title":"Varighed af RE eller LB  i uger","input":"integer","options":{"0-999":"Mellem 0 og 999 dage"},"validate":["0-999"],"periods":"false"},{"key":"2.episode20.section","title":"OBSERVERET ADFÆRD"},{"key":"2.080","title":"Egodyston eller egosynton","description":"Egodyston: Patienten er helt eller delvis tilbøjelig til at betegne symptomer eller sygdomsbekymring som fremmed, uvelkommen, plagsom eller \"fremmed for min natur”.\nEgosynton: Patienten kan føle sine symptomer eller sygdomsbekymring som en integreret del af sig selv og ikke som en kognitiv tilbøjelighed, uanset om patienten er i tvivl om han har en sygdom eller ej.\n","input":"integer","options":{"0":"Ingen funktionel lidelse","1":"Den funktionelle lidelse føles overvejende egodyston","2":"Den funktionelle lidelse er en blanding af egodyston og egosynton","3":"Den funktionelle lidelse føles overvejende egosynton","8":"Usikkert","9":"Ukendt"},"validate":["0-3","8","9"]},{"key":"2.081","title":"Emotionel diskrepans  (”Belle indifférence”)","description":"Patientens fremstilling af sin tilstand viser inadækvat affekt i forhold til sværhedsgraden af symptomerne og sygdommen, som patienten plages af.  Eksempelvis kan patienten smile med en underfundig resignation trods svær grad af smerte eller funktionsindskrænkning, og patienten kan synes følelsesmæssigt upåvirket af sin tilstand.\n","input":"integer","options":{"0":"Ingen diskrepans","1":"Til stede i ubetydelig eller let grad","2":"Definitivt til stede og sammen med funktionelle symptomer","6":"Definitivt til stede, men forårsaget af organisk lidelse, fx dissemineret sklerose","8":"Usikkert","9":"Ukendt"},"validate":["0","1","2","6","8","9"]},{"key":"2.082","title":"Diskrepans mellem subjektive klager og objektiv adfærd","description":"Patientens fremstilling af sine symptomer står i kontrast til den adræthed og mimik, som observeres under interviewet. Eksempelvis kan patienten tvangsfrit flytte sig rundt i stolen trods klager over svære rygsmerter eller give en detaljeret anamnese trods klager over svær hukommelsesforstyrrelse.\n","input":"integer","options":{"0":"Ingen diskrepans","1":"Til stede i ubetydelig eller let grad","2":"Definitivt til stede og i betydelig grad","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.083","title":"Psykosocial kommunikationsform","description":"Patienten er mere optaget af at kommunikere den funktionsnedsættelse, graden af ubehag og indskrænkning i livsførelse som sygdommen eller symptomerne forårsager, end af hvilken betydning det har for helbredet.\n","input":"integer","options":{"0":"Ingen psykosocial kommunikationsform","1":"Til stede i let eller ubetydelig grad","2":"Betydelig grad af psykosocial kommunikationsform","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.084","title":"Mangel på kronologi i symptom- og sygehistorien","description":"Interviewet bærer præg af, at patienten har vanskeligheder med kronologien af symptomerne, sygdom, undersøgelser, indlæggelser m.m. Det kan fx være vanskeligt at finde ud af, om patienten taler om symptomer, der har været til stede på et tidligere tidspunkt, eller det er symptomer, som han/hun aktuelt er plaget af, eller om det er en undersøgelse, der er lavet for nyligt eller for længe siden. Må vurderes i forhold til om problemet ligger ud over, hvad der kan forventes hos enhver person, der har haft et langvarigt og kompliceret sygdomsforløb.\n","input":"integer","options":{"0":"Ikke til stede","1":"Til stede i let grad","2":"Udtalt","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.085","title":"Vag, diffus symptom-beskrivelse og anamnese","description":"Symptomklager bliver beskrevet i vage vendinger, er diffuse, måske atypiske/ukarakteristiske og skiftende igennem interviewet. Interviewet bærer præg af, at patienten har vanskeligheder ved at svare på uddybende spørgsmål og at specificere sine klager (lokalisering, intensitet, kvaliteten (fx om en smerte er brændende eller stikkende). Patienten kan i nogle tilfælde ligefrem blive irriteret på intervieweren, som holder fast i at få beskrevet symptomernes lokalisation, deres intensitet og periodicitet mv.\n","input":"integer","options":{"0":"Ikke til stede","1":"Til stede i let grad","2":"Udtalt","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.086","title":"Vag, diffus beskrivelse af tidligere behandlinger","description":"Patienten har vanskeligt ved at beskrive, hvilke behandlinger han/hun har gennemgået og effekten er vagt eller usikkert beskrevet. Kan sammenblande diagnostiske procedurer og behandling. Er kritisk overfor tidligere behandlinger og giver ofte udtryk for at behandlingerne har medført en forværring i tilstanden.\n","input":"integer","options":{"0":"Ikke til stede","1":"Til stede i let grad","2":"Udtalt","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.087","title":"Affektiv beskrivemåde","description":"Symptomklager, sygdom, indlæggelser, undersøgelser mv. bliver beskrevet i malende vendinger med tilbøjelighed til dramatisering og overdrivelser.\n","input":"integer","options":{"0":"Ikke til stede","1":"Til stede i let grad","2":"Udtalt","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.088","title":"Inkonsistens i oplysningerne","description":"Patienten giver forskellige og modstridende oplysninger igennem interviewet, eller der er diskrepans mellem oplysninger fra andre kilder (journaler, henvisende læge, socialforvaltningen, familien mv) og patientens egne oplysninger igennem interviewet.\n","input":"integer","options":{"0":"Ingen inkonsistens","1":"Nogen inkonsistens","2":"Udtalt inkonsistens","8":"Usikkert","9":"Ukendt"},"validate":["0-2","8","9"]},{"key":"2.089","title":"Tidligere sygdomsforløb og behandlinger (ud fra journaloplysninger mv.)","description":"Rates ud fra en gennemgang af pt. journal og lægelige oplysninger mv.\n","input":"integer","options":{"0":"Ingen eller kun kontakter til egen læge og ikke 1","1":"Hyppige kontakter primært til egen læge uden sikker somatisk forklaring","2":"Gentagne kontakter til hospitaler og speciallæger uden sikker somatisk forklaring","3":"3  Mange og hyppige kontakter over en årrække til hospitaler og speciallæger mv. uden sikker somatisk forklaring","8":"Usikkert","9":"Ukendt"},"validate":["0-3","8","9"]},{"key":"2.090","title":"Inaktivitet","description":"Normalt sidder man ikke helt stille men bevæger sigt rundt på stolen og skifter stilling for at undgå for meget pres på en enkelt muskel eller muskelgruppe. Det kan være ubehageligt eller give smerter at sidde i samme stilling i lang tid. Det er blevet observeret, at patienter med funktionelle lidelser/BDS bevæger sig mindre og ikke har disse kropslige tilpasninger som de fleste andre har.\n","input":"integer","options":{"0":"Moves normally","1":"May be present, seems slightly more inactive","2":"Present, more inactive","8":"Uncertain","9":"NK"},"validate":["0-2","8","9"]},{"key":"2.091","title":"Mistanke om simulering, factitious disorder eller  Münchhausen's syndrom (på basis af interview, journaloplysninger etc.)","description":"Factitious disorder rates i tjekliste (xx I kap. xx)\n","input":"integer","options":{"0":"Ingen mistanke","1":"Simulering","2":"Factitious disorder","3":"Münchhausen's syndrom","8":"Usikker","9":"Ukendt"},"validate":["0-3","8","9"],"glossary":"Intentional production or feigning of physical or psychological symptoms, sometimes self-inflicted injuries, medical disease or intoxication (e.g. insulin injection), or may mislead observers with signs of disease (e.g. temperature, blood in urine) without clear external motivation (as opposed to              malingering) and where the truth is hidden from doctors and others.\n\nIn Münchhausen's syndrome, apart from having factious disorder, the patient also has pseudologia fantastica meaning that the pt. tells often grandiose stories about who he/she is and has achieved (being wealthy, being a duke, a journalist, a speedway driver etc.). The pt. may dramatise - for instance get admitted to hospital under dramatic circumstances, e.g. become ill on a train, in a busy street, on the beach in the summer. They may also defraud in other aspects of life but not so much for financial gain but more like a role play. The patients are fully aware that they produce or provoke their symptoms or disease themselves despite not knowing what is driving them to do it. This is contrary to patients with functional disorders, who do not produce their symptoms themselves.\nCheck **[27.068]**.\nMental factitious illness is intentional production or feigning of mental illness injuries without clear external motivation (as in simulation) and where the truth is hidden from doctors. Check **27.068**."},{"key":"4.001.section","title":"Angst og fobier"},{"key":"4.001","title":"Screening for angst","description":"Har du haft angstfornemmelser eller angstanfald, med hjertebanken, rysten, sveden eller tørhedsfornemmelser i munden?\n","input":"integer","options":{"0":"Fraværende","1":"Til stede"},"section_start":"Section_4","validate":["0","1","8","9"]},{"key":"4.002","title":"Screening for fobier","description":"Har du haft angstfornemmelser eller angstanfald i særlige situationer, som du derfor har prøvet at undgå, fx at komme i højden, køre i bus, stå i kø, køre med elevator?\n","input":"integer","options":{"0":"Fraværende","1":"Til stede"},"validate":["0","1","8","9"]},{"key":"4.003.section","title":"Angstsymptomer","description":"Jeg vil spørge dig om en række symptomer, som man kan have i forbindelse med angst eller panikanfald.\nGennemgå 4.003-4.019 (autonome items er markeret med +). Afgør først om de er til stede og brug herefter følgende ratings:\n  0. Ikke til stede\n  1. Symptomerne til stede men ikke samtidigt\n  2. Symptomerne til stede samtidigt (fx ved panikanfald)\n  3. Til stede både samtidigt og til forskellig tid\n"},{"key":"4.003","title":"Vejrtrækningsbesvær","input":"integer","options":{"0":"Ikke til stede","1":"Symptomerne til stede men ikke samtidigt","2":"Symptomerne til stede samtidigt (fx ved panikanfald)","3":"Til stede både samtidigt og til forskellig tid"},"validate":["0-3","8","9"]},{"key":"4.004","title":"+ Hjertebanken, ekstraslag, hurtig puls","input":"integer","options":{"0":"Ikke til stede","1":"Symptomerne til stede men ikke samtidigt","2":"Symptomerne til stede samtidigt (fx ved panikanfald)","3":"Til stede både samtidigt og til forskellig tid"},"validate":["0-3","8","9"]},{"key":"4.005","title":"Svimmelhed, ørhed i hovedet, besvimelsesfornemmelse","input":"integer","options":{"0":"Ikke til stede","1":"Symptomerne til stede men ikke samtidigt","2":"Symptomerne til stede samtidigt (fx ved panikanfald)","3":"Til stede både samtidigt og til forskellig tid"},"validate":["0-3","8","9"]},{"key":"4.006","title":"Prikken eller dødhedsfornemmelse i ansigt eller fingre","input":"integer","options":{"0":"Ikke til stede","1":"Symptomerne til stede men ikke samtidigt","2":"Symptomerne til stede samtidigt (fx ved panikanfald)","3":"Til stede både samtidigt og til forskellig tid"},"validate":["0-3","8","9"]},{"key":"4.007","title":"Trykken eller smerter i brystet","input":"integer","options":{"0":"Ikke til stede","1":"Symptomerne til stede men ikke samtidigt","2":"Symptomerne til stede samtidigt (fx ved panikanfald)","3":"Til stede både samtidigt og til forskellig tid"},"validate":["0-3","8","9"]},{"key":"4.008","title":"+ Mundtørhed som ikke skyldes medicin eller dehydrering","input":"integer","options":{"0":"Ikke til stede","1":"Symptomerne til stede men ikke samtidigt","2":"Symptomerne til stede samtidigt (fx ved panikanfald)","3":"Til stede både samtidigt og til forskellig tid"},"validate":["0-3","8","9"]},{"key":"4.009","title":"Synkebesvær, følelse af klump i halsen","input":"integer","options":{"0":"Ikke til stede","1":"Symptomerne til stede men ikke samtidigt","2":"Symptomerne til stede samtidigt (fx ved panikanfald)","3":"Til stede både samtidigt og til forskellig tid"},"validate":["0-3","8","9"]},{"key":"4.010","title":"+ Sveden, fx i hænderne","input":"integer","options":{"0":"Ikke til stede","1":"Symptomerne til stede men ikke samtidigt","2":"Symptomerne til stede samtidigt (fx ved panikanfald)","3":"Til stede både samtidigt og til forskellig tid"},"validate":["0-3","8","9"]},{"key":"4.011","title":"+ Rysten eller sitren, fx af hænder, arme eller ben","input":"integer","options":{"0":"Ikke til stede","1":"Symptomerne til stede men ikke samtidigt","2":"Symptomerne til stede samtidigt (fx ved panikanfald)","3":"Til stede både samtidigt og til forskellig tid"},"validate":["0-3","8","9"]},{"key":"4.012","title":"Varm- eller koldsveden, hedeture","input":"integer","options":{"0":"Ikke til stede","1":"Symptomerne til stede men ikke samtidigt","2":"Symptomerne til stede samtidigt (fx ved panikanfald)","3":"Til stede både samtidigt og til forskellig tid"},"validate":["0-3","8","9"]},{"key":"4.013","title":"Uvirkelighedsfølelse","input":"integer","options":{"0":"Ikke til stede","1":"Symptomerne til stede men ikke samtidigt","2":"Symptomerne til stede samtidigt (fx ved panikanfald)","3":"Til stede både samtidigt og til forskellig tid"},"validate":["0-3","8","9"]},{"key":"4.014","title":"Sommerfuglefornemmelse, køren i maven, kvalme","input":"integer","options":{"0":"Ikke til stede","1":"Symptomerne til stede men ikke samtidigt","2":"Symptomerne til stede samtidigt (fx ved panikanfald)","3":"Til stede både samtidigt og til forskellig tid"},"validate":["0-3","8","9"]},{"key":"4.015","title":"Angst for at dø","input":"integer","options":{"0":"Ikke til stede","1":"Symptomerne til stede men ikke samtidigt","2":"Symptomerne til stede samtidigt (fx ved panikanfald)","3":"Til stede både samtidigt og til forskellig tid"},"validate":["0-3","8","9"]},{"key":"4.016","title":"Kvælningsfornemmelse","input":"integer","options":{"0":"Ikke til stede","1":"Symptomerne til stede men ikke samtidigt","2":"Symptomerne til stede samtidigt (fx ved panikanfald)","3":"Til stede både samtidigt og til forskellig tid"},"validate":["0-3","8","9"]},{"key":"4.017","title":"Angst for at blive sindssyg eller miste besindelsen","input":"integer","options":{"0":"Ikke til stede","1":"Symptomerne til stede men ikke samtidigt","2":"Symptomerne til stede samtidigt (fx ved panikanfald)","3":"Til stede både samtidigt og til forskellig tid"},"validate":["0-3","8","9"]},{"key":"4.018","title":"Frygtsomhed eller sammenfaringstendens","input":"integer","options":{"0":"Ikke til stede","1":"Symptomerne til stede men ikke samtidigt","2":"Symptomerne til stede samtidigt (fx ved panikanfald)","3":"Til stede både samtidigt og til forskellig tid"},"validate":["0-3","8","9"]},{"key":"4.019","title":"Andre angstsymptomer, fx øget vandladningshyppighed","input":"integer","options":{"0":"Ikke til stede","1":"Symptomerne til stede men ikke samtidigt","2":"Symptomerne til stede samtidigt (fx ved panikanfald)","3":"Til stede både samtidigt og til forskellig tid CUT OFF => til 5.001 hvis 4.001 - 4.019 alle rates 0. SKIP => til 4.027 hvis der ikke har været angstsymptomer i perioden på grund af undgåelsesadfærd."},"validate":["0-3","8","9"]},{"key":"4.020","title":"Antal panikanfald i en 4 ugers periode","description":"Har du haft pludselige anfald med angst eller panik med de nævnte angstsymptomer, som i løbet af kort tid føltes uudholdelige?\n? Kan du beskrive et typisk anfald? ? Hvor ofte har du haft sådanne anfald inden for den sidste 4 ugers\nperiode (eller anden 4 ugers periode)?\n? Optrådte de kun i særlige situationer? ? Optrådte de uventet som lyn fra en klar himmel uden forbindelse med særlige\nsituationer?\n00 Ingen anfald\n40 40 anfald eller mere 55 Vanskelig at rate pga. psykotiske symptomer 88 Uvist 99 Ikke kendt SKIP => til 4.023 hvis der ikke optræder panikanfald med autonome symptomer.\n","input":"string","validate":["0-40","55","88"]},{"key":"4.021","title":"Vedvarende frygt for nye panikanfald","description":"Har du følt dig bange for nye panikanfald? Brug Rating Skala I\n","input":"string","validate":["0-3","5","8","9"],"ratingscale":"1"},{"key":"4.022","title":"Handling for at forhindre eller standse panikanfald","description":"Har du været nødt til at gøre et eller andet for at undgå et anfald eller for at få anfaldet til at holde op, fx tilkalde hjælp, åbne et vindue, løbe ud af huset?\n","input":"integer","options":{"0":"Ingen","1":"Handling for at forhindre et anfald","2":"Handling for at standse et anfald","3":"Handling for både at forhindre og standse et anfald"},"validate":["0-3","5","8","9"]},{"key":"4.023","title":"Fritflydende autonom angst","description":"Har du haft mere eller mindre udtalt angst det meste af tiden, ikke kun i anfald, i løbet af perioden?\n? Er du ind i mellem helt fri for angstsymptomer? ? Hvor ofte optræder de? ? Hvor svære er de? Brug Rating Skala I\n","input":"string","validate":["0-3","5","8","9"]},{"key":"4.024","title":"Ængstelig forudanelse med autonome symptomer","description":"Har du haft fornemmelse af, at noget frygteligt kunne ske, fx sygdom, ulykke eller dødsfald for dig selv eller dine nærmeste? Følte du angst med hjertebanken, sveden eller rysten i forbindelse hermed?\nCF. 6.022. Brug Rating Skala I\n","input":"string","validate":["0-3","5","8","9"]},{"key":"4.025","title":"Varighed af fritflydende angst (mdr.)","description":"81 Mere end 80 88 Uvist 99 Ikke kendt\n","input":"string","validate":["0-81","88","99"]},{"key":"4.026","title":"Depersonalisation eller derealisation i forbindelse med angst","description":"Har du følt at omgivelserne eller du selv var uvirkelige, ligesom ikke rigtig til stede?\nCf. 3.012 og 16.006-16.009. Brug Rating Skala I\n","input":"string","validate":["0-3","5","8","9"],"ratingscale":"1"},{"key":"4.027","title":"FOBIER","description":"Checkliste for fobier 4.027-4.045.\nRates for situationer med generende angst eller undgåelsesadfærd, som patienten erkender er overdrevne eller urimelige. Angstsymptomerne kan i undersøgesesperioden være afløst af undgåelsesadfærd, men skal have forekommet tidligere, på et eller andet tidspunkt siden lidelsens begyndelse. AGORAFOBIER\n4_027 Angst for offentlige steder, åbne pladser, tomme gader\n","input":"integer","options":{"0":"Ikke til stede","1":"Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer","2":"Til stede med autonome angstsymptomer (nu eller tidligere)"},"validate":["0-2","5","8","9"]},{"key":"4.028","title":"Angst for menneskemængder, forretninger, stormagasiner, biografer,","description":"hvor man ikke let kan komme ud\n","input":"integer","options":{"0":"Ikke til stede","1":"Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer","2":"Til stede med autonome angstsymptomer (nu eller tidligere)"},"validate":["0-2","5","8","9"]},{"key":"4.029","title":"Angst for at tage alene med bus, tog eller fly","input":"integer","options":{"0":"Ikke til stede","1":"Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer","2":"Til stede med autonome angstsymptomer (nu eller tidligere)"},"validate":["0-2","5","8","9"]},{"key":"4.030","title":"Angst for at færdes borte fra hjemmet","input":"integer","options":{"0":"Ikke til stede","1":"Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer","2":"Til stede med autonome angstsymptomer (nu eller tidligere)"},"validate":["0-2","5","8","9"]},{"key":"4.031","title":"Angst for at falde om eller bryde sammen, når man er alene og uden","description":"hjælp i nærheden\n","input":"integer","options":{"0":"Ikke til stede","1":"Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer","2":"Til stede med autonome angstsymptomer (nu eller tidligere)"},"validate":["0-2","5","8","9"]},{"key":"4.032","title":"Angst for at være alene","input":"integer","options":{"0":"Ikke til stede","1":"Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer","2":"Til stede med autonome angstsymptomer (nu eller tidligere)"},"validate":["0-2","5","8","9"]},{"key":"4.033","title":"SOCIALFOBIER","description":"4_033 Angst for at være genstand for opmærksomhed eller for at opføre sig pinligt i forbindelse med at spise, drikke eller skrive i andres påsyn, benytte offentlige toiletter\n","input":"integer","options":{"0":"Ikke til stede","1":"Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer","2":"Til stede med autonome angstsymptomer (nu eller tidligere)"},"validate":["0-2","5","8","9"]},{"key":"4.034","title":"Angst for at være genstand for opmærksomhed eller for at opføre sig pinligt, i forbindelse med at tale til eller være sammen med en mindre gruppe mennesker, man kender","input":"integer","options":{"0":"Ikke til stede","1":"Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer","2":"Til stede med autonome angstsymptomer (nu eller tidligere)"},"validate":["0-2","5","8","9"]},{"key":"4.035","title":"Angst for at være genstand for opmærksomhed eller for at opføre sig pinligt, i forbindelse med at tale til en større gruppe mennesker, i offentlige forsamlinger, til fremmede eller i telefon","input":"integer","options":{"0":"Ikke til stede","1":"Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer","2":"Til stede med autonome angstsymptomer (nu eller tidligere)"},"validate":["0-2","5","8","9"]},{"key":"4.036","title":"Angst for at rødme eller ryste, for at komme til at kaste op, skulle lade","description":"vandet eller have afføring i forbindelse med de almindelige angstsymptomer i de frygtede situationer (4.033-4.035).\n","input":"integer","options":{"0":"Ikke til stede","1":"Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer","2":"Til stede med autonome angstsymptomer (nu eller tidligere)"},"validate":["0-2","5","8","9"]},{"key":"4.037","title":"ENKELFOBIER - FOBISK ANGST I SÆRLIGE SITUATIONER","description":"4_037 Angst for uvejr, torden og lynild\n","input":"integer","options":{"0":"Ikke til stede","1":"Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer","2":"Til stede med autonome angstsymptomer (nu eller tidligere)"},"validate":["0-2","5","8","9"]},{"key":"4.038","title":"Angst for vand - damme, søer, havet, kar- eller brusebad","input":"integer","options":{"0":"Ikke til stede","1":"Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer","2":"Til stede med autonome angstsymptomer (nu eller tidligere)"},"validate":["0-2","5","8","9"]},{"key":"4.039","title":"Angst for dyr: insekter, slanger, fugle, rotter, mus","input":"integer","options":{"0":"Ikke til stede","1":"Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer","2":"Til stede med autonome angstsymptomer (nu eller tidligere)"},"validate":["0-2","5","8","9"]},{"key":"4.040","title":"Angst for lukkede rum - elevatorer, tunneler, telefonbokse","input":"integer","options":{"0":"Ikke til stede","1":"Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer","2":"Til stede med autonome angstsymptomer (nu eller tidligere)"},"validate":["0-2","5","8","9"]},{"key":"4.041","title":"Angst for at flyve","input":"integer","options":{"0":"Ikke til stede","1":"Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer","2":"Til stede med autonome angstsymptomer (nu eller tidligere)"},"validate":["0-2","5","8","9"]},{"key":"4.042","title":"Angst for højder - broer, balkoner, vinduer i høje bygninger, trapper","input":"integer","options":{"0":"Ikke til stede","1":"Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer","2":"Til stede med autonome angstsymptomer (nu eller tidligere)"},"validate":["0-2","5","8","9"]},{"key":"4.043","title":"Angst for situationer i forbindelse med sygdom og død: blod, indsprøjtninger,","description":"tandlægebehandling, hospitalsbesøg\n","input":"integer","options":{"0":"Ikke til stede","1":"Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer","2":"Til stede med autonome angstsymptomer (nu eller tidligere)"},"validate":["0-2","5","8","9"]},{"key":"4.044","title":"Angst for at pådrage sig sygdomme, fx kønssygdomme, AIDS, cancer","input":"integer","options":{"0":"Ikke til stede","1":"Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer","2":"Til stede med autonome angstsymptomer (nu eller tidligere)"},"validate":["0-2","5","8","9"]},{"key":"4.045","title":"Angst for andre specifikke situationer","input":"integer","options":{"0":"Ikke til stede","1":"Til stede med følelse af nervøs spænding eller angstsymptomer uden autonome symptomer","2":"Til stede med autonome angstsymptomer (nu eller tidligere) SKIP => til 4.059 hvis der ikke er fundet tegn på fobisk angst."},"validate":["0-2","5","8","9"]},{"key":"4.046","title":"Rating for sværeste agorafobi","description":"Hvilken var den sværeste af de nævnte situationer med (agorafobi)?\n? Hvor generende eller invaliderende var det? ? Hvor meget af tiden har det været til stede?\nBrug Rating Skala I\n","input":"string","validate":["0-3","5","8","9"],"ratingscale":"1"},{"key":"4.047","title":"Undgåelsesadfærd i forbindelse med sværeste agorafobi","description":"Har du prøvet at undgå den omtalte (agorafobiske) situation?\nBrug Rating Skala I\n","input":"string","validate":["0-3","5","8","9"],"ratingscale":"1"},{"key":"4.048","title":"Påvirkning af aktiviteter på grund af sværeste agorafobi","description":"Hvor meget har det påvirket dine dagligdagsaktiviteter?\n","input":"integer","options":{"0":"Ingen påvirkning","1":"Kun let påvirkning","2":"Moderat eller intermitterende påvirkning","3":"Svær eller invaliderende påvirkning"},"validate":["0-3","8","9"]},{"key":"4.049","title":"Sværeste socialfobi","description":"Brug Rating Skala I\n","input":"string","validate":["0-3","5","8","9"],"ratingscale":"1"},{"key":"4.050","title":"Undgåelsesadfærd i forbindelse med sværeste socialfobi","description":"Brug Rating Skala I\n","input":"string","validate":["0-3","5","8","9"],"ratingscale":"1"},{"key":"4.051","title":"Påvirkning af aktiviteter på grund af sværeste socialfobi","input":"integer","options":{"0":"Ingen påvirkning","1":"Kun let påvirkning","2":"Moderat eller intermitterende påvirkning","3":"Svær eller invaliderende påvirkning"},"validate":["0-3","8","9"]},{"key":"4.052","title":"Sværeste enkelfobi","description":"Brug Rating Skala I\n","input":"string","validate":["0-3","5","8","9"],"ratingscale":"1"},{"key":"4.053","title":"Undgåelsesadfærd i forbindelse med sværeste enkelfobi","description":"Brug Rating Skala I\n","input":"string","validate":["0-3","5","8","9"],"ratingscale":"1"},{"key":"4.054","title":"Påvirkning af aktiviteter på grund af sværeste enkelfobi","input":"integer","options":{"0":"Ingen påvirkning","1":"Kun let påvirkning","2":"Moderat eller intermitterende påvirkning","3":"Svær eller invaliderende påvirkning"},"validate":["0-3","8","9"]},{"key":"4.055","title":"Forhold mellem panikanfald og fobier","description":"Optrådte panikanfaldene altid kun i forbindelse med en af disse fobier, eller kunne de også optræde uventet og uden grund?\n","input":"integer","options":{"0":"Ingen fobier og ingen panikanfald","1":"Kun fobier (uden panikanfald)","2":"Panikanfald ved fobier (fobisk udløst)","3":"Panikanfald uden fobier","4":"Panikanfald både ved fobier og alene"},"validate":["0-4","8","9"]},{"key":"4.056","title":"Begyndelsesalder ved panikanfald eller fobier","description":"Hvor gammel var du da panikanfaldene/fobierne først blev rigtig generende, eller begrænsede dine aktiviteter?\n","input":"string","validate":["0-99"]},{"key":"4.057","title":"4.057","input":"integer","options":{"0":"Nej","1":"Ja"},"validate":["0","1","8","9"]},{"key":"4.058","title":"4.058","input":"integer","options":{"0":"Nej","1":"Ja Cf. 6.022."},"validate":["0","1","8","9"]},{"key":"4.059A","title":"Tidsangivelse for periode med sektion 4 symptomer","description":"Rates kun hvis forskellig fra tidsangivelsen i 1.007-1.014.\nBegyndelsesdato for PS eller PE\n","input":"date"},{"key":"4.059B","title":"Varighed af PS eller PE (dage)","input":"string","validate":["0-999"]},{"key":"4.059C","title":"Begyndelsestidspunkt for RE eller LB","input":"date"},{"key":"4.059D","title":"Varighed af RE eller LB (uger)","input":"string","validate":["0-299"]},{"key":"4.060","title":"Påvirkning af aktiviteter på grund af sektion 4 symptomer Hvor meget har de nævnte symptomer påvirket dine dagligdagsaktiviteter ?","input":"integer","options":{"0":"Ingen sektion 4 symptomer","1":"Kun let påvirkning","2":"Moderat eller intermitterende påvirkning","3":"Svær eller invaliderende påvirkning"},"validate":["0-3","8","9"]},{"key":"4.061","title":"Organisk årsag til sektion 4 symptomer","input":"integer","options":{"0":"Fraværende","1":"Sandsynlig organisk årsag, ikke fuldt bekræftet","2":"Definitiv organisk årsag bekræftet af specialundersøgelser","8":"Usikkert om organisk betinget"},"validate":["0-2","8","9"]},{"key":"4.062","title":"ICD-10 diagnosekode for organisk årsag","input":"string"},{"key":"5.001","title":"Tvangssymptomer","description":"Screening for tvangssymptomer\n\nNogle mennesker finder det nødvendigt at kontrollere flere gange hvad de har gjort, for at føle sig sikre på, at det er gjort rigtig, fx i forbindelse med dørlåse, elektriske afbrydere, vandhaner og lignende . Kender du det fra dig selv? Andre er nødt til hele tiden at holde alting i en særlig orden eller symmetri, gælder det for dig? Der er mennesker, der må vaske hænder eller tage bad mange gange dagligt af frygt for smuds eller smitte. Hvordan er det for dig? Nogle mennesker har besvær med ubehagelige ord eller tanker, der hele tiden bryder ind i deres bevidsthed. Kender du til noget sådant? Hvis der er tegn på eller mistanke om tvangssymptomer, kan yderligere spørges: ? Kan du beskrive det nærmere? ? Hvor kommer dine tanker eller tilskyndelser fra? ? Har du prøvet at modstå dem, fx at lade være med ...........? - Hvad sker der så? ? Føler du dig foruroliget eller generet? ? Hvor slemt har det været? ? Hvor længe har det stået på i løbet af perioden? 14 dage eller mere? Hver dag?\n\nCUT OFF => til 6.001 hvis der ikke er tegn på sektion 5 symptomer Rate items 5.002-5.006 efter Rating Skala I, men undlad at anvende ''1'' som ikke er relevant for tvangssymptomer.\n","input":"integer","options":{"0":"Ingen tegn på tvangssymptomer","1":"Tegn på tvangssymptomer"},"section_start":"Section_5","validate":["0","1","5","8","9"]},{"key":"5.002","title":"Kontrollerings- og gentagelses-tvang","description":"Brug Rating Skala I, men undlad at anvende ''1''\n","input":"string","validate":["0","2","3","5","8","9"],"ratingscale":"1"},{"key":"5.003","title":"Tvangshandlinger forbundet med orden og symmetri","description":"Brug Rating Skala I, men undlad at anvende ''1''\n","input":"string","validate":["0","2","3","5","8","9"],"ratingscale":"1"},{"key":"5.004","title":"Tvangstanker om at komme til skade eller gøre skade på sig selv eller andre","description":"Brug Rating Skala I, men undlad at anvende ''1''\n","input":"string","validate":["0","2","3","5","8","9"],"ratingscale":"1"},{"key":"5.005","title":"Tvangshandlinger forbundet med renlighed, smuds- og smitte-frygt","description":"Brug Rating Skala I, men undlad at anvende ''1''\n","input":"string","validate":["0","2","3","5","8","9"],"ratingscale":"1"},{"key":"5.006","title":"Tvangspræget tvivlen, grublen eller følelse af manglende fuldførelse (ikke at have gjort det færdigt, man har udført)","description":"Brug Rating Skala I, men undlad at anvende ''1''\n","input":"string","validate":["0","2","3","5","8","9"]},{"key":"5.007","title":"Svækket bevidst modstand mod tvangssymptomer","input":"integer","options":{"0":"Ingen svækkelse af modstanden (dvs. modstanden består)","1":"Modstand mod et eller flere symptomer (men ikke alle)","2":"Ophør af bevidst modstand"},"validate":["0-2","8","9"]},{"key":"5.008","title":"Forholdet mellem angst- og tvangssymptomer","input":"integer","options":{"0":"Ingen angstsymptomer, eller angst og tvangssymptomer lige fremtrædende","1":"Angstsymptomer mest fremtrædende","2":"Tvangssymptomerne mest fremtrædende"},"validate":["0-2","8","9"]},{"key":"5.009","title":"Forholdet mellem depressive og obsessive-kompulsive symptomer","input":"integer","options":{"0":"Den ene eller begge symptomtyper fraværende","1":"Depressive symptomer mest udtalte eller begyndte først","2":"Depressive og obsessive symptomer optræder samtidigt og er lige udtalte","3":"Obsessive symptomer mest udtalte eller begyndte først"},"validate":["0-3","8","9"]},{"key":"5.010","title":"Forholdet mellem obsessive og kompulsive symptomer","input":"integer","options":{"0":"Kun en type symptomer til stede","1":"Obsessive symptomer klinisk mest betydende","2":"Kompulsive symptomer mest betydende","8":"Begge type lige betydende, eller usikkert"},"validate":["0-2","8","9"]},{"key":"5.011","title":"Indsigt i tvangssymptomernes urimelighed","input":"integer","options":{"0":"Ingen tvangssymptomer","1":"Patienten erkender altid tvangssymptomerne som urimelige eller overdrevne","2":"Patienten erkender kun delvis eller ikke hele tiden, at angstsymptomerne er urimelige eller overdrevne","3":"Patienten erkender det meste af tiden ikke, at tvangssymptomerne er urimelige eller overdrevne"},"validate":["0-3","8","9"]},{"key":"5.012","title":"Tvangssymptomernes emne og indhold begrænset til anden psykisk lidelse","input":"integer","options":{"0":"Ingen symptomer eller emnet ikke begrænset til anden lidelse","1":"Emnet delvist begrænset til anden lidelse","2":"Emnet udelukkende begrænset til anden lidelse, fx tvangspræget depressiv grublen"},"validate":["0-2","8","9"]},{"key":"5.013","title":"Begyndelsesalder for tvangssymptomer","input":"string","validate":["0-99"]},{"key":"5.014A","title":"Tidsangivelse for periode med sektion 5 symptomer","description":"Rates kun hvis forskellig fra tidsangivelsen i 1.007-1.014\nBegyndelsesdato for PS eller PE\n","input":"date"},{"key":"5.014B","title":"Varighed af PS eller PE (dage)","input":"string","validate":["0-999"]},{"key":"5.014C","title":"Begyndelsestidspunkt for RE eller LB","input":"date"},{"key":"5.014D","title":"Varighed af RE eller LB (uger)","input":"string","validate":["0-299"]},{"key":"5.015","title":"Påvirkning af aktiviteter på grund af sektion 5 symptomer","input":"integer","options":{"0":"Ingen sektion 5 symptomer","1":"Kun let påvirkning (op til 1 time om dagen)","2":"Moderat eller intermitterende påvirkning","3":"Svær eller invaliderende påvirkning"},"validate":["0-3","8","9"]},{"key":"5.016","title":"Organisk årsag til sektion 5 symptomer","input":"integer","options":{"0":"Fraværende","1":"Sandsynlig organisk årsag, ikke fuldt bekræftet","2":"Definitiv organisk årsag bekræftet af specialundersøgelser","8":"Usikkert om organisk betinget"},"validate":["0-2","8","9"]},{"key":"5.017","title":"ICD-10 diagnosekode for organisk årsag","input":"string"},{"key":"6.001","title":"Depressivt stemningsleje og tankeindhold","description":"6_001 Nedtrykthed\nHar du følt dig nedtrykt i perioden?\n? Var du trist, i dårligt humør, ked af det, tungsindig, langt nede eller dybt fortvivlet?\n? Hvor meget af tiden følte du dig nedtrykt? Var det dagligt hver dag i 14 dage eller mere? ? Hvor længe er det siden dit humør var normalt?\nRates efter subjektiv beskrivelse af humøret, da det var værst. Objektivt iagttagelig nedtrykthed rates i 23.001.\n","input":"string","section_start":"Section_6","validate":["0-3","5","8","9"],"ratingscale":"1"},{"key":"6.002","title":"Maskeret depression","description":"Rates hvis 6.001 er rated 0 eller 1, hvis man har indtryk af forsænket stemningsleje, trods manglende evne til at give sprogligt udtryk for nedtrykthed (alexithymi), egnsbetinget tendens til underdrivelse, kulturbetinget tilbøjelighed til at opretholde normal eller smilende facade udadtil, fremtrædende irritabilitet, angst eller somatoforme symptomer, eller kognitiv svækkelse.\n","input":"integer","options":{"1":"Mistanke om nedtrykt stemningsleje","2":"Nedtrykt stemningsleje skønnes til stede bag maskeringen"},"validate":["0-2","8","9"],"ratingscale":"1"},{"key":"6.003","title":"Lethed til tårer, grådtendens","description":"Kommer du let til at græde?\n? Har du grædeture? ? Hvor ofte, hvor længe, hvorfor? Brug Rating Skala I\n","input":"string","validate":["0-3","5","8","9"],"ratingscale":"1"},{"key":"6.004","title":"Anhedoni - manglende evne til at føle glæde","description":"Har du haft svært ved at glæde dig over noget? (Gåture, samvær med venner, beskæftigelse med hobby eller fritidsinteresser, at vinde i sport, eller modtage en kompliment)\nHar du tabt lysten til det, du plejer at være glad for? - Til det hele?\n? Hvor meget af tiden i perioden har du haft det sådan? ? Hvornår har du sidst nydt eller kunnet glæde dig over noget? ? Kan man se det eller mærke det på dig?\n","input":"string","validate":["0-3","5","8","9"],"ratingscale":"1"},{"key":"6.005","title":"Varighed af nedtrykthed eller anhedoni (uger)","description":"Rates i antal uger op til 80 (da 88 = uvist hvor længe) Andre depresssive symptomer (6.006-6.017) (kan forekomme ved andre lidelser end depressionstilstand)\n","input":"string","validate":["0-80","88"]},{"key":"6.006","title":"Håbløshedsfølelse","description":"Hvordan ser det ud for dig fremover?\n? Kan du se lyspunkter eller lys forude? Forekommer det hele håbløst? ? Hvor længe har du følt det sådan? ? Hvor længe er det siden, du så anderledes på det? Hvad tænkte du da?\n","input":"string","validate":["0-3","5","8","9"],"ratingscale":"1"},{"key":"6.007","title":"Fornemmelse af tab af følelser","description":"Somme tider opleves det som om man har tabt evnen til at føle noget som helst, man kan måske ikke engang føle sig ked af det eller græde. Har du haft det sådan?\n","input":"string","validate":["0-3","5","8","9"],"ratingscale":"1"},{"key":"6.008","title":"Tab af påvirkelighed (reaktivitet)","description":"Føler du dig mere eller mindre nedtrykt hele tiden? Svinger dit humør med forholdene, så du liver op eller ikke føler dig nedtrykt, fx hvis du får besøg eller bliver optaget af noget?\n","input":"integer","options":{"0":"Ingen nedtrykthed","1":"Nedtryktheden varierer med omstændighederne","2":"Nedtryktheden varierer, men ikke med omstændighederne","3":"Nedtryktheden er mere eller mindre til stede hele tiden"},"validate":["0-3","8","9"],"ratingscale":"1"},{"key":"6.009","title":"Morgenforværring","description":"Hvornår i dagens løb føles nedtryktheden værst?\n? Er der noget tidspunkt, hvor den føles mindre udtalt?\n","input":"integer","options":{"0":"Ingen nedtrykthed eller nedtryktheden ikke værst om morgenen","1":"Nedtrykthed værst om morgenen eller først på dagen"},"validate":["0","1","8","9"]},{"key":"6.010","title":"Optagethed af tanker om død og ulykke","description":"Tænker du usædvanligt meget på døden? Spekulerer du meget på ulykker, sygdom eller ruinering, som kan ramme dig eller dine nærmeste?\n","input":"string","validate":["0-3","5","8","9"],"ratingscale":"1"},{"key":"6.011","title":"Selvmordstanker eller tanker om at skade sig selv","description":"Har du haft tanker om selv at gøre en ende på det hele? Har du planlagt hvordan eller prøvet at gøre det? Har du haft tanker om at skade dig selv på anden måde?\nRates uden hensyn til, om tankerne skyldes depressionstilstand eller ikke.\n","input":"integer","options":{"0":"Ikke til stede","1":"Påtrængende tanker eller overvejelser (planer) om selvmord eller selvskadende handlinger, men intet forsøg","2":"Selvmordsforsøg eller selvskadende handling, uden alvorlig skade","3":"Selvmordsforsøg eller selvskadende handling, med udtalte følger eller skade","4":"Alvorligt selvmordsforsøg med overbevisende selvmordshensigt"},"validate":["0-4","8","9"]},{"key":"6.012","title":"Livslede - tedium vitae","description":"Har du følt, at livet ikke var værd at leve? At du ikke ville have noget imod det, hvis du ikke vågnede op næste morgen? Kunne du ligefrem ønske, at en alvorlig sygdom eller et ulykkestilfælde ville gøre\nen ende på det hele?\n","input":"string","validate":["0-3","5","8","9"],"ratingscale":"1"},{"key":"6.013","title":"Patologisk skyldfølelse","description":"Har du været tilbøjelig til at bebrejde dig selv noget, du har gjort eller tænkt? Har du følt dig skyldig eller skamfuld?\n","input":"string","validate":["0-3","5","8","9"],"ratingscale":"1"},{"key":"6.014","title":"Skyldbetonede selvhenføringsidéer","description":"Har du følt, at andre bebrejdede dig eller anklagede dig for noget, du havde gjort eller undladt at gøre?\n","input":"string","validate":["0-3","5","8","9"],"ratingscale":"1"},{"key":"6.015","title":"Nedsat selvtillid over for andre","description":"Har din selvtillid været mindre end sædvanlig?\n","input":"string","validate":["0-3","5","8","9"],"ratingscale":"1"},{"key":"6.016","title":"Social tilbagetrækning","description":"Er du blevet mere indesluttet? - Tilbøjelig til at holde dig for dig selv? Tager du ikke telefonen, når den ringer?\nLukker du ikke op, når der kommer nogen?\n","input":"string","validate":["0-3","6","8","9"],"ratingscale":"1"},{"key":"6.017","title":"Nedsat selvfølelse Hvordan har du følt dig i forhold til andre?","description":"? Har du følt dig mindre dygtig og kompetent end andre? - På hvilken måde? ? Har du følt dig mindre værd end andre? ? Har du følt dig helt uduelig eller værdiløs?\n","input":"string","validate":["0-3","5","8","9"],"ratingscale":"1"},{"key":"6.018","title":"PSYKOTISKE DEPRESSIONSSYMPTOMER","description":"6_018 Depressive vrangforestillinger om skyld eller uduelighed (cf. 19.025)\nRates efter Rating Skala II\n","input":"string","validate":["0-3","8","9"],"ratingscale":"2"},{"key":"6.019","title":"Depressive vrangforestillinger om mulig død eller ulykke (cf. 19.026)","description":"Rates efter Rating Skala II\n","input":"string","validate":["0-3","8","9"],"ratingscale":"2"},{"key":"6.020","title":"Depressive hypokondre eller nihilistiske vrangforestillinger (cf. 19.027)","description":"Rates efter Rating Skala II\n","input":"string","validate":["0-3","8","9"],"ratingscale":"2"},{"key":"6.021","title":"Stemningskongruens af hørelseshallucinationer (cf. 17.010)","input":"integer","options":{"0":"Ingen hørelseshallucinationer","1":"Fuld stemningskongruens","2":"Overvejende stemningskongruens","3":"Stemningskongruente og -inkongruente hørelseshallucinationer i lige grad","4":"Overvejende stemningsinkongruens","5":"Ingen stemningskongruens"},"validate":["0-5","8","9"]},{"key":"6.022","title":"GENEREL DEPRESSIONSRATING","description":"6_022 Primær depressions- eller angsttilstand\nRates hvis der foreligger angstsymptomer og depressionssymptomer.\n","input":"integer","options":{"0":"Kun angst- eller kun depressionssymptomer, eller ingen af delene","1":"Angsttilstanden primær","2":"Angstsymptomer og depressionssymptomer begge til stede, uafhængigt af hinanden","3":"Depressionstilstanden primær","8":"Uvist, fx på grund af manglende oplysninger"},"validate":["0-3","8","9"]},{"key":"6.023","title":"Forholdet mellem somatoforme og depressive symptomer","input":"integer","options":{"0":"Kun somatoforme eller kun depressive symptomer eller ingen af delene","1":"Depressive symptomer mest udtalte eller begyndte først","2":"Depressive og somatoforme symptomer optræder samtidigt","3":"Somatoforme symptomer mest udtalte eller begyndte først","8":"Uvist"},"validate":["0-3","8","9"]},{"key":"6.024","title":"Forholdet mellem tvangssymptomer og depressive symptomer","input":"integer","options":{"0":"Kun tvangs- eller kun depressionssymptomer eller ingen af delene","1":"Depressive symptomer mest udtalte eller begyndte først","2":"Tvangs- og depressionssymptomer til stede samtidigt","3":"Tvangssymptomer mest udtalte eller begyndte først","8":"Uvist"},"validate":["0-3","8","9"]},{"key":"6.025","title":"Begyndelsesalder for depressive symptomer","input":"string","validate":["0-99"]},{"key":"6.026A","title":"Tidsangivelse for perioden med sektion 6 depressive symptomer Rates kun hvis forskellig fra tidsangivelsen i 1.007-1.014.","description":"Begyndelsesdato for PS eller PE\n","input":"date"},{"key":"6.026B","title":"Varighed af PS eller PE (dage)","input":"string","validate":["0-999"]},{"key":"6.026C","title":"Begyndelsestidspunkt for RE eller LB","input":"date"},{"key":"6.026D","title":"Varighed af RE eller LB (uger)","input":"string","validate":["0-299"]},{"key":"6.027","title":"Påvirkning af aktiviteter på grund af sektion 6 depressive symptomer","input":"integer","options":{"0":"Ingen depressive symptomer","1":"Kun let påvirkning","2":"Moderat eller intermitterende påvirkning","3":"Svær eller invaliderende påvirkning"},"validate":["0-3","8","9"]},{"key":"6.028","title":"Organisk årsag til sektion 6 depressive symptomer","input":"integer","options":{"0":"Fraværende","1":"Sandsynlig organisk årsag, ikke fuldt bekræftet","2":"Definitiv organisk årsag bekræftet af specialundersøgelser","8":"Usikkert om organisk betinget"},"validate":["0-2","8","9"]},{"key":"6.029","title":"ICD-10 diagnosekode for organisk årsag","input":"string"},{"key":"6.030","title":"ANAMNESTISKE OPLYSNINGER","description":"description","input":"integer","options":{"0":"Ikke rated","8":"Uvist","9":"NA"},"validate":["0-5","8","9"]},{"key":"6.031","title":"Habituel personlighedstruktur forud for første depressionstilstand","input":"integer","options":{"0":"Inden for normal variationsbredde"},"validate":["0","1","8","9"]},{"key":"6.032","title":"6.032 TODO","input":"integer","options":{"0":"Ikke rated","8":"Uvist","9":"NA"},"validate":["0-3","8","9"]},{"key":"6.033","title":"6.033 TODO","description":"affektive symptomer. Hele forløbet tages i betragtning.\n","input":"integer","options":{"0":"Ikke rated","8":"Uvist","9":"NA"},"validate":["0-3","8","9"]},{"key":"6.034","title":"Effekt af adækvat antidepressiv behandling","input":"integer","options":{"0":"Ikke rated","1":"Effekten ikke tilfredsstillende","2":"Effekten tilfredsstillende","8":"Uvist","9":"NA"},"validate":["0-2","8","9"]},{"key":"6.035","title":"6.035 TODO","description":"Hele forløbet tages i betragtning.\n","input":"integer","options":{"0":"Ikke rated","8":"Uvist","9":"NA"},"validate":["0-2","8","9"]},{"key":"6.036","title":"6.036","description":"","input":"integer","options":{"0":"Ikke rated","8":"Uvist"},"validate":["0-5","8","9"]},{"key":"6.037","title":"6.037","description":"Anvendes særligt ved registrering af seasonal affective disorder eller rapid cycling.\n","input":"integer","options":null,"validate":["0-3","8","9"]},{"key":"6.038","title":"6.038","input":"date_interval"},{"key":"6.039","title":"3.039","input":"date_interval"},{"key":"6.040","title":"6.040","input":"date_interval"},{"key":"6.041","title":"6.041","input":"date_interval"},{"key":"6.042","title":"6.042","input":"date_interval"},{"key":"6.043","title":"6.043","input":"date_interval"},{"key":"6.044","title":"CHECKLISTE FOR DYSTHYMI","description":"6.044 Nedtrykthed af mere end 2 års varighed\nDet meste af tiden, højst med få uger varende remissioner.\n","input":"integer","options":{"0":"Nej","1":"Ja","8":"Uvist SKIP => til 6.072 hvis 6.044 = 0"},"validate":["0","1","8","9"]},{"key":"6.045","title":"Nedsat energi og aktivitet","input":"integer","options":{"0":"Ikke til stede","1":"Til stede som isoleret symptom","2":"Til stede sammen med andre dysthymi-items","9":"Ukendt, kan ikke rates"},"validate":["0-2","8","9"]},{"key":"6.046","title":"Søvnløshed","input":"integer","options":{"0":"Ikke til stede","1":"Til stede som isoleret symptom","2":"Til stede sammen med andre dysthymi-items","9":"Ukendt, kan ikke rates"},"validate":["0-2","8","9"]},{"key":"6.047","title":"Øget søvntrang","input":"integer","options":{"0":"Ikke til stede","1":"Til stede som isoleret symptom","2":"Til stede sammen med andre dysthymi-items","9":"Ukendt, kan ikke rates"},"validate":["0-2","8","9"]},{"key":"6.048","title":"Nedsat selvtillid, selvfølelse eller utilstrækkelighedsfølelse","input":"integer","options":{"0":"Ikke til stede","1":"Til stede som isoleret symptom","2":"Til stede sammen med andre dysthymi-items","9":"Ukendt, kan ikke rates"},"validate":["0-2","8","9"]},{"key":"6.049","title":"Koncentrations- eller beslutningsbesvær","input":"integer","options":{"0":"Ikke til stede","1":"Til stede som isoleret symptom","2":"Til stede sammen med andre dysthymi-items","9":"Ukendt, kan ikke rates"},"validate":["0-2","8","9"]},{"key":"6.050","title":"Letrørthed , grådtendens","input":"integer","options":{"0":"Ikke til stede","1":"Til stede som isoleret symptom","2":"Til stede sammen med andre dysthymi-items","9":"Ukendt, kan ikke rates"},"validate":["0-2","8","9"]},{"key":"6.051","title":"Tab af lyst eller interesse","input":"integer","options":{"0":"Ikke til stede","1":"Til stede som isoleret symptom","2":"Til stede sammen med andre dysthymi-items","9":"Ukendt, kan ikke rates"},"validate":["0-2","8","9"]},{"key":"6.052","title":"Nedsat seksuallyst","input":"integer","options":{"0":"Ikke til stede","1":"Til stede som isoleret symptom","2":"Til stede sammen med andre dysthymi-items","9":"Ukendt, kan ikke rates"},"validate":["0-2","8","9"]},{"key":"6.053","title":"Håbløshedsfølelse","input":"integer","options":{"0":"Ikke til stede","1":"Til stede som isoleret symptom","2":"Til stede sammen med andre dysthymi-items","9":"Ukendt, kan ikke rates"},"validate":["0-2","8","9"]},{"key":"6.054","title":"Nedsat produktivitet, effektivitet eller vanskelighed ved at klare","description":"dagligdagens rutinekrav\n","input":"integer","options":{"0":"Ikke til stede","1":"Til stede som isoleret symptom","2":"Til stede sammen med andre dysthymi-items","9":"Ukendt, kan ikke rates"},"validate":["0-2","8","9"]},{"key":"6.055","title":"Pessimisme med hensyn til fremtiden, rugen over fortiden","input":"integer","options":{"0":"Ikke til stede","1":"Til stede som isoleret symptom","2":"Til stede sammen med andre dysthymi-items","9":"Ukendt, kan ikke rates"},"validate":["0-2","8","9"]},{"key":"6.056","title":"Tilbøjelighed til at isolere sig","input":"integer","options":{"0":"Ikke til stede","1":"Til stede som isoleret symptom","2":"Til stede sammen med andre dysthymi-items","9":"Ukendt, kan ikke rates"},"validate":["0-2","8","9"]},{"key":"6.057","title":"Fåmælthed","input":"integer","options":{"0":"Ikke til stede","1":"Til stede som isoleret symptom","2":"Til stede sammen med andre dysthymi-items","9":"Ukendt, kan ikke rates"},"validate":["0-2","8","9"]},{"key":"6.058","title":"Nedsat appetit eller overdreven fødeindtagelse","input":"integer","options":{"0":"Ikke til stede","1":"Til stede som isoleret symptom","2":"Til stede sammen med andre dysthymi-items","9":"Ukendt, kan ikke rates"},"validate":["0-2","8","9"]},{"key":"6.059","title":"Kronisk træthed eller øget trætbarhed","input":"integer","options":{"0":"Ikke til stede","1":"Til stede som isoleret symptom","2":"Til stede sammen med andre dysthymi-items","9":"Ukendt, kan ikke rates"},"validate":["0-2","8","9"]},{"key":"6.060","title":"Skyldfølelse","input":"integer","options":{"0":"Ikke til stede","1":"Til stede som isoleret symptom","2":"Til stede sammen med andre dysthymi-items","9":"Ukendt, kan ikke rates"},"validate":["0-2","8","9"]},{"key":"6.061","title":"Subjektiv følelse af irritabilitet eller overdreven vrede","input":"integer","options":{"0":"Ikke til stede","1":"Til stede som isoleret symptom","2":"Til stede sammen med andre dysthymi-items","9":"Ukendt, kan ikke rates"},"validate":["0-2","8","9"]},{"key":"6.062","title":"Påvirkning af aktiviteter på grund af dysthymisymptomer","input":"integer","options":{"0":"Ingen dysthymisymptomer","1":"Let påvirkning","2":"Moderat eller intermitterende påvirkning","3":"Svær eller invaliderende påvirkning"},"validate":["0-3","8","9"]},{"key":"6.063","title":"Begyndelsesalder for aktuelle dysthymiperiode","input":"string","validate":["0-99"]},{"key":"6.064","title":"6.064","input":"integer","options":{"0":"Nej","1":"Ja"},"validate":["0","1","8","9"]},{"key":"6.065","title":"6.065","input":"integer","options":{"0":"Nej","1":"Ja"},"validate":["0","1","8","9"]},{"key":"6.066","title":"Depressionstilstand under de første 2 år af nuværende dysthymiperiode","input":"integer","options":{"0":"Nej","1":"Ja"},"validate":["0","1","8","9"]},{"key":"6.067","title":"Begyndelsesalder for første dysthymiperiode","input":"string","validate":["0-99"]},{"key":"6.068","title":"6.068","input":"integer","options":{"0":"Nej","1":"Ja"},"validate":["0","1","8","9"]},{"key":"6.069","title":"6.069","input":"integer","options":{"0":"Nej","1":"Ja"},"validate":["0","1","8","9"]},{"key":"6.070","title":"Organisk årsag til dysthymisymptomer","input":"integer","options":{"0":"Fraværende","1":"Sandsynlig organisk årsag, ikke fuldt bekræftet","2":"Definitiv organisk årsag bekræftet af specialudersøgelser","8":"Usikkert om organisk betinget"},"validate":["0-2","8","9"]},{"key":"6.071","title":"ICD-10 diagnosekode for organisk årsag Cyklothymi rates ved 10.031-10.057.","input":"string"},{"key":"6.072","title":"6.072 TODO","description":"description TODO","input":"integer","options":{"0":"Ikke til stede","1":"Til stede","8":"Ukendt"},"validate":["0","1","8","9"]},{"key":"6.073","title":"6.073","input":"integer","options":{"0":"Nej","1":"Ja","8":"Ukendt"},"validate":["0","1","8","9"]},{"key":"6.074","title":"Optræden uden for menstruationscyklus","description":"(ikke udelukkende i forbindelse med menstruationscyklus).\n","input":"integer","options":{"0":"Nej","1":"Ja","8":"Ukendt"},"validate":["0","1","8","9"]},{"key":"6.075","title":"6.075","input":"integer","options":{"0":"Ikke til stede","1":"Kun let påvirkning","2":"Moderat eller intermitterende påvirkning","3":"Svær eller invaliderende påvirkning"},"validate":["0-3","8","9"]},{"key":"6.076","title":"6.076","input":"integer","options":{"0":"Fraværende","1":"Sandsynlig organisk årsag, ikke fuldt bekræftet","2":"Definitiv organisk årsag bekræftet ved specialundersøgelser","8":"Usikkert om organisk betinget"},"validate":["0-2","8","9"]},{"key":"6.077","title":"ICD-10 diagnosekode for organisk årsag","input":"string"},{"key":"7.001","title":"Tænkning, koncentration , energi, interesser","description":"7_001 Screening for tænkning, koncentration, energi og interesser\nHar du været i stand til at tænke og koncentrere dig som du plejer? Har din energi eller dine interesser ændret sig?\n","input":"integer","options":{"1":"Kan tænke og koncentrere sig bedre end de fleste, god energi, mange interesser","2":"Ingen eller kun ringe nedsættelse","3":"Tydelig nedsættelse","4":"Udtalt nedsættelse, næsten totalt tab"},"section_start":"Section_7","validate":["1-4","8","9"]},{"key":"7.002","title":"Nedsat koncentrationsevne","description":"Har din koncentration være lige så god som sædvanligt i perioden?\n? Har du fået svært ved at læse bøger eller blade, eller følge en TV udsendelse?\n? Har du fået svært ved at koncentrere dig om det, du skal gøre, fx dit arbejde, føre en samtale, lave mad? ? Hvor længe har det været sådan?\nBrug Rating Skala I\n","input":"string","validate":["0-3","5","8","9"],"ratingscale":"1"},{"key":"7.003","title":"Subjekt beskrevet ineffektiv tankevirksomhed","description":"Har du været i stand til at tænke klart og sammenhængende? Har du fået svært ved at træffe beslutninger selv om enkle dagligdags forhold?\nBrug Rating Skala I\n","input":"string","validate":["0-3","5","8","9"]},{"key":"7.004","title":"Tab af interesser","description":"Har du mistet interessen for det, du plejer at interessere dig for, fx arbejde, familie, fritidsinteresser, tøj og udseende?\nBrug Rating Skala I\n","input":"string","validate":["0-3","5","8","9"]},{"key":"7.005","title":"Subjektiv følelse af motorisk hæmning","description":"Er du blevet langsommere i din tale eller i dine bevægelser? Har du følt dig tung i armene eller benene, blytung?\nBrug Rating Skala I\n","input":"string","validate":["0-3","5","8","9"]},{"key":"7.006","title":"Tab af energi (livskraft)","description":"Har du tabt energien og kræfterne, ikke følt dig i vigør?\nBrug Rating Skala I\n","input":"string","validate":["0-3","5","8","9"]},{"key":"7.007","title":"Uoverkommelighedsfølelse i dagligdagen","description":"Føler du det hele overvældende? - Tungt eller uoverkommeligt? Føler du dig overvældet af selv almindelige dagligdags opgaver?\nBrug Rating Skala I\n","input":"string","validate":["0-3","5","8","9"]},{"key":"7.008A","title":"Tidsangivelse for sektion 7 symptomer","description":"Rates kun hvis forskellig fra tidsangivelsen i 1.007-1.014.\nBegyndelsesdato for PS eller PE\n","input":"date"},{"key":"7.008B","title":"Varighed af PS (dage)","input":"string","validate":["0-999"]},{"key":"7.008C","title":"Begyndelsestidspunkt for RE eller LB","input":"date"},{"key":"7.008D","title":"Varighed af RE eller LB (uger)","input":"string","validate":["0-299"]},{"key":"7.009","title":"Påvirkning af aktiviteter på grund af sektion 7 symptomer","input":"integer","options":{"0":"Ingen sektion 7 symptomer","1":"Kun let påvirkning","2":"Moderat eller intermitterende påvirkning","3":"Svær eller invaliderende påvirkning"},"validate":["0-3","8","9"]},{"key":"7.010","title":"Organisk årsag til sektion 7 symptomer","input":"integer","options":{"0":"Fraværende","1":"Sandsynlig organisk årsag, ikke fuldt bekræftet","2":"Definitiv organisk årsag bekræftet af specialundersøgelser","8":"Usikkert om organisk betinget"},"validate":["0-2","8","9"]},{"key":"7.011","title":"ICD-10 diagnosekode for organisk årsag","input":"string"},{"key":"8.001","title":"Fysiologiske funktioner","description":"8_001 Vægt i kg\n","input":"string","section_start":"Section_8","validate":["20-200"]},{"key":"8.002","title":"Højde i cm","input":"string","validate":["50-250"]},{"key":"8.003","title":"Vægtøgning eller -tab siden adolescensen (kg)","input":"string","validate":["0-100"]},{"key":"8.004","title":"Vægten i 18-20 års alderen","input":"string","validate":["20-200"]},{"key":"8.005","title":"Appetitændring","description":"Hvordan har appetitten været?\n? Hvor længe har den været ændret ? ? Hvad skyldes det?\n","input":"integer","options":{"0":"Ingen ændring","1":"Udtalt appetitnedsættelse i mindre end 2 uger","2":"Udtalt appetitnedsættelse i 2-4 uger","3":"Udtalt appetitnedsættelse i mere end 1 måned","4":"Øget appetit i mindre end 2 uger","5":"Øget appetit i mere end 2 uger","6":"Altid dårlig appetit","7":"Appetitten vekslende"},"validate":["0-7","8","9"]},{"key":"8.006","title":"Vægttab","description":"Har du tabt i vægt i løbet af perioden?\n","input":"integer","options":{"0":"Intet tab","1":"Moderat tab","2":"Tab af mere end 5% af legemsvægten i løbet af en måned (3,5 kg svarer til 70 kg)","3":"Vægttab til mere end 15% under normalvægten i løbet af et år","4":"Manglende forventet vægtøgning på et år, svarende til mere end 15% af normalvægten (for børn og unge eller rekonvalescenter)"},"validate":["0-4","8","9"]},{"key":"8.007","title":"Vægtøgning","description":"Har du taget på i vægt i løbet af perioden?\n","input":"integer","options":{"0":"Ingen øgning","1":"Moderat vægtøgning","2":"Vægtøgning på mere end 5% af legemsvægten i løbet af en måned"},"validate":["0-2","8","9"]},{"key":"8.008","title":"Vægtproblemer","description":"Har du haft alvorlige problemer med vægten? - Hvilke?\n","input":"integer","options":{"0":"Nej","1":"Ja"},"validate":["0","1","8","9"]},{"key":"8.009","title":"SØVNBESVÆR Hvordan er dit sædvanlige søvnmønster? Hvornår plejer du at gå til ro? Hvornår plejer du at vågne op?","description":"8_009 Søvnbesvær i forbindelse med nedtrykthed\n","input":"integer","options":{"0":"Ingen forbindelse","1":"Definitiv forbindelse med nedtrykthed"},"validate":["0","1","8","9"]},{"key":"8.010","title":"Virkning af sovetabletter","description":"Tager du sovetabletter? Hvilke? Hvor mange? Hjælper de?\n","input":"integer","options":{"0":"Bruger ikke sovetabletter eller sedativa","1":"God virkning","2":"Dårlig virkning"},"validate":["0-2","8","9"]},{"key":"8.011","title":"Indsovningsbesvær","description":"Har du besvær med at falde i søvn?\n? Hvor længe ligger du vågen før du falder i søvn? - En time eller mere? ? Hvor ofte sker det? 3 gange ugentligt eller mere? ? Hvor det længe har det været sådan?\n","input":"integer","options":{"0":"Intet indsovningsbesvær","1":"Indsovningsbesvær (mindst en time) gennem mindre end 1 måned","2":"Indsovningsbesvær (mindst 1 time > 3 gange ugentligt) gennem mindst 1 måned"},"validate":["0-2","8","9"]},{"key":"8.012","title":"Søvnkvalitet","description":"Er søvnen naturlig og forfriskende? Er søvnen unaturlig? Føler du dig træt når du vågner?\n","input":"integer","options":{"0":"God nattesøvn","1":"Søvnen ikke forfriskende, let til moderat grad","2":"Søvnen ikke forfriskende, udtalt grad, 3 eller flere gange ugentligt gennem mindst 1 måned"},"validate":["0-2","8","9"]},{"key":"8.013","title":"Afbrudt søvn","description":"Vågner du op i løbet af natten? Hvor ofte? Hvor længe? Gennem hvor lang tid?\n","input":"integer","options":{"0":"Søvnen ikke afbrudt","1":"Afbrudt nattesøvn (mindst 1 time), let til moderat grad","2":"Afbrudt nattesøvn, 1 time eller mere, 3 eller flere gange ugentligt gennem mindst 1 måned"},"validate":["0-2","8","9"]},{"key":"8.014","title":"Tidlig opvågnen","description":"Vågner du op om morgenen tidligere end du plejer? Hvor længe før? Hvor ofte? Gennem hvor lang tid?\nEr det optrådt samtidig med nedtrykthed?\n","input":"integer","options":{"0":"Ingen tidlig opvågnen","1":"Tidlig opvågnen, mindst en time, men ikke (2)","2":"Vågner mindst 2 timer før normalt, > 3 gange ugentligt gennem mindst 1 måned"},"validate":["0-3","8","9"]},{"key":"8.015","title":"Forstyrret søvnmønster","description":"Har dit søvnmønster ændret sig, fx så du er vågen om natten og sover om dagen? Hvor ofte? Hvor længe?\n","input":"integer","options":{"0":"Ingen ændring","1":"Ændret søvnmønster men ikke (2)","2":"Ændret søvnmønster dagligt gennem mindst 1 måned"},"validate":["0-2","8","9"]},{"key":"8.016","title":"Øget søvntrang - hypersomni","description":"Skal du sove mere end du plejer? Hvor meget mere? Føler du dig meget søvnig om dagen med tendens til at falde i søvn ind imellem, selvom du sover hele natten?\n","input":"integer","options":{"0":"Ingen hypersomni","1":"Øget søvntrang men ikke (2)","2":"Dagligt gennem mindst en måned"},"validate":["0-2","8","9"]},{"key":"8.017","title":"Forstyrrende drømme eller mareridt","description":"Har du ubehagelige drømme eller mareridt, der har forstyrret søvnen?\n","input":"integer","options":{"0":"Ingen","1":"Mareridt men ikke (2)","2":"Hyppige mareridt med forstyrret nattesøvn"},"validate":["0-2","8","9"]},{"key":"8.018","title":"Søvnrædsel","description":"Natlige anfald med pludselig opvågnen i en tilstand af panikagtig angst, ofte med ændret bevidsthedstilstand, desorientering og efterfølgende amnesi. Optræder oftest først på natten, og varer kun kort (mindre end 10 minutter).\n","input":"integer","options":{"0":"Ingen","1":"Gentagne anfald med søvnrædsel i løbet af perioden"},"validate":["0","1","8","9"]},{"key":"8.019","title":"Søvngængeri","description":"Anfald, hvor man i søvne bevæger sig omkring med tomt ansigtsudtryk uden at reagere på omgivelserne og er vanskelig at vække. Ved opvågningen kan der være kortvarig konfusion. Efterfølges af amnesi.\n","input":"integer","options":{"0":"Ingen"},"validate":["0","1","8","9"]},{"key":"8.020A","title":"Tidsangivelse for søvnbesvær","description":"Rates kun hvis forskellig fra tidsangivelsen i 1.007-1.014.\nBegyndelsesdato for PS eller PE\n","input":"date"},{"key":"8.020B","title":"Varighed af PS eller PE (dage)","input":"string","validate":["0-999"]},{"key":"8.020C","title":"Begyndelsestidspunkt for RE eller LB","input":"date"},{"key":"8.020D","title":"Varighed af RE eller LB (uger)","input":"string","validate":["0-299"]},{"key":"8.021","title":"Påvirkning af aktivitet på grund af søvnbesvær","input":"integer","options":{"0":"Ingen påvirkning","1":"Kun let påvirkning","2":"Moderat eller intermitterende påvirkning","3":"Svær eller invaliderende påvirkning"},"validate":["0-3","8","9"]},{"key":"8.022","title":"Organisk årsag til søvnbesvær","input":"integer","options":{"0":"Fraværende","1":"Sandsynlig organisk årsag, ikke fuld bekræftet","2":"Definitiv organisk årsag bekræftet af specialundersøgelser","8":"Usikkert om organisk betinget"},"validate":["0-2","8","9"]},{"key":"8.023","title":"ICD-10 diagnosekode for organisk årsag","input":"string"},{"key":"8.024","title":"SEKSUEL DYSFUNKTION","description":"8_024 Nedsat seksuallyst - tab af libido\nHar din lyst til seksuel udfoldelse været mindre end sædvanligt i løbet af perioden?\n","input":"integer","options":{"1":"Noget nedsat","2":"Udtalt nedsættelse","3":"Helt manglende"},"validate":["0-3","8","9"]},{"key":"8.025","title":"Nedsat seksuallyst i forbindelse med depression","input":"integer","options":{"0":"Ingen forbindelse","1":"Tydeligt forbundet med nedtrykthed"},"validate":["0","1","8","9"]},{"key":"8.026","title":"Andre seksuelle problemer","description":"Er der ubehag eller smerter i forbindelse med seksuel udfoldelse? Er der andre seksuelle problemer?\n","input":"integer","options":{"0":"Ingen andre seksuelle problemer","1":"Andre seksuelle problemer (cf. 27.039 - 27.048)"},"validate":["0","1","8","9"]},{"key":"8.027A","title":"Tidsangivelse for seksuel dysfunktion","description":"Rates kun hvis forskellig fra tidsangivelsen i 1.007-1.014.\nBegyndelsesdato for PS eller PE\n","input":"date"},{"key":"8.027B","title":"Varighed af PS eller PE (dage)","input":"string","validate":["0-999"]},{"key":"8.027C","title":"Begyndelsestidspunkt for RE eller LB","input":"date"},{"key":"8.027D","title":"Varighed af RE eller LB (uger)","input":"string","validate":["0-299"]},{"key":"8.028","title":"Påvirkning af aktiviteter på grund af seksuel dysfunktion","input":"integer","options":{"0":"Ingen seksuel dysfunktion","1":"Kun let påvirkning","2":"Moderat eller intermitterende påvirkning","3":"Svær eller invaliderende påvirkning"},"validate":["0-3","8","9"]},{"key":"8.029","title":"Organisk årsag til seksuel dysfunktion","input":"integer","options":{"0":"Fraværende","1":"Sandsynlig organisk årsag, ikke fuldt bekræftet","2":"Definitiv organisk årsag bekræftet af specialundersøgelser","8":"Usikkert om organisk betinget"},"validate":["0-2","8","9"]},{"key":"8.030","title":"ICD-10 diagnosekode for organisk årsag","input":"string"}]}
 
 /***/ }),
-/* 356 */
+/* 355 */
 /***/ (function(module, exports) {
 
 module.exports = {"1":{"options":{"0":"This is a positive rating of absence. It does not mean 'not known' or 'uncertain whether present or not'. It can only be used if sufficient information is available to establish its accuracy.","1":"This is a positive rating of presence, but presence of such a minor degree that it is not appropriate for use in classification. Like (0) it does not mean 'not known' or 'uncertain'. Ratings of (1) count in scores (but not for diagnostic purposes), which in turn influence the level allocated on the Index of Definition.","2":"This rating means that the item is present at a level sufficient to use in classification. For this purpose it is equivalent to 3, but it contributes less to scores. In general, it is used when symptoms are of moderate severity during most of the period being assessed.","3":"A rating of (3) is similar to (2) except that the symptom is present in severe form for most of the period under review.","5":"The presence of psychotic symptoms can make the rating of Part One items very difficult, bevause of problems in interpreting the meaning of what R says, or because the symptoms (for example, anxiety or a phobia about leaving one's house) may themselves be based in psychotic experiences. The rating should only be made when there is genuine doubt about the nature of the symptom or the balance is in favor of the symptom being psychotic.","8":"If, after an adequate examination, the interviewer is still not sure whether a symptom is present (rated 1-3) or absent (rated 0), the rating is (8). This is the only circumstance in which (8) is used. It should not be used to indicate a mild form of the symptom.","9":"This rating is only used if the information needed to rate an item is incomplete in some respect, for example because of language or cognitive disorder, or lack of cooperation, or because the interviewer forgot to probe sufficiently deeply. It is distinguished from (8) because the examination was not, for whatever reason, carried out adequately. In the SCAN text, an instruction to 'use Scale I' simply means that it is not necessary to point out any individual rating characteristics for that item. Any point on Scale I can be selected, according to clinical judgement."},"input":"integer"},"2":{"options":{"0":"Symptom did not occur during PERIOD.","1":"Symptom definitely occurred during the period but was probably uncommon or transitory.","2":"Symptom was definitely present, on multiple occasions or for part of the time, during the period.","3":"Symptom was present more or less continuously throughout the period.","5":"Language difficulty, rated as present in Section 15, makes replies difficult to interpret.","8":"Rater is unsure whether the phenomenon is present or absent, even after adequate examination","9":"Not appropriate to make a rating because examination incomplete, e.g. because of refusal, omission, etc."},"input":"integer"},"3":{"description":"NB: Consider behavioral items for cognitive impairment also.\n\nMost items in Sections 22-24 are rated on a 3-point scale (0-2) on the basis of severity and frequency during the past month. Information from records for the period should be used as well.\n\nThe examination should be supplemented by taking into account any other observations of relevance, e.g. is case records or information from professionals or relatives. Severe behavioral abnormalities may not be observed at examination because of the short time sample, but when they are present skilled direct observations are of great importance. The items listed are also worth rating because of their possible juxtaposition with other symptoms. The time period rated is the month before examination.\n\nMany behavioral items are also included in Item Groups and can be rated in the Checklist.\n","options":{"0":"Behavior not present during past month.","1":"Unequivocally present during past month, moderate severity only. Use all information available.","2":"Present in severe form during past month or at examination.","8":"Unsure whether present or not after adequate examination.","9":"Not appropriate to make a rating because examination or records are incomplete, or behavior is due to a physical factor."},"input":"integer"},"4":{"options":{"0":"Absent. Below IG threshold.","1":"Subject to clinical discretion, at least two items should definitely pass PSE threshold level, PLUS at least moderate disability (interference with everyday activities) and/or moderate or severe distress resulting from the symptoms.","2":"As 1, but with severe degree of distress and/or disability. Usually at least three items pass PSE threshold but this is at the interviewer's clinical discretion.","8":"Uncertain whether IG is present (usually because of insufficient information)."},"input":"integer"},"1a":{"options":{"0":"Symptoms absent after adequate Elaboration","1":"Symptom has been present in the period being assessed, but only mildly","2":"Symptom is definitely moderately present for most of the period or pronouncedly present for less than half of the period","3":"Symptom is pronouncedly present for more than half of the period","5":"Rating difficult due to psychotic disorder","6":"Symptom is consistent with a well-defined physical disease","8":"Symptom is present, but uncertain if it is functional","9":"Not known, cannot be rated"},"input":"integer"},"Att.":{"description":"Use the attributional rating scale to rate nature of influence on symptom presence or severity at the item level. The rating of 0 is the only ’negative’ rating, and can be used if there is clear evidence that treatment has resulted in a reduced rating. Ratings 1 - 8 represent attributions of etiologic effect, increasing the likelihood of an item being rated or its severity being increased. These attributions must only be made for symptoms/items that have positively rated, and should be entered into the dashed boxes below the standard episode rating boxes. The rating of 9 is reserved for indicating a trait characteristic. If no effect or trait is judged to be present leave the dashed box blank.\n","options":{"0":"Item rating reduced by effects of treatment","1":"Alcohol","2":"Other psychoactive substance","3":"Effects of somatic psychiatric treatments (electroconvulsive therapy, antidepressant medication, neuroleptics, etc)","4":"Known primary intracranial process (Alzheimer’s disease, Huntington’s disease, Parkinson’s disease, tumor, stroke, etc.)","5":"Non-psychiatric medication, toxins","6":"Other medication condition 1 (specify at Section 13 and/or Section 20)","7":"Other medication condition 2 (specify at Section 13 and/or Section 20)","8":"Other medication condition 3 (specify at Section 13 and/or Section 20)","9":"Trait. Essentially lifelong characteristic of R."},"input":"integer"},"1ad":{"options":{"0":{"title":"Symptoms absent after adequate Elaboration","description":"This is a positive rating of presence, but so mildly that it is without clinical and hence diagnostic significance. As above, it doesn’t mean “not known” or “uncertain”. Doesn’t count for diagnostic purposes, but can be counted in sumscore, e.g. by using Index of Definitions. Not to be confused with 8.\n"},"1":{"title":"Symptom has been present in the period being assessed, but only mildly","description":"This is a positive rating of presence, but so mildly that it is without clinical and hence diagnostic significance. As above, it doesn’t mean “not known” or “uncertain”. Doesn’t count for diagnostic purposes, but can be counted in sumscore, e.g. by using Index of Definitions. Not to be confused with 8.\n"},"2":{"title":"Symptom is definitely moderately present for most of the period or pronouncedly present for less than half of the period","description":"At systematic review of medical records, symptoms registered in the records are in principle rated as 2 (definitely present). If medical records are lacking, rate at least 2 if the patient has seen a doctor due to the symptom, has received treatment (incl. self-medication) due to the symptom or if the symptom has caused behavioural changes (e.g. cessation of exercise)\n"},"3":{"title":"Symptom is pronouncedly present for more than half of the period","description":"A severity of 2 or 3 is judged by the intensity, frequency and duration of the symptom. If in doubt, rate conservatively: 2.\n\nIf symptoms are of alternating intensity, perhaps for long periods, rate according to the intensity of the symptoms when they were most pronounced rather than according to duration.\n"},"5":{"title":"Rating difficult due to psychotic disorder","description":"Presence of psychotic symptoms can make it difficult to rate Part 1 symptoms, either due to the psychotic disorder making it hard to understand what R says, or because the symptoms  (e.g. anxiety symptoms) can be provoked by psychotic experiences.\n"},"6":{"title":"Symptom is consistent with a well-defined physical disease"},"8":{"title":"Symptom is present, but uncertain if it is functional","description":"If it is impossible, after thorough and adequate interviewing and collection of relevant information from doctors, medical records etc., to determine if the symptom is functional, this rating is used. Not to be confused with 1.\n"},"9":{"title":"Not known, cannot be rated","description":"Used when information is missing due to rejection, insufficient communication, or because you have forgotten or refrained from asking, or because the item in question is irrelevant. Not to be confused with 0 or 8.\n"}}}}
 
 /***/ }),
-/* 357 */
+/* 356 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58334,7 +58341,7 @@ var _reactRedux = __webpack_require__(15);
 
 var _actions = __webpack_require__(19);
 
-var _ItemCard = __webpack_require__(145);
+var _ItemCard = __webpack_require__(146);
 
 var _helpers = __webpack_require__(64);
 
@@ -58342,13 +58349,9 @@ var _Markdown = __webpack_require__(85);
 
 var _items = __webpack_require__(27);
 
-var _reactRangeslider = __webpack_require__(151);
-
-var _reactRangeslider2 = _interopRequireDefault(_reactRangeslider);
-
 __webpack_require__(152);
 
-var _ResponseSlider = __webpack_require__(417);
+var _ResponseSlider = __webpack_require__(413);
 
 var _ResponseSlider2 = _interopRequireDefault(_ResponseSlider);
 
@@ -58357,6 +58360,10 @@ var _SelectResponse = __webpack_require__(418);
 var _SelectResponse2 = _interopRequireDefault(_SelectResponse);
 
 var _arrowFunctionalities = __webpack_require__(419);
+
+var _Analysis = __webpack_require__(141);
+
+var _AnalysisSidebar = __webpack_require__(420);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -58795,6 +58802,7 @@ var Response = function (_React$Component) {
       var note = interview.notes && interview.notes[item.key] || '';
       var hasInput = input || item.scale;
       var showGlossary = settings.showGlossary && item.glossary;
+      var showAnalysis = settings.showAnalysis;
 
       // For debugging only
       console.log('currentPos: ' + currentPos);
@@ -58973,15 +58981,20 @@ var Response = function (_React$Component) {
             })
           )
         ),
-        showGlossary && _react2.default.createElement(
+        (showGlossary || showAnalysis) && _react2.default.createElement(
           'div',
-          { className: 'interview-item-glossary' },
-          _react2.default.createElement(
-            'strong',
-            null,
-            'Glossary'
-          ),
-          _react2.default.createElement(_Markdown.Markdown, { source: item.glossary, style: { height: '100%' } })
+          { style: { width: showAnalysis ? 500 : 300 } },
+          showAnalysis && _react2.default.createElement(_AnalysisSidebar.AnalysisSidebar, null),
+          showGlossary && _react2.default.createElement(
+            'div',
+            { className: 'interview-item-glossary' },
+            _react2.default.createElement(
+              'strong',
+              null,
+              'Glossary'
+            ),
+            _react2.default.createElement(_Markdown.Markdown, { source: item.glossary, style: { height: '100%' } })
+          )
         )
       );
     }
@@ -58993,17 +59006,17 @@ var Response = function (_React$Component) {
 exports.default = (0, _reactRedux.connect)()(Response);
 
 /***/ }),
-/* 358 */
+/* 357 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = __webpack_require__(359);
+module.exports = __webpack_require__(358);
 
 
 /***/ }),
-/* 359 */
+/* 358 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59014,10 +59027,10 @@ module.exports = __webpack_require__(359);
  */
 
 var assign       = __webpack_require__(13).assign;
-var Renderer     = __webpack_require__(360);
-var ParserCore   = __webpack_require__(362);
-var ParserBlock  = __webpack_require__(373);
-var ParserInline = __webpack_require__(388);
+var Renderer     = __webpack_require__(359);
+var ParserCore   = __webpack_require__(361);
+var ParserBlock  = __webpack_require__(372);
+var ParserInline = __webpack_require__(387);
 var Ruler        = __webpack_require__(55);
 
 /**
@@ -59025,9 +59038,9 @@ var Ruler        = __webpack_require__(55);
  */
 
 var config = {
-  'default':    __webpack_require__(407),
-  'full':       __webpack_require__(408),
-  'commonmark': __webpack_require__(409)
+  'default':    __webpack_require__(406),
+  'full':       __webpack_require__(407),
+  'commonmark': __webpack_require__(408)
 };
 
 /**
@@ -59205,7 +59218,7 @@ module.exports.utils = __webpack_require__(13);
 
 
 /***/ }),
-/* 360 */
+/* 359 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59216,7 +59229,7 @@ module.exports.utils = __webpack_require__(13);
  */
 
 var utils = __webpack_require__(13);
-var rules = __webpack_require__(361);
+var rules = __webpack_require__(360);
 
 /**
  * Expose `Renderer`
@@ -59287,7 +59300,7 @@ Renderer.prototype.render = function (tokens, options, env) {
 
 
 /***/ }),
-/* 361 */
+/* 360 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59723,7 +59736,7 @@ module.exports = rules;
 
 
 /***/ }),
-/* 362 */
+/* 361 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59740,15 +59753,15 @@ var Ruler = __webpack_require__(55);
  */
 
 var _rules = [
-  [ 'block',          __webpack_require__(363)          ],
-  [ 'abbr',           __webpack_require__(364)           ],
-  [ 'references',     __webpack_require__(365)     ],
-  [ 'inline',         __webpack_require__(366)         ],
-  [ 'footnote_tail',  __webpack_require__(367)  ],
-  [ 'abbr2',          __webpack_require__(368)          ],
-  [ 'replacements',   __webpack_require__(369)   ],
-  [ 'smartquotes',    __webpack_require__(370)    ],
-  [ 'linkify',        __webpack_require__(371)        ]
+  [ 'block',          __webpack_require__(362)          ],
+  [ 'abbr',           __webpack_require__(363)           ],
+  [ 'references',     __webpack_require__(364)     ],
+  [ 'inline',         __webpack_require__(365)         ],
+  [ 'footnote_tail',  __webpack_require__(366)  ],
+  [ 'abbr2',          __webpack_require__(367)          ],
+  [ 'replacements',   __webpack_require__(368)   ],
+  [ 'smartquotes',    __webpack_require__(369)    ],
+  [ 'linkify',        __webpack_require__(370)        ]
 ];
 
 /**
@@ -59788,7 +59801,7 @@ module.exports = Core;
 
 
 /***/ }),
-/* 363 */
+/* 362 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59812,7 +59825,7 @@ module.exports = function block(state) {
 
 
 /***/ }),
-/* 364 */
+/* 363 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59889,7 +59902,7 @@ module.exports = function abbr(state) {
 
 
 /***/ }),
-/* 365 */
+/* 364 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59898,9 +59911,9 @@ module.exports = function abbr(state) {
 
 var StateInline          = __webpack_require__(86);
 var parseLinkLabel       = __webpack_require__(56);
-var parseLinkDestination = __webpack_require__(147);
-var parseLinkTitle       = __webpack_require__(149);
-var normalizeReference   = __webpack_require__(150);
+var parseLinkDestination = __webpack_require__(148);
+var parseLinkTitle       = __webpack_require__(150);
+var normalizeReference   = __webpack_require__(151);
 
 
 function parseReference(str, parser, options, env) {
@@ -59994,7 +60007,7 @@ module.exports = function references(state) {
 
 
 /***/ }),
-/* 366 */
+/* 365 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60014,7 +60027,7 @@ module.exports = function inline(state) {
 
 
 /***/ }),
-/* 367 */
+/* 366 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60116,7 +60129,7 @@ module.exports = function footnote_block(state) {
 
 
 /***/ }),
-/* 368 */
+/* 367 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60211,7 +60224,7 @@ module.exports = function abbr2(state) {
 
 
 /***/ }),
-/* 369 */
+/* 368 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60282,7 +60295,7 @@ module.exports = function replace(state) {
 
 
 /***/ }),
-/* 370 */
+/* 369 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60402,7 +60415,7 @@ module.exports = function smartquotes(state) {
 
 
 /***/ }),
-/* 371 */
+/* 370 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60413,7 +60426,7 @@ module.exports = function smartquotes(state) {
 
 
 
-var Autolinker = __webpack_require__(372);
+var Autolinker = __webpack_require__(371);
 
 
 var LINK_SCAN_RE = /www|@|\:\/\//;
@@ -60570,7 +60583,7 @@ module.exports = function linkify(state) {
 
 
 /***/ }),
-/* 372 */
+/* 371 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
@@ -62900,7 +62913,7 @@ return Autolinker;
 
 
 /***/ }),
-/* 373 */
+/* 372 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62911,25 +62924,25 @@ return Autolinker;
  */
 
 var Ruler      = __webpack_require__(55);
-var StateBlock = __webpack_require__(374);
+var StateBlock = __webpack_require__(373);
 
 /**
  * Parser rules
  */
 
 var _rules = [
-  [ 'code',       __webpack_require__(375) ],
-  [ 'fences',     __webpack_require__(376),     [ 'paragraph', 'blockquote', 'list' ] ],
-  [ 'blockquote', __webpack_require__(377), [ 'paragraph', 'blockquote', 'list' ] ],
-  [ 'hr',         __webpack_require__(378),         [ 'paragraph', 'blockquote', 'list' ] ],
-  [ 'list',       __webpack_require__(379),       [ 'paragraph', 'blockquote' ] ],
-  [ 'footnote',   __webpack_require__(380),   [ 'paragraph' ] ],
-  [ 'heading',    __webpack_require__(381),    [ 'paragraph', 'blockquote' ] ],
-  [ 'lheading',   __webpack_require__(382) ],
-  [ 'htmlblock',  __webpack_require__(383),  [ 'paragraph', 'blockquote' ] ],
-  [ 'table',      __webpack_require__(385),      [ 'paragraph' ] ],
-  [ 'deflist',    __webpack_require__(386),    [ 'paragraph' ] ],
-  [ 'paragraph',  __webpack_require__(387) ]
+  [ 'code',       __webpack_require__(374) ],
+  [ 'fences',     __webpack_require__(375),     [ 'paragraph', 'blockquote', 'list' ] ],
+  [ 'blockquote', __webpack_require__(376), [ 'paragraph', 'blockquote', 'list' ] ],
+  [ 'hr',         __webpack_require__(377),         [ 'paragraph', 'blockquote', 'list' ] ],
+  [ 'list',       __webpack_require__(378),       [ 'paragraph', 'blockquote' ] ],
+  [ 'footnote',   __webpack_require__(379),   [ 'paragraph' ] ],
+  [ 'heading',    __webpack_require__(380),    [ 'paragraph', 'blockquote' ] ],
+  [ 'lheading',   __webpack_require__(381) ],
+  [ 'htmlblock',  __webpack_require__(382),  [ 'paragraph', 'blockquote' ] ],
+  [ 'table',      __webpack_require__(384),      [ 'paragraph' ] ],
+  [ 'deflist',    __webpack_require__(385),    [ 'paragraph' ] ],
+  [ 'paragraph',  __webpack_require__(386) ]
 ];
 
 /**
@@ -63062,7 +63075,7 @@ module.exports = ParserBlock;
 
 
 /***/ }),
-/* 374 */
+/* 373 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63227,7 +63240,7 @@ module.exports = StateBlock;
 
 
 /***/ }),
-/* 375 */
+/* 374 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63270,7 +63283,7 @@ module.exports = function code(state, startLine, endLine/*, silent*/) {
 
 
 /***/ }),
-/* 376 */
+/* 375 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63368,7 +63381,7 @@ module.exports = function fences(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 377 */
+/* 376 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63508,7 +63521,7 @@ module.exports = function blockquote(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 378 */
+/* 377 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63560,7 +63573,7 @@ module.exports = function hr(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 379 */
+/* 378 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63833,7 +63846,7 @@ module.exports = function list(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 380 */
+/* 379 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63907,7 +63920,7 @@ module.exports = function footnote(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 381 */
+/* 380 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63972,7 +63985,7 @@ module.exports = function heading(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 382 */
+/* 381 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64034,7 +64047,7 @@ module.exports = function lheading(state, startLine, endLine/*, silent*/) {
 
 
 /***/ }),
-/* 383 */
+/* 382 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64043,7 +64056,7 @@ module.exports = function lheading(state, startLine, endLine/*, silent*/) {
 
 
 
-var block_names = __webpack_require__(384);
+var block_names = __webpack_require__(383);
 
 
 var HTML_TAG_OPEN_RE = /^<([a-zA-Z]{1,15})[\s\/>]/;
@@ -64115,7 +64128,7 @@ module.exports = function htmlblock(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 384 */
+/* 383 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64184,7 +64197,7 @@ module.exports = html_blocks;
 
 
 /***/ }),
-/* 385 */
+/* 384 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64329,7 +64342,7 @@ module.exports = function table(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 386 */
+/* 385 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64543,7 +64556,7 @@ module.exports = function deflist(state, startLine, endLine, silent) {
 
 
 /***/ }),
-/* 387 */
+/* 386 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64609,7 +64622,7 @@ module.exports = function paragraph(state, startLine/*, endLine*/) {
 
 
 /***/ }),
-/* 388 */
+/* 387 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64628,22 +64641,22 @@ var utils       = __webpack_require__(13);
  */
 
 var _rules = [
-  [ 'text',            __webpack_require__(389) ],
-  [ 'newline',         __webpack_require__(390) ],
-  [ 'escape',          __webpack_require__(391) ],
-  [ 'backticks',       __webpack_require__(392) ],
-  [ 'del',             __webpack_require__(393) ],
-  [ 'ins',             __webpack_require__(394) ],
-  [ 'mark',            __webpack_require__(395) ],
-  [ 'emphasis',        __webpack_require__(396) ],
-  [ 'sub',             __webpack_require__(397) ],
-  [ 'sup',             __webpack_require__(398) ],
-  [ 'links',           __webpack_require__(399) ],
-  [ 'footnote_inline', __webpack_require__(400) ],
-  [ 'footnote_ref',    __webpack_require__(401) ],
-  [ 'autolink',        __webpack_require__(402) ],
-  [ 'htmltag',         __webpack_require__(404) ],
-  [ 'entity',          __webpack_require__(406) ]
+  [ 'text',            __webpack_require__(388) ],
+  [ 'newline',         __webpack_require__(389) ],
+  [ 'escape',          __webpack_require__(390) ],
+  [ 'backticks',       __webpack_require__(391) ],
+  [ 'del',             __webpack_require__(392) ],
+  [ 'ins',             __webpack_require__(393) ],
+  [ 'mark',            __webpack_require__(394) ],
+  [ 'emphasis',        __webpack_require__(395) ],
+  [ 'sub',             __webpack_require__(396) ],
+  [ 'sup',             __webpack_require__(397) ],
+  [ 'links',           __webpack_require__(398) ],
+  [ 'footnote_inline', __webpack_require__(399) ],
+  [ 'footnote_ref',    __webpack_require__(400) ],
+  [ 'autolink',        __webpack_require__(401) ],
+  [ 'htmltag',         __webpack_require__(403) ],
+  [ 'entity',          __webpack_require__(405) ]
 ];
 
 /**
@@ -64777,7 +64790,7 @@ module.exports = ParserInline;
 
 
 /***/ }),
-/* 389 */
+/* 388 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64836,7 +64849,7 @@ module.exports = function text(state, silent) {
 
 
 /***/ }),
-/* 390 */
+/* 389 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64897,7 +64910,7 @@ module.exports = function newline(state, silent) {
 
 
 /***/ }),
-/* 391 */
+/* 390 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64953,7 +64966,7 @@ module.exports = function escape(state, silent) {
 
 
 /***/ }),
-/* 392 */
+/* 391 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65006,7 +65019,7 @@ module.exports = function backticks(state, silent) {
 
 
 /***/ }),
-/* 393 */
+/* 392 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65097,7 +65110,7 @@ module.exports = function del(state, silent) {
 
 
 /***/ }),
-/* 394 */
+/* 393 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65188,7 +65201,7 @@ module.exports = function ins(state, silent) {
 
 
 /***/ }),
-/* 395 */
+/* 394 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65279,7 +65292,7 @@ module.exports = function del(state, silent) {
 
 
 /***/ }),
-/* 396 */
+/* 395 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65435,7 +65448,7 @@ module.exports = function emphasis(state, silent) {
 
 
 /***/ }),
-/* 397 */
+/* 396 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65500,7 +65513,7 @@ module.exports = function sub(state, silent) {
 
 
 /***/ }),
-/* 398 */
+/* 397 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65565,7 +65578,7 @@ module.exports = function sup(state, silent) {
 
 
 /***/ }),
-/* 399 */
+/* 398 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65574,9 +65587,9 @@ module.exports = function sup(state, silent) {
 
 
 var parseLinkLabel       = __webpack_require__(56);
-var parseLinkDestination = __webpack_require__(147);
-var parseLinkTitle       = __webpack_require__(149);
-var normalizeReference   = __webpack_require__(150);
+var parseLinkDestination = __webpack_require__(148);
+var parseLinkTitle       = __webpack_require__(150);
+var normalizeReference   = __webpack_require__(151);
 
 
 module.exports = function links(state, silent) {
@@ -65742,7 +65755,7 @@ module.exports = function links(state, silent) {
 
 
 /***/ }),
-/* 400 */
+/* 399 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65802,7 +65815,7 @@ module.exports = function footnote_inline(state, silent) {
 
 
 /***/ }),
-/* 401 */
+/* 400 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65871,7 +65884,7 @@ module.exports = function footnote_ref(state, silent) {
 
 
 /***/ }),
-/* 402 */
+/* 401 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65879,8 +65892,8 @@ module.exports = function footnote_ref(state, silent) {
 
 
 
-var url_schemas   = __webpack_require__(403);
-var normalizeLink = __webpack_require__(148);
+var url_schemas   = __webpack_require__(402);
+var normalizeLink = __webpack_require__(149);
 
 
 /*eslint max-len:0*/
@@ -65956,7 +65969,7 @@ module.exports = function autolink(state, silent) {
 
 
 /***/ }),
-/* 403 */
+/* 402 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66135,7 +66148,7 @@ module.exports = [
 
 
 /***/ }),
-/* 404 */
+/* 403 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66144,7 +66157,7 @@ module.exports = [
 
 
 
-var HTML_TAG_RE = __webpack_require__(405).HTML_TAG_RE;
+var HTML_TAG_RE = __webpack_require__(404).HTML_TAG_RE;
 
 
 function isLetter(ch) {
@@ -66191,7 +66204,7 @@ module.exports = function htmltag(state, silent) {
 
 
 /***/ }),
-/* 405 */
+/* 404 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66257,7 +66270,7 @@ module.exports.HTML_TAG_RE = HTML_TAG_RE;
 
 
 /***/ }),
-/* 406 */
+/* 405 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66265,7 +66278,7 @@ module.exports.HTML_TAG_RE = HTML_TAG_RE;
 
 
 
-var entities          = __webpack_require__(146);
+var entities          = __webpack_require__(147);
 var has               = __webpack_require__(13).has;
 var isValidEntityCode = __webpack_require__(13).isValidEntityCode;
 var fromCodePoint     = __webpack_require__(13).fromCodePoint;
@@ -66312,7 +66325,7 @@ module.exports = function entity(state, silent) {
 
 
 /***/ }),
-/* 407 */
+/* 406 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66399,7 +66412,7 @@ module.exports = {
 
 
 /***/ }),
-/* 408 */
+/* 407 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66444,7 +66457,7 @@ module.exports = {
 
 
 /***/ }),
-/* 409 */
+/* 408 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66522,7 +66535,701 @@ module.exports = {
 
 
 /***/ }),
+/* 409 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(410)(false);
+// imports
+
+
+// module
+exports.push([module.i, "/**\n* Rangeslider\n*/\n.rangeslider {\n  margin: 20px 0;\n  position: relative;\n  background: #e6e6e6;\n  -ms-touch-action: none;\n  touch-action: none;\n}\n.rangeslider,\n.rangeslider .rangeslider__fill {\n  display: block;\n  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);\n}\n.rangeslider .rangeslider__handle {\n  background: #fff;\n  border: 1px solid #ccc;\n  cursor: pointer;\n  display: inline-block;\n  position: absolute;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 -1px 3px rgba(0, 0, 0, 0.4);\n}\n.rangeslider .rangeslider__handle .rangeslider__active {\n  opacity: 1;\n}\n.rangeslider .rangeslider__handle-tooltip {\n  width: 40px;\n  height: 40px;\n  text-align: center;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.8);\n  font-weight: normal;\n  font-size: 14px;\n  transition: all 100ms ease-in;\n  border-radius: 4px;\n  display: inline-block;\n  color: white;\n  left: 50%;\n  transform: translate3d(-50%, 0, 0);\n}\n.rangeslider .rangeslider__handle-tooltip span {\n  margin-top: 12px;\n  display: inline-block;\n  line-height: 100%;\n}\n.rangeslider .rangeslider__handle-tooltip:after {\n  content: ' ';\n  position: absolute;\n  width: 0;\n  height: 0;\n}\n/**\n* Rangeslider - Horizontal slider\n*/\n.rangeslider-horizontal {\n  height: 12px;\n  border-radius: 10px;\n}\n.rangeslider-horizontal .rangeslider__fill {\n  height: 100%;\n  background-color: #7cb342;\n  border-radius: 10px;\n  top: 0;\n}\n.rangeslider-horizontal .rangeslider__handle {\n  width: 30px;\n  height: 30px;\n  border-radius: 30px;\n  top: 50%;\n  transform: translate3d(-50%, -50%, 0);\n}\n.rangeslider-horizontal .rangeslider__handle:after {\n  content: ' ';\n  position: absolute;\n  width: 16px;\n  height: 16px;\n  top: 6px;\n  left: 6px;\n  border-radius: 50%;\n  background-color: #dadada;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) inset, 0 -1px 3px rgba(0, 0, 0, 0.4) inset;\n}\n.rangeslider-horizontal .rangeslider__handle-tooltip {\n  top: -55px;\n}\n.rangeslider-horizontal .rangeslider__handle-tooltip:after {\n  border-left: 8px solid transparent;\n  border-right: 8px solid transparent;\n  border-top: 8px solid rgba(0, 0, 0, 0.8);\n  left: 50%;\n  bottom: -8px;\n  transform: translate3d(-50%, 0, 0);\n}\n/**\n* Rangeslider - Vertical slider\n*/\n.rangeslider-vertical {\n  margin: 20px auto;\n  height: 150px;\n  max-width: 10px;\n  background-color: transparent;\n}\n.rangeslider-vertical .rangeslider__fill,\n.rangeslider-vertical .rangeslider__handle {\n  position: absolute;\n}\n.rangeslider-vertical .rangeslider__fill {\n  width: 100%;\n  background-color: #7cb342;\n  box-shadow: none;\n  bottom: 0;\n}\n.rangeslider-vertical .rangeslider__handle {\n  width: 30px;\n  height: 10px;\n  left: -10px;\n  box-shadow: none;\n}\n.rangeslider-vertical .rangeslider__handle-tooltip {\n  left: -100%;\n  top: 50%;\n  transform: translate3d(-50%, -50%, 0);\n}\n.rangeslider-vertical .rangeslider__handle-tooltip:after {\n  border-top: 8px solid transparent;\n  border-bottom: 8px solid transparent;\n  border-left: 8px solid rgba(0, 0, 0, 0.8);\n  left: 100%;\n  top: 12px;\n}\n/**\n* Rangeslider - Reverse\n*/\n.rangeslider-reverse.rangeslider-horizontal .rangeslider__fill {\n  right: 0;\n}\n.rangeslider-reverse.rangeslider-vertical .rangeslider__fill {\n  top: 0;\n  bottom: inherit;\n}\n/**\n* Rangeslider - Labels\n*/\n.rangeslider__labels {\n  position: relative;\n}\n.rangeslider-vertical .rangeslider__labels {\n  position: relative;\n  list-style-type: none;\n  margin: 0 0 0 24px;\n  padding: 0;\n  text-align: left;\n  width: 250px;\n  height: 100%;\n  left: 10px;\n}\n.rangeslider-vertical .rangeslider__labels .rangeslider__label-item {\n  position: absolute;\n  transform: translate3d(0, -50%, 0);\n}\n.rangeslider-vertical .rangeslider__labels .rangeslider__label-item::before {\n  content: '';\n  width: 10px;\n  height: 2px;\n  background: black;\n  position: absolute;\n  left: -14px;\n  top: 50%;\n  transform: translateY(-50%);\n  z-index: -1;\n}\n.rangeslider__labels .rangeslider__label-item {\n  position: absolute;\n  font-size: 14px;\n  cursor: pointer;\n  display: inline-block;\n  top: 10px;\n  transform: translate3d(-50%, 0, 0);\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
 /* 410 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+/* 411 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+
+var stylesInDom = {};
+
+var	memoize = function (fn) {
+	var memo;
+
+	return function () {
+		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+		return memo;
+	};
+};
+
+var isOldIE = memoize(function () {
+	// Test for IE <= 9 as proposed by Browserhacks
+	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+	// Tests for existence of standard globals is to allow style-loader
+	// to operate correctly into non-standard environments
+	// @see https://github.com/webpack-contrib/style-loader/issues/177
+	return window && document && document.all && !window.atob;
+});
+
+var getElement = (function (fn) {
+	var memo = {};
+
+	return function(selector) {
+		if (typeof memo[selector] === "undefined") {
+			memo[selector] = fn.call(this, selector);
+		}
+
+		return memo[selector]
+	};
+})(function (target) {
+	return document.querySelector(target)
+});
+
+var singleton = null;
+var	singletonCounter = 0;
+var	stylesInsertedAtTop = [];
+
+var	fixUrls = __webpack_require__(412);
+
+module.exports = function(list, options) {
+	if (typeof DEBUG !== "undefined" && DEBUG) {
+		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+	}
+
+	options = options || {};
+
+	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
+
+	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+	// tags it will allow on a page
+	if (!options.singleton) options.singleton = isOldIE();
+
+	// By default, add <style> tags to the <head> element
+	if (!options.insertInto) options.insertInto = "head";
+
+	// By default, add <style> tags to the bottom of the target
+	if (!options.insertAt) options.insertAt = "bottom";
+
+	var styles = listToStyles(list, options);
+
+	addStylesToDom(styles, options);
+
+	return function update (newList) {
+		var mayRemove = [];
+
+		for (var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+
+			domStyle.refs--;
+			mayRemove.push(domStyle);
+		}
+
+		if(newList) {
+			var newStyles = listToStyles(newList, options);
+			addStylesToDom(newStyles, options);
+		}
+
+		for (var i = 0; i < mayRemove.length; i++) {
+			var domStyle = mayRemove[i];
+
+			if(domStyle.refs === 0) {
+				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
+
+				delete stylesInDom[domStyle.id];
+			}
+		}
+	};
+};
+
+function addStylesToDom (styles, options) {
+	for (var i = 0; i < styles.length; i++) {
+		var item = styles[i];
+		var domStyle = stylesInDom[item.id];
+
+		if(domStyle) {
+			domStyle.refs++;
+
+			for(var j = 0; j < domStyle.parts.length; j++) {
+				domStyle.parts[j](item.parts[j]);
+			}
+
+			for(; j < item.parts.length; j++) {
+				domStyle.parts.push(addStyle(item.parts[j], options));
+			}
+		} else {
+			var parts = [];
+
+			for(var j = 0; j < item.parts.length; j++) {
+				parts.push(addStyle(item.parts[j], options));
+			}
+
+			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+		}
+	}
+}
+
+function listToStyles (list, options) {
+	var styles = [];
+	var newStyles = {};
+
+	for (var i = 0; i < list.length; i++) {
+		var item = list[i];
+		var id = options.base ? item[0] + options.base : item[0];
+		var css = item[1];
+		var media = item[2];
+		var sourceMap = item[3];
+		var part = {css: css, media: media, sourceMap: sourceMap};
+
+		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
+		else newStyles[id].parts.push(part);
+	}
+
+	return styles;
+}
+
+function insertStyleElement (options, style) {
+	var target = getElement(options.insertInto)
+
+	if (!target) {
+		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
+	}
+
+	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
+
+	if (options.insertAt === "top") {
+		if (!lastStyleElementInsertedAtTop) {
+			target.insertBefore(style, target.firstChild);
+		} else if (lastStyleElementInsertedAtTop.nextSibling) {
+			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
+		} else {
+			target.appendChild(style);
+		}
+		stylesInsertedAtTop.push(style);
+	} else if (options.insertAt === "bottom") {
+		target.appendChild(style);
+	} else {
+		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+	}
+}
+
+function removeStyleElement (style) {
+	if (style.parentNode === null) return false;
+	style.parentNode.removeChild(style);
+
+	var idx = stylesInsertedAtTop.indexOf(style);
+	if(idx >= 0) {
+		stylesInsertedAtTop.splice(idx, 1);
+	}
+}
+
+function createStyleElement (options) {
+	var style = document.createElement("style");
+
+	options.attrs.type = "text/css";
+
+	addAttrs(style, options.attrs);
+	insertStyleElement(options, style);
+
+	return style;
+}
+
+function createLinkElement (options) {
+	var link = document.createElement("link");
+
+	options.attrs.type = "text/css";
+	options.attrs.rel = "stylesheet";
+
+	addAttrs(link, options.attrs);
+	insertStyleElement(options, link);
+
+	return link;
+}
+
+function addAttrs (el, attrs) {
+	Object.keys(attrs).forEach(function (key) {
+		el.setAttribute(key, attrs[key]);
+	});
+}
+
+function addStyle (obj, options) {
+	var style, update, remove, result;
+
+	// If a transform function was defined, run it on the css
+	if (options.transform && obj.css) {
+	    result = options.transform(obj.css);
+
+	    if (result) {
+	    	// If transform returns a value, use that instead of the original css.
+	    	// This allows running runtime transformations on the css.
+	    	obj.css = result;
+	    } else {
+	    	// If the transform function returns a falsy value, don't add this css.
+	    	// This allows conditional loading of css
+	    	return function() {
+	    		// noop
+	    	};
+	    }
+	}
+
+	if (options.singleton) {
+		var styleIndex = singletonCounter++;
+
+		style = singleton || (singleton = createStyleElement(options));
+
+		update = applyToSingletonTag.bind(null, style, styleIndex, false);
+		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+
+	} else if (
+		obj.sourceMap &&
+		typeof URL === "function" &&
+		typeof URL.createObjectURL === "function" &&
+		typeof URL.revokeObjectURL === "function" &&
+		typeof Blob === "function" &&
+		typeof btoa === "function"
+	) {
+		style = createLinkElement(options);
+		update = updateLink.bind(null, style, options);
+		remove = function () {
+			removeStyleElement(style);
+
+			if(style.href) URL.revokeObjectURL(style.href);
+		};
+	} else {
+		style = createStyleElement(options);
+		update = applyToTag.bind(null, style);
+		remove = function () {
+			removeStyleElement(style);
+		};
+	}
+
+	update(obj);
+
+	return function updateStyle (newObj) {
+		if (newObj) {
+			if (
+				newObj.css === obj.css &&
+				newObj.media === obj.media &&
+				newObj.sourceMap === obj.sourceMap
+			) {
+				return;
+			}
+
+			update(obj = newObj);
+		} else {
+			remove();
+		}
+	};
+}
+
+var replaceText = (function () {
+	var textStore = [];
+
+	return function (index, replacement) {
+		textStore[index] = replacement;
+
+		return textStore.filter(Boolean).join('\n');
+	};
+})();
+
+function applyToSingletonTag (style, index, remove, obj) {
+	var css = remove ? "" : obj.css;
+
+	if (style.styleSheet) {
+		style.styleSheet.cssText = replaceText(index, css);
+	} else {
+		var cssNode = document.createTextNode(css);
+		var childNodes = style.childNodes;
+
+		if (childNodes[index]) style.removeChild(childNodes[index]);
+
+		if (childNodes.length) {
+			style.insertBefore(cssNode, childNodes[index]);
+		} else {
+			style.appendChild(cssNode);
+		}
+	}
+}
+
+function applyToTag (style, obj) {
+	var css = obj.css;
+	var media = obj.media;
+
+	if(media) {
+		style.setAttribute("media", media)
+	}
+
+	if(style.styleSheet) {
+		style.styleSheet.cssText = css;
+	} else {
+		while(style.firstChild) {
+			style.removeChild(style.firstChild);
+		}
+
+		style.appendChild(document.createTextNode(css));
+	}
+}
+
+function updateLink (link, options, obj) {
+	var css = obj.css;
+	var sourceMap = obj.sourceMap;
+
+	/*
+		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
+		and there is no publicPath defined then lets turn convertToAbsoluteUrls
+		on by default.  Otherwise default to the convertToAbsoluteUrls option
+		directly
+	*/
+	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
+
+	if (options.convertToAbsoluteUrls || autoFixUrls) {
+		css = fixUrls(css);
+	}
+
+	if (sourceMap) {
+		// http://stackoverflow.com/a/26603875
+		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+	}
+
+	var blob = new Blob([css], { type: "text/css" });
+
+	var oldSrc = link.href;
+
+	link.href = URL.createObjectURL(blob);
+
+	if(oldSrc) URL.revokeObjectURL(oldSrc);
+}
+
+
+/***/ }),
+/* 412 */
+/***/ (function(module, exports) {
+
+
+/**
+ * When source maps are enabled, `style-loader` uses a link element with a data-uri to
+ * embed the css on the page. This breaks all relative urls because now they are relative to a
+ * bundle instead of the current page.
+ *
+ * One solution is to only use full urls, but that may be impossible.
+ *
+ * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
+ *
+ * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
+ *
+ */
+
+module.exports = function (css) {
+  // get current location
+  var location = typeof window !== "undefined" && window.location;
+
+  if (!location) {
+    throw new Error("fixUrls requires window.location");
+  }
+
+	// blank or null?
+	if (!css || typeof css !== "string") {
+	  return css;
+  }
+
+  var baseUrl = location.protocol + "//" + location.host;
+  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
+
+	// convert each url(...)
+	/*
+	This regular expression is just a way to recursively match brackets within
+	a string.
+
+	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
+	   (  = Start a capturing group
+	     (?:  = Start a non-capturing group
+	         [^)(]  = Match anything that isn't a parentheses
+	         |  = OR
+	         \(  = Match a start parentheses
+	             (?:  = Start another non-capturing groups
+	                 [^)(]+  = Match anything that isn't a parentheses
+	                 |  = OR
+	                 \(  = Match a start parentheses
+	                     [^)(]*  = Match anything that isn't a parentheses
+	                 \)  = Match a end parentheses
+	             )  = End Group
+              *\) = Match anything and then a close parens
+          )  = Close non-capturing group
+          *  = Match anything
+       )  = Close capturing group
+	 \)  = Match a close parens
+
+	 /gi  = Get all matches, not the first.  Be case insensitive.
+	 */
+	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
+		// strip quotes (if they exist)
+		var unquotedOrigUrl = origUrl
+			.trim()
+			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
+			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
+
+		// already a full url? no change
+		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
+		  return fullMatch;
+		}
+
+		// convert the url to a full url
+		var newUrl;
+
+		if (unquotedOrigUrl.indexOf("//") === 0) {
+		  	//TODO: should we add protocol?
+			newUrl = unquotedOrigUrl;
+		} else if (unquotedOrigUrl.indexOf("/") === 0) {
+			// path should be relative to the base url
+			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
+		} else {
+			// path should be relative to current directory
+			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
+		}
+
+		// send back the fixed url(...)
+		return "url(" + JSON.stringify(newUrl) + ")";
+	});
+
+	// send back the fixed css
+	return fixedCss;
+};
+
+
+/***/ }),
+/* 413 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(15);
+
+var _actions = __webpack_require__(19);
+
+var _ItemCard = __webpack_require__(146);
+
+var _helpers = __webpack_require__(64);
+
+var _Markdown = __webpack_require__(85);
+
+var _items = __webpack_require__(27);
+
+var _reactRangeslider = __webpack_require__(414);
+
+var _reactRangeslider2 = _interopRequireDefault(_reactRangeslider);
+
+__webpack_require__(152);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var createHandlers = function createHandlers(dispatch, interview) {
+  var handleChange = function handleChange(value) {
+    dispatch((0, _actions.setResponse)({
+      key: interview.activeKey,
+      value: value.toString(),
+      sliderValue: value
+    }));
+  };
+  var handleChangeStart = function handleChangeStart() {};
+  var handleChangeComplete = function handleChangeComplete() {};
+  return {
+    handleChangeStart: handleChangeStart,
+    handleChange: handleChange,
+    handleChangeComplete: handleChangeComplete
+  };
+};
+
+var ResponseSlider = function (_Component) {
+  _inherits(ResponseSlider, _Component);
+
+  function ResponseSlider(props, context, dispatch) {
+    _classCallCheck(this, ResponseSlider);
+
+    var _this = _possibleConstructorReturn(this, (ResponseSlider.__proto__ || Object.getPrototypeOf(ResponseSlider)).call(this, props, context));
+
+    _this.handleChangeStart = function () {};
+
+    _this.handleChange = function (value) {
+      _this.setState({
+        value: value
+      });
+      _this.handlers.handleChange(value);
+      _this.props.response.setState({
+        sliderValue: value,
+        currentPos: _this.props.response.getIndexByKey(value.toString(), _this.props.array)
+      });
+    };
+
+    _this.handleComplete = function () {
+      _this.props.inputBox.current.focus();
+    };
+
+    _this.state = {
+      value: 0
+    };
+    _this.handlers = createHandlers(_this.props.dispatch, _this.props.interview);
+    return _this;
+  }
+
+  _createClass(ResponseSlider, [{
+    key: 'render',
+    value: function render() {
+      var value = this.props.value.value;
+
+      console.log('Slider value from response slider: ');
+      console.log(this.props.value);
+      console.log(this.props.min);
+      return _react2.default.createElement(
+        'div',
+        { className: 'responseSlider' },
+        _react2.default.createElement(_reactRangeslider2.default, {
+          min: this.props.min,
+          max: this.props.max,
+          value: this.props.value,
+          onChangeStart: this.handleChangeStart,
+          onChange: this.handleChange,
+          onChangeComplete: this.handleComplete
+        }),
+        _react2.default.createElement(
+          'div',
+          { className: 'value' },
+          value
+        )
+      );
+    }
+  }]);
+
+  return ResponseSlider;
+}(_react.Component);
+
+exports.default = (0, _reactRedux.connect)()(ResponseSlider);
+
+/***/ }),
+/* 414 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _Rangeslider = __webpack_require__(415);
+
+var _Rangeslider2 = _interopRequireDefault(_Rangeslider);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _Rangeslider2.default;
+
+/***/ }),
+/* 415 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66546,11 +67253,11 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _resizeObserverPolyfill = __webpack_require__(411);
+var _resizeObserverPolyfill = __webpack_require__(416);
 
 var _resizeObserverPolyfill2 = _interopRequireDefault(_resizeObserverPolyfill);
 
-var _utils = __webpack_require__(412);
+var _utils = __webpack_require__(417);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -67008,7 +67715,7 @@ Slider.defaultProps = {
 exports.default = Slider;
 
 /***/ }),
-/* 411 */
+/* 416 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68041,7 +68748,7 @@ var index = (function () {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(28)))
 
 /***/ }),
-/* 412 */
+/* 417 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -68072,681 +68779,6 @@ function capitalize(str) {
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
 }
-
-/***/ }),
-/* 413 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(414)(false);
-// imports
-
-
-// module
-exports.push([module.i, "/**\n* Rangeslider\n*/\n.rangeslider {\n  margin: 20px 0;\n  position: relative;\n  background: #e6e6e6;\n  -ms-touch-action: none;\n  touch-action: none;\n}\n.rangeslider,\n.rangeslider .rangeslider__fill {\n  display: block;\n  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);\n}\n.rangeslider .rangeslider__handle {\n  background: #fff;\n  border: 1px solid #ccc;\n  cursor: pointer;\n  display: inline-block;\n  position: absolute;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 -1px 3px rgba(0, 0, 0, 0.4);\n}\n.rangeslider .rangeslider__handle .rangeslider__active {\n  opacity: 1;\n}\n.rangeslider .rangeslider__handle-tooltip {\n  width: 40px;\n  height: 40px;\n  text-align: center;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.8);\n  font-weight: normal;\n  font-size: 14px;\n  transition: all 100ms ease-in;\n  border-radius: 4px;\n  display: inline-block;\n  color: white;\n  left: 50%;\n  transform: translate3d(-50%, 0, 0);\n}\n.rangeslider .rangeslider__handle-tooltip span {\n  margin-top: 12px;\n  display: inline-block;\n  line-height: 100%;\n}\n.rangeslider .rangeslider__handle-tooltip:after {\n  content: ' ';\n  position: absolute;\n  width: 0;\n  height: 0;\n}\n/**\n* Rangeslider - Horizontal slider\n*/\n.rangeslider-horizontal {\n  height: 12px;\n  border-radius: 10px;\n}\n.rangeslider-horizontal .rangeslider__fill {\n  height: 100%;\n  background-color: #7cb342;\n  border-radius: 10px;\n  top: 0;\n}\n.rangeslider-horizontal .rangeslider__handle {\n  width: 30px;\n  height: 30px;\n  border-radius: 30px;\n  top: 50%;\n  transform: translate3d(-50%, -50%, 0);\n}\n.rangeslider-horizontal .rangeslider__handle:after {\n  content: ' ';\n  position: absolute;\n  width: 16px;\n  height: 16px;\n  top: 6px;\n  left: 6px;\n  border-radius: 50%;\n  background-color: #dadada;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) inset, 0 -1px 3px rgba(0, 0, 0, 0.4) inset;\n}\n.rangeslider-horizontal .rangeslider__handle-tooltip {\n  top: -55px;\n}\n.rangeslider-horizontal .rangeslider__handle-tooltip:after {\n  border-left: 8px solid transparent;\n  border-right: 8px solid transparent;\n  border-top: 8px solid rgba(0, 0, 0, 0.8);\n  left: 50%;\n  bottom: -8px;\n  transform: translate3d(-50%, 0, 0);\n}\n/**\n* Rangeslider - Vertical slider\n*/\n.rangeslider-vertical {\n  margin: 20px auto;\n  height: 150px;\n  max-width: 10px;\n  background-color: transparent;\n}\n.rangeslider-vertical .rangeslider__fill,\n.rangeslider-vertical .rangeslider__handle {\n  position: absolute;\n}\n.rangeslider-vertical .rangeslider__fill {\n  width: 100%;\n  background-color: #7cb342;\n  box-shadow: none;\n  bottom: 0;\n}\n.rangeslider-vertical .rangeslider__handle {\n  width: 30px;\n  height: 10px;\n  left: -10px;\n  box-shadow: none;\n}\n.rangeslider-vertical .rangeslider__handle-tooltip {\n  left: -100%;\n  top: 50%;\n  transform: translate3d(-50%, -50%, 0);\n}\n.rangeslider-vertical .rangeslider__handle-tooltip:after {\n  border-top: 8px solid transparent;\n  border-bottom: 8px solid transparent;\n  border-left: 8px solid rgba(0, 0, 0, 0.8);\n  left: 100%;\n  top: 12px;\n}\n/**\n* Rangeslider - Reverse\n*/\n.rangeslider-reverse.rangeslider-horizontal .rangeslider__fill {\n  right: 0;\n}\n.rangeslider-reverse.rangeslider-vertical .rangeslider__fill {\n  top: 0;\n  bottom: inherit;\n}\n/**\n* Rangeslider - Labels\n*/\n.rangeslider__labels {\n  position: relative;\n}\n.rangeslider-vertical .rangeslider__labels {\n  position: relative;\n  list-style-type: none;\n  margin: 0 0 0 24px;\n  padding: 0;\n  text-align: left;\n  width: 250px;\n  height: 100%;\n  left: 10px;\n}\n.rangeslider-vertical .rangeslider__labels .rangeslider__label-item {\n  position: absolute;\n  transform: translate3d(0, -50%, 0);\n}\n.rangeslider-vertical .rangeslider__labels .rangeslider__label-item::before {\n  content: '';\n  width: 10px;\n  height: 2px;\n  background: black;\n  position: absolute;\n  left: -14px;\n  top: 50%;\n  transform: translateY(-50%);\n  z-index: -1;\n}\n.rangeslider__labels .rangeslider__label-item {\n  position: absolute;\n  font-size: 14px;\n  cursor: pointer;\n  display: inline-block;\n  top: 10px;\n  transform: translate3d(-50%, 0, 0);\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 414 */
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
-
-/***/ }),
-/* 415 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-
-var stylesInDom = {};
-
-var	memoize = function (fn) {
-	var memo;
-
-	return function () {
-		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-		return memo;
-	};
-};
-
-var isOldIE = memoize(function () {
-	// Test for IE <= 9 as proposed by Browserhacks
-	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-	// Tests for existence of standard globals is to allow style-loader
-	// to operate correctly into non-standard environments
-	// @see https://github.com/webpack-contrib/style-loader/issues/177
-	return window && document && document.all && !window.atob;
-});
-
-var getElement = (function (fn) {
-	var memo = {};
-
-	return function(selector) {
-		if (typeof memo[selector] === "undefined") {
-			memo[selector] = fn.call(this, selector);
-		}
-
-		return memo[selector]
-	};
-})(function (target) {
-	return document.querySelector(target)
-});
-
-var singleton = null;
-var	singletonCounter = 0;
-var	stylesInsertedAtTop = [];
-
-var	fixUrls = __webpack_require__(416);
-
-module.exports = function(list, options) {
-	if (typeof DEBUG !== "undefined" && DEBUG) {
-		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-	}
-
-	options = options || {};
-
-	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
-
-	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-	// tags it will allow on a page
-	if (!options.singleton) options.singleton = isOldIE();
-
-	// By default, add <style> tags to the <head> element
-	if (!options.insertInto) options.insertInto = "head";
-
-	// By default, add <style> tags to the bottom of the target
-	if (!options.insertAt) options.insertAt = "bottom";
-
-	var styles = listToStyles(list, options);
-
-	addStylesToDom(styles, options);
-
-	return function update (newList) {
-		var mayRemove = [];
-
-		for (var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-
-			domStyle.refs--;
-			mayRemove.push(domStyle);
-		}
-
-		if(newList) {
-			var newStyles = listToStyles(newList, options);
-			addStylesToDom(newStyles, options);
-		}
-
-		for (var i = 0; i < mayRemove.length; i++) {
-			var domStyle = mayRemove[i];
-
-			if(domStyle.refs === 0) {
-				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
-
-				delete stylesInDom[domStyle.id];
-			}
-		}
-	};
-};
-
-function addStylesToDom (styles, options) {
-	for (var i = 0; i < styles.length; i++) {
-		var item = styles[i];
-		var domStyle = stylesInDom[item.id];
-
-		if(domStyle) {
-			domStyle.refs++;
-
-			for(var j = 0; j < domStyle.parts.length; j++) {
-				domStyle.parts[j](item.parts[j]);
-			}
-
-			for(; j < item.parts.length; j++) {
-				domStyle.parts.push(addStyle(item.parts[j], options));
-			}
-		} else {
-			var parts = [];
-
-			for(var j = 0; j < item.parts.length; j++) {
-				parts.push(addStyle(item.parts[j], options));
-			}
-
-			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-		}
-	}
-}
-
-function listToStyles (list, options) {
-	var styles = [];
-	var newStyles = {};
-
-	for (var i = 0; i < list.length; i++) {
-		var item = list[i];
-		var id = options.base ? item[0] + options.base : item[0];
-		var css = item[1];
-		var media = item[2];
-		var sourceMap = item[3];
-		var part = {css: css, media: media, sourceMap: sourceMap};
-
-		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
-		else newStyles[id].parts.push(part);
-	}
-
-	return styles;
-}
-
-function insertStyleElement (options, style) {
-	var target = getElement(options.insertInto)
-
-	if (!target) {
-		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
-	}
-
-	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
-
-	if (options.insertAt === "top") {
-		if (!lastStyleElementInsertedAtTop) {
-			target.insertBefore(style, target.firstChild);
-		} else if (lastStyleElementInsertedAtTop.nextSibling) {
-			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
-		} else {
-			target.appendChild(style);
-		}
-		stylesInsertedAtTop.push(style);
-	} else if (options.insertAt === "bottom") {
-		target.appendChild(style);
-	} else {
-		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
-	}
-}
-
-function removeStyleElement (style) {
-	if (style.parentNode === null) return false;
-	style.parentNode.removeChild(style);
-
-	var idx = stylesInsertedAtTop.indexOf(style);
-	if(idx >= 0) {
-		stylesInsertedAtTop.splice(idx, 1);
-	}
-}
-
-function createStyleElement (options) {
-	var style = document.createElement("style");
-
-	options.attrs.type = "text/css";
-
-	addAttrs(style, options.attrs);
-	insertStyleElement(options, style);
-
-	return style;
-}
-
-function createLinkElement (options) {
-	var link = document.createElement("link");
-
-	options.attrs.type = "text/css";
-	options.attrs.rel = "stylesheet";
-
-	addAttrs(link, options.attrs);
-	insertStyleElement(options, link);
-
-	return link;
-}
-
-function addAttrs (el, attrs) {
-	Object.keys(attrs).forEach(function (key) {
-		el.setAttribute(key, attrs[key]);
-	});
-}
-
-function addStyle (obj, options) {
-	var style, update, remove, result;
-
-	// If a transform function was defined, run it on the css
-	if (options.transform && obj.css) {
-	    result = options.transform(obj.css);
-
-	    if (result) {
-	    	// If transform returns a value, use that instead of the original css.
-	    	// This allows running runtime transformations on the css.
-	    	obj.css = result;
-	    } else {
-	    	// If the transform function returns a falsy value, don't add this css.
-	    	// This allows conditional loading of css
-	    	return function() {
-	    		// noop
-	    	};
-	    }
-	}
-
-	if (options.singleton) {
-		var styleIndex = singletonCounter++;
-
-		style = singleton || (singleton = createStyleElement(options));
-
-		update = applyToSingletonTag.bind(null, style, styleIndex, false);
-		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
-
-	} else if (
-		obj.sourceMap &&
-		typeof URL === "function" &&
-		typeof URL.createObjectURL === "function" &&
-		typeof URL.revokeObjectURL === "function" &&
-		typeof Blob === "function" &&
-		typeof btoa === "function"
-	) {
-		style = createLinkElement(options);
-		update = updateLink.bind(null, style, options);
-		remove = function () {
-			removeStyleElement(style);
-
-			if(style.href) URL.revokeObjectURL(style.href);
-		};
-	} else {
-		style = createStyleElement(options);
-		update = applyToTag.bind(null, style);
-		remove = function () {
-			removeStyleElement(style);
-		};
-	}
-
-	update(obj);
-
-	return function updateStyle (newObj) {
-		if (newObj) {
-			if (
-				newObj.css === obj.css &&
-				newObj.media === obj.media &&
-				newObj.sourceMap === obj.sourceMap
-			) {
-				return;
-			}
-
-			update(obj = newObj);
-		} else {
-			remove();
-		}
-	};
-}
-
-var replaceText = (function () {
-	var textStore = [];
-
-	return function (index, replacement) {
-		textStore[index] = replacement;
-
-		return textStore.filter(Boolean).join('\n');
-	};
-})();
-
-function applyToSingletonTag (style, index, remove, obj) {
-	var css = remove ? "" : obj.css;
-
-	if (style.styleSheet) {
-		style.styleSheet.cssText = replaceText(index, css);
-	} else {
-		var cssNode = document.createTextNode(css);
-		var childNodes = style.childNodes;
-
-		if (childNodes[index]) style.removeChild(childNodes[index]);
-
-		if (childNodes.length) {
-			style.insertBefore(cssNode, childNodes[index]);
-		} else {
-			style.appendChild(cssNode);
-		}
-	}
-}
-
-function applyToTag (style, obj) {
-	var css = obj.css;
-	var media = obj.media;
-
-	if(media) {
-		style.setAttribute("media", media)
-	}
-
-	if(style.styleSheet) {
-		style.styleSheet.cssText = css;
-	} else {
-		while(style.firstChild) {
-			style.removeChild(style.firstChild);
-		}
-
-		style.appendChild(document.createTextNode(css));
-	}
-}
-
-function updateLink (link, options, obj) {
-	var css = obj.css;
-	var sourceMap = obj.sourceMap;
-
-	/*
-		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
-		and there is no publicPath defined then lets turn convertToAbsoluteUrls
-		on by default.  Otherwise default to the convertToAbsoluteUrls option
-		directly
-	*/
-	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
-
-	if (options.convertToAbsoluteUrls || autoFixUrls) {
-		css = fixUrls(css);
-	}
-
-	if (sourceMap) {
-		// http://stackoverflow.com/a/26603875
-		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-	}
-
-	var blob = new Blob([css], { type: "text/css" });
-
-	var oldSrc = link.href;
-
-	link.href = URL.createObjectURL(blob);
-
-	if(oldSrc) URL.revokeObjectURL(oldSrc);
-}
-
-
-/***/ }),
-/* 416 */
-/***/ (function(module, exports) {
-
-
-/**
- * When source maps are enabled, `style-loader` uses a link element with a data-uri to
- * embed the css on the page. This breaks all relative urls because now they are relative to a
- * bundle instead of the current page.
- *
- * One solution is to only use full urls, but that may be impossible.
- *
- * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
- *
- * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
- *
- */
-
-module.exports = function (css) {
-  // get current location
-  var location = typeof window !== "undefined" && window.location;
-
-  if (!location) {
-    throw new Error("fixUrls requires window.location");
-  }
-
-	// blank or null?
-	if (!css || typeof css !== "string") {
-	  return css;
-  }
-
-  var baseUrl = location.protocol + "//" + location.host;
-  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
-
-	// convert each url(...)
-	/*
-	This regular expression is just a way to recursively match brackets within
-	a string.
-
-	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
-	   (  = Start a capturing group
-	     (?:  = Start a non-capturing group
-	         [^)(]  = Match anything that isn't a parentheses
-	         |  = OR
-	         \(  = Match a start parentheses
-	             (?:  = Start another non-capturing groups
-	                 [^)(]+  = Match anything that isn't a parentheses
-	                 |  = OR
-	                 \(  = Match a start parentheses
-	                     [^)(]*  = Match anything that isn't a parentheses
-	                 \)  = Match a end parentheses
-	             )  = End Group
-              *\) = Match anything and then a close parens
-          )  = Close non-capturing group
-          *  = Match anything
-       )  = Close capturing group
-	 \)  = Match a close parens
-
-	 /gi  = Get all matches, not the first.  Be case insensitive.
-	 */
-	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
-		// strip quotes (if they exist)
-		var unquotedOrigUrl = origUrl
-			.trim()
-			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
-			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
-
-		// already a full url? no change
-		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
-		  return fullMatch;
-		}
-
-		// convert the url to a full url
-		var newUrl;
-
-		if (unquotedOrigUrl.indexOf("//") === 0) {
-		  	//TODO: should we add protocol?
-			newUrl = unquotedOrigUrl;
-		} else if (unquotedOrigUrl.indexOf("/") === 0) {
-			// path should be relative to the base url
-			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
-		} else {
-			// path should be relative to current directory
-			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
-		}
-
-		// send back the fixed url(...)
-		return "url(" + JSON.stringify(newUrl) + ")";
-	});
-
-	// send back the fixed css
-	return fixedCss;
-};
-
-
-/***/ }),
-/* 417 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(15);
-
-var _actions = __webpack_require__(19);
-
-var _ItemCard = __webpack_require__(145);
-
-var _helpers = __webpack_require__(64);
-
-var _Markdown = __webpack_require__(85);
-
-var _items = __webpack_require__(27);
-
-var _reactRangeslider = __webpack_require__(151);
-
-var _reactRangeslider2 = _interopRequireDefault(_reactRangeslider);
-
-__webpack_require__(152);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var createHandlers = function createHandlers(dispatch, interview) {
-  var handleChange = function handleChange(value) {
-    dispatch((0, _actions.setResponse)({
-      key: interview.activeKey,
-      value: value.toString(),
-      sliderValue: value
-    }));
-  };
-  var handleChangeStart = function handleChangeStart() {};
-  var handleChangeComplete = function handleChangeComplete() {};
-  return {
-    handleChangeStart: handleChangeStart,
-    handleChange: handleChange,
-    handleChangeComplete: handleChangeComplete
-  };
-};
-
-var ResponseSlider = function (_Component) {
-  _inherits(ResponseSlider, _Component);
-
-  function ResponseSlider(props, context, dispatch) {
-    _classCallCheck(this, ResponseSlider);
-
-    var _this = _possibleConstructorReturn(this, (ResponseSlider.__proto__ || Object.getPrototypeOf(ResponseSlider)).call(this, props, context));
-
-    _this.handleChangeStart = function () {};
-
-    _this.handleChange = function (value) {
-      _this.setState({
-        value: value
-      });
-      _this.handlers.handleChange(value);
-      _this.props.response.setState({
-        sliderValue: value,
-        currentPos: _this.props.response.getIndexByKey(value.toString(), _this.props.array)
-      });
-    };
-
-    _this.handleComplete = function () {
-      _this.props.inputBox.current.focus();
-    };
-
-    _this.state = {
-      value: 0
-    };
-    _this.handlers = createHandlers(_this.props.dispatch, _this.props.interview);
-    return _this;
-  }
-
-  _createClass(ResponseSlider, [{
-    key: 'render',
-    value: function render() {
-      var value = this.props.value.value;
-
-      console.log('Slider value from response slider: ');
-      console.log(this.props.value);
-      console.log(this.props.min);
-      return _react2.default.createElement(
-        'div',
-        { className: 'responseSlider' },
-        _react2.default.createElement(_reactRangeslider2.default, {
-          min: this.props.min,
-          max: this.props.max,
-          value: this.props.value,
-          onChangeStart: this.handleChangeStart,
-          onChange: this.handleChange,
-          onChangeComplete: this.handleComplete
-        }),
-        _react2.default.createElement(
-          'div',
-          { className: 'value' },
-          value
-        )
-      );
-    }
-  }]);
-
-  return ResponseSlider;
-}(_react.Component);
-
-exports.default = (0, _reactRedux.connect)()(ResponseSlider);
 
 /***/ }),
 /* 418 */
@@ -69272,12 +69304,351 @@ const selectArrowPress = (activeKey, currentPos, array, responseContainer, dispa
 
 /***/ }),
 /* 420 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.AnalysisSidebar = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(15);
+
+var _ClickOutside = __webpack_require__(142);
+
+var _Algorithms = __webpack_require__(143);
+
+var _Algorithms2 = _interopRequireDefault(_Algorithms);
+
+var _section2Icd10En = __webpack_require__(325);
+
+var _section2Icd10En2 = _interopRequireDefault(_section2Icd10En);
+
+var _jsYaml = __webpack_require__(326);
+
+var _jsYaml2 = _interopRequireDefault(_jsYaml);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var AnalysisModal = function (_Component) {
+  _inherits(AnalysisModal, _Component);
+
+  function AnalysisModal(props) {
+    _classCallCheck(this, AnalysisModal);
+
+    var _this = _possibleConstructorReturn(this, (AnalysisModal.__proto__ || Object.getPrototypeOf(AnalysisModal)).call(this, props));
+
+    _this.state = {
+      showAnalysis: false,
+      evaluated: [],
+      matchedPrio1: [],
+      matchedPrio2: [],
+      matchedPrio3: [],
+      notMatchedPrio1: [],
+      notMatchedPrio2: [],
+      notMatchedPrio3: [],
+      algorithmSets: [],
+      selectedAlgorithmSet: {}
+    };
+
+    _this.getAlgorithmSets = function () {
+      window.axios.get('/algorithms.json').then(function (response) {
+        _this.setState({
+          algorithmSets: response.data
+        });
+        _this.parseAlgorithms(response.data[0].id);
+      }).catch(function (error) {
+        return console.error(error);
+      });
+    };
+
+    _this.handleSelectChange = function (event) {
+      var id = parseInt(event.target.value, 10);
+      _this.parseAlgorithms(id);
+    };
+
+    _this.parseAlgorithms = function (id) {
+      var selectedAlgorithmSet = _this.state.algorithmSets.find(function (set) {
+        return set.id === id;
+      });
+      try {
+        var parsed = _jsYaml2.default.load(selectedAlgorithmSet.algorithms);
+        _this.setState({
+          selectedAlgorithmSet: {
+            title: selectedAlgorithmSet.title,
+            algorithms: parsed
+          }
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    _this.getRequiredDiagnoses = function (id) {};
+
+    _this.getAlgorithmSets();
+    return _this;
+  }
+
+  _createClass(AnalysisModal, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var invalidResponseItems = this.props.interview.invalidResponseItems;
+      var responses = this.props.interview.responses;
+      var validResponses = Object.assign({}, responses);
+      var invalidResponsesInResponses = [];
+      return _react2.default.createElement(
+        'div',
+        { className: 'interview-algorithms' },
+        _react2.default.createElement(
+          'button',
+          {
+            onClick: function onClick() {
+
+              // Discard the invalid responses
+              invalidResponseItems.map(function (key) {
+                if (responses[key]) {
+                  invalidResponsesInResponses.push(key);
+                  delete validResponses[key];
+                }
+              });
+              if (invalidResponsesInResponses.length) {
+                var keys = '';
+                invalidResponsesInResponses.map(function (key) {
+                  return keys = keys + ' ' + key;
+                });
+                window.alert('The following items has invalid answers, and will not be included in the diagnoses: ' + keys);
+              }
+
+              var algorithms = _Algorithms2.default.run(validResponses, _this2.state.selectedAlgorithmSet.algorithms);
+              console.log('Checking data from algorithms:');
+              console.log(algorithms.algorithms.get('F44').algorithm.children);
+              _this2.setState({
+                evaluated: algorithms.evaluated,
+                matchedPrio1: algorithms.matchedPrio1,
+                matchedPrio2: algorithms.matchedPrio2,
+                matchedPrio3: algorithms.matchedPrio3,
+                notMatchedPrio1: algorithms.notMatchedPrio1,
+                notMatchedPrio2: algorithms.notMatchedPrio2,
+                notMatchedPrio3: algorithms.notMatchedPrio3
+              });
+            },
+            className: 'button'
+          },
+          'Run Algorithms'
+        ),
+        _react2.default.createElement(
+          'select',
+          {
+            value: this.state.value,
+            onChange: this.handleSelectChange,
+            style: { backgroundColor: 'white' }
+          },
+          this.state.algorithmSets.map(function (algorithmSet) {
+            return _react2.default.createElement(
+              'option',
+              { key: algorithmSet.id, value: algorithmSet.id },
+              algorithmSet.title
+            );
+          })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'interview-algorithms-evaluator-list' },
+          _react2.default.createElement(
+            'h4',
+            null,
+            'Matched Algorithms (first priority)'
+          ),
+          Object.keys(this.state.matchedPrio1).map(function (key) {
+            return _react2.default.createElement(
+              'div',
+              {
+                onClick: function onClick() {
+                  algorithms.algorithms.get('F44').algorithm.children.map(function (expression) {
+                    return _react2.default.createElement(
+                      'div',
+                      null,
+                      expression
+                    );
+                  });
+                },
+                key: key,
+                className: 'interview-algorithms-evaluator-list-matched-prio1'
+              },
+              _react2.default.createElement(
+                'b',
+                null,
+                key
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                _this2.state.matchedPrio1[key].explanation
+              )
+            );
+          }),
+          _react2.default.createElement(
+            'h4',
+            null,
+            'Matched Algorithms (second priority)'
+          ),
+          Object.keys(this.state.matchedPrio2).map(function (key) {
+            return _react2.default.createElement(
+              'div',
+              {
+                onClick: function onClick() {},
+                key: key,
+                className: 'interview-algorithms-evaluator-list-matched-prio2'
+              },
+              _react2.default.createElement(
+                'b',
+                null,
+                key
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                _this2.state.matchedPrio2[key].explanation
+              )
+            );
+          }),
+          _react2.default.createElement(
+            'h4',
+            null,
+            'Matched Algorithms (third priority)'
+          ),
+          Object.keys(this.state.matchedPrio3).map(function (key) {
+            return _react2.default.createElement(
+              'div',
+              {
+                onClick: function onClick() {},
+                key: key,
+                className: 'interview-algorithms-evaluator-list-matched-prio3'
+              },
+              _react2.default.createElement(
+                'b',
+                null,
+                key
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                _this2.state.matchedPrio3[key].explanation
+              )
+            );
+          }),
+          _react2.default.createElement(
+            'h4',
+            null,
+            'Not Matched Algorithms (first priority)'
+          ),
+          Object.keys(this.state.notMatchedPrio1).map(function (key) {
+            return _react2.default.createElement(
+              'div',
+              {
+                onClick: function onClick() {},
+                key: key,
+                className: 'interview-algorithms-evaluator-list-not-matched-prio1'
+              },
+              _react2.default.createElement(
+                'b',
+                null,
+                key
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                _this2.state.notMatchedPrio1[key].explanation
+              )
+            );
+          }),
+          _react2.default.createElement(
+            'h4',
+            null,
+            'Not Matched Algorithms (second priority)'
+          ),
+          Object.keys(this.state.notMatchedPrio2).map(function (key) {
+            return _react2.default.createElement(
+              'div',
+              {
+                onClick: function onClick() {},
+                key: key,
+                className: 'interview-algorithms-evaluator-list-not-matched-prio2'
+              },
+              _react2.default.createElement(
+                'b',
+                null,
+                key
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                _this2.state.notMatchedPrio2[key].explanation
+              )
+            );
+          }),
+          _react2.default.createElement(
+            'h4',
+            null,
+            'Not Matched Algorithms (third priority)'
+          ),
+          Object.keys(this.state.notMatchedPrio3).map(function (key) {
+            return _react2.default.createElement(
+              'div',
+              {
+                onClick: function onClick() {},
+                key: key,
+                className: 'interview-algorithms-evaluator-list-not-matched-prio3'
+              },
+              _react2.default.createElement(
+                'b',
+                null,
+                key
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                _this2.state.notMatchedPrio3[key].explanation
+              )
+            );
+          })
+        )
+      );
+    }
+  }]);
+
+  return AnalysisModal;
+}(_react.Component);
+
+var AnalysisSidebar = exports.AnalysisSidebar = (0, _reactRedux.connect)(function (state) {
+  return state;
+})(AnalysisModal);
+
+/***/ }),
+/* 421 */
 /***/ (function(module, exports) {
 
 module.exports = {"2.005":{"explanation":"2.005 is only active if 2.003 = 2","algorithm":[{"AND":["$2.003 != 2"]}]},"2.006.router":{"explanation":"If <2.003> = 0 skip to HA If <2.003> = 2 skip to <2.007> and then <2.100>. If <2.003> < > 0 or 2 continue.","algorithm":[{"AND":["$2.003 = 2"]}],"skip_items":["2.008","2.009","2.episode2.section","2.episode3.section","2.010","2.011","2.012","2.013","2.014","2.015","2.016","2.017","2.episode4.section","2.018","2.019","2.020","2.021","2.022","2.023","2.024","2.025","2.026","2.027","2.028","2.029","2.episode5.section","2.030","2.031","2.032","2.033","2.034","2.035","2.036","2.037","2.038","2.039","2.040","2.041","2.042","2.043","2.044","2.episode6.section","2.045","2.046","2.047","2.048","2.049","2.050","2.051","2.052","2.053","2.054","2.055","2.episode7.section","2.056","2.057","2.058","2.059","2.060","2.061","2.062","2.063","2.064","2.episode8.section","2.065","2.episode9.section","2.066","2.067","2.068","2.069","2.070","2.071","2.episode10.section","2.072","2.073","2.074","2.075","2.076","2.077","2.078","2.079","2.episode11.section","2.080","2.081","2.082","2.083","2.084","2.085","2.086","2.087","2.episode12.section","2.088","2.089","2.090","2.091","2.episode13.section","2.092","2.093","2.094","2.095","2.096","2.097","2.098","2.099"]},"2.027":{"explanation":"2.027 not active if 2.026 = 0","algorithm":[{"AND":["$2.026 = 0"]}]}}
 
 /***/ }),
-/* 421 */
+/* 422 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69297,7 +69668,7 @@ var _reactRedux = __webpack_require__(15);
 
 var _actions = __webpack_require__(19);
 
-var _ClickOutside = __webpack_require__(141);
+var _ClickOutside = __webpack_require__(142);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -69353,7 +69724,7 @@ var ResetInterview = function (_React$Component) {
 exports.default = (0, _reactRedux.connect)()(ResetInterview);
 
 /***/ }),
-/* 422 */
+/* 423 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69362,11 +69733,11 @@ exports.default = (0, _reactRedux.connect)()(ResetInterview);
 if (false) {
   module.exports = require('./configureStore.prod');
 } else {
-  module.exports = __webpack_require__(423);
+  module.exports = __webpack_require__(424);
 }
 
 /***/ }),
-/* 423 */
+/* 424 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69380,9 +69751,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _redux = __webpack_require__(62);
 
-var _middlewares = __webpack_require__(424);
+var _middlewares = __webpack_require__(425);
 
-var _reducers = __webpack_require__(425);
+var _reducers = __webpack_require__(426);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -69399,7 +69770,7 @@ exports.default = function (persistedState) {
 };
 
 /***/ }),
-/* 424 */
+/* 425 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69418,7 +69789,7 @@ var loggerMiddleware = exports.loggerMiddleware = function loggerMiddleware(stor
 };
 
 /***/ }),
-/* 425 */
+/* 426 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69434,7 +69805,7 @@ var _interview = __webpack_require__(153);
 
 var _interview2 = _interopRequireDefault(_interview);
 
-var _settings = __webpack_require__(426);
+var _settings = __webpack_require__(427);
 
 var _settings2 = _interopRequireDefault(_settings);
 
@@ -69446,7 +69817,7 @@ exports.default = (0, _redux.combineReducers)({
 });
 
 /***/ }),
-/* 426 */
+/* 427 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69462,7 +69833,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var initialState = {
   showGlossary: true,
-  showItemNotes: true
+  showItemNotes: true,
+  // For testing
+  showAnalysis: true
 };
 
 var settings = function settings() {
@@ -69480,10 +69853,10 @@ var settings = function settings() {
 exports.default = settings;
 
 /***/ }),
-/* 427 */
+/* 428 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var debounce = __webpack_require__(428),
+var debounce = __webpack_require__(429),
     isObject = __webpack_require__(87);
 
 /** Error message constants. */
@@ -69555,12 +69928,12 @@ module.exports = throttle;
 
 
 /***/ }),
-/* 428 */
+/* 429 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(87),
-    now = __webpack_require__(429),
-    toNumber = __webpack_require__(431);
+    now = __webpack_require__(430),
+    toNumber = __webpack_require__(432);
 
 /** Error message constants. */
 var FUNC_ERROR_TEXT = 'Expected a function';
@@ -69751,7 +70124,7 @@ module.exports = debounce;
 
 
 /***/ }),
-/* 429 */
+/* 430 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var root = __webpack_require__(154);
@@ -69780,7 +70153,7 @@ module.exports = now;
 
 
 /***/ }),
-/* 430 */
+/* 431 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */
@@ -69791,11 +70164,11 @@ module.exports = freeGlobal;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(28)))
 
 /***/ }),
-/* 431 */
+/* 432 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(87),
-    isSymbol = __webpack_require__(432);
+    isSymbol = __webpack_require__(433);
 
 /** Used as references for various `Number` constants. */
 var NAN = 0 / 0;
@@ -69863,11 +70236,11 @@ module.exports = toNumber;
 
 
 /***/ }),
-/* 432 */
+/* 433 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(433),
-    isObjectLike = __webpack_require__(436);
+var baseGetTag = __webpack_require__(434),
+    isObjectLike = __webpack_require__(437);
 
 /** `Object#toString` result references. */
 var symbolTag = '[object Symbol]';
@@ -69898,12 +70271,12 @@ module.exports = isSymbol;
 
 
 /***/ }),
-/* 433 */
+/* 434 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Symbol = __webpack_require__(155),
-    getRawTag = __webpack_require__(434),
-    objectToString = __webpack_require__(435);
+    getRawTag = __webpack_require__(435),
+    objectToString = __webpack_require__(436);
 
 /** `Object#toString` result references. */
 var nullTag = '[object Null]',
@@ -69932,7 +70305,7 @@ module.exports = baseGetTag;
 
 
 /***/ }),
-/* 434 */
+/* 435 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Symbol = __webpack_require__(155);
@@ -69984,7 +70357,7 @@ module.exports = getRawTag;
 
 
 /***/ }),
-/* 435 */
+/* 436 */
 /***/ (function(module, exports) {
 
 /** Used for built-in method references. */
@@ -70012,7 +70385,7 @@ module.exports = objectToString;
 
 
 /***/ }),
-/* 436 */
+/* 437 */
 /***/ (function(module, exports) {
 
 /**
@@ -70047,7 +70420,7 @@ module.exports = isObjectLike;
 
 
 /***/ }),
-/* 437 */
+/* 438 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

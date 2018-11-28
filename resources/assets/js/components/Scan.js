@@ -12,10 +12,7 @@ import { getNextValidKey, getPreviousValidKey } from '../reducers/interview';
 import { setActiveItem } from '../actions';
 import {
   items,
-  scales,
   getItemByKey,
-  getNextItemByKey,
-  getPreviousItemByKey
 } from '../items';
 import ResetInterview from './ResetInterview'
 
@@ -46,44 +43,43 @@ class Scan extends Component {
     const activeKey = this.props.interview.activeKey;
     const nextValidKey = getNextValidKey(this.props.interview, activeKey);
 
-    this.props.dispatch(setActiveItem({ key: nextValidKey}));
+    this.props.dispatch(setActiveItem({ key: nextValidKey }));
   };
 
   goToPreviousItem = () => {
     const activeKey = this.props.interview.activeKey;
     const previousValidKey = getPreviousValidKey(this.props.interview, activeKey);
 
-    this.props.dispatch(setActiveItem({ key: previousValidKey}));
+    this.props.dispatch(setActiveItem({ key: previousValidKey }));
   };
 
   render() {
     return (
       <Fragment>
-      <div className="scan-app-top-bar">
-      <SearchItems/>
-      <Settings />
-      <Analysis />
-      <ResetInterview />
-      </div>
-      <div className="scan-app-main">
-      <div className="interview-list">
-      <ItemList
-      items={items}
-      activeIndex={items.indexOf(
-        getItemByKey(this.props.interview.activeKey)
-        )}
-      />
-      </div>
-      <div className="interview-item">
-      <Response
-      dispatch={this.props.dispatch}
-      interview={this.props.interview}
-      settings={this.props.settings}
-      />
-      </div>
-      </div>
+        <div className="scan-app-top-bar">
+          <SearchItems />
+          <Settings />
+          <ResetInterview />
+        </div>
+        <div className="scan-app-main">
+          <div className="interview-list">
+            <ItemList
+              items={items}
+              activeIndex={items.indexOf(
+                getItemByKey(this.props.interview.activeKey)
+              )}
+            />
+          </div>
+          <div className="interview-item">
+            <Response
+              dispatch={this.props.dispatch}
+              interview={this.props.interview}
+              settings={this.props.settings}
+            />
+          </div>
+        </div>
       </Fragment>
-      );
+    );
   }
 }
 

@@ -1,6 +1,8 @@
 let initialState = {
   showGlossary: true,
-  showItemNotes: true
+  showItemNotes: true,
+  // For testing
+  showAnalysis: true,
 };
 
 const settings = (state = initialState, action) => {
