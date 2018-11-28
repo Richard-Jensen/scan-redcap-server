@@ -932,6 +932,7 @@ items:
   input: integer
   validate: [1]
   options:
+    0: Absent
     1: Present
 
 - key: 2.007b
@@ -941,6 +942,7 @@ items:
   input: integer
   validate: [1]
   options:
+    0: Absent
     1: Present
 
 - key: 2.007c
@@ -950,6 +952,7 @@ items:
   input: integer
   validate: [1]
   options:
+    0: Absent
     1: Present
 
 - key: 2.007d
@@ -959,6 +962,7 @@ items:
   input: integer
   validate: [1]
   options:
+    0: Absent
     1: Present
 
 - key: 2.007e
@@ -968,6 +972,7 @@ items:
   input: integer
   validate: [1]
   options:
+    0: Absent
     1: Present
 
 - key: 2.007f
@@ -977,6 +982,7 @@ items:
   input: integer
   validate: [1]
   options:
+    0: Absent
     1: Present
 
 - key: 2.007g
@@ -986,6 +992,7 @@ items:
   input: integer
   validate: [1]
   options:
+    0: Absent
     1: Present
 
 - key: 2.007h
@@ -995,6 +1002,7 @@ items:
   input: integer
   validate: [1]
   options:
+    0: Absent
     1: Present
 
 - key: 2.007i
@@ -1004,6 +1012,7 @@ items:
   input: integer
   validate: [1]
   options:
+    0: Absent
     1: Present
 
 - key: 2.007j
@@ -1012,6 +1021,7 @@ items:
     (ICD-10: G40)
   input: integer
   options:
+    0: Absent
     1: Present
 
 - key: 2.007k
@@ -1021,6 +1031,7 @@ items:
   input: integer
   validate: [1]
   options:
+    0: Absent
     1: Present
 
 - key: 2.007l
@@ -1030,6 +1041,7 @@ items:
   input: integer
   validate: [1]
   options:
+    0: Absent
     1: Present
 
 - key: 2.007m
@@ -1039,6 +1051,7 @@ items:
   input: integer
   validate: [1]
   options:
+    0: Absent
     1: Present
 
 - key: 2.007n
@@ -1048,6 +1061,7 @@ items:
   input: integer
   validate: [1]
   options:
+    0: Absent
     1: Present
 
 - key: 2.007o
@@ -1057,6 +1071,7 @@ items:
   input: integer
   validate: [1]
   options:
+    0: Absent
     1: Present
 
 - key: 2.007p
@@ -1066,6 +1081,7 @@ items:
   input: integer
   validate: [1]
   options:
+    0: Absent
     1: Present
 
 - key: 2.007q
@@ -1075,6 +1091,7 @@ items:
   input: integer
   validate: [1]
   options:
+    0: Absent
     1: Present 2
 
 - key: 2.007r
@@ -1084,6 +1101,7 @@ items:
   input: integer
   validate: [1]
   options:
+    0: Absent
     1: Present
 
 - key: 2.007s

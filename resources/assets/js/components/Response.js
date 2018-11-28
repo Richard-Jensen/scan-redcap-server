@@ -628,23 +628,3 @@ getIndexByKey = (key, array) => {
 }
 
 export default connect()(Response);
-const manualInputChange = (value,valid) =>{
-  if (
-    valid &&
-    validateNumeric(value, valid)
-    ) {
-    dispatch(
-      setResponse({
-        key: item.key,
-        value: value
-      })
-      );
-} else if (!valid) {
-  dispatch(
-    setResponse({
-      key: item.key,
-      value: value
-    })
-    );
-}
-};

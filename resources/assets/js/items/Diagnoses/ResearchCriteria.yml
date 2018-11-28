@@ -1,0 +1,1093 @@
+BDSSingorg:
+  explanation: "Bodily distress disorder, Singel organ system"
+  priority: '2'
+  algorithm: [
+        AND: [
+            '$@BDSGrp > 0',
+            '$@BDSGrp < 4',
+            '$2.031 = [1,2,3]',
+            '$2.071 <> [3]',
+            '$2.072 <> [3]',
+            '$2.073 <> [3]',
+            '$2.074 <> [3]',
+            '$2.075 <> [3]',
+            '$2.033 >= 3',
+        ],
+    ]
+
+BDSSingorga:
+  explanation: "BDS, Singel organ without excl. for other conditions"
+  priority: '1'
+  algorithm: [
+        AND: [
+            '$@BDSGrp > 0',
+            '$@BDSGrp < 4',
+            '$2.031 = [1,2,3]',
+            '$2.033 >= 3',
+        ],
+    ]
+
+BDSMultiorgan:
+  explanation: "Bodily Distress Disorder, Multiorgan-systemic type"
+  priority: '2'
+  algorithm: [
+      AND: [
+        '$@BDSGrp >= 4',
+        '$2.031 = [2,3]',
+        '$2.071 <> [3]',
+        '$2.072 <> [3]',
+        '$2.073 <> [3]',
+        '$2.074 <> [3]',
+        '$2.075 <> [3]',
+        '$2.033 >= 3',
+      ],
+    ]
+
+BDSMultiorgana:
+  explanation: "BDS, Multiorgan-systemic without excl. for other conditions"
+  priority: '1'
+  algorithm: [
+      AND: [
+        '$@BDSGrp >= 4',
+        '$2.031 = [2,3]',
+        '$2.033 >= 3',
+          ],
+    ]
+
+BDS.CP:
+  explanation: "BDS, Cardiopulmonal subtype, excl. BDSMultiorgan"
+  priority: '1'
+  algorithm: [
+    AND: [
+      OR: [
+            '$@CP.arou >= 3',
+            '$2.014 = [2]',
+          ],
+      '$2.031 = [2,3]',
+      '$2.033 >= 3',
+      '$2.071 <> [3]',
+      '$2.072 <> [3]',
+      '$2.073 <> [3]',
+      '$2.074 <> [3]',
+      '$2.075 <> [3]',
+    ],
+  ]
+BDS.GEN:
+  explanation: "BDS, General subtype (CFS/ME Fatiq), excl. BDSMultiorgan"
+  priority: '1'
+  algorithm: [
+      AND: [
+            OR: [
+              '$@GEN.symp >= 3',
+              '$2.010 = [2]',
+                ],
+        '$2.031 = [2,3]',
+        '$2.033 >= 3',
+        '$2.071 <> [3]',
+        '$2.072 <> [3]',
+        '$2.073 <> [3]',
+        '$2.074 <> [3]',
+        '$2.075 <> [3]',
+      ],
+    ]
+
+#Per: Skal 2.069 være forskellig fra 0, 1, eller begge? Sætter den til 1.
+CFS.Oxford.crit:
+  explanation: "CFS/ME Oxford criterier 1991"
+  priority: '1'
+  algorithm: [
+      AND: [
+        '$2.010b = [2,3]',
+        '$2.031 = [2,3]',
+        '$2.033 >= 6',
+        '$2.069 <> 1',
+        '$2.071 <> [3]',
+        '$2.072 <> [3]',
+        '$2.073 <> [3]',
+        '$2.074 <> [3]',
+        '$2.075 <> [3]',
+        ],
+    ]
+
+CFS.ME.IOMcrit:
+  explanation: "CFS/ME (SEID),IOM criteria modificed"
+  priority: '1'
+  algorithm: [
+      AND: [
+        '$2.010b = [2,3]',
+        '$2.031 = [2,3]',
+          OR: [
+            '$2.010c = [2,3]',
+            '$2.010d = [2,3]',
+              ],
+        '$2.033 >= 6',
+        '$2.069 <> 1',
+      ],
+    ]
+CFS.ME.Fukuda.crit:
+  explanation: "CFS,Fukuda criteria modificed"
+  priority: '1'
+  algorithm: [
+      AND: [
+        '$2.010b = [2,3]',
+        '$2.033 >= 6',
+        '$2.031 = [2,3]',
+        '$@Fukuda.critB >= 4',
+        '$2.069 <> 1',
+      ],
+    ]
+
+
+Fukuda.critB:
+  explanation: "CFS,Fukuda B crit mod.(excl. pain in troath,tender lymphnodes)"
+  priority: '2'
+  algorithm: [
+        SUM: [
+            '$2.010b = [2,3]',
+            OR: [
+                  '$2.010c = [2,3]',
+                  '$2.010d = [2,3]',
+                    ],
+            '$2.010d = [2,3]',
+            '$2.010e = [2,3]',
+            '$2.010a = [2,3]',
+            ],
+         ]
+BDS.MS:
+  explanation: "BDS, musculoskeletal type (Fibromyalgia), excl. BDSMultiorgan"
+  priority: '1'
+  algorithm: [
+      AND: [
+          OR: [
+                '$@MSPainsyn >= 3',
+                '$2.011 = [2]',
+              ],
+        '$2.031 = [2,3]',
+        '$2.033 >= 3',
+        '$2.071 <> [3]',
+        '$2.072 <> [3]',
+        '$2.073 <> [3]',
+        '$2.074 <> [3]',
+        '$2.075 <> [3]',
+      ],
+    ]
+
+Widspreedpain.Fibromyalgia:
+  explanation: "Widspreedpain /Fibromyalgia, modificed ACR criteria"
+  priority: '1'
+  algorithm: [
+      AND: [
+          OR: [
+                '$@WSPain >= 3',
+                '$2.018 = [2]',
+              ],
+        '$2.031 = [2,3]',
+        '$2.033 >= 3',
+        '$@WPSScriteria >= 1',
+        '$2.011j = [2,3]',
+        '$2.071 <> [3]',
+        '$2.072 <> [3]',
+        '$2.073 <> [3]',
+        '$2.074 <> [3]',
+        '$2.075 <> [3]',
+      ],
+    ]
+
+WPSScriteria:
+    explanation: "Fatiq/cognitiv sympom criteria WP/Fibromyalgia, mod.ACR crit."
+    priority: '3'
+    algorithm: [
+        AND: [
+          '$2.010b = [2,3]',
+          '$2.010c = [2,3]',
+          '$2.010d = [2,3]',
+            ],
+               ]
+BDS.GI:
+  explanation: "BDS, GI subtype (IBS), 6 mth, excl. BDSMultiorgan"
+  priority: '1'
+  algorithm: [
+      AND: [
+        OR: [
+              '$@GI.arou >= 3',
+              '$2.011 = [2]',
+            ],
+        '$2.031 = [2,3]',
+        '$2.033 >= 6',
+        '$2.071 <> [3]',
+        '$2.072 <> [3]',
+        '$2.073 <> [3]',
+        '$2.074 <> [3]',
+        '$2.075 <> [3]',
+      ],
+    ]
+
+  #ok måske diagnose kode istedet?
+IBS.Kay:
+  explanation: "IBS, 6 mth, acc. to Key et al."
+  priority: '1'
+  algorithm: [
+      AND: [
+        '$2.031 = [2,3]',
+        '$2.033 >= 6',
+        '$2.013c <> [1,2,3]',
+        '$2.013e <> [1,2,3]',
+        OR: ['$2.013f <> [1,2,3]',
+            '$2.013j <> [1,2,3]',
+        ],
+      ],
+    ]
+
+IBS.ROME3:
+  explanation: "IBS, according ROME3."
+  priority: '1'
+  algorithm: [
+      AND: [
+        '$2.031 = [2,3]',
+        '$2.033 >= 6',
+        '$2.013c <> [1,2,3]',
+        '$@IBS.ROME3.B.counter >= 2',
+      ]
+    ]
+
+IBS.ROME3.B.counter:
+  explanation: "IBS, ROME3 B criteria, modificed."
+  priority: '3'
+  algorithm: [
+        SUM:
+           [ '$2.013h <> [1,2,3]',
+             '$2.013i <> [1,2,3]',
+             '$2.013j <> [1,2,3]',
+        ],
+      ]
+
+
+BDSGrp:
+    explanation: "Number of symptome groups"
+    priority: '3'
+    algorithm: [
+        SUM: [
+          OR: ['$@CP.arou >= 3',
+               '$2.014 = 2',
+                ],
+          OR: ['$@GI.arou >= 3',
+               '$2.013 = 2',
+              ],
+          OR: ['$@MSPainsyn >= 3',
+               '$2.011 = 2',
+                ],
+          OR: ['$@GEN.symp >= 3',
+               '$2.010 = 2',
+                ],
+          OR: ['$@BDSanysymp >= 4',
+               '$@BDSanysympa.Counter >= 3',
+                ],
+        ],
+      ]
+
+BDSanysymp:
+    explanation: "Counter any BodDis symptoms"
+    priority: '3'
+    algorithm: [
+        SUM: [
+          '$@CP.arou',
+          '$@GI.arou',
+          '$@MSPainsyn',
+          '$@GEN.symp',
+        ],
+      ]
+
+BDSanysympa.Counter:
+    explanation: "Counter any BodDis symptoms, with alternative rating"
+    priority: '3'
+    algorithm: [
+        SUM: [
+          '$2.010',
+          '$2.011',
+          '$2.012',
+          '$2.013',
+          '$2.014',
+        ],
+      ]
+
+
+GEN.symp:
+    explanation: "Counter general symptoms"
+    priority: '3'
+    algorithm: [
+        SUM: [
+          '$2.010e = [1,2,3]',
+          '$2.010f = [1,2,3]',
+          '$@Fatiqe <> 0',
+        OR: [
+            '$7.002 = [1,2,3]',
+            '$2.010d = [1,2,3]',
+          ],
+          '$2.010c = [1,2,3]',
+        ],
+      ]
+
+
+Fatiqe:
+    explanation: "Counter fatiq "
+    priority: '3'
+    algorithm: [
+        SUM: [
+          '$3.007 = [1,2,3]',
+          '$7.006 = [1,2,3]',
+          '$2.010b = [1,2,3]',
+              ],
+      ]
+
+
+MSPainsyn:
+  explanation: "Counter musculoskeletal symptomer"
+  priority: '3'
+  algorithm: [
+      SUM: [
+        '$2.011a = [1,2,3]',
+        '$2.011b = [1,2,3]',
+        '$2.011c = [1,2,3]',
+        '$2.010d = [1,2,3]',
+        '$2.011e = [1,2,3]',
+        '$2.011f = [1,2,3]',
+        '$2.011g = [1,2,3]',
+      ],
+    ]
+
+WSPain:
+  explanation: "Counter Widespreed pain"
+  priority: '3'
+  algorithm: [
+      SUM: [
+        '$2.011a = [1,2,3]',
+        '$2.011b = [1,2,3]',
+        '$2.011c = [1,2,3]',
+        '$2.011d = [1,2,3]',
+        '$2.011e = [1,2,3]',
+        '$2.011h = [1,2,3]',
+        '$2.024 = [1,2,3]',
+      ],
+    ]
+
+CP.arou:
+  explanation: "Counter cardiovascular arousal"
+  priority: '3'
+  algorithm: [
+      SUM: [
+        '$2.014a = [1,2,3]',
+        '$2.014b = [1,2,3]',
+        '$2.014c = [1,2,3]',
+        '$2.014d = [1,2,3]',
+        '$2.014e = [1,2,3]',
+        '$2.014f = [1,2,3]',
+        '$2.014g = [1,2,3]',
+        '$2.014h = [1,2,3]',
+        '$2.014i = [1,2,3]',
+      ],
+    ]
+
+GI.arou:
+  explanation: "Counter gastrointestinal arousal"
+  priority: '3'
+  algorithm: [
+      SUM: [
+        '$2.012a = [1,2,3]',
+        '$2.012b = [1,2,3]',
+        '$2.013b = [1,2,3]',
+        '$2.013c = [1,2,3]',
+        '$2.013d = [1,2,3]',
+        '$2.013e = [1,2,3]',
+        '$2.013f = [1,2,3]',
+        '$2.013g = [1,2,3]',
+      ],
+    ]
+
+HeaAnxB:
+  explanation: ">= 1 of the following symptoms: bodily preoccupation, fear for medication, etc."
+  priority: '3'
+  algorithm: [
+    AND: [
+      '$@HeaAnxB.counter >= 1',
+    ],
+  ]
+
+HeaAnxB.counter:
+  explanation: "Number of criteria B HA Symptoms"
+  priority: '3'
+  algorithm: [
+    SUM: [
+      '$2.042 = [1,2]',
+      OR: [
+          '$2.038 = [1,2]',
+          '$2.041 = [1,2]',
+          ],
+      '$2.044 = [1,2]',
+      '$2.044 = [1,2]',
+      '$2.045 = [1,2]',
+    ],
+  ]
+
+HeaAnxD:
+  explanation: "Other mental disorders excluded"
+  priority: '3'
+  algorithm: [
+    AND: [
+      '$2.072 <> 3',
+      '$2.073 <> 3',
+      '$2.075 <> 3',
+      '$2.074 <> 1',
+    ],
+  ]
+
+
+HeaAnxF:
+  explanation: "Significant impairment due to health anxiety"
+  priority: '3'
+  algorithm: [
+    OR: [
+      '$2.038 = 2',
+      '$2.039 = 2',
+      '$2.041 = 2',
+      '$2.042 = 2',
+      '$2.043 = 2',
+      '$2.044 = 2',
+      '$2.045 = 2',
+      '$2.052 = [2,3]',
+    ],
+  ]
+
+HeaAnxR:
+  explanation: "Obsessive rumination about illness"
+  priority: '3'
+  algorithm: [
+    AND: [
+      '$2.039 = [1,2]',
+    ],
+  ]
+
+HeaAnxMld:
+  explanation: "Health Anxiety, mild"
+  priority: '1'
+  algorithm: [
+    AND: [
+      '$!HeaAnxR',
+      '$!HeaAnxB',
+      '$!HeaAnxD',
+      '$!HeaAnxSev <> 1',
+    ],
+  ]
+
+HeaAnxMlda:
+  explanation: "Health Anxiety, mild without excl for other mental disorders"
+  priority: '2'
+  algorithm: [
+    AND: [
+      '$!HeaAnxR',
+      '$!HeaAnxB',
+      '$!HeaAnxSeva <> 1',
+    ],
+  ]
+
+HeaAnxSev:
+  explanation: "Health Anxiety, severe"
+  priority: '1'
+  algorithm: [
+    AND: [
+      '$!HeaAnxR',
+      '$!HeaAnxB',
+      '$!HeaAnxD',
+      '$!HeaAnxF',
+    ],
+  ]
+
+HeaAnxSeva:
+  explanation: "Health Anxiety, severe, without excl. for other mental disorders"
+  priority: '2'
+  algorithm: [
+    AND: [
+      '$!HeaAnxR',
+      '$!HeaAnxB',
+      '$!HeaAnxF',
+    ],
+  ]
+
+  #ok. Er det muligt hvis PAINSYM positive at få 2.092 ud,som supplerende tekst?
+  #Altså hvis der feks. skrives 2.037 i 2.092 og PAINSYM er possitive så står der
+  #Idopatic/primary pain syndrome, Abdominal pain??
+PAINSYM:
+  explanation: "Idopatic/primary pain syndrome"
+  priority: '1'
+  algorithm: [
+      AND: [
+        '$2.030 = [2,3]',
+        '$2.031 = [2,3]',
+        '$2.033 >= 6',
+        '$2.071 <> [3]',
+        '$2.072 <> [3]',
+        '$2.073 <> [3]',
+        '$2.074 <> [3]',
+        '$2.075 <> [3]',
+      ],
+    ]
+
+
+MCS:
+  explanation: "MCS, withou duration or general impairment rating"
+  priority: '1'
+  algorithm: [
+    OR: [
+      '$2.027 = 1',
+      OR: [
+        '$2.027a = [2,3]',
+        '$2.027b = [2,3]',
+        AND: [
+          '$2.028 = [1]',
+        ],
+      ],
+      '$2.059 = [1,2]',
+    ],
+    '$2.031 = [2,3]',
+    '$2.033 >= 6',
+    '$2.071 <> [3]',
+  ]
+
+WAD:
+  explanation: "Whiplash, associated disorder (>=6 moths)"
+  priority: '1'
+  algorithm: [
+  AND: [
+    '$2.011i = [2,3]',
+    '$2.031 = [2,3]',
+    '$2.033 >= 6',
+  ]
+  ]
+
+#Old
+
+BDSSingorg:
+  explanation: "Bodily distress disorder, Singel organ system"
+  algorithm: [
+        AND: [
+            '$@BDSGrp > 0',
+            '$@BDSGrp < 4',
+            '$2.031 = [1,2,3]',
+            '$2.071 <> [3]',
+            '$2.072 <> [3]',
+            '$2.073 <> [3]',
+            '$2.074 <> [3]',
+            '$2.075 <> [3]',
+            '$2.033 >= 3',
+        ],
+    ]
+
+BDSSingorga:
+  explanation: "BDS, Singel organ without excl. for other conditions"
+  algorithm: [
+        AND: [
+            '$@BDSGrp > 0',
+            '$@BDSGrp < 4',
+            '$2.031 = [1,2,3]',
+            '$2.033 >= 3',
+        ],
+    ]
+
+BDSMultiorgan:
+  explanation: "Bodily Distress Disorder, Multiorgan-systemic type"
+  algorithm: [
+      AND: [
+        '$@BDSGrp >= 4',
+        '$2.031 = [2,3]',
+        '$2.071 <> [3]',
+        '$2.072 <> [3]',
+        '$2.073 <> [3]',
+        '$2.074 <> [3]',
+        '$2.075 <> [3]',
+        '$2.033 >= 3',
+      ],
+    ]
+
+BDSMultiorgana:
+  explanation: "BDS, Multiorgan-systemic without excl. for other conditions"
+  algorithm: [
+      AND: [
+        '$@BDSGrp >= 4',
+        '$2.031 = [2,3]',
+        '$2.033 >= 3',
+          ],
+    ]
+
+BDS.CP:
+  explanation: "BDS, Cardiopulmonal subtype, excl. BDSMultiorgan"
+  algorithm: [
+    AND: [
+      OR: [
+            '$@CP.arou >= 3',
+            '$2.014 = [2]',
+          ],
+      '$2.031 = [2,3]',
+      '$2.033 >= 3',
+      '$2.071 <> [3]',
+      '$2.072 <> [3]',
+      '$2.073 <> [3]',
+      '$2.074 <> [3]',
+      '$2.075 <> [3]',
+    ],
+  ]
+BDS.GEN:
+  explanation: "BDS, General subtype (CFS/ME Fatiq), excl. BDSMultiorgan"
+  algorithm: [
+      AND: [
+            OR: [
+              '$@GEN.symp >= 3',
+              '$2.010 = [2]',
+                ],
+        '$2.031 = [2,3]',
+        '$2.033 >= 3',
+        '$2.071 <> [3]',
+        '$2.072 <> [3]',
+        '$2.073 <> [3]',
+        '$2.074 <> [3]',
+        '$2.075 <> [3]',
+      ],
+    ]
+
+#Per: Skal 2.069 være forskellig fra 0, 1, eller begge? Sætter den til 1.
+CFS.Oxford.crit:
+  explanation: "CFS/ME Oxford criterier 1991"
+  algorithm: [
+      AND: [
+        '$2.010b = [2,3]',
+        '$2.031 = [2,3]',
+        '$2.033 >= 6',
+        '$2.069 <> 1',
+        '$2.071 <> [3]',
+        '$2.072 <> [3]',
+        '$2.073 <> [3]',
+        '$2.074 <> [3]',
+        '$2.075 <> [3]',
+        ],
+    ]
+
+CFS.ME.IOMcrit:
+  explanation: "CFS/ME (SEID),IOM criteria modificed"
+  algorithm: [
+      AND: [
+        '$2.010b = [2,3]',
+        '$2.031 = [2,3]',
+          OR: [
+            '$2.010c = [2,3]',
+            '$2.010d = [2,3]',
+              ],
+        '$2.033 >= 6',
+        '$2.069 <> 1',
+      ],
+    ]
+CFS.ME.Fukuda.crit:
+  explanation: "CFS,Fukuda criteria modificed"
+  algorithm: [
+      AND: [
+        '$2.010b = [2,3]',
+        '$2.033 >= 6',
+        '$2.031 = [2,3]',
+        '$@Fukuda.critB >= 4',
+        '$2.069 <> 1',
+      ],
+    ]
+
+
+Fukuda.critB:
+  explanation: "CFS,Fukuda B crit mod.(excl. pain in troath,tender lymphnodes)"
+  algorithm: [
+        SUM: [
+            '$2.010b = [2,3]',
+            OR: [
+                  '$2.010c = [2,3]',
+                  '$2.010d = [2,3]',
+                    ],
+            '$2.010d = [2,3]',
+            '$2.010e = [2,3]',
+            '$2.010a = [2,3]',
+            ],
+         ]
+BDS.MS:
+  explanation: "BDS, musculoskeletal type (Fibromyalgia), excl. BDSMultiorgan"
+  algorithm: [
+      AND: [
+          OR: [
+                '$@MSPainsyn >= 3',
+                '$2.011 = [2]',
+              ],
+        '$2.031 = [2,3]',
+        '$2.033 >= 3',
+        '$2.071 <> [3]',
+        '$2.072 <> [3]',
+        '$2.073 <> [3]',
+        '$2.074 <> [3]',
+        '$2.075 <> [3]',
+      ],
+    ]
+
+Widspreedpain.Fibromyalgia:
+  explanation: "Widspreedpain /Fibromyalgia, modificed ACR criteria"
+  algorithm: [
+      AND: [
+          OR: [
+                '$@WSPain >= 3',
+                '$2.018 = [2]',
+              ],
+        '$2.031 = [2,3]',
+        '$2.033 >= 3',
+        '$@WPSScriteria >= 1',
+        '$2.011j = [2,3]',
+        '$2.071 <> [3]',
+        '$2.072 <> [3]',
+        '$2.073 <> [3]',
+        '$2.074 <> [3]',
+        '$2.075 <> [3]',
+      ],
+    ]
+
+WPSScriteria:
+    explanation: "Fatiq/cognitiv sympom criteria WP/Fibromyalgia, mod.ACR crit."
+    algorithm: [
+        AND: [
+          '$2.010b = [2,3]',
+          '$2.010c = [2,3]',
+          '$2.010d = [2,3]',
+            ],
+               ]
+BDS.GI:
+  explanation: "BDS, GI subtype (IBS), 6 mth, excl. BDSMultiorgan"
+  algorithm: [
+      AND: [
+        OR: [
+              '$@GI.arou >= 3',
+              '$2.011 = [2]',
+            ],
+        '$2.031 = [2,3]',
+        '$2.033 >= 6',
+        '$2.071 <> [3]',
+        '$2.072 <> [3]',
+        '$2.073 <> [3]',
+        '$2.074 <> [3]',
+        '$2.075 <> [3]',
+      ],
+    ]
+
+  #ok måske diagnose kode istedet?
+IBS.Kay:
+  explanation: "IBS, 6 mth, acc. to Key et al."
+  algorithm: [
+      AND: [
+        '$2.031 = [2,3]',
+        '$2.033 >= 6',
+        '$2.013c <> [1,2,3]',
+        '$2.013e <> [1,2,3]',
+        OR: ['$2.013f <> [1,2,3]',
+            '$2.013j <> [1,2,3]',
+        ],
+      ],
+    ]
+
+IBS.ROME3:
+  explanation: "IBS, according ROME3."
+  algorithm: [
+      AND: [
+        '$2.031 = [2,3]',
+        '$2.033 >= 6',
+        '$2.013c <> [1,2,3]',
+        '$@IBS.ROME3.B.counter >= 2',
+      ]
+    ]
+
+IBS.ROME3.B.counter:
+  explanation: "IBS, ROME3 B criteria, modificed."
+  algorithm: [
+        SUM:
+           [ '$2.013h <> [1,2,3]',
+             '$2.013i <> [1,2,3]',
+             '$2.013j <> [1,2,3]',
+        ],
+      ]
+
+
+BDSGrp:
+    explanation: "Number of symptome groups"
+    algorithm: [
+        SUM: [
+          OR: ['$@CP.arou >= 3',
+               '$2.014 = 2',
+                ],
+          OR: ['$@GI.arou >= 3',
+               '$2.013 = 2',
+              ],
+          OR: ['$@MSPainsyn >= 3',
+               '$2.011 = 2',
+                ],
+          OR: ['$@GEN.symp >= 3',
+               '$2.010 = 2',
+                ],
+          OR: ['$@BDSanysymp >= 4',
+               '$@BDSanysympa.Counter >= 3',
+                ],
+        ],
+      ]
+
+BDSanysymp:
+    explanation: "Counter any BodDis symptoms"
+    algorithm: [
+        SUM: [
+          '$@CP.arou',
+          '$@GI.arou',
+          '$@MSPainsyn',
+          '$@GEN.symp',
+        ],
+      ]
+
+BDSanysympa.Counter:
+    explanation: "Counter any BodDis symptoms, with alternative rating"
+    algorithm: [
+        SUM: [
+          '$2.010',
+          '$2.011',
+          '$2.012',
+          '$2.013',
+          '$2.014',
+        ],
+      ]
+
+
+GEN.symp:
+    explanation: "Counter general symptoms"
+    algorithm: [
+        SUM: [
+          '$2.010e = [1,2,3]',
+          '$2.010f = [1,2,3]',
+          '$@Fatiqe <> 0',
+        OR: [
+            '$7.002 = [1,2,3]',
+            '$2.010d = [1,2,3]',
+          ],
+          '$2.010c = [1,2,3]',
+        ],
+      ]
+
+
+Fatiqe:
+    explanation: "Counter fatiq "
+    algorithm: [
+        SUM: [
+          '$3.007 = [1,2,3]',
+          '$7.006 = [1,2,3]',
+          '$2.010b = [1,2,3]',
+              ],
+      ]
+
+
+MSPainsyn:
+  explanation: "Counter musculoskeletal symptomer"
+  algorithm: [
+      SUM: [
+        '$2.011a = [1,2,3]',
+        '$2.011b = [1,2,3]',
+        '$2.011c = [1,2,3]',
+        '$2.010d = [1,2,3]',
+        '$2.011e = [1,2,3]',
+        '$2.011f = [1,2,3]',
+        '$2.011g = [1,2,3]',
+      ],
+    ]
+
+WSPain:
+  explanation: "Counter Widespreed pain"
+  algorithm: [
+      SUM: [
+        '$2.011a = [1,2,3]',
+        '$2.011b = [1,2,3]',
+        '$2.011c = [1,2,3]',
+        '$2.011d = [1,2,3]',
+        '$2.011e = [1,2,3]',
+        '$2.011h = [1,2,3]',
+        '$2.024 = [1,2,3]',
+      ],
+    ]
+
+CP.arou:
+  explanation: "Counter cardiovascular arousal"
+  algorithm: [
+      SUM: [
+        '$2.014a = [1,2,3]',
+        '$2.014b = [1,2,3]',
+        '$2.014c = [1,2,3]',
+        '$2.014d = [1,2,3]',
+        '$2.014e = [1,2,3]',
+        '$2.014f = [1,2,3]',
+        '$2.014g = [1,2,3]',
+        '$2.014h = [1,2,3]',
+        '$2.014i = [1,2,3]',
+      ],
+    ]
+
+GI.arou:
+  explanation: "Counter gastrointestinal arousal"
+  algorithm: [
+      SUM: [
+        '$2.012a = [1,2,3]',
+        '$2.012b = [1,2,3]',
+        '$2.013b = [1,2,3]',
+        '$2.013c = [1,2,3]',
+        '$2.013d = [1,2,3]',
+        '$2.013e = [1,2,3]',
+        '$2.013f = [1,2,3]',
+        '$2.013g = [1,2,3]',
+      ],
+    ]
+
+HeaAnxB:
+  explanation: ">= 1 of the following symptoms: bodily preoccupation, fear for medication, etc."
+  algorithm: [
+    AND: [
+      '$@HeaAnxB.counter >= 1',
+    ],
+  ]
+
+HeaAnxB.counter:
+  explanation: "Number of criteria B HA Symptoms"
+  algorithm: [
+    SUM: [
+      '$2.042 = [1,2]',
+      OR: [
+          '$2.038 = [1,2]',
+          '$2.041 = [1,2]',
+          ],
+      '$2.044 = [1,2]',
+      '$2.044 = [1,2]',
+      '$2.045 = [1,2]',
+    ],
+  ]
+
+HeaAnxD:
+  explanation: "Other mental disorders excluded"
+  algorithm: [
+    AND: [
+      '$2.072 <> 3',
+      '$2.073 <> 3',
+      '$2.075 <> 3',
+      '$2.074 <> 1',
+    ],
+  ]
+
+
+HeaAnxF:
+  explanation: "Significant impairment due to health anxiety"
+  algorithm: [
+    OR: [
+      '$2.038 = 2',
+      '$2.039 = 2',
+      '$2.041 = 2',
+      '$2.042 = 2',
+      '$2.043 = 2',
+      '$2.044 = 2',
+      '$2.045 = 2',
+      '$2.052 = [2,3]',
+    ],
+  ]
+
+HeaAnxR:
+  explanation: "Obsessive rumination about illness"
+  algorithm: [
+    AND: [
+      '$2.039 = [1,2]',
+    ],
+  ]
+
+HeaAnxMld:
+  explanation: "Health Anxiety, mild"
+  algorithm: [
+    AND: [
+      '$!HeaAnxR',
+      '$!HeaAnxB',
+      '$!HeaAnxD',
+      '$!HeaAnxSev <> 1',
+    ],
+  ]
+
+HeaAnxMlda:
+  explanation: "Health Anxiety, mild without excl for other mental disorders"
+  algorithm: [
+    AND: [
+      '$!HeaAnxR',
+      '$!HeaAnxB',
+      '$!HeaAnxSeva <> 1',
+    ],
+  ]
+
+HeaAnxSev:
+  explanation: "Health Anxiety, severe"
+  algorithm: [
+    AND: [
+      '$!HeaAnxR',
+      '$!HeaAnxB',
+      '$!HeaAnxD',
+      '$!HeaAnxF',
+    ],
+  ]
+
+HeaAnxSeva:
+  explanation: "Health Anxiety, severe, without excl. for other mental disorders"
+  algorithm: [
+    AND: [
+      '$!HeaAnxR',
+      '$!HeaAnxB',
+      '$!HeaAnxF',
+    ],
+  ]
+
+  #ok. Er det muligt hvis PAINSYM positive at få 2.092 ud,som supplerende tekst?
+  #Altså hvis der feks. skrives 2.037 i 2.092 og PAINSYM er possitive så står der
+  #Idopatic/primary pain syndrome, Abdominal pain??
+PAINSYM:
+  explanation: "Idopatic/primary pain syndrome"
+  algorithm: [
+      AND: [
+        '$2.030 = [2,3]',
+        '$2.031 = [2,3]',
+        '$2.033 >= 6',
+        '$2.071 <> [3]',
+        '$2.072 <> [3]',
+        '$2.073 <> [3]',
+        '$2.074 <> [3]',
+        '$2.075 <> [3]',
+      ],
+    ]
+
+
+MCS:
+  explanation: "MCS, withou duration or general impairment rating"
+  algorithm: [
+    OR: [
+      '$2.027 = 1',
+      OR: [
+        '$2.027a = [2,3]',
+        '$2.027b = [2,3]',
+        AND: [
+          '$2.028 = [1]',
+        ],
+      ],
+      '$2.059 = [1,2]',
+    ],
+    '$2.031 = [2,3]',
+    '$2.033 >= 6',
+    '$2.071 <> [3]',
+  ]
+
+WAD:
+  explanation: "Whiplash, associated disorder (>=6 moths)"
+  algorithm: [
+  AND: [
+    '$2.011i = [2,3]',
+    '$2.031 = [2,3]',
+    '$2.033 >= 6',
+  ]
+  ]
