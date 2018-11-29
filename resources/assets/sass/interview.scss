@@ -143,6 +143,10 @@ $grey-lighter: #eee;
   }
 }
 
+.interview-algorithms-evaluator-list-matched {
+  color: #64ad64;
+}
+
 .interview-algorithms-evaluator-list-matched-prio1 {
   color: #64ad64;
 }
@@ -153,6 +157,10 @@ $grey-lighter: #eee;
 
 .interview-algorithms-evaluator-list-matched-prio3 {
   color: #64ad64;
+}
+
+.interview-algorithms-evaluator-list-not-matched {
+  color: #d44b4b;
 }
 
 .interview-algorithms-evaluator-list-not-matched-prio1 {

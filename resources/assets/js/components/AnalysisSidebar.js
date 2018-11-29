@@ -14,6 +14,8 @@ class AnalysisModal extends Component {
   state = {
     showAnalysis: false,
     evaluated: [],
+    matched: [],
+    notMatched: [],
     matchedPrio1: [],
     matchedPrio2: [],
     matchedPrio3: [],
@@ -21,7 +23,8 @@ class AnalysisModal extends Component {
     notMatchedPrio2: [],
     notMatchedPrio3: [],
     algorithmSets: [],
-    selectedAlgorithmSet: {}
+    selectedAlgorithmSet: {},
+    showRequirementsList: [],
   };
 
   getAlgorithmSets = () => {
@@ -58,8 +61,72 @@ class AnalysisModal extends Component {
     }
   };
 
-  getRequiredDiagnoses = (id) => {
+  generateMatchedAlgorithms = (matched, index) => {
+    let className, source, tempSource, sourceKeys;
+    if (matched === 'matched') {
+      tempSource = this.state['matchedPrio' + index];
+      sourceKeys = Object.keys(tempSource);
+      source = sourceKeys.map(key => {
+        const diagnosis = Object.assign({}, tempSource[key]);
+        this.enhanceDiagnosis(diagnosis);
+        return diagnosis;
+      });
+      className = 'interview-algorithms-evaluator-list-matched-prio' + index.toString();
+    }
+    else if (matched === 'notMatched') {
+      tempSource = this.state['notMatchedPrio' + index];
+      sourceKeys = Object.keys(tempSource);
+      source = sourceKeys.map(key => {
+        const diagnosis = Object.assign({}, tempSource[key]);
+        this.enhanceDiagnosis(diagnosis);
+        return diagnosis;
+      });
+      className = 'interview-algorithms-evaluator-list-not-matched-prio' + index.toString();
+    }
+    this.enhanceDiagnosis(source);
+    return (
+      Object.keys(source).map(key => {
+        return (
+          <div
+            key={key}
+            className={className}
+            onClick={this.onClick(source = source, matched = matched, index = index, key = key)}
+          >
+            <b>{source[key].key}</b>
+            <div>{source[key].explanation}</div>
+            {source[key].showRequirements &&
+              <div>Show Requirements</div>
+            }
+          </div>
+        )
+      })
+    )
+  }
 
+  onClick = (source, matched, index, key) => () => {
+    source.showRequirements = true;
+  }
+
+  enhanceDiagnoses = (diagnoses) => {
+
+  }
+
+  enhanceDiagnosis = (diagnosis) => {
+    diagnosis.showRequirements = false;
+    diagnosis.requirements = {};
+  }
+
+  addRequirements = (diagnosis, showRequirements) => {
+    if (showRequirements) {
+      return this.getRequiredDiagnoses(diagnosis);
+    }
+    else {
+      return {};
+    }
+  }
+
+  getRequiredDiagnoses = (algorithms, id) => {
+    return algorithms.algorithms.get(id).algorithm.children;
   }
 
   render() {
@@ -67,31 +134,46 @@ class AnalysisModal extends Component {
     const responses = this.props.interview.responses;
     let validResponses = Object.assign({}, responses);
     let invalidResponsesInResponses = [];
+    // Discard the invalid responses
+    invalidResponseItems.map(key => {
+      if (responses[key]) {
+        invalidResponsesInResponses.push(key);
+        delete validResponses[key];
+      }
+    })
+    if (invalidResponsesInResponses.length) {
+      let keys = '';
+      invalidResponsesInResponses.map(key => (
+        keys = keys + ' ' + key))
+      window.alert('The following items has invalid answers, and will not be included in the diagnoses: ' + keys)
+    }
+    let algorithms;
+    if (this.state.selectedAlgorithmSet.algorithms) {
+      algorithms = Algorithms.run(
+        validResponses,
+        this.state.selectedAlgorithmSet.algorithms
+      );
+    }
+
+    // if (algorithms) {
+    //   console.log('Enhanced algorithms')
+    //   let enhancedDiagnosesKeys = Object.keys(algorithms.matchedPrio3)
+    //   let enhancedDiagnoses = enhancedDiagnosesKeys.map(key => {
+    //     const diagnosis = Object.assign({}, algorithms.matchedPrio3[key]);
+    //     this.enhanceDiagnosis(diagnosis);
+    //     return diagnosis;
+    //   })
+    //   console.log(enhancedDiagnoses)
+
+    //   let matchedPrio1, matchedPrio2, matchedPrio3, notMatchedPrio1, notMatchedPrio2, notMatchedPrio3;
+
+    // }
+
+
     return (
-      <div className="interview-algorithms">
+      <div className="interview-algorithms" >
         <button
           onClick={() => {
-
-            // Discard the invalid responses
-            invalidResponseItems.map(key => {
-              if (responses[key]) {
-                invalidResponsesInResponses.push(key);
-                delete validResponses[key];
-              }
-            })
-            if (invalidResponsesInResponses.length) {
-              let keys = '';
-              invalidResponsesInResponses.map(key => (
-                keys = keys + ' ' + key))
-              window.alert('The following items has invalid answers, and will not be included in the diagnoses: ' + keys)
-            }
-
-            const algorithms = Algorithms.run(
-              validResponses,
-              this.state.selectedAlgorithmSet.algorithms
-            );
-            console.log('Checking data from algorithms:');
-            console.log(algorithms.algorithms.get('F44').algorithm.children);
             this.setState({
               evaluated: algorithms.evaluated,
               matchedPrio1: algorithms.matchedPrio1,
@@ -119,89 +201,17 @@ class AnalysisModal extends Component {
         </select>
         <div className="interview-algorithms-evaluator-list">
           <h4>Matched Algorithms (first priority)</h4>
-          {Object.keys(this.state.matchedPrio1).map(key => {
-            return (
-              <div
-                onClick={() => {
-                  algorithms.algorithms.get('F44').algorithm.children.map(expression => (
-                    <div>
-                      {expression}
-                    </div>
-                  ))
-                }}
-                key={key}
-                className="interview-algorithms-evaluator-list-matched-prio1"
-              >
-                <b>{key}</b>
-                <div>{this.state.matchedPrio1[key].explanation}</div>
-              </div>
-            );
-          })}
+          {this.generateMatchedAlgorithms('matched', 1)}
           <h4>Matched Algorithms (second priority)</h4>
-          {Object.keys(this.state.matchedPrio2).map(key => {
-            return (
-              <div
-                onClick={() => { }}
-                key={key}
-                className="interview-algorithms-evaluator-list-matched-prio2"
-              >
-                <b>{key}</b>
-                <div>{this.state.matchedPrio2[key].explanation}</div>
-              </div>
-            );
-          })}
+          {this.generateMatchedAlgorithms('matched', 2)}
           <h4>Matched Algorithms (third priority)</h4>
-          {Object.keys(this.state.matchedPrio3).map(key => {
-            return (
-              <div
-                onClick={() => { }}
-                key={key}
-                className="interview-algorithms-evaluator-list-matched-prio3"
-              >
-                <b>{key}</b>
-                <div>{this.state.matchedPrio3[key].explanation}</div>
-              </div>
-            );
-          })}
+          {this.generateMatchedAlgorithms('matched', 3)}
           <h4>Not Matched Algorithms (first priority)</h4>
-          {Object.keys(this.state.notMatchedPrio1).map(key => {
-            return (
-              <div
-                onClick={() => { }}
-                key={key}
-                className="interview-algorithms-evaluator-list-not-matched-prio1"
-              >
-                <b>{key}</b>
-                <div>{this.state.notMatchedPrio1[key].explanation}</div>
-              </div>
-            );
-          })}
+          {this.generateMatchedAlgorithms('notMatched', 1)}
           <h4>Not Matched Algorithms (second priority)</h4>
-          {Object.keys(this.state.notMatchedPrio2).map(key => {
-            return (
-              <div
-                onClick={() => { }}
-                key={key}
-                className="interview-algorithms-evaluator-list-not-matched-prio2"
-              >
-                <b>{key}</b>
-                <div>{this.state.notMatchedPrio2[key].explanation}</div>
-              </div>
-            );
-          })}
+          {this.generateMatchedAlgorithms('notMatched', 2)}
           <h4>Not Matched Algorithms (third priority)</h4>
-          {Object.keys(this.state.notMatchedPrio3).map(key => {
-            return (
-              <div
-                onClick={() => { }}
-                key={key}
-                className="interview-algorithms-evaluator-list-not-matched-prio3"
-              >
-                <b>{key}</b>
-                <div>{this.state.notMatchedPrio3[key].explanation}</div>
-              </div>
-            );
-          })}
+          {this.generateMatchedAlgorithms('notMatched', 3)}
         </div>
       </div>
     );

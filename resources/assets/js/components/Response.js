@@ -438,17 +438,17 @@ class Response extends React.Component {
     const showAnalysis = settings.showAnalysis;
 
     // For debugging only
-    console.log('currentPos: ' + currentPos);
-    console.log('sliderMin: ' + this.state.sliderMin);
-    console.log('sliderMax: ' + this.state.sliderMax);
-    console.log('response: ' + 'type = ' + typeof (response) + ', value = ' + response);
-    console.log('hasSlider: ' + this.state.hasSlider);
-    console.log('sliderValue: ' + 'type = ' + typeof (sliderValue) + ', value = ' + sliderValue);
-    console.log('showDescription: ' + this.state.showDescription);
-    console.log('Options:');
-    console.log(Options || 'No Options');
-    console.log('Dropdown value');
-    console.log(this.state.dropdownValue || 'No dropdownvalue');
+    // console.log('currentPos: ' + currentPos);
+    // console.log('sliderMin: ' + this.state.sliderMin);
+    // console.log('sliderMax: ' + this.state.sliderMax);
+    // console.log('response: ' + 'type = ' + typeof (response) + ', value = ' + response);
+    // console.log('hasSlider: ' + this.state.hasSlider);
+    // console.log('sliderValue: ' + 'type = ' + typeof (sliderValue) + ', value = ' + sliderValue);
+    // console.log('showDescription: ' + this.state.showDescription);
+    // console.log('Options:');
+    // console.log(Options || 'No Options');
+    // console.log('Dropdown value');
+    // console.log(this.state.dropdownValue || 'No dropdownvalue');
 
     // Returns the specific interview item.
     return (
