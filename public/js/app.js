@@ -70029,15 +70029,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(22);
 
-var _ClickOutside = __webpack_require__(318);
-
 var _Algorithms = __webpack_require__(140);
 
 var _Algorithms2 = _interopRequireDefault(_Algorithms);
-
-var _section2Icd10En = __webpack_require__(323);
-
-var _section2Icd10En2 = _interopRequireDefault(_section2Icd10En);
 
 var _jsYaml = __webpack_require__(324);
 
@@ -70072,17 +70066,17 @@ var AnalysisModal = function (_Component) {
       notMatchedPrio1: [],
       notMatchedPrio2: [],
       notMatchedPrio3: [],
-      algorithmSets: [],
-      selectedAlgorithmSet: {},
+      diagnosisSets: [],
+      selectedDiagnosisSet: {},
       showRequirementsList: []
     };
 
-    _this.getAlgorithmSets = function () {
+    _this.getDiagnosisSets = function () {
       window.axios.get('/algorithms.json').then(function (response) {
         _this.setState({
-          algorithmSets: response.data
+          diagnosisSets: response.data
         });
-        _this.parseAlgorithms(response.data[0].id);
+        _this.parseDiagnoses(response.data[0].id);
       }).catch(function (error) {
         return console.error(error);
       });
@@ -70090,18 +70084,18 @@ var AnalysisModal = function (_Component) {
 
     _this.handleSelectChange = function (event) {
       var id = parseInt(event.target.value, 10);
-      _this.parseAlgorithms(id);
+      _this.parseDiagnoses(id);
     };
 
-    _this.parseAlgorithms = function (id) {
-      var selectedAlgorithmSet = _this.state.algorithmSets.find(function (set) {
+    _this.parseDiagnoses = function (id) {
+      var selectedDiagnosisSet = _this.state.diagnosisSets.find(function (set) {
         return set.id === id;
       });
       try {
-        var parsed = _jsYaml2.default.load(selectedAlgorithmSet.algorithms);
+        var parsed = _jsYaml2.default.load(selectedDiagnosisSet.algorithms);
         _this.setState({
-          selectedAlgorithmSet: {
-            title: selectedAlgorithmSet.title,
+          selectedDiagnosisSet: {
+            title: selectedDiagnosisSet.title,
             algorithms: parsed
           }
         });
@@ -70123,9 +70117,9 @@ var AnalysisModal = function (_Component) {
     _this.showMatchedDiagnoses = function (diagnoses, matched, index) {
       var className = void 0;
       if (matched === 'matched') {
-        className = 'interview-algorithms-evaluator-list-matched-prio' + index.toString();
+        className = 'interview-diagnoses-evaluator-list-matched-prio' + index.toString();
       } else {
-        className = 'interview-algorithms-evaluator-list-not-matched-prio' + index.toString();
+        className = 'interview-diagnoses-evaluator-list-not-matched-prio' + index.toString();
       }
       return Object.keys(diagnoses).map(function (key) {
         return _react2.default.createElement(
@@ -70152,7 +70146,7 @@ var AnalysisModal = function (_Component) {
               console.log(diagnoses[key].algorithm.operator);
               return _react2.default.createElement(
                 'div',
-                { key: req.id, className: 'interview-algorithms-subcriterion' },
+                { key: req.id, className: 'interview-diagnoses-subcriterion' },
                 req.expression
               );
             })
@@ -70178,7 +70172,7 @@ var AnalysisModal = function (_Component) {
       return diagnosis.algorithm.children;
     };
 
-    _this.getAlgorithmSets();
+    _this.getDiagnosisSets();
     return _this;
   }
 
@@ -70193,7 +70187,7 @@ var AnalysisModal = function (_Component) {
   //       this.enhanceDiagnosis(diagnosis);
   //       return diagnosis;
   //     });
-  //     className = 'interview-algorithms-evaluator-list-matched-prio' + index.toString();
+  //     className = 'interview-diagnoses-evaluator-list-matched-prio' + index.toString();
   //   }
   //   else if (matched === 'notMatched') {
   //     tempSource = this.state['notMatchedPrio' + index];
@@ -70203,7 +70197,7 @@ var AnalysisModal = function (_Component) {
   //       this.enhanceDiagnosis(diagnosis);
   //       return diagnosis;
   //     });
-  //     className = 'interview-algorithms-evaluator-list-not-matched-prio' + index.toString();
+  //     className = 'interview-diagnoses-evaluator-list-not-matched-prio' + index.toString();
   //   }
   //   this.enhanceDiagnosis(source);
   //   return (
@@ -70248,9 +70242,9 @@ var AnalysisModal = function (_Component) {
         });
         window.alert('The following items has invalid answers, and will not be included in the diagnoses: ' + keys);
       }
-      var algorithms = void 0;
-      if (this.state.selectedAlgorithmSet.algorithms) {
-        algorithms = _Algorithms2.default.run(validResponses, this.state.selectedAlgorithmSet.algorithms);
+      var diagnoses = void 0;
+      if (this.state.selectedDiagnosisSet.algorithms) {
+        diagnoses = _Algorithms2.default.run(validResponses, this.state.selectedDiagnosisSet.algorithms);
       }
 
       // if (algorithms) {
@@ -70270,24 +70264,24 @@ var AnalysisModal = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'interview-algorithms' },
+        { className: 'interview-diagnoses' },
         _react2.default.createElement(
           'button',
           {
             onClick: function onClick() {
               _this2.setState({
-                evaluated: algorithms.evaluated,
-                matchedPrio1: _this2.generateEnhancedDiagnoses(algorithms.matchedPrio1),
-                matchedPrio2: _this2.generateEnhancedDiagnoses(algorithms.matchedPrio2),
-                matchedPrio3: _this2.generateEnhancedDiagnoses(algorithms.matchedPrio3),
-                notMatchedPrio1: _this2.generateEnhancedDiagnoses(algorithms.notMatchedPrio1),
-                notMatchedPrio2: _this2.generateEnhancedDiagnoses(algorithms.notMatchedPrio1),
-                notMatchedPrio3: _this2.generateEnhancedDiagnoses(algorithms.notMatchedPrio1)
+                evaluated: diagnoses.evaluated,
+                matchedPrio1: _this2.generateEnhancedDiagnoses(diagnoses.matchedPrio1),
+                matchedPrio2: _this2.generateEnhancedDiagnoses(diagnoses.matchedPrio2),
+                matchedPrio3: _this2.generateEnhancedDiagnoses(diagnoses.matchedPrio3),
+                notMatchedPrio1: _this2.generateEnhancedDiagnoses(diagnoses.notMatchedPrio1),
+                notMatchedPrio2: _this2.generateEnhancedDiagnoses(diagnoses.notMatchedPrio1),
+                notMatchedPrio3: _this2.generateEnhancedDiagnoses(diagnoses.notMatchedPrio1)
               });
             },
             className: 'button'
           },
-          'Run Algorithms'
+          'Run Diagnosess'
         ),
         _react2.default.createElement(
           'select',
@@ -70296,51 +70290,51 @@ var AnalysisModal = function (_Component) {
             onChange: this.handleSelectChange,
             style: { backgroundColor: 'white' }
           },
-          this.state.algorithmSets.map(function (algorithmSet) {
+          this.state.diagnosisSets.map(function (diagnosisSet) {
             return _react2.default.createElement(
               'option',
-              { key: algorithmSet.id, value: algorithmSet.id },
-              algorithmSet.title
+              { key: diagnosisSet.id, value: diagnosisSet.id },
+              diagnosisSet.title
             );
           })
         ),
-        algorithms && _react2.default.createElement(
+        diagnoses && _react2.default.createElement(
           'div',
-          { className: 'interview-algorithms-evaluator-list' },
+          { className: 'interview-diagnoses-evaluator-list' },
           _react2.default.createElement(
             'h4',
             null,
-            'Matched Algorithms (first priority)'
+            'Matched Diagnoses (first priority)'
           ),
           this.showMatchedDiagnoses(this.state.matchedPrio1, 'matched', 1),
           _react2.default.createElement(
             'h4',
             null,
-            'Matched Algorithms (second priority)'
+            'Matched Diagnoses (second priority)'
           ),
           this.showMatchedDiagnoses(this.state.matchedPrio2, 'matched', 2),
           _react2.default.createElement(
             'h4',
             null,
-            'Matched Algorithms (third priority)'
+            'Matched Diagnoses (third priority)'
           ),
           this.showMatchedDiagnoses(this.state.matchedPrio3, 'matched', 3),
           _react2.default.createElement(
             'h4',
             null,
-            'Not Matched Algorithms (first priority)'
+            'Not Matched Diagnoses (first priority)'
           ),
           this.showMatchedDiagnoses(this.state.notMatchedPrio1, 'notMatched', 1),
           _react2.default.createElement(
             'h4',
             null,
-            'Not Matched Algorithms (second priority)'
+            'Not Matched Diagnoses (second priority)'
           ),
           this.showMatchedDiagnoses(this.state.notMatchedPrio2, 'notMatched', 2),
           _react2.default.createElement(
             'h4',
             null,
-            'Not Matched Algorithms (third priority)'
+            'Not Matched Diagnoses (third priority)'
           ),
           this.showMatchedDiagnoses(this.state.notMatchedPrio3, 'notMatched', 3)
         )

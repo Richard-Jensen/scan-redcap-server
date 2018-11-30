@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ClickOutside } from './ClickOutside';
 import Algorithms from '../data/Algorithms';
-import icd10 from '../items/3.0/section.2.icd10.en.json';
 import jsyaml from 'js-yaml';
 
 class AnalysisModal extends Component {
   constructor(props) {
     super(props);
-    this.getAlgorithmSets();
+    this.getDiagnosisSets();
   }
 
   state = {
@@ -22,37 +20,37 @@ class AnalysisModal extends Component {
     notMatchedPrio1: [],
     notMatchedPrio2: [],
     notMatchedPrio3: [],
-    algorithmSets: [],
-    selectedAlgorithmSet: {},
+    diagnosisSets: [],
+    selectedDiagnosisSet: {},
     showRequirementsList: [],
   };
 
-  getAlgorithmSets = () => {
+  getDiagnosisSets = () => {
     window.axios
       .get('/algorithms.json')
       .then(response => {
         this.setState({
-          algorithmSets: response.data
+          diagnosisSets: response.data
         });
-        this.parseAlgorithms(response.data[0].id);
+        this.parseDiagnoses(response.data[0].id);
       })
       .catch(error => console.error(error));
   };
 
   handleSelectChange = event => {
     const id = parseInt(event.target.value, 10);
-    this.parseAlgorithms(id);
+    this.parseDiagnoses(id);
   };
 
-  parseAlgorithms = id => {
-    const selectedAlgorithmSet = this.state.algorithmSets.find(
+  parseDiagnoses = id => {
+    const selectedDiagnosisSet = this.state.diagnosisSets.find(
       set => set.id === id
     );
     try {
-      const parsed = jsyaml.load(selectedAlgorithmSet.algorithms);
+      const parsed = jsyaml.load(selectedDiagnosisSet.algorithms);
       this.setState({
-        selectedAlgorithmSet: {
-          title: selectedAlgorithmSet.title,
+        selectedDiagnosisSet: {
+          title: selectedDiagnosisSet.title,
           algorithms: parsed
         }
       });
@@ -72,7 +70,7 @@ class AnalysisModal extends Component {
   //       this.enhanceDiagnosis(diagnosis);
   //       return diagnosis;
   //     });
-  //     className = 'interview-algorithms-evaluator-list-matched-prio' + index.toString();
+  //     className = 'interview-diagnoses-evaluator-list-matched-prio' + index.toString();
   //   }
   //   else if (matched === 'notMatched') {
   //     tempSource = this.state['notMatchedPrio' + index];
@@ -82,7 +80,7 @@ class AnalysisModal extends Component {
   //       this.enhanceDiagnosis(diagnosis);
   //       return diagnosis;
   //     });
-  //     className = 'interview-algorithms-evaluator-list-not-matched-prio' + index.toString();
+  //     className = 'interview-diagnoses-evaluator-list-not-matched-prio' + index.toString();
   //   }
   //   this.enhanceDiagnosis(source);
   //   return (
@@ -117,10 +115,10 @@ class AnalysisModal extends Component {
   showMatchedDiagnoses = (diagnoses, matched, index) => {
     let className;
     if (matched === 'matched') {
-      className = 'interview-algorithms-evaluator-list-matched-prio' + index.toString();
+      className = 'interview-diagnoses-evaluator-list-matched-prio' + index.toString();
     }
     else {
-      className = 'interview-algorithms-evaluator-list-not-matched-prio' + index.toString();
+      className = 'interview-diagnoses-evaluator-list-not-matched-prio' + index.toString();
     }
     return (
       Object.keys(diagnoses).map(key => {
@@ -138,7 +136,7 @@ class AnalysisModal extends Component {
                   diagnoses[key].requirements.map(req => {
                     console.log(diagnoses[key].algorithm.operator)
                     return (
-                      <div key={req.id} className='interview-algorithms-subcriterion'>{req.expression}</div>
+                      <div key={req.id} className='interview-diagnoses-subcriterion'>{req.expression}</div>
                     )
                   })
                 }
@@ -185,11 +183,11 @@ class AnalysisModal extends Component {
         keys = keys + ' ' + key))
       window.alert('The following items has invalid answers, and will not be included in the diagnoses: ' + keys)
     }
-    let algorithms;
-    if (this.state.selectedAlgorithmSet.algorithms) {
-      algorithms = Algorithms.run(
+    let diagnoses;
+    if (this.state.selectedDiagnosisSet.algorithms) {
+      diagnoses = Algorithms.run(
         validResponses,
-        this.state.selectedAlgorithmSet.algorithms
+        this.state.selectedDiagnosisSet.algorithms
       );
     }
 
@@ -209,47 +207,47 @@ class AnalysisModal extends Component {
 
 
     return (
-      <div className="interview-algorithms" >
+      <div className="interview-diagnoses" >
         <button
           onClick={() => {
             this.setState({
-              evaluated: algorithms.evaluated,
-              matchedPrio1: this.generateEnhancedDiagnoses(algorithms.matchedPrio1),
-              matchedPrio2: this.generateEnhancedDiagnoses(algorithms.matchedPrio2),
-              matchedPrio3: this.generateEnhancedDiagnoses(algorithms.matchedPrio3),
-              notMatchedPrio1: this.generateEnhancedDiagnoses(algorithms.notMatchedPrio1),
-              notMatchedPrio2: this.generateEnhancedDiagnoses(algorithms.notMatchedPrio1),
-              notMatchedPrio3: this.generateEnhancedDiagnoses(algorithms.notMatchedPrio1),
+              evaluated: diagnoses.evaluated,
+              matchedPrio1: this.generateEnhancedDiagnoses(diagnoses.matchedPrio1),
+              matchedPrio2: this.generateEnhancedDiagnoses(diagnoses.matchedPrio2),
+              matchedPrio3: this.generateEnhancedDiagnoses(diagnoses.matchedPrio3),
+              notMatchedPrio1: this.generateEnhancedDiagnoses(diagnoses.notMatchedPrio1),
+              notMatchedPrio2: this.generateEnhancedDiagnoses(diagnoses.notMatchedPrio1),
+              notMatchedPrio3: this.generateEnhancedDiagnoses(diagnoses.notMatchedPrio1),
             });
           }}
           className="button"
         >
-          Run Algorithms
+          Run Diagnosess
       </button>
         <select
           value={this.state.value}
           onChange={this.handleSelectChange}
           style={{ backgroundColor: 'white' }}
         >
-          {this.state.algorithmSets.map(algorithmSet => (
-            <option key={algorithmSet.id} value={algorithmSet.id}>
-              {algorithmSet.title}
+          {this.state.diagnosisSets.map(diagnosisSet => (
+            <option key={diagnosisSet.id} value={diagnosisSet.id}>
+              {diagnosisSet.title}
             </option>
           ))}
         </select>
-        {algorithms &&
-          <div className="interview-algorithms-evaluator-list">
-            <h4>Matched Algorithms (first priority)</h4>
+        {diagnoses &&
+          <div className="interview-diagnoses-evaluator-list">
+            <h4>Matched Diagnoses (first priority)</h4>
             {this.showMatchedDiagnoses(this.state.matchedPrio1, 'matched', 1)}
-            <h4>Matched Algorithms (second priority)</h4>
+            <h4>Matched Diagnoses (second priority)</h4>
             {this.showMatchedDiagnoses(this.state.matchedPrio2, 'matched', 2)}
-            <h4>Matched Algorithms (third priority)</h4>
+            <h4>Matched Diagnoses (third priority)</h4>
             {this.showMatchedDiagnoses(this.state.matchedPrio3, 'matched', 3)}
-            <h4>Not Matched Algorithms (first priority)</h4>
+            <h4>Not Matched Diagnoses (first priority)</h4>
             {this.showMatchedDiagnoses(this.state.notMatchedPrio1, 'notMatched', 1)}
-            <h4>Not Matched Algorithms (second priority)</h4>
+            <h4>Not Matched Diagnoses (second priority)</h4>
             {this.showMatchedDiagnoses(this.state.notMatchedPrio2, 'notMatched', 2)}
-            <h4>Not Matched Algorithms (third priority)</h4>
+            <h4>Not Matched Diagnoses (third priority)</h4>
             {this.showMatchedDiagnoses(this.state.notMatchedPrio3, 'notMatched', 3)}
           </div>
         }
