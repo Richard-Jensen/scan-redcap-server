@@ -57,9 +57,6 @@ class ResponseSlider extends Component {
 
   render () {
     const { value } = this.props.value
-    console.log('Slider value from response slider: ')
-    console.log(this.props.value)
-    console.log(this.props.min)
     return (
       <div className='responseSlider'>
       <Slider

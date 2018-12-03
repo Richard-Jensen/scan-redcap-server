@@ -123,29 +123,71 @@ class AnalysisModal extends Component {
     return (
       Object.keys(diagnoses).map(key => {
         return (
-          <div
-            key={key}
-            className={className}
-            onClick={this.onClick(matched = matched, index = index, key = key)}
-          >
-            <b>{diagnoses[key].key}</b>
-            <div>{diagnoses[key].explanation}</div>
+          <div key={key}>
+            <div
+              key={key}
+              className={className}
+              onClick={this.onClick(matched = matched, index = index, key = key)}
+            >
+              <b>{diagnoses[key].key}</b>
+              <div>{diagnoses[key].explanation}</div>
+            </div>
             {diagnoses[key].showRequirements &&
-              <div>
-                {
-                  diagnoses[key].requirements.map(req => {
-                    console.log(diagnoses[key].algorithm.operator)
-                    return (
-                      <div key={req.id} className='interview-diagnoses-subcriterion'>{req.expression}</div>
-                    )
-                  })
-                }
-              </div>
+              this.showSubDiagnoses(diagnoses[key])
             }
           </div>
         )
       })
     )
+  }
+
+  showSubDiagnoses = (diagnosis) => {
+    if (diagnosis.showRequirements) {
+      if (diagnosis.requirements) {
+        console.log(diagnosis)
+        return (
+          <div key={diagnosis.id}>
+            <div>{diagnosis.algorithm.operator}</div>
+            <div style={{   }}>
+              {diagnosis.requirements.map(req => {
+                return this.showSubDiagnoses(req, req.showRequirements);
+              })}
+            </div>
+          </div>
+        )
+      }
+      else {
+        diagnosis.requirements = this.getRequiredDiagnoses(diagnosis);
+        return this.showSubDiagnoses(diagnosis, diagnosis.showRequirements)
+      }
+    }
+    else {
+      console.log(diagnosis)
+      if (diagnosis.children) {
+        return (
+          <div>
+            <div>{diagnosis.operator}</div>
+            {diagnosis.children.map(child => {
+              return this.showSubDiagnoses(child, child.showRequirements);
+            })}
+          </div>
+        )
+      }
+      else if (diagnosis.expression) {
+        return (
+          <div key={diagnosis.expression} className='interview-diagnoses-expression'>
+            {diagnosis.expression}
+          </div>
+        )
+      }
+      else {
+        return (
+          <div key={diagnosis.operator} className='interview-diagnoses-operator'>
+            {diagnosis.operator}
+          </div>
+        )
+      }
+    }
   }
 
   onClick = (matched, index, key) => () => {
@@ -158,11 +200,15 @@ class AnalysisModal extends Component {
 
   enhanceDiagnosis = (diagnosis) => {
     diagnosis.showRequirements = false;
-    diagnosis.requirements = diagnosis.algorithm ? this.getRequiredDiagnoses(diagnosis) : {};
+    diagnosis.requirements = false;
   }
-  
+
   getRequiredDiagnoses = (diagnosis) => {
-    return diagnosis.algorithm.children;
+    if (diagnosis.algorithm) {
+      let children = diagnosis.algorithm.children;
+      this.generateEnhancedDiagnoses(children);
+      return children;
+    }
   }
 
   render() {

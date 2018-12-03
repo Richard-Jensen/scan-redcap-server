@@ -931,9 +931,14 @@ img {
   color: #d44b4b;
 }
 
-.interview-diagnoses-subcriterion {
+.interview-diagnoses-expression {
   color: #6c3483;
-  font-size: 12px;
+  font-size: 14px;
+}
+
+.interview-diagnoses-operator {
+  color: #8B3413;
+  font-size: 14px;
 }
 
 .search-portal {
