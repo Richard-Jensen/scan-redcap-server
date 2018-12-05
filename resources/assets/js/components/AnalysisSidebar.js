@@ -96,7 +96,7 @@ class AnalysisModal extends Component {
             <div>{diagnosis.algorithm.operator}</div>
             <div className='interview-diagnoses-subdiagnoses'>
               {diagnosis.requirements.map(req => {
-                let index = diagnosis.requirements.indexOf(req);
+                let index = diagnosis.requirements.indexOf(req)
                 let newPath = Object.assign([], path);
                 newPath.push({ key: index, type: 'requirements' })
                 return this.showSubDiagnoses(req, newPath);
@@ -128,16 +128,9 @@ class AnalysisModal extends Component {
       }
       else if (diagnosis.expression) {
         diagnosis.path = path;
-        console.log('Path:')
-        console.log(path)
         let currentDiagnosis = this.state[path[0].type][parseInt(path[0].key, 10)].algorithm.children[path[1].key];
 
         let test = this.state[path[0].type][parseInt(path[0].key, 10)];     
-        path.map(entry => {
-          console.log(test)
-        })
-        console.log('Current Diagnosis')
-        console.log(currentDiagnosis)
         let expression = diagnosis.expression;
         while (expression.charAt(0) === '$' || expression.charAt(0) === '@' || expression.charAt(0) === '!') {
           expression = expression.substr(1);

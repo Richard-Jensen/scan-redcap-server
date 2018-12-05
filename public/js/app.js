@@ -35521,8 +35521,7 @@ var Scan = function (_Component) {
           'div',
           { className: 'scan-app-top-bar' },
           _react2.default.createElement(_SearchItems.SearchItems, null),
-          _react2.default.createElement(_Settings.Settings, null),
-          _react2.default.createElement(_ResetInterview2.default, null)
+          _react2.default.createElement(_Settings.Settings, null)
         ),
         _react2.default.createElement(
           'div',
@@ -69465,16 +69464,9 @@ var AnalysisModal = function (_Component) {
           );
         } else if (diagnosis.expression) {
           diagnosis.path = path;
-          console.log('Path:');
-          console.log(path);
           var currentDiagnosis = _this.state[path[0].type][parseInt(path[0].key, 10)].algorithm.children[path[1].key];
 
           var test = _this.state[path[0].type][parseInt(path[0].key, 10)];
-          path.map(function (entry) {
-            console.log(test);
-          });
-          console.log('Current Diagnosis');
-          console.log(currentDiagnosis);
           var expression = diagnosis.expression;
           while (expression.charAt(0) === '$' || expression.charAt(0) === '@' || expression.charAt(0) === '!') {
             expression = expression.substr(1);
@@ -69830,7 +69822,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var initialState = {
   showGlossary: true,
   showItemNotes: true,
-  showAnalysis: true
+  showAnalysis: false
 };
 
 var settings = function settings() {

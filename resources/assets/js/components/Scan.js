@@ -59,7 +59,6 @@ class Scan extends Component {
         <div className="scan-app-top-bar">
           <SearchItems />
           <Settings />
-          <ResetInterview />
         </div>
         <div className="scan-app-main">
           <div className="interview-list">
