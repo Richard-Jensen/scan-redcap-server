@@ -418,11 +418,10 @@ F45.2ABC:
             '$16.011 = [2,3]',
             '$2.053 = 1',
           ],
-          '$2.038 = 1',
           '$2.046 = [2,3]',
           '$2.051 >= 6',
-        ]
-      ]
+      ],
+    ]
 
 F45.2D:
   explanation: "Does not meet criteria for F2 disorders orF3 disorders"

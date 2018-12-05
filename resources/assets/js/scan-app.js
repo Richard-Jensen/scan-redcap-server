@@ -13,7 +13,7 @@ store.subscribe(
     const state = store.getState();
     localStorage.setItem(state.interview.id, JSON.stringify(state.interview));
     saveInterview(state.interview.id, state.interview);
-  }, 1000)
+  }, 1)
 );
 
 ReactDOM.render(

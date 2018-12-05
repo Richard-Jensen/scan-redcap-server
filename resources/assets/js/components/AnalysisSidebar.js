@@ -59,59 +59,6 @@ class AnalysisModal extends Component {
     }
   };
 
-  // Old method for generating algorithms
-  // generateMatchedAlgorithms = (matched, index) => {
-  //   let className, source, tempSource, sourceKeys;
-  //   if (matched === 'matched') {
-  //     tempSource = this.state['matchedPrio' + index];
-  //     sourceKeys = Object.keys(tempSource);
-  //     source = sourceKeys.map(key => {
-  //       const diagnosis = Object.assign({}, tempSource[key]);
-  //       this.enhanceDiagnosis(diagnosis);
-  //       return diagnosis;
-  //     });
-  //     className = 'interview-diagnoses-evaluator-list-matched-prio' + index.toString();
-  //   }
-  //   else if (matched === 'notMatched') {
-  //     tempSource = this.state['notMatchedPrio' + index];
-  //     sourceKeys = Object.keys(tempSource);
-  //     source = sourceKeys.map(key => {
-  //       const diagnosis = Object.assign({}, tempSource[key]);
-  //       this.enhanceDiagnosis(diagnosis);
-  //       return diagnosis;
-  //     });
-  //     className = 'interview-diagnoses-evaluator-list-not-matched-prio' + index.toString();
-  //   }
-  //   this.enhanceDiagnosis(source);
-  //   return (
-  //     Object.keys(source).map(key => {
-  //       return (
-  //         <div
-  //           key={key}
-  //           className={className}
-  //           onClick={this.onClick(source = source, matched = matched, index = index, key = key)}
-  //         >
-  //           <b>{source[key].key}</b>
-  //           <div>{source[key].explanation}</div>
-  //           {source[key].showRequirements &&
-  //             <div>Show Requirements</div>
-  //           }
-  //         </div>
-  //       )
-  //     })
-  //   )
-  // }
-
-  generateEnhancedDiagnoses = (diagnoses) => {
-    const diagnosesClone = Object.keys(diagnoses).map(key => {
-      const diagnosisClone = Object.assign({}, diagnoses[key]);
-      this.enhanceDiagnosis(diagnosisClone);
-      return diagnosisClone;
-    });
-    this.enhanceDiagnosis(diagnosesClone)
-    return diagnosesClone;
-  }
-
   showMatchedDiagnoses = (diagnoses, matched, index) => {
     let className;
     if (matched === 'matched') {
@@ -133,7 +80,7 @@ class AnalysisModal extends Component {
               <div>{diagnoses[key].explanation}</div>
             </div>
             {diagnoses[key].showRequirements &&
-              this.showSubDiagnoses(diagnoses[key])
+              this.showSubDiagnoses(diagnoses[key], [{ key: key, type: matched + 'Prio' + index }])
             }
           </div>
         )
@@ -141,16 +88,18 @@ class AnalysisModal extends Component {
     )
   }
 
-  showSubDiagnoses = (diagnosis) => {
+  showSubDiagnoses = (diagnosis, path) => {
     if (diagnosis.showRequirements) {
       if (diagnosis.requirements) {
-        console.log(diagnosis)
         return (
           <div key={diagnosis.id}>
             <div>{diagnosis.algorithm.operator}</div>
             <div className='interview-diagnoses-subdiagnoses'>
               {diagnosis.requirements.map(req => {
-                return this.showSubDiagnoses(req, req.showRequirements);
+                let index = diagnosis.requirements.indexOf(req);
+                let newPath = Object.assign([], path);
+                newPath.push({ key: index, type: 'requirements' })
+                return this.showSubDiagnoses(req, newPath);
               })}
             </div>
           </div>
@@ -158,37 +107,44 @@ class AnalysisModal extends Component {
       }
       else {
         diagnosis.requirements = this.getRequiredDiagnoses(diagnosis);
-        return this.showSubDiagnoses(diagnosis, diagnosis.showRequirements)
+        return this.showSubDiagnoses(diagnosis, path)
       }
     }
     else {
       if (diagnosis.children) {
         return (
-          <div>
+          <div key={diagnosis.operator}>
             <div>{diagnosis.operator}</div>
             <div className='interview-diagnoses-subdiagnoses'>
               {diagnosis.children.map(child => {
-                return this.showSubDiagnoses(child, child.showRequirements);
-              })}
+                let index = diagnosis.children.indexOf(child);
+                let newPath = Object.assign([], path);
+                newPath.push({ key: index, type: 'children' });
+                return this.showSubDiagnoses(child, newPath);
+                })}
             </div>
           </div>
         )
       }
       else if (diagnosis.expression) {
+        diagnosis.path = path;
+        console.log('Path:')
+        console.log(path)
+        let currentDiagnosis = this.state[path[0].type][parseInt(path[0].key, 10)].algorithm.children[path[1].key];
+
+        let test = this.state[path[0].type][parseInt(path[0].key, 10)];     
+        path.map(entry => {
+          console.log(test)
+        })
+        console.log('Current Diagnosis')
+        console.log(currentDiagnosis)
         let expression = diagnosis.expression;
-        while (expression.charAt(0) === '$' || expression.charAt(0) === '@') {
+        while (expression.charAt(0) === '$' || expression.charAt(0) === '@' || expression.charAt(0) === '!') {
           expression = expression.substr(1);
         }
         return (
           <div key={diagnosis.expression} className='interview-diagnoses-expression'>
             {expression}
-          </div>
-        )
-      }
-      else {
-        return (
-          <div key={diagnosis.operator} className='interview-diagnoses-operator'>
-            {diagnosis.operator}
           </div>
         )
       }
@@ -203,6 +159,15 @@ class AnalysisModal extends Component {
     })
   }
 
+  enhanceDiagnoses = (diagnoses) => {
+    const diagnosesClone = Object.keys(diagnoses).map(key => {
+      const diagnosisClone = Object.assign({}, diagnoses[key]);
+      this.enhanceDiagnosis(diagnosisClone, key);
+      return diagnosisClone;
+    });
+    return diagnosesClone;
+  }
+
   enhanceDiagnosis = (diagnosis) => {
     diagnosis.showRequirements = false;
     diagnosis.requirements = false;
@@ -211,7 +176,7 @@ class AnalysisModal extends Component {
   getRequiredDiagnoses = (diagnosis) => {
     if (diagnosis.algorithm) {
       let children = diagnosis.algorithm.children;
-      this.generateEnhancedDiagnoses(children);
+      this.enhanceDiagnoses(children);
       return children;
     }
   }
@@ -242,33 +207,18 @@ class AnalysisModal extends Component {
       );
     }
 
-    // if (algorithms) {
-    //   console.log('Enhanced algorithms')
-    //   let enhancedDiagnosesKeys = Object.keys(algorithms.matchedPrio3)
-    //   let enhancedDiagnoses = enhancedDiagnosesKeys.map(key => {
-    //     const diagnosis = Object.assign({}, algorithms.matchedPrio3[key]);
-    //     this.enhanceDiagnosis(diagnosis);
-    //     return diagnosis;
-    //   })
-    //   console.log(enhancedDiagnoses)
-
-    //   let matchedPrio1, matchedPrio2, matchedPrio3, notMatchedPrio1, notMatchedPrio2, notMatchedPrio3;
-
-    // }
-
-
     return (
       <div className="interview-diagnoses" >
         <button
           onClick={() => {
             this.setState({
               evaluated: diagnoses.evaluated,
-              matchedPrio1: this.generateEnhancedDiagnoses(diagnoses.matchedPrio1),
-              matchedPrio2: this.generateEnhancedDiagnoses(diagnoses.matchedPrio2),
-              matchedPrio3: this.generateEnhancedDiagnoses(diagnoses.matchedPrio3),
-              notMatchedPrio1: this.generateEnhancedDiagnoses(diagnoses.notMatchedPrio1),
-              notMatchedPrio2: this.generateEnhancedDiagnoses(diagnoses.notMatchedPrio1),
-              notMatchedPrio3: this.generateEnhancedDiagnoses(diagnoses.notMatchedPrio1),
+              matchedPrio1: this.enhanceDiagnoses(diagnoses.matchedPrio1),
+              matchedPrio2: this.enhanceDiagnoses(diagnoses.matchedPrio2),
+              matchedPrio3: this.enhanceDiagnoses(diagnoses.matchedPrio3),
+              notMatchedPrio1: this.enhanceDiagnoses(diagnoses.notMatchedPrio1),
+              notMatchedPrio2: this.enhanceDiagnoses(diagnoses.notMatchedPrio1),
+              notMatchedPrio3: this.enhanceDiagnoses(diagnoses.notMatchedPrio1),
             });
           }}
           className="button"

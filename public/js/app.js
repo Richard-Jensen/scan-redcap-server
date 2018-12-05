@@ -14410,7 +14410,7 @@ store.subscribe((0, _throttle2.default)(function () {
   var state = store.getState();
   localStorage.setItem(state.interview.id, JSON.stringify(state.interview));
   (0, _data.saveInterview)(state.interview.id, state.interview);
-}, 1000));
+}, 1));
 
 _reactDom2.default.render(_react2.default.createElement(
   _reactRedux.Provider,
@@ -58513,17 +58513,7 @@ var Response = function (_React$Component) {
               inputBox: _this.inputBox,
               ref: _this.dropdownMenu,
               responseContainer: _this
-            })
-            /*            <Dropdown
-                        key='dropdownMenu'
-                        activeKey={this.props.interview.activeKey}
-                        options={this.generateOptions(option.key.split('-')[0], option.key.split('-')[1])}
-                        inputBox={this.inputBox}
-                        ref={this.dropdownMenu}
-                        responseContainer={this}
-                        >
-                        </Dropdown>*/
-            ;
+            });
           } else {
             _this.state.hasSlider = true;
             return [option.text, _react2.default.createElement(_ResponseSlider2.default, {
@@ -69392,16 +69382,6 @@ var AnalysisModal = function (_Component) {
       }
     };
 
-    _this.generateEnhancedDiagnoses = function (diagnoses) {
-      var diagnosesClone = Object.keys(diagnoses).map(function (key) {
-        var diagnosisClone = Object.assign({}, diagnoses[key]);
-        _this.enhanceDiagnosis(diagnosisClone);
-        return diagnosisClone;
-      });
-      _this.enhanceDiagnosis(diagnosesClone);
-      return diagnosesClone;
-    };
-
     _this.showMatchedDiagnoses = function (diagnoses, matched, index) {
       var className = void 0;
       if (matched === 'matched') {
@@ -69431,15 +69411,14 @@ var AnalysisModal = function (_Component) {
               diagnoses[key].explanation
             )
           ),
-          diagnoses[key].showRequirements && _this.showSubDiagnoses(diagnoses[key])
+          diagnoses[key].showRequirements && _this.showSubDiagnoses(diagnoses[key], [{ key: key, type: matched + 'Prio' + index }])
         );
       });
     };
 
-    _this.showSubDiagnoses = function (diagnosis) {
+    _this.showSubDiagnoses = function (diagnosis, path) {
       if (diagnosis.showRequirements) {
         if (diagnosis.requirements) {
-          console.log(diagnosis);
           return _react2.default.createElement(
             'div',
             { key: diagnosis.id },
@@ -69452,19 +69431,22 @@ var AnalysisModal = function (_Component) {
               'div',
               { className: 'interview-diagnoses-subdiagnoses' },
               diagnosis.requirements.map(function (req) {
-                return _this.showSubDiagnoses(req, req.showRequirements);
+                var index = diagnosis.requirements.indexOf(req);
+                var newPath = Object.assign([], path);
+                newPath.push({ key: index, type: 'requirements' });
+                return _this.showSubDiagnoses(req, newPath);
               })
             )
           );
         } else {
           diagnosis.requirements = _this.getRequiredDiagnoses(diagnosis);
-          return _this.showSubDiagnoses(diagnosis, diagnosis.showRequirements);
+          return _this.showSubDiagnoses(diagnosis, path);
         }
       } else {
         if (diagnosis.children) {
           return _react2.default.createElement(
             'div',
-            null,
+            { key: diagnosis.operator },
             _react2.default.createElement(
               'div',
               null,
@@ -69474,25 +69456,33 @@ var AnalysisModal = function (_Component) {
               'div',
               { className: 'interview-diagnoses-subdiagnoses' },
               diagnosis.children.map(function (child) {
-                return _this.showSubDiagnoses(child, child.showRequirements);
+                var index = diagnosis.children.indexOf(child);
+                var newPath = Object.assign([], path);
+                newPath.push({ key: index, type: 'children' });
+                return _this.showSubDiagnoses(child, newPath);
               })
             )
           );
         } else if (diagnosis.expression) {
+          diagnosis.path = path;
+          console.log('Path:');
+          console.log(path);
+          var currentDiagnosis = _this.state[path[0].type][parseInt(path[0].key, 10)].algorithm.children[path[1].key];
+
+          var test = _this.state[path[0].type][parseInt(path[0].key, 10)];
+          path.map(function (entry) {
+            console.log(test);
+          });
+          console.log('Current Diagnosis');
+          console.log(currentDiagnosis);
           var expression = diagnosis.expression;
-          while (expression.charAt(0) === '$' || expression.charAt(0) === '@') {
+          while (expression.charAt(0) === '$' || expression.charAt(0) === '@' || expression.charAt(0) === '!') {
             expression = expression.substr(1);
           }
           return _react2.default.createElement(
             'div',
             { key: diagnosis.expression, className: 'interview-diagnoses-expression' },
             expression
-          );
-        } else {
-          return _react2.default.createElement(
-            'div',
-            { key: diagnosis.operator, className: 'interview-diagnoses-operator' },
-            diagnosis.operator
           );
         }
       }
@@ -69506,6 +69496,15 @@ var AnalysisModal = function (_Component) {
       };
     };
 
+    _this.enhanceDiagnoses = function (diagnoses) {
+      var diagnosesClone = Object.keys(diagnoses).map(function (key) {
+        var diagnosisClone = Object.assign({}, diagnoses[key]);
+        _this.enhanceDiagnosis(diagnosisClone, key);
+        return diagnosisClone;
+      });
+      return diagnosesClone;
+    };
+
     _this.enhanceDiagnosis = function (diagnosis) {
       diagnosis.showRequirements = false;
       diagnosis.requirements = false;
@@ -69514,7 +69513,7 @@ var AnalysisModal = function (_Component) {
     _this.getRequiredDiagnoses = function (diagnosis) {
       if (diagnosis.algorithm) {
         var children = diagnosis.algorithm.children;
-        _this.generateEnhancedDiagnoses(children);
+        _this.enhanceDiagnoses(children);
         return children;
       }
     };
@@ -69522,49 +69521,6 @@ var AnalysisModal = function (_Component) {
     _this.getDiagnosisSets();
     return _this;
   }
-
-  // Old method for generating algorithms
-  // generateMatchedAlgorithms = (matched, index) => {
-  //   let className, source, tempSource, sourceKeys;
-  //   if (matched === 'matched') {
-  //     tempSource = this.state['matchedPrio' + index];
-  //     sourceKeys = Object.keys(tempSource);
-  //     source = sourceKeys.map(key => {
-  //       const diagnosis = Object.assign({}, tempSource[key]);
-  //       this.enhanceDiagnosis(diagnosis);
-  //       return diagnosis;
-  //     });
-  //     className = 'interview-diagnoses-evaluator-list-matched-prio' + index.toString();
-  //   }
-  //   else if (matched === 'notMatched') {
-  //     tempSource = this.state['notMatchedPrio' + index];
-  //     sourceKeys = Object.keys(tempSource);
-  //     source = sourceKeys.map(key => {
-  //       const diagnosis = Object.assign({}, tempSource[key]);
-  //       this.enhanceDiagnosis(diagnosis);
-  //       return diagnosis;
-  //     });
-  //     className = 'interview-diagnoses-evaluator-list-not-matched-prio' + index.toString();
-  //   }
-  //   this.enhanceDiagnosis(source);
-  //   return (
-  //     Object.keys(source).map(key => {
-  //       return (
-  //         <div
-  //           key={key}
-  //           className={className}
-  //           onClick={this.onClick(source = source, matched = matched, index = index, key = key)}
-  //         >
-  //           <b>{source[key].key}</b>
-  //           <div>{source[key].explanation}</div>
-  //           {source[key].showRequirements &&
-  //             <div>Show Requirements</div>
-  //           }
-  //         </div>
-  //       )
-  //     })
-  //   )
-  // }
 
   _createClass(AnalysisModal, [{
     key: 'render',
@@ -69594,21 +69550,6 @@ var AnalysisModal = function (_Component) {
         diagnoses = _Algorithms2.default.run(validResponses, this.state.selectedDiagnosisSet.algorithms);
       }
 
-      // if (algorithms) {
-      //   console.log('Enhanced algorithms')
-      //   let enhancedDiagnosesKeys = Object.keys(algorithms.matchedPrio3)
-      //   let enhancedDiagnoses = enhancedDiagnosesKeys.map(key => {
-      //     const diagnosis = Object.assign({}, algorithms.matchedPrio3[key]);
-      //     this.enhanceDiagnosis(diagnosis);
-      //     return diagnosis;
-      //   })
-      //   console.log(enhancedDiagnoses)
-
-      //   let matchedPrio1, matchedPrio2, matchedPrio3, notMatchedPrio1, notMatchedPrio2, notMatchedPrio3;
-
-      // }
-
-
       return _react2.default.createElement(
         'div',
         { className: 'interview-diagnoses' },
@@ -69618,12 +69559,12 @@ var AnalysisModal = function (_Component) {
             onClick: function onClick() {
               _this2.setState({
                 evaluated: diagnoses.evaluated,
-                matchedPrio1: _this2.generateEnhancedDiagnoses(diagnoses.matchedPrio1),
-                matchedPrio2: _this2.generateEnhancedDiagnoses(diagnoses.matchedPrio2),
-                matchedPrio3: _this2.generateEnhancedDiagnoses(diagnoses.matchedPrio3),
-                notMatchedPrio1: _this2.generateEnhancedDiagnoses(diagnoses.notMatchedPrio1),
-                notMatchedPrio2: _this2.generateEnhancedDiagnoses(diagnoses.notMatchedPrio1),
-                notMatchedPrio3: _this2.generateEnhancedDiagnoses(diagnoses.notMatchedPrio1)
+                matchedPrio1: _this2.enhanceDiagnoses(diagnoses.matchedPrio1),
+                matchedPrio2: _this2.enhanceDiagnoses(diagnoses.matchedPrio2),
+                matchedPrio3: _this2.enhanceDiagnoses(diagnoses.matchedPrio3),
+                notMatchedPrio1: _this2.enhanceDiagnoses(diagnoses.notMatchedPrio1),
+                notMatchedPrio2: _this2.enhanceDiagnoses(diagnoses.notMatchedPrio1),
+                notMatchedPrio3: _this2.enhanceDiagnoses(diagnoses.notMatchedPrio1)
               });
             },
             className: 'button'
@@ -69889,7 +69830,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var initialState = {
   showGlossary: true,
   showItemNotes: true,
-  // For testing
   showAnalysis: true
 };
 

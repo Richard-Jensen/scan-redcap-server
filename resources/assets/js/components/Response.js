@@ -195,15 +195,6 @@ class Response extends React.Component {
               responseContainer={this}
             >
             </SelectResponse>
-            /*            <Dropdown
-                        key='dropdownMenu'
-                        activeKey={this.props.interview.activeKey}
-                        options={this.generateOptions(option.key.split('-')[0], option.key.split('-')[1])}
-                        inputBox={this.inputBox}
-                        ref={this.dropdownMenu}
-                        responseContainer={this}
-                        >
-                        </Dropdown>*/
           )
         }
 

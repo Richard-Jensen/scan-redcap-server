@@ -1,7 +1,6 @@
 let initialState = {
   showGlossary: true,
   showItemNotes: true,
-  // For testing
   showAnalysis: true,
 };
 
