@@ -69450,7 +69450,7 @@ var AnalysisModal = function (_Component) {
             ),
             _react2.default.createElement(
               'div',
-              { style: {} },
+              { className: 'interview-diagnoses-subdiagnoses' },
               diagnosis.requirements.map(function (req) {
                 return _this.showSubDiagnoses(req, req.showRequirements);
               })
@@ -69461,7 +69461,6 @@ var AnalysisModal = function (_Component) {
           return _this.showSubDiagnoses(diagnosis, diagnosis.showRequirements);
         }
       } else {
-        console.log(diagnosis);
         if (diagnosis.children) {
           return _react2.default.createElement(
             'div',
@@ -69471,15 +69470,23 @@ var AnalysisModal = function (_Component) {
               null,
               diagnosis.operator
             ),
-            diagnosis.children.map(function (child) {
-              return _this.showSubDiagnoses(child, child.showRequirements);
-            })
+            _react2.default.createElement(
+              'div',
+              { className: 'interview-diagnoses-subdiagnoses' },
+              diagnosis.children.map(function (child) {
+                return _this.showSubDiagnoses(child, child.showRequirements);
+              })
+            )
           );
         } else if (diagnosis.expression) {
+          var expression = diagnosis.expression;
+          while (expression.charAt(0) === '$' || expression.charAt(0) === '@') {
+            expression = expression.substr(1);
+          }
           return _react2.default.createElement(
             'div',
             { key: diagnosis.expression, className: 'interview-diagnoses-expression' },
-            diagnosis.expression
+            expression
           );
         } else {
           return _react2.default.createElement(

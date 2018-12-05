@@ -148,7 +148,7 @@ class AnalysisModal extends Component {
         return (
           <div key={diagnosis.id}>
             <div>{diagnosis.algorithm.operator}</div>
-            <div style={{   }}>
+            <div className='interview-diagnoses-subdiagnoses'>
               {diagnosis.requirements.map(req => {
                 return this.showSubDiagnoses(req, req.showRequirements);
               })}
@@ -162,21 +162,26 @@ class AnalysisModal extends Component {
       }
     }
     else {
-      console.log(diagnosis)
       if (diagnosis.children) {
         return (
           <div>
             <div>{diagnosis.operator}</div>
-            {diagnosis.children.map(child => {
-              return this.showSubDiagnoses(child, child.showRequirements);
-            })}
+            <div className='interview-diagnoses-subdiagnoses'>
+              {diagnosis.children.map(child => {
+                return this.showSubDiagnoses(child, child.showRequirements);
+              })}
+            </div>
           </div>
         )
       }
       else if (diagnosis.expression) {
+        let expression = diagnosis.expression;
+        while (expression.charAt(0) === '$' || expression.charAt(0) === '@') {
+          expression = expression.substr(1);
+        }
         return (
           <div key={diagnosis.expression} className='interview-diagnoses-expression'>
-            {diagnosis.expression}
+            {expression}
           </div>
         )
       }

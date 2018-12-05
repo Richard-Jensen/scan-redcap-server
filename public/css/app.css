@@ -941,6 +941,12 @@ img {
   font-size: 14px;
 }
 
+.interview-diagnoses-subdiagnoses {
+  border-left-style: solid;
+  border-width: 2px;
+  margin-left: 10px;
+}
+
 .search-portal {
   position: relative;
   display: -webkit-box;
