@@ -424,7 +424,7 @@ class Response extends React.Component {
 
     const response = (interview.responses && interview.responses[item.key]) || '';
     const note = (interview.notes && interview.notes[item.key]) || '';
-    const hasInput = input || item.scale;
+    const hasInput = item.scale || input;
     const showGlossary = settings.showGlossary && item.glossary;
     const showAnalysis = settings.showAnalysis;
 
@@ -447,23 +447,26 @@ class Response extends React.Component {
         <div style={{ flex: 1 }}>
           <ItemCard item={item} />
           {item.scale && (
-            <div key={'testKey'}>
+            <div>
               Scale: <strong>{item.scale}</strong>
-              <button
-                key={'testKey'}
-                onClick={() => {
-                  this.setState({
-                    showDescription: !this.state.showDescription
-                  })
-                  this.inputBox.current.focus();
-                }}
-              >
-                {this.state.showDescription ?
-                  'Hide Description'
-                  :
-                  'Show Description'
-                }
-              </button>
+              {(item.scale === '1a') ?
+                <button
+                  onClick={() => {
+                    this.setState({
+                      showDescription: !this.state.showDescription
+                    })
+                    this.inputBox.current.focus();
+                  }}
+                >
+                  {this.state.showDescription ?
+                    'Hide Descriptions'
+                    :
+                    'Show Descriptions'
+                  }
+                </button>
+                :
+                <div></div>
+              }
             </div>
           )}
 

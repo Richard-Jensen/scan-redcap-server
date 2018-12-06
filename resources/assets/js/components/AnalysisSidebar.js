@@ -74,7 +74,7 @@ class AnalysisModal extends Component {
             <div
               key={key}
               className={className}
-              onClick={this.onClick(matched = matched, index = index, key = key)}
+              onClick={this.onClick([{ key: key, type: matched + 'Prio' + index }])}
             >
               <b>{diagnoses[key].key}</b>
               <div>{diagnoses[key].explanation}</div>
@@ -112,8 +112,13 @@ class AnalysisModal extends Component {
     }
     else {
       if (diagnosis.children) {
+        // Avoiding two children having the same key, for example 'OR'.
+        let operatorKey = diagnosis.operator;
+        diagnosis.children.map(child => {
+          operatorKey = operatorKey + child.id;
+        })
         return (
-          <div key={diagnosis.operator}>
+          <div key={operatorKey}>
             <div>{diagnosis.operator}</div>
             <div className='interview-diagnoses-subdiagnoses'>
               {diagnosis.children.map(child => {
@@ -121,22 +126,19 @@ class AnalysisModal extends Component {
                 let newPath = Object.assign([], path);
                 newPath.push({ key: index, type: 'children' });
                 return this.showSubDiagnoses(child, newPath);
-                })}
+              })}
             </div>
           </div>
         )
       }
       else if (diagnosis.expression) {
         diagnosis.path = path;
-        let currentDiagnosis = this.state[path[0].type][parseInt(path[0].key, 10)].algorithm.children[path[1].key];
-
-        let test = this.state[path[0].type][parseInt(path[0].key, 10)];     
         let expression = diagnosis.expression;
         while (expression.charAt(0) === '$' || expression.charAt(0) === '@' || expression.charAt(0) === '!') {
           expression = expression.substr(1);
         }
         return (
-          <div key={diagnosis.expression} className='interview-diagnoses-expression'>
+          <div key={diagnosis.expression} className='interview-diagnoses-expression' onClick={this.onClick(path)}>
             {expression}
           </div>
         )
@@ -144,13 +146,43 @@ class AnalysisModal extends Component {
     }
   }
 
-  onClick = (matched, index, key) => () => {
-    let newState = this.state[matched + 'Prio' + index];
-    newState[key].showRequirements = !newState[key].showRequirements;
+  onClick = (path) => () => {
+    let currentDiagnosis = this.state[path[0].type][parseInt(path[0].key, 10)];
+    if (path.length > 1) {
+      this.showRequirementsFromPath(path, currentDiagnosis.algorithm.children, 1)
+    }
+    else {
+      currentDiagnosis.showRequirements = !currentDiagnosis.showRequirements;
+    }
     this.setState({
-      [this.state[matched + 'Prio' + index]]: newState,
+      [this.state[path[0].type][parseInt(path[0].key, 10)]]: currentDiagnosis,
     })
   }
+
+  showRequirementsFromPath = (path, diagnosis, counter) => {
+    if (counter < path.length) {
+      diagnosis[path[counter].key].showRequirements = true;
+      this.showRequirementsFromPath(path, diagnosis[path[counter].key], counter + 1);
+    }
+    else {
+      diagnosis.showRequirements = !diagnosis.showRequirements;
+    }
+  }
+
+  // HVORFOR VIRKER DET HER IK?????????????
+  // showRequirementsFromPath = (path, diagnosis, counter) => {
+  //   if (counter < path.length) {
+  //     console.log(counter)
+  //     console.log(diagnosis)
+  //     console.log(path)
+  //     let tempDiagnosis = diagnosis[path[counter].key];
+  //     console.log(tempDiagnosis)
+  //     this.showRequirementsFromPath(path, tempDiagnosis, counter + 1);
+  //   }
+  //   else {
+  //     diagnosis.showRequirements = !diagnosis.showRequirements;
+  //   }
+  // }
 
   enhanceDiagnoses = (diagnoses) => {
     const diagnosesClone = Object.keys(diagnoses).map(key => {
@@ -210,13 +242,13 @@ class AnalysisModal extends Component {
               matchedPrio2: this.enhanceDiagnoses(diagnoses.matchedPrio2),
               matchedPrio3: this.enhanceDiagnoses(diagnoses.matchedPrio3),
               notMatchedPrio1: this.enhanceDiagnoses(diagnoses.notMatchedPrio1),
-              notMatchedPrio2: this.enhanceDiagnoses(diagnoses.notMatchedPrio1),
-              notMatchedPrio3: this.enhanceDiagnoses(diagnoses.notMatchedPrio1),
+              notMatchedPrio2: this.enhanceDiagnoses(diagnoses.notMatchedPrio2),
+              notMatchedPrio3: this.enhanceDiagnoses(diagnoses.notMatchedPrio3),
             });
           }}
           className="button"
         >
-          Run Diagnosess
+          Run Algorithms
       </button>
         <select
           value={this.state.value}

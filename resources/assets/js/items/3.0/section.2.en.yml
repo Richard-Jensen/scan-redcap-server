@@ -3220,7 +3220,7 @@ items:
     Har du følt dig bange for nye panikanfald? Brug Rating Skala I
   input: string
   validate: [0-3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "4.022"
   title: "Handling for at forhindre eller standse panikanfald"
@@ -3264,7 +3264,7 @@ items:
     Cf. 3.012 og 16.006-16.009. Brug Rating Skala I
   input: string
   validate: [0-3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "4.027"
   title: "FOBIER"
@@ -3461,7 +3461,7 @@ items:
     Brug Rating Skala I
   input: string
   validate: [0-3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "4.047"
   title: "Undgåelsesadfærd i forbindelse med sværeste agorafobi"
@@ -3470,7 +3470,7 @@ items:
     Brug Rating Skala I
   input: string
   validate: [0-3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "4.048"
   title: "Påvirkning af aktiviteter på grund af sværeste agorafobi"
@@ -3490,7 +3490,7 @@ items:
     Brug Rating Skala I
   input: string
   validate: [0-3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "4.050"
   title: "Undgåelsesadfærd i forbindelse med sværeste socialfobi"
@@ -3498,7 +3498,7 @@ items:
     Brug Rating Skala I
   input: string
   validate: [0-3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "4.051"
   title: "Påvirkning af aktiviteter på grund af sværeste socialfobi"
@@ -3516,7 +3516,7 @@ items:
     Brug Rating Skala I
   input: string
   validate: [0-3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "4.053"
   title: "Undgåelsesadfærd i forbindelse med sværeste enkelfobi"
@@ -3524,7 +3524,7 @@ items:
     Brug Rating Skala I
   input: string
   validate: [0-3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "4.054"
   title: "Påvirkning af aktiviteter på grund af sværeste enkelfobi"
@@ -3638,7 +3638,7 @@ items:
     Brug Rating Skala I, men undlad at anvende ''1''
   input: string
   validate: [0,2,3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "5.003"
   title: "Tvangshandlinger forbundet med orden og symmetri"
@@ -3646,7 +3646,7 @@ items:
     Brug Rating Skala I, men undlad at anvende ''1''
   input: string
   validate: [0,2,3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "5.004"
   title: "Tvangstanker om at komme til skade eller gøre skade på sig selv eller andre"
@@ -3654,7 +3654,7 @@ items:
     Brug Rating Skala I, men undlad at anvende ''1''
   input: string
   validate: [0,2,3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "5.005"
   title: "Tvangshandlinger forbundet med renlighed, smuds- og smitte-frygt"
@@ -3662,7 +3662,7 @@ items:
     Brug Rating Skala I, men undlad at anvende ''1''
   input: string
   validate: [0,2,3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "5.006"
   title: "Tvangspræget tvivlen, grublen eller følelse af manglende fuldførelse (ikke at have gjort det færdigt, man har udført)"
@@ -3789,7 +3789,7 @@ items:
   input: string
   section_start: Section_6
   validate: [0-3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "6.002"
   title: "Maskeret depression"
@@ -3800,7 +3800,7 @@ items:
     1: "Mistanke om nedtrykt stemningsleje"
     2: "Nedtrykt stemningsleje skønnes til stede bag maskeringen"
   validate: [0-2,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "6.003"
   title: "Lethed til tårer, grådtendens"
@@ -3809,7 +3809,7 @@ items:
     ? Har du grædeture? ? Hvor ofte, hvor længe, hvorfor? Brug Rating Skala I
   input: string
   validate: [0-3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "6.004"
   title: "Anhedoni - manglende evne til at føle glæde"
@@ -3819,7 +3819,7 @@ items:
     ? Hvor meget af tiden i perioden har du haft det sådan? ? Hvornår har du sidst nydt eller kunnet glæde dig over noget? ? Kan man se det eller mærke det på dig?
   input: string
   validate: [0-3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "6.005"
   title: "Varighed af nedtrykthed eller anhedoni (uger)"
@@ -3835,7 +3835,7 @@ items:
     ? Kan du se lyspunkter eller lys forude? Forekommer det hele håbløst? ? Hvor længe har du følt det sådan? ? Hvor længe er det siden, du så anderledes på det? Hvad tænkte du da?
   input: string
   validate: [0-3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "6.007"
   title: "Fornemmelse af tab af følelser"
@@ -3843,7 +3843,7 @@ items:
     Somme tider opleves det som om man har tabt evnen til at føle noget som helst, man kan måske ikke engang føle sig ked af det eller græde. Har du haft det sådan?
   input: string
   validate: [0-3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "6.008"
   title: "Tab af påvirkelighed (reaktivitet)"
@@ -3856,7 +3856,7 @@ items:
     2: "Nedtryktheden varierer, men ikke med omstændighederne"
     3: "Nedtryktheden er mere eller mindre til stede hele tiden"
   validate: [0-3,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "6.009"
   title: "Morgenforværring"
@@ -3875,7 +3875,7 @@ items:
     Tænker du usædvanligt meget på døden? Spekulerer du meget på ulykker, sygdom eller ruinering, som kan ramme dig eller dine nærmeste?
   input: string
   validate: [0-3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "6.011"
   title: "Selvmordstanker eller tanker om at skade sig selv"
@@ -3898,7 +3898,7 @@ items:
     en ende på det hele?
   input: string
   validate: [0-3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "6.013"
   title: "Patologisk skyldfølelse"
@@ -3906,7 +3906,7 @@ items:
     Har du været tilbøjelig til at bebrejde dig selv noget, du har gjort eller tænkt? Har du følt dig skyldig eller skamfuld?
   input: string
   validate: [0-3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "6.014"
   title: "Skyldbetonede selvhenføringsidéer"
@@ -3914,7 +3914,7 @@ items:
     Har du følt, at andre bebrejdede dig eller anklagede dig for noget, du havde gjort eller undladt at gøre?
   input: string
   validate: [0-3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "6.015"
   title: "Nedsat selvtillid over for andre"
@@ -3922,7 +3922,7 @@ items:
     Har din selvtillid været mindre end sædvanlig?
   input: string
   validate: [0-3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "6.016"
   title: "Social tilbagetrækning"
@@ -3931,7 +3931,7 @@ items:
     Lukker du ikke op, når der kommer nogen?
   input: string
   validate: [0-3,6,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "6.017"
   title: "Nedsat selvfølelse Hvordan har du følt dig i forhold til andre?"
@@ -3939,7 +3939,7 @@ items:
     ? Har du følt dig mindre dygtig og kompetent end andre? - På hvilken måde? ? Har du følt dig mindre værd end andre? ? Har du følt dig helt uduelig eller værdiløs?
   input: string
   validate: [0-3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "6.018"
   title: "PSYKOTISKE DEPRESSIONSSYMPTOMER"
@@ -3948,7 +3948,7 @@ items:
     Rates efter Rating Skala II
   input: string
   validate: [0-3,8,9]
-  ratingscale: 2
+  scale: 2
 
 - key: "6.019"
   title: "Depressive vrangforestillinger om mulig død eller ulykke (cf. 19.026)"
@@ -3956,7 +3956,7 @@ items:
     Rates efter Rating Skala II
   input: string
   validate: [0-3,8,9]
-  ratingscale: 2
+  scale: 2
 
 - key: "6.020"
   title: "Depressive hypokondre eller nihilistiske vrangforestillinger (cf. 19.027)"
@@ -3964,7 +3964,7 @@ items:
     Rates efter Rating Skala II
   input: string
   validate: [0-3,8,9]
-  ratingscale: 2
+  scale: 2
 
 - key: "6.021"
   title: "Stemningskongruens af hørelseshallucinationer (cf. 17.010)"
@@ -4498,7 +4498,7 @@ items:
     Brug Rating Skala I
   input: string
   validate: [0-3,5,8,9]
-  ratingscale: 1
+  scale: 1
 
 - key: "7.003"
   title: "Subjekt beskrevet ineffektiv tankevirksomhed"
