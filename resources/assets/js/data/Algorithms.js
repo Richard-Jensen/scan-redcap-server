@@ -55,6 +55,7 @@ export default class Algorithms {
         // console.log(diagnosis);
       }
 
+      evaluator.formattedAlgorithms[key] =  diagnosis;
       const prio = evaluator.algorithms.get(key).priority;
       if (evaluator.evaluated[key] === true) {
         if (prio === '1') {

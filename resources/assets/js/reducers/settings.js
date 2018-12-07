@@ -1,7 +1,7 @@
 let initialState = {
   showGlossary: true,
   showItemNotes: true,
-  showAnalysis: false,
+  showAnalysis: true,
 };
 
 const settings = (state = initialState, action) => {

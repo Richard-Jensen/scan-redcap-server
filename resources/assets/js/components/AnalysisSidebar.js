@@ -91,27 +91,46 @@ class AnalysisModal extends Component {
   showSubDiagnoses = (diagnosis, path) => {
     if (diagnosis.showRequirements) {
       if (diagnosis.requirements) {
-        return (
-          <div key={diagnosis.id}>
-            <div>{diagnosis.algorithm.operator}</div>
-            <div className='interview-diagnoses-subdiagnoses'>
-              {diagnosis.requirements.map(req => {
-                let index = diagnosis.requirements.indexOf(req)
-                let newPath = Object.assign([], path);
-                newPath.push({ key: index, type: 'requirements' })
-                return this.showSubDiagnoses(req, newPath);
-              })}
+        if (diagnosis.algorithm) {
+          return (
+            <div key={diagnosis.id}>
+              <div>{diagnosis.algorithm.operator}</div>
+              <div className='interview-diagnoses-subdiagnoses'>
+                {diagnosis.requirements.map(req => {
+                  let index = diagnosis.requirements.indexOf(req)
+                  let newPath = Object.assign([], path);
+                  newPath.push({ key: index, type: 'requirements' })
+                  return this.showSubDiagnoses(req, newPath);
+                })}
+              </div>
             </div>
-          </div>
-        )
+          )
+        }
+        else {
+          return (
+            <div key={diagnosis.id}>
+              <div>{diagnosis.id}</div>
+              <div className='interview-diagnoses-subdiagnoses'>
+                {diagnosis.requirements.map(req => {
+                  let index = diagnosis.requirements.indexOf(req)
+                  let newPath = Object.assign([], path);
+                  newPath.push({ key: index, type: 'requirements' })
+                  return this.showSubDiagnoses(req, newPath);
+                })}
+              </div>
+            </div>
+          )
+        }
       }
       else {
-        diagnosis.requirements = this.getRequiredDiagnoses(diagnosis);
+        diagnosis.requirements = this.getRequiredDiagnoses(diagnosis) || {};
         return this.showSubDiagnoses(diagnosis, path)
       }
     }
+
     else {
-      if (diagnosis.children) {
+      if (diagnosis.children && diagnosis.operator) {
+
         // Avoiding two children having the same key, for example 'OR'.
         let operatorKey = diagnosis.operator;
         diagnosis.children.map(child => {
@@ -135,6 +154,9 @@ class AnalysisModal extends Component {
         diagnosis.path = path;
         let expression = diagnosis.expression;
         while (expression.charAt(0) === '$' || expression.charAt(0) === '@' || expression.charAt(0) === '!') {
+          if (expression.charAt(0) === '@' || expression.charAt(0) === '!') {
+
+          }
           expression = expression.substr(1);
         }
         return (
@@ -146,6 +168,12 @@ class AnalysisModal extends Component {
     }
   }
 
+  removeCharacters = (s) => {
+    while (s.charAt(0) === '$' || s.charAt(0) === '@' || s.charAt(0) === '!') {
+      s = s.substr(1);
+    }
+  }
+
   onClick = (path) => () => {
     let currentDiagnosis = this.state[path[0].type][parseInt(path[0].key, 10)];
     if (path.length > 1) {
@@ -154,6 +182,7 @@ class AnalysisModal extends Component {
     else {
       currentDiagnosis.showRequirements = !currentDiagnosis.showRequirements;
     }
+
     this.setState({
       [this.state[path[0].type][parseInt(path[0].key, 10)]]: currentDiagnosis,
     })
@@ -161,28 +190,12 @@ class AnalysisModal extends Component {
 
   showRequirementsFromPath = (path, diagnosis, counter) => {
     if (counter < path.length) {
-      diagnosis[path[counter].key].showRequirements = true;
       this.showRequirementsFromPath(path, diagnosis[path[counter].key], counter + 1);
     }
     else {
-      diagnosis.showRequirements = !diagnosis.showRequirements;
+      diagnosis.showRequirements = !diagnosis.showRequirements || false;
     }
   }
-
-  // HVORFOR VIRKER DET HER IK?????????????
-  // showRequirementsFromPath = (path, diagnosis, counter) => {
-  //   if (counter < path.length) {
-  //     console.log(counter)
-  //     console.log(diagnosis)
-  //     console.log(path)
-  //     let tempDiagnosis = diagnosis[path[counter].key];
-  //     console.log(tempDiagnosis)
-  //     this.showRequirementsFromPath(path, tempDiagnosis, counter + 1);
-  //   }
-  //   else {
-  //     diagnosis.showRequirements = !diagnosis.showRequirements;
-  //   }
-  // }
 
   enhanceDiagnoses = (diagnoses) => {
     const diagnosesClone = Object.keys(diagnoses).map(key => {
@@ -202,6 +215,17 @@ class AnalysisModal extends Component {
     if (diagnosis.algorithm) {
       let children = diagnosis.algorithm.children;
       this.enhanceDiagnoses(children);
+      return children;
+    }
+    else {
+      let diagnoses;
+      if (this.state.selectedDiagnosisSet.algorithms) {
+        diagnoses = Algorithms.run(
+          this.props.interview.responses,
+          this.state.selectedDiagnosisSet.algorithms
+        );
+      }
+      let children = diagnoses.formattedAlgorithms[diagnosis.id].algorithm.children;
       return children;
     }
   }

@@ -33,6 +33,7 @@
     this.notMatchedPrio1 = {};
     this.notMatchedPrio2 = {};
     this.notMatchedPrio3 = {};
+    this.formattedAlgorithms = {};
   }
 
   /**

@@ -4934,6 +4934,7 @@ var Algorithms = function () {
             // console.log(diagnosis);
           }
 
+          evaluator.formattedAlgorithms[key] = diagnosis;
           var prio = evaluator.algorithms.get(key).priority;
           if (evaluator.evaluated[key] === true) {
             if (prio === '1') {
@@ -43521,6 +43522,7 @@ var Evaluator = function () {
     this.notMatchedPrio1 = {};
     this.notMatchedPrio2 = {};
     this.notMatchedPrio3 = {};
+    this.formattedAlgorithms = {};
   }
 
   /**
@@ -69417,31 +69419,54 @@ var AnalysisModal = function (_Component) {
     _this.showSubDiagnoses = function (diagnosis, path) {
       if (diagnosis.showRequirements) {
         if (diagnosis.requirements) {
-          return _react2.default.createElement(
-            'div',
-            { key: diagnosis.id },
-            _react2.default.createElement(
+          if (diagnosis.algorithm) {
+            return _react2.default.createElement(
               'div',
-              null,
-              diagnosis.algorithm.operator
-            ),
-            _react2.default.createElement(
+              { key: diagnosis.id },
+              _react2.default.createElement(
+                'div',
+                null,
+                diagnosis.algorithm.operator
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'interview-diagnoses-subdiagnoses' },
+                diagnosis.requirements.map(function (req) {
+                  var index = diagnosis.requirements.indexOf(req);
+                  var newPath = Object.assign([], path);
+                  newPath.push({ key: index, type: 'requirements' });
+                  return _this.showSubDiagnoses(req, newPath);
+                })
+              )
+            );
+          } else {
+            return _react2.default.createElement(
               'div',
-              { className: 'interview-diagnoses-subdiagnoses' },
-              diagnosis.requirements.map(function (req) {
-                var index = diagnosis.requirements.indexOf(req);
-                var newPath = Object.assign([], path);
-                newPath.push({ key: index, type: 'requirements' });
-                return _this.showSubDiagnoses(req, newPath);
-              })
-            )
-          );
+              { key: diagnosis.id },
+              _react2.default.createElement(
+                'div',
+                null,
+                diagnosis.id
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'interview-diagnoses-subdiagnoses' },
+                diagnosis.requirements.map(function (req) {
+                  var index = diagnosis.requirements.indexOf(req);
+                  var newPath = Object.assign([], path);
+                  newPath.push({ key: index, type: 'requirements' });
+                  return _this.showSubDiagnoses(req, newPath);
+                })
+              )
+            );
+          }
         } else {
-          diagnosis.requirements = _this.getRequiredDiagnoses(diagnosis);
+          diagnosis.requirements = _this.getRequiredDiagnoses(diagnosis) || {};
           return _this.showSubDiagnoses(diagnosis, path);
         }
       } else {
-        if (diagnosis.children) {
+        if (diagnosis.children && diagnosis.operator) {
+
           // Avoiding two children having the same key, for example 'OR'.
           var operatorKey = diagnosis.operator;
           diagnosis.children.map(function (child) {
@@ -69470,6 +69495,7 @@ var AnalysisModal = function (_Component) {
           diagnosis.path = path;
           var expression = diagnosis.expression;
           while (expression.charAt(0) === '$' || expression.charAt(0) === '@' || expression.charAt(0) === '!') {
+            if (expression.charAt(0) === '@' || expression.charAt(0) === '!') {}
             expression = expression.substr(1);
           }
           return _react2.default.createElement(
@@ -69481,6 +69507,12 @@ var AnalysisModal = function (_Component) {
       }
     };
 
+    _this.removeCharacters = function (s) {
+      while (s.charAt(0) === '$' || s.charAt(0) === '@' || s.charAt(0) === '!') {
+        s = s.substr(1);
+      }
+    };
+
     _this.onClick = function (path) {
       return function () {
         var currentDiagnosis = _this.state[path[0].type][parseInt(path[0].key, 10)];
@@ -69489,16 +69521,16 @@ var AnalysisModal = function (_Component) {
         } else {
           currentDiagnosis.showRequirements = !currentDiagnosis.showRequirements;
         }
+
         _this.setState(_defineProperty({}, _this.state[path[0].type][parseInt(path[0].key, 10)], currentDiagnosis));
       };
     };
 
     _this.showRequirementsFromPath = function (path, diagnosis, counter) {
       if (counter < path.length) {
-        diagnosis[path[counter].key].showRequirements = true;
         _this.showRequirementsFromPath(path, diagnosis[path[counter].key], counter + 1);
       } else {
-        diagnosis.showRequirements = !diagnosis.showRequirements;
+        diagnosis.showRequirements = !diagnosis.showRequirements || false;
       }
     };
 
@@ -69521,27 +69553,19 @@ var AnalysisModal = function (_Component) {
         var children = diagnosis.algorithm.children;
         _this.enhanceDiagnoses(children);
         return children;
+      } else {
+        var diagnoses = void 0;
+        if (_this.state.selectedDiagnosisSet.algorithms) {
+          diagnoses = _Algorithms2.default.run(_this.props.interview.responses, _this.state.selectedDiagnosisSet.algorithms);
+        }
+        var _children = diagnoses.formattedAlgorithms[diagnosis.id].algorithm.children;
+        return _children;
       }
     };
 
     _this.getDiagnosisSets();
     return _this;
   }
-
-  // HVORFOR VIRKER DET HER IK?????????????
-  // showRequirementsFromPath = (path, diagnosis, counter) => {
-  //   if (counter < path.length) {
-  //     console.log(counter)
-  //     console.log(diagnosis)
-  //     console.log(path)
-  //     let tempDiagnosis = diagnosis[path[counter].key];
-  //     console.log(tempDiagnosis)
-  //     this.showRequirementsFromPath(path, tempDiagnosis, counter + 1);
-  //   }
-  //   else {
-  //     diagnosis.showRequirements = !diagnosis.showRequirements;
-  //   }
-  // }
 
   _createClass(AnalysisModal, [{
     key: 'render',
@@ -69851,7 +69875,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var initialState = {
   showGlossary: true,
   showItemNotes: true,
-  showAnalysis: false
+  showAnalysis: true
 };
 
 var settings = function settings() {
