@@ -121,7 +121,6 @@ class AnalysisModal extends Component {
                 })}
               </div>
             </div>
-
           )
         }
       }
@@ -156,8 +155,14 @@ class AnalysisModal extends Component {
       else if (diagnosis.expression) {
         diagnosis.path = path;
         let expression = this.removeCharacters(diagnosis.expression);
+        let pathKey = '';
+        let counter = 0;
+        while (counter < path.length) {
+          pathKey = pathKey + ', ' + path[counter].key + ', ' + path[counter].type;
+          counter++;
+        }
         return (
-          <div key={diagnosis.expression} className='interview-diagnoses-expression' onClick={this.onClick(path)}>
+          <div key={pathKey} className='interview-diagnoses-expression' onClick={this.onClick(path)}>
             {expression}
           </div>
         )
@@ -173,10 +178,7 @@ class AnalysisModal extends Component {
   }
 
   onClick = (path) => () => {
-    console.log('onClick: Path, currentDiagnosis')
-    console.log(path)
     let currentDiagnosis = this.state[path[0].type][parseInt(path[0].key, 10)];
-    console.log(currentDiagnosis)
     if (path.length > 1) {
       if (currentDiagnosis.algorithm) {
         this.showRequirementsFromPath(path, currentDiagnosis.algorithm.children, 1)
@@ -192,11 +194,6 @@ class AnalysisModal extends Component {
   }
 
   showRequirementsFromPath = (path, diagnosis, counter) => {
-    console.log('showRequirementsFromPath: path, diagnosis')
-    console.log(path)
-    console.log(diagnosis)
-    console.log(counter)
-    console.log(Array.isArray(diagnosis))
     if (counter < path.length) {
       if (Array.isArray(diagnosis)) {
         this.showRequirementsFromPath(path, diagnosis[path[counter].key], counter + 1);
@@ -206,8 +203,20 @@ class AnalysisModal extends Component {
       }
     }
     else if (diagnosis.expression.includes('@') || diagnosis.expression.includes('!')) {
-      console.log('@ or !')
-      diagnosis.showRequirements = !diagnosis.showRequirements;
+      let diagnoses;
+      if (this.state.selectedDiagnosisSet.algorithms) {
+        diagnoses = Algorithms.run(
+          this.props.interview.responses,
+          this.state.selectedDiagnosisSet.algorithms
+        );
+      }
+      if (diagnoses.formattedAlgorithms[diagnosis.id]) {
+        diagnosis.showRequirements = !diagnosis.showRequirements;
+      }
+      else {
+        diagnosis.showRequirements = false;
+        console.warn('Diagnosis with id: ' + diagnosis.id + ' was not found in the diagnosis set')
+      }
     }
   }
 

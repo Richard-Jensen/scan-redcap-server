@@ -69494,9 +69494,15 @@ var AnalysisModal = function (_Component) {
         } else if (diagnosis.expression) {
           diagnosis.path = path;
           var expression = _this.removeCharacters(diagnosis.expression);
+          var pathKey = '';
+          var counter = 0;
+          while (counter < path.length) {
+            pathKey = pathKey + ', ' + path[counter].key + ', ' + path[counter].type;
+            counter++;
+          }
           return _react2.default.createElement(
             'div',
-            { key: diagnosis.expression, className: 'interview-diagnoses-expression', onClick: _this.onClick(path) },
+            { key: pathKey, className: 'interview-diagnoses-expression', onClick: _this.onClick(path) },
             expression
           );
         }
@@ -69512,10 +69518,7 @@ var AnalysisModal = function (_Component) {
 
     _this.onClick = function (path) {
       return function () {
-        console.log('onClick: Path, currentDiagnosis');
-        console.log(path);
         var currentDiagnosis = _this.state[path[0].type][parseInt(path[0].key, 10)];
-        console.log(currentDiagnosis);
         if (path.length > 1) {
           if (currentDiagnosis.algorithm) {
             _this.showRequirementsFromPath(path, currentDiagnosis.algorithm.children, 1);
@@ -69529,11 +69532,6 @@ var AnalysisModal = function (_Component) {
     };
 
     _this.showRequirementsFromPath = function (path, diagnosis, counter) {
-      console.log('showRequirementsFromPath: path, diagnosis');
-      console.log(path);
-      console.log(diagnosis);
-      console.log(counter);
-      console.log(Array.isArray(diagnosis));
       if (counter < path.length) {
         if (Array.isArray(diagnosis)) {
           _this.showRequirementsFromPath(path, diagnosis[path[counter].key], counter + 1);
@@ -69541,8 +69539,16 @@ var AnalysisModal = function (_Component) {
           _this.showRequirementsFromPath(path, diagnosis[path[counter].type][path[counter].key], counter + 1);
         }
       } else if (diagnosis.expression.includes('@') || diagnosis.expression.includes('!')) {
-        console.log('@ or !');
-        diagnosis.showRequirements = !diagnosis.showRequirements;
+        var diagnoses = void 0;
+        if (_this.state.selectedDiagnosisSet.algorithms) {
+          diagnoses = _Algorithms2.default.run(_this.props.interview.responses, _this.state.selectedDiagnosisSet.algorithms);
+        }
+        if (diagnoses.formattedAlgorithms[diagnosis.id]) {
+          diagnosis.showRequirements = !diagnosis.showRequirements;
+        } else {
+          diagnosis.showRequirements = false;
+          console.warn('Diagnosis with id: ' + diagnosis.id + ' was not found in the diagnosis set');
+        }
       }
     };
 
