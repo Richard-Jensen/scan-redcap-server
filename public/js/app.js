@@ -13104,6 +13104,7 @@ var interview = function interview() {
   var action = arguments[1];
   var responses = state.responses;
 
+  console.log(state);
   switch (action.type) {
     case 'RESET_INTERVIEW':
       return {
@@ -69345,8 +69346,7 @@ var AnalysisModal = function (_Component) {
       notMatchedPrio2: [],
       notMatchedPrio3: [],
       diagnosisSets: [],
-      selectedDiagnosisSet: {},
-      showRequirementsList: []
+      selectedDiagnosisSet: {}
     };
 
     _this.getDiagnosisSets = function () {
@@ -69893,7 +69893,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var initialState = {
   showGlossary: true,
   showItemNotes: true,
-  showAnalysis: true
+  showAnalysis: false
 };
 
 var settings = function settings() {

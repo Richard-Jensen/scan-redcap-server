@@ -22,7 +22,6 @@ class AnalysisModal extends Component {
     notMatchedPrio3: [],
     diagnosisSets: [],
     selectedDiagnosisSet: {},
-    showRequirementsList: [],
   };
 
   getDiagnosisSets = () => {

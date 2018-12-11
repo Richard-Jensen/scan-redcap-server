@@ -46,6 +46,7 @@ export const getPreviousValidKey = (state, key) => {
 
 const interview = (state = initialState, action) => {
   const { responses } = state;
+  console.log(state)
   switch (action.type) {
     case 'RESET_INTERVIEW':
     return ({

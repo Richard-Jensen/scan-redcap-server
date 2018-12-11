@@ -79,32 +79,42 @@ Att.:
     0:
       title: Symptoms absent after adequate Elaboration
       description: |
-        This is a positive rating of presence, but so mildly that it is without clinical and hence diagnostic significance. As above, it doesn’t mean “not known” or “uncertain”. Doesn’t count for diagnostic purposes, but can be counted in sumscore, e.g. by using Index of Definitions. Not to be confused with 8.
+        This is a positive rating of presence, but so mildly that it is without clinical and hence diagnostic significance. As above, it doesn’t mean 
+        “not known” or “uncertain”. Doesn’t count for diagnostic purposes, but can be counted in sumscore, e.g. by using Index of Definitions. Not to be 
+        confused with 8.
     1:
       title: Symptom has been present in the period being assessed, but only mildly
       description: |
-        This is a positive rating of presence, but so mildly that it is without clinical and hence diagnostic significance. As above, it doesn’t mean “not known” or “uncertain”. Doesn’t count for diagnostic purposes, but can be counted in sumscore, e.g. by using Index of Definitions. Not to be confused with 8.
+        This is a positive rating of presence, but so mildly that it is without clinical and hence diagnostic significance. As above, it 
+        doesn’t mean “not known” or “uncertain”. Doesn’t count for diagnostic purposes, but can be counted in sumscore, e.g. by using Index of 
+        Definitions. Not to be confused with 8.
     2:
       title: Symptom is definitely moderately present for most of the period or pronouncedly present for less than half of the period
       description: |
-        At systematic review of medical records, symptoms registered in the records are in principle rated as 2 (definitely present). If medical records are lacking, rate at least 2 if the patient has seen a doctor due to the symptom, has received treatment (incl. self-medication) due to the symptom or if the symptom has caused behavioural changes (e.g. cessation of exercise)
+        At systematic review of medical records, symptoms registered in the records are in principle rated as 2 (definitely present). If medical records 
+        are lacking, rate at least 2 if the patient has seen a doctor due to the symptom, has received treatment (incl. self-medication) due to 
+        the symptom or if the symptom has caused behavioural changes (e.g. cessation of exercise)
     3:
       title: Symptom is pronouncedly present for more than half of the period
       description: |
         A severity of 2 or 3 is judged by the intensity, frequency and duration of the symptom. If in doubt, rate conservatively':' 2.
 
-        If symptoms are of alternating intensity, perhaps for long periods, rate according to the intensity of the symptoms when they were most pronounced rather than according to duration.
+        If symptoms are of alternating intensity, perhaps for long periods, rate according to the intensity of the symptoms when they were most pronounced 
+        rather than according to duration.
     5:
       title: Rating difficult due to psychotic disorder
       description: |
-        Presence of psychotic symptoms can make it difficult to rate Part 1 symptoms, either due to the psychotic disorder making it hard to understand what R says, or because the symptoms  (e.g. anxiety symptoms) can be provoked by psychotic experiences.
+        Presence of psychotic symptoms can make it difficult to rate Part 1 symptoms, either due to the psychotic disorder making it hard to understand what R 
+        says, or because the symptoms  (e.g. anxiety symptoms) can be provoked by psychotic experiences.
     6:
       title: Symptom is consistent with a well-defined physical disease
     8:
       title: Symptom is present, but uncertain if it is functional
       description: |
-        If it is impossible, after thorough and adequate interviewing and collection of relevant information from doctors, medical records etc., to determine if the symptom is functional, this rating is used. Not to be confused with 1.
+        If it is impossible, after thorough and adequate interviewing and collection of relevant information from doctors, medical records etc., to determine 
+        if the symptom is functional, this rating is used. Not to be confused with 1.
     9:
       title: Not known, cannot be rated
       description: |
-        Used when information is missing due to rejection, insufficient communication, or because you have forgotten or refrained from asking, or because the item in question is irrelevant. Not to be confused with 0 or 8.
+        Used when information is missing due to rejection, insufficient communication, or because you have forgotten or refrained from asking, or because the 
+        item in question is irrelevant. Not to be confused with 0 or 8.
