@@ -943,6 +943,9 @@ img {
 
 .interview-diagnoses-subdiagnoses {
   border-left-style: solid;
+  color: #6c3483;
+  font-size: 14px;
+  border-left-color: #000;
   border-width: 2px;
   margin-left: 10px;
 }

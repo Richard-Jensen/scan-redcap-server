@@ -93,8 +93,8 @@ class AnalysisModal extends Component {
       if (diagnosis.requirements) {
         if (diagnosis.algorithm) {
           return (
-            <div key={diagnosis.id}>
-              <div>{diagnosis.algorithm.operator}</div>
+            <div key={diagnosis.id} className='interview-diagnoses-expression'>
+              <div className={'interview-diagnoses-operator'}>{diagnosis.algorithm.operator}</div>
               <div className='interview-diagnoses-subdiagnoses'>
                 {diagnosis.requirements.map(req => {
                   let index = diagnosis.requirements.indexOf(req)
@@ -109,7 +109,9 @@ class AnalysisModal extends Component {
         else {
           return (
             <div key={diagnosis.id}>
-              <div>{diagnosis.id}</div>
+              <div className='interview-diagnoses-expression' onClick={this.onClick(path)}>
+                {this.removeCharacters(diagnosis.expression)}
+              </div>
               <div className='interview-diagnoses-subdiagnoses'>
                 {diagnosis.requirements.map(req => {
                   let index = diagnosis.requirements.indexOf(req)
@@ -119,6 +121,7 @@ class AnalysisModal extends Component {
                 })}
               </div>
             </div>
+
           )
         }
       }
@@ -137,8 +140,8 @@ class AnalysisModal extends Component {
           operatorKey = operatorKey + child.id;
         })
         return (
-          <div key={operatorKey}>
-            <div>{diagnosis.operator}</div>
+          <div key={operatorKey} className={'interview-diagnoses-operator'}>
+            <div className={'interview-diagnoses-operator'}>{diagnosis.operator}</div>
             <div className='interview-diagnoses-subdiagnoses'>
               {diagnosis.children.map(child => {
                 let index = diagnosis.children.indexOf(child);
@@ -152,13 +155,7 @@ class AnalysisModal extends Component {
       }
       else if (diagnosis.expression) {
         diagnosis.path = path;
-        let expression = diagnosis.expression;
-        while (expression.charAt(0) === '$' || expression.charAt(0) === '@' || expression.charAt(0) === '!') {
-          if (expression.charAt(0) === '@' || expression.charAt(0) === '!') {
-
-          }
-          expression = expression.substr(1);
-        }
+        let expression = this.removeCharacters(diagnosis.expression);
         return (
           <div key={diagnosis.expression} className='interview-diagnoses-expression' onClick={this.onClick(path)}>
             {expression}
@@ -172,15 +169,21 @@ class AnalysisModal extends Component {
     while (s.charAt(0) === '$' || s.charAt(0) === '@' || s.charAt(0) === '!') {
       s = s.substr(1);
     }
+    return s;
   }
 
   onClick = (path) => () => {
+    console.log('onClick: Path, currentDiagnosis')
+    console.log(path)
     let currentDiagnosis = this.state[path[0].type][parseInt(path[0].key, 10)];
+    console.log(currentDiagnosis)
     if (path.length > 1) {
-      this.showRequirementsFromPath(path, currentDiagnosis.algorithm.children, 1)
+      if (currentDiagnosis.algorithm) {
+        this.showRequirementsFromPath(path, currentDiagnosis.algorithm.children, 1)
+      }
     }
     else {
-      currentDiagnosis.showRequirements = !currentDiagnosis.showRequirements;
+      currentDiagnosis.showRequirements = !currentDiagnosis.showRequirements || false;
     }
 
     this.setState({
@@ -189,11 +192,22 @@ class AnalysisModal extends Component {
   }
 
   showRequirementsFromPath = (path, diagnosis, counter) => {
+    console.log('showRequirementsFromPath: path, diagnosis')
+    console.log(path)
+    console.log(diagnosis)
+    console.log(counter)
+    console.log(Array.isArray(diagnosis))
     if (counter < path.length) {
-      this.showRequirementsFromPath(path, diagnosis[path[counter].key], counter + 1);
+      if (Array.isArray(diagnosis)) {
+        this.showRequirementsFromPath(path, diagnosis[path[counter].key], counter + 1);
+      }
+      else {
+        this.showRequirementsFromPath(path, diagnosis[path[counter].type][path[counter].key], counter + 1);
+      }
     }
-    else {
-      diagnosis.showRequirements = !diagnosis.showRequirements || false;
+    else if (diagnosis.expression.includes('@') || diagnosis.expression.includes('!')) {
+      console.log('@ or !')
+      diagnosis.showRequirements = !diagnosis.showRequirements;
     }
   }
 
