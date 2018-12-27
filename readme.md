@@ -10,14 +10,19 @@
 
 ## Deployment to a remote server
 
-Use ssh to access the server, and run step 1-4. In step 2, make sure the .env file fits the server specs. For deployment to scan.glaux.dk specifically, remember to add the lines
+First of all, makes sure all the requirements are installed on the server. Use ssh to access the server, and run step 1-4. In step 2, make sure the .env file fits the server specs. For deployment to scan.glaux.dk specifically, remember to add the lines.
+
+```sh
 LETSENCRYPT_EMAIL=richjn@rm.dk
 LETSENCRYPT_HOST=scan.glaux.dk,www.scan.glaux.dk
 VIRTUAL_HOST=scan.glaux.dk,www.scan.glaux.dk
+```
+
 at the end of the file. 
 
 Next, change the docker-compose.yaml file in the root. You want to delete the mySQL dependencies, and in the end, the file should look something like this:
 
+```sh
 version: '3.3'
 
 services:
@@ -51,6 +56,8 @@ networks:
     external:
       name: webproxy
  #https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion
+
+ ```
 
 Next, in /app/providers, change add the line \URL::forceScheme('https'); to the function boot(). This will make sure that all http:// will become https://. 
 

@@ -13,7 +13,7 @@
     "prettier": "prettier"
   },
   "devDependencies": {
-    "@prettier/plugin-php": "prettier/plugin-php",
+    "@prettier/plugin-php": "github:prettier/plugin-php",
     "axios": "^0.18",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-react": "^6.23.0",
@@ -23,9 +23,9 @@
     "glob": "^7.1.2",
     "jquery": "^3.3.1",
     "js-yaml": "^3.11.0",
-    "laravel-mix": "^2.0",
+    "laravel-mix": "^2.1.14",
     "lodash": "^4.17.4",
-    "prettier": "prettier/prettier",
+    "prettier": "github:prettier/prettier",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "react-virtualized": "^9.18.5"
@@ -46,7 +46,18 @@
   "version": "1.0.0",
   "description": "Scan in vsCode",
   "main": "index.js",
-  "repository": "git@github.com:FunkLid/scan-redcap.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/FunkLid/scan-redcap.git"
+  },
   "author": "Richard Jensen <kaffeergaat@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FunkLid/scan-redcap/issues"
+  },
+  "homepage": "https://github.com/FunkLid/scan-redcap#readme",
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": []
 }

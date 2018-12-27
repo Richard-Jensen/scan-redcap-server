@@ -28,6 +28,7 @@ Route::get('/profile', 'UserController@show')->name('profile');
 Route::patch('/profile', 'UserController@update')->name('users.update');
 
 Route::get('/scan', 'HomeController@index')->name('scan.index');
+Route::get('/scantest', 'HomeController@index')->name('scan.index');
 Route::get('/scan/new', 'ScanController@new')->name('scan.new');
 Route::get('/scan/{id}', 'ScanController@show')->name('scan.show');
 Route::post('/scan', 'ScanController@create')->name('scan.create');
